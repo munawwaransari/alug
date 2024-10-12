@@ -1,0 +1,86 @@
+.title {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 20px;
+	vertical-align: center;
+	}
+
+.right {
+	float: right;
+	justify-content: top;
+}
+
+.left {
+	justify-content: top;
+}
+	
+.middle {
+	margin-left: 150px;
+	justify-content: top;
+	align-items: center;
+}
+	
+.middle input[type=text]{
+	justify-content: top;
+	align-items: center;
+	border-radius: 10px;
+	border: 1px solid #2d9fd9;
+	color: #a0d18c;
+	width: 400px;
+	height: 30px;
+	padding-left: 10px;
+}
+	
+.middle input[type=text]:focus{
+  outline: none;
+  border: 2px solid #2d9fd9;
+  color: #2d9fd9;
+}
+
+.middle img {
+  width: 30px;
+  margin-top: 0px;
+  line-height:28px;
+  vertical-align:middle;
+}
+
+.middle img:hover {
+  cursor: pointer;
+}
+	
+.chapter-padding {
+	padding: 0px;
+}
+	
+.card-container {
+	display: flex;
+	flex-wrap: wrap;
+	/* for horizontal aligning of child divs */
+	justify-content: center;
+	/* for vertical aligning */
+	align-items: center;
+}
+
+/* Floating divs */
+.chapter-card {
+	  float: left; /* Floats the divs to the left */
+	  /* width: 160px;  Adjust the width as needed */
+	  padding: 8px; /* Optional padding */
+	  margin: 10px;
+	  box-sizing: border-box; /* Includes padding and border in the element's total width */
+	  background-color: lightblue; /* Just for visual distinction */
+	  border: 2px solid lightgray;
+	  border-radius: 25px;
+	  cursor: pointer;
+	  text-align: center;
+}
+
+.chapter-card:hover {
+	  margin: 10px;
+	  border: 2px solid red;
+	  border-radius: 25px;
+	  box-shadow: 1px 1px;
+	  cursor: pointer;
+	  text-align: center;
+}
