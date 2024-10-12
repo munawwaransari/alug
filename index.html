@@ -31,11 +31,21 @@
 		  float: left; /* Floats the divs to the left */
 		  /* width: 160px;  Adjust the width as needed */
 		  padding: 8px; /* Optional padding */
+		  margin: 10px;
 		  box-sizing: border-box; /* Includes padding and border in the element's total width */
 		  background-color: lightblue; /* Just for visual distinction */
+		  border: 2px solid lightgray;
+		  border-radius: 25px;
+		 
+		  cursor: pointer;
+		  text-align: center;
+	}
+	
+	.chapter-card:hover {
+		  margin: 10px;
 		  border: 2px solid red;
 		  border-radius: 25px;
-		  margin: 10px;
+		  box-shadow: 1px 1px;
 		  cursor: pointer;
 		  text-align: center;
 	}
@@ -54,13 +64,14 @@
 	$(function () {
 		var suffix = " - Arabic.pdf";
 		var chapters = [
-			"P0.1 - Basics", "P0.2 - Vocabulary", "P0.3 - Sample Dictionary", "P1 - Pronouns", "P2 - Nouns", "P2.1 - Noun Patterns", "P2.2 - Object Effects", "P3 - Verbs", "P4 - Sentences", "P5 - Particles"
+			"P0.1 - Basics", "P0.2 - Vocabulary", "P0.3 - Sample Dictionary", "P1 - Pronouns", "P2 - Nouns", "P2.1 - Noun Patterns", "P2.2 - Object Effects", "P3 - Verbs", "P3 - Verb Conjugations", "P4 - Sentences", "P5 - Particles"
 		];
 		
 		chapters.forEach(function(ch, index){
 			var chapterPath = '\''+ch+suffix+'\''; 
 			console.log(chapterPath);
-			$('<div class="chapter-card" onclick="openChapter('+chapterPath+')" >'+ch+'</div>')
+			var chapterName = ch.split('-')[1].trim();
+			$('<div class="chapter-card" onclick="openChapter('+chapterPath+')" >'+chapterName+'</div>')
 				.appendTo('.card-container');
 		});
 	});
