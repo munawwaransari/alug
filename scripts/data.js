@@ -120,3 +120,31 @@ var alug_chapters = {
 		{topic: "Vocative Particles (النداء)", pageNo: 17} 
 	]
 };
+
+
+var knowledge_checks = [
+	{
+		ch: "P0.1 - Basics", 	topic: "Basics",  pageNo: 13
+	},
+	{
+		ch: "P1 - Pronouns", 	topic: "Pronouns",  pageNo: 8
+	},
+	{
+		ch: "P2 - Nouns", 	topic: "Nouns - 1",  pageNo: 10
+	},
+	{
+		ch: "P2 - Nouns", 	topic: "Nouns - 2",  pageNo: 21
+	},
+	{
+		ch: "P2.1 - Noun Patterns", 	topic: "Noun Patterns",  pageNo: 10
+	},
+	{
+		ch: "P3 - Verbs", 	topic: "Verbs",  pageNo: 21
+	},
+	{
+		ch: "P4 - Sentences", 	topic: "Sentences - 1",  pageNo: 11
+	},
+	{
+		ch: "P4 - Sentences", 	topic: "Sentences - 2",  pageNo: 20
+	}
+];

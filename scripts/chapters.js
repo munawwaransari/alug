@@ -52,5 +52,22 @@ $(function () {
 			$div.append($subNav);
 		}
 	}
+	
+	// Create Knowledge Check Menu
+	if(knowledge_checks && knowledge_checks.length > 0){
+		console.log("Adding knowldeg check links: count = " + knowledge_checks.length);
+		$div = $('<div class="chapter-card"><span>Knowledge Check</span></div>');
+		$('.card-container').append($div);
+		$subNav = $('<div class="subnav-content"></div>');
+		$div.append($subNav);
+		for(let i=0; i < knowledge_checks.length; i++){
+			var entry = knowledge_checks[i];
+			console.log("ch: " + entry.ch);
+			
+			var chapterPath = '\''+entry.ch+suffix+'\''; 				
+			$subNav.append($('<div class="subNav" onclick="openChapter('+chapterPath+',' + entry.pageNo+')">'+entry.topic+'</div>'));				
+			console.log('Added '+ entry.topic);
+		}
+	}
 		
 });
