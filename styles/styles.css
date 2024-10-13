@@ -1,3 +1,6 @@
+/*
+	Author: munawwar_ali@yahoo.com
+*/
 .title {
 	display: block;
 	margin-left: auto;
@@ -16,7 +19,9 @@
 }
 	
 .middle {
-	margin-left: 150px;
+	font-color: gray;
+	font-size: 11px;
+	margin-left: 250px;
 	justify-content: top;
 	align-items: center;
 }
@@ -56,20 +61,17 @@
 .card-container {
 	display: flex;
 	flex-wrap: wrap;
-	/* for horizontal aligning of child divs */
 	justify-content: center;
-	/* for vertical aligning */
 	align-items: center;
 }
 
 /* Floating divs */
 .chapter-card {
-	  float: left; /* Floats the divs to the left */
-	  /* width: 160px;  Adjust the width as needed */
-	  padding: 8px; /* Optional padding */
+	  float: left; 
+	  padding: 8px;
 	  margin: 10px;
-	  box-sizing: border-box; /* Includes padding and border in the element's total width */
-	  background-color: lightblue; /* Just for visual distinction */
+	  box-sizing: border-box; 
+	  background-color: lightblue; 
 	  border: 2px solid lightgray;
 	  border-radius: 25px;
 	  cursor: pointer;
@@ -78,9 +80,47 @@
 
 .chapter-card:hover {
 	  margin: 10px;
-	  border: 2px solid red;
+	  border: 2px solid indigo;
 	  border-radius: 25px;
 	  box-shadow: 1px 1px;
 	  cursor: pointer;
 	  text-align: center;
+	  
 }
+
+.chapter-card:hover .subnav-content  {
+  display: flex;
+}
+
+.subnav-content {
+	display: none;
+	flex-wrap: wrap;
+	position: absolute;
+	padding: 4px;
+	width: 300px;
+	background-color: lightblue;
+	margin-top: 10px;
+	margin-left: -72px;
+	border: 2px solid lightgray;
+	border-radius: 12px;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.subnav-content .subNav {
+	width: 100px;
+	background-color: lightblue;
+	padding: 6px;
+	z-index: 1;
+}
+
+.subnav-content .subNav:hover {
+	background-color: gray;
+	width: 100px;
+	font-weight:: bold;
+	padding: 6px;
+	color: white;
+	z-index: 1;
+}
+
