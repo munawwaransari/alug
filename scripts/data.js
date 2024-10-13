@@ -25,7 +25,11 @@ var alug_chapters = {
 		{topic: "Colours (ألوان)", pageNo: 18},
 		{topic: "Time Chart", pageNo: 19},
 		{topic: "Numbers", pageNo: 20},
-		{topic: "Proverbs (الأمثال)", pageNo: 25}
+		{topic: "Proverbs (الأمثال)", pageNo: 25},
+		{topic: "Miscellaneous phrases", pageNo: 26}, 
+		{topic: "Year in Quran", pageNo: 30}, 
+		{topic: "Day in Quran", pageNo: 31}, 
+		
 	],
 	"P0.3 - Sample Dictionary": [
 	], 
@@ -98,8 +102,7 @@ var alug_chapters = {
 		{topic: "اِنَّ  and its sisters", pageNo: 5}, 
 		{topic: "كانَ  and its sisters", pageNo: 7}, 
 		{topic: "كادَ   and its sisters", pageNo: 9}, 
-		{topic: "ظَنَّ   and its sisters", pageNo: 10}, 
-		{topic: "Miscellaneous phrases", pageNo: 21}, 
+		{topic: "ظَنَّ   and its sisters", pageNo: 10}
 	], 
 	"P5 - Particles": [
 		{topic: "Conjunctions", pageNo: 3}, 
