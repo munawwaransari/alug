@@ -25,7 +25,7 @@ function openChapter(file, page){
 			$('.reading-pane').attr('src', encodeURI(abs_path));
 		}, 5);
 	}
-	$('body img').hide();
+	$('#title-img').hide();
 }
 
 $(function () {

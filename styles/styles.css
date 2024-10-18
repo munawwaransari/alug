@@ -68,7 +68,7 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	width: 100%
+	width: 100%;
 }
 
 /* Floating divs */
@@ -159,6 +159,6 @@
   display: flex;
 }
 
-div+select {
-	display: none;
+div #languages {
+	display: flex;
 }

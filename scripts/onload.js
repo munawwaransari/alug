@@ -1,6 +1,8 @@
 window.onload = function()
 {
 	$("#languages").hide();
+	$("#play").hide();
+	$("#text").hide();
 	var support = document.getElementById("support").innerHTML;
 
 	if(support.startsWith("Hurray")){
