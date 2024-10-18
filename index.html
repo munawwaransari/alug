@@ -4,17 +4,36 @@
 <html>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<head>
-	<link rel="stylesheet" href="styles/styles.css">
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-	<script src="scripts/data.js"></script>
-	<script src="scripts/chapters.js"></script>
+		<link rel="stylesheet" href="styles/styles.css">
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+		<script src="scripts/data.js"></script>
+		<script src="scripts/chapters.js"></script>
 	</head>
 	<body>
+		<section id="main" class="main"></section>
+		<div id="support" style="display:none"></div>
+		<script src="scripts/speak-tts/demo.bundle.js"></script>
+		<script src="scripts/onload.js"></script>
 		<div class="chapter-padding">
 			<div>
 				<span class="left"><b>Arabic Language Learners Guide - Chapters</b></span>
-				<span class="middle">Best viewed in Edge browser. Disable pdf last view setting for correct behavior.<span>
-				<span class="right"><a href="mailto:munawwar_ali@yahoo.com">mailto: Author</a></span>
+				<span class="middle"><span>
+				<span class="right">
+					<img id="s1" class="tooltip" src="images/email.png">
+						<a class="tooltiptext" href="mailto:munawwar_ali@yahoo.com">Mail to author</a>
+					</img>
+					<img id="s2" class="tooltip" src="images/info.png">
+						<p class="tooltiptext">Best viewed in Edge browser. Disable pdf last view setting for correct behavior.</p>
+					</img>
+					<img id="s3_1" class="tooltip" src="images/ss-supported.png">
+						<p class="tooltiptext"></p>
+					</img>
+					<img id="s3_2" class="tooltip" src="images/ss-not-supported.png">
+						<p class="tooltiptext" >sadasdadadadadadada</p>
+					</img>
+					<button id="play"> Play </button>
+					<textarea id="text" style="display:none"></textarea>
+				</span>
 			</div>
 			<div class="card-container"/>
 		</div>
