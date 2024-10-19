@@ -6,7 +6,7 @@ function getLocationPath(){
 	return window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
 }
 
-function openChapter(file, page){
+function openChapter(chapter, file, page){
 	console.log("file: " + file);
 	var loaction = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
 	var abs_path = getLocationPath() + 'pdfs/' + file;
@@ -26,6 +26,32 @@ function openChapter(file, page){
 		}, 5);
 	}
 	$('#title-img').hide();
+	
+	
+	if(autoplay){
+		
+		var url = getLocationPath() + 'data/'+ chapter + '_autoplay.json';
+		//alert(url);
+		loadAutoPlayScript(url, function(data){
+			
+			var sections = jQuery.map(data, function(obj) {
+				if(obj.pageNo === page)
+				return obj.sections;
+			});
+			
+			// Load play list
+			$('#playSections').find('option').remove().end();
+			if(sections){
+				sections.forEach(function(sect){
+					//console.log(sect.play);
+					$('#playSections').append('<option value="'+ sect.play +'">'+sect.topic+'</option>');					
+				});
+				
+				$("#text").text($('#playSections').val());
+				$("#play").click();
+			}
+		});
+	}
 }
 
 $(function () {
@@ -38,7 +64,7 @@ $(function () {
 		var chapterPath = '\''+ch+suffix+'\''; 
 		console.log(chapterPath);
 		var chapterName = ch.split('-')[1].trim();
-		$div = $('<div class="chapter-card"><span onclick="openChapter('+chapterPath+', 0)" >'+chapterName+'</span></div>');
+		$div = $('<div class="chapter-card"><span onclick="openChapter(\''+chapterName+'\', '+chapterPath+', 0)" >'+chapterName+'</span></div>');
 		$('.card-container').append($div);
 			
 		if(links && links.length > 0){
@@ -46,7 +72,7 @@ $(function () {
 			$subNav = $('<div class="subnav-content"></div>');
 			links.forEach(function(link, index){
 				
-				$subNav.append($('<div class="subNav" onclick="openChapter('+chapterPath+',' + link.pageNo+')">'+link.topic+'</div>'));				
+				$subNav.append($('<div class="subNav" onclick="openChapter(\''+chapterName+'\','+chapterPath+',' + link.pageNo+')">'+link.topic+'</div>'));				
 				console.log('Added '+ link.topic);
 			});
 			$div.append($subNav);
@@ -65,7 +91,7 @@ $(function () {
 			console.log("ch: " + entry.ch);
 			
 			var chapterPath = '\''+entry.ch+suffix+'\''; 				
-			$subNav.append($('<div class="subNav" onclick="openChapter('+chapterPath+',' + entry.pageNo+')">'+entry.topic+'</div>'));				
+			$subNav.append($('<div class="subNav" onclick="openChapter(\'Knowledge Check\', '+chapterPath+',' + entry.pageNo+')">'+entry.topic+'</div>'));				
 			console.log('Added '+ entry.topic);
 		}
 	}

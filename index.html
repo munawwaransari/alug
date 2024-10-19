@@ -4,9 +4,15 @@
 <html>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<head>
+		<link rel="shortcut icon" href="#" />
 		<link rel="stylesheet" href="styles/styles.css">
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-		<script src="scripts/data.js"></script>
+		<script src="data/topics.js"></script>
+		<script>
+			var autoplay = false;
+			var speech_synthesis_supportd = false;
+			var autoplay_cache = [];
+		</script>
 		<script src="scripts/chapters.js"></script>
 	</head>
 	<body>
@@ -17,11 +23,12 @@
 		<div class="chapter-padding">
 			<div>
 				<span class="left"><b>Arabic Language Learners Guide - Chapters</b></span>
-				<span class="middle"><span>
+				<span class="middle">
+					<select id="playSections"></select>
+					<textarea id="text"></textarea>
+					<button id="play"> Play </button>
+				<span>
 				<span class="right">
-					<img id="s1" class="tooltip" src="images/email.png">
-						<a class="tooltiptext" href="mailto:munawwar_ali@yahoo.com">Mail to author</a>
-					</img>
 					<img id="s2" class="tooltip" src="images/info.png">
 						<p class="tooltiptext">Best viewed in Edge browser. Disable pdf last view setting for correct behavior.</p>
 					</img>
@@ -29,10 +36,17 @@
 						<p class="tooltiptext"></p>
 					</img>
 					<img id="s3_2" class="tooltip" src="images/ss-not-supported.png">
-						<p class="tooltiptext" >sadasdadadadadadada</p>
+						<p class="tooltiptext" ></p>
 					</img>
-					<button id="play"> Play </button>
-					<textarea id="text" ></textarea>
+					<img id="s1" class="tooltip" src="images/email.png">
+						<a class="tooltiptext" href="mailto:munawwar_ali@yahoo.com">Mail to author</a>
+					</img>
+					<img id="s4_1" class="tooltip" src="images/speech-enabled.png" onclick="toggleAutoplay()" style="display:none">
+						<p class="tooltiptext" >Autoplay is enabled. Click icon to disable it.</p>
+					</img>
+					<img id="s4_2" class="tooltip" src="images/speech-disabled.png" onclick="toggleAutoplay()">
+						<p class="tooltiptext">Autoplay is enabled. Click icon to enable it.</a>
+					</img>
 				</span>
 			</div>
 			<div class="card-container"/>

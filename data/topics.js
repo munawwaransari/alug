@@ -4,6 +4,7 @@
 
 var alug_chapters = {
 	"P0.1 - Basics": [
+		{topic: "Arabic Language", pageNo: 1}, 
 		{topic: "Parts Of Speech", pageNo: 2}, 
 		{topic: "Alphabets", pageNo: 4},
 		{topic: "علامات التشكيل vs الاعراب", pageNo: 5},
