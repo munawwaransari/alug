@@ -11,5 +11,43 @@
 			"topic": "About Arabic Language",
 			"play": "Arabic is one of the most widely spoken languages in the world .. Some of the key features of Arabic language are: ..Language of the Quran ..•• 300+ Million Speakers • Official Language in 22 countries.. • 28 Alphabets (ةيدجبلأا) • 3 Vowel Sounds (ةلعلا فورح) • Three letter root system ..• It has no neutral gender (so words are either masculine or feminie)...• Conjugated for Singular, Dual & Plural ..• Strong Morphology (فرصلا) ..• Systematic Grammatical Rules (وحنلا) Link: Sample Arabic Calligraph"
 		}]
+	},
+	{
+		"chapter": "Parts Of Speech", 
+		"pageNo": 2,
+		"sections": [
+		{
+			"topic": "Parts Of Speech",
+			"play": "Parts Of Speech..Parts of speech in Arabic are mapped to one of the three categories: (Ism), (Fale), and (Harf). The (Ism) can include Nouns, adjective, and pronouns. Every (Ism) in Arabic follows certain pattern (a combination of letterd and diacritics) which helps in identifying its meaning.."
+		}]
+	},
+	{ 
+		"chapter": "The Alphabets", 
+		"pageNo": 4,
+		"sections": [
+		{
+			"topic": "Arabic Alphabets",
+			"play": "The Alphabet letters are... (Alif)..(Baaa)..(Taa)..(Saa)..(Jeem)..(Haa)..(Khaa)..(Daal)..(Zaal)..(Raa)..(Zaa)..(Seen)..(Sheen)..(Saad)..(Daad)..(Aaen)..(Ghaen)..(Faa)..(Qaaf)..(Kaaf)..(Laam)..(Meem)..(Noon)..(Waw)..(Haa)..and (Yaa)"
+		},
+		{
+			"topic": "About Arabic Alphabets",
+			"play": "Arabic language alphabets are also called (Al-Abjadya). Each letter has a number assigned (They have been used in the Arabic-speaking world since before the 8th century Arabic numeral)... The alphabets consists of 28 alphabets of which 25 are consonants called (Hoorufussahih)..the remaining three letters (Alif, Wow and Yaa) are called Long Vowels or Hoorufulillat.."
+		},
+		{
+			"topic": "Diacritic marks",
+			"play": "Diacritic marks...Arabic language uses a dicaritic system where diacritics are placed either on top or bottom of the letter to correctly pronounce the phonetic sound. There are three basic diacritics for vowel sounds corresponding to English vowels (u, a, i). They are called dhamma, fataha and kasara respectively. The 3 long vowels Wao, Alif and Ya also represent these three sounds. The other diacritics are: sukoon (shaped as a tiny circle) is used to indicate a glottal stop.. shadda marker is used for double consonant sounds..and madd is used to elongate a vowel sound."
+		},
+		{
+			"topic": "Case or Mood markers",
+			"play": "Case or Mood markers...Arabic language uses some of the dicaritic markers for gramattical purpose. These are called Erabs and are generally used on the last letter of a word (in case of a noun).. the Erabs help in identifying case of a noun or mood of a verb. When the diacritics are used as Erab, they are termed with different states called  Rafa, Nasab, Jarr or Jazm. The Nunnation markers (called Tanween) are also Erab markers which are formed by using the Dhamma, Fataha and Kasarah markers wit a Noon consonant. The Noon letter (called Noon-e-Erabi) is not written and the diacric markers are written twice for (tanween). Example tanween sounds are: unn, ann, inn"
+		},
+		{
+			"topic": "Laam tareef",
+			"play": "Laam Tareef... The letters Alif and Laam (read as Al) when placed before a common noun, turns that common noun into proper noun.. It is similar to the English article 'the'. The pronounciation is diffrent for certain words when read with Al. The alphabets can be divided into two halves...one called Hoorrofu Shamsi (Solar Letters) and other half is called Lunar letters (Hooruful Qamari). When Solar letters have Laam Tareef, the Letter Laam is silent and not read; instead the solar letter is read with a shadda marker as in word Ashshams (letter laam is not read). For the lunar letters, letter Laam of Laam tareef is read as in the word Al-Qamar."
+		},
+		{
+			"topic": "Taa of Tanees",
+			"play": "Taa of Tanees or Taa Marbuta... It is written with a round Ha letter with do dots above. In general, a masculine word in Arabic can be converted to a feminine by simply adding Taa Tanees at the end of the word. The Taa of Tanees is also called Taa Marbuta."
+		}]
 	}
 ]
