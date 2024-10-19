@@ -9,6 +9,7 @@
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 		<script src="data/topics.js"></script>
 		<script>
+			var langOption = 'en-US';
 			var autoplay = false;
 			var speech_synthesis_supportd = false;
 			var autoplay_cache = [];
@@ -22,13 +23,13 @@
 		<script src="scripts/onload.js"></script>
 		<div class="chapter-padding">
 			<div>
-				<span class="left"><b>Arabic Language Learners Guide - Chapters</b></span>
+				<span class="left"><b>Arabic Language Learners Guide</b></span>
 				<span class="middle">
 					<select id="playSections"></select>
 					<textarea id="text"></textarea>
 					<button id="play"> Play </button>
 				<span>
-				<span class="right">
+				<div class="right">
 					<img id="s2" class="tooltip" src="images/info.png">
 						<p class="tooltiptext">Best viewed in Edge browser. Disable pdf last view setting for correct behavior.</p>
 					</img>
@@ -44,10 +45,18 @@
 					<img id="s4_1" class="tooltip" src="images/speech-enabled.png" onclick="toggleAutoplay()" style="display:none">
 						<p class="tooltiptext" >Autoplay is enabled. Click icon to disable it.</p>
 					</img>
+					<img id="s5" class="tooltip" src="images/languages.png">
+							<div class="tooltiptext" style="dispaly: inline-block">
+								<select id="lang-options">
+									<option value="en-US" select>English</option>
+									<option value="ur-PK">اردو</option>
+								</select>
+							</div>
+					</img>
 					<img id="s4_2" class="tooltip" src="images/speech-disabled.png" onclick="toggleAutoplay()">
 						<p class="tooltiptext">Autoplay is enabled. Click icon to enable it.</a>
 					</img>
-				</span>
+				</div>
 			</div>
 			<div class="card-container"/>
 		</div>

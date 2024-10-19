@@ -13,7 +13,6 @@ $(document).ready(function()
 	
 	$("#text").text('');
 	$("#text").hide();
-	//$("#play").hide();
 
 	var support = document.getElementById("support").innerHTML;
 
@@ -31,11 +30,15 @@ $(document).ready(function()
 		$("#s3_2").show();
 		$("#s3_2+p").text(support);
 	}	
-
 	document.getElementById('playSections').addEventListener('change', function() {
 		const selectedValue = this.value;
 		$("#text").text(selectedValue);
 		$("#play").click();
+	});
+	
+	document.getElementById('lang-options').addEventListener('change', function(){
+		langOption = this.value;
+		$("#languages").val(langOption);
 	});
 });
 

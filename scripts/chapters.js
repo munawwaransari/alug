@@ -30,8 +30,8 @@ function openChapter(chapter, file, page){
 	
 	if(autoplay){
 		
-		var url = getLocationPath() + 'data/'+ chapter + '_autoplay.json';
-		//alert(url);
+		var url = getLocationPath() + 'data/'+ langOption + '_' + chapter + '_autoplay.json';
+		console.log('Loding play file: ' + url);
 		loadAutoPlayScript(url, function(data){
 			
 			var sections = jQuery.map(data, function(obj) {
