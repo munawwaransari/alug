@@ -25,7 +25,7 @@ function prepareQuestion(obj, ch){
 	switch(obj.input){
 		case 'text':
 			console.log("keyboard: " + obj.keyboard);
-			var k = (obj.keyboard) ? '<img src="../images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:4px" onclick="showKeyboard(\''+obj.keyboard+'\')"/>' : '';
+			var k = (obj.keyboard) ? '<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:4px" onclick="showKeyboard(\''+obj.keyboard+'\')"/>' : '';
 			divElement = $('<div class="card quizlib-question">' + 
 								'<div class="quizlib-question-title" '+style+'>'+obj.question+'</div>'+
 								'<div class="quizlib-question-answers">'+
@@ -55,9 +55,9 @@ function prepareQuestion(obj, ch){
 }
 
 function showKeyboard(keybd){
-	console.log("Opening keyboard: " + keybd);
 	setTimeout(function(){
-		window.open("../keybd.html?layout="+keybd, "name", "top=0,left=0,width=600px,height=266px");
+		console.log("Opening keyboard: " + keybd);
+		window.open("keybd.html?layout="+keybd, "name", "top=0,left=0,width=600px,height=266px");
 	}, 10);
 }
 
