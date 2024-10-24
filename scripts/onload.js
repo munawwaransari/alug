@@ -1,3 +1,6 @@
+//
+//	Author: munawwar_ali@yahoo.com
+//
 
 $(document).ready(function()
 {
@@ -42,22 +45,6 @@ $(document).ready(function()
 	});
 });
 
-
-/*
-function buildIcon(id, icon, tooltiptext){
-	
-	var tooltip = $('<img id="'+id+'" class="tooltip" src="'+icon+'"/>"');
-	tooltip.append(tooltiptext);
-	$(".right").append(tooltip);
-}
-
-function buildtooltips(){
-		
-	buildIcon("s1", "images/email.png", $('<a class="tooltiptext" href="mailto:munawwar_ali@yahoo.com">Mail to author</a>'));
-	
-}
-*/
-
 function toggleAutoplay(){
 	
 	if(!speech_synthesis_supportd){
@@ -85,18 +72,35 @@ function toggleIcon(id){
 	
 };
 
-async function loadAutoPlayScript(url,  callback)
+async function loadJsonData(url,  callback)
 {
 	try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        callback(data);
-    } catch (error) {
-        console.error('Fetch error:', error);
-    }
+		const response = await fetch(url);
+		if (!response.ok) {
+			throw new Error(`HTTP error! Status: ${response.status}`);
+		}
+		const data = await response.json();
+		callback(data);
+	} 
+	catch (error) {
+		console.error("Fetch error:", error);
+	}
+};
+
+
+async function loadHtmlData(url,  callback)
+{
+	try {
+		const response = await fetch(url);
+		if (!response.ok) {
+			throw new Error(`HTTP error! Status: ${response.status}`);
+		}
+		const data = await response.text();
+		callback(data);
+	} 
+	catch (error) {
+		console.error("Fetch error:", error);
+	}
 };
 
 //ref: https://stackoverflow.com/questions/7434685/how-can-i-be-notified-when-an-element-is-added-to-the-page

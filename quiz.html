@@ -1,0 +1,75 @@
+<!-- Try this example at https://alpsquid.github.io/quizlib -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+		<link rel="stylesheet" type="text/css" href="styles/quizlib-styles.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="styles/quizlib.css" media="screen">
+		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+        <script type="text/javascript" src="scripts/quizlib/quizlib.1.0.1.min.js"></script>
+		<script type="text/javascript" src="scripts/loadquiz.js"></script>
+        <script>
+			var quizzesMap = [];
+			
+			window.onload = function(){
+				var chapterName = decodeURI(getParamValue("chapter"));
+				var topicName = decodeURI(getParamValue("topic"));
+				var data_path = decodeURI(getParamValue("data"));
+
+				console.log('param:chapter: ' + chapterName);
+				console.log('param:topic: ' + topicName);
+				console.log('param:data: ' + data_path);
+				
+				loadData(chapterName, topicName, data_path);
+			};
+			
+			async function loadData(chapterName, topicName, data_path){
+				try {
+					const response = await fetch(data_path);
+					if (!response.ok) {
+						throw new Error(`HTTP error! Status: ${response.status}`);
+					}
+					const data = await response.json();
+				
+					// Load Quiz
+					//alert(JSON.stringify(data));
+					//var json = JSON.parse(data);
+					var json = data;
+					json.forEach(obj => {
+						loadQuiz(quizzesMap, obj, topicName);
+						var answers = obj.questions.map(function(o){
+							return o.answer
+						});
+						quizzesMap[obj.id] = new Quiz(obj.id, answers);
+					});	
+				} 
+				catch (error) {
+					console.error("Fetch error:", error);
+				}			
+			}
+			
+			function getParamValue(paramName)
+			{
+				var url = window.location.search.substring(1); //get rid of "?" in querystring
+				var qArray = url.split('&'); //get key-value pairs
+				for (var i = 0; i < qArray.length; i++) 
+				{
+					var pArr = qArray[i].split('='); //split key and value
+					if (pArr[0] == paramName) 
+						return pArr[1]; //return value
+				}
+			}			
+		</script>
+        <title>Quizlib Multi-Quiz Example</title>
+		</script>
+    </head>
+
+    <body>
+        <!-- Quiz Results -->
+        <!-- For this multi quiz, we'll use the same result element and move it to active quiz when the answer button is pressed. -->
+        <div id="quiz-result" class="card">
+            You Scored <span id="quiz-percent"></span>% - <span id="quiz-score"></span>/<span id="quiz-max-score"></span><br/>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+[
+	{
+		"id": "quiz-1",
+		"display": "Form words with given patterns:",
+		"questions": [
+			{
+				"name": "q1",
+				"input": "text",
+				"question": "(ك ر م) إفعال",
+				"answer": "اكرام",
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name": "q2",
+				"input": "radio",
+				"question": "Choose the right one?",
+				"options": {
+					"a": "One", 
+					"b": "Two", 
+					"c": "Six", 
+					"d": "Nine"
+				},
+				"answer": "b"
+			},
+			{
+				"name": "q3",
+				"input": "checkbox",
+				"options": {
+					"a": "One", 
+					"b": "Two", 
+					"c": "Six", 
+					"d": "Nine"
+				},
+				"question": "Choose all correct?",
+				"answer": ["a", "c"]
+			}
+		]
+	}
+]

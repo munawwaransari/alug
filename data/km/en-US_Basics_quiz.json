@@ -1,0 +1,344 @@
+[
+	{
+		"id": "quiz-1",
+		"display": "Form words with given patterns:",
+		"questions": [
+			{
+				"name": "q1",
+				"input": "text",
+				"question": "(ك ر م) إفعال",
+				"answer": "اكرام",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q2",
+				"input": "text",
+				"question": "(ر ق ب) ُمفا ِعلة",
+				"answer": "مراقبة",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q3",
+				"input": "text",
+				"question": "فَعِل (ع ل ى)",
+				"answer": "على",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q4",
+				"input": "text",
+				"question": "مَفعَل (ك ت ب)",
+				"answer": "مكتب",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q5",
+				"input": "text",
+				"question": "مِفعال (ف ت ح)",
+				"answer": "مفتاح",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q6",
+				"input": "text",
+				"question": "مَفعُولة (ق ت ل)",
+				"answer": "مقتولة",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q7",
+				"input": "text",
+				"question": "استِفعال (غ ف ر)",
+				"answer": "استغفار",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q8",
+				"input": "text",
+				"question": "فِعلَة (ن ع م)",
+				"answer": "نعمة",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q9",
+				"input": "text",
+				"question": "تَفاعُل (ك ث ر)",
+				"answer": "تكاثر",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			}
+		]
+	},
+	{
+		"id": "quiz-2",
+		"display": "Form patterns from the given words:",
+		"questions": [
+			{
+				"name": "q1",
+				"input": "text",
+				"question": "تَقَدُّس (ق د س)",
+				"answer": "تفعل",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q2",
+				"input": "text",
+				"question": "إرسال (ر س ل)",
+				"answer": "افعال",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q3",
+				"input": "text",
+				"question": "إجتِهاد (ج ه د)",
+				"answer": "افتعال",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q4",
+				"input": "text",
+				"question": "مَفعَل (ك ت ب)",
+				"answer": "مكتب",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q5",
+				"input": "text",
+				"question": "مِفعال (ف ت ح)",
+				"answer": "مفتاح",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q6",
+				"input": "text",
+				"question": "إستِغفَار (غ ف ر)",
+				"answer": "استفعال",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q7",
+				"input": "text",
+				"question": "استِفعال (غ ف ر)",
+				"answer": "استغفار",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q8",
+				"input": "text",
+				"question": "جِهاد (ج ه د)",
+				"answer": "فعال",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q9",
+				"input": "text",
+				"question": "تعلم (ع ل م)",
+				"answer": "فعل",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q10",
+				"input": "text",
+				"question": "تَقدِيس (ق د س)",
+				"answer": "تفعيل",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			}
+		]
+	},
+	{
+		"id": "quiz-3",
+		"display": "Identify root words:",
+		"questions": [
+			{
+				"name": "q1",
+				"input": "text",
+				"question": "تَقَدُّس (ق د س)",
+				"answer": "تفعل",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q2",
+				"input": "text",
+				"question": "عَلَّامَة",
+				"answer": "ع ل م",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q3",
+				"input": "text",
+				"question": "ذَلُول",
+				"answer": "ذ ل ل",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q4",
+				"input": "text",
+				"question": "مُبَلِّغٌ",
+				"answer": "ب ل غ",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q5",
+				"input": "text",
+				"question": "كُبَّار",
+				"answer": "ك ب ر",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q6",
+				"input": "text",
+				"question": "مُفتِى",
+				"answer": "ف ت و",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q7",
+				"input": "text",
+				"question": "صادِق",
+				"answer": "ص د ق",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q8",
+				"input": "text",
+				"question": "مغلُوب",
+				"answer": "غ ل ب",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			}
+		]
+	},
+	{
+		"id": "quiz-4",
+		"display": "Identify the root and convert to the given weight.",
+		"questions": [
+			{
+				"name": "q1",
+				"input": "text",
+				"question": "فضل (مِفعَال)",
+				"answer": "مفضال",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q2",
+				"input": "text",
+				"question": "خَالِق (فَعَّال)",
+				"answer": "خلاق",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q3",
+				"input": "text",
+				"question": "شاكِر (فَعُول)",
+				"answer": "شكور",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q4",
+				"input": "text",
+				"question": "مُخاطِب (فَعِيل)",
+				"answer": "خطيب",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q5",
+				"input": "text",
+				"question": "ظالِم (فَعَّال)",
+				"answer": "ظلام",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			}
+		]
+	},
+	{
+		"id": "quiz-5",
+		"display": "Select the correct word (Sick Letter Rules)",
+		"questions": [
+			{
+				"name": "q1",
+				"input": "radio",
+				"question": "أعْدَدَ",
+				"options": {
+					"a": "أعْدَدَ", 
+					"b": "أعَددَ", 
+					"c": "أعَدَّ", 
+					"d": "أعَدًا"
+				},
+				"answer": "c",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q2",
+				"input": "radio",
+				"question": "(إفتعال)إوْتِصال",
+				"options": {
+					"a": "إيتِصَال", 
+					"b": "إتِّصَال", 
+					"c": "إصَال", 
+					"d": "إتْصَال"
+				},
+				"answer": "b",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q3",
+				"input": "radio",
+				"question": "مِوعاد (مِفعال)",
+				"options": {
+					"a": "مِيعاد", 
+					"b": "مِتعاد", 
+					"c": "مِعاد", 
+					"d": "مِوعاد"
+				},
+				"answer": "a",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			},
+			{
+				"name": "q4",
+				"input": "radio",
+				"question": "مَجرَرَة",
+				"options": {
+					"a": "مَجَرْرَة", 
+					"b": "مَجَرَّ", 
+					"c": "مَجَرَة", 
+					"d": "مَجَرَّة"
+				},
+				"answer": "d",
+				"style": "font-size: 20px;font-weight: bold;",
+				"keyboard": "arabic"
+			}
+		]
+	}
+]

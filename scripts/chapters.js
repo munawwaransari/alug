@@ -30,9 +30,9 @@ function openChapter(chapter, file, page){
 	
 	if(autoplay){
 		
-		var url = getLocationPath() + 'data/'+ langOption + '_' + chapter + '_autoplay.json';
+		var url = getLocationPath() + 'data/audio/'+ langOption + '_' + chapter + '_autoplay.json';
 		console.log('Loding play file: ' + url);
-		loadAutoPlayScript(url, function(data){
+		loadJsonData(url, function(data){
 			
 			var sections = jQuery.map(data, function(obj) {
 				if(obj.pageNo === page)
@@ -53,6 +53,20 @@ function openChapter(chapter, file, page){
 		});
 	}
 }
+
+function openQuizV2(chapter, file, topic){
+	console.log("Quiz file: " + file);
+	var loaction = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
+	var data_path = location + 'data/km/'+ langOption + '_' + topic + '_quiz.json';
+	//loadJsonData(data_path,  function(data){
+
+		//console.log("data_path: " + data_path);
+		//var abs_path = getLocationPath() + file + '?chapter=' + chapter + '&topic=' + topic + '&data=' + JSON.stringify(data);
+		var abs_path = getLocationPath() + file + '?chapter=' + chapter + '&topic=' + topic + '&data=' + data_path;
+		$('.reading-pane').attr('src', encodeURI(abs_path));
+		$('#title-img').hide();
+	//});
+};
 
 $(function () {
 		
@@ -90,8 +104,8 @@ $(function () {
 			var entry = knowledge_checks[i];
 			console.log("ch: " + entry.ch);
 			
-			var chapterPath = '\''+entry.ch+suffix+'\''; 				
-			$subNav.append($('<div class="subNav" onclick="openChapter(\'Knowledge Check\', '+chapterPath+',' + entry.pageNo+')">'+entry.topic+'</div>'));				
+			//var chapterPath = '\''+entry.ch+suffix+'\''; 
+			$subNav.append($('<div class="subNav" onclick="openQuizV2(\'Knowledge Check\', \'quiz.html\',\'' + entry.topic+'\')">'+entry.topic+'</div>'));				
 			console.log('Added '+ entry.topic);
 		}
 	}
