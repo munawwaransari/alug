@@ -1,0 +1,133 @@
+[
+	{
+		"id": "quiz-1",
+		"ur-PK_display": "تمام درست جوابات کا انتخاب کریں",
+		"en-US_display": "Choose all correct answers:",
+		"questions": [
+			{
+				"name": "q1",
+				"input": "checkbox",
+				"question": "ب",
+				"options": {
+					"a": "حرف الصحيح", 
+					"b": "حرف االعلّت", 
+					"c": "حرف االشّمسي", 
+					"d": "حرف ااقمرى"
+				},
+				"answer": ["a", "d"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q2",
+				"input": "checkbox",
+				"question": "ظ",
+				"options": {
+					"a": "حرف الصحيح", 
+					"b": "حرف االعلّت", 
+					"c": "حرف االشّمسي", 
+					"d": "حرف ااقمرى"
+				},
+				"answer": ["a", "c"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q3",
+				"input": "checkbox",
+				"question": "ي",
+				"options": {
+					"a": "حرف الصحيح", 
+					"b": "حرف االعلّت", 
+					"c": "حرف االشّمسي", 
+					"d": "حرف ااقمرى"
+				},
+				"answer": ["b", "d"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q4",
+				"input": "checkbox",
+				"question": "ء",
+				"options": {
+					"a": "حرف الصحيح", 
+					"b": "حرف االعلّت", 
+					"c": "حرف االشّمسي", 
+					"d": "حرف ااقمرى"
+				},
+				"answer": ["b", "d"],
+				"style": "font-size: 18px;font-weight: bold;"
+			}
+		]
+	},
+	{
+		"id": "quiz-2",
+		"ur-PK_display": "تمام درست جوابات کا انتخاب کریں",
+		"en-US_display": "Choose all correct answers:",
+		"questions": [
+			{
+				"name": "q1",
+				"input": "checkbox",
+				"question": "ُ",
+				"options": {
+					"a": "ُِاِعراب (رفع)", 
+					"b": "تنوين", 
+					"c": "ُِحركة (ضمّة)",
+					"d": "ٌُِحركة (فتحة)"
+				},
+				"answer": ["a", "c"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q2",
+				"input": "checkbox",
+				"question": "ٌ",
+				"options": {
+					"a": "ُِاِعراب (رفع)", 
+					"b": "تنوين", 
+					"c": "ُِحركة (ضمّة)",
+					"d": "ٌُِحركة (فتحة)"
+				},
+				"answer": ["a", "b"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q3",
+				"input": "checkbox",
+				"question": "إعراب الرفع",
+				"options": {
+					"a": "ُ", 
+					"b": "ٌ", 
+					"c": "ُاً",
+					"d": "َ"
+				},
+				"answer": ["a", "b"],
+				"style": "font-size: 38px;font-weight: bold;"
+			},
+			{
+				"name": "q4",
+				"input": "checkbox",
+				"question": "ة",
+				"options": {
+					"a": "تاء التّانيس", 
+					"b": "تاء المربوطة",
+					"c": "هاء",
+					"d": "تاء" 
+				},
+				"answer": ["a", "b"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q5",
+				"input": "checkbox",
+				"question": "ال",
+				"options": {
+					"a": "لام التعريف", 
+					"b": "نكرة marker",
+					"c": "معرفة marker",
+					"d": "like article 'the'" 
+				},
+				"answer": ["a", "c", "d"],
+				"style": "font-size: 18px;font-weight: bold;"
+			}
+		]
+	}
+]

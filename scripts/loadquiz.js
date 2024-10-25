@@ -43,7 +43,7 @@ function prepareQuestion(obj, ch){
 			divElement = $('<div class="card quizlib-question">'+
 								'<div class="quizlib-question-title">'+obj.question+'</div>'+
 								'<div class="quizlib-question-answers">'+
-									'<ul>' + ulOptions + '</ul>'+
+									'<ul '+style+'>' + ulOptions + '</ul>'+
 								'</div>'+
 							'</div>');
 		break;

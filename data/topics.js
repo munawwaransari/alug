@@ -125,6 +125,9 @@ var alug_chapters = {
 
 var knowledge_checks = [
 	{
+		ch: "P0.1 - Basics", 	topic: "Alphabets",  pageNo: 4
+	},
+	{
 		ch: "P0.1 - Basics", 	topic: "Basics",  pageNo: 13
 	},
 	{
