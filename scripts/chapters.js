@@ -27,6 +27,7 @@ function openChapter(chapter, file, page){
 	}
 	$('#title-img').hide();
 	
+	updateStates({ action: "pdf", chapter: chapter, file: file, page: page});
 	
 	if(autoplay){
 		
@@ -57,14 +58,16 @@ function openChapter(chapter, file, page){
 function openQuizV2(chapter, file, topic){
 	console.log("Quiz file: " + file);
 	var loaction = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
-	var data_path = location + 'data/km/'+ langOption + '_' + topic + '_quiz.json';
+	var data_path = location + 'data/km/' + topic + '_quiz.json';
 	//loadJsonData(data_path,  function(data){
 
 		//console.log("data_path: " + data_path);
 		//var abs_path = getLocationPath() + file + '?chapter=' + chapter + '&topic=' + topic + '&data=' + JSON.stringify(data);
-		var abs_path = getLocationPath() + file + '?chapter=' + chapter + '&topic=' + topic + '&data=' + data_path;
+		var abs_path = getLocationPath() + file + '?chapter=' + chapter + '&topic=' + topic + '&lang=' + langOption + '&data=' + data_path;
 		$('.reading-pane').attr('src', encodeURI(abs_path));
 		$('#title-img').hide();
+		
+		updateStates({ action: "quiz", chapter: chapter, file: file, topic: topic});
 	//});
 };
 

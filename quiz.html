@@ -15,29 +15,26 @@
 			window.onload = function(){
 				var chapterName = decodeURI(getParamValue("chapter"));
 				var topicName = decodeURI(getParamValue("topic"));
+				var lang = decodeURI(getParamValue("lang"));
 				var data_path = decodeURI(getParamValue("data"));
 
 				console.log('param:chapter: ' + chapterName);
 				console.log('param:topic: ' + topicName);
-				console.log('param:data: ' + data_path);
+				console.log('param:lang: ' + lang);
+				console.log('param:lang: ' + data_path);
 				
-				loadData(chapterName, topicName, data_path);
+				loadData(chapterName, topicName, data_path, lang);
 			};
 			
-			async function loadData(chapterName, topicName, data_path){
+			async function loadData(chapterName, topicName, data_path, lang){
 				try {
 					const response = await fetch(data_path);
 					if (!response.ok) {
 						throw new Error(`HTTP error! Status: ${response.status}`);
 					}
-					const data = await response.json();
-				
-					// Load Quiz
-					//alert(JSON.stringify(data));
-					//var json = JSON.parse(data);
-					var json = data;
+					const json = await response.json();
 					json.forEach(obj => {
-						loadQuiz(quizzesMap, obj, topicName);
+						loadQuiz(quizzesMap, obj, topicName, lang);
 						var answers = obj.questions.map(function(o){
 							return o.answer
 						});

@@ -42,6 +42,13 @@ $(document).ready(function()
 	document.getElementById('lang-options').addEventListener('change', function(){
 		langOption = this.value;
 		$("#languages").val(langOption);
+		
+		if(states.action == "quiz"){
+			setTimeout(function(){
+				openQuizV2(states.chapter, states.file, states.topic);
+			}, 150);
+			
+		}
 	});
 });
 

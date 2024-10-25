@@ -2,10 +2,10 @@
  This function loads the question data from question json file;
  prepares the data as per quizlib requirements;
 */
-function loadQuiz(quizzes, obj, ch){
+function loadQuiz(quizzes, obj, ch, lang){
 					
 	var div = undefined;
-	var div = $('<div id="'+obj.id+'"><h2>'+ch+' - '+obj.display+'</h2></div>');
+	var div = $('<div id="'+obj.id+'"><h2>'+ch+' - '+obj[lang+"_display"]+'</h2></div>');
 	if(obj.questions){
 		obj.questions.forEach(function(q){
 			var child = prepareQuestion(q, ch);

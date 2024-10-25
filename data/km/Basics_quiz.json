@@ -1,7 +1,8 @@
 [
 	{
 		"id": "quiz-1",
-		"display": "Form words with given patterns:",
+		"ur-PK_display": "دیئے گئے اوزان کے ساتھ الفاظ بنائیں",
+		"en-US_display": "Form words with given patterns:",
 		"questions": [
 			{
 				"name": "q1",
@@ -79,7 +80,8 @@
 	},
 	{
 		"id": "quiz-2",
-		"display": "Form patterns from the given words:",
+		"ur-PK_display": "دیئے گئے الفاظ سے وزن بنائیں",
+		"en-US_display": "Form patterns from the given words:",
 		"questions": [
 			{
 				"name": "q1",
@@ -165,7 +167,8 @@
 	},
 	{
 		"id": "quiz-3",
-		"display": "Identify root words:",
+		"ur-PK_display": "جڑ الفاظ کی شناخت کریں۔مثال: عالم = ع ل م",
+		"en-US_display": "Identify root words:",
 		"questions": [
 			{
 				"name": "q1",
@@ -235,7 +238,8 @@
 	},
 	{
 		"id": "quiz-4",
-		"display": "Identify the root and convert to the given weight.",
+		"ur-PK_display": "جڑ کی شناخت کریں اور دیئے گئے وزن میں تبدیل کریں۔",
+		"en-US_display": "Identify the root and convert to the given weight.",
 		"questions": [
 			{
 				"name": "q1",
@@ -281,7 +285,8 @@
 	},
 	{
 		"id": "quiz-5",
-		"display": "Select the correct word (Sick Letter Rules)",
+		"ur-PK_display": "صحیح لفظ کا انتخاب کریں (حروف علت  کے اصول)",
+		"en-US_display": "Select the correct word (Sick Letter Rules)",
 		"questions": [
 			{
 				"name": "q1",
