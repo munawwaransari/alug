@@ -129,5 +129,64 @@
 				"style": "font-size: 18px;font-weight: bold;"
 			}
 		]
+	},
+	{
+		"id": "quiz-3",
+		"ur-PK_display": "دیئے گئے عنوان سے متعلق تمام الفاظ کا انتخاب کریں۔",
+		"en-US_display": "Choose all words related to the given topic:",
+		"questions": [
+			{
+				"name": "q1",
+				"input": "radio",
+				"question": "همزة القطع",
+				"options": {
+					"a": "أَشهَدُ", 
+					"b": "اِثنان",
+					"c": "اِبنة",
+					"d": "اِستَسمَع" 
+				},
+				"answer": ["a"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q2",
+				"input": "checkbox",
+				"question": "همزة الوصل",
+				"options": {
+					"a": "اِستَسمَع", 
+					"b": "الكتاب", 
+					"c": "أكبر",
+					"d": "اِمرِأَة"
+				},
+				"answer": ["b", "d"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q3",
+				"input": "checkbox",
+				"question": "إدغام",
+				"options": {
+					"a": "وَاضرِبْ", 
+					"b": "فَمَن يَعمَل", 
+					"c": "خَيرًا يَرَهُ",
+					"d": "أَنْعَمْتَ"
+				},
+				"answer": ["b", "c"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q4",
+				"input": "checkbox",
+				"question": "إظهار",
+				"options": {
+					"a": "تَجْرِي", 
+					"b": "لَطِيفٌ خَبِيرٌ", 
+					"c": "فِى الْقَتلِ",
+					"d": "سَوَاءٌ عَلَيهِم"
+				},
+				"answer": ["b", "d"],
+				"style": "font-size: 18px;font-weight: bold;"
+			}
+		]
 	}
 ]
