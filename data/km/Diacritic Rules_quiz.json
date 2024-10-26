@@ -1,0 +1,73 @@
+[
+	{
+		"id": "quiz-1",
+		"ur-PK_display": "درست جواب کا انتخاب کریں",
+		"en-US_display": "Choose the correct answer:",
+		"questions": [
+			{
+				"name": "q1",
+				"input": "radio",
+				"question": "مُفتُعِل (ذ ك ر)",
+				"options": {
+					"a": "مُذتَكِر", 
+					"b": "مُدتَكِر", 
+					"c": "مُدَّكِر", 
+					"d": "مُذَّكِر"
+				},
+				"answer": ["c"],
+				"style": "font-size: 22px;font-weight: bold;"
+			},
+			{
+				"name": "q2",
+				"input": "radio",
+				"question": "كُوْنْ  -> كُنْ",
+				"options": {
+					"a": "قِيلَ  -> قِلْ", 
+					"b": "قُوْلْ  -> قُلْ", 
+					"c": "قَوْلٌ  -> قُلٌ"
+				},
+				"answer": ["b"],
+				"style": "font-size: 22px;font-weight: bold;"
+			},
+			{
+				"name": "q3",
+				"input": "radio",
+				"question": "اِوْقان  ->  ؟",
+				"options": {
+					"a": "اِتقَان", 
+					"b": "اِقَان", 
+					"c": "اِيقَان", 
+					"d": "اِتِّقَان"
+				},
+				"answer": ["c"],
+				"style": "font-size: 22px;font-weight: bold;"
+			},
+			{
+				"name": "q4",
+				"input": "radio",
+				"question": "مُوْتَصِلْ  -> ؟",
+				"options": {
+					"a": "مُتَّصِلْ", 
+					"b": "مُتَصِلْ", 
+					"c": "مُتْتَصِلْ", 
+					"d": "مُتَصِّلْ"
+				},
+				"answer": ["a"],
+				"style": "font-size: 22px;font-weight: bold;"
+			},
+			{
+				"name": "q5",
+				"input": "radio",
+				"question": "مُوْتَفِي  -> ؟",
+				"options": {
+					"a": "مُفْتِي", 
+					"b": "مُتَفِي", 
+					"c": "مُتَفِّي", 
+					"d": "مُتَّفِي"
+				},
+				"answer": ["d"],
+				"style": "font-size: 22px;font-weight: bold;"
+			}
+		]
+	}
+]

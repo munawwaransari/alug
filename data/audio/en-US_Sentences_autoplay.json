@@ -1,0 +1,23 @@
+[
+	{ 
+		"chapter": "Conditional Sentences", 
+		"pageNo": 20,
+		"sections": [
+		{
+			"topic": "Condtional poarticles",
+			"play": "Conditional sentences in Arabic are constructed with the help of conditional particles... There are three conditional particles..iza, lov, and Inn. The conditional clause is called Jawaab ush-shart and it follows the conditional particle.... The then clause can be placed either after the conditional clause or before the conditional particle. Both ways is allowed."
+		},
+		{
+			"topic": "Particle: إذا / إذا لم",
+			"play": "iza is used in situations that are possible or likely to occur... When eza is used, the conditional clause is always in past tense, however its meaning is in future tense... As in the example..iza daras ta (meaning if you studied well..in other words..if you study well)...In order to make the sentence negative, iza lum is used.. Lam translates to 'did not' in English language."
+		},
+		{
+			"topic": "Particle: لو/ لولا",
+			"play": "Lov is used in situations that are impossible or unlikely to occur... When lov is used, the conditional clause is always in past tense, however its meaning is in future tense; this is similar to the use of Iza...In order to make the sentence negative, lov laa is used.. lov laa translates to 'had it not'... With lov laa, the conditional clause can be simply a noun as in the eample 'lov laa anta'.. meaning 'if it were not you'..or 'if not for you'.."
+		},
+		{
+			"topic": "Particle: إن/إلّا",
+			"play": "Inn is used in situations that are possible or likely to occur; it is more of an archaic or stylish way of speaking... When inn  is used, the conditional clause can be paste tense or present tense.. the erab on present tense is majzoom... In order to make the sentence negative, il-la  is used.. "
+		}]
+	}
+]

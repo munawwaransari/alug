@@ -95,6 +95,7 @@ var alug_chapters = {
 	"P4 - Sentences": [
 		{topic: "Nominal Sentences", pageNo: 2}, 
 		{topic: "Verbal Sentences", pageNo: 12}, 
+		{topic: "Conditional Sentences", pageNo: 20}, 
 		{topic: "Subject Verb Agreement", pageNo: 13}, 
 		{topic: "Future Tense (المُستقبل فعلُ)", pageNo: 14}, 
 		{topic: "Imperatives (الأمر والنهى)", pageNo: 15}, 
@@ -126,6 +127,9 @@ var alug_chapters = {
 var knowledge_checks = [
 	{
 		ch: "P0.1 - Basics", 	topic: "Alphabets",  pageNo: 4
+	},
+	{
+		ch: "P0.1 - Basics", 	topic: "Diacritic Rules",  pageNo: 10
 	},
 	{
 		ch: "P0.1 - Basics", 	topic: "Basics",  pageNo: 13
