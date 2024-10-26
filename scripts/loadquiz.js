@@ -5,7 +5,7 @@
 function loadQuiz(quizzes, obj, ch, lang){
 					
 	var div = undefined;
-	var div = $('<div id="'+obj.id+'"><h2>'+ch+' - '+obj[lang+"_display"]+'</h2></div>');
+	var div = $('<div id="'+obj.id+'"><h4>'+ch+' - '+obj[lang+"_display"]+'</h4></div>');
 	if(obj.questions){
 		obj.questions.forEach(function(q){
 			var child = prepareQuestion(q, ch);
@@ -74,16 +74,30 @@ function showResults(quizID) {
     // Check answers and continue if all questions have been answered
     if (activeQuiz.checkAnswers()) {
         var quizScorePercent = activeQuiz.result.scorePercentFormatted; // The unformatted percentage is a decimal in range 0 - 1
-        var quizResultElement = document.getElementById('quiz-result');
+        
+		//Add a new element
+		// var resultElement = $('<div id="quiz-result-'+quizID+'" class="card">' +
+            // 'You Scored <span id="quiz-percent"></span>% - <span id="quiz-score"></span>/<span id="quiz-max-score"></span><br/>'+
+        // '</div>').prepend("#"+quizID+":first-child");
+		
+		var quizResultElementOriginal = document.getElementById('quiz-result');
+		var quizResultElement = quizResultElementOriginal.cloneNode(true);
+		quizResultElement.id = "quiz-result-"+quizID;
+		
         // Move the quiz result element to the active quiz, placing it after the quiz title.
         var quizElement = document.getElementById(quizID);
         quizElement.insertBefore(quizResultElement, quizElement.children[1]);
 
         // Show the result element and add result values.
         quizResultElement.style.display = 'block';
-        document.getElementById('quiz-score').innerHTML = activeQuiz.result.score.toString();
-        document.getElementById('quiz-max-score').innerHTML = activeQuiz.result.totalQuestions.toString();
-        document.getElementById('quiz-percent').innerHTML = quizScorePercent.toString();
+        //document.getElementById('quiz-score').innerHTML = activeQuiz.result.score.toString();
+        //document.getElementById('quiz-max-score').innerHTML = activeQuiz.result.totalQuestions.toString();
+        //document.getElementById('quiz-percent').innerHTML = quizScorePercent.toString();
+		document.getElementById('quiz-result-'+quizID).innerHTML = '<div style="color:white;text-align: center;width:100%">You scored '+
+								quizScorePercent.toString()+'% - '+ 
+								activeQuiz.result.score.toString()+' /'+
+								activeQuiz.result.totalQuestions.toString()+
+								'</div>';
 
         // Change background colour of results div according to score percent
         if (quizScorePercent >= 75) quizResultElement.style.backgroundColor = '#4caf50';
@@ -93,6 +107,8 @@ function showResults(quizID) {
         
         // Highlight questions according to whether they were correctly answered. The callback allows us to highlight/show the correct answer
         activeQuiz.highlightResults(handleAnswers);
+		
+		$("#"+quizID).find("*").prop('disabled',true);		
     }
 }
 

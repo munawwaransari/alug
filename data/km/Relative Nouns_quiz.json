@@ -1,0 +1,87 @@
+[
+	{
+		"id": "quiz-1",
+		"ur-PK_display": "دیے گئے الفاظ سے بنائے گئی درست اضافت  کا انتخاب کریں۔",
+		"en-US_display": "Choose correct relative nouns formed by given words",
+		"questions": [
+			{
+				"name" : "q1",
+				"input": "radio",
+				"question": "المُؤمِنُونَ  ->  مضاف",
+				"options": {
+					"a": "المُؤمِنُو", 
+					"b": "المُؤمِنُ", 
+					"c": "مُؤمِنُونَ", 
+					"d": "مُؤمِنُو"
+				},
+				"answer": ["d"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q2",
+				"input": "radio",
+				"question": "كتاب/اب/زيد",
+				"options": {
+					"a": "كتابُ اَبُ زَيدٍ", 
+					"b": "كتابُ اَبي زَيدٍ", 
+					"c": "كتابُ اَبُو زَيدٍ", 
+					"d": "الكتابُ اَبي زَيدٍ"
+				},
+				"answer": ["b"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q3",
+				"input": "radio",
+				"question": "Select wrong one:",
+				"options": {
+					"a": "رَسُولُ اللهِ", 
+					"b": "رَسُولَ اللهِ", 
+					"c": "رَسُولِ اللهِ", 
+					"d": "الرَّسُولُ اللهِ"
+				},
+				"answer": ["d"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q4",
+				"input": "radio",
+				"question": "Select correct one:",
+				"options": {
+					"a": "سَيَّارَةُ صَديقَةِ زَينَبِ", 
+					"b": "سَيَّارَةٌ صَديقَةِ زَينَبَ", 
+					"c": "سَيَّارَةُ صَديقَةِ زَينَبَ", 
+					"d": "سَيَّارَةُ صَديقَةُ زَينَبَ"
+				},
+				"answer": ["c"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q5",
+				"input": "checkbox",
+				"question": "Select all correct:",
+				"options": {
+					"a": "عَلَي الطَّاوِلَةِ", 
+					"b": "عَلَي طَاوِلَةِ", 
+					"c": "عَلَي طَاوِلَاتِ", 
+					"d": "عَلَي الطَّاوِلَاتِ"
+				},
+				"answer": ["a", "b", "c", "d"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q6",
+				"input": "checkbox",
+				"question": "Select all wrong:",
+				"options": {
+					"a": "مِنَ المسجِدِ إلَي المَدرَسَةِ", 
+					"b": "مِنْ مِسجِدِ إلَي المَدرَسَةٍ", 
+					"c": "مِنْ مِسجِدٍ إلَي مَدرَسَةٍ", 
+					"d": "مِنْ المِسجِدٍ إلَي مَدرَسَةِ"
+				},
+				"answer": ["b", "d"],
+				"style": "font-size: 20px;font-weight: bold;"
+			}
+		]
+	}
+]

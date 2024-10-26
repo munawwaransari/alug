@@ -138,10 +138,7 @@ var knowledge_checks = [
 		ch: "P1 - Pronouns", 	topic: "Pronouns",  pageNo: 8
 	},
 	{
-		ch: "P0.2 - Vocabulary", 	topic: "Alphabets Chart",  pageNo: 2
-	},
-	{
-		ch: "P2 - Nouns", 	topic: "Nouns - 1",  pageNo: 10
+		ch: "P2 - Nouns", 	topic: "Relative Nouns",  pageNo: 8
 	},
 	{
 		ch: "P2 - Nouns", 	topic: "Nouns - 2",  pageNo: 21
