@@ -1,0 +1,74 @@
+[
+	{
+		"id": "quiz-1",
+		"ur-PK_display": "درست جواب کا انتخاب کریں",
+		"en-US_display": "Choose the correct answer:",
+		"questions": [
+			{
+				"name": "q1",
+				"input": "radio",
+				"question": "سَتَفعَلُ ____ كُنتَ صادِقًا",
+				"options": {
+					"a": "إلّا", 
+					"b": "إِن", 
+					"c": "لَم", 
+					"d": "إذا"
+				},
+				"answer": ["d"],
+				"style": "font-size: 22px;font-weight: bold;"
+			},
+			{
+				"name": "q2",
+				"input": "radio",
+				"question": "سوف اَطِيرُ ________",
+				"options": {
+					"a": "إذا كُنتُ طائرًا", 
+					"b": "إن كُنتُ طائرًا", 
+					"c": "لَو كُنتُ طائرًا",
+					"d": "لَولاأَنا"
+				},
+				"answer": ["c"],
+				"style": "font-size: 22px;font-weight: bold;"
+			},
+			{
+				"name": "q3",
+				"input": "radio",
+				"question": "أن تأكُلَ اُترُكه _______",
+				"options": {
+					"a": "إلَّا تستطيع", 
+					"b": "لو تستطيع", 
+					"c": "إذا تستطيع", 
+					"d": "إذا لم تستطيع"
+				},
+				"answer": ["d"],
+				"style": "font-size: 22px;font-weight: bold;"
+			},
+			{
+				"name": "q4",
+				"input": "radio",
+				"question": "هاتوا بُرهانَكُم  ________  صادقين",
+				"options": {
+					"a": "إلّا أَنتُم", 
+					"b": "إِذا اَنتُم", 
+					"c": "إِن كُنتُم", 
+					"d": "لَوكُنتُم"
+				},
+				"answer": ["c"],
+				"style": "font-size: 22px;font-weight: bold;"
+			},
+			{
+				"name": "q5",
+				"input": "radio",
+				"question": "رَحمَةُ اللِه لَفُشِلتُ ______",
+				"options": {
+					"a": "لَولا", 
+					"b": "إذا لَم", 
+					"c": "إلّا", 
+					"d": "لَو"
+				},
+				"answer": ["a"],
+				"style": "font-size: 22px;font-weight: bold;"
+			}
+		]
+	}
+]

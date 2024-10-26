@@ -154,5 +154,8 @@ var knowledge_checks = [
 	},
 	{
 		ch: "P4 - Sentences", 	topic: "Sentences - 2",  pageNo: 20
+	},
+	{
+		ch: "P4 - Sentences", 	topic: "	",  pageNo: 20
 	}
 ];
