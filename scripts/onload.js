@@ -79,7 +79,7 @@ function toggleIcon(id){
 	
 };
 
-async function loadJsonData(url,  callback)
+async function loadJsonData(url,  callback, errorCallback)
 {
 	try {
 		const response = await fetch(url);
@@ -91,6 +91,9 @@ async function loadJsonData(url,  callback)
 	} 
 	catch (error) {
 		console.error("Fetch error:", error);
+		if (errorCallback){
+			errorCallback(error);
+		}
 	}
 };
 

@@ -49,5 +49,31 @@
 			"topic": "Taa of Tanees",
 			"play": "Taa of Tanees or Taa Marbuta... It is written with a round Ha letter with do dots above. In general, a masculine word in Arabic can be converted to a feminine by simply adding Taa Tanees at the end of the word. The Taa of Tanees is also called Taa Marbuta."
 		}]
+	},
+	{
+		"chapter": "Word forms - الاوزان", 
+		"pageNo": 11,
+		"sections": [
+		{
+			"topic": "Word forms - الاوزان",
+			"play": "The Arabic root of a word is generally 3 letters denoted by far' kal-ma, Aenn kal-ma and Laam kal-ma.. These are used as placeholders for the root letters... A number of patterns can be formed using these root letters and forming new words by changing the diacritics on these letters; and with addition of few more letters..Applying a pattern on root word is easy..Simply replace the root letter in the pattern and keep the dicaritics of the pattern."
+		},
+		{
+			"topic": "Pattern: تَفَعُّل",
+			"play": "For example, the pattern ta'fowl adds a meaning of acquiring to the root word meaning.. It is formed by adding a new letter Ta with a fataha.. adding fataha to far' kalma..adding shadda and dhamma to Aenn kalma..and putting a sukoon on Laam kalma...When root word having sheen as far' kalma, kaaf as Aenn kalma and raa as laam kalma uses this pattern, it becomes tashakkur (meaning acquring gratitude ot thanking someone)..Similarly root word Aen, Qaaf, Laam will become. ta'aqqual (meaning to use ones prudence)..and root word Aen, Laam and meem will become. ta'allum. (meaning acquiring knowledge)"
+		},
+		{
+			"topic": "Pattern: فاعَلَ",
+			"play": "For example, the pattern faa'la adds a meaning of competing against somone or something the root word meaning.. It is formed by adding an alif after Fa' kalma..adding fataha to Aenn and laam kalma...When root word having Jeem, haa and daal uses this pattern, it becomes Jaahada (meaning to struggle)..Similarly root word Qaaf, Taa, Laam will become qaatala  (meaning to fight for life)"
+		}]
+	},
+	{
+		"chapter": "التَجوِيد (Tajweed)", 
+		"pageNo": 8,
+		"sections": [
+		{
+			"topic": "التَجوِيد (Tajweed)",
+			"play": "One beat or unit of time is called a Harkat..It is the time it takes to pronounce a single letter. For example, ba. be. boo. are all vocalized for a single beat.. When a letter is followed by a madd letter. such as alif, wow or yaa. it is elongated for two beats.. eample, baa. bee. boo.. When hamza and alif come juxaposed, it can be eongated for 4 to 6 beats..For example iza jaa-aa.. Also when a mushaddad letter is followed by a madd letter, it is elongated upto 6 beats..e.g. wa ladd daaal leeen"
+		}]
 	}
 ]

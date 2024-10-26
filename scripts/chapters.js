@@ -30,9 +30,7 @@ function openChapter(chapter, file, page, lang){
 	updateStates({ action: "pdf", chapter: chapter, file: file, page: page});
 	
 	if(autoplay){
-		
-		//$("#lang-options").val(lang);
-		document.getElementById('lang-options').value = 'newValue';
+		document.getElementById('lang-options').value = langOption;
 		setTimeout(function(){
 			autoplayAudio(chapter, page, lang);
 		}, 50);
@@ -40,7 +38,7 @@ function openChapter(chapter, file, page, lang){
 }
 
 function autoplayAudio(chapter, page, lang){
-	langOption = lang ?? langOption;
+
 	var url = getLocationPath() + 'data/audio/'+ langOption + '_' + chapter + '_autoplay.json';
 	console.log('Loding play file: ' + url);
 	loadJsonData(url, function(data){
@@ -61,6 +59,8 @@ function autoplayAudio(chapter, page, lang){
 			$("#text").text($('#playSections').val());
 			$("#play").click();
 		}
+	}, function(err){
+		alert("Please change language option and retry!");
 	});
 }
 
@@ -97,7 +97,7 @@ $(function () {
 			console.log('Links found');
 			$subNav = $('<div class="subnav-content"></div>');
 			links.forEach(function(link, index){
-				var lang = link.lang ? "\'"+link.lang+"\'" : "\'en-US\'";
+				var lang = link.lang ? "\'"+link.lang+"\'" : "\'\'";
 				$subNav.append($('<div class="subNav" onclick="openChapter(\''+chapterName+'\','+chapterPath+',' + link.pageNo+','+lang+')">'+link.topic+'</div>'));				
 				console.log('Added '+ link.topic);
 			});
