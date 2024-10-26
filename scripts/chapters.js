@@ -31,8 +31,11 @@ function openChapter(chapter, file, page, lang){
 	
 	if(autoplay){
 		
-		$("#lang-options").val(lang);
-		autoplayAudio(chapter, page, lang);
+		//$("#lang-options").val(lang);
+		document.getElementById('lang-options').value = 'newValue';
+		setTimeout(function(){
+			autoplayAudio(chapter, page, lang);
+		}, 50);
 	}
 }
 
