@@ -30,7 +30,7 @@ function openChapter(chapter, file, page, lang){
 	updateStates({ action: "pdf", chapter: chapter, file: file, page: page});
 	
 	if(autoplay){
-		document.getElementById('lang-options').value = langOption;
+		changeLanguageOption(lang);
 		setTimeout(function(){
 			autoplayAudio(chapter, page, lang);
 		}, 50);
@@ -88,18 +88,18 @@ $(function () {
 	for (const [ch, links] of Object.entries(alug_chapters)) 
 	{
 		var chapterPath = '\''+ch+suffix+'\''; 
-		console.log(chapterPath);
+		//console.log(chapterPath);
 		var chapterName = ch.split('-')[1].trim();
 		$div = $('<div class="chapter-card"><span onclick="openChapter(\''+chapterName+'\', '+chapterPath+', 0)" >'+chapterName+'</span></div>');
 		$('.card-container').append($div);
 			
 		if(links && links.length > 0){
-			console.log('Links found');
+			//console.log('Links found');
 			$subNav = $('<div class="subnav-content"></div>');
 			links.forEach(function(link, index){
-				var lang = link.lang ? "\'"+link.lang+"\'" : "\'\'";
+				var lang = link.lang ? "\'"+link.lang+"\'" : undefined;
 				$subNav.append($('<div class="subNav" onclick="openChapter(\''+chapterName+'\','+chapterPath+',' + link.pageNo+','+lang+')">'+link.topic+'</div>'));				
-				console.log('Added '+ link.topic);
+				//console.log('Added '+ link.topic);
 			});
 			$div.append($subNav);
 		}
@@ -107,18 +107,18 @@ $(function () {
 	
 	// Create Knowledge Check Menu
 	if(knowledge_checks && knowledge_checks.length > 0){
-		console.log("Adding knowldeg check links: count = " + knowledge_checks.length);
+		//console.log("Adding knowldeg check links: count = " + knowledge_checks.length);
 		$div = $('<div class="chapter-card"><span>Knowledge Check</span></div>');
 		$('.card-container').append($div);
 		$subNav = $('<div class="subnav-content"></div>');
 		$div.append($subNav);
 		for(let i=0; i < knowledge_checks.length; i++){
 			var entry = knowledge_checks[i];
-			console.log("ch: " + entry.ch);
+			//console.log("ch: " + entry.ch);
 			
 			//var chapterPath = '\''+entry.ch+suffix+'\''; 
 			$subNav.append($('<div class="subNav" onclick="openQuizV2(\'Knowledge Check\', \'quiz.html\',\'' + entry.topic+'\')">'+entry.topic+'</div>'));				
-			console.log('Added '+ entry.topic);
+			//console.log('Added '+ entry.topic);
 		}
 	}
 		

@@ -42,7 +42,7 @@ $(document).ready(function()
 	document.getElementById('lang-options').addEventListener('change', function(){
 		langOption = this.value;
 		$("#languages").val(langOption);
-		
+		console.log("lang option changed: "+ langOption);
 		if(states.action == "quiz"){
 			setTimeout(function(){
 				openQuizV2(states.chapter, states.file, states.topic);
@@ -51,6 +51,19 @@ $(document).ready(function()
 		}
 	});
 });
+
+function changeLanguageOption(lang){
+	
+	langOption = lang ?? langOption ?? "en-US";
+	if( !lang && langOption == "ar-SA"){
+		langOption = "en-US";
+	}
+		
+	var selectElement = document.getElementById('lang-options');
+	selectElement.value = langOption;
+	var event = new Event('change');
+	selectElement.dispatchEvent(event);	
+}
 
 function toggleAutoplay(){
 	
@@ -73,7 +86,7 @@ function toggleAutoplay(){
 
 function toggleIcon(id){
 	[id+'_1', id+'_2'].forEach(function(id){
-		console.log('toggleIcon: ' + id); 
+		//console.log('toggleIcon: ' + id); 
 		$(id).toggle();	
 	});
 	
