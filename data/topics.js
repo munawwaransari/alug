@@ -15,13 +15,13 @@ var alug_chapters = {
 		{topic: "Word forms - الاوزان", pageNo: 11}
 	],
 	"P0.2 - Vocabulary": [
-		{topic: "Alphabets", pageNo: 2}, 
-		{topic: "Homonyms", pageNo: 4}, 
+		{topic: "Alphabets", pageNo: 2, lang: "ar-SA"}, 
+		{topic: "Homonyms", pageNo: 4, lang: "ar-SA"}, 
 		{topic: "Synonyms", pageNo: 6},
 		{topic: "Antonyms", pageNo: 9},
 		{topic: "Jar (حروف الجر)", pageNo: 11},
 		{topic: "Verbs", pageNo: 12},
-		{topic: "Verb Forms", pageNo: 14},
+		{topic: "Verb Forms", pageNo: 14, lang: "ar-SA"},
 		{topic: "Imperatives", pageNo: 16},
 		{topic: "Colours (ألوان)", pageNo: 18},
 		{topic: "Time Chart", pageNo: 19},
@@ -136,6 +136,9 @@ var knowledge_checks = [
 	},
 	{
 		ch: "P1 - Pronouns", 	topic: "Pronouns",  pageNo: 8
+	},
+	{
+		ch: "P0.2 - Vocabulary", 	topic: "Alphabets Chart",  pageNo: 2
 	},
 	{
 		ch: "P2 - Nouns", 	topic: "Nouns - 1",  pageNo: 10

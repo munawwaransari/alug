@@ -6,7 +6,7 @@ function getLocationPath(){
 	return window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
 }
 
-function openChapter(chapter, file, page){
+function openChapter(chapter, file, page, lang){
 	console.log("file: " + file);
 	var loaction = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
 	var abs_path = getLocationPath() + 'pdfs/' + file;
@@ -31,28 +31,34 @@ function openChapter(chapter, file, page){
 	
 	if(autoplay){
 		
-		var url = getLocationPath() + 'data/audio/'+ langOption + '_' + chapter + '_autoplay.json';
-		console.log('Loding play file: ' + url);
-		loadJsonData(url, function(data){
-			
-			var sections = jQuery.map(data, function(obj) {
-				if(obj.pageNo === page)
-				return obj.sections;
+		$("#lang-options").val(lang);
+		autoplayAudio(chapter, page, lang);
+	}
+}
+
+function autoplayAudio(chapter, page, lang){
+	langOption = lang ?? langOption;
+	var url = getLocationPath() + 'data/audio/'+ langOption + '_' + chapter + '_autoplay.json';
+	console.log('Loding play file: ' + url);
+	loadJsonData(url, function(data){
+		
+		var sections = jQuery.map(data, function(obj) {
+			if(obj.pageNo === page)
+			return obj.sections;
+		});
+		
+		// Load play list
+		$('#playSections').find('option').remove().end();
+		if(sections){
+			sections.forEach(function(sect){
+				//console.log(sect.play);
+				$('#playSections').append('<option value="'+ sect.play +'">'+sect.topic+'</option>');					
 			});
 			
-			// Load play list
-			$('#playSections').find('option').remove().end();
-			if(sections){
-				sections.forEach(function(sect){
-					//console.log(sect.play);
-					$('#playSections').append('<option value="'+ sect.play +'">'+sect.topic+'</option>');					
-				});
-				
-				$("#text").text($('#playSections').val());
-				$("#play").click();
-			}
-		});
-	}
+			$("#text").text($('#playSections').val());
+			$("#play").click();
+		}
+	});
 }
 
 function openQuizV2(chapter, file, topic){
@@ -88,8 +94,8 @@ $(function () {
 			console.log('Links found');
 			$subNav = $('<div class="subnav-content"></div>');
 			links.forEach(function(link, index){
-				
-				$subNav.append($('<div class="subNav" onclick="openChapter(\''+chapterName+'\','+chapterPath+',' + link.pageNo+')">'+link.topic+'</div>'));				
+				var lang = link.lang ? "\'"+link.lang+"\'" : "\'en-US\'";
+				$subNav.append($('<div class="subNav" onclick="openChapter(\''+chapterName+'\','+chapterPath+',' + link.pageNo+','+lang+')">'+link.topic+'</div>'));				
 				console.log('Added '+ link.topic);
 			});
 			$div.append($subNav);
