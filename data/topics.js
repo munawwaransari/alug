@@ -156,6 +156,6 @@ var knowledge_checks = [
 		ch: "P4 - Sentences", 	topic: "Sentences - 2",  pageNo: 20
 	},
 	{
-		ch: "P4 - Sentences", 	topic: "Conditiona Sentences",  pageNo: 20
+		ch: "P4 - Sentences", 	topic: "Conditional Sentences",  pageNo: 20
 	}
 ];
