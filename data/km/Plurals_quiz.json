@@ -1,0 +1,129 @@
+[
+	{
+		"id": "quiz-1",
+		"ur-PK_display": "تمام درست جوابات منتخب کریں۔",
+		"en-US_display": "Select all correct answers",
+		"questions": [
+			{
+				"name" : "q1",
+				"input": "checkbox",
+				"question": "عَابِدٌ",
+				"options": {
+					"a": "عابِدُونَ", 
+					"b": "عابِدِينَ", 
+					"c": "عابِدَينِ"
+				},
+				"answer": ["a", "b"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q2",
+				"input": "checkbox",
+				"question": "مُسلِمَةٌ",
+				"options": {
+					"a": "مُسلِمَتَينِ", 
+					"b": "مُسلِمَاتٌ", 
+					"c": "مُسلِمَاتٍ"
+				},
+				"answer": ["b", "c"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q3",
+				"input": "checkbox",
+				"question": "قَلَمٌ",
+				"options": {
+					"a": "قَلَمُونَ", 
+					"b": "أَقلَامٌ", 
+					"c": "قَلَمَاتٌ"
+				},
+				"answer": ["a", "b"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q4",
+				"input": "radio",
+				"question": "مُجَاهِدَةٌ",
+				"options": {
+					"a": "مُجَاهِدٌونَ", 
+					"b": "مُجَاهِدِينَ", 
+					"c": "مُجَاهِدَاتٌ"
+				},
+				"answer": ["c"],
+				"style": "font-size: 20px;font-weight: bold;"
+			}
+		]
+	},
+	{
+		"id": "quiz-2",
+		"ur-PK_display": "جمع مکسر سے متعلق صحیح جواب کا انتخاب کریں۔",
+		"en-US_display": "Choose correct answeres related to irregualr nouns",
+		"questions": [
+			{
+				"name" : "q1",
+				"input": "checkbox",
+				"question": "جمع مكسر: فُعَلاءُ",
+				"options": {
+					"a": "فَقِير", 
+					"b": "وَزِير", 
+					"c": "جَدِيد", 
+					"d": "رَحِيم"
+				},
+				"answer": ["a", "b", "d"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q2",
+				"input": "checkbox",
+				"question": "جمع مكسر: فُعُلُ",
+				"options": {
+					"a": "جَواب", 
+					"b": "رَسُول", 
+					"c": "جَدِيد", 
+					"d": "كِتَاب"
+				},
+				"answer": ["b", "c", "d"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q3",
+				"input": "checkbox",
+				"question": "جمع مكسر: فُعُول",
+				"options": {
+					"a": "قَلب", 
+					"b": "رَسُول", 
+					"c": "بَيت", 
+					"d": "غَفُور"
+				},
+				"answer": ["a", "c"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q4",
+				"input": "checkbox",
+				"question": "جمع مكسر: فَعَائِل",
+				"options": {
+					"a": "جنازة", 
+					"b": "جَزِيرَة", 
+					"c": "فَضيلَة", 
+					"d": "صَغِيرَة"
+				},
+				"answer": ["a", "b", "c", "d"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q5",
+				"input": "checkbox",
+				"question": "جمع مكسر: مَفاعِل",
+				"options": {
+					"a": "مَظهَر", 
+					"b": "مَشرِق", 
+					"c": "مُسلِم", 
+					"d": "مَسجِد"
+				},
+				"answer": ["a", "b", "d"],
+				"style": "font-size: 20px;font-weight: bold;"
+			}
+		]
+	}
+]

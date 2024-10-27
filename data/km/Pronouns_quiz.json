@@ -1,0 +1,87 @@
+[
+	{
+		"id": "quiz-1",
+		"ur-PK_display": "صحیح جواب کا انتخاب کریں۔",
+		"en-US_display": "Choose the correct answer",
+		"questions": [
+			{
+				"name" : "q1",
+				"input": "radio",
+				"question": "مُسلِماتٌ ______",
+				"options": {
+					"a": "هُم", 
+					"b": "هُنَّ", 
+					"c": "هُوَ", 
+					"d": "هِيَ"
+				},
+				"answer": ["b"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q2",
+				"input": "radio",
+				"question": "_______أُلَئِكَ",
+				"options": {
+					"a": "هُمُ المُفلِحٌ", 
+					"b": "هُمُ المُفلِحِينَ", 
+					"c": "هُمُ المُفلِحُونَ", 
+					"d": "أَنتُمُ المُفلِحُونَ"
+				},
+				"answer": ["c"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q3",
+				"input": "radio",
+				"question": "Choose opposite gender. (صنف بدلیں۔): أنتُم مُدَرِّسُونَ",
+				"options": {
+					"a": "أنتُنَّ مُدَرِّسَاتِ", 
+					"b": "أنتُنَّ مُدَرِّسَاتُ", 
+					"c": "أنتُنَّ مُدَرِّسَاتٍ", 
+					"d": "أنتُنَّ مُدَرِّسَاتٌ"
+				},
+				"answer": ["d"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q4",
+				"input": "checkbox",
+				"question": "Choose plural: جمع چنیں",
+				"options": {
+					"a": "اُلُوالغطمِ", 
+					"b": "أُولِى القُربَى", 
+					"c": "ذَوَاتَ الأثار", 
+					"d": "ذُوالجَلال"
+				},
+				"answer": ["a", "b", "c"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q5",
+				"input": "radio",
+				"question": "Choose correct translation: You all saw her. (تم سب [مذکر]نے اسے [مونث]  دیکھا۔)",
+				"options": {
+					"a": "رَأَيتُمُ هُوَ", 
+					"b": "رَأَيتُمُ هِيَ", 
+					"c": "رَأَيتُمُوهَا", 
+					"d": "رَأَيتُمُوهُ"
+				},
+				"answer": ["c"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q6",
+				"input": "radio",
+				"question": "Choose correct translation: We gave it to you. (-ہم نے اسے تمہیں دیا)",
+				"options": {
+					"a": "أَتَينَاكُمُوهُ", 
+					"b": "أَتَينَاهُكُم", 
+					"c": "أَتَينَاهُ", 
+					"d": "أَتَينَاهَا"
+				},
+				"answer": ["a"],
+				"style": "font-size: 20px;font-weight: bold;"
+			}
+		]
+	}
+]

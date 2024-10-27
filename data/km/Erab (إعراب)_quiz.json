@@ -1,0 +1,72 @@
+[
+	{
+		"id": "quiz-1",
+		"ur-PK_display": "صحیح اعراب کا انتخاب کریں۔",
+		"en-US_display": "Choose the correct Erab",
+		"questions": [
+			{
+				"name" : "q1",
+				"input": "checkbox",
+				"question": "مُشرٍكِينَ",
+				"options": {
+					"a": "مَرفُوع", 
+					"b": "مَنصُوب", 
+					"c": "مَجرُور", 
+					"d": "مَجزُوم"
+				},
+				"answer": ["b", "c"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q2",
+				"input": "radio",
+				"question": "select correct noun type: زَينَبُ",
+				"options": {
+					"a": "مُعرِب مُنصَرِف", 
+					"b": "مُعرِب غَير مُنصَرِف", 
+					"c": "مَبنِى"
+				},
+				"answer": ["b"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q3",
+				"input": "radio",
+				"question": "select correct noun type: هُنَّ",
+				"options": {
+					"a": "مُعرِب مُنصَرِف", 
+					"b": "مُعرِب غَير مُنصَرِف", 
+					"c": "مَبنِى"
+				},
+				"answer": ["c"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q4",
+				"input": "radio",
+				"question": "(مَضاف) ذَا الجَلَالِ",
+				"options": {
+					"a": "مَرفُوع", 
+					"b": "مَنصُوب", 
+					"c": "مَجرُور", 
+					"d": "مَجزُوم"
+				},
+				"answer": ["b"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q5",
+				"input": "radio",
+				"question": "(مُضاف إليهِ) عَبدَهُ",
+				"options": {
+					"a": "مَرفُوع (مَبنِي)", 
+					"b": "مَنصُوب (مَبنِي)", 
+					"c": "مَجرُور (مَبنِي)", 
+					"d": "مَجزُوم"
+				},
+				"answer": ["c"],
+				"style": "font-size: 20px;font-weight: bold;"
+			}
+		]
+	}
+]

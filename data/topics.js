@@ -141,11 +141,17 @@ var knowledge_checks = [
 		ch: "P2 - Nouns", 	topic: "Relative Nouns",  pageNo: 8
 	},
 	{
-		ch: "P2 - Nouns", 	topic: "Nouns - 2",  pageNo: 21
+		ch: "P2 - Nouns", 	topic: "Plurals",  pageNo: 8
+	},
+	{
+		ch: "P2 - Nouns", 	topic: "Erab (إعراب)",  pageNo: 8
 	},
 	{
 		ch: "P2.1 - Noun Patterns", 	topic: "Noun Patterns",  pageNo: 10
 	},
+	{
+		ch: "P2 - Nouns", 	topic: "Nouns - 2",  pageNo: 21
+	},	
 	{
 		ch: "P3 - Verbs", 	topic: "Verbs",  pageNo: 21
 	},

@@ -1,0 +1,125 @@
+[
+	{
+		"id": "quiz-1",
+		"ur-PK_display": "صحیح جواب کا انتخاب کریں۔",
+		"en-US_display": "Choose the correct answer",
+		"questions": [
+			{
+				"name" : "q1",
+				"input": "radio",
+				"question": "choose wrong erab",
+				"options": {
+					"a": "مَسْجِدٌ", 
+					"b": "مَسَاجِدٌ", 
+					"c": "مَسَاجِدُ", 
+					"d": "مَسَاجِدَ"
+				},
+				"answer": ["b"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q2",
+				"input": "checkbox",
+				"question": "إسم المبالغة",
+				"options": {
+					"a": "ظَهُور (فَعُول)", 
+					"b": "عَالِم (فَاعِل)", 
+					"c": "رَزَّاق (فَعَّال)", 
+					"d": "عَلِيم (فَعِيل)"
+				},
+				"answer": ["a", "c", "d"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q3",
+				"input": "radio",
+				"question": "مُوَحِّد of مصدر",
+				"options": {
+					"a": "إتِّحاد (اِفتِعَال)", 
+					"b": "تَوحِيد (تَفعِيل)", 
+					"c": "وَحدَة (فَعلَة)", 
+					"d": "تَوَحُّد (تَفَعٌّل)"
+				},
+				"answer": ["b"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q4",
+				"input": "checkbox",
+				"question": "(مصدر) إِستِقبَال of اِسمُ الفاعِل",
+				"options": {
+					"a": "مُستَقبِل", 
+					"b": "مُستَقبَل", 
+					"c": "مُستَقبِلَة", 
+					"d": "مُستَقبَلَة"
+				},
+				"answer": ["a", "c"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q5",
+				"input": "checkbox",
+				"question": "إِسمُ الزمان ومكان",
+				"options": {
+					"a": "مَسجِد (مَفعِل)", 
+					"b": "مَكاتِب (مَفَاعِل)", 
+					"c": "مُستَقَرّ (مُستَفعَل)", 
+					"d": "مُدَّعَي (مُفتَعَل)"
+				},
+				"answer": ["a", "b", "c", "d"],
+				"style": "font-size: 20px;font-weight: bold;"
+			}
+		]
+	},
+	{
+		"id": "quiz-2",
+		"ur-PK_display": "صحیح جواب کا انتخاب کریں۔",
+		"en-US_display": "Choose the correct answer",
+		"questions": [
+			{
+				"name" : "q1",
+				"input": "radio",
+				"question": "خَفِيف  (كِتابًا)",
+				"options": {
+					"a": "اَلكِتابَ", 
+					"b": "كِتابَ", 
+					"c": "كِتابُ", 
+					"d": "كِتابًا"
+				},
+				"answer": ["b"],
+				"style": "font-size: 20px;font-weight: bold;"
+			},
+			{
+				"name" : "q2",
+				"input": "radio",
+				"question": "خَلِيفَةُ المُسلِمُونَ",
+				"options": {
+					"a": "Correct", 
+					"b": "Wrong"
+				},
+				"answer": ["b"]
+			},
+			{
+				"name" : "q3",
+				"input": "radio",
+				"question": "أَيَّامُ اللهِ",
+				"options": {
+					"a": "Correct", 
+					"b": "Wrong"
+				},
+				"answer": ["a"]
+			},
+			{
+				"name" : "q4",
+				"input": "radio",
+				"question": "كِتَابُ أَبَا يُوسُفَ",
+				"options": {
+					"a": "Correct", 
+					"b": "Wrong"
+				},
+				"answer": ["a"]
+			}
+		]
+	}
+			
+]
