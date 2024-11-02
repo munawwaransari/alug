@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+	<title>Quran API Test</title>
+	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+	<script src="scripts/quranjs/quranjs.bundle.js"></script>
+	<style>
+	
+	em {
+		color: red;
+		background-color: yellow;
+	}
+	
+	div{
+		width: 90%;
+		padding: 20px;
+		rtl: true;
+		text-align: right;
+		font-size: 28px;
+	}
+	</style>
+</head>
+
+<body>
+	<div style="text-align: center; padding: 20px;">
+		<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:4px" onclick="showArabicKeyboard('arabic')"/>
+		<input id="searchText"/>
+		<button id="Search" onclick="search()"> Quran Search </button>
+		<br/>
+		<p style="font-size: 8px">Powered by <a href='https://quranjs.com/' onclick="window.open(this.href, '_blank'); return false;">QuranJS API</a></p>
+	</div>
+	
+	<div id="searchResult"></div>
+	<script>
+	
+	function showArabicKeyboard(keybd){
+		setTimeout(function(){
+			console.log("Opening keyboard: " + keybd);
+			window.open("keybd.html?layout="+keybd, "name", "top=0,left=0,width=600px,height=266px");
+		}, 10);
+	}
+
+	function search(){
+		const text = document.getElementById("searchText").value;
+		var div = $("#searchResult");
+		div.empty();
+		SearchQuran(window.QuranJS.Search.search, text, function(data){
+			console.log(data);
+			data.results.forEach(function(res){
+				div.append($('<div>'+res.highlighted+' ['+ res.verseKey +']</div>'));
+			});
+		});
+	}
+	
+	function searchVerse(verseKey){
+		SearchQuran(window.QuranJS.Verses.findByKey, verseKey, function(data){
+			console.log(data);
+		});
+	}
+	
+	function SearchQuran(ctx, text, callback){
+		
+		const response = ctx(text,  { language: window.QuranJS.Language.ENGLISH, size: 10 })
+					    .then((data)=>{								   
+							if(callback)
+								callback(data);
+						},
+						(error) => {
+							console.error("Quran search error:", error);
+							if(callback)
+								callback(null, error);
+						});
+	};
+	</script>
+</body>
+
+</html>
