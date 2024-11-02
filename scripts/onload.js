@@ -52,6 +52,15 @@ $(document).ready(function()
 	});
 });
 
+function singInUser(){
+	console.log("signIn");
+	$('.reading-pane').attr("src","");
+	setTimeout(function(){
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "login.html"));
+		$('#title-img').hide();
+	}, 5);
+}
+
 function changeLanguageOption(lang){
 	
 	langOption = lang ?? langOption ?? "en-US";
