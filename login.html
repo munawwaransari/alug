@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js"></script>
+    <title>HTML Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .main {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 300px;
+        }
+
+        .main h2 {
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button,
+		button[type="submit"] {
+			padding: 15px;
+            border-radius: 10px;
+            border: none;
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+			margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h2 id="heading">User Login</h2>
+        <form id="loginForm" action="">
+			<div id="loginDiv">
+				<label for="email">User email:</label>
+				<input type="email" id="email" name="email" required />
+
+				<label id="pwd" for="password">Password:</label>
+				<input type="password" id="password" name="password" required />
+
+				<button ype="submit" onclick="onUserLogin(this)">
+					Login
+				</button>
+				
+				<button onclick="onRegisterSelect(this)">
+					Register
+				</button>				
+			</div>
+			<div id="error" style="background:orange; color:white; width:100%; padding=10px;margin-top:50px;"/>
+        </form>
+    </div>
+	<script>
+	var users = null;
+	var login_attempts = 0;
+	
+	window.onload = function(){
+		//lod users
+		loadUserData(function(data){
+			users = data;
+			console.log("Users data available!");
+		});
+		
+		document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+        });
+	};
+	
+	function onRegisterSelect(obj){
+		
+		var base_path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
+		window.location.href = base_path + "reg.html";
+	}
+
+	function onUserLogin(obj) {
+
+		var error = document.getElementById("error");		
+		var user = document.getElementById('email');
+		var pwdObj = document.getElementById('password');
+
+		if(!(user.value) || user.value.trim() == '' || !(pwdObj.value) || pwdObj.value.trim() == ''){
+			error.innerHTML = "Password cannot be blank";
+			return false;
+		}
+		
+		error.innerHTML = "";
+
+		var existingUser = users.filter(u => u.email === user.value);
+		
+		if(!existingUser || existingUser.length == 0){
+			error.innerHTML = "User '"+ user.value +"' does not exist. Please register first";
+			return false;
+		}
+		
+		// Check password
+		var hashObj = new jsSHA("SHA-512", "TEXT", {numRounds: 1});
+		hashObj.update(pwdObj.value);
+		var hash = hashObj.getHash("HEX");
+				
+		if(existingUser.length > 0 &&  existingUser[0].hash != hash){
+			login_attempts++;
+			
+			if(login_attempts > 2){
+				error.innerHTML = "Number of attempts exceeded limit";
+				obj.disabled = true;
+				return;
+			}
+			
+			error.innerHTML = "Password is incorrect. Number of attempts: " + login_attempts;
+			return false;
+		}
+		
+		// user is valid
+		resetAfterlogin(user.value);
+	};
+
+	function resetAfterlogin(user){
+		const parentElement = parent.document.getElementById('s6_tp');
+		parentElement.innerHTML = "You are logged in as: " + user;
+
+		const loginElement = parent.document.getElementById('s6');
+		loginElement.onclick = null;
+
+		const titleImg = parent.document.getElementById('title-img');
+		titleImg.style.display = "block";
+
+		const readingPane = parent.document.getElementsByClassName('reading-pane');
+		readingPane[0].src = '';
+	}
+	
+	async function loadUserData(callback)
+	{
+		try {
+			var base_path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
+			const response = await fetch(base_path + "data/user.json");
+			if (!response.ok) {
+				throw new Error(`HTTP error! Status: ${response.status}`);
+			}
+			const data = await response.json();
+			callback(data);
+		} 
+		catch (error) {
+			console.error("Fetch error:", error);
+		}
+	};
+	</script>
+</body>
+
+</html>
