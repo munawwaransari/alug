@@ -101,6 +101,16 @@ function toggleIcon(id){
 	
 };
 
+function loadQuranSearch(){
+	
+	console.log("loadQuranSearch");
+	$('.reading-pane').attr("src","");
+	setTimeout(function(){
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "qsearch.html"));
+		$('#title-img').hide();
+	}, 5);
+}
+
 async function loadJsonData(url,  callback, errorCallback)
 {
 	try {
@@ -118,7 +128,6 @@ async function loadJsonData(url,  callback, errorCallback)
 		}
 	}
 };
-
 
 async function loadHtmlData(url,  callback)
 {
