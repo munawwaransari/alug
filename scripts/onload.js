@@ -50,8 +50,24 @@ $(document).ready(function()
 			
 		}
 	});
+	
+	var searchVal = decodeURI(getParamValue("search"));	
+	if(searchVal && searchVal != 'undefined'){
+		loadQuranSearch(searchVal);
+	}
 });
 
+function getParamValue(paramName){
+	var url = window.location.search.substring(1); //get rid of "?" in querystring
+	var qArray = url.split('&'); //get key-value pairs
+	for (var i = 0; i < qArray.length; i++) 
+	{
+		var pArr = qArray[i].split('='); //split key and value
+		if (pArr[0] == paramName) 
+			return pArr[1]; //return value
+	}
+}
+			
 function singInUser(){
 	console.log("signIn");
 	$('.reading-pane').attr("src","");
@@ -101,12 +117,12 @@ function toggleIcon(id){
 	
 };
 
-function loadQuranSearch(){
+function loadQuranSearch(text){
 	
 	console.log("loadQuranSearch");
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
-		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "qsearch.html"));
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "qsearch.html?search="+text));
 		$('#title-img').hide();
 	}, 5);
 }
