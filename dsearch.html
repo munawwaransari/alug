@@ -208,7 +208,7 @@
 		const xhr = new XMLHttpRequest();
 		xhr.open("GET", url, true); // true for asynchronous request
 		xhr.overrideMimeType('text/html; charset=utf-8');
-		//xhr.setRequestHeader('host', 'glosbe.com');
+		xhr.setRequestHeader('host', 'glosbe.com');
 		//xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); 
 		//xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
 		xhr.responseType = "text"; // Parse the response as an HTML document
