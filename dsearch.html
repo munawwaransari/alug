@@ -227,7 +227,7 @@
 	}
 	
 	function getDictionarySiteUrl(){
-		return window.location.href.inlcudes("localhost") ?
+		return window.location.href.search("localhost") > -1 ?
 			"http://glosbe.com" :
 			"https://glosbe.com";
 	}
