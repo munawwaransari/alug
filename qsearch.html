@@ -53,15 +53,31 @@
 				if(res.highlighted){
 					var verse = res.highlighted;
 					res.words.forEach(function(w){
-						var link = encodeURI("https://glosbe.com/ar/ar/"+w.text);
+						verse = replaceWordWithLink(verse, w);
+						/*
+						word = w.text.replace("ۚ","");
+						var link = encodeURI("https://glosbe.com/ar/ar/"+word);
 						var click_event = (parent ? "parent.window" : "window") + ".open(this.href, '_blank'); return false;";
-						verse = verse.replace(w.text, '<a style="cursor:pointer" href="'+link+'" onclick="'+click_event+'">'+w.text+'</a>');
+						verse = verse.replace(word, '<a style="cursor:pointer" href="'+link+'" onclick="'+click_event+'">'+word+'</a>');
+						*/
 					});
-					//div.append($('<div>'+res.highlighted+' ['+ res.verseKey +']</div>'));
 					div.append($('<div>'+verse+' ['+ res.verseKey +']</div>'));
 				}
 			});
 		});
+	}
+	
+	function replaceWordWithLink(verse, w){
+		var punctuation = "ۧۦۥۣۤۢۡ۠۟۞۝ۜۛۚۙۘۗۖە";
+		var text = w.text;
+		
+		for (let i = 0; i < punctuation.length; i++){
+			text = text.replace(punctuation[i],'');
+		}
+
+		var link = encodeURI("https://glosbe.com/ar/ar/"+text);
+		var click_event = (parent ? "parent.window" : "window") + ".open(this.href, '_blank'); return false;";
+		return verse.replace(text, '<a style="cursor:pointer" href="'+link+'" onclick="'+click_event+'">'+text+'</a>');
 	}
 	
 	function searchVerse(verseKey){
