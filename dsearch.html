@@ -170,7 +170,7 @@
 		}
 		
 		return {
-			"searchUrl": encodeURI("http://glosbe.com/ar/"+lang+"/"+text),
+			"searchUrl": encodeURI(getDictionarySiteUrl()+"/ar/"+lang+"/"+text),
 			"expressions" : searchExpressions,
 			"prefixes":  prefixes,
 			"suffixes": suffixes
@@ -196,7 +196,7 @@
 		}
 		
 		return {
-			"searchUrl": encodeURI("http://glosbe.com/ar/ar/"+text),
+			"searchUrl": encodeURI(getDictionarySiteUrl()+"/ar/ar/"+text),
 			"expressions" : searchExpressions,
 			"prefixes":  prefixes,
 			"suffixes": suffixes
@@ -224,6 +224,12 @@
 			}
 		};
 		xhr.send();
+	}
+	
+	function getDictionarySiteUrl(){
+		return window.location.href.inlcudes("localhost") ?
+			"http://glosbe.com" :
+			"https://glosbe.com";
 	}
 
 	function getParamValue(paramName)
