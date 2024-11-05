@@ -125,13 +125,32 @@
 	}
 	
 	function SearchDictionary(searchParams, callback){
-		
+	
+		if(!isLocalHost()){
+			var response = [];
+			Object.keys(searchParams).forEach(key => {
+				var sp = searchParams[key];
+				if(parent){
+					response.push($('<div><h2>'+sp.title+'</h2>'+
+							'<a href="'+sp.searchUrl+'" onclick="parent.window.open(this.href, \'_blank\'); return false;">'+decodeURI(sp.searchUrl)+'</a>'+
+							'</div>'));
+				}else{
+					response.push($('<div><h2>'+sp.title+'</h2>'+
+							'<a href="'+sp.searchUrl+'" onclick="window.open(this.href, \'_blank\'); return false;">'+decodeURI(sp.searchUrl)+'</a>'+
+							'</div>'));
+				}
+			});
+			if(callback)
+				callback(response);
+			return;
+		}
+
 		Object.keys(searchParams).forEach(key => {
+			var response = [];
 			var sp = searchParams[key];
 			fetchHtml(sp.searchUrl, function(html){
 				if(callback){
 					// search required elementd from tyhe html response
-					var response = [];
 					var index = 0;
 					sp.expressions.forEach(function(expr){
 					
@@ -170,10 +189,11 @@
 		}
 		
 		return {
-			"searchUrl": encodeURI(getDictionarySiteUrl()+"/ar/"+lang+"/"+text),
+			"searchUrl": encodeURI("https://glosbe.com/ar/"+lang+"/"+text),
 			"expressions" : searchExpressions,
 			"prefixes":  prefixes,
-			"suffixes": suffixes
+			"suffixes": suffixes,
+			"title" : "Translation of "+text+" into "+lang
 		};
 	}
 
@@ -183,57 +203,59 @@
 		var prefixes = [];
 		var suffixes = [];
 
+		var title = "";
 		if(includeSynonym){
 			searchExpressions.push(/Synonyms of <strong>(.*?)\<\/p\>/gs);
 			prefixes.push('<div><h2>');
 			suffixes.push("</div>");
+			title = "Synonyms of "+ text;
 		}
 		
 		if(includeGrammarAndDeclension){
 			searchExpressions.push(/\<ul class\=\"text\-xs grammar\-tables(.*?)\<\/ul\>/gs);
 			prefixes.push("<div><h2>Grammar and declension of "+text+" </h2>");
 			suffixes.push("</div>");
+			title = "Grammar and declension of "+ text;
 		}
 		
 		return {
-			"searchUrl": encodeURI(getDictionarySiteUrl()+"/ar/ar/"+text),
+			"searchUrl": encodeURI("https://glosbe.com/ar/ar/"+text),
 			"expressions" : searchExpressions,
 			"prefixes":  prefixes,
-			"suffixes": suffixes
+			"suffixes": suffixes,
+			"title": title
 		};
 	}
 		
 	function fetchHtml(url, callback){
 			
-		const xhr = new XMLHttpRequest();
-		xhr.open("GET", url, true); // true for asynchronous request
-		xhr.overrideMimeType('text/html; charset=utf-8');
-		//xhr.setRequestHeader('Origin', 'https://localhost');
-		//xhr.setRequestHeader('Referer', 'https://localhost');
-		//xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-		xhr.responseType = "text"; // Parse the response as an HTML document
-		xhr.onload = () => {
-			if (xhr.status === 200) {
-				// Successfully received the HTML content
-				if(callback){
-					callback(xhr.responseText);
-					//delete xhr;
+		try
+		{
+			const xhr = new XMLHttpRequest();
+			xhr.open("GET", url, true); // true for asynchronous request
+			xhr.overrideMimeType('text/html; charset=utf-8');
+			xhr.responseType = "text"; // Parse the response as an HTML document
+			xhr.onload = () => {
+				if (xhr.status === 200) {
+					// Successfully received the HTML content
+					if(callback){
+						callback(xhr.responseText);
+						//delete xhr;
+					}
+				} else {
+					console.error("Failed to fetch HTML content:", xhr.statusText);
 				}
-			} else {
-				console.error("Failed to fetch HTML content:", xhr.statusText);
-			}
-		};
-		xhr.send();
+			};
+			xhr.send();
+		}
+		catch(err){
+			console.log(err);
+		}	
 	}
 	
-	function getDictionarySiteUrl(){
+	function isLocalHost(){
 	
-		return "https://glosbe.com";
-		/*
-		return window.location.href.search("localhost") > -1 ?
-			"http://glosbe.com" :
-			"https://glosbe.com";
-		*/
+		return window.location.href.search("localhost") > -1 ? true : false;
 	}
 
 	function getParamValue(paramName)
