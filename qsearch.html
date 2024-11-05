@@ -51,7 +51,14 @@
 			console.log(data);
 			data.results.forEach(function(res){
 				if(res.highlighted){
-					div.append($('<div>'+res.highlighted+' ['+ res.verseKey +']</div>'));
+					var verse = res.highlighted;
+					res.words.forEach(function(w){
+						var link = encodeURI("https://glosbe.com/ar/ar/"+w.text);
+						verse = verse.replace(w.text, '<a style="cursor:pointer" href="'+link+'" onclick="window.open(this.href, "_blank");return false;">'+
+													   w.text+'</a>');
+					});
+					//div.append($('<div>'+res.highlighted+' ['+ res.verseKey +']</div>'));
+					div.append($('<div>'+verse+' ['+ res.verseKey +']</div>'));
 				}
 			});
 		});
