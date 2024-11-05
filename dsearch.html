@@ -146,7 +146,7 @@
 							if(res && sp.suffixes[index]){
 								res = res + sp.suffixes[index];
 							}
-							console.log(res);
+							//console.log(res);
 							response.push($(res));
 						}
 						index++;
@@ -208,8 +208,8 @@
 		const xhr = new XMLHttpRequest();
 		xhr.open("GET", url, true); // true for asynchronous request
 		xhr.overrideMimeType('text/html; charset=utf-8');
-		xhr.setRequestHeader('host', 'glosbe.com');
-		//xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); 
+		//xhr.setRequestHeader('Origin', 'https://localhost');
+		//xhr.setRequestHeader('Referer', 'https://localhost');
 		//xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
 		xhr.responseType = "text"; // Parse the response as an HTML document
 		xhr.onload = () => {
@@ -217,7 +217,7 @@
 				// Successfully received the HTML content
 				if(callback){
 					callback(xhr.responseText);
-					delete xhr;
+					//delete xhr;
 				}
 			} else {
 				console.error("Failed to fetch HTML content:", xhr.statusText);
@@ -227,9 +227,13 @@
 	}
 	
 	function getDictionarySiteUrl(){
+	
+		return "https://glosbe.com";
+		/*
 		return window.location.href.search("localhost") > -1 ?
 			"http://glosbe.com" :
 			"https://glosbe.com";
+		*/
 	}
 
 	function getParamValue(paramName)
