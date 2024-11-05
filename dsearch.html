@@ -102,17 +102,15 @@
 		}
 
 		var includeSynonym = $("#includeSynonym").is(':checked');
-		var includeGrammarAndDeclension = $("#inlcudeGrammarAndDeclension").is(':checked');
-		if(includeSynonym || includeGrammarAndDeclension){
-			searchParams["ar/ar"] = prepareSearchArabic(text, includeSynonym, includeGrammarAndDeclension);
+		if(includeSynonym){
+			searchParams["ar/ar1"] = prepareSearchArabic(text, includeSynonym);
 		}
-		
-		var includeSynonym = $("#includeGrammarAndDeclension").is(':checked');
+
 		var includeGrammarAndDeclension = $("#includeGrammarAndDeclension").is(':checked');
-		if(includeSynonym || includeGrammarAndDeclension){
-			searchParams["ar/ar"] = prepareSearchArabic(text, includeSynonym, includeGrammarAndDeclension);
+		if(includeGrammarAndDeclension){
+			searchParams["ar/ar2"] = prepareSearchArabic(text, undefined, includeGrammarAndDeclension);
 		}
-		
+
 		SearchDictionary(searchParams, function(data){
 			console.log(data);
 			data.forEach(function(res){
