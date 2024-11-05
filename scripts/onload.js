@@ -117,6 +117,16 @@ function toggleIcon(id){
 	
 };
 
+function loadDictionarySearch(text){
+
+	console.log("loadDictionarySearch");
+	$('.reading-pane').attr("src","");
+	setTimeout(function(){
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "dsearch.html?search="+text));
+		$('#title-img').hide();
+	}, 5);
+}
+
 function loadQuranSearch(text){
 	
 	console.log("loadQuranSearch");

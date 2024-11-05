@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+	<title>Glosbe dictionary Search</title>
+	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+	<style>
+	div {
+		width: 100%;
+		padding: 4px;
+		rtl: true;
+		text-align: center;
+		font-size: 14px;
+		justify-content: center; /* Centers horizontally */
+		align-items: center;     /* Centers vertically */
+	}
+	
+	ul li
+	{
+		list-style-type: none;
+		font-size: 18px;
+		justify-content: center; /* Centers horizontally */
+		align-items: center;     /* Centers vertically */
+	}
+	
+	p span {
+		font-size: 18px;
+	}
+
+	table, th, td {
+		border: 1px solid;
+		margin-left: auto;
+		margin-right: auto;
+		justify-content: center; /* Centers horizontally */
+		align-items: center;     /* Centers vertically */
+	}
+
+	/* Glosbe styles */
+	.text-xs {
+		font-size: 10px;
+		line-height: 1rem;
+	}
+	
+	.pl-4, html[dir=ltr] .dir-aware-pl-4 {
+		padding-left: 1rem;
+	}
+	
+	.grammar-tables table, .translation-details-grammar table {
+		font-size: 18px;
+		line-height: 1rem;
+		margin-bottom: .5rem;
+		margin-top: .5rem;
+		width: 100%;
+		justify-content: center; /* Centers horizontally */
+		align-items: center;     /* Centers vertically */
+	}
+	</style>
+</head>
+
+<body>
+	<div style="text-align: center; padding: 20px;">
+		<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:4px" onclick="showArabicKeyboard('arabic')"/>
+		<input id="searchText"/>
+		<button id="Search" onclick="search()"> Dictionary Search </button>
+		<br/>
+		<span>
+			<input id="includeEn" type="checkbox" checked/><label>English</label>
+			<input id="includeUr" type="checkbox" checked/><label>Urdu</label>
+			<input id="includeSynonym" type="checkbox" checked/><label>Synonyms</label>
+			<input id="includeGrammarAndDeclension" type="checkbox" checked/><label>Grammar and Declension</label>
+		<br/>
+		<p style="font-size: 8px">Powered by <a href='https://glosbe.com/' onclick="window.open(this.href, '_blank'); return false;">Glosbe</a></p>
+	</div>
+	
+	<div id="searchResult"></div>
+	<script>
+	
+	function showArabicKeyboard(keybd){
+		setTimeout(function(){
+			console.log("Opening keyboard: " + keybd);
+			window.open("keybd.html?layout="+keybd, "name", "top=0,left=0,width=600px,height=266px");
+		}, 10);
+	}
+
+	function search(){
+		const text = document.getElementById("searchText").value;
+		var div = $("#searchResult");
+		div.empty();
+
+		var searchParams = {};
+
+		var includeEn = $("#includeEn").is(':checked');
+		if(includeEn){
+			searchParams["ar/en"] = prepareSearchTranslation("en", text, includeEn);
+		}
+		
+		var includeUr = $("#includeUr").is(':checked');
+		if(includeUr){
+			searchParams["ar/ur"] = prepareSearchTranslation("ur", text, includeUr);
+		}
+
+		var includeSynonym = $("#includeSynonym").is(':checked');
+		if(includeSynonym){
+			searchParams["ar/ar1"] = prepareSearchArabic(text, includeSynonym);
+		}
+
+		var includeGrammarAndDeclension = $("#includeGrammarAndDeclension").is(':checked');
+		if(includeGrammarAndDeclension){
+			searchParams["ar/ar2"] = prepareSearchArabic(text, undefined, includeGrammarAndDeclension);
+		}
+
+		SearchDictionary(searchParams, function(data){
+			console.log(data);
+			data.forEach(function(res){
+				if(res){
+					div.append(res);
+				}
+			});
+		});
+		
+	}
+	
+	function SearchDictionary(searchParams, callback){
+	
+		if(!isLocalHost()){
+			var response = [];
+			Object.keys(searchParams).forEach(key => {
+				var sp = searchParams[key];
+				if(parent){
+					response.push($('<div><h2>'+sp.title+'</h2>'+
+							'<a href="'+sp.searchUrl+'" onclick="parent.window.open(this.href, \'_blank\'); return false;">'+decodeURI(sp.searchUrl)+'</a>'+
+							'</div>'));
+				}else{
+					response.push($('<div><h2>'+sp.title+'</h2>'+
+							'<a href="'+sp.searchUrl+'" onclick="window.open(this.href, \'_blank\'); return false;">'+decodeURI(sp.searchUrl)+'</a>'+
+							'</div>'));
+				}
+			});
+			if(callback)
+				callback(response);
+			return;
+		}
+
+		Object.keys(searchParams).forEach(key => {
+			var response = [];
+			var sp = searchParams[key];
+			fetchHtml(sp.searchUrl, function(html){
+				if(callback){
+					// search required elementd from tyhe html response
+					var index = 0;
+					sp.expressions.forEach(function(expr){
+					
+						//const re = new RegExp("(?<=\<div class\=\"py-2\").+?(?=<\<\/div\>)");
+						//var res = re.exec(html);
+						var matching = html.match(expr);
+						if(matching){
+							var res = (matching.length > 0) ? matching[0] : "";
+							if(res && sp.prefixes[index]){
+								res = sp.prefixes[index] + res;
+							}
+							if(res && sp.suffixes[index]){
+								res = res + sp.suffixes[index];
+							}
+							//console.log(res);
+							response.push($(res));
+						}
+						index++;
+					});
+					callback(response);
+				}
+			});
+		});
+	}
+	
+	function prepareSearchTranslation(lang, text, inlcudeFlag){
+
+		var searchExpressions = [];
+		var prefixes = [];
+		var suffixes = [];
+
+		if(inlcudeFlag){
+			searchExpressions.push(/Translation of (.*?)\<\/div\>/gs);
+			prefixes.push('<div><h1><span>');
+			suffixes.push("");
+		}
+		
+		return {
+			"searchUrl": encodeURI("https://glosbe.com/ar/"+lang+"/"+text),
+			"expressions" : searchExpressions,
+			"prefixes":  prefixes,
+			"suffixes": suffixes,
+			"title" : "Translation of "+text+" into "+lang
+		};
+	}
+
+	function prepareSearchArabic(text, includeSynonym, includeGrammarAndDeclension){
+
+		var searchExpressions = [];
+		var prefixes = [];
+		var suffixes = [];
+
+		var title = "";
+		if(includeSynonym){
+			searchExpressions.push(/Synonyms of <strong>(.*?)\<\/p\>/gs);
+			prefixes.push('<div><h2>');
+			suffixes.push("</div>");
+			title = "Synonyms of "+ text;
+		}
+		
+		if(includeGrammarAndDeclension){
+			searchExpressions.push(/\<ul class\=\"text\-xs grammar\-tables(.*?)\<\/ul\>/gs);
+			prefixes.push("<div><h2>Grammar and declension of "+text+" </h2>");
+			suffixes.push("</div>");
+			title = "Grammar and declension of "+ text;
+		}
+		
+		return {
+			"searchUrl": encodeURI("https://glosbe.com/ar/ar/"+text),
+			"expressions" : searchExpressions,
+			"prefixes":  prefixes,
+			"suffixes": suffixes,
+			"title": title
+		};
+	}
+		
+	function fetchHtml(url, callback){
+			
+		try
+		{
+			const xhr = new XMLHttpRequest();
+			xhr.open("GET", url, true); // true for asynchronous request
+			xhr.overrideMimeType('text/html; charset=utf-8');
+			xhr.responseType = "text"; // Parse the response as an HTML document
+			xhr.onload = () => {
+				if (xhr.status === 200) {
+					// Successfully received the HTML content
+					if(callback){
+						callback(xhr.responseText);
+						//delete xhr;
+					}
+				} else {
+					console.error("Failed to fetch HTML content:", xhr.statusText);
+				}
+			};
+			xhr.send();
+		}
+		catch(err){
+			console.log(err);
+		}	
+	}
+	
+	function isLocalHost(){
+	
+		return window.location.href.search("localhost") > -1 ? true : false;
+	}
+
+	function getParamValue(paramName)
+	{
+		var url = window.location.search.substring(1); //get rid of "?" in querystring
+		var qArray = url.split('&'); //get key-value pairs
+		for (var i = 0; i < qArray.length; i++) 
+		{
+			var pArr = qArray[i].split('='); //split key and value
+			if (pArr[0] == paramName) 
+				return pArr[1]; //return value
+		}
+	}
+
+	window.onload = function(){
+		var searchVal = decodeURI(getParamValue("search"));	
+		if(searchVal && searchVal != 'undefined'){
+			$("#searchText").val(searchVal);
+			search();
+		}
+	};
+
+	</script>
+</body>
+
+</html>
