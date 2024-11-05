@@ -54,8 +54,8 @@
 					var verse = res.highlighted;
 					res.words.forEach(function(w){
 						var link = encodeURI("https://glosbe.com/ar/ar/"+w.text);
-						verse = verse.replace(w.text, '<a style="cursor:pointer" href="'+link+'" onclick="window.open(this.href, "_blank");return false;">'+
-													   w.text+'</a>');
+						var click_event = (parent ? "parent.window" : "window") + ".open(this.href, '_blank'); return false;";
+						verse = verse.replace(w.text, '<a style="cursor:pointer" href="'+link+'" onclick="'+click_event+'">'+w.text+'</a>');
 					});
 					//div.append($('<div>'+res.highlighted+' ['+ res.verseKey +']</div>'));
 					div.append($('<div>'+verse+' ['+ res.verseKey +']</div>'));
