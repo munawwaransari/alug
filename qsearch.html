@@ -13,7 +13,11 @@
 		color: red;
 		background-color: yellow;
 	}
-	
+
+	a{
+		text-decoration: none;
+	}
+ 
 	div{
 		width: 90%;
 		padding: 20px;
@@ -52,14 +56,12 @@
 			data.results.forEach(function(res){
 				if(res.highlighted){
 					var verse = res.highlighted;
+					var replacedWords = [];
 					res.words.forEach(function(w){
-						verse = replaceWordWithLink(verse, w);
-						/*
-						word = w.text.replace("ۚ","");
-						var link = encodeURI("https://glosbe.com/ar/ar/"+word);
-						var click_event = (parent ? "parent.window" : "window") + ".open(this.href, '_blank'); return false;";
-						verse = verse.replace(word, '<a style="cursor:pointer" href="'+link+'" onclick="'+click_event+'">'+word+'</a>');
-						*/
+						replacedWords.push({"word": w.text, "text": replaceWord(w) });
+					});
+					replacedWords.forEach(function(w){
+						verse = replaceWithLink(verse, w.word, w.text);
 					});
 					div.append($('<div>'+verse+' ['+ res.verseKey +']</div>'));
 				}
@@ -67,15 +69,21 @@
 		});
 	}
 	
-	function replaceWordWithLink(verse, w){
-		var punctuation = "ۧ 	 ۦۥۣۤۢۡ۠۟۞۝ۜۛۚۙۘۗۖە";
+	function replaceWord(w){
+		var punctuation = "ۡۧ 	 ۦۥۣۤۢۡ۠۟۞۝ۜۛۚۙۘۗۖە";
 		var text = w.text
-					.replace(new RegExp("وَٱلۡ","g"), '')
-					.replace(new RegExp("["+punctuation+"]+","g"), '');
+					.replace(new RegExp("["+punctuation+"]+","g"), '')
+					.replace(new RegExp("ٱ", "g"), 'ا')
+					.replace(new RegExp("ىٰ","g"), 'ى')
+					.replace(new RegExp("وَال","g"), 'ال')
+					.replace(new RegExp("ٰ","g"), "ا");
+		return text;
+	}
 	
+	function replaceWithLink(verse, word, text){
 		var link = encodeURI("https://glosbe.com/ar/ar/"+text);
 		var click_event = (parent ? "parent.window" : "window") + ".open(this.href, '_blank'); return false;";
-		return verse.replace(text, '<a style="cursor:pointer" href="'+link+'" onclick="'+click_event+'">'+text+'</a>');
+		return verse.replace(word, '<a style="cursor:pointer" href="'+link+'" onclick="'+click_event+'">'+text+'</a>');
 	}
 	
 	function searchVerse(verseKey){
