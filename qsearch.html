@@ -68,13 +68,11 @@
 	}
 	
 	function replaceWordWithLink(verse, w){
-		var punctuation = "ۧۦۥۣۤۢۡ۠۟۞۝ۜۛۚۙۘۗۖە";
-		var text = w.text;
-		
-		for (let i = 0; i < punctuation.length; i++){
-			text = text.replace(punctuation[i],'');
-		}
-
+		var punctuation = "ۧ 	 ۦۥۣۤۢۡ۠۟۞۝ۜۛۚۙۘۗۖە";
+		var text = w.text
+					.replace(new RegExp("وَٱلۡ","g"), '')
+					.replace(new RegExp("["+punctuation+"]+","g"), '');
+	
 		var link = encodeURI("https://glosbe.com/ar/ar/"+text);
 		var click_event = (parent ? "parent.window" : "window") + ".open(this.href, '_blank'); return false;";
 		return verse.replace(text, '<a style="cursor:pointer" href="'+link+'" onclick="'+click_event+'">'+text+'</a>');
