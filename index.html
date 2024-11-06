@@ -18,6 +18,11 @@
 			var states = {};
 	
 			function updateStates(s){ $.extend(states, s); };
+			
+			window.playText = function(txt){
+				$("#text").text(txt);
+				$("#play").click();
+			}
 		</script>
 		</script>
 		<script src="scripts/chapters.js"></script>

@@ -63,27 +63,55 @@
 					replacedWords.forEach(function(w){
 						verse = replaceWithLink(verse, w.word, w.text);
 					});
-					div.append($('<div>'+verse+' ['+ res.verseKey +']</div>'));
+					var play = '<img src="images/speech-enabled.png" style="width:20px;cursor: pointer;" onclick="playVerse(\''+res.text+'\')"/>';
+					div.append($('<div>'+verse+' ['+ res.verseKey +'] <span>'+play+'</span></div>'));
 				}
 			});
 		});
 	}
 	
 	function replaceWord(w){
-		var punctuation = "ۡۧ 	 ۦۥۣۤۢۡ۠۟۞۝ۜۛۚۙۘۗۖە";
+		var punctuation = "ۡۧ ـ	 ۦۥۣۤۢۡ۠۟۞۝ۜۛۚۙۘۗۖە";
 		var text = w.text
 					.replace(new RegExp("["+punctuation+"]+","g"), '')
 					.replace(new RegExp("ٱ", "g"), 'ا')
 					.replace(new RegExp("ىٰ","g"), 'ى')
 					.replace(new RegExp("وَال","g"), 'ال')
-					.replace(new RegExp("ٰ","g"), "ا");
+					.replace(new RegExp("ٰ","g"), "ا")
+					.replace(new RegExp("لِل","g"),"");
 		return text;
 	}
 	
 	function replaceWithLink(verse, word, text){
 		var link = encodeURI("https://glosbe.com/ar/ar/"+text);
 		var click_event = (parent ? "parent.window" : "window") + ".open(this.href, '_blank'); return false;";
-		return verse.replace(word, '<a style="cursor:pointer" href="'+link+'" onclick="'+click_event+'">'+text+'</a>');
+		if( verse.search(word) == -1){
+			word = word.replace(new RegExp("ٍ","g"),'')
+					   .replace(new RegExp("ً","g"),'')
+					   .replace(new RegExp("ٌ","g"),'')
+					   .replace(new RegExp("ٞ","g"),'')
+					   .replace(new RegExp("مَٰ","g"),"مَـٰ")
+					   .replace(new RegExp("ثَٰ","g"),"ثَـٰ")
+					   .replace(new RegExp("بَٰ","g"),"بَـٰ")
+					   .replace(new RegExp("كَٰ","g"),"كَـٰ")
+					   .replace(new RegExp("لَٰ","g"),"لَـٰ")
+					   .replace(new RegExp("قَٰ","g"),"قَـٰ")
+					   .replace(new RegExp("يّٞ","g"),"ىٌّ")
+					   .replace(new RegExp("ۡ","g"),"ْ")
+					   .replace(new RegExp("ۖ","g"),'')
+					   .replace(new RegExp("ۗ","g"),'')
+					   .replace(new RegExp("ۘ","g"),'')
+					   .replace(new RegExp("ۙ","g"),'')
+					   .replace(new RegExp("ۚ","g"),'')
+					   .replace(new RegExp("ۛ","g"),'')
+					   .replace(new RegExp("ۜ","g"),'')
+					   .replace(new RegExp("ٖ","g"),'');
+		}
+		if( verse.search(word) == -1){
+			word = word.replace(new RegExp("^كَ","g"),'')
+					   .replace(new RegExp("^لِ","g"),'');
+		}
+		return verse.replace(word, '<a style="cursor:pointer;" href="'+link+'" onclick="'+click_event+'">'+word+'</a>');
 	}
 	
 	function searchVerse(verseKey){
@@ -118,12 +146,21 @@
 		}
 	}
 	
+	function playVerse(txt){
+	
+		if(parent){
+			parent.playText(txt);
+		}else{
+			window.playText(txt);
+		}
+	}
+	
 	window.onload = function(){
 		var searchVal = decodeURI(getParamValue("search"));	
 		if(searchVal && searchVal != 'undefined'){
 			$("#searchText").val(searchVal);
 			search();
-		}
+		}	
 	};
 
 	</script>
