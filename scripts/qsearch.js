@@ -10,6 +10,7 @@ function showArabicKeyboard(keybd){
 }
 
 function search(){
+	stopPlayVerse();
 	const text = document.getElementById("searchText").value;
 	var div = $("#searchResult");
 	div.empty();
@@ -36,7 +37,12 @@ function search(){
 										      'onclick="stopPlayVerse()"/>'+
 											  
 											  '</span>': '';
-				div.append($('<div>'+verse+' ['+ res.verseKey +'] '+play+'</div>'));
+											  
+				var tanzilLink = '<a style="font-size:18px" href="https://tanzil.net/#'+res.verseKey+'" '+
+							     'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
+								 '[' + res.verseKey+ ']'+
+								 '</a>';
+				div.append($('<div>'+verse+' '+tanzilLink+' '+play+'</div>'));
 			}
 		});
 	});
@@ -165,6 +171,53 @@ function stopPlayVerse(){
 	}
 }
 
+function listSurahs(){
+	var path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
+	var url = path + 'data/qsurah.json';
+	listSurahsAsync(url, function(data){
+		
+		var div = $("#searchResult");
+		div.empty();
+		var table = '<table class="surahIndex"><th>Index</th><th>Surah Name (en)</th><th>Surah Name (ar)</th>';
+		for (const [index, surah] of Object.entries(data)) {
+			
+			var tanzilLink = '<a style="cursor:pointer;font-size:18px" href="https://tanzil.net/#'+index+'" '+
+				 'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
+				 '[' + surah.en+ ']'+
+				 '</a>';
+			table = table+ '<tr>'+'<td>'+index+'</td>'+'<td>'+tanzilLink+'</td>'+'<td>'+surah.ar+'</td></tr>';	
+		}
+		table = table+'</table>';
+		div.append($(table));
+	});
+}
+
+async function listSurahsAsync(url, callback)
+{
+	try {
+		const response = await fetch(url);
+		if (!response.ok) {
+			throw new Error(`HTTP error! Status: ${response.status}`);
+		}
+		const data = await response.json();
+		callback(data);
+	} 
+	catch (error) {
+		console.error("Fetch error:", error);
+		if (errorCallback){
+			errorCallback(error);
+		}
+	}
+};
+
+function searchHadith(){
+	
+	const text = document.getElementById("searchText").value;
+	var searchUrl = encodeURI("https://sunnah.com/search?q="+text);
+	var w = parent.window ? parent.window : windwo;
+	w.open(searchUrl, '_blank');
+}
+
 var lang = "ar";
 window.onload = function(){
 	var langParam = decodeURI(getParamValue("lang"));
@@ -177,4 +230,9 @@ window.onload = function(){
 		$("#searchText").val(searchVal);
 		search();
 	}	
+	
+	if(parent.playAudio == undefined){
+		var e = document.getElementById("qar");
+		e.innerHTML = "";
+	}
 };
