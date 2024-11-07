@@ -132,7 +132,12 @@ function loadQuranSearch(text){
 	console.log("loadQuranSearch");
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
-		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "qsearch.html?search="+text));
+
+		//get lang pram value
+		var selectElement = document.getElementById('lang-options');
+		var lang = selectElement.value.substring(0,2);
+
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "qsearch.html?search="+text+"&lang="+lang));
 		$('#title-img').hide();
 	}, 5);
 }
