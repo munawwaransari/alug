@@ -25,11 +25,33 @@ function search(){
 				replacedWords.forEach(function(w){
 					verse = replaceWithLink(verse, w.word, w.text);
 				});
-				var play = parent.playText ? '<span><img src="images/speech-enabled.png" style="width:20px;cursor: pointer;" onclick="playVerse(\''+res.text+'\')"/></span>': '';
+				
+				var spanId = res.verseKey.replace(":","_");
+				var play = parent.playAudio ? '<span id="'+spanId+'">'+
+											  
+											  '<img title="Play" src="images/speech-enabled.png" style="visibility:visible;width:20px;cursor: pointer;" '+
+										      'onclick="playVerse(\''+getQiratPlayUrl(res.verseKey)+'\',\''+res.verseKey+'\')"/>'+
+											  
+											  '<img title="Stop" src="images/stop.png" style="visibility:hidden;width:20px;cursor: pointer;" '+
+										      'onclick="stopPlayVerse()"/>'+
+											  
+											  '</span>': '';
 				div.append($('<div>'+verse+' ['+ res.verseKey +'] '+play+'</div>'));
 			}
 		});
 	});
+}
+
+function getQiratPlayUrl(verseKey){
+	var chapter = verseKey.split(":")[0];
+	if(chapter.length === 1) chapter = "00" + chapter;
+	if(chapter.length === 2) chapter = "0" + chapter;
+	
+	var ayat = verseKey.split(":")[1];
+	if(ayat.length === 1) ayat = "00" + ayat;
+	if(ayat.length === 2) ayat = "0" + ayat;
+		
+	return encodeURI("https://everyayah.com/data/AbdulSamad_64kbps_QuranExplorer.Com/"+chapter+ayat+".mp3");
 }
 
 function replaceWord(w){
@@ -109,12 +131,37 @@ function getParamValue(paramName)
 	}
 }
 
-function playVerse(txt){
+function togglePlayButtons(verseKey, v, h){
+	var id = verseKey.replace(":","_");
+	var elem = document.getElementById(id);
+	elem.children[0].style = "visibility:"+v+";width:20px;cursor: pointer;"
+	elem.children[1].style = "visibility:"+h+";width:20px;cursor: pointer;";
+}
+
+function playVerse(url, verseKey){
+	
+	// Update Qari
+	var selected_qari = document.getElementById('qari-options').value;
+	var current_url = decodeURI(url);
+	var current_qari = current_url.replace("https://everyayah.com/data/",'')
+								  .split("/")[0];
+	var url2  = encodeURI(current_url.replace(current_qari, selected_qari));
 
 	if(parent){
-		parent.playText(txt);
-	}else{
-		window.playText(txt);
+		parent.playAudio(url2, function(action){
+			
+			if(action == "pause" || action == "ended"){
+				togglePlayButtons(verseKey, "visisble", "hidden");
+			}
+		});
+		
+		togglePlayButtons(verseKey, "hidden", "visisble");
+	}
+}
+
+function stopPlayVerse(){
+	if(parent){
+		parent.stopAudio();
 	}
 }
 

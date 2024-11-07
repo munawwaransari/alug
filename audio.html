@@ -1,0 +1,26 @@
+
+
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<head>
+		<link rel="shortcut icon" href="#" />
+		<script>			
+			function play(){
+				// Create a new audio object
+				const audio = new Audio('https://everyayah.com/data/AbdulSamad_64kbps_QuranExplorer.Com/001001.mp3');
+				// Play the audio
+				var promise = audio.play();
+				if (promise !== undefined) {
+				  promise.then(_ => {
+						console.log("Autoplay started!");
+				  }).catch(error => {
+					console.log("Autoplay was prevented.");
+				  });
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="play()">Play</button>
+	</body>
+</html>

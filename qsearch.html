@@ -27,7 +27,11 @@
 		background-color: white;
 	}
 	
-	div {
+	label{
+		font-size: 10px;
+	}
+	
+	div,table {
 		width: 90%;
 		padding: 20px;
 		rtl: true;
@@ -38,14 +42,29 @@
 </head>
 
 <body>
-	<div style="text-align: center; padding: 20px;">
+	<table>
+	<td>
+	<div style="text-align: center; padding: 20px;display:inline-block">
+		<label>Select Qari:</label>
+		<select id="qari-options">
+			<option value="AbdulSamad_64kbps_QuranExplorer.Com" select>Abdul Basit Abdul Samad</option>
+			<option value="Alafasy_128kbps">Alafasy</option>
+			<option value="Abdurrahmaan_As-Sudais_192kbps">Abdurrahman Al-Saudais</option>			
+		</select>
+		<br/>
+		<p style="font-size: 8px">Powered by <a href='https://everyayah.com/' onclick="window.open(this.href, '_blank'); return false;">https://everyayah.com/</a></p>
+	</div>
+	</td>
+	<td style="width:70%">
+	<div style="text-align: center; padding: 20px;display:inline-block">
 		<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:4px" onclick="showArabicKeyboard('arabic')"/>
 		<input id="searchText"/>
 		<button id="Search" onclick="search()"> Quran Search </button>
 		<br/>
 		<p style="font-size: 8px">Powered by <a href='https://quranjs.com/' onclick="window.open(this.href, '_blank'); return false;">QuranJS API</a></p>
 	</div>
-	
+	</td>
+	</table>
 	<div id="searchResult"></div>
 </body>
 </html>
