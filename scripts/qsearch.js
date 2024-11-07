@@ -80,7 +80,7 @@ function replaceWord(w){
 
 function replaceWithLink(verse, word, text){
 	var link = encodeURI("https://glosbe.com/ar/"+lang+"/"+text);
-	var click_event = (parent ? "parent.window" : "window") + ".open(this.href, '_blank'); return false;";
+	var click_event = (parent ? "parent.window" : "window") + ".open(updateLang(this.href), '_blank'); return false;";
 	if( verse.search(word) == -1){
 		word = word.replace(new RegExp("ٍ","g"),'')
 				   .replace(new RegExp("ً","g"),'')
@@ -148,6 +148,13 @@ function togglePlayButtons(verseKey, v, h){
 	var elem = document.getElementById(id);
 	elem.children[0].style = "visibility:"+v+";width:20px;cursor: pointer;"
 	elem.children[1].style = "visibility:"+h+";width:20px;cursor: pointer;";
+}
+
+function updateLang(url){
+	lang = parent.getLang ? parent.getLang() : lang;
+	var current_url = decodeURI(url);
+	var current_lang = current_url.replace("https://glosbe.com/ar/",'').split("/");
+	return encodeURI("https://glosbe.com/ar/"+lang+"/"+current_lang[1]);
 }
 
 function playVerse(url, verseKey){

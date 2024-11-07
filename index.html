@@ -19,6 +19,10 @@
 	
 			function updateStates(s){ $.extend(states, s); };
 			
+			window.getLang = function(){
+				return document.getElementById('lang-options').value.split("-")[0];
+			}
+			
 			window.playText = function(txt){
 				stopAudio();
 				$("#text").text(txt);
