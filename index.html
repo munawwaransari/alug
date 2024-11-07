@@ -19,9 +19,64 @@
 	
 			function updateStates(s){ $.extend(states, s); };
 			
+			window.getLang = function(){
+				return document.getElementById('lang-options').value.split("-")[0];
+			}
+			
 			window.playText = function(txt){
+				stopAudio();
 				$("#text").text(txt);
 				$("#play").click();
+			}
+			
+			var audio = undefined;
+			window.stopAudio = function(){
+				if(audio){
+				
+					audio.pause();
+					audio.currentTime = 0;
+				}
+			}
+			
+			window.pauseAudio = function(){
+				if(audio){
+				
+					audio.pause();
+					audio.currentTime = 0;
+				}
+			}
+			
+			window.resumeAudio = function(){
+				if(audio){
+					audio.resume();
+				}
+			}
+			
+			window.playAudio = function(mpegUrl, cb){
+				
+				stopAudio();
+				if(audio){
+					delete audio;
+					audio = undefined;
+				}
+				
+				audio = new Audio(mpegUrl);
+				
+				audio.addEventListener("pause", () => {
+				  cb("pause");
+				});
+				audio.addEventListener("ended", () => {
+				  cb("ended");
+				});
+
+				var promise = audio.play();
+				if (promise !== undefined) {
+				  promise.then(_ => {
+						console.log("Autoplay started!");
+				  }).catch(error => {
+					console.log("Autoplay was prevented.");
+				  });
+				}
 			}
 		</script>
 		</script>

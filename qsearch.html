@@ -7,6 +7,7 @@
 	<title>Quran API Test</title>
 	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
 	<script src="scripts/quranjs/quranjs.bundle.js"></script>
+	<script src="scripts/qsearch.js"></script>
 	<style>
 	
 	em {
@@ -18,152 +19,70 @@
 		text-decoration: none;
 	}
  
-	div{
+	.word:hover {
+		background-color: yellow;
+	}
+	
+	.word {
+		background-color: white;
+	}
+	
+	label{
+		font-size: 10px;
+	}
+	
+	div,table {
 		width: 90%;
 		padding: 20px;
 		rtl: true;
 		text-align: right;
 		font-size: 28px;
 	}
+	
+	.surahIndex {
+		width: 50%;
+		text-align: center;
+		font-size: 20px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.surahIndex th,td {
+		font-size: 18px;
+		padding: 10px;
+	}
+	
 	</style>
 </head>
 
 <body>
-	<div style="text-align: center; padding: 20px;">
+	<table>
+	<td id="qar">
+	<div style="text-align: center; padding: 20px;display:inline-block">
+		<label>Select Qari:</label>
+		<select id="qari-options">
+			<option value="AbdulSamad_64kbps_QuranExplorer.Com" select>Abdul Basit Abdul Samad</option>
+			<option value="Alafasy_128kbps">Alafasy</option>
+			<option value="Abdurrahmaan_As-Sudais_192kbps">Abdurrahman Al-Saudais</option>
+			<option value="Saood_ash-Shuraym_128kbps">Saood Ash-Shuraym</option>		
+		</select>
+		<br/>
+		<p style="font-size: 8px">Powered by <a href='https://everyayah.com/' onclick="window.open(this.href, '_blank'); return false;">https://everyayah.com/</a></p>
+	</div>
+	</td>
+	<td style="width:70%">
+	<div style="text-align: center; padding: 20px;display:inline-block">
+		<button onclick="listSurahs()"> Quran Index </button>
 		<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:4px" onclick="showArabicKeyboard('arabic')"/>
 		<input id="searchText"/>
 		<button id="Search" onclick="search()"> Quran Search </button>
+		<button id="Search" title="Search sunnah.com" onclick="searchHadith()"> Hadith Search </button>
 		<br/>
 		<p style="font-size: 8px">Powered by <a href='https://quranjs.com/' onclick="window.open(this.href, '_blank'); return false;">QuranJS API</a></p>
 	</div>
+	</td>
 	
+	</table>
 	<div id="searchResult"></div>
-	<script>
-	
-	function showArabicKeyboard(keybd){
-		setTimeout(function(){
-			console.log("Opening keyboard: " + keybd);
-			window.open("keybd.html?layout="+keybd, "name", "top=0,left=0,width=600px,height=266px");
-		}, 10);
-	}
-
-	function search(){
-		const text = document.getElementById("searchText").value;
-		var div = $("#searchResult");
-		div.empty();
-		SearchQuran(window.QuranJS.Search.search, text, function(data){
-			console.log(data);
-			data.results.forEach(function(res){
-				if(res.highlighted){
-					var verse = res.highlighted;
-					var replacedWords = [];
-					res.words.forEach(function(w){
-						replacedWords.push({"word": w.text, "text": replaceWord(w) });
-					});
-					replacedWords.forEach(function(w){
-						verse = replaceWithLink(verse, w.word, w.text);
-					});
-					var play = '<img src="images/speech-enabled.png" style="width:20px;cursor: pointer;" onclick="playVerse(\''+res.text+'\')"/>';
-					div.append($('<div>'+verse+' ['+ res.verseKey +'] <span>'+play+'</span></div>'));
-				}
-			});
-		});
-	}
-	
-	function replaceWord(w){
-		var punctuation = "ۡۧ ـ	 ۦۥۣۤۢۡ۠۟۞۝ۜۛۚۙۘۗۖە";
-		var text = w.text
-					.replace(new RegExp("["+punctuation+"]+","g"), '')
-					.replace(new RegExp("ٱ", "g"), 'ا')
-					.replace(new RegExp("ىٰ","g"), 'ى')
-					.replace(new RegExp("وَال","g"), 'ال')
-					.replace(new RegExp("ٰ","g"), "ا")
-					.replace(new RegExp("لِل","g"),"");
-		return text;
-	}
-	
-	function replaceWithLink(verse, word, text){
-		var link = encodeURI("https://glosbe.com/ar/ar/"+text);
-		var click_event = (parent ? "parent.window" : "window") + ".open(this.href, '_blank'); return false;";
-		if( verse.search(word) == -1){
-			word = word.replace(new RegExp("ٍ","g"),'')
-					   .replace(new RegExp("ً","g"),'')
-					   .replace(new RegExp("ٌ","g"),'')
-					   .replace(new RegExp("ٞ","g"),'')
-					   .replace(new RegExp("مَٰ","g"),"مَـٰ")
-					   .replace(new RegExp("ثَٰ","g"),"ثَـٰ")
-					   .replace(new RegExp("بَٰ","g"),"بَـٰ")
-					   .replace(new RegExp("كَٰ","g"),"كَـٰ")
-					   .replace(new RegExp("لَٰ","g"),"لَـٰ")
-					   .replace(new RegExp("قَٰ","g"),"قَـٰ")
-					   .replace(new RegExp("يّٞ","g"),"ىٌّ")
-					   .replace(new RegExp("ۡ","g"),"ْ")
-					   .replace(new RegExp("ۖ","g"),'')
-					   .replace(new RegExp("ۗ","g"),'')
-					   .replace(new RegExp("ۘ","g"),'')
-					   .replace(new RegExp("ۙ","g"),'')
-					   .replace(new RegExp("ۚ","g"),'')
-					   .replace(new RegExp("ۛ","g"),'')
-					   .replace(new RegExp("ۜ","g"),'')
-					   .replace(new RegExp("ٖ","g"),'');
-		}
-		if( verse.search(word) == -1){
-			word = word.replace(new RegExp("^كَ","g"),'')
-					   .replace(new RegExp("^لِ","g"),'');
-		}
-		return verse.replace(word, '<a style="cursor:pointer;" href="'+link+'" onclick="'+click_event+'">'+word+'</a>');
-	}
-	
-	function searchVerse(verseKey){
-		SearchQuran(window.QuranJS.Verses.findByKey, verseKey, function(data){
-			console.log(data);
-		});
-	}
-	
-	function SearchQuran(ctx, text, callback){
-		
-		const response = ctx(text,  { language: window.QuranJS.Language.ENGLISH, size: 10 })
-					    .then((data)=>{								   
-							if(callback)
-								callback(data);
-						},
-						(error) => {
-							console.error("Quran search error:", error);
-							if(callback)
-								callback(null, error);
-						});
-	};
-	
-	function getParamValue(paramName)
-	{
-		var url = window.location.search.substring(1); //get rid of "?" in querystring
-		var qArray = url.split('&'); //get key-value pairs
-		for (var i = 0; i < qArray.length; i++) 
-		{
-			var pArr = qArray[i].split('='); //split key and value
-			if (pArr[0] == paramName) 
-				return pArr[1]; //return value
-		}
-	}
-	
-	function playVerse(txt){
-	
-		if(parent){
-			parent.playText(txt);
-		}else{
-			window.playText(txt);
-		}
-	}
-	
-	window.onload = function(){
-		var searchVal = decodeURI(getParamValue("search"));	
-		if(searchVal && searchVal != 'undefined'){
-			$("#searchText").val(searchVal);
-			search();
-		}	
-	};
-
-	</script>
 </body>
-
 </html>
