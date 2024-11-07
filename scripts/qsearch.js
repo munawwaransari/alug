@@ -30,7 +30,7 @@ function search(){
 				var spanId = res.verseKey.replace(":","_");
 				var play = parent.playAudio ? '<span id="'+spanId+'">'+
 											  
-											  '<img title="Play" src="images/speech-enabled.png" style="visibility:visible;width:20px;cursor: pointer;" '+
+											  '<img title="Qirat" src="images/speech-enabled.png" style="visibility:visible;width:20px;cursor: pointer;" '+
 										      'onclick="playVerse(\''+getQiratPlayUrl(res.verseKey)+'\',\''+res.verseKey+'\')"/>'+
 											  
 											  '<img title="Stop" src="images/stop.png" style="visibility:hidden;width:20px;cursor: pointer;" '+
@@ -38,11 +38,17 @@ function search(){
 											  
 											  '</span>': '';
 											  
-				var tanzilLink = '<a style="font-size:18px" href="https://tanzil.net/#'+res.verseKey+'" '+
+				var tanzilLink = '<a title="Click to view in tanzil.com" style="font-size:18px" href="https://tanzil.net/#'+res.verseKey+'" '+
 							     'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
 								 '[' + res.verseKey+ ']'+
 								 '</a>';
-				div.append($('<div>'+verse+' '+tanzilLink+' '+play+'</div>'));
+								 
+				var translationLink = '<a title="Click to view translation in tanzil.com" style="font-size:10px" href="https://tanzil.net/#trans/en.sahih/'+res.verseKey+'" '+
+							     'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
+								 '[Trasnlatation (en)]'+
+								 '</a>';
+								 
+				div.append($('<div>'+verse+' '+tanzilLink+' '+play+' <span>'+translationLink+'</span></div>'));
 			}
 		});
 	});
@@ -102,7 +108,7 @@ function replaceWithLink(verse, word, text){
 		word = word.replace(new RegExp("^كَ","g"),'')
 				   .replace(new RegExp("^لِ","g"),'');
 	}
-	return verse.replace(word, '<a class="word" style="cursor:pointer;" href="'+link+'" onclick="'+click_event+'">'+word+'</a>');
+	return verse.replace(word, '<a title="click to view in glosbe.com" class="word" style="cursor:pointer;" href="'+link+'" onclick="'+click_event+'">'+word+'</a>');
 }
 
 function searchVerse(verseKey){
