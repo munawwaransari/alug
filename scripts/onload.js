@@ -152,6 +152,15 @@ function showAlphabetChart(){
 	}, 5);
 }
 
+function showSynonymChart(){
+	console.log("showSynonymChart");
+	$('.reading-pane').attr("src","");
+	setTimeout(function(){
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "synonym.html"));
+		$('#title-img').hide();
+	}, 5);
+}
+
 async function loadJsonData(url,  callback, errorCallback)
 {
 	try {
