@@ -1,0 +1,32 @@
+{
+ "alphabets": [
+	{ "char" : "ا", "en": "a",  "name":"الألِف", "number": 1, "class": "lunar", "type": "V", "image": "https://images.freeimages.com/images/large-previews/ba5/curious-rabbit-in-motion-0410-5699527.jpg?fmt=webp&h=350", "imageName": "الأرنب"},
+	{ "char" : "ب", "en": "b",  "name":"الباء", "number": 2, "class": "lunar", "type": "C", "image": "https://images.freeimages.com/images/large-previews/cdf/canadian-duck-1360897.jpg?fmt=webp&h=350", "imageName": "بطة"},
+	{ "char" : "ت", "en": "t",  "name":"التّاء", "number": 400, "class": "solar", "type": "C", "image": "https://images.freeimages.com/images/large-previews/8f7/crown-1259067.jpg?fmt=webp&h=350", "imageName": "تاج"},
+	{ "char" : "ث", "en": "th",  "name":"الثّاء", "number": 500, "class": "solar", "type": "C", "image": "https://images.freeimages.com/images/large-previews/727/fennek-1359725.jpg?fmt=webp&h=350", "imageName":"ثعلب"},
+	{ "char" : "ج", "en": "j",  "name":"الجِيم", "number": 3, "class": "lunar", "type": "C", "image": "https://images.freeimages.com/images/large-previews/7b9/camels-graceful-desert-silhouette-0410-5700256.jpg?fmt=webp&h=350", "imageName": "جمل"},
+	{ "char" : "ح", "en": "h",  "name":"الحاء", "number": 8, "class": "lunar", "type": "C", "image": "https://images.freeimages.com/images/large-previews/25c/intricately-decorated-birthday-cake-0410-5697661.jpg?fmt=webp&h=350", "imageName": "حلو"},
+	{ "char" : "خ", "en": "kh",  "name":"الخاء", "number": 600, "class": "lunar", "type": "C", "image":"https://images.freeimages.com/images/large-previews/cb8/bread-1329360.jpg?fmt=webp&h=350", "imageName": "خبز"},
+	{ "char" : "د", "en": "d",  "name":"الدّال", "number": 4, "class": "solar", "type": "C", "image": "https://images.freeimages.com/images/large-previews/e86/majestic-rooster-portrait-0410-5699557.jpg?fmt=webp&h=350", "imageName": "ديك"},
+	{ "char" : "ذ", "en": "dz",  "name":"الذّال", "number": 700, "class": "solar", "type": "C", "image":"https://images.freeimages.com/images/large-previews/82f/arctic-wolf-in-tundra-0410-5699732.jpg?fmt=webp&h=350", "imageName":"ذئب"},
+	{ "char" : "ر", "en": "r",  "name":"الرّاء", "number": 200, "class": "solar", "type": "C", "image":"https://images.freeimages.com/images/large-previews/126/olmeca-head-of-stone-1424708.jpg?fmt=webp&h=350", "imageName":"راس"},
+	{ "char" : "ز", "en": "z",  "name":"الزّاء", "number": 7, "class": "solar", "type": "C", "image":"https://images.freeimages.com/images/large-previews/5d6/cherry-blossom-bloom-wallpaper-0410-5698064.jpg?fmt=webp&h=350", "imageName":"زهرة"},
+	{ "char" : "س", "en": "s",  "name":"السِّين", "number": 60, "class": "solar", "type": "C", "image":"https://images.freeimages.com/images/large-previews/089/tropical-fish-in-sunlit-waters-0410-5699416.jpg?fmt=webp&h=350", "imageName":"سمك"},
+	{ "char" : "ش", "en": "sh",  "name":"الشّين", "number": 300, "class": "solar", "type": "C", "image":"https://images.freeimages.com/images/large-previews/47c/condensed-sun-1185093.jpg?fmt=webp&h=350", "imageName":"شمس"},
+	{ "char" : "ص", "en": "s",  "name":"الصّاد", "number": 90, "class": "solar", "type": "C", "image":"https://images.freeimages.com/images/large-previews/05c/rifle-scope-1-1576601.jpg?fmt=webp&h=350", "imageName":"صائد"},
+	{ "char" : "ض", "en": "dh",  "name":"الضّاد", "number": 800, "class": "solar", "type": "C", "image":"https://images.freeimages.com/images/large-previews/36b/guard-1310459.jpg?fmt=webp&h=350", "imageName":"ضابط"},
+	{ "char" : "ط", "en": "t",  "name":"الطّاء", "number": 9, "class": "solar", "type": "C", "image":"https://images.freeimages.com/images/large-previews/cd8/curious-young-boy-portrait-0410-5697300.jpg?fmt=webp&h=350", "imageName":"طفل"},
+	{ "char" : "ظ", "en": "tz",  "name":"الظّاء", "number": 900, "class": "solar", "type": "C", "image":"https://images.freeimages.com/images/large-previews/ba3/my-hand-1438192.jpg?fmt=webp&h=350", "imageName":"ظفر"},
+	{ "char" : "ع", "en": "a",  "name":"العَين", "number": 70, "class": "lunar", "type": "C", "image":"https://images.freeimages.com/images/large-previews/452/green-eye-1189796.jpg?fmt=webp&h=350", "imageName":"عين"},
+	{ "char" : "غ", "en": "gh",  "name":"الغَين", "number": 1000, "class": "lunar", "type": "C", "image":"https://images.freeimages.com/images/large-previews/9d0/cozy-mid-century-living-room-0410-5697567.jpg?fmt=webp&h=350", "imageName":"غرفة"},
+	{ "char" : "ف", "en": "f",  "name":"الفاء", "number": 80, "class": "lunar", "type": "C", "image":"https://images.freeimages.com/images/large-previews/bf0/elephant-3-1362034.jpg?fmt=webp&h=350", "imageName":"فيل"},
+	{ "char" : "ق", "en": "q",  "name":"القاف", "number": 100, "class": "lunar", "type": "C", "image":"https://images.freeimages.com/images/large-previews/622/pen-4-1240613.jpg?fmt=webp&h=350", "imageName":"قلم"},
+	{ "char" : "ك", "en": "k",  "name":"الكاف", "number": 20, "class": "lunar", "type": "C", "image":"https://images.freeimages.com/images/large-previews/b20/happy-white-dog-on-hill-0410-5697278.jpg?fmt=webp&h=350", "imageName":"كلب"},
+	{ "char" : "ل", "en": "l",  "name":"اللّام", "number": 30, "class": "solar", "type": "C", "image":"https://images.freeimages.com/images/large-previews/dc2/full-fat-milk-1328254.jpg?fmt=webp&h=350", "imageName":"لبن"},
+	{ "char" : "م", "en": "m",  "name":"المِيم", "number": 40, "class": "lunar", "type": "C", "image":"https://images.freeimages.com/images/large-previews/7e8/qiblatain-mosque-1224266.jpg?fmt=webp&h=350", "imageName":"مسجد"},
+	{ "char" : "ن", "en": "n",  "name":"النٌّون", "number": 50, "class": "solar", "type": "C", "image":"https://images.freeimages.com/images/large-previews/98f/quantum-computing-patterns-illustration-0410-5697152.jpg?fmt=webp&h=350", "imageName":"نور"},
+	{ "char" : "و", "en": "w",  "name":"الواؤ", "number": 6, "class": "lunar", "type": "V", "image":"https://images.freeimages.com/images/large-previews/4a8/mockup-paper-texture-shot-0410-5697806.jpg?fmt=webp&h=350", "imageName":"ورق"},
+	{ "char" : "ه", "en": "h",  "name":"الهاء", "number": 5, "class": "lunar", "type": "C", "image":"https://images.freeimages.com/images/large-previews/e86/aim-1311228.jpg?fmt=webp&h=350", "imageName":"هدف"},
+	{ "char" : "ي", "en": "y",  "name":"الياء", "number": 10, "class": "lunar", "type": "V", "image":"https://images.freeimages.com/images/large-previews/37e/dreamy-spring-day-1178099.jpg?fmt=webp&h=350", "imageName":"يوم"}
+    ]
+}

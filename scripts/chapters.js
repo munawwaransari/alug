@@ -1,11 +1,6 @@
 //
 //	Author: munawwar_ali@yahoo.com
 //
-
-function getLocationPath(){
-	return window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
-}
-
 function openChapter(chapter, file, page, lang){
 	console.log("file: " + file);
 	var loaction = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);

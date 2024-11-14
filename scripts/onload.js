@@ -7,11 +7,22 @@ $(document).ready(function()
 	nodeInserted("#languages");
 	$(document).on("nodeInserted",function(e,q){
 		if (q === "#languages"){
+			
+			// Check if Arabic support added
+			/*
+			var arSupport = $('#languages option[value="ar-SA"]'); 
+			if(arSupport.length == 0){
+			    console.log("No Arabic language found in languages. Adding explicitly");
+			    var select = $("#languages");
+			    select.append($('<option>', { value: 'ar-SA', text: 'Arabic Language Support'}));
+			}
+			*/
+			
 			$("#languages").parent().hide();
 		}
 		
 		$("#text").text("");
-		//$("#play").click();
+		$("#play").click();
 	});
 	
 	$("#text").text('');
@@ -57,16 +68,6 @@ $(document).ready(function()
 	}
 });
 
-function getParamValue(paramName){
-	var url = window.location.search.substring(1); //get rid of "?" in querystring
-	var qArray = url.split('&'); //get key-value pairs
-	for (var i = 0; i < qArray.length; i++) 
-	{
-		var pArr = qArray[i].split('='); //split key and value
-		if (pArr[0] == paramName) 
-			return pArr[1]; //return value
-	}
-}
 			
 function singInUser(){
 	console.log("signIn");
@@ -138,6 +139,15 @@ function loadQuranSearch(text){
 		var lang = selectElement.value.substring(0,2);
 
 		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "qsearch.html?search="+text+"&lang="+lang));
+		$('#title-img').hide();
+	}, 5);
+}
+
+function showAlphabetChart(){
+	console.log("showAlphabetChart");
+	$('.reading-pane').attr("src","");
+	setTimeout(function(){
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "alpha.html"));
 		$('#title-img').hide();
 	}, 5);
 }
