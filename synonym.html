@@ -14,7 +14,7 @@
 	.flip-card {
       background-color: transparent;
       width: 180px;
-      height: 260px;
+      height: 240px;
       perspective: 1000px;
     }
 
@@ -59,7 +59,7 @@
     /*
     Styles
     */
-	    #alphabets {
+	#synonyms {
         display: flex;
         flex-direction:row;
         flex-wrap: wrap;
@@ -70,13 +70,13 @@
         position: relative;
         display: inline-block;
         float: left;
-        margin: 16px;;
         text-align: center;
-        width: 150px;
         border: 4px solid;
         transition: transform 0.6s;
         transform-style: preserve-3d;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		width: 180px;
+		height: 236px;
       }
       
       .alpha-box p {
@@ -87,86 +87,93 @@
       .alpha-image {
         position: absolute;
         max-width: 180px;
-        max-height: 260px;
+        max-height: 240px;
         vertical-align: middle;
       }
       
-      .alpha-box .top-left {
-        font-size: 16px;
-        text-align: left;
-        color: white;
+	  .alpha-box .center {
+		position:relative;
+        text-align: center;
         padding: 10px;
-		    display: felx;
+		top: 36%;
+      }
+	  
+      .alpha-box .top-left {
+		position:absolute;
+        font-size: 22px;
+        text-align: left;
+        padding: 10px;
+		left:0;
+		top:0;
       }
       
+	  .alpha-box .top-right {
+		position:absolute;
+        font-size: 22px;
+        text-align: left;
+        padding: 10px;
+		right:0;
+		top:0;
+      }
+	  
       .alpha-box .bottom-right {
-        font-size: 16px;
+        position:absolute;
+		font-size: 22px;
         text-align: right;
-        color: white;
-        bottom: 0;
+		padding: 10px;
+		bottom: 0;
+		right:0;
       }
-      
-      .alpha-name {
-        font-size: 20px!important;
-        vertical-align: bottom;
-      }
-      .solar {
-        background-color: #FFCF63;
-      }
-      
-      .lunar {
-          background-color: #4e5442;
-      }
-      
-      .consonant {
-        color: white;
-      }
-      
-      .vowel {
-        color: #D2691E;
+	  
+	  .alpha-box .bottom-left {
+        position:absolute;
+		font-size: 22px;
+        text-align: right;
+		padding: 10px;
+		bottom: 0;
+		left:0;
       }
 	</style>
 	<script>
 	  window.onload = function(){
-	      var url = getLocationPath() + 'data/alpha.json';
+	      var url = getLocationPath() + 'data/synonym.json';
 	      loadJsonData(url, function(data){
-		        console.log(data.alphabets);
-		        var div = $("#alphabets");
+		        console.log(data.synonyms);
+		        var div = $("#synonyms");
 		        
-		        data.alphabets.forEach(function(alpha){
-		          darwAlphabet(div, alpha);
+		        data.synonyms.forEach(function(syn){
+		          darwSynonym(div, syn);
 		        });
 		    });
 		}
 
-		function playAlpha(text){
+		function playSynonym(text){
 		  if(parent.playText) {
-		    parent.playText(text, 'ar-SA');
+			parent.playText(text, 'ar-SA');
 		  }
 		}
 
-		function darwAlphabet(div, alpha){
+		function darwSynonym(div, syn){
 		
-		  var cls = alpha.type === "C" ? "consonant" : "vowel";
-		  var tooltip = alpha.name+"\n"+cls+"\n"+alpha.class+"\nnumber:"+alpha.number;
-		  
-		  var adiv = '<div title="'+tooltip+'" class="alpha-box '+alpha.class+'">'+
-		             '<p class="top-left">'+alpha.en+'</p>'+
-		             '<p class="'+cls+'">'+alpha.char+'</p><br/><p class="alpha-name '+cls+'">('+alpha.name+')</p>'+
-		             //'<p class="bottom-right">'+alpha.number+'</p>'+
-		             '</div>';
+		  var adiv = '<div class="alpha-box">'+
+						 '<div class="center">'+syn.en+'<br/><p style="font-size: 20px;">'+syn.ur+'</p></div>'+
+						 '<div class="top-left">'+syn.names[0]+'</div>'+
+						 '<div class="top-right">'+syn.names[1]+'</div>'+
+						 '<div class="bottom-left">'+syn.names[2]+'</div>'+
+						 '<div class="bottom-right">'+syn.names[3]+'</div>'+
+					 '</div>';
 		             
-		  if(alpha.image){
+		  if(syn.image){
 		    var fdiv = '<div class="flip-card">'+
                       '<div class="flip-card-inner">'+
                         '<div class="flip-card-front">'+
                           adiv +
                         '</div>'+
                         '<div class="flip-card-back">'+
-                            '<img onmouseenter="playAlpha(\''+alpha.imageName+'\')" '+ 
-                                'style="top:12%; height:80%" class="alpha-image" src="'+alpha.image+'">'+
+                            '<img onmouseenter="playSynonym(\''+syn.ar+'\')" '+ 
+                                'style="top:18%; width:96%; height:80%" class="alpha-image" src="'+syn.image+'">'+
                             '</img>'+
-                            '<span style="margin-bottom:0">'+alpha.imageName+'</span>'+
+							'<span style="top:10px; margin-bottom:0">'+syn.en+'<br/>'+syn.ur+'</span>'+
                           '</div>'+
                       '</div>'+
                     '</div>';
@@ -178,7 +185,7 @@
 	</script>
 </head>
   <body>
-    <div id="alphabets">
+    <div id="synonyms">
   </div>
 </body>
 </html>

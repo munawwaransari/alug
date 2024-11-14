@@ -175,6 +175,22 @@
   display: flex;
 }
 
+.menuitem {
+  display: block;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 2px 2px;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.menuitem:hover {
+	font-size: 14px;
+	font-style: bold	;
+}
+
 /*
 div #languages {
 	display: flex;

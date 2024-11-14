@@ -1,0 +1,172 @@
+{
+    "synonyms": [
+        {
+            "names": [
+                "إنسان",
+                "إمرء",
+                "بشر",
+                "رجُل"
+            ],
+            "ar": "إنسان. إمرء.بشر.رجُل",
+			"en": "Man",
+			"ur": "انسان",
+            "image": "https://images.freeimages.com/images/large-previews/e2a/lonely-man-1435359.jpg?fmt=webp&h=350"
+        },
+		{
+            "names": [
+                "صبي",
+                "فتى",
+                "غلام",
+                "شاب"
+            ],
+            "ar": "صبي. فتى.غلام.شاب",
+			"en": "Share/Part/Luck",
+			"ur": "لڑکا",
+            "image": "https://images.freeimages.com/images/large-previews/8fd/juggling-1437789.jpg?fmt=webp&h=350"
+        },
+		{
+            "names": [
+                "معلم",
+                "مدرس",
+                "استاذ",
+                "مربِّي"
+            ],
+            "ar": "معلم. مدرس.استاذ.مربِّي",
+			"en": "Teacher",
+			"ur": "استاد",
+            "image": "https://images.freeimages.com/images/large-previews/43d/math-teacher-1474675.jpg?fmt=webp&h=350"
+        },
+		{
+            "names": [
+                "جماعة",
+                "فئة",
+                "حزب",
+                "طائفة"
+            ],
+            "ar": "طائفة . حزب . فئة .جماعة",
+			"en": "Group/Team/Party",
+			"ur": "جماعت",
+            "image": "https://images.freeimages.com/images/large-previews/11d/paper-people-1316581.jpg?fmt=webp&h=350"
+        },
+		{
+            "names": [
+                "حصة",
+                "نصيب",
+                "حّظ",
+                "قسمة"
+            ],
+            "ar": "حصة . نصيب .حَظّ .قسمة",
+			"en": "Share/Part/Luck",
+			"ur": "تقسیم",
+            "image": "https://images.freeimages.com/images/large-previews/396/for-us-2-1315753.jpg?fmt=webp&h=350"
+        },
+		{
+            "names": [
+                "حسام",
+                "مهنّد",
+                "سيف",
+                "مدية"
+            ],
+            "ar": "حسام. مُهَنَّد.سيف.مدية",
+			"en": "Sword/Knife",
+			"ur": "تلوار ",
+            "image": "https://images.freeimages.com/images/large-previews/253/weapons-i-1312983.jpg?fmt=webp&h=350"
+        },
+		{
+            "names": [
+                "اجتماع",
+                "لقاء",
+                "جلسة",
+                "ندوة"
+            ],
+            "ar": "اجتماع. لقاء. جلسة.ندوة",
+			"en": "Meeting/Gathering",
+			"ur": "ملاقات",
+            "image": "https://images.freeimages.com/images/large-previews/ef2/festive-family-gathering-0410-5702557.jpg?fmt=webp&h=350"
+        },
+		{
+            "names": [
+                "طالب",
+                "تلميذ",
+                "دارس",
+                "تابع"
+            ],
+            "ar": "طالب. تلميذ. دارس.تابع",
+			"en": "Student/Follower",
+			"ur": "طالب علم",
+            "image": "https://images.freeimages.com/images/large-previews/532/confident-schoolboy-ready-0410-5697065.jpg?fmt=webp&h=350"
+        },
+		{
+            "names": [
+                "عمل",
+                "شغل",
+                "فعل",
+                "أثر"
+            ],
+            "ar": "عمل. شغل. فعل.أثر",
+			"en": "Action/Occupation",
+			"ur": "کام",
+            "image": "https://images.freeimages.com/images/large-previews/766/child-football-3-1437657.jpg?fmt=webp&h=350"
+        },
+		{
+            "names": [
+                "قرأة",
+                "تلاوة",
+                "معرفة",
+                "دراسة"
+            ],
+            "ar": "قرأة. تلاوة. معرفة.دراسة",
+			"en": "Recitation/Study",
+			"ur": "تلاوت",
+            "image": "https://images.freeimages.com/images/large-previews/2d5/young-boy-reading-braille-0410-5697336.jpg?fmt=webp&h=350"
+        },
+		{
+            "names": [
+                "كَلام",
+                "قول",
+                "حديث",
+                "نطق"
+            ],
+            "ar": "كَلام. قول. حديث.نطق",
+			"en": "Speech/Talk",
+			"ur": "تقریر",
+            "image": "https://images.freeimages.com/images/large-previews/e95/public-speaking-1313614.jpg?fmt=webp&h=350"
+        },
+		{
+            "names": [
+                "نار",
+                "لهب",
+                "حريق",
+                "سعير"
+            ],
+            "ar": "نار. لهب. حريق.سعير",
+			"en": "Fire",
+			"ur": "آگ",
+            "image": "https://images.freeimages.com/images/large-previews/0d8/fire-1172366.jpg?fmt=webp&h=350"
+        },
+		{
+            "names": [
+                "ارتباك",
+                "تشويش",
+                "حيرة",
+                "التباس"
+            ],
+            "ar": "ارتباك. تشويش. حيرة.التباس",
+			"en": "Confusion",
+			"ur": "آگ",
+            "image": "https://images.freeimages.com/images/large-previews/219/direction-sign-1461435.jpg?fmt=webp&h=350"
+        },
+		{
+            "names": [
+                "فهم",
+                "إدراك",
+                "إمساك",
+                "تعقل"
+            ],
+            "ar": "فهم. إدراك. إمساك.تعقل",
+			"en": "Prudence/Perception",
+			"ur": "سمجھ",
+            "image": "https://images.freeimages.com/images/large-previews/501/smart-guy-1429152.jpg?fmt=webp&h=350"
+        }
+    ]
+}

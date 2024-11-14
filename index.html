@@ -30,7 +30,7 @@
 			    //setTimeout(function(arg) { window.playText(arg); }, 1);
 			  }
 			  console.log("lang:" + $("#languages").val());
-				console.log("playing...");
+				console.log("playing..."+txt);
 				stopAudio();
 				$("#text").text(txt);
 				$("#play").click();
@@ -38,13 +38,13 @@
 			
 			var audio = undefined;
 			window.stopAudio = function(){
+				$("#text").text("");
+				$("#play").click();
 				if(audio){
 				
 					audio.pause();
 					audio.currentTime = 0;
 				}
-				$("#text").text("");
-				$("#play").click();
 			}
 			
 			window.pauseAudio = function(){
@@ -133,8 +133,11 @@
 					<img id="s8" class="tooltip" src="images/dict.jpg" onclick="loadDictionarySearch()">
 						<p class="tooltiptext">Click to search somthing in the Quran.</p>
 					</img>
-				  <img id="s9" class="tooltip" src="images/alpha.jpg" onclick="showAlphabetChart()">
-						<p class="tooltiptext">Click to see Alphabet Chart.</p>
+				  <img id="s9" class="tooltip" src="images/alpha.jpg">
+						<div class="tooltiptext" style="dispaly: inline-block">
+							<div class="menuitem" onclick="showAlphabetChart()">Alphabets</div>
+							<div class="menuitem" onclick="showSynonymChart()">Synonyms</div>	
+						</div>
 					</img>
 					<img id="s5" class="tooltip" src="images/languages.png">
 							<div class="tooltiptext" style="dispaly: inline-block">
