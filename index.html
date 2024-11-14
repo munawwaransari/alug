@@ -23,7 +23,14 @@
 				return document.getElementById('lang-options').value.split("-")[0];
 			}
 			
-			window.playText = function(txt){
+			window.playText = function(txt, lang){
+			  if(lang){
+			    console.log("current lang:" + $("#languages").val());
+			    $("#languages").val(lang);
+			    //setTimeout(function(arg) { window.playText(arg); }, 1);
+			  }
+			  console.log("lang:" + $("#languages").val());
+				console.log("playing...");
 				stopAudio();
 				$("#text").text(txt);
 				$("#play").click();
@@ -86,6 +93,7 @@
 		<section id="main" class="main"></section>
 		<div id="support" style="display:none"></div>
 		<script src="scripts/speak-tts/demo.bundle.js"></script>
+		<script src="scripts/data-util.js"></script>
 		<script src="scripts/onload.js"></script>
 		<div class="chapter-padding">
 			<div>
@@ -117,6 +125,15 @@
 					<img id="s4_2" class="tooltip" src="images/speech-disabled.png" onclick="toggleAutoplay()">
 						<p class="tooltiptext">Autoplay is enabled. Click icon to enable it.</p>
 					</img>
+					<img id="s7" class="tooltip" src="images/qsearch.jpg" onclick="loadQuranSearch()">
+						<p class="tooltiptext">Click to search somthing in the Quran.</p>
+					</img>
+					<img id="s8" class="tooltip" src="images/dict.jpg" onclick="loadDictionarySearch()">
+						<p class="tooltiptext">Click to search somthing in the Quran.</p>
+					</img>
+				  <img id="s9" class="tooltip" src="images/alpha.jpg" onclick="showAlphabetChart()">
+						<p class="tooltiptext">Click to see Alphabet Chart.</p>
+					</img>
 					<img id="s5" class="tooltip" src="images/languages.png">
 							<div class="tooltiptext" style="dispaly: inline-block">
 								<select id="lang-options">
@@ -126,13 +143,6 @@
 								</select>
 							</div>
 					</img>
-					<img id="s7" class="tooltip" src="images/qsearch.jpg" onclick="loadQuranSearch()">
-						<p class="tooltiptext">Click to search somthing in the Quran.</p>
-					</img>
-					<img id="s8" class="tooltip" src="images/dict.jpg" onclick="loadDictionarySearch()">
-						<p class="tooltiptext">Click to search somthing in the Quran.</p>
-					</img>
-
 				</div>
 			</div>
 			<div class="card-container"/>
