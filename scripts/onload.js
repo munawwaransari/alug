@@ -161,6 +161,15 @@ function showSynonymChart(){
 	}, 5);
 }
 
+function showHomonymChart(){
+	console.log("showHomonymChart");
+	$('.reading-pane').attr("src","");
+	setTimeout(function(){
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "homonym.html"));
+		$('#title-img').hide();
+	}, 5);
+}
+
 async function loadJsonData(url,  callback, errorCallback)
 {
 	try {
