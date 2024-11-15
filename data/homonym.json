@@ -1,0 +1,134 @@
+{
+    "homonymns": [
+        {
+            "names": ["عاصف", "آسف"],
+			"en": ["Stormy","Sorry"],
+			"ur": ["طوفانی","افسوس"],
+            "images": [
+				"https://images.freeimages.com/images/large-previews/ba0/storm-clouds-1191897.jpg?fmt=webp&h=350",
+				"https://images.freeimages.com/images/large-previews/236/sorry-out-of-order-1461450.jpg?fmt=webp&h=350"
+			]
+        },
+		{
+            "names": ["نصب", "نسب"],
+			"en": ["Installation","lineage"],
+			"ur": ["سیٹ اپ","نسب نامہ"],
+            "images": [
+				"https://images.freeimages.com/images/large-previews/e44/fix-it-7-1507910.jpg?fmt=webp&h=350",
+				"https://images.freeimages.com/variants/i3Bwz1fSUyXQG1F5RC7cMSmM/f4a36f6589a0e50e702740b15352bc00e4bfaf6f58bd4db850e167794d05993d?fmt=webp&h=350"
+			]
+        },
+		{
+            "names": ["قضاء", "كذا"],
+			"en": ["Judiciary","So.."],
+			"ur": ["عدلیہ","فلاں"],
+            "images": [
+				"https://images.freeimages.com/images/large-previews/542/balance-1172786.jpg?fmt=webp&h=350",
+				"https://images.freeimages.com/images/large-previews/f55/scroll-ball-1-1164701.jpg?fmt=webp&h=350"
+			]
+        },
+		{
+            "names": ["صوم", "ثوم"],
+			"en": ["Fasting", "Garlic"],
+			"ur": ["روزہ","لہسن"],
+            "images": [
+				"https://images.freeimages.com/images/large-previews/227/jerusalem-life-the-mist-1156771.jpg?fmt=webp&h=350",
+				"https://images.freeimages.com/images/large-previews/a2e/garlic-2-1322343.jpg?fmt=webp&h=350"
+			]
+        },
+		{
+            "names": ["صورة", "سورة"],
+			"en": ["Image", "Surah"],
+			"ur": ["تصویر","سورہ"],
+            "images": [
+				"https://images.freeimages.com/images/large-previews/05c/an-african-picture-sold-in-a-zanzibar-market-1229364.jpg?fmt=webp&h=350",
+				"https://media.istockphoto.com/id/1447451241/photo/surah-yaseen.jpg?s=1024x1024&w=is&k=20&c=VBnh5ZcaZjQkZq_TJl5iVcXm76Ezo-cKYuSMf6QUCdA="
+			]
+        },
+		{
+            "names": ["طين", "تِين"],
+			"en": ["clay", "Fig"],
+			"ur": ["مٹی","انجیر"],
+            "images": [
+				"https://images.freeimages.com/images/large-previews/66c/dryness-in-portugal-1309279.jpg?fmt=webp&h=350",
+				"https://images.freeimages.com/images/large-previews/3a4/the-lord-of-the-fruits-1328259.jpg?fmt=webp&h=350"
+			]
+        },
+		{
+            "names": ["ضليل", "ذليل"],
+			"en": ["Stray", "Servile"],
+			"ur": ["گمراہ","خدمتگار"],
+            "images": [
+				"https://images.freeimages.com/images/large-previews/9f7/wanna-beer-1056482.jpg?fmt=webp&h=350",
+				"https://images.freeimages.com/images/large-previews/4e7/clean-well-1230060.jpg?fmt=webp&h=350"
+			]
+        },
+		{
+            "names": ["قلب", "كلب"],
+			"en": ["Heart", "Dog"],
+			"ur": ["دل","کتا"],
+            "images": [
+				"https://images.freeimages.com/images/large-previews/95f/heart-1170606.jpg?fmt=webp&h=350",
+				"https://images.freeimages.com/images/large-previews/51d/happy-black-dog-lakeside-0410-5697275.jpg?fmt=webp&h=350"
+			]
+        },
+		{
+            "names": ["عاقِل", "آكل"],
+			"en": ["Sane", "Eater"],
+			"ur": ["سمجھدار","کھانے والا"],
+            "images": [
+				"https://images.freeimages.com/images/large-previews/1cc/ai-robot-network-profile-0410-5699593.jpg?fmt=webp&h=350",
+				"https://images.freeimages.com/images/large-previews/e34/the-ice-cream-eater-paris-1329175.jpg?fmt=webp&h=350"
+			]
+        },
+		{
+            "names": ["شك", "شق"],
+			"en": ["Doubt", "Incision"],
+			"ur": ["شک","چیرا"],
+            "images": [
+				"https://images.freeimages.com/images/large-previews/9e1/question-mark-1-1159479.jpg?fmt=webp&h=350",
+				"https://images.freeimages.com/images/large-previews/df9/wireless-1243531.jpg?fmt=webp&h=350"
+			]
+        },
+		{
+            "names": ["نضرة", "نظرة"],
+			"en": ["Fresh", "Look"],
+			"ur": ["تازگی", "دیکھنا"],
+            "images": [
+				"https://images.freeimages.com/images/large-previews/b5a/fresh-vegetables-1187928.jpg?fmt=webp&h=350",
+				"https://images.freeimages.com/images/large-previews/f7c/closer-look-2-1309637.jpg?fmt=webp&h=350"
+				
+			]
+        },
+		{
+            "names": ["كعبة", "كابة"],
+			"en": ["Kaba", "Depression"],
+			"ur": ["کعبہ", "اداسی"],
+            "images": [
+				"https://images.freeimages.com/images/large-previews/d10/el-haram-elmakki-1441555.jpg?fmt=webp&h=350",
+				"https://images.freeimages.com/images/large-previews/6b4/suffering-1170950.jpg?fmt=webp&h=350"
+				
+			]
+        },
+		{
+            "names": ["عِبادة", "إبادة"],
+			"en": ["Worship", "Genocide"],
+			"ur": ["عبادت", "تباہی"],
+            "images": [
+				"https://images.freeimages.com/images/large-previews/985/namaz-preparation-1462502.jpg?fmt=webp&h=350",
+				"https://images.freeimages.com/images/large-previews/1bb/horror-skull-1452345.jpg?fmt=webp&h=350"
+				
+			]
+        },
+		{
+            "names": ["عِشاء", "عَشاء"],
+			"en": ["Evening", "Dinner"],
+			"ur": ["شام ", "رات کا کھانا"],
+            "images": [
+				"https://images.freeimages.com/images/large-previews/0d2/dark-evening-1192217.jpg?fmt=webp&h=350",
+				"https://images.freeimages.com/images/large-previews/696/delicious-festive-feast-0410-5702612.jpg?fmt=webp&h=350"
+				
+			]
+        }
+    ]
+}
