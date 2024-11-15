@@ -129,6 +129,24 @@
 				"https://images.freeimages.com/images/large-previews/696/delicious-festive-feast-0410-5702612.jpg?fmt=webp&h=350"
 				
 			]
+        },
+		{
+            "names": ["إبرة", "عبرة"],
+			"en": ["Needle", "Lesson"],
+			"ur": ["سوئی", "سبق"],
+            "images": [
+				"https://images.freeimages.com/images/large-previews/455/injection-2-1323664.jpg?fmt=webp&h=350",
+				"https://images.freeimages.com/images/large-previews/910/car-accident-1-1449299.jpg?fmt=webp&h=350"
+			]
+        },
+		{
+            "names": ["سمين", "ثمين"],
+			"en": ["Fat", "Costly"],
+			"ur": ["چربی", "مہنگا"],
+            "images": [
+				"https://images.freeimages.com/images/large-previews/db8/fat-shadow-man-1168363.jpg?fmt=webp&h=350",
+				"https://images.freeimages.com/images/large-previews/9da/money-matters-1173105.jpg?fmt=webp&h=350"
+			]
         }
     ]
 }
