@@ -167,6 +167,30 @@
 			"en": "Prudence/Perception",
 			"ur": "سمجھ",
             "image": "https://images.freeimages.com/images/large-previews/501/smart-guy-1429152.jpg?fmt=webp&h=350"
+        },
+		{
+            "names": [
+                "ساخن",
+                "حار",
+                "حرق",
+                "توقيد"
+            ],
+            "ar": "ساخن. حار. حرق.توقيد",
+			"en": "Hot/Burning/Ignition",
+			"ur": "گرم/جلن",
+            "image": "https://images.freeimages.com/images/large-previews/f66/steamy-ceramic-mug-close-up-0410-5699840.jpg?fmt=webp&h=350"
+        },
+		{
+            "names": [
+                "مشوق",
+                "ممتع",
+                "مرغوب",
+                "جَذّاب"
+            ],
+            "ar": "مشوق. ممتع. جَذّاب.مرغوب",
+			"en": "Interesting/Attractive",
+			"ur": "دلچسپ/پرکشش",
+            "image": "https://images.freeimages.com/images/large-previews/c9e/green-home-1221861.jpg?fmt=webp&h=350"
         }
     ]
 }

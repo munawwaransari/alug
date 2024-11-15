@@ -12,8 +12,8 @@
 		<script src="data/topics.js"></script>
 		<script>
 			var langOption = 'en-US';
-			var autoplay = false;
-			var menuOption = true;
+			var autoplay = true;
+			var menuOption = false;
 			var speech_synthesis_supportd = false;
 			var autoplay_cache = [];
 			var states = {};
@@ -122,16 +122,16 @@
 					<img id="s1" class="tooltip" src="images/email.png">
 						<a class="tooltiptext" href="mailto:munawwar_ali@yahoo.com">Mail to author</a>
 					</img>
-					<img id="s4_1" class="tooltip" src="images/speech-enabled.png" onclick="toggleAutoplay()" style="display:none">
+					<img id="s4_1" class="tooltip" src="images/speech-enabled.png" onclick="toggleAutoplay()">
 						<p class="tooltiptext" >Autoplay is enabled. Click icon to disable it.</p>
 					</img>
-					<img id="s4_2" class="tooltip" src="images/speech-disabled.png" onclick="toggleAutoplay()" >
+					<img id="s4_2" class="tooltip" src="images/speech-disabled.png" onclick="toggleAutoplay()" style="display:none">
 						<p class="tooltiptext">Autoplay is enabled. Click icon to enable it.</p>
 					</img>
-					<img id="s10_1" class="tooltip" style="margin-top: 4px;" src="images/menu-enabled.jpg" onclick="toggleMenu()">
+					<img id="s10_1" class="tooltip" style="margin-top: 4px;display:none" src="images/menu-enabled.jpg" onclick="toggleMenu()">
 						<p class="tooltiptext">Menu is visible. Click icon to hide it.</p>
 					</img>
-					<img id="s10_2" class="tooltip" style="margin-top: 4px;display:none" src="images/menu-disabled.jpg" onclick="toggleMenu()">
+					<img id="s10_2" class="tooltip" style="margin-top: 4px;" src="images/menu-disabled.jpg" onclick="toggleMenu()">
 						<p class="tooltiptext">Menu is hidden. Click icon to show it.</p>
 					</img>
 					<img id="s7" class="tooltip" src="images/qsearch.jpg" onclick="loadQuranSearch()">
@@ -158,7 +158,7 @@
 					</img>
 				</div>
 			</div>
-			<div class="card-container"></div>
+			<div class="card-container" style="display:none;"></div>
 		</div>
 		<image id="title-img" src='./images/alg.jpg' class='title' width="80%" />
 		<iframe class="reading-pane" width='100%' height='86%' frameborder='0' />

@@ -7,20 +7,8 @@ $(document).ready(function()
 	nodeInserted("#languages");
 	$(document).on("nodeInserted",function(e,q){
 		if (q === "#languages"){
-			
-			// Check if Arabic support added
-			/*
-			var arSupport = $('#languages option[value="ar-SA"]'); 
-			if(arSupport.length == 0){
-			    console.log("No Arabic language found in languages. Adding explicitly");
-			    var select = $("#languages");
-			    select.append($('<option>', { value: 'ar-SA', text: 'Arabic Language Support'}));
-			}
-			*/
-			
 			$("#languages").parent().hide();
 		}
-		
 		$("#text").text("");
 		$("#play").click();
 	});
