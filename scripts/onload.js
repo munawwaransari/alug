@@ -108,7 +108,23 @@ function toggleAutoplay(){
 		}
 	}
 	console.log('autoplay :' + autoplay);
-};
+}
+
+function toggleMenu(){
+	
+	toggleIcon("#s10");
+	menuOption = !menuOption;
+	$(".card-container").toggle();
+	/*
+	if(menuOption){
+		
+	}else{
+		$("#card-container").css('display', 'none!important');
+		$("#card-container").css('overflow', 'hidden!important');
+		$("#card-container").hide();
+	}*/
+	console.log('menuOption :' + menuOption);
+}
 
 function toggleIcon(id){
 	[id+'_1', id+'_2'].forEach(function(id){
