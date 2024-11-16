@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+	<title>Dictionary Test</title>
+	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+	<script src="scripts/data-util.js"></script>
+	<style>
+	
+	.selectedIndex {
+		color: indigo!important;
+	}
+	
+	.index {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap; 
+		width: 100%;
+		max-heiqht: 150px;
+		background-color: yellow;
+		direction: rtl;
+		justify-content: center;
+		margin: auto;
+	}
+
+	.formClass{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap; 
+		width: 100%;
+		max-heiqht: 150px;
+		background-color: gray;
+		direction: rtl;
+		justify-content: center;
+		margin: auto;
+		color: white;
+		cursor: pointer;
+	}
+	
+	.formClass label{
+		font-size: 22px;
+		padding: 10px;
+	}
+	
+	.formFilter{
+		color: black;
+	}
+	
+	.dictionary{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap; 
+		width: 100%;
+		direction: rtl;
+		justify-content: center;
+		margin: auto;
+	}
+	
+	.word{
+		 font-size: 20px;
+		 border: 2px solid indigo;
+		 box-shadow: 1px 1px;
+		 padding: 4px 4px;
+		 margin-left: 8px;
+		 margin-right: 8px;
+		 margin-top: 4px;
+		 margin-bottom: 4px;
+		 width: 180px;
+		         float: left;
+	}
+	
+	.letter:hover {
+		color: indigo;
+	}
+	
+	.letter{
+		font-size: 34px;
+		color: red;
+		padding: 10px;
+		cursor: pointer;
+	}
+	
+	.bottom-left {
+        position:relative;
+        text-align: right;
+		padding: 4px;
+		float: left;
+		max-width: 16px;
+		max-height: 16px;
+		cursor: pointer;
+      }
+	</style>
+	<script>
+	  var dict = {};
+	  var lastIndex = undefined;
+	  var formFilters = [];
+	  window.onload = function(){
+	      var url = getLocationPath() + 'data/dict.json';
+	      loadJsonData(url, function(data){
+		        dict = data;
+				for (const [key, value] of Object.entries(dict)){
+		          console.log(key);
+				  console.log(value);
+				  addIndex(key);
+		        }
+		    });
+		}
+		
+		function addIndex(letter){
+			var idiv = '<div class="letter" onclick="loadDictionary(\''+letter+'\')">'+letter+'</div>';
+			$(".index").append($(idiv));
+		}
+		
+		function loadDictionary(letter){
+			var words = dict[letter];
+			if(words){
+				// set index class
+				if(lastIndex)
+					$(".index div:contains('"+lastIndex+"')").removeClass("selectedIndex");
+				$(".index div:contains('"+letter+"')").addClass("selectedIndex");
+				
+				if(lastIndex !== letter){
+					formFilters = [];
+				}
+				lastIndex = letter;
+				var forms = [];
+				$(".dictionary").empty();
+				words.forEach(function(w){
+					//add forms to lookup
+					if(forms.indexOf(w.form) === -1){
+						forms.push(w.form);
+					}
+					
+					if(formFilters.indexOf(w.form) === -1){
+						addWord(w);
+					}
+				});
+				
+				$(".formClass").empty();
+				forms.forEach(function(f){
+					addFormFilter(f);
+				});
+				// add reset button
+				var reset = '<button style="padding:10px;" onclick="resetFilters()" >Reset filters</button>';
+				$(".formClass").append($(reset));
+			}
+		}
+		
+		function addWord(w){
+			var en = w.en ? '<br/>'+w.en : '';
+			var ur = w.ur ? '<br/>'+w.ur : '';
+			var lang = "";
+			var search = '<img class="bottom-left" onclick="loadSearch(\''+w.past+'\')" src="images/qsearch.jpg" ></img>';
+			if(parent == undefined || parent.getLang == undefined){
+				lang = ", 'en'";
+				search = "";
+			}
+			var past = '<a href="#" style="text-decoration: none;cursor:pointer;" onclick="lookUp(\''+w.past+'\''+lang+')">'+w.past+'</a>';
+			var present = '<a href="#" style="text-decoration: none;cursor:pointer;" onclick="lookUp(\''+w.present+'\''+lang+')">'+w.present+'</a>';
+			var form = '<a href="#" style="text-decoration: none;cursor:pointer;" onclick="lookUp(\''+w.form+'\''+lang+')">'+w.form+'</a>';
+			var wdiv = '<div class="word">('+form+')&nbsp;<b>'+past+"&nbsp;-&nbsp;"+present+'</b>'+en+ur+search+'</div>';
+
+			$(".dictionary").append($(wdiv));
+		}
+		
+		function addFormFilter(f){
+			var current = formFilters.filter(item => item === f);
+			current = current.length > 0 ? ' class="formFilter" ' : '';
+			var fdiv = '<label id="'+f+'" '+current+' onclick="toggleForm(\''+f+'\')" >'+f+'</label>';
+			$(".formClass").append($(fdiv));
+		}
+		
+		function lookUp(w, lang){
+			if(parent){
+				if (lang == undefined)
+					lang = parent.getLang();
+				parent.window.open("https://glosbe.com/ar/"+lang+"/"+encodeURI(w), '_blank');
+			}else{
+				if (lang == undefined)
+					lang = 'en';
+				window.open("https://glosbe.com/ar/"+lang+"/"+encodeURI(w), "_blank");
+			}
+		}
+		
+		function toggleForm(f){
+			var checked = formFilters.filter(item => item === f);
+			if(checked.length == 0){ //unchecked
+				formFilters.push(f);
+				$("#"+f).addClass("formFilter");
+			}else{ // filter it
+				formFilters = formFilters.filter(item => item !== f);
+				$("#"+f).removeClass("formFilter");
+			}
+			console.log(formFilters);
+			loadDictionary(lastIndex);
+		}
+		
+		function resetFilters(){
+			formFilters = [];
+			loadDictionary(lastIndex);
+		}
+		
+		function loadSearch(w){
+			var punctuation = "َ ّ َ ً ُ ٌ ِ ٍ" ;
+			var text = w.replace(new RegExp("["+punctuation+"]+","g"), '')
+						.replace(new RegExp("ٱ", "g"), 'ا')
+						.replace(new RegExp("إ", "g"), 'ا')
+						.replace(new RegExp("أ", "g"), 'ا');
+			var url = encodeURI(getLocationPath() + '?search='+text);
+			parent.window.open(url, '_blank');
+		}
+	</script>
+</head>
+  <body>
+    <div class="index"></div>
+	<div class="formClass"></div>
+	<div class="dictionary"></div>
+  </div>
+</body>
+</html>
