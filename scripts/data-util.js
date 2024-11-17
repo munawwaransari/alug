@@ -50,3 +50,10 @@ async function loadHtmlData(url,  callback)
 		console.error("Fetch error:", error);
 	}
 }
+
+function showArabicKeyboard(keybd){
+	setTimeout(function(){
+		console.log("Opening keyboard: " + keybd);
+		window.open("keybd.html?layout="+keybd, "name", "top=0,left=0,width=600px,height=266px");
+	}, 10);
+}
