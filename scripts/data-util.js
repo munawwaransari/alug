@@ -57,3 +57,19 @@ function showArabicKeyboard(keybd){
 		window.open("keybd.html?layout="+keybd, "name", "top=0,left=0,width=600px,height=266px");
 	}, 10);
 }
+
+const PAD_WIDTH = 768;
+const MOBILE_WIDTH = 480;
+
+function getDeviceType() {
+	var device_width = window.innerWidth * window.devicePixelRatio;
+    var device_height = window.innerHeight * window.devicePixelRatio;
+
+    if (device_width <= MOBILE_WIDTH) {
+        return "mobile";
+    } else if (device_width <= PAD_WIDTH) {
+        return "mobile";
+    } else {
+        return "desktop";
+    }
+}

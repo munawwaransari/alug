@@ -151,15 +151,21 @@
 	};
 
 	function resetAfterlogin(user){
+	
+		if(parent && parent.updateStates){
+			parent.updateStates({"user":  user});
+		}
+		/*
 		const parentElement = parent.document.getElementById('s6_tp');
-		parentElement.innerHTML = "You are logged in as: " + user;
+		parentElement.setAttribute('tool-data', "You are logged in as: " + user);
 
 		const loginElement = parent.document.getElementById('s6');
 		loginElement.onclick = null;
 
-		const titleImg = parent.document.getElementById('title-img');
-		titleImg.style.display = "block";
-
+		//const titleImg = parent.document.getElementById('title-img');
+		//titleImg.style.display = "block";
+		*/
+		
 		const readingPane = parent.document.getElementsByClassName('reading-pane');
 		readingPane[0].src = '';
 	}

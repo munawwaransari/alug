@@ -3,10 +3,10 @@
 //-->
 <html>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes" />
 	<head>
 		<link rel="shortcut icon" href="#" />
 		<link rel="stylesheet" type="text/css" href="styles/styles.css" media="screen">
-     
 		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
 		<script type="text/javascript" src="scripts/quizlib/quizlib.1.0.1.min.js"></script>
 		<script src="data/topics.js"></script>
@@ -18,7 +18,7 @@
 			var autoplay_cache = [];
 			var states = {};
 	
-			function updateStates(s){ $.extend(states, s); };
+			window.updateStates = function (s){ $.extend(states, s); };
 			
 			window.getLang = function(){
 				return document.getElementById('lang-options').value.split("-")[0];
@@ -98,75 +98,39 @@
 		<script src="scripts/speak-tts/demo.bundle.js"></script>
 		<script src="scripts/data-util.js"></script>
 		<script src="scripts/onload.js"></script>
-		<div class="chapter-padding">
-			<div>
-				<span class="left"><b>Arabic Language Learners Guide</b></span>
-				<span class="middle">
-					<select id="playSections"></select>
-					<textarea id="text"></textarea>
-					<button id="play"> Play </button>
-				<span>
-				<div class="right">
-					<img id="s6" class="tooltip" src="images/user.jpg" onclick="singInUser()">
-						<p id="s6_tp" class="tooltiptext">You are not logged in. Click to login</p>
-					</img>
-					<img id="s2" class="tooltip" src="images/info.png">
-						<p class="tooltiptext">Best viewed in Edge browser. Disable pdf last view setting for correct behavior.</p>
-					</img>
-					<img id="s3_1" class="tooltip" src="images/ss-supported.png">
-						<p class="tooltiptext"></p>
-					</img>
-					<img id="s3_2" class="tooltip" src="images/ss-not-supported.png">
-						<p class="tooltiptext" ></p>
-					</img>
-					<img id="s1" class="tooltip" src="images/email.png">
-						<a class="tooltiptext" href="mailto:munawwar_ali@yahoo.com">Mail to author</a>
-					</img>
-					<img id="s4_1" class="tooltip" src="images/speech-enabled.png" onclick="toggleAutoplay()">
-						<p class="tooltiptext" >Autoplay is enabled. Click icon to disable it.</p>
-					</img>
-					<img id="s4_2" class="tooltip" src="images/speech-disabled.png" onclick="toggleAutoplay()" style="display:none">
-						<p class="tooltiptext">Autoplay is enabled. Click icon to enable it.</p>
-					</img>
-					<img id="s10_1" class="tooltip" style="margin-top: 4px;display:none" src="images/menu-enabled.jpg" onclick="toggleMenu()">
-						<p class="tooltiptext">Menu is visible. Click icon to hide it.</p>
-					</img>
-					<img id="s10_2" class="tooltip" style="margin-top: 4px;" src="images/menu-disabled.jpg" onclick="toggleMenu()">
-						<p class="tooltiptext">Menu is hidden. Click icon to show it.</p>
-					</img>
-					<img id="s7" class="tooltip" src="images/qsearch.jpg" onclick="loadQuranSearch()">
-						<p class="tooltiptext">Click to search somthing in the Quran.</p>
-					</img>
-					<img id="s8" class="tooltip" src="images/dict.jpg" onclick="loadDictionarySearch()">
-						<p class="tooltiptext">Click to search somthing in the Quran.</p>
-					</img>
-					<!-- 
-					<img id="s11" class="tooltip" src="images/dict.png" onclick="loadSampleDictionary()">
-						<p class="tooltiptext">Click to see sample dictionary.</p>
-					</img> 
-						-->
-					<img id="s9" class="tooltip" src="images/alpha.jpg">
-						<div class="tooltiptext" style="dispaly: block; vertical-align: middle">
-							<div class="menuitem" onclick="showAlphabetChart()">Alphabets</div>
-							<div class="menuitem" onclick="showSynonymChart()">Synonyms</div>	
-							<div class="menuitem" onclick="showHomonymChart()">Homonymn</div>
-							<div class="menuitem" style="color: yellow" onclick="loadSampleDictionary()">Dictionary</div>							
-						</div>
-					</img>
-					<img id="s5" class="tooltip" src="images/languages.png">
-							<div class="tooltiptext" style="dispaly: inline-block">
-								<select id="lang-options">
-									<option value="en-US" select>English</option>
-									<option value="ur-PK">اردو</option>
-									<option value="ar-SA">العربي</option>
-								</select>
-							</div>
-					</img>
-				</div>
-			</div>
-			<div class="card-container" style="display:none;"></div>
+		<div class="toolDiv">
+			<span class="toolSpan"><b>Arabic Language Learners Guide</b></span>
+			<span class="toolSpan">
+				<select id="playSections"></select>
+				<textarea id="text"></textarea>
+				<button id="play"> Play </button>
+			</span>
+			<span class="toolSpan">
+				<img id="user" class="tool" src="images/user.jpg"/>
+				<img id="info" class="tool" src="images/info.png"/>
+				<img id="ss-support_1" class="tool" src="images/ss-supported.png"/>
+				<img id="ss-support_2" class="tool" src="images/ss-not-supported.png" style="display:none"/>
+				<img id="email" class="tool" src="images/email.png" onclick="window.open('mailto:munawwar_ali@yahoo.com', '_blank')"/>
+				<img id="speech_1" class="tool" src="images/speech-enabled.png" onclick="toggleAutoplay()"/>
+				<img id="speech_2" class="tool" src="images/speech-disabled.png" onclick="toggleAutoplay()" style="display:none"/>
+				<img id="topics_1" class="tool" style="margin-top: 4px;display:none" src="images/menu-enabled.jpg" onclick="toggleMenu()" />
+				<img id="topics_2" class="tool" style="margin-top: 4px;" src="images/menu-disabled.jpg" onclick="toggleMenu()"/>
+				<img id="qsearch" class="tool" src="images/qsearch.jpg" onclick="loadQuranSearch()" />
+				<img id="dict" class="tool" src="images/dict.jpg" />
+				<img id="l-option" class="tool" src="images/languages.png">
+					<div class="tooltiptext">
+						<select id="lang-options">
+							<option value="en-US" select>English</option>
+							<option value="ur-PK">اردو</option>
+							<option value="ar-SA">العربي</option>
+						</select>
+					</div>
+				</img>
+			</span>
+			<span class="toolSpan" id="tool-description" style="font-size:16px;"></span>
+			<span class="menu-container" style="display:none;"></span>
 		</div>
-		<image id="title-img" src='./images/alg.jpg' class='title' width="80%" />
-		<iframe class="reading-pane" width='100%' height='86%' frameborder='0' />
+		<iframe class="reading-pane" />
+		</div>
 	</body>
 </html>

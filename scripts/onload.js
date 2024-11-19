@@ -4,6 +4,21 @@
 
 $(document).ready(function()
 {
+	$(".tool").on('click', function(){
+		updateToolDescription(event.target.id);
+	});
+	
+	window.onresize = updateDeviceSize;
+	updateDeviceSize();
+	function updateDeviceSize(){
+		var deviceType = getDeviceType();
+		$(".toolDiv").removeClass('mobile');
+		$(".toolDiv").removeClass('pad');
+		$(".toolDiv").removeClass('desktop');
+		$(".toolDiv").addClass(deviceType);
+		console.log(deviceType);
+	}
+	
 	nodeInserted("#languages");
 	$(document).on("nodeInserted",function(e,q){
 		if (q === "#languages"){
@@ -11,6 +26,9 @@ $(document).ready(function()
 		}
 		$("#text").text("");
 		$("#play").click();
+		
+		updateToolDescription("dict");
+		loadSampleDictionary();
 	});
 	
 	$("#text").text('');
@@ -21,16 +39,12 @@ $(document).ready(function()
 	if(support.startsWith("Hurray")){
 		speech_synthesis_supportd = true;
 		toggleAutoplay();
-
-		$("#s3_2").hide();
-		$("#s3_1").show();
-		$("#s3_1+p").text(support);
+		updateInitialStates();
+		$("#ss-support_1").hide();
+		$("#ss-support_2").hide();
 	}
 	else{
 		speech_synthesis_supportd = false;
-		$("#s3_1").hide();
-		$("#s3_2").show();
-		$("#s3_2+p").text(support);
 	}	
 	document.getElementById('playSections').addEventListener('change', function() {
 		const selectedValue = this.value;
@@ -62,7 +76,7 @@ function singInUser(){
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
 		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "login.html"));
-		$('#title-img').hide();
+		//$('#title-img').hide();
 	}, 5);
 }
 
@@ -82,17 +96,20 @@ function changeLanguageOption(lang){
 function toggleAutoplay(){
 	
 	if(!speech_synthesis_supportd){
+		toggleIcon("#ss-support");
 		alert('Speech synthesis is not supported on your browser!');
 	}else{
-		toggleIcon("#s4");
+		toggleIcon("#speech");
 		autoplay = !autoplay;
 		
 		if(autoplay){
 			$("#playSections").show();
 			$("#play").show();
+			updateStates({"speech": "Autoplay is now enabled!" });
 		}else{
 			$("#playSections").hide();
 			$("#play").hide();
+			updateStates({"speech": "Autoplay is now disabled!" });
 		}
 	}
 	console.log('autoplay :' + autoplay);
@@ -100,16 +117,16 @@ function toggleAutoplay(){
 
 function toggleMenu(){
 	
-	toggleIcon("#s10");
+	toggleIcon("#topics");
 	menuOption = !menuOption;
-	$(".card-container").toggle();
+	$(".menu-container").toggle();
 	/*
 	if(menuOption){
 		
 	}else{
-		$("#card-container").css('display', 'none!important');
-		$("#card-container").css('overflow', 'hidden!important');
-		$("#card-container").hide();
+		$("#menu-container").css('display', 'none!important');
+		$("#menu-container").css('overflow', 'hidden!important');
+		$("#menu-container").hide();
 	}*/
 	console.log('menuOption :' + menuOption);
 }
@@ -128,7 +145,7 @@ function loadDictionarySearch(text){
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
 		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "dsearch.html?search="+text));
-		$('#title-img').hide();
+		//$('#title-img').hide();
 	}, 5);
 }
 
@@ -138,7 +155,7 @@ function loadSampleDictionary(){
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
 		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "dict.html"));
-		$('#title-img').hide();
+		//$('#title-img').hide();
 	}, 5);
 }
 
@@ -153,7 +170,7 @@ function loadQuranSearch(text){
 		var lang = selectElement.value.substring(0,2);
 
 		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "qsearch.html?search="+text+"&lang="+lang));
-		$('#title-img').hide();
+		//$('#title-img').hide();
 	}, 5);
 }
 
@@ -162,7 +179,7 @@ function showAlphabetChart(){
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
 		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "alpha.html"));
-		$('#title-img').hide();
+		//$('#title-img').hide();
 	}, 5);
 }
 
@@ -171,7 +188,7 @@ function showSynonymChart(){
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
 		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "synonym.html"));
-		$('#title-img').hide();
+		//$('#title-img').hide();
 	}, 5);
 }
 
@@ -180,7 +197,7 @@ function showHomonymChart(){
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
 		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "homonym.html"));
-		$('#title-img').hide();
+		//$('#title-img').hide();
 	}, 5);
 }
 
@@ -227,3 +244,87 @@ function nodeInserted(elementQuerySelector){
         $(document).trigger("nodeInserted",[elementQuerySelector]);
     }
 };
+
+function updateToolDescription(id){
+	
+	var toolMessage = $("#tool-description");
+	if(id !== "topics_1" && id !== "topics_2"){
+		$("#l-option+.tooltiptext").hide();
+		toolMessage.empty();
+	}
+	if(id !== "dict"){
+		updateStates({"menu": "hidden"});
+	}
+	
+	switch(id){
+		case "info": 
+		{
+			toolMessage.html(states.info);
+		}
+		break;
+
+		case "ss-support_1": 
+		case "ss-support_2": 
+		{
+			toolMessage.html(states.ss_support);
+		}
+		break;
+		
+		case "speech_1": 
+		case "speech_2": 
+		{
+			toolMessage.html(states.speech);
+		}
+		break;
+		
+		case "user": 
+		{
+			if(states.user === undefined || states.user === ''){
+				toolMessage.html("You are not signed in.");
+				singInUser();
+			}
+			else
+				toolMessage.html("You are signed in as: "+ states.user);
+		}
+		break;
+		
+		case "dict":
+		{
+			if(states.menu !== "visible"){
+				updateStates({"menu": "visible"});
+				var menuItems = {
+					"Alphabets": "showAlphabetChart()",
+					"Synonyms": "showSynonymChart()",
+					"Homonymn": "showHomonymChart()",
+					"Dictionary": "loadSampleDictionary()"
+				};
+				
+				var menu = '<div class="tool-menu">';
+				for (const [key, value] of Object.entries(menuItems)){
+					menu = menu + '<span class="menuitem" onclick="'+value+'();">'+key+'</span>';
+				}
+				menu = menu + '</div>';
+				toolMessage.append(menu);
+			}else{
+				updateStates({"menu": "hidden"});
+			}
+		}
+		break;
+		
+		case "l-option":
+		{
+			$("#l-option+.tooltiptext").toggle();
+		}
+		break;			
+	}
+}
+
+function updateInitialStates(){
+	updateStates({"info": "Best viewed in Chromium/Edge browser."});
+	updateStates({"ss_support": speech_synthesis_supportd ?
+						"Speech Synthesis is supported by the browser!":
+						"Speech Synthesis is NOT supported by the browser!"});
+	updateStates({"speech": autoplay ?
+						"Autoplay is now disabled!":
+						"Autoplay is now enabled!"});
+}
