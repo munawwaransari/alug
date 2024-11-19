@@ -146,11 +146,10 @@
   <body>
     <div style="float:right">
 		
-		<div  class="autocomplete" style="width:600px;">
-			<input id="wordSearchText" onchange="searchWord()"/>
-			<button id="Search" style="top:-8px; height: 30px;" onclick="openMeaning()">Dictioanry Lookup</button>
-			<button id="Search" style="top:-8px; height: 30px;" onclick="searchInQuran()">Search in Quran</button>
-			<button id="Search" style="top:-8px; height: 30px;" onclick="OpenInChatGPT()">ChatGPT</button>
+		<div  class="autocomplete">
+			<input id="wordSearchText" onchange="searchWord()" style="width:100px;"/>
+			<button id="Search" style="top:-8px; height: 30px;" onclick="openMeaning()">Dictionary</button>
+			<button id="Search" style="top:-8px; height: 30px;" onclick="searchInQuran()">Quran</button>
 		</div>
 		<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:4px"
 			 onclick="showArabicKeyboard('arabic')"/>

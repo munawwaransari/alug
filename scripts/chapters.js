@@ -20,7 +20,7 @@ function openChapter(chapter, file, page, lang){
 			$('.reading-pane').attr('src', encodeURI(abs_path));
 		}, 5);
 	}
-	$('#title-img').hide();
+	//$('#title-img').hide();
 	
 	updateStates({ action: "pdf", chapter: chapter, file: file, page: page});
 	
@@ -69,7 +69,7 @@ function openQuizV2(chapter, file, topic){
 		//var abs_path = getLocationPath() + file + '?chapter=' + chapter + '&topic=' + topic + '&data=' + JSON.stringify(data);
 		var abs_path = getLocationPath() + file + '?chapter=' + chapter + '&topic=' + topic + '&lang=' + langOption + '&data=' + data_path;
 		$('.reading-pane').attr('src', encodeURI(abs_path));
-		$('#title-img').hide();
+		//$('#title-img').hide();
 		
 		updateStates({ action: "quiz", chapter: chapter, file: file, topic: topic});
 	//});
@@ -86,7 +86,7 @@ $(function () {
 		//console.log(chapterPath);
 		var chapterName = ch.split('-')[1].trim();
 		$div = $('<div class="chapter-card"><span onclick="openChapter(\''+chapterName+'\', '+chapterPath+', 0)" >'+chapterName+'</span></div>');
-		$('.card-container').append($div);
+		$('.menu-container').append($div);
 			
 		if(links && links.length > 0){
 			//console.log('Links found');
@@ -104,7 +104,7 @@ $(function () {
 	if(knowledge_checks && knowledge_checks.length > 0){
 		//console.log("Adding knowldeg check links: count = " + knowledge_checks.length);
 		$div = $('<div class="chapter-card"><span>Knowledge Check</span></div>');
-		$('.card-container').append($div);
+		$('.menu-container').append($div);
 		$subNav = $('<div class="subnav-content"></div>');
 		$div.append($subNav);
 		for(let i=0; i < knowledge_checks.length; i++){
