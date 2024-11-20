@@ -130,13 +130,7 @@ function resetFilters(){
 }
 
 function loadSearch(w, quran){
-	var punctuation = "َ ّ َ ً ْ ُ ٌ ِ ٍ" ;
-	var text = w.replace(new RegExp("["+punctuation+"]+","g"), '')
-				.replace(new RegExp("ٱ", "g"), 'ا')
-				.replace(new RegExp("إ", "g"), 'ا')
-				.replace(new RegExp("أ", "g"), 'ا')
-				.replace(new RegExp("ى", "g"), 'ي');
-	
+	var text = arRemovePunct(w);
 	if(quran){
 		var url = encodeURI(getLocationPath() + '?search='+text);
 		parent ? parent.window.open(url, '_blank') : window.open(url, '_blank');

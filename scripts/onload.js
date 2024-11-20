@@ -17,6 +17,7 @@ $(document).ready(function()
 		$(".toolDiv").removeClass('desktop');
 		$(".toolDiv").addClass(deviceType);
 		console.log(deviceType);
+		window.onresize = undefined;
 	}
 	
 	nodeInserted("#languages");
