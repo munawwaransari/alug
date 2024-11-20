@@ -255,7 +255,8 @@ function listWordInfo(filter){
 		var table = '<table class="wordIndex"><th>Frequency</th><th>PoS</th><th>Word</th>';
 		qf_list.forEach(function(data) {
 			var w_link = data.wsearch ? "https://www.almaany.com/quran/"+data.wsearch : "";
-			var alink = '<p style="cursor:pointer;" onclick="$(\'#searchText\').val(\''+arRemovePunct(data.word)+'\');">';
+			var alink = '<p style="cursor:pointer;" onclick="$(\'#searchText\').val(\''+arRemovePunct(data.word)+'\');'+
+													         'window.scroll(0,0);">';
 				alink += w_link ? 
 						('<a title="Analyze" href="#" style="margin-right:4px;font-size:14px;cursor:pointer;" '+
 							'onclick="var w = parent.window ? parent.window : window; '+

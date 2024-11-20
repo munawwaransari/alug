@@ -1,0 +1,63 @@
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <head>
+		<link rel="shortcut icon" href="#" />
+		<script>
+			window.onload = function(){
+				logHeading("Speech Synthesis support");
+				var browserSupport = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+				logInfo("browser support:" + browserSupport ? "Supported": "Not Supported");
+
+				if(browserSupport){
+					window.speechSynthesis.onvoicechanged = function(){
+						document.append("onvoicechanged: fired");
+					};
+					
+					setTimeout(function(){
+						var btn = document.getElementById('loadVoices');
+						btn.click();
+					}, 1000);
+				}	  	  				  			  
+			}
+			
+			function loadVoices(){
+				try{
+					logHeading("Supported languages:");
+					console.log(speechSynthesis.getVoices());
+					var voices = speechSynthesis.getVoices().filter(function(vv){
+						return vv.lang === 'ur' || vv.lang.includes('ur-IN') || vv.lang.includes('ur-PK') ||
+							   vv.lang === 'ar' || vv.lang.includes('ar-SA');
+					});
+					for(var i=0; i < voices.length; i++){
+					  var v = voices[i].name + "( "+ voices[i].lang +" )";
+					  logInfo(v);
+					}
+				  }
+				  catch(err){
+					logError(err);
+				  }
+			}
+			
+			function logHeading(txt){
+				
+				const headNode = document.createElement('h3');
+				headNode.innerHTML = txt;
+				document.body.appendChild(headNode);
+			}
+			function logInfo(txt){
+				const headNode = document.createElement('p');
+				headNode.innerHTML = txt;
+				document.body.appendChild(headNode);
+			}
+			function logError(err){
+				const headNode = document.createElement('h3');
+				headNode.innerHTML = 'Error:' + err.message;
+				headNode.style.color = 'red';
+				document.body.appendChild(headNode);
+			}
+		</script>
+	</head>
+	<body>
+	 <button id="loadVoices" onclick="loadVoices()"/>
+	</body>
+</html>
