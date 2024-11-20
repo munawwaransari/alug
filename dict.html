@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="#" />
+	<link rel="stylesheet" type="text/css" href="styles/autoc-styles.css" media="screen">
 	<title>Dictionary Test</title>
 	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
 	<script src="scripts/data-util.js"></script>
@@ -93,54 +94,6 @@
 		max-height: 16px;
 		cursor: pointer;
       }
-	  
-	  .autocomplete {
-		  /*the container must be positioned relative:*/
-		  position: relative;
-		  display: inline-block;
-		  direction: rtl;
-		}
-		input {
-		  border: 1px solid transparent;
-		  background-color: #f1f1f1;
-		  padding: 10px;
-		  font-size: 20px;
-		}
-		input[type=text] {
-		  background-color: #f1f1f1;
-		  width: 100%;
-		}
-		input[type=submit] {
-		  background-color: DodgerBlue;
-		  color: #fff;
-		}
-		.autocomplete-items {
-		  position: absolute;
-		  border: 1px solid #d4d4d4;
-		  border-bottom: none;
-		  border-top: none;
-		  z-index: 99;
-		  /*position the autocomplete items to be the same width as the container:*/
-		  top: 100%;
-		  left: 0;
-		  right: 0;
-		}
-		.autocomplete-items div {
-		  padding: 10px;
-		  cursor: pointer;
-		  background-color: #fff;
-		  border-bottom: 1px solid #d4d4d4;
-		   direction: rtl;
-		}
-		.autocomplete-items div:hover {
-		  /*when hovering an item:*/
-		  background-color: #e9e9e9;
-		}
-		.autocomplete-active {
-		  /*when navigating through the items using the arrow keys:*/
-		  background-color: DodgerBlue !important;
-		  color: #ffffff;
-		}
 	</style>
 </head>
   <body>
@@ -148,8 +101,8 @@
 		
 		<div  class="autocomplete">
 			<input id="wordSearchText" onchange="searchWord()" style="width:100px;"/>
-			<button id="Search" style="top:-8px; height: 30px;" onclick="openMeaning()">Dictionary</button>
-			<button id="Search" style="top:-8px; height: 30px;" onclick="searchInQuran()">Quran</button>
+			<button id="SearchD" style="top:-8px; height: 30px;" onclick="openMeaning()">Dictionary</button>
+			<button id="SearchQ" style="top:-8px; height: 30px;" onclick="searchInQuran()">Quran</button>
 		</div>
 		<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:4px"
 			 onclick="showArabicKeyboard('arabic')"/>

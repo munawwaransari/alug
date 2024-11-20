@@ -1,5 +1,5 @@
 //var suggestions = [];
-var arr = [];
+//var arr = [];
 
 function fireInputEvent(inp){
 	const event = new Event('input', {
@@ -25,7 +25,7 @@ function refreshAutoCompleteList(inp, val, arr){
 	/*for each item in the array...*/
 	for (i = 0; i < arr.length; i++) {
 		/*check if the item starts with the same letters as the text field value:*/
-		if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+		if (arRemovePunct(arr[i]).substr(0, val.length).toUpperCase() == val.toUpperCase()) {
 		  /*create a DIV element for each matching element:*/
 		  b = document.createElement("DIV");
 		  /*make the matching letters bold:*/

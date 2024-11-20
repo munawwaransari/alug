@@ -2,13 +2,79 @@
 //	Author: munawwar_ali@yahoo.com
 //
 
+var lang = "ar";
+var lastSuggestionInput = undefined;
+var qf_list = [];
+var q_summary = {};
+window.onload = function(){
+	
+	var langParam = decodeURI(getParamValue("lang"));
+	if(langParam && langParam != 'undefined' && ( langParam ==='ar' || langParam ==='ur' || langParam ==='en') ){
+		lang = langParam;
+	}
+	
+	var searchVal = decodeURI(getParamValue("search"));	
+	if(searchVal && searchVal != 'undefined'){
+		$("#searchText").val(searchVal);
+		search();
+	}	
+	
+	if(parent.playAudio == undefined){
+		var e = document.getElementById("qar");
+		e.innerHTML = "";
+	}
+	
+	loadQList();
+};
+
+async function loadQList(){
+	
+	var fileUrl = getLocationPath() + "q.dic/qf-list.json";
+	loadJsonData(fileUrl, function(data){
+		q_summary = {
+			"credit": data[0].credit,
+			"word_total": data[0].word_total,
+			"freq_total": data[0].freq_total,
+		};
+		qf_list = data.slice(1);
+		var q_words = qf_list.map(function(d){
+			return d.word;
+		});
+		
+		setTimeout(function(){listWordInfo();}, 50);
+		
+		//setTimeout(function(){
+			autocomplete(document.getElementById('searchText'), function(val, callback){
+				var condition = val.length > 1 && val !== lastSuggestionInput;
+				if(condition){
+					lastSuggestionInput = val;
+					//getQSuggesstions(val, callback);
+					val = val.trim();
+					var suggestionsList = q_words.filter(function(w){
+						return arRemovePunct(w).startsWith(val);
+					});
+					if(callback){
+						callback(suggestionsList);	
+					}
+				}
+				return condition;
+			});
+		//}, 10);
+	});			
+}
+
 function search(){
+	$("#qari").show();
 	stopPlayVerse();
-	const text = document.getElementById("searchText").value;
+	const text = arRemovePunct(document.getElementById("searchText").value);
 	var div = $("#searchResult");
 	div.empty();
+	div.html('Searching '+text+' in the Quran...');
 	SearchQuran(window.QuranJS.Search.search, text, function(data){
 		console.log(data);
+		if(data.results.length == 0){
+			div.html('No results found for '+ text);
+		}
 		data.results.forEach(function(res){
 			if(res.highlighted){
 				var verse = res.highlighted;
@@ -172,12 +238,48 @@ function playVerse(url, verseKey){
 }
 
 function stopPlayVerse(){
-	if(parent){
+	if(parent && parent.stopAudio){
 		parent.stopAudio();
 	}
 }
 
+function listWordInfo(filter){
+	$("#qari").hide();
+	if(qf_list && qf_list.length > 0){
+		var div = $("#searchResult");
+		div.empty();
+		var credit = '<div class="credit">source: <a href="#" onclick="window.open(\''+q_summary.credit+'\', \'_blank\')">'+q_summary.credit+'</a><div>';
+		var table = '<table class="wordIndex"><th>Frequency</th><th>PoS</th><th>Word</th>';
+		qf_list.forEach(function(data) {
+			var w_link = data.wsearch ? "https://www.almaany.com/quran/"+data.wsearch : "";
+			var alink = w_link === '' ? data.word : 
+								'<a href="#" '+
+									'onclick="var w = parent.window ? parent.window : window; '+
+										'w.open(\''+w_link+'\', \'_blank\'); return false;">'+
+								data.word +
+								'</a>';
+			if(filter){
+				if(arRemovePunct(data.word).startsWith(arRemovePunct(filter))){
+					//table = table+ '<tr>'+'<td>'+data.per.toFixed(2)+'</td>'+'<td>'+data.frequency+'</td>'+'<td>'+data.pos+'</td>'+'<td class="qword">'+alink+'</td>'+'</tr>';	
+					table = table+ '<tr>'+'<td>'+data.frequency+'</td>'+'<td>'+data.pos+'</td>'+'<td class="qword">'+alink+'</td>'+'</tr>';	
+				}
+			}else{
+				table = table+ '<tr>'+'<td>'+data.frequency+'</td>'+'<td>'+data.pos+'</td>'+'<td class="qword">'+alink+'</td>'+'</tr>';					
+			}
+		});
+		table = table+'</table>';
+		div.append($(credit+table));
+	}
+}
+
+function filterWords(){
+	$("#qari").hide();
+	var text = $("#searchText").val();
+	listWordInfo(text);
+}
+
 function listSurahs(){
+	$("#qari").hide();
 	var path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
 	var url = path + 'data/qsurah.json';
 	listSurahsAsync(url, function(data){
@@ -223,22 +325,3 @@ function searchHadith(){
 	var w = parent.window ? parent.window : windwo;
 	w.open(searchUrl, '_blank');
 }
-
-var lang = "ar";
-window.onload = function(){
-	var langParam = decodeURI(getParamValue("lang"));
-	if(langParam && langParam != 'undefined' && ( langParam ==='ar' || langParam ==='ur' || langParam ==='en') ){
-		lang = langParam;
-	}
-	
-	var searchVal = decodeURI(getParamValue("search"));	
-	if(searchVal && searchVal != 'undefined'){
-		$("#searchText").val(searchVal);
-		search();
-	}	
-	
-	if(parent.playAudio == undefined){
-		var e = document.getElementById("qar");
-		e.innerHTML = "";
-	}
-};

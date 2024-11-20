@@ -73,3 +73,12 @@ function getDeviceType() {
         return "desktop";
     }
 }
+
+function arRemovePunct(txt){
+	var punctuation = "َٰ ّ َ ً ْ ُ ٌ ِ ٍ" ;
+	return txt.replace(new RegExp("["+punctuation+"]+","g"), '')
+				.replace(new RegExp("ٱ", "g"), 'ا')
+				.replace(new RegExp("إ", "g"), 'ا')
+				.replace(new RegExp("أ", "g"), 'ا')
+				.replace(new RegExp("ى", "g"), 'ي');
+}
