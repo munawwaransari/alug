@@ -255,15 +255,15 @@ function listWordInfo(filter){
 		var table = '<table class="wordIndex"><th>Frequency</th><th>PoS</th><th>Word</th>';
 		qf_list.forEach(function(data) {
 			var w_link = data.wsearch ? "https://www.almaany.com/quran/"+data.wsearch : "";
-			var alink = w_link === '' ? data.word : 
-								'<p style="cursor:pointer;" onclick="$(\'#searchText\').val(\''+arRemovePunct(data.word)+'\');'+
-																    ' fireInputEvent(document.getElementById(\'searchText\'));">'+
-								'<a title="Analyze" href="#" style="margin-right:4px;font-size:14px;cursor:pointer;" '+
-									'onclick="var w = parent.window ? parent.window : window; '+
-										'w.open(\''+w_link+'\', \'_blank\'); return false;">'+
-								'(تحليل)'+
-								'</a>'+
-								data.word+'</p>';
+			var alink = '<p style="cursor:pointer;" onclick="$(\'#searchText\').val(\''+arRemovePunct(data.word)+'\');">';
+				alink += w_link ? 
+						('<a title="Analyze" href="#" style="margin-right:4px;font-size:14px;cursor:pointer;" '+
+							'onclick="var w = parent.window ? parent.window : window; '+
+								'w.open(\''+w_link+'\', \'_blank\'); return false;">'+
+						'(تحليل)'+
+						'</a>') : '';
+				alink += data.word+'</p>';
+				
 			if(filter){
 				if(arRemovePunct(data.word).startsWith(arRemovePunct(filter))){
 					//table = table+ '<tr>'+'<td>'+data.per.toFixed(2)+'</td>'+'<td>'+data.frequency+'</td>'+'<td>'+data.pos+'</td>'+'<td class="qword">'+alink+'</td>'+'</tr>';	
@@ -296,10 +296,10 @@ function listSurahs(){
 		for (const [index, surah] of Object.entries(data)) {
 			
 			var tanzilLink = '<a style="cursor:pointer;font-size:18px" href="https://tanzil.net/#'+index+'" '+
-				 'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
+				 'onclick="var w = parent ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
 				 '[' + surah.en+ ']'+
 				 '</a>';
-			table = table+ '<tr>'+'<td>'+index+'</td>'+'<td>'+tanzilLink+'</td>'+'<td>'+surah.ar+'</td></tr>';	
+			table = table+ '<tr>'+'<td>'+index+'</td>'+'<td>'+tanzilLink+'</td>'+'<td class="qword">'+surah.ar+'</td></tr>';	
 		}
 		table = table+'</table>';
 		div.append($(table));
