@@ -67,13 +67,19 @@
 		width: 40%;
 	}
 	
-	.qword:hover {
-		background-color: yellow;
+	table .qword {
+		text-align: center;
+		font-size: 28px;
 	}
 	
-	.qword {
-		background-color: white;
-		font-size: 28px;
+	table .qword a:hover {
+		color: indigo;
+		background-color: orange;
+	}
+	
+	table .qword:hover {
+		color: red;
+		background-color: yellow;
 	}
 	
 	.credit{
@@ -97,7 +103,7 @@
 		<br/>
 		<p style="font-size: 8px">Powered by <a href='https://quranjs.com/' onclick="window.open(this.href, '_blank'); return false;">QuranJS API</a></p>
 	</div>
-	<div id="qar" style="text-align: center; padding: 20px;display:none">
+	<div id="qari" style="text-align: center; padding: 20px;display:none">
 		<label>Select Qari:</label>
 		<select id="qari-options">
 			<option value="AbdulSamad_64kbps_QuranExplorer.Com" select>Abdul Basit Abdul Samad</option>

@@ -20,7 +20,7 @@ window.onload = function(){
 	}	
 	
 	if(parent.playAudio == undefined){
-		var e = document.getElementById("qar");
+		var e = document.getElementById("qari");
 		e.innerHTML = "";
 	}
 	
@@ -74,10 +74,13 @@ function search(){
 		console.log(data);
 		if(data.results.length == 0){
 			div.html('No results found for '+ text);
+			return;
 		}
+		div.html('');
 		data.results.forEach(function(res){
-			if(res.highlighted){
-				var verse = res.highlighted;
+			var resulText = res.highlighted ?? res.text;
+			if(resulText){
+				var verse = resulText;
 				var replacedWords = [];
 				res.words.forEach(function(w){
 					replacedWords.push({"word": w.text, "text": replaceWord(w) });
@@ -253,11 +256,14 @@ function listWordInfo(filter){
 		qf_list.forEach(function(data) {
 			var w_link = data.wsearch ? "https://www.almaany.com/quran/"+data.wsearch : "";
 			var alink = w_link === '' ? data.word : 
-								'<a href="#" '+
+								'<p style="cursor:pointer;" onclick="$(\'#searchText\').val(\''+arRemovePunct(data.word)+'\');'+
+																    ' fireInputEvent(document.getElementById(\'searchText\'));">'+
+								'<a title="Analyze" href="#" style="margin-right:4px;font-size:14px;cursor:pointer;" '+
 									'onclick="var w = parent.window ? parent.window : window; '+
 										'w.open(\''+w_link+'\', \'_blank\'); return false;">'+
-								data.word +
-								'</a>';
+								'(تحليل)'+
+								'</a>'+
+								data.word+'</p>';
 			if(filter){
 				if(arRemovePunct(data.word).startsWith(arRemovePunct(filter))){
 					//table = table+ '<tr>'+'<td>'+data.per.toFixed(2)+'</td>'+'<td>'+data.frequency+'</td>'+'<td>'+data.pos+'</td>'+'<td class="qword">'+alink+'</td>'+'</tr>';	
