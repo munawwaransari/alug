@@ -28,25 +28,19 @@ $(document).ready(function()
 		$("#text").text("");
 		$("#play").click();
 		
-		updateToolDescription("dict");
-		loadSampleDictionary();
+		// Load initial page
+		var searchVal = decodeURI(getParamValue("search"));	
+		if(searchVal && searchVal != 'undefined'){
+			loadQuranSearch(searchVal);
+		}else{
+			loadSampleDictionary();
+		}
 	});
 	
 	$("#text").text('');
 	$("#text").hide();
 
-	var support = document.getElementById("support").innerHTML;
-
-	if(support.startsWith("Hurray")){
-		speech_synthesis_supportd = true;
-		toggleAutoplay();
-		updateInitialStates();
-		$("#ss-support_1").hide();
-		$("#ss-support_2").hide();
-	}
-	else{
-		speech_synthesis_supportd = false;
-	}	
+	checkBrowserSupport();
 	document.getElementById('playSections').addEventListener('change', function() {
 		const selectedValue = this.value;
 		$("#text").text(selectedValue);
@@ -64,11 +58,6 @@ $(document).ready(function()
 			
 		}
 	});
-	
-	var searchVal = decodeURI(getParamValue("search"));	
-	if(searchVal && searchVal != 'undefined'){
-		loadQuranSearch(searchVal);
-	}
 });
 
 			
@@ -253,7 +242,7 @@ function updateToolDescription(id){
 		$("#l-option+.tooltiptext").hide();
 		toolMessage.empty();
 	}
-	if(id !== "dict"){
+	if(id !== "alpha"){
 		updateStates({"menu": "hidden"});
 	}
 	
@@ -289,20 +278,19 @@ function updateToolDescription(id){
 		}
 		break;
 		
-		case "dict":
+		case "alpha":
 		{
 			if(states.menu !== "visible"){
 				updateStates({"menu": "visible"});
 				var menuItems = {
 					"Alphabets": "showAlphabetChart()",
 					"Synonyms": "showSynonymChart()",
-					"Homonymn": "showHomonymChart()",
-					"Dictionary": "loadSampleDictionary()"
+					"Homonymn": "showHomonymChart()"
 				};
 				
 				var menu = '<div class="tool-menu">';
 				for (const [key, value] of Object.entries(menuItems)){
-					menu = menu + '<span class="menuitem" onclick="'+value+'();">'+key+'</span>';
+					menu = menu + '<span class="menuitem" onclick="'+value+';">'+key+'</span>';
 				}
 				menu = menu + '</div>';
 				toolMessage.append(menu);
@@ -321,11 +309,37 @@ function updateToolDescription(id){
 }
 
 function updateInitialStates(){
-	updateStates({"info": "Best viewed in Chromium/Edge browser."});
 	updateStates({"ss_support": speech_synthesis_supportd ?
 						"Speech Synthesis is supported by the browser!":
 						"Speech Synthesis is NOT supported by the browser!"});
 	updateStates({"speech": autoplay ?
 						"Autoplay is now disabled!":
 						"Autoplay is now enabled!"});
+}
+
+function checkBrowserSupport(){
+	
+	if(navigator){
+		const userAgent = navigator.userAgent;
+		console.log(userAgent);
+		if (userAgent.includes("Edg") || userAgent.includes("Chrome")) {
+			setTimeout(function(){$("#info").hide();},5);
+		}else{
+			updateStates({"info": "Best viewed in Chromium/Edge browser."});
+			$("#info").show();
+			updateToolDescription("info");
+		}
+	}
+				
+	var support = document.getElementById("support").innerHTML;
+	if(support.startsWith("Hurray")){
+		speech_synthesis_supportd = true;
+		toggleAutoplay();
+		updateInitialStates();
+		$("#ss-support_1").hide();
+		$("#ss-support_2").hide();
+	}
+	else{
+		speech_synthesis_supportd = false;
+	}	
 }

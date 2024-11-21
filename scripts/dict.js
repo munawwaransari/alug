@@ -28,8 +28,6 @@ window.onload = function(){
 	loadJsonData(url, function(data){
 			dict = data;
 			for (const [key, value] of Object.entries(dict)){
-			  console.log(key);
-			  console.log(value);
 			  addIndex(key);
 			}
 	});
@@ -120,7 +118,7 @@ function toggleForm(f){
 		formFilters = formFilters.filter(item => item !== f);
 		$("#"+f).removeClass("formFilter");
 	}
-	console.log(formFilters);
+	//console.log(formFilters);
 	loadDictionary(lastIndex);
 }
 
