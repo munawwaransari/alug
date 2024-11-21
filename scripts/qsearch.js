@@ -89,8 +89,9 @@ function search(){
 			var resulText = res.highlighted ?? res.text;
 			if(resulText){
 				var verseKeys = res.verseKey.split(":");
-				var verse = ""; //resulText.replace(/[<>\/a-zA-Z]+/ig, '');
+				var verse = resulText.replace(/[<>\/a-zA-Z]+/ig, '');
 				
+				/*
 				//var replacedWords = [];
 				var wIndex = 0;
 				var wordMap = res.words.map(function(w){
@@ -100,6 +101,7 @@ function search(){
 					//replacedWords.push({"word": w.text, "text": replaceWord(w) });
 				});
 				verse = wordMap.join('');
+				*/
 				
 				var spanId = verseKeys[0]+"_"+verseKeys[1]; //res.verseKey.replace(":","_");
 				var play = parent.playAudio ? '<span id="'+spanId+'">'+
@@ -133,8 +135,6 @@ function search(){
 }
 
 /*
-Load word analysis from almaany.com/quran
-*/
 function showWordAnalysis(url){
 	if(parent.getLang){
 		parent.window.open(url, '_blank');
@@ -142,6 +142,7 @@ function showWordAnalysis(url){
 		window.open(url, '_blank');
 	}
 }
+*/
 
 function searchVerse(verseKey){
 	SearchQuran(window.QuranJS.Verses.findByKey, verseKey, function(data){
