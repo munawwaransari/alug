@@ -95,9 +95,9 @@ function search(){
 				res.words.forEach(function(w){
 					wIndex++;
 					var url = "https://www.almaany.com/quran/"+verseKeys[0]+"/"+verseKeys[1]+"/"+wIndex;
-					verse = verse + '<p style="cursor:pointer" onclick="showWordAnalysis(\''+url+'\');">'+				 
-									   w.text + '&nbsp;'+
-									'</p>';
+					verse = verse + '<a class="word" style="cursor:pointer" onclick="showWordAnalysis(\''+url+'\');">'+				 
+									   w.text + '&nbsp;' +
+									'</a>';
 					replacedWords.push({"word": w.text, "text": replaceWord(w) });
 				});
 				
