@@ -127,7 +127,7 @@ function search(){
 								 '[Trasnlatation (en)]'+
 								 '</a>';
 								 
-				div.append($('<div class="verse">'+verse+'</div><div style="padding: 0; margin:0;">'+tanzilLink+' '+copy+play+' <span>'+translationLink+'</span></div>'));
+				div.append($('<div class="verse">'+verse+'</div><div>'+tanzilLink+' '+copy+play+' <span>'+translationLink+'</span></div>'));
 			}
 		});
 	});
