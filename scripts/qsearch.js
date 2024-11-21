@@ -135,6 +135,7 @@ function search(){
 								 '</a>';
 								 
 				div.append($('<div ontouchend="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')" '+
+								  'onclick="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')" '+
 								  'onmouseup="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')" class="verse">'+
 								verse+'</div>'+
 								'<div>'+tanzilLink+' '+copy+play+
