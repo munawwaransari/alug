@@ -9,6 +9,12 @@ var q_summary = {};
 
 window.onload = function(){
 	
+	window.addEventListener("contextmenu", e =>
+	{
+	  e.preventDefault();
+	  //console.log("selected text:", window.getSelection().toString());
+	});
+
 	var langParam = decodeURI(getParamValue("lang"));
 	if(langParam && langParam != 'undefined' && ( langParam ==='ar' || langParam ==='ur' || langParam ==='en') ){
 		lang = langParam;
