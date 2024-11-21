@@ -89,8 +89,10 @@ function search(){
 			var resulText = res.highlighted ?? res.text;
 			if(resulText){
 				var verseKeys = res.verseKey.split(":");
-				var verse = ""; //resulText;
+				var verse = resulText;
 				var replacedWords = [];
+				
+				/*
 				var wIndex = 0;
 				res.words.forEach(function(w){
 					wIndex++;
@@ -100,7 +102,7 @@ function search(){
 									'</a>';
 					replacedWords.push({"word": w.text, "text": replaceWord(w) });
 				});
-				
+				*/
 				var spanId = verseKeys[0]+"_"+verseKeys[1]; //res.verseKey.replace(":","_");
 				var play = parent.playAudio ? '<span id="'+spanId+'">'+
 											  
