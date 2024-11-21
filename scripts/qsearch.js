@@ -128,21 +128,37 @@ function search(){
 								 '[Trasnlatation (en)]'+
 								 '</a>';
 								 
-				div.append($('<div class="verse">'+verse+'</div><div>'+tanzilLink+' '+copy+play+' <span>'+translationLink+'</span></div>'));
+				div.append($('<div onclick="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')" class="verse" oncli>'+
+								verse+'</div>'+
+								'<div>'+tanzilLink+' '+copy+play+
+								'<span>'+translationLink+'</span>'+
+							  '</div>'));
 			}
 		});
 	});
 }
 
-/*
-function showWordAnalysis(url){
+function analyzeSelection(text, surah, verse){
+	let selection = window.getSelection();
+	let selectedText = selection.toString();
+	if (selectedText && text) {
+		var words = text.split(' ');
+		var pos = text.substring(0, text.indexOf(selectedText) - selectedText.length)
+					  .split(' ')
+					  .length;
+		
+		showWordAnalysis(words[pos-1], surah, verse, pos);
+	}
+}
+
+function showWordAnalysis(word, surah, verse, pos){
+	var url = "https://www.almaany.com/quran/"+surah+"/"+verse+"/"+pos;
 	if(parent.getLang){
 		parent.window.open(url, '_blank');
 	}else{
 		window.open(url, '_blank');
 	}
 }
-*/
 
 function searchVerse(verseKey){
 	SearchQuran(window.QuranJS.Verses.findByKey, verseKey, function(data){
