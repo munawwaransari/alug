@@ -128,7 +128,7 @@ function search(){
 								 '[Trasnlatation (en)]'+
 								 '</a>';
 								 
-				div.append($('<div onclick="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')" class="verse" oncli>'+
+				div.append($('<div onmouseup="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')" class="verse" oncli>'+
 								verse+'</div>'+
 								'<div>'+tanzilLink+' '+copy+play+
 								'<span>'+translationLink+'</span>'+
