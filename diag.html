@@ -4,6 +4,9 @@
 		<link rel="shortcut icon" href="#" />
 		<script>
 			window.onload = function(){
+			
+				checkBrowser();
+			
 				logHeading("Speech Synthesis support");
 				var browserSupport = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
 				logInfo("browser support:" + browserSupport ? "Supported": "Not Supported");
@@ -20,6 +23,17 @@
 				}	  	  				  			  
 			}
 			
+			function checkBrowser(){
+				const userAgent = navigator.userAgent;
+
+				logHeading(userAgent);
+				if (userAgent.includes("Edg") || userAgent.includes("Chrome")) {
+					logInfo("Browser is supported");
+				} else {
+					logError("Browser is not supported");
+				}
+			}
+
 			function loadVoices(){
 				try{
 					logHeading("Supported languages:");

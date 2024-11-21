@@ -1,6 +1,9 @@
 function getLocationPath(){
 	return window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
+}
 
+function getSiteLocationPath(url){
+	return url.substring(0,window.location.href.lastIndexOf("/")+1);
 }
 
 function getParamValue(paramName){
@@ -36,10 +39,10 @@ async function loadJsonData(url,  callback, errorCallback)
 	}
 }
 
-async function loadHtmlData(url,  callback)
+async function loadHtmlData(url,  callback, opt)
 {
 	try {
-		const response = await fetch(url);
+		const response = await fetch(url, opt);
 		if (!response.ok) {
 			throw new Error(`HTTP error! Status: ${response.status}`);
 		}
@@ -56,6 +59,10 @@ function showArabicKeyboard(keybd){
 		console.log("Opening keyboard: " + keybd);
 		window.open("keybd.html?layout="+keybd, "name", "top=0,left=0,width=600px,height=266px");
 	}, 10);
+}
+
+function copyTextToClipboard(txt){
+	navigator.clipboard.writeText(txt);
 }
 
 const PAD_WIDTH = 768;
@@ -82,3 +89,50 @@ function arRemovePunct(txt){
 				.replace(new RegExp("أ", "g"), 'ا')
 				.replace(new RegExp("ى", "g"), 'ي');
 }
+
+function replaceWord(w){
+	var punctuation = "ۡۧ ـ	 ۦۥۣۤۢۡ۠۟۞۝ۜۛۚۙۘۗۖە";
+	var text = w.text
+				.replace(new RegExp("["+punctuation+"]+","g"), '')
+				.replace(new RegExp("ٱ", "g"), 'ا')
+				.replace(new RegExp("ىٰ","g"), 'ى')
+				.replace(new RegExp("وَال","g"), 'ال')
+				.replace(new RegExp("ٰ","g"), "ا")
+				.replace(new RegExp("لِل","g"),"");
+	return text;
+}
+
+/*
+function replaceWithLink(verse, word, text){
+	var link = encodeURI("https://glosbe.com/ar/"+lang+"/"+text);
+	var click_event = (parent ? "parent.window" : "window") + ".open(updateLang(this.href), '_blank'); return false;";
+	if( verse.search(word) == -1){
+		word = word.replace(new RegExp("ٍ","g"),'')
+				   .replace(new RegExp("ً","g"),'')
+				   .replace(new RegExp("ٌ","g"),'')
+				   .replace(new RegExp("ٞ","g"),'')
+				   .replace(new RegExp("ۡ","g"),"ْ")
+				   .replace(new RegExp("ۖ","g"),'')
+				   .replace(new RegExp("ۗ","g"),'')
+				   .replace(new RegExp("ۘ","g"),'')
+				   .replace(new RegExp("ۙ","g"),'')
+				   .replace(new RegExp("ۚ","g"),'')
+				   .replace(new RegExp("ۛ","g"),'')
+				   .replace(new RegExp("ۜ","g"),'')
+				   .replace(new RegExp("ٖ","g"),'')
+				   .replace(new RegExp("اْ", "g"), 'ا۟')
+				   .replace(new RegExp("مَٰ","g"),"مَـٰ")
+				   .replace(new RegExp("ثَٰ","g"),"ثَـٰ")
+				   .replace(new RegExp("بَٰ","g"),"بَـٰ")
+				   .replace(new RegExp("كَٰ","g"),"كَـٰ")
+				   .replace(new RegExp("لَٰ","g"),"لَـٰ")
+				   .replace(new RegExp("قَٰ","g"),"قَـٰ")
+				   .replace(new RegExp("يّٞ","g"),"ىٌّ");
+	}
+	if( verse.search(word) == -1){
+		word = word.replace(new RegExp("^كَ","g"),'')
+				   .replace(new RegExp("^لِ","g"),'');
+	}
+	return verse.replace(word, '<a title="click to view in glosbe.com" class="word" style="cursor:pointer;" href="'+link+'" onclick="'+click_event+'">'+word+'</a>');
+}
+*/

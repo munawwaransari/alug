@@ -53,19 +53,17 @@
 		//}	
 	}
 	
-	function copyToClip(){
-		var copyText = document.getElementsByTagName("input");
-	    console.log(copyText);
-		copyText[0].select();
-		copyText[0].setSelectionRange(0, 99999); 
-		navigator.clipboard.writeText(copyText[0].value);
-		console.log("Copied to clipboard!");
+	function copyText(){
+		var inp = document.getElementsByTagName("input")[0];
+	    inp.select();
+		inp.setSelectionRange(0, 99999); 
+		navigator.clipboard.writeText(inp.value);
 	}
   </script>
 </head>
 
 <body>
-  <div><input class="input" /><button onclick="copyToClip()">Copy</button></div>
+  <div><input class="input" /><button onclick="copyText()">Copy</button></div>
   <div class="keyboardContainer">
     <div class="simple-keyboard"></div>
   </div>
