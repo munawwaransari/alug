@@ -140,14 +140,25 @@ function search(){
 
 function analyzeSelection(text, surah, verse){
 	let selection = window.getSelection();
-	let selectedText = selection.toString();
+	let selectedText = selection.toString().trim();
 	if (selectedText && text) {
 		var words = text.split(' ');
-		var pos = text.substring(0, text.indexOf(selectedText) - selectedText.length)
+		var pos = text.substring(0, text.indexOf(selectedText))
 					  .split(' ')
 					  .length;
 		
-		showWordAnalysis(words[pos-1], surah, verse, pos);
+		var tip = document.getElementById("tip");
+		event.target.appendChild(tip);
+		tip.style.left = event.clientX;
+		tip.style.top = event.clientY;
+		tip.style.display = "block";
+		tip.innerHTML = words[pos-1];
+		tip.onclick = function(){
+			showWordAnalysis(words[pos-1], surah, verse, pos);	
+		}
+	}else{
+		var tip = document.getElementById("tip");
+		tip.style.display = "none";
 	}
 }
 
