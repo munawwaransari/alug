@@ -141,14 +141,14 @@ function search(){
 								 
 				var translationLink = '<a title="Click to view translation in tanzil.com" style="font-size:10px" href="https://tanzil.net/#trans/en.sahih/'+res.verseKey+'" '+
 							     'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
-								 '[Trasnlatation (en)]'+
+								 '[en]'+
 								 '</a>';
 								 
-				div.append($('<div>'+verse+'</div>'+verse+
-							  '</div>'+'<div>'+tanzilLink+
-							  '<span>'+copy+'</span>'+
-							  '<span>'+play+'</span>'+
-							  '<span>'+translationLink+'</span>'+
+				div.append($('<div>'+verse+'</div>'+
+							  '<div style="fonct-size:12px;"><span>'+tanzilLink+'</span>'+
+								   '<span>'+copy+'</span>'+
+								   '<span>'+play+'</span>'+
+							       '<span>'+translationLink+'</span>'+
 							 '</div>'));
 			}
 		});
