@@ -38,40 +38,48 @@ window.onload = function(){
 /* 
 Loads all words of Quran 
 */
+var all_q_words = undefined;
 async function loadQList(){
 	
-	var fileUrl = getLocationPath() + "q.dic/qf-list.json";
-	loadJsonData(fileUrl, function(data){
-		q_summary = {
-			"credit": data[0].credit,
-			"word_total": data[0].word_total,
-			"freq_total": data[0].freq_total,
-		};
-		qf_list = data.slice(1);
-		var q_words = qf_list.map(function(d){
-			return d.word;
-		});
-		
-		setTimeout(function(){listWordInfo();}, 50);
-		
-		//setTimeout(function(){
-			autocomplete(document.getElementById('searchText'), function(val, callback){
-				var condition = val.length > 1 && val !== lastSuggestionInput;
-				if(condition){
-					lastSuggestionInput = val;
-					//getQSuggesstions(val, callback);
-					val = val.trim();
-					var suggestionsList = q_words.filter(function(w){
-						return arRemovePunct(w).startsWith(val);
-					});
-					if(callback){
-						callback(suggestionsList);	
-					}
-				}
-				return condition;
+	if(all_q_words == undefined){
+		var fileUrl = getLocationPath() + "q.dic/qf-list.json";
+		loadJsonData(fileUrl, function(data){
+			all_q_words = data;
+			loadWordsFrom(data);
+		});		
+	}else{
+		loadWordsFrom(all_q_words);
+	}
+}
+
+function loadWordsFrom(data){
+	q_summary = {
+		"credit": data[0].credit,
+		"word_total": data[0].word_total,
+		"freq_total": data[0].freq_total,
+	};
+	qf_list = data.slice(1);
+	var q_words = qf_list.map(function(d){
+		return d.word;
+	});
+	
+	setTimeout(function(){listWordInfo();}, 50);
+	
+	autocomplete(document.getElementById('searchText'), function(val, callback){
+		var condition = val.length > 1 && val !== lastSuggestionInput;
+		if(condition){
+			lastSuggestionInput = val;
+			//getQSuggesstions(val, callback);
+			val = val.trim();
+			var suggestionsList = q_words.filter(function(w){
+				return arRemovePunct(w).startsWith(val);
 			});
-		//}, 10);
-	});			
+			if(callback){
+				callback(suggestionsList);	
+			}
+		}
+		return condition;
+	});
 }
 
 /* 
@@ -95,8 +103,7 @@ function search(){
 			var resulText = res.highlighted ?? res.text;
 			if(resulText){
 				var verseKeys = res.verseKey.split(":");
-				var verse = resulText.replace(/[<>\/a-zA-Z]+/ig, '');
-				
+				var verse = resulText.replace(/[<>\/a-zA-Z]+/ig, '');				
 				/*
 				//var replacedWords = [];
 				var wIndex = 0;
@@ -118,10 +125,13 @@ function search(){
 											  '<img title="Stop" src="images/stop.png" style="visibility:hidden;width:20px;cursor: pointer;" '+
 										      'onclick="stopPlayVerse()"/>'+
 											  '</span>': '';
-										
+			
 				var copy = 	'<span>'+			  
+								'<img id="analyzeIcon" src="images/analyze.jpg" style="width:20px;cursor: pointer;" '+
+								'onclick="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')"/>'+
+								
 								'<img id="copyIcon" src="images/copy.jpg" style="visibility:visible;width:20px;cursor: pointer;" '+
-								'onclick="copyTextToClipboard(\''+resulText.replace(/[<>\/a-zA-Z]+/ig, '')+'\');alert(\'Copied!\');"/>'+
+								'onclick="copyTextToClipboard(\''+resulText.replace(/[<>\/a-zA-Z]+/ig, '')+'\');"/>'+
 							'</span>';
 											  
 				var tanzilLink = '<a title="Click to view in tanzil.com" style="font-size:18px" href="https://tanzil.net/#'+res.verseKey+'" '+
@@ -134,14 +144,12 @@ function search(){
 								 '[Trasnlatation (en)]'+
 								 '</a>';
 								 
-				div.append($('<div ontouchend="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')" '+
-								  'onclick="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')" '+
-								  'onmouseup="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')">'+
-								verse+'</div>'+
-								verse+'</div>'+
-								'<div>'+tanzilLink+' '+copy+play+
-								'<span>'+translationLink+'</span>'+
-							  '</div>'));
+				div.append($('<div>'+verse+'</div>'+verse+
+							  '</div>'+'<div>'+tanzilLink+
+							  '<span>'+copy+'</span>'+
+							  '<span>'+play+'</span>'+
+							  '<span>'+translationLink+'</span>'+
+							 '</div>'));
 			}
 		});
 	});
@@ -150,28 +158,44 @@ function search(){
 function analyzeSelection(text, surah, verse){
 	let selection = window.getSelection();
 	let selectedText = selection.toString().trim();
-	if (selectedText && text) {
-		var words = text.split(' ');
-		var pos = text.substring(0, text.indexOf(selectedText))
-					  .split(' ')
-					  .length;
-		
-		var tip = document.getElementById("tip");
-		event.target.appendChild(tip);
-		tip.style.left = event.clientX;
-		tip.style.top = event.clientY;
-		tip.style.display = "block";
-		tip.innerHTML = '<h4 style="font-size:14px;">Analyze </h4>'+words[pos-1];
-		tip.onclick = function(){
-			showWordAnalysis(words[pos-1], surah, verse, pos);	
+	if (selectedText) {
+		var txt = removePunctuations(text.trim());
+		if(txt){
+			var prevVal = null;
+			var words = txt.split(' ')
+							.filter(function(w){
+								const result = w !== "" && prevVal !== w;
+								prevVal = w;
+								return result;
+							});
+								
+			var pos = findIndex(words, selectedText);
+			/*var pos = txt.substring(0, txt.indexOf(selectedText))
+						  .split(' ')
+						  .length;	
+			*/
+			showWordAnalysis(words[pos], surah, verse, pos+1);	
 		}
-		
-		const scrollEvent = new Event('scroll');
-		window.dispatchEvent(scrollEvent);
 	}else{
-		var tip = document.getElementById("tip");
-		tip.style.display = "none";
+		alert('Select a word to analyze!');
 	}
+}
+
+function findIndex(words, txt){
+	var index = -1;
+	if(words){
+		words.every(function(w, i){
+			if(removePunctuations(w).trim()
+								    .includes(removePunctuations(txt)
+								    .trim()))
+			{
+				index = i;
+				return false;
+			}
+			return true;
+		});
+	}
+	return index;
 }
 
 function showWordAnalysis(word, surah, verse, pos){
@@ -348,11 +372,11 @@ function playVerse(url, verseKey){
 		parent.playAudio(url2, function(action){
 			
 			if(action == "pause" || action == "ended"){
-				togglePlayButtons(verseKey, "visisble", "hidden");
+				togglePlayButtons(verseKey, "visisble", "collapse");
 			}
 		});
 		
-		togglePlayButtons(verseKey, "hidden", "visisble");
+		togglePlayButtons(verseKey, "collapse", "visisble");
 	}
 }
 

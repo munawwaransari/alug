@@ -102,6 +102,12 @@ function replaceWord(w){
 	return text;
 }
 
+function removePunctuations(w){
+	var punctuation = "ۡۧـۦۥۣۤۢۡ۠۟۞۝ۜۛۚۙۘۗۖە";
+	var text = w.replace(new RegExp("["+punctuation+"]+","g"), '');
+	return text;
+}
+
 /*
 function replaceWithLink(verse, word, text){
 	var link = encodeURI("https://glosbe.com/ar/"+lang+"/"+text);
