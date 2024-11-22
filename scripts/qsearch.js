@@ -136,7 +136,8 @@ function search(){
 								 
 				div.append($('<div ontouchend="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')" '+
 								  'onclick="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')" '+
-								  'onmouseup="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')" class="verse">'+
+								  'onmouseup="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')">'+
+								verse+'</div>'+
 								verse+'</div>'+
 								'<div>'+tanzilLink+' '+copy+play+
 								'<span>'+translationLink+'</span>'+
@@ -160,10 +161,13 @@ function analyzeSelection(text, surah, verse){
 		tip.style.left = event.clientX;
 		tip.style.top = event.clientY;
 		tip.style.display = "block";
-		tip.innerHTML = words[pos-1];
+		tip.innerHTML = '<h4 style="font-size:14px;">Analyze </h4>'+words[pos-1];
 		tip.onclick = function(){
 			showWordAnalysis(words[pos-1], surah, verse, pos);	
 		}
+		
+		const scrollEvent = new Event('scroll');
+		window.dispatchEvent(scrollEvent);
 	}else{
 		var tip = document.getElementById("tip");
 		tip.style.display = "none";
