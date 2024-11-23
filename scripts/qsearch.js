@@ -42,7 +42,7 @@ var all_q_words = undefined;
 async function loadQList(){
 	
 	if(all_q_words == undefined){
-		var fileUrl = getLocationPath() + "q.dic/qf-list.json";
+		var fileUrl = getLocationPath() + "data/qrn/qf-list.json";
 		loadJsonData(fileUrl, function(data){
 			all_q_words = data;
 			loadWordsFrom(data);
@@ -281,7 +281,7 @@ Loads Quran surah index
 function listSurahs(){
 	$("#qari").hide();
 	var path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
-	var url = path + 'data/qsurah.json';
+	var url = path + 'data/qrn/qsurah.json';
 	listSurahsAsync(url, function(data){
 		
 		var div = $("#searchResult");

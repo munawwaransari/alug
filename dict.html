@@ -12,11 +12,11 @@
 	<script src="scripts/dict.js"></script>
 	<style>
 	
-	.selectedIndex {
+	.selectedIndex, .selectedIndex2  {
 		color: indigo!important;
 	}
 	
-	.index {
+	.index, .index2 {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap; 
@@ -62,25 +62,31 @@
 	}
 	
 	.word{
-		 font-size: 22px;
 		 border: 2px solid indigo;
 		 box-shadow: 1px 1px;
 		 padding: 4px 4px;
 		 margin-left: 8px;
 		 margin-right: 8px;
-		 margin-top: 4px;
+		 margin-top: 0px;
 		 margin-bottom: 4px;
 		 width: 180px;
 		 float: left;
 	}
-	
+
 	.letter:hover {
 		color: indigo;
 	}
 	
 	.letter{
-		font-size: 34px;
+		font-size: 28px;
 		color: red;
+		padding: 10px;
+		cursor: pointer;
+	}
+	
+	.btnl{
+		font-size: 14px;
+		color: blue;
 		padding: 10px;
 		cursor: pointer;
 	}
@@ -94,6 +100,30 @@
 		max-height: 16px;
 		cursor: pointer;
       }
+	  
+	  .wTable{
+	    margin-top: 20px;
+		padding: 20px;
+		justify-content: center;
+		text-align: center;
+	  }
+	  
+	  .wTable, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+	  }
+	  
+	  .wTable+ th, td {
+		height: 30px;
+	  }
+
+	  .hidden{
+		display: none;
+	  }
+	  
+	  .shown{
+		display: block;
+	  }
 	</style>
 </head>
   <body>
@@ -101,13 +131,14 @@
 		
 		<div  class="autocomplete">
 			<input id="wordSearchText" onchange="searchWord()" style="width:100px;"/>
-			<button id="SearchD" style="top:-8px; height: 30px;" onclick="openMeaning()">Dictionary</button>
-			<button id="SearchQ" style="top:-8px; height: 30px;" onclick="searchInQuran()">Quran</button>
+			<button id="SearchD" style="top:-8px; height: 30px;" onclick="analyzeSelectedWord()">Analyze</button>
+			<!-- <button id="SearchQ" style="top:-8px; height: 30px;" onclick="searchInQuran()">Quran</button> -->
 		</div>
 		<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:4px"
 			 onclick="showArabicKeyboard('arabic')"/>
 	</div>
     <div class="index"></div>
+	<div class="index2"></div>
 	<div class="formClass"></div>
 	<div class="dictionary"></div>
   </div>
