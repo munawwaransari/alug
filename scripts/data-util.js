@@ -17,7 +17,7 @@ function getParamValue(paramName){
 	}
 }
 
-async function loadJsonData(url,  callback, errorCallback)
+async function loadJsonData(url, callback, errorCallback)
 {
 
 	try {
@@ -108,40 +108,6 @@ function removePunctuations(w){
 	var text = w.replace(new RegExp("["+punctuation+"]+","g"), '');
 	return text;
 }
-
-function changeWord(w, pos, desc, p1, p2)
-{
-	if (pos == "verb"){
-		if(desc.startsWith("past")){
-			return "-";
-		}
-		if(p1 && !w.endsWith(p1))
-			w = w.replace(new RegExp("['َُِ']$","g"),'')
-				 .replace(new RegExp("$","g"), p1);
-		return w;
-	}
-	if(p2 && !w.endsWith(p2))
-		w = w.replace(new RegExp('ًٌٍ', "g"), '')
-			 .replace(new RegExp("$","g"), p2);
-	return w;
-}
-
-function makeRafa(w, pos, desc){
-	return changeWord(w, pos, desc, 'ُ', 'ٌ');
-}
-
-function makeNasab(w, pos, desc){
-	return changeWord(w, pos, desc, 'َ','اً');
-}
-
-function makeJar(w, pos, desc){
-	return changeWord(w, pos, desc,'ِ','ٍ');
-}
-
-function makeJazm(w, pos, desc){
-	return changeWord(w, pos, desc,'ْ');
-}
-
 /*
 function replaceWithLink(verse, word, text){
 	var link = encodeURI("https://glosbe.com/ar/"+lang+"/"+text);

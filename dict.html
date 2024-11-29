@@ -9,6 +9,7 @@
 	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
 	<script src="scripts/data-util.js"></script>
 	<script src="scripts/autocomplete.js"></script>
+	<script src="scripts/pos.js"></script>
 	<script src="scripts/dict.js"></script>
 	<style>
 	
@@ -53,7 +54,7 @@
 	
 	.dictionary{
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		flex-wrap: wrap; 
 		width: 100%;
 		direction: rtl;
@@ -101,19 +102,32 @@
 		cursor: pointer;
       }
 	  
-	  .wTable{
-	    margin-top: 20px;
-		padding: 20px;
+	  .wTable, .cnjTable{
+	    display:flex;
+		flex-direction:column;
+		align-items:center;
+		flex-wrap:wrap;
+		align-items:center;
+	    margin-bottom: 0px;
 		justify-content: center;
 		text-align: center;
 	  }
 	  
-	  .wTable, th, td {
-		border: 1px solid black;
+	  .wTable, .cnjTable {
+		border: none;
 		border-collapse: collapse;
+		margin-bottom: 4px;
 	  }
 	  
-	  .wTable+ th, td {
+	  th, td {
+		border: 1px solid black;
+	  }
+	  
+	  .wTable th, td {
+		height: 30px;
+	  }
+	  
+	  .cnjTable th, td{
 		height: 30px;
 	  }
 
