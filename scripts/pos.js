@@ -16,6 +16,167 @@ class posAPI {
 		});	
 	} 
 	
+	#P2Root(w, pInfo){
+		var rootMatches = [...w.matchAll(new RegExp(pInfo.exp,"g"))];
+		if(rootMatches != null && rootMatches.length > 0)
+			return rootMatches[0].splice(2).join('');
+		return null;
+	}
+
+	#P2Word(w, pInfo, pattern)
+	{
+		var p = pattern ?? pInfo.form;
+		if(pInfo.rootexp){
+			var rootMatches = [...w.matchAll(new RegExp(pInfo.exp,"g"))];
+			var patterMatches = [...p.matchAll(new RegExp(pInfo.exp,"g"))];
+			if(rootMatches != null && patterMatches != null && 
+				rootMatches.length > 0 && patterMatches.length>0){
+				return this.#replaceKalima(w, pInfo, p);
+			}
+		}
+		return w;
+	}
+
+	#changeWord(word, pInfo, p1, p2)
+	{
+		var w = this.#P2Word(word, pInfo);
+		if (pInfo.pos == "verb"){
+			if(pInfo.en.startsWith("past")){
+				return "-";
+			}
+			if(p1 && !w.endsWith(p1))
+				w = w.replace(new RegExp("[َُِ]$","g"),'')
+					 .replace(new RegExp("$","g"), p1);
+			return this.#removeRedundantErabs(w);
+		}
+		if(p2 && !w.endsWith(p2))
+			w = w.replace(new RegExp('[ًٌٍ]', "g"), '')
+				 .replace(new RegExp("$","g"), p2);
+		return this.#removeRedundantErabs(w);
+	}
+	
+	#replaceRootWords(cnjPattern, pattern, rexp){
+		if(rexp){
+			var exp = new RegExp(rexp, "g");
+			var matches = [...pattern.matchAll(exp, "g")];
+			if(matches != null && matches.length > 0){
+				var m2 = this.#removeErab(matches[0][1]);
+				var cnj2 = cnjPattern.replace('\$', m2);
+				return this.#removeRedundantErabs(cnj2, true);
+			}
+		}
+		return pattern;
+	}
+	
+	#removeErab(pattern){
+		var exp = "([ًٌٍَُِْ])$";
+		var p = pattern.replace(new RegExp(exp,"g"), "");
+		return p;
+	}
+	
+	#removeRedundantErabs(pattern, erabOnly){
+		var illlatRules = posAPI.posRules["illat"];
+		var flag, applied = [];
+		var w = pattern;
+		
+		if(illlatRules && illlatRules.length > 0){
+			illlatRules.every(function(rule)
+			{
+				//if(erabOnly && rule.ar !== "إعراب"){
+				//	return false;
+				//}
+				flag = false;
+				var index = 0;
+				if(rule.exp && rule.exp.length > 0)
+				{
+					rule.exp.every(function(p)
+					{
+						if(pattern.match(p)){
+						 flag = true;
+						 w = w.replace(new RegExp(p,"g"), rule.rexp[index]);
+						}
+						index++;
+						return true;
+					});	
+				}
+				if(flag){
+					applied.push(rule.ar);
+				}
+				return true;
+			});
+		}
+		return w;
+	}
+	  
+	  /*
+	  var res = pattern;
+	  [
+		{"exp": new RegExp("([ًٌٌ])([\\u0621-\\u064A])(.+)$", ""), rexp: "$2$3"},
+		{"exp": new RegExp("([ًٌٌ])([َُِْ])", ""), rexp: "$2"},
+		{"exp": new RegExp("([َُِْ])([َُِْ])", ""), rexp: "$1"}
+	  ]
+	  .every(function(p){
+		  if(pattern.match(p.exp)){
+			  res = res.replace(p.exp, p.rexp);
+		  }
+		  return true;
+	  });
+	  return res;
+	  */
+
+	#P2Conjugate(word, pInfo, cnj){
+		var output = [];
+		var pattern = cnj.includes('$') ? this.#replaceRootWords(cnj, pInfo.form, pInfo.exp):cnj;
+		return this.#replaceKalima(word, pInfo, pattern);
+	}
+
+	#replaceKalima(word, pInfo, pattern){
+		var root = this.#P2Root(word, pInfo);
+		var patternRoot = this.#P2Root(pInfo.form, pInfo);
+		var xPatttern = this.#replaceKalimaWithXyz(pattern, patternRoot);
+		return this.#replaceXyzWithKalima(xPatttern, root);
+	}
+
+	#replaceKalimaWithXyz(pattern, root){
+		var xyz = "xyzq";
+		var outPattern = pattern;
+		if(root){
+			for(let i=0; i < root.length; i++){
+				outPattern = outPattern.replace(root[i], xyz[i]);
+			}
+		}
+		return outPattern;
+	}
+
+	#replaceXyzWithKalima(pattern, root){
+		var xyz = "xyzq";
+		var outPattern = pattern;
+		if(root){
+			for(let i=0; i < root.length; i++){
+				outPattern = outPattern.replace(xyz[i], root[i]);
+			}
+		}
+		return this.#removeRedundantErabs(outPattern, true);
+	}
+
+	
+
+	#makeRafa(w, pInfo){
+		return this.#P2Word(w, pInfo);
+	}
+
+	#makeNasb(w, pInfo){
+		return this.#changeWord(this.#P2Word(w, pInfo), pInfo, 'َ','اً');
+	}
+
+	#makeJar(w, pInfo){
+		return this.#changeWord(this.#P2Word(w, pInfo), pInfo, 'ِ','ٍ');
+	}
+
+	#makeJazm(w, pInfo){
+		return this.#changeWord(this.#P2Word(w, pInfo), pInfo,'ْ');
+	}
+
 	#newConjugation(container, currentTable, index, conjugations, word, xform){
 		var id = 'conj-'+currentTable+'-'+index;
 		
@@ -57,7 +218,9 @@ class posAPI {
 		this.#newConjugation(container, currentTable, index, conjugations, word, xform);
 	}
 	
-	#conjugate(currentTable, word, xform, conjugations, index){
+	#conjugate(currentTable, word, xform, index){
+		
+		var conjugations = posAPI.posRules["conjugations"];
 		if(xform.pos == "verb"){
 			if(xform.en.startsWith("past ")){
 				this.#addConjugations(currentTable, word, xform, conjugations.verb_past_rafa, index);
@@ -73,42 +236,42 @@ class posAPI {
 	
 	#prepareConjVerbRows(word, xform, conjugations){
 		return '<tr><td>غائب (مذكّر)</td><td>'+
-						P2Conjugate(word, xform, conjugations["3m"][0])+'</td><td>'+
-						P2Conjugate(word, xform, conjugations["3m"][1])+'</td><td>'+
-						P2Conjugate(word, xform, conjugations["3m"][2])+'</td>'+
+						this.#P2Conjugate(word, xform, conjugations["3m"][0])+'</td><td>'+
+						this.#P2Conjugate(word, xform, conjugations["3m"][1])+'</td><td>'+
+						this.#P2Conjugate(word, xform, conjugations["3m"][2])+'</td>'+
 				'</tr>' + 
 				'<tr><td>غائب (مؤنّث)</td><td>'+
-						P2Conjugate(word, xform, conjugations["3f"][0])+'</td><td>'+
-						P2Conjugate(word, xform, conjugations["3f"][1])+'</td><td>'+
-						P2Conjugate(word, xform, conjugations["3f"][2])+'</td>'+
+						this.#P2Conjugate(word, xform, conjugations["3f"][0])+'</td><td>'+
+						this.#P2Conjugate(word, xform, conjugations["3f"][1])+'</td><td>'+
+						this.#P2Conjugate(word, xform, conjugations["3f"][2])+'</td>'+
 				'</tr>' + 
 				'<tr><td>حاضر (مذكّر)</td><td>'+
-						P2Conjugate(word, xform, conjugations["2m"][0])+'</td><td>'+
-						P2Conjugate(word, xform, conjugations["2m"][1])+'</td><td>'+
-						P2Conjugate(word, xform, conjugations["2m"][2])+'</td>'+
+						this.#P2Conjugate(word, xform, conjugations["2m"][0])+'</td><td>'+
+						this.#P2Conjugate(word, xform, conjugations["2m"][1])+'</td><td>'+
+						this.#P2Conjugate(word, xform, conjugations["2m"][2])+'</td>'+
 				'</tr>' + 
 				'<tr><td>حاضر (مؤنّث)</td><td>'+
-						P2Conjugate(word, xform, conjugations["2f"][0])+'</td><td>'+
-						P2Conjugate(word, xform, conjugations["2f"][1])+'</td><td>'+
-						P2Conjugate(word, xform, conjugations["2f"][2])+'</td>'+
+						this.#P2Conjugate(word, xform, conjugations["2f"][0])+'</td><td>'+
+						this.#P2Conjugate(word, xform, conjugations["2f"][1])+'</td><td>'+
+						this.#P2Conjugate(word, xform, conjugations["2f"][2])+'</td>'+
 				'</tr>' + 
 				'<tr><td>مُتكلّم</td><td>'+
-						P2Conjugate(word, xform, conjugations["1"][0])+'</td><td>'+
-						P2Conjugate(word, xform, conjugations["1"][1])+'</td><td>'+
-						P2Conjugate(word, xform, conjugations["1"][2])+'</td>'+
+						this.#P2Conjugate(word, xform, conjugations["1"][0])+'</td><td>'+
+						this.#P2Conjugate(word, xform, conjugations["1"][1])+'</td><td>'+
+						this.#P2Conjugate(word, xform, conjugations["1"][2])+'</td>'+
 				'</tr>';
 	}
 	
 	#prepareConjNounRows(word, xform, conjugations){
 		return '<tr><td>مذكّر</td><td>'+
-						P2Conjugate(word, xform, conjugations["m"][0])+'</td><td>'+
-						P2Conjugate(word, xform, conjugations["m"][1])+'</td><td>'+
-						P2Conjugate(word, xform, conjugations["m"][2])+'</td>'+
+						this.#P2Conjugate(word, xform, conjugations["m"][0])+'</td><td>'+
+						this.#P2Conjugate(word, xform, conjugations["m"][1])+'</td><td>'+
+						this.#P2Conjugate(word, xform, conjugations["m"][2])+'</td>'+
 				'</tr>' + 
 				'<tr><td>مؤنّث</td><td>'+
-						P2Conjugate(word, xform, conjugations["f"][0])+'</td><td>'+
-						P2Conjugate(word, xform, conjugations["f"][1])+'</td><td>'+
-						P2Conjugate(word, xform, conjugations["f"][2])+'</td>'+
+						this.#P2Conjugate(word, xform, conjugations["f"][0])+'</td><td>'+
+						this.#P2Conjugate(word, xform, conjugations["f"][1])+'</td><td>'+
+						this.#P2Conjugate(word, xform, conjugations["f"][2])+'</td>'+
 				'</tr>';
 	}
 	
@@ -187,19 +350,14 @@ class posAPI {
 	}
 	
 	analyzeWord(word){
+		var apiInstance = this;
 		var result={
-			conjugations: {},
 			parseOutput: []
 		};
 		for (const keyVal of Object.entries(posAPI.posRules)){
 			var patternInfo = keyVal[1];
 			
-			if(patternInfo.ignore == true){
-				continue;
-			}
-			
-			if(keyVal[0] == "conjugations"){
-				result.conjugations = patternInfo;
+			if(patternInfo.ignore == true || keyVal[0] == "conjugations" || keyVal[0] == "illat"){
 				continue;
 			}
 			
@@ -261,16 +419,16 @@ class posAPI {
 									};
 									if(xform.pos === "verb"){
 										if(xform.en.startsWith("past ")){
-											parseOut.parse.push(P2Word(aword, xform));
+											parseOut.parse.push(apiInstance.#P2Word(aword, xform));
 										}else{
-											parseOut.parse.push(makeRafa(aword, xform)); 
-											parseOut.parse.push(makeNasb(aword, xform)); 
-											parseOut.parse.push(makeJazm(aword, xform));
+											parseOut.parse.push(apiInstance.#makeRafa(aword, xform)); 
+											parseOut.parse.push(apiInstance.#makeNasb(aword, xform)); 
+											parseOut.parse.push(apiInstance.#makeJazm(aword, xform));
 										}
 									}else if(xform.pos === "noun"){
-										parseOut.parse.push(makeRafa(aword, xform)); 
-										parseOut.parse.push(makeNasb(aword, xform)); 
-										parseOut.parse.push(makeJar(aword, xform));
+										parseOut.parse.push(apiInstance.#makeRafa(aword, xform)); 
+										parseOut.parse.push(apiInstance.#makeNasb(aword, xform)); 
+										parseOut.parse.push(apiInstance.#makeJar(aword, xform));
 									}else{
 										//todo: harf
 									}
@@ -331,7 +489,7 @@ class posAPI {
 				}
 				api.#addParsedWords(currentTable, curXForm.curPos, kv[1]);
 				if(addConjugations){
-					api.#conjugate(currentTable,  kv[1].word, curXForm, result.conjugations, conjugationCount);
+					api.#conjugate(currentTable,  kv[1].word, curXForm, conjugationCount);
 					conjugationCount++;
 				}
 			}
@@ -380,124 +538,3 @@ function toggleTableDiv(tableId){
 	else
 		alink.text("Hide");
 }
-
-function replaceRootWords(cnjPattern, pattern, rexp){
-	if(rexp){
-		var exp = new RegExp(rexp, "g");
-		var matches = [...pattern.matchAll(exp, "g")];
-		if(matches != null && matches.length > 0){
-			return removeRedundantErabs(cnjPattern.replace('\$', matches[0][1]));
-		}
-	}
-	return pattern;
-}
-
-function removeRedundantErabs(pattern){
-  var res = pattern;
-  [
-	{"exp": new RegExp("([ًٌٌ])([\\u0621-\\u064A])(.+)$", ""), rexp: "$2$3"},
-	{"exp": new RegExp("([ًٌٌ])([َُِْ])", ""), rexp: "$2"},
-	{"exp": new RegExp("([َُِْ])([َُِْ])", ""), rexp: "$1"}
-  ]
-  .every(function(p){
-	  if(pattern.match(p.exp)){
-		  res = res.replace(p.exp, p.rexp);
-	  }
-	  return true;
-  });
-  return res;
-}
-
-function P2Conjugate(word, pInfo, cnj){
-	var output = [];
-	var pattern = cnj.includes('$') ?
-				  replaceRootWords(cnj, pInfo.form, pInfo.exp):cnj;
-	return replaceKalima(word, pInfo, pattern);
-}
-
-function replaceKalima(word, pInfo, pattern){
-	var root = P2Root(word, pInfo);
-	var patternRoot = P2Root(pInfo.form, pInfo);
-	var xPatttern = replaceKalimaWithXyz(pattern, patternRoot);
-	return replaceXyzWithKalima(xPatttern, root);
-}
-
-function replaceKalimaWithXyz(pattern, root){
-	var xyz = "xyzq";
-	var outPattern = pattern;
-	if(root){
-		for(let i=0; i < root.length; i++){
-			outPattern = outPattern.replace(root[i], xyz[i]);
-		}
-	}
-	return outPattern;
-}
-
-function replaceXyzWithKalima(pattern, root){
-	var xyz = "xyzq";
-	var outPattern = pattern;
-	if(root){
-		for(let i=0; i < root.length; i++){
-			outPattern = outPattern.replace(xyz[i], root[i]);
-		}
-	}
-	return removeRedundantErabs(outPattern);
-}
-
-function P2Root(w, pInfo){
-	var rootMatches = [...w.matchAll(new RegExp(pInfo.exp,"g"))];
-	if(rootMatches != null && rootMatches.length > 0)
-		return rootMatches[0].splice(2).join('');
-	return null;
-}
-
-function P2Word(w, pInfo, pattern)
-{
-	var p = pattern ?? pInfo.form;
-	if(pInfo.rootexp){
-		var rootMatches = [...w.matchAll(new RegExp(pInfo.exp,"g"))];
-		var patterMatches = [...p.matchAll(new RegExp(pInfo.exp,"g"))];
-		if(rootMatches != null && patterMatches != null && 
-			rootMatches.length > 0 && patterMatches.length>0){
-			return replaceKalima(w, pInfo, p);
-		}
-	}
-	return w;
-}
-
-function changeWord(word, pInfo, p1, p2)
-{
-	var w = P2Word(word, pInfo);
-	if (pInfo.pos == "verb"){
-		if(pInfo.en.startsWith("past")){
-			return "-";
-		}
-		if(p1 && !w.endsWith(p1))
-			w = w.replace(new RegExp("[َُِ]$","g"),'')
-				 .replace(new RegExp("$","g"), p1);
-		return removeRedundantErabs(w);
-	}
-	if(p2 && !w.endsWith(p2))
-		w = w.replace(new RegExp('[ًٌٍ]', "g"), '')
-			 .replace(new RegExp("$","g"), p2);
-	return removeRedundantErabs(w);
-}
-
-function makeRafa(w, pInfo){
-	return P2Word(w, pInfo);
-}
-
-function makeNasb(w, pInfo){
-	return changeWord(P2Word(w, pInfo), pInfo, 'َ','اً');
-}
-
-function makeJar(w, pInfo){
-	return changeWord(P2Word(w, pInfo), pInfo, 'ِ','ٍ');
-}
-
-function makeJazm(w, pInfo){
-	return changeWord(P2Word(w, pInfo), pInfo,'ْ');
-}
-
-
-//"^[\\u0621-\\u064A]{3}[بثجحخدذرزسشصضطظعغفقكلمةئء]+$"
