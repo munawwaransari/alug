@@ -47,7 +47,7 @@ window.onload = function(){
 function analyzeSelectedWord(){
 		
 	var word = $("#wordSearchText").val();
-	var res = posAPIObj.analyzeWord(word);	
+	var res = posAPIObj.analyzeWord(word, true);	
 	posAPIObj.addHtml($(".dictionary"), res, true);
 }
 
