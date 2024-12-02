@@ -102,13 +102,12 @@
 		cursor: pointer;
       }
 	  
-	  .wTable, .cnjTable{
+	  .wTable, .cnjTable, .vTable {
 	    display:flex;
 		flex-direction:column;
 		align-items:center;
 		flex-wrap:wrap;
 		align-items:center;
-	    margin-bottom: 0px;
 		justify-content: center;
 		text-align: center;
 	  }
@@ -117,6 +116,13 @@
 		border: none;
 		border-collapse: collapse;
 		margin-bottom: 4px;
+	  }
+	  
+	  .vTable {
+		border: none;
+		border-collapse: collapse;
+		margin-bottom: 20px!important;
+		font-size: 24px;
 	  }
 	  
 	  th, td {
@@ -128,6 +134,10 @@
 	  }
 	  
 	  .cnjTable th, td{
+		height: 30px;
+	  }
+	  
+	  .vTable th, td{
 		height: 30px;
 	  }
 
@@ -146,6 +156,7 @@
 		<div  class="autocomplete">
 			<input id="wordSearchText" onchange="searchWord()" style="width:100px;"/>
 			<button id="SearchD" style="top:-8px; height: 30px;" onclick="analyzeSelectedWord()">Analyze</button>
+			<button id="btnVerbs" style="top:-8px; height: 30px;" onclick="showVerbTable()">Verbs</button>
 			<!-- <button id="SearchQ" style="top:-8px; height: 30px;" onclick="searchInQuran()">Quran</button> -->
 		</div>
 		<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:4px"

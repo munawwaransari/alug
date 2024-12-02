@@ -44,6 +44,11 @@ window.onload = function(){
 	toggleIndex('index');
 }
 
+function showVerbTable(){
+	var vTable = posAPIObj.getVerbInfo();
+	posAPIObj.addVerbInfoHtml($(".dictionary"), vTable);
+}
+
 function analyzeSelectedWord(){
 		
 	var word = $("#wordSearchText").val();

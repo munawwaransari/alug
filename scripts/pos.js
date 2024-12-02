@@ -517,6 +517,61 @@ class posAPI {
 		}
 		return null;
 	}
+
+	getVerbInfo(){
+		var res = {};
+		for (const keyVal of Object.entries(posAPI.posRules)){
+			if(keyVal[0] === "V1"){
+				var patternInfo = keyVal[1]["matches"];
+				for (const mKeyVal of Object.entries(patternInfo)){
+					var entryName = mKeyVal[0];
+					if(entryName.startsWith('Form ')){
+						var matchInfo = mKeyVal[1];
+						res[entryName] = matchInfo.xforms;
+					}
+				}
+			}
+		}
+		return res;
+	}
+	
+	addVerbInfoHtml(container, res){
+		var api = this;
+		container.empty();
+		var vTable = $('<table id="vTable" class="vTable"><tr>'+
+						 '<th style="font-size: 14px;">Form</th>'+
+						 '<th>مصدر</th>'+
+						 '<th>الماضي</th>'+
+						 '<th>المضارع</th>'+
+					   '</table>');
+		container.append(vTable);
+		
+		for (const keyVal of Object.entries(res)){
+			var entryName = keyVal[0];
+			var xform = keyVal[1];
+			if(xform){
+				var vn = xform.filter(x=>x.en==="verbal noun")
+									   .map(x=>x.form);
+				var pst = xform.filter(x=>x.en.startsWith("past "))
+									   .map(x=>x.form);
+				if(pst.length === 0) pst = ["?", "?"];
+				var prt = xform.filter(x=>x.en.startsWith("present "))
+									   .map(x=>x.form);								   
+				var row = '<tr>'+
+						  '<td>'+entryName.split(' ')[1]+'</td>'+
+						  '<td>'+vn[0]+'</td>'+
+						  '<td>'+pst[0]+' - '+prt[0]+'</td>';
+				if(pst.length > 1){
+					row = row + '<td>'+pst[1]+' - '+prt[1]+'</td>';
+				}else{
+					row = row + '<td>-</td>';
+				}
+				row = row +'</tr>';
+				
+				$("#vTable tbody").append($(row));
+			}
+		}
+	}
 	
 	analyzeWord(word, addConjugates){
 		var apiInstance = this;
