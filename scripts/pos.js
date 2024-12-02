@@ -30,9 +30,9 @@ class posAPI {
 		var p = options.pattern ?? pInfo.form;
 		if(pInfo.rootexp){
 			var rootMatches = [...w.matchAll(new RegExp(options.xRoot ?? options.nounExp ?? pInfo.exp,"g"))];
-			var patterMatches = [...p.matchAll(new RegExp(pInfo.exp,"g"))];
-			if(rootMatches != null && patterMatches != null && 
-				rootMatches.length > 0 && patterMatches.length>0){
+			var patternMatches = [...p.matchAll(new RegExp(pInfo.exp,"g"))];
+			if(rootMatches != null && patternMatches != null && 
+				rootMatches.length > 0 && patternMatches.length>0){
 				return this.#replaceKalima(w, pInfo, p, options);
 			}
 		}
@@ -99,18 +99,32 @@ class posAPI {
 		if(illlatRules && illlatRules.length > 0){
 			illlatRules.every(function(rule)
 			{
+				if(rule.ignore === true){
+					return true;
+				}
+				
 				flag = false;
 				var index = 0;
 				if(rule.exp && rule.exp.length > 0)
 				{
 					rule.exp.every(function(p)
 					{
+						var continueLoop = true;
+						var rexp = rule.rexp[index];
+						if(rexp.startsWith("#")){
+							rexp = rexp.substring(1);
+							continueLoop = false;
+						}
+						
 						if(pattern.match(p)){
 						 flag = true;
-						 w = w.replace(new RegExp(p,"g"), rule.rexp[index]);
+						 w = w.replace(new RegExp(p,"g"), rexp);
+						}else{
+							continueLoop  = true;
 						}
 						index++;
-						return true;
+						
+						return continueLoop;
 					});	
 				}
 				if(flag){
@@ -131,7 +145,10 @@ class posAPI {
 
 	#replaceKalima(word, pInfo, pattern, options)
 	{
-		var root = this.#P2Root(word, pInfo, options);
+		var root = options.xRoot ?  options.xRoot : this.#P2Root(word, pInfo, options);
+		if(!root){
+			console.log("Error: root is null; word: ("+ word + "), pattern:(" + pattern + ") options:" + options);
+		}
 		var patternRoot = this.#P2Root(pInfo.form, pInfo);
 		var xPatttern = this.#replaceKalimaWithXyz(pattern, patternRoot);
 		return this.#replaceXyzWithKalima(xPatttern, root);
@@ -506,6 +523,7 @@ class posAPI {
 		var result={
 			parseOutput: []
 		};
+		var word2 = apiInstance.#removeErab(word, true);
 		for (const keyVal of Object.entries(posAPI.posRules)){
 			var patternInfo = keyVal[1];
 			
@@ -516,7 +534,7 @@ class posAPI {
 			var canSkip = false;
 			if(patternInfo.skip){
 				patternInfo.skip.every(function(exp){
-					if(word.match(new RegExp(exp, 'ig'))){
+					if(word2.match(new RegExp(exp, 'ig'))){
 						canSkip = true;
 						return false;
 					}
@@ -529,7 +547,7 @@ class posAPI {
 					var parseInfo = [];
 					var entryName = mKeyVal[0];
 					var matchInfo = mKeyVal[1];
-					var aword = word;
+					var aword = word2;
 					
 					if(matchInfo.ignore == true){
 						continue;
@@ -547,22 +565,24 @@ class posAPI {
 					}
 					
 					if( !canSkip){
+						var xInfo = null;
+						var xRoot = null;
 						if(matchInfo.xforms){
 							var isMatch = false;
-							var matchPos = '';
+							//var matchPos = '';
 							matchInfo.xforms.every(function(xform){
 								var match = aword.match(new RegExp(xform.exp, 'ig'));
 								if(match != null){
 									isMatch = true;
-									matchPos = xform.pos;
+									xInfo = xform;
+									//matchPos = xform.pos;
+									xRoot = apiInstance.#P2Root(aword, xform, {});
 									return false;
 								}
 								return true;
 							});
 							
 							if(isMatch){
-								var xInfo = null;
-								var xRoot = null;
 								matchInfo.xforms.every(function(xform){
 									
 									xform.rootExp = matchInfo.rootExp;
@@ -574,8 +594,9 @@ class posAPI {
 										"conj": []
 									};
 									
+									/*
 									if(matchPos === "verb"){
-										if(xInfo === undefined || xRoot == undefined){
+										if(xRoot == undefined){
 											xRoot = apiInstance.#findRootFromConjugaions(word, xform.pos, xform.en);
 										}
 										if(xRoot){
@@ -583,6 +604,8 @@ class posAPI {
 											parseOut.word = aword;
 										}
 									}
+									*/
+									
 									if(xform.pos === "verb"){
 										if(xform.en.startsWith("past ")){
 											parseOut.parse.push(apiInstance.#P2Word(aword, xform, xInfo ? {nounExp: xInfo.exp}: {xRoot: xRoot}));
@@ -614,12 +637,9 @@ class posAPI {
 					
 					result.parseOutput.push(parseInfo);
 					if(addConjugates){
-						var xInfo = parseInfo.filter(x=>x.xform.pos === "noun");
+						//var xInfo = parseInfo.filter(x=>x.xform.pos === "noun");
 						parseInfo.every(function(pInfo){
-							if(xInfo.length > 0)
-								pInfo.conj = apiInstance.#createConjugations(pInfo, {nounExp: xInfo[0].xform.exp});
-							else
-								pInfo.conj = apiInstance.#createConjugations(pInfo);
+							pInfo.conj = apiInstance.#createConjugations(pInfo, {xRoot: xRoot});
 							return true;
 						});
 					}
