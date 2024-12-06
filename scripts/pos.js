@@ -102,12 +102,10 @@ class posAPI {
 				if(rule.ignore === true){
 					return true;
 				}
-				
 				flag = false;
-				var index = 0;
 				if(rule.exp && rule.exp.length > 0)
 				{
-					rule.exp.every(function(p)
+					rule.exp.every(function(p, index)
 					{
 						var continueLoop = true;
 						var rexp = rule.rexp[index];
@@ -117,13 +115,12 @@ class posAPI {
 						}
 						
 						if(pattern.match(p)){
+						 //console.log(rule.ar +" @ :"+index);
 						 flag = true;
 						 w = w.replace(new RegExp(p,"g"), rexp);
 						}else{
 							continueLoop  = true;
 						}
-						index++;
-						
 						return continueLoop;
 					});	
 				}
