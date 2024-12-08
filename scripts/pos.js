@@ -161,6 +161,12 @@ class posAPI {
 		if(root){
 			for(let i=0; i < root.length; i++){
 				outPattern = outPattern.replace(root[i], xyz[i]);
+			
+				if(i == root.length-1){
+					if(outPattern.includes('p')){
+						outPattern.replace('p', xyz[i]);
+					}
+				}
 			}
 		}
 		return outPattern;
