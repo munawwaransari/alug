@@ -102,7 +102,7 @@
 		cursor: pointer;
       }
 	  
-	  .wTable, .cnjTable, .vTable {
+	  .wTable, .cnjTable, .vTable, .nTable {
 	    display:flex;
 		flex-direction:column;
 		align-items:center;
@@ -118,11 +118,11 @@
 		margin-bottom: 4px;
 	  }
 	  
-	  .vTable {
+	  .vTable, .nTable {
 		border: none;
 		border-collapse: collapse;
 		margin-bottom: 20px!important;
-		font-size: 24px;
+		font-size: 22px;
 	  }
 	  
 	  th, td {
@@ -130,14 +130,18 @@
 	  }
 	  
 	  .wTable th, td {
-		height: 30px;
+		height: 24px;
 	  }
 	  
 	  .cnjTable th, td{
-		height: 30px;
+		height: 24px;
 	  }
 	  
 	  .vTable th, td{
+		height: 30px;
+	  }
+	  
+	  .nTable th, td{
 		height: 30px;
 	  }
 
@@ -148,6 +152,49 @@
 	  .shown{
 		display: block;
 	  }
+	  
+	/* Dropdown Button */
+	.dropbtn {
+	  background-color: #04AA6D;
+	  color: white;
+	  padding: 16px;
+	  font-size: 14px;
+	  border: none;
+	}
+
+	/* The container <div> - needed to position the dropdown content */
+	.dropdown {
+	  position: relative;
+	  display: inline-block;
+	}
+
+	/* Dropdown Content (Hidden by Default) */
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  background-color: #f1f1f1;
+	  min-width: 160px;
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	  z-index: 1;
+	}
+
+	/* Links inside the dropdown */
+	.dropdown-content a {
+	  color: black;
+	  padding: 12px 16px;
+	  text-decoration: none;
+	  display: block;
+	  left:0;
+	}
+
+	/* Change color of dropdown links on hover */
+	.dropdown-content a:hover {background-color: #ddd;}
+
+	/* Show the dropdown menu on hover */
+	.dropdown:hover .dropdown-content {display: block;}
+
+	/* Change the background color of the dropdown button when the dropdown content is shown */
+	.dropdown:hover .dropbtn {background-color: #3e8e41;}
 	</style>
 </head>
   <body>
@@ -155,8 +202,17 @@
 		
 		<div  class="autocomplete">
 			<input id="wordSearchText" onchange="searchWord()" style="width:100px;"/>
-			<button id="SearchD" style="top:-8px; height: 30px;" onclick="analyzeSelectedWord()">Analyze</button>
-			<button id="btnVerbs" style="top:-8px; height: 30px;" onclick="showVerbTable()">Verbs</button>
+			<button id="SearchD" style="top:-8px; height: 30px;" onclick="analyzeSelectedWord()">تحليل</button>
+			<button id="btnVerbs" style="top:-8px; height: 30px;" onclick="showVerbTable()">فعل</button>
+			<button id="btnNouns" style="top:-8px; height: 30px;" onclick="showNounTable()">اسم</button>
+			<div class="dropdown">
+			  <button class="dropbtn">معاني</button>
+			  <div class="dropdown-content">
+				<a href="#" onclick="lookupEx('https://www.almaany.com/ar/dict/ar-$/')">Almaany</a>
+				<a href="#" onclick="lookupEx('https://glosbe.com/ar/$/')">Glosbe</a>
+			  </div>
+			</div>
+			<!-- <button id="btnMeaning" style="top:-8px; height: 30px;" onclick="">Meaning</button> -->
 			<!-- <button id="SearchQ" style="top:-8px; height: 30px;" onclick="searchInQuran()">Quran</button> -->
 		</div>
 		<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:4px"

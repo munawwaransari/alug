@@ -49,6 +49,17 @@ function showVerbTable(){
 	posAPIObj.addVerbInfoHtml($(".dictionary"), vTable);
 }
 
+function showNounTable(){
+	var nTable = posAPIObj.getNounInfo();
+	posAPIObj.addNounInfoHtml($(".dictionary"), nTable);
+}
+
+function checkWord(w){
+	$("#wordSearchText").val(w);
+	analyzeSelectedWord();
+}
+
+
 function analyzeSelectedWord(){
 		
 	var word = $("#wordSearchText").val();
@@ -144,6 +155,15 @@ function searchInQuran(){
 	if(txt !== null && txt !== ''){
 		loadSearch(txt, true);
 	}
+}
+
+function lookupEx(site){
+	var w = parent ? parent.window : window;
+	var lang = parent.getLang ? parent.getLang(): 'en';
+	if(site.includes('$'))
+		site = site.replace('$', lang);
+	var url = site+$("#wordSearchText").val();
+	w.open(url, "_blank");	
 }
 
 function OpenInChatGPT(){

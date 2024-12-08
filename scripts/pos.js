@@ -28,7 +28,7 @@ class posAPI {
 	#P2Word(w, pInfo, options = {}) // options:{pattern:"", nounExp:""}
 	{
 		var p = options.pattern ?? pInfo.form;
-		if(pInfo.rootexp){
+		if(pInfo.rootExp){
 			var rootMatches = [...w.matchAll(new RegExp(options.xRoot ?? options.nounExp ?? pInfo.exp,"g"))];
 			var patternMatches = [...p.matchAll(new RegExp(pInfo.exp,"g"))];
 			if(rootMatches != null && patternMatches != null && 
@@ -133,11 +133,20 @@ class posAPI {
 		return w;
 	}
 
-	#P2Conjugate(word, pInfo, options, cnj)
+	#P2Conjugate(word, pInfo, options, cnj, plural=false)
 	{
-		var output = [];
-		var pattern = cnj.includes('$') ? this.#replaceRootWords(cnj, pInfo.form, pInfo.exp):cnj;
-		return this.#replaceKalima(word, pInfo, pattern, options);
+		if(plural === false || pInfo.plurals === undefined || pInfo.plurals.length === 0){
+			var output = [];
+			var pattern = cnj.includes('$') ? 
+				this.#replaceRootWords(cnj, pInfo.form, pInfo.exp):cnj;
+			return this.#replaceKalima(word, pInfo, pattern, options);
+		}else{
+			var output = [];
+			var pattern = cnj.includes('$') ? 
+				this.#replaceRootWords(cnj, pInfo.plurals[0].form, pInfo.plurals[0].exp)
+				:cnj;
+			return this.#replaceKalima(word, pInfo, pattern, options);
+		}
 	}
 
 	#replaceKalima(word, pInfo, pattern, options)
@@ -191,12 +200,20 @@ class posAPI {
 
 	#makeNasb(w, pInfo, options)
 	{
-		return this.#changeWord(this.#P2Word(w, pInfo, options), pInfo, 'َ','اً');
+		if(pInfo.type === undefined || pInfo.type === 1)
+			return this.#changeWord(this.#P2Word(w, pInfo, options), pInfo, 'َ','اً');
+		//else if(pInfo.type === 2)
+		//	return this.#changeWord(this.#P2Word(w, pInfo, options), pInfo, 'ُِ','َ');
+		return w;
 	}
 
 	#makeJar(w, pInfo, options)
 	{
-		return this.#changeWord(this.#P2Word(w, pInfo, options), pInfo, 'ِ','ٍ');
+		if(pInfo.type === undefined || pInfo.type === 1)
+			return this.#changeWord(this.#P2Word(w, pInfo, options), pInfo, 'ِ','ٍ');
+		//else if(pInfo.type === 2)
+		//	return this.#changeWord(this.#P2Word(w, pInfo, options), pInfo, 'ُِ','َ');
+		return w;
 	}
 
 	#makeJazm(w, pInfo, options)
@@ -233,11 +250,11 @@ class posAPI {
 		return [
 			this.#P2Conjugate(word, xform, options, conjugations["m"][0]),
 			this.#P2Conjugate(word, xform, options, conjugations["m"][1]),
-			this.#P2Conjugate(word, xform, options, conjugations["m"][2]),
+			this.#P2Conjugate(word, xform, options, conjugations["m"][2], true),
 
 			this.#P2Conjugate(word, xform, options, conjugations["f"][0]),
 			this.#P2Conjugate(word, xform, options, conjugations["f"][1]),
-			this.#P2Conjugate(word, xform, options, conjugations["f"][2])
+			this.#P2Conjugate(word, xform, options, conjugations["f"][2], true)
 		];
 	}
 	
@@ -289,18 +306,27 @@ class posAPI {
 				'</tr>';
 	}
 	
-	#prepareConjNounRows(conjugations)
+	#prepareConjNounRows(conjugations, xform)
 	{
-		return '<tr><td>مذكّر</td><td>'+
-						conjugations[0]+'</td><td>'+
-						conjugations[1]+'</td><td>'+
-						conjugations[2]+'</td>'+
-				'</tr>' + 
-				'<tr><td>مؤنّث</td><td>'+
-						conjugations[3]+'</td><td>'+
-						conjugations[4]+'</td><td>'+
-						conjugations[5]+'</td>'+
-				'</tr>';
+		if(xform.gender === undefined){
+			return '<tr><td>مذكّر</td><td>'+
+							conjugations[0]+'</td><td>'+
+							conjugations[1]+'</td><td>'+
+							conjugations[2]+'</td>'+
+					'</tr>' + 
+					'<tr><td>مؤنّث</td><td>'+
+							conjugations[3]+'</td><td>'+
+							conjugations[4]+'</td><td>'+
+							conjugations[5]+'</td>'+
+					'</tr>';
+		}else{
+			var g = xform.gender == "m" ? "مذكّر" :"مؤنّث";
+			return '<tr><td>'+g+'</td><td>'+
+							conjugations[0]+'</td><td>'+
+							conjugations[1]+'</td><td>'+
+							conjugations[2]+'</td>'+
+					'</tr>';
+		}
 	}
 	
 	#newConjugation(container, currentTable, index, conjugations, xform)
@@ -309,11 +335,13 @@ class posAPI {
 		var table = (xform.pos === "verb") ?
 						this.#prepareConjVerbRows(conjugations):
 					(xform.pos === "noun") ?
-						this.#prepareConjNounRows(conjugations):
+						this.#prepareConjNounRows(conjugations, xform):
 						"";
+		var heading  = (xform.pos === "verb") ? (xform.en+'<br/>'+xform.ar):
+												 xform.ar+'<br/>('+xform.form+')';
 		if(table !== ""){
 			var cnjTable = '<table id="'+id+'" class="cnjTable"><tr>'+
-								 '<th rowspan="6">'+xform.en+'<br/>'+xform.ar+'</th>'+
+								 '<th rowspan="6">'+heading+'</th>'+
 								 '<th style="font-size: 14px;">Person</th>'+
 								 '<th style="width: 50px;">واحد</th>'+
 								 '<th style="width: 50px;">مثنى</th>'+
@@ -397,7 +425,8 @@ class posAPI {
 		div.prepend($('<span style="padding:4px;">'+list.word+'</span>'));
 		div.prepend($('<span style="padding:4px;">('+list.pos+')</span>'));
 		div.prepend($('<span style="padding:4px;">('+list.form+')</span>'));
-		div.prepend($('<span style="padding:4px;"> '+list.meta["key"]+' </span>'));
+		if(list.meta["key"].startsWith("Form "))
+			div.prepend($('<span style="padding:4px;"> '+list.meta["key"]+' </span>'));
 		div.prepend($('<span style="padding:4px;"><a style="font-size:14px;margin:auto; padding-left:10px;" href="#1" '+
 		   'onclick="toggleConjugations(\''+list.table+'\');">Conjugations</a></span>'));
 		div.prepend($('<span style="padding:4px;"><a style="font-size:14px;margin:auto; padding-left:10px;" href="#2" '+
@@ -523,6 +552,61 @@ class posAPI {
 		}
 		return null;
 	}
+	
+	getNounInfo(){
+		var res = {};
+		for (const keyVal of Object.entries(posAPI.posRules)){
+			if(keyVal[0] === "Nouns"){
+				var patternInfo = keyVal[1]["matches"];
+				for (const mKeyVal of Object.entries(patternInfo)){
+					var entryName = mKeyVal[0];
+					if(entryName.startsWith('N')){
+						var matchInfo = mKeyVal[1];
+						res[entryName] = matchInfo;
+					}
+				}
+			}
+		}
+		return res;
+	}
+	
+	addNounInfoHtml(container, res){
+		var api = this;
+		container.empty();
+		var nTable = $('<table id="nTable" class="nTable"><tr>'+
+						 '<th style="font-size: 22px;">اسم (واحد)</th>'+
+						 '<th style="font-size: 22px;">جمع (مكسّر)</th>'+
+						  '<th style="font-size: 14px;">Type</th>'+
+					   '</table>');
+		container.append(nTable);
+		
+		var alink = '<a href="#" style=" text-decoration: none" '+
+						' onclick="checkWord(\'$\');">$</a>';
+		for (const keyVal of Object.entries(res)){
+			var entryName = keyVal[0];
+			var values = keyVal[1];
+			if(values){							   
+				var row = "";
+				var counter = 0;
+				var rowSpan = values.xforms.length;
+				values.xforms.every(function(xform){
+					row = row + '<tr>';
+					row = row + '<td>'+alink.replaceAll('\$',xform.form)+'</td>';
+					if(xform.plurals && xform.plurals.length > 0)
+						row = row + '<td>'+alink.replaceAll('$',xform.plurals[0].form)+'</td>';
+					else
+						row = row + '<td>-</td>';
+					if(rowSpan < 1 || counter == 0)
+						row = row +'<td rowspan='+rowSpan+'>'+values.ar+'<br/>'+ values.en +'</td>';
+					row = row +'</tr>';
+					
+					counter++;
+					return true;
+				});
+				$("#nTable tbody").append($(row));
+			}
+		}
+	}
 
 	getVerbInfo(){
 		var res = {};
@@ -544,6 +628,8 @@ class posAPI {
 	addVerbInfoHtml(container, res){
 		var api = this;
 		container.empty();
+		var alink = '<a href="#" style=" text-decoration: none" '+
+						' onclick="checkWord(\'$\');">$</a>';
 		var vTable = $('<table id="vTable" class="vTable"><tr>'+
 						 '<th style="font-size: 14px;">Form</th>'+
 						 '<th>مصدر</th>'+
@@ -565,10 +651,10 @@ class posAPI {
 									   .map(x=>x.form);								   
 				var row = '<tr>'+
 						  '<td>'+entryName.split(' ')[1]+'</td>'+
-						  '<td>'+vn[0]+'</td>'+
-						  '<td>'+pst[0]+' - '+prt[0]+'</td>';
+						  '<td>'+alink.replaceAll('\$',vn[0])+'</td>'+
+						  '<td>'+alink.replaceAll('\$',pst[0])+' - '+alink.replaceAll('\$',prt[0])+'</td>';
 				if(pst.length > 1){
-					row = row + '<td>'+pst[1]+' - '+prt[1]+'</td>';
+					row = row + '<td>'+alink.replaceAll('\$',pst[1])+' - '+alink.replaceAll('\$',prt[1])+'</td>';
 				}else{
 					row = row + '<td>-</td>';
 				}
@@ -646,7 +732,10 @@ class posAPI {
 							if(isMatch){
 								matchInfo.xforms.every(function(xform){
 									
-									xform.rootExp = matchInfo.rootExp;
+									xform.rootExp = matchInfo.rootExp ?? xform.rootExp;
+									if(!xform.pos) xform.pos = matchInfo.pos;
+									if(!xform.en) xform.en = matchInfo.en;
+									if(!xform.ar) xform.ar = matchInfo.ar;
 									var parseOut = {
 										"word": aword,
 										"xform": xform,
@@ -654,18 +743,6 @@ class posAPI {
 										"parse": [],
 										"conj": []
 									};
-									
-									/*
-									if(matchPos === "verb"){
-										if(xRoot == undefined){
-											xRoot = apiInstance.#findRootFromConjugaions(word, xform.pos, xform.en);
-										}
-										if(xRoot){
-											aword = xRoot;
-											parseOut.word = aword;
-										}
-									}
-									*/
 									
 									if(xform.pos === "verb"){
 										if(xform.en.startsWith("past ")){
