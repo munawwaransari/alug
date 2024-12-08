@@ -279,52 +279,56 @@ class posAPI {
 	
 	#prepareConjVerbRows(conjugations)
 	{
+		var alink = '<a href="#" style=" text-decoration: none" '+
+						' onclick="checkWord(\'$\');">$</a>';
 		return '<tr><td>غائب (مذكّر)</td><td>'+
-						conjugations[0]+'</td><td>'+
-						conjugations[1]+'</td><td>'+
-						conjugations[2]+'</td>'+
+						alink.replaceAll('$',conjugations[0])+'</td><td>'+
+						alink.replaceAll('$',conjugations[1])+'</td><td>'+
+						alink.replaceAll('$',conjugations[2])+'</td>'+
 				'</tr>' + 
 				'<tr><td>غائب (مؤنّث)</td><td>'+
-						conjugations[3]+'</td><td>'+
-						conjugations[4]+'</td><td>'+
-						conjugations[5]+'</td>'+
+						alink.replaceAll('$',conjugations[3])+'</td><td>'+
+						alink.replaceAll('$',conjugations[4])+'</td><td>'+
+						alink.replaceAll('$',conjugations[5])+'</td>'+
 				'</tr>' + 
 				'<tr><td>حاضر (مذكّر)</td><td>'+
-						conjugations[6]+'</td><td>'+
-						conjugations[7]+'</td><td>'+
-						conjugations[8]+'</td>'+
+						alink.replaceAll('$',conjugations[6])+'</td><td>'+
+						alink.replaceAll('$',conjugations[7])+'</td><td>'+
+						alink.replaceAll('$',conjugations[8])+'</td>'+
 				'</tr>' + 
 				'<tr><td>حاضر (مؤنّث)</td><td>'+
-						conjugations[9]+'</td><td>'+
-						conjugations[10]+'</td><td>'+
-						conjugations[11]+'</td>'+
+						alink.replaceAll('$',conjugations[9])+'</td><td>'+
+						alink.replaceAll('$',conjugations[10])+'</td><td>'+
+						alink.replaceAll('$',conjugations[11])+'</td>'+
 				'</tr>' + 
 				'<tr><td>مُتكلّم</td><td>'+
-						conjugations[12]+'</td><td>'+
-						conjugations[13]+'</td><td>'+
-						conjugations[14]+'</td>'+
+						alink.replaceAll('$',conjugations[12])+'</td><td>'+
+						alink.replaceAll('$',conjugations[13])+'</td><td>'+
+						alink.replaceAll('$',conjugations[14])+'</td>'+
 				'</tr>';
 	}
 	
 	#prepareConjNounRows(conjugations, xform)
 	{
+		var alink = '<a href="#" style=" text-decoration: none" '+
+						' onclick="checkWord(\'$\');">$</a>';
 		if(xform.gender === undefined){
 			return '<tr><td>مذكّر</td><td>'+
-							conjugations[0]+'</td><td>'+
-							conjugations[1]+'</td><td>'+
-							conjugations[2]+'</td>'+
+							alink.replaceAll('$',conjugations[0])+'</td><td>'+
+							alink.replaceAll('$',conjugations[1])+'</td><td>'+
+							alink.replaceAll('$',conjugations[2])+'</td>'+
 					'</tr>' + 
 					'<tr><td>مؤنّث</td><td>'+
-							conjugations[3]+'</td><td>'+
-							conjugations[4]+'</td><td>'+
-							conjugations[5]+'</td>'+
+							alink.replaceAll('$',conjugations[3])+'</td><td>'+
+							alink.replaceAll('$',conjugations[4])+'</td><td>'+
+							alink.replaceAll('$',conjugations[5])+'</td>'+
 					'</tr>';
 		}else{
 			var g = xform.gender == "m" ? "مذكّر" :"مؤنّث";
 			return '<tr><td>'+g+'</td><td>'+
-							conjugations[0]+'</td><td>'+
-							conjugations[1]+'</td><td>'+
-							conjugations[2]+'</td>'+
+							alink.replaceAll('$',conjugations[0])+'</td><td>'+
+							alink.replaceAll('$',conjugations[1])+'</td><td>'+
+							alink.replaceAll('$',conjugations[2])+'</td>'+
 					'</tr>';
 		}
 	}
@@ -435,17 +439,18 @@ class posAPI {
 	
 	#addParsedWords(currentTable, curPos, parseInfo)
 	{
-		
+		var alink = '<a href="#" style=" text-decoration: none" '+
+						' onclick="checkWord(\'$\');">$</a>';
 		var row = '<tr><td>'+parseInfo.xform.form+'</td>';
 		if(parseInfo.xform.pos === "verb"){
-			row = row+ '<td>'+parseInfo.parse[0]+'</td>'+ 
-					   '<td>'+(parseInfo.parse[1] ?? parseInfo.parse[0])+'</td>'+
+			row = row+ '<td>'+alink.replaceAll('$',parseInfo.parse[0])+'</td>'+ 
+					   '<td>'+(parseInfo.parse[1] ? alink.replaceAll('$',parseInfo.parse[1]) : alink.replaceAll('$',parseInfo.parse[0]))+'</td>'+
 					   '<td></td>'+
-					   '<td>'+(parseInfo.parse[2] ?? parseInfo.parse[0])+'</td>';
+					   '<td>'+(parseInfo.parse[2] ? alink.replaceAll('$',parseInfo.parse[2]) : alink.replaceAll('$',parseInfo.parse[0]))+'</td>';
 		}else if(parseInfo.xform.pos === "noun"){
-			row = row+ '<td>'+parseInfo.parse[0]+'</td>'+ 
-					   '<td>'+parseInfo.parse[1]+'</td>'+
-					   '<td>'+parseInfo.parse[2]+'</td>'+
+			row = row+ '<td>'+alink.replaceAll('$',parseInfo.parse[0])+'</td>'+ 
+					   '<td>'+alink.replaceAll('$',parseInfo.parse[1])+'</td>'+
+					   '<td>'+alink.replaceAll('$',parseInfo.parse[2])+'</td>'+
 					   '<td></td>';
 		}else{
 			//todo
