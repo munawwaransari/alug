@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+	<title>Arabic learning - Download Resources</title>
+	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+	<script src="scripts/data-util.js"></script>
+	<style>
+	
+		a {
+			text-decoration: none;
+		}
+		
+		li:hover{
+			color: #04AA6D;
+			 padding: 2px;
+		}
+		
+        ul, #tUL {
+            list-style-type: none;
+        }
+        #tUL {
+            margin: 0;
+            padding: 4px;
+        }
+        .caret {
+            cursor: pointer;
+            user-select: none;
+        }
+        .caret::before {
+            content: "[+]";
+            color: black;
+            display: inline-block;
+            margin-right: 6px;
+        }
+        .caret-down::before {
+			content: "[-]";
+            /*transform: rotate(90deg);*/
+        }
+        .nested {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+    </style>
+	<script>
+	window.onload = function(){
+		loadChapters();
+		
+		var toggler = document.getElementsByClassName("caret");
+        for (var i = 0; i < toggler.length; i++) {
+            toggler[i].addEventListener("click", function() {
+                this.parentElement.querySelector(".nested").classList.toggle("active");
+                this.classList.toggle("caret-down");
+            });
+        }
+	};
+	
+	function loadChapters(){
+		var div = $("#tUL");
+		var topics = parent.topics;
+		var alink = '<a href="$1#page=$2">$3</a>'
+		for (const [key, value] of Object.entries(topics)){
+			var topicName = key.split(' - ')[1];
+			var topicPath = encodeURI(getLocationPath() + "pdfs/" + key + ' - Arabic.pdf');
+			
+			var li = '<li><span class="caret">'+topicName+'</span>'+
+					 '<ul class="nested">';
+			value.every(function(t){
+				var l = alink.replace('$1', topicPath)
+							 .replace('$2', t.pageNo)
+							 .replace('$3', t.topic);
+			    li = li + '<li>'+l+'</li>';
+				return true;
+			});
+			li = li + '</ul></li>';
+			div.append($(li));
+		}
+	}
+	
+	/*
+	function openPdf(url, page){
+		var w = parent ? parent.window : window;
+		var p = page > 0 ? "#page="+page : "";
+		w.open(url+p, "_blank"); 
+	}
+	*/
+	</script>
+</head>
+<body>
+	<ul id="tUL">
+	</ul>
+</body>
+</html>

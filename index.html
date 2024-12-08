@@ -18,6 +18,7 @@
 			var autoplay_cache = [];
 			var states = {};
 	
+			window.topics = alug_chapters;
 			window.updateStates = function (s){ $.extend(states, s); };
 			
 			window.getLang = function(){
@@ -107,6 +108,8 @@
 			</span>
 			<span class="toolSpan">
 				<!--<img id="user" class="tool" src="images/user.jpg"/>-->
+				<img id="resources" class="tool" src="images/download.jpg"
+					onclick="loadResources()" />
 				<img id="info" class="tool" src="images/info.png"/>
 				<img id="ss-support_1" class="tool" src="images/ss-supported.png"/>
 				<img id="ss-support_2" class="tool" src="images/ss-not-supported.png" style="display:none"/>
