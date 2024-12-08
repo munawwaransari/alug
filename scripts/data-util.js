@@ -17,11 +17,12 @@ function getParamValue(paramName){
 	}
 }
 
-async function loadJsonData(url,  callback, errorCallback)
+async function loadJsonData(url, callback, errorCallback)
 {
 
 	try {
-		const response = await fetch(url);
+		console.log('Fetching: '+ url);
+		const response = await fetch(url+"?nocache=123");
 		if (!response.ok) {
 
 			throw new Error(`HTTP error! Status: ${response.status}`);
@@ -102,6 +103,11 @@ function replaceWord(w){
 	return text;
 }
 
+function removePunctuations(w){
+	var punctuation = "ۡۧـۦۥۣۤۢۡ۠۟۞۝ۜۛۚۙۘۗۖە";
+	var text = w.replace(new RegExp("["+punctuation+"]+","g"), '');
+	return text;
+}
 /*
 function replaceWithLink(verse, word, text){
 	var link = encodeURI("https://glosbe.com/ar/"+lang+"/"+text);

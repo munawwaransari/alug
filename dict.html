@@ -9,14 +9,10 @@
 	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
 	<script src="scripts/data-util.js"></script>
 	<script src="scripts/autocomplete.js"></script>
+	<script src="scripts/pos.js"></script>
 	<script src="scripts/dict.js"></script>
 	<style>
-	
-	.selectedIndex {
-		color: indigo!important;
-	}
-	
-	.index {
+	.index, .index2 {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap; 
@@ -53,7 +49,7 @@
 	
 	.dictionary{
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		flex-wrap: wrap; 
 		width: 100%;
 		direction: rtl;
@@ -62,25 +58,31 @@
 	}
 	
 	.word{
-		 font-size: 22px;
 		 border: 2px solid indigo;
 		 box-shadow: 1px 1px;
 		 padding: 4px 4px;
 		 margin-left: 8px;
 		 margin-right: 8px;
-		 margin-top: 4px;
+		 margin-top: 0px;
 		 margin-bottom: 4px;
 		 width: 180px;
 		 float: left;
 	}
-	
+
 	.letter:hover {
 		color: indigo;
 	}
 	
 	.letter{
-		font-size: 34px;
+		font-size: 28px;
 		color: red;
+		padding: 10px;
+		cursor: pointer;
+	}
+	
+	.btnl{
+		font-size: 14px;
+		color: blue;
 		padding: 10px;
 		cursor: pointer;
 	}
@@ -94,6 +96,101 @@
 		max-height: 16px;
 		cursor: pointer;
       }
+	  
+	  .wTable, .cnjTable, .vTable, .nTable {
+	    display:flex;
+		flex-direction:column;
+		align-items:center;
+		flex-wrap:wrap;
+		align-items:center;
+		justify-content: center;
+		text-align: center;
+	  }
+	  
+	  .wTable, .cnjTable {
+		border: none;
+		border-collapse: collapse;
+		margin-bottom: 4px;
+	  }
+	  
+	  .vTable, .nTable {
+		border: none;
+		border-collapse: collapse;
+		margin-bottom: 20px!important;
+		font-size: 22px;
+	  }
+	  
+	  th, td {
+		border: 1px solid black;
+	  }
+	  
+	  .wTable th, td {
+		height: 24px;
+	  }
+	  
+	  .cnjTable th, td{
+		height: 24px;
+	  }
+	  
+	  .vTable th, td{
+		height: 30px;
+	  }
+	  
+	  .nTable th, td{
+		height: 30px;
+	  }
+
+	  .hidden{
+		display: none;
+	  }
+	  
+	  .shown{
+		display: block;
+	  }
+	  
+	/* Dropdown Button */
+	.dropbtn {
+	  background-color: #04AA6D;
+	  color: white;
+	  padding: 6px;
+	  font-size: 14px;
+	  border: none;
+	  border-radius: 4px;
+	}
+
+	/* The container <div> - needed to position the dropdown content */
+	.dropdown {
+	  position: relative;
+	  display: inline-block;
+	}
+
+	/* Dropdown Content (Hidden by Default) */
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  background-color: #f1f1f1;
+	  min-width: 120px;
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	  z-index: 1;
+	}
+
+	/* Links inside the dropdown */
+	.dropdown-content a {
+	  color: black;
+	  padding: 12px 10px;
+	  text-decoration: none;
+	  display: block;
+	  left:0;
+	}
+
+	/* Change color of dropdown links on hover */
+	.dropdown-content a:hover {background-color: #ddd;}
+
+	/* Show the dropdown menu on hover */
+	.dropdown:hover .dropdown-content {display: block;}
+
+	/* Change the background color of the dropdown button when the dropdown content is shown */
+	.dropdown:hover .dropbtn {background-color: #3e8e41;}
 	</style>
 </head>
   <body>
@@ -101,13 +198,24 @@
 		
 		<div  class="autocomplete">
 			<input id="wordSearchText" onchange="searchWord()" style="width:100px;"/>
-			<button id="SearchD" style="top:-8px; height: 30px;" onclick="openMeaning()">Dictionary</button>
-			<button id="SearchQ" style="top:-8px; height: 30px;" onclick="searchInQuran()">Quran</button>
+			<button id="SearchD" class="dropbtn" title="Analyze" style="background-color:#4B5AC5;top:-8px; height: 30px;" onclick="analyzeSelectedWord()"><b>تحليل</b></button>
+			<button id="btnVerbs" class="dropbtn" title="Verbs" style="top:-8px; height: 30px;" onclick="showVerbTable()" style="background:">فعل</button>
+			<button id="btnNouns" class="dropbtn" title="Nouns" style="top:-8px; height: 30px;" onclick="showNounTable()">اسم</button>
+			<div class="dropdown">
+			  <button class="dropbtn">معاني</button>
+			  <div class="dropdown-content">
+				<a href="#" onclick="lookupEx('https://www.almaany.com/ar/dict/ar-$/')">Almaany</a>
+				<a href="#" onclick="lookupEx('https://glosbe.com/ar/$/')">Glosbe</a>
+			  </div>
+			</div>
+			<!-- <button id="btnMeaning" style="top:-8px; height: 30px;" onclick="">Meaning</button> -->
+			<!-- <button id="SearchQ" style="top:-8px; height: 30px;" onclick="searchInQuran()">Quran</button> -->
 		</div>
 		<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:4px"
 			 onclick="showArabicKeyboard('arabic')"/>
 	</div>
     <div class="index"></div>
+	<div class="index2"></div>
 	<div class="formClass"></div>
 	<div class="dictionary"></div>
   </div>

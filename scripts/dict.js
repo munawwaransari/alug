@@ -5,11 +5,22 @@
 var lastSuggestionInput = undefined;
 var mappings = {};
 var dict = {};
+var lastIndex2 = undefined;
 var lastIndex = undefined;
 var formFilters = [];
+var index1 = ["ا","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م","ن","و","ه","ي"];
+var index2Suffixes = ["آ","إ","أ","ا","ؤ","و","ئ","ي","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م","ن","ه"];
+var posAPIObj;
 
 window.onload = function(){
 	 
+	posAPIObj = new posAPI(getLocationPath(), function(msg, err){
+		if(err){
+			console.log("Failed to initialize pos api");
+			return;
+		}
+	});
+	
 	autocomplete(document.getElementById('wordSearchText'), function(val, callback){
 		var condition = val.length > 1 && val !== lastSuggestionInput;
 		if(val.length > 1 && val !== lastSuggestionInput){
@@ -19,94 +30,73 @@ window.onload = function(){
 		return condition;
 	});
 	
-	var mappingUrl = getLocationPath() + 'arabic.dic/mapping.json'
+	var mappingUrl = getLocationPath() + 'data/ar.dic/mapping.json'
 	loadJsonData(mappingUrl, function(data){
 			mappings = data;
 	});
 	 
-	var url = getLocationPath() + 'data/dict.json';
-	loadJsonData(url, function(data){
-			dict = data;
-			for (const [key, value] of Object.entries(dict)){
-			  addIndex(key);
-			}
+	// add index
+	index1.every(function(key){
+	  addIndex(key);
+	  return true;
 	});
+	$(".index").append($('<div id="btnindex" class="btnl" onclick="toggleIndex(\'index\')">Collapse</div>'));
+	toggleIndex('index');
+}
+
+function showVerbTable(){
+	var vTable = posAPIObj.getVerbInfo();
+	posAPIObj.addVerbInfoHtml($(".dictionary"), vTable);
+}
+
+function showNounTable(){
+	var nTable = posAPIObj.getNounInfo();
+	posAPIObj.addNounInfoHtml($(".dictionary"), nTable);
+}
+
+function checkWord(w){
+	$("#wordSearchText").val(w);
+	analyzeSelectedWord();
+}
+
+
+function analyzeSelectedWord(){
+		
+	var word = $("#wordSearchText").val();
+	var res = posAPIObj.analyzeWord(word, true);	
+	posAPIObj.addHtml($(".dictionary"), res, true);
 }
 
 function addIndex(letter){
-	var idiv = '<div class="letter" onclick="loadDictionary(\''+letter+'\')">'+letter+'</div>';
+	var idiv = '<div class="letter" onclick="addIndex2(\''+letter+'\')">'+letter+'</div>';
 	$(".index").append($(idiv));
 }
 
-function loadDictionary(letter){
-	var words = dict[letter];
-	if(words){
-		// set index class
-		if(lastIndex)
-			$(".index div:contains('"+lastIndex+"')").removeClass("selectedIndex");
-		$(".index div:contains('"+letter+"')").addClass("selectedIndex");
-		
-		if(lastIndex !== letter){
-			formFilters = [];
-		}
-		lastIndex = letter;
-		var forms = [];
-		$(".dictionary").empty();
-		words.forEach(function(w){
-			//add forms to lookup
-			if(forms.indexOf(w.form) === -1){
-				forms.push(w.form);
-			}
-			
-			if(formFilters.indexOf(w.form) === -1){
-				addWord(w);
-			}
-		});
-		
-		$(".formClass").empty();
-		forms.forEach(function(f){
-			addFormFilter(f);
-		});
-		// add reset button
-		var reset = '<button style="padding:10px;" onclick="resetFilters()" >Reset filters</button>';
-		$(".formClass").append($(reset));
-	}
+function addIndex2(letter){
+	$(".index2").empty();
+	var index2Letters = index2Suffixes.every(function(sfx){
+		var l = letter[0]+sfx;
+		$(".index2").append($('<div class="letter" '+ 
+							  'onclick="selectWord(\''+l+'\');">'+l+'</div>'));
+		return true;
+	});
+	$(".index2").append($('<div class="btnl" onclick="backToIndex()">Back</div>'));
+	$(".index2").append($('<div id="btnindex2" class="btnl" onclick="toggleIndex(\'index2\')">Collapse</div>'));
+	$(".index").hide();
 }
 
-function addWord(w){
-	var en = w.en ? '<br/>'+w.en : '';
-	var ur = w.ur ? '<br/>'+w.ur : '';
-	var lang = "";
-	var search = ''; //'<img class="bottom-left" onclick="loadSearch(\''+w.past+'\')" src="images/lookup.jpg" ></img>';
-	if(parent == undefined || parent.getLang == undefined){
-		lang = ", 'en'";
-		search = "";
-	}
-	var past = '<a href="#" style="text-decoration: none;cursor:pointer;" onclick="loadSearch(\''+w.past+'\')">'+w.past+'</a>';
-	var present = '<a href="#" style="text-decoration: none;cursor:pointer;" onclick="loadSearch(\''+w.present+'\')">'+w.present+'</a>';
-	var form = '<a href="#" style="text-decoration: none;cursor:pointer;">'+w.form+'</a>';
-	var wdiv = '<div class="word">('+form+')&nbsp;<b>'+past+"&nbsp;-&nbsp;"+present+'</b>'+en+ur+search+'</div>';
-
-	$(".dictionary").append($(wdiv));
+function backToIndex(){
+	$(".index2").empty();
+	$(".index").show();
 }
 
-function addFormFilter(f){
-	var current = formFilters.filter(item => item === f);
-	current = current.length > 0 ? ' class="formFilter" ' : '';
-	var fdiv = '<label id="'+f+'" '+current+' onclick="toggleForm(\''+f+'\')" >'+f+'</label>';
-	$(".formClass").append($(fdiv));
-}
-
-function lookUp(w, lang){
-	if(parent){
-		if (lang == undefined)
-			lang = parent.getLang();
-		parent.window.open("https://glosbe.com/ar/"+lang+"/"+encodeURI(w), '_blank');
-	}else{
-		if (lang == undefined)
-			lang = 'en';
-		window.open("https://glosbe.com/ar/"+lang+"/"+encodeURI(w), "_blank");
-	}
+function toggleIndex(index){
+	$("."+index+">.letter").toggle();
+	var btn = document.getElementById("btn"+index);
+	if(btn.innerHTML === "Collapse")
+		btn.innerHTML = "Expand Index";
+	else
+		btn.innerHTML = "Collapse";
 }
 
 function toggleForm(f){
@@ -122,21 +112,10 @@ function toggleForm(f){
 	loadDictionary(lastIndex);
 }
 
-function resetFilters(){
-	formFilters = [];
-	loadDictionary(lastIndex);
-}
-
-function loadSearch(w, quran){
-	var text = arRemovePunct(w);
-	if(quran){
-		var url = encodeURI(getLocationPath() + '?search='+text);
-		parent ? parent.window.open(url, '_blank') : window.open(url, '_blank');
-	}else{
-		$("#wordSearchText").val(text);				
-		var inp = document.getElementById('wordSearchText');
-		fireInputEvent(inp);
-	}
+function selectWord(text){
+	$("#wordSearchText").val(text);				
+	var inp = document.getElementById('wordSearchText');
+	fireInputEvent(inp);
 }
 
 function searchWord(){
@@ -150,9 +129,9 @@ async function getSuggesstions(txt, callback){
 		return txt.startsWith(key);
 	});
 	if(file.length > 0){
-		var fileUrl = getLocationPath() + "arabic.dic/" + file[0][1] + ".json";
+		var fileUrl = getLocationPath() + 'data/ar.dic/'+file[0][1]+'.json';
+		console.log('getting suggestions: '+file[0][1]+'.json');
 		loadJsonData(fileUrl, function(data){
-			
 			// update global var for suggestions
 			var suggestionsList = data.filter(function(w){
 				return w.startsWith(txt);
@@ -176,6 +155,15 @@ function searchInQuran(){
 	if(txt !== null && txt !== ''){
 		loadSearch(txt, true);
 	}
+}
+
+function lookupEx(site){
+	var w = parent ? parent.window : window;
+	var lang = parent.getLang ? parent.getLang(): 'en';
+	if(site.includes('$'))
+		site = site.replace('$', lang);
+	var url = site+$("#wordSearchText").val();
+	w.open(url, "_blank");	
 }
 
 function OpenInChatGPT(){

@@ -129,6 +129,14 @@ function toggleIcon(id){
 	
 };
 
+function loadResources(){
+	console.log("loadResources");
+	$('.reading-pane').attr("src","");
+	setTimeout(function(){
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "dresources.html"));
+	}, 5);
+}
+
 function loadDictionarySearch(text){
 
 	console.log("loadDictionarySearch");
