@@ -11,6 +11,7 @@ var formFilters = [];
 var index1 = ["ا","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م","ن","و","ه","ي"];
 var index2Suffixes = ["آ","إ","أ","ا","ؤ","و","ئ","ي","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م","ن","ه"];
 var posAPIObj;
+var dState = {};
 
 window.onload = function(){
 	 
@@ -44,14 +45,9 @@ window.onload = function(){
 	toggleIndex('index');
 }
 
-function showVerbTable(){
+function showVerbTable(key){
 	var vTable = posAPIObj.getVerbInfo();
 	posAPIObj.addVerbInfoHtml($(".dictionary"), vTable);
-}
-
-function showNounTable(){
-	var nTable = posAPIObj.getNounInfo();
-	posAPIObj.addNounInfoHtml($(".dictionary"), nTable);
 }
 
 function checkWord(w){
@@ -186,4 +182,19 @@ function OpenInChatGPT(){
 		break;
 	}
 	parent ? parent.window.open(url+prompt, '_blank') : window.open(url+prompt, '_blank');
+}
+
+function updateState(key, value){
+	dState[key] = value;
+	for(const [k,v] of Object.entries(dState))
+	{
+		$("#"+key+" button").text(v.ar);
+		$("#"+key+" button").prop('title', v.en);
+	}
+}
+
+function showNounTable(k, v1, v2){
+	updateState(k, {ar: v1, en: v2});
+	var nTable = posAPIObj.getNounInfo();
+	posAPIObj.addNounInfoHtml($(".dictionary"), nTable);
 }

@@ -11,6 +11,7 @@
 	<script src="scripts/autocomplete.js"></script>
 	<script src="scripts/pos.js"></script>
 	<script src="scripts/dict.js"></script>
+	<script src="scripts/dict-lt.js"></script>
 	<style>
 	.index, .index2 {
 		display: flex;
@@ -97,7 +98,7 @@
 		cursor: pointer;
       }
 	  
-	  .wTable, .cnjTable, .vTable, .nTable {
+	  .wTable, .cnjTable, .vTable, .nTable, .csvTable {
 	    display:flex;
 		flex-direction:column;
 		align-items:center;
@@ -107,13 +108,13 @@
 		text-align: center;
 	  }
 	  
-	  .wTable, .cnjTable {
+	  .wTable, .cnjTable, .csvTable {
 		border: none;
 		border-collapse: collapse;
 		margin-bottom: 4px;
 	  }
 	  
-	  .vTable, .nTable {
+	  .vTable, .nTable, .csvTable {
 		border: none;
 		border-collapse: collapse;
 		margin-bottom: 20px!important;
@@ -137,6 +138,10 @@
 	  }
 	  
 	  .nTable th, td{
+		height: 30px;
+	  }
+	  
+	  .csvTable th, td {
 		height: 30px;
 	  }
 
@@ -200,7 +205,16 @@
 			<input id="wordSearchText" onchange="searchWord()" style="width:100px;"/>
 			<button id="SearchD" class="dropbtn" title="Analyze" style="background-color:#4B5AC5;top:-8px; height: 30px;" onclick="analyzeSelectedWord()"><b>تحليل</b></button>
 			<button id="btnVerbs" class="dropbtn" title="Verbs" style="top:-8px; height: 30px;" onclick="showVerbTable()" style="background:">فعل</button>
-			<button id="btnNouns" class="dropbtn" title="Nouns" style="top:-8px; height: 30px;" onclick="showNounTable()">اسم</button>
+			<!-- <button id="btnNouns" class="dropbtn" title="Nouns" style="top:-8px; height: 30px;" onclick="showNounTable()">اسم</button> -->
+			<div id="ism" class="dropdown">
+			  <button class="dropbtn">الاسم</button>
+			  <div class="dropdown-content">
+				<a href="#" onclick="showNounTable('ism','الاسم', 'Noun')">Noun</a>
+				<a href="#" onclick="loadArabicLTTable('plural.csv', 'ism','الجمع', 'Plural')">Plural</a>
+				<a href="#" onclick="loadArabicLTTable('synonyms.csv', 'ism','المرادفات', 'Synonyms')">Synonyms</a>
+				<a href="#" onclick="loadArabicLTTable('antonyms.csv', 'ism','المتضادات', 'Antonyms')">Antonyms</a>
+			  </div>
+			</div>
 			<div class="dropdown">
 			  <button class="dropbtn">معاني</button>
 			  <div class="dropdown-content">
