@@ -137,6 +137,14 @@ function loadResources(){
 	}, 5);
 }
 
+function loadQuizResources(){
+	console.log("loadQuizResources");
+	$('.reading-pane').attr("src","");
+	setTimeout(function(){
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "quizres.html"));
+	}, 5);
+}
+
 function loadDictionarySearch(text){
 
 	console.log("loadDictionarySearch");
@@ -199,6 +207,7 @@ function showHomonymChart(){
 	}, 5);
 }
 
+/*
 async function loadJsonData(url,  callback, errorCallback)
 {
 	try {
@@ -231,6 +240,7 @@ async function loadHtmlData(url,  callback)
 		console.error("Fetch error:", error);
 	}
 };
+*/
 
 //ref: https://stackoverflow.com/questions/7434685/how-can-i-be-notified-when-an-element-is-added-to-the-page
 function nodeInserted(elementQuerySelector){

@@ -89,6 +89,18 @@
 				  });
 				}
 			}
+			
+			/*
+			window.openQuizPage(file, topic){
+				console.log("Quiz file: " + file);
+				var w = parent ? parent.window : window;
+				var lang = parent.getLang ? parent.getLang() : 'en';
+				var abs_path = getLocationPath() + 'quiz.html?&topic=' + topic + '&lang=' + lang + '&data=' + file;
+				//setTimeout(function(){
+				$('.reading-pane').attr('src', encodeURI(abs_path));
+				//}, 5);
+			};
+			*/
 		</script>
 		</script>
 		<script src="scripts/chapters.js"></script>
@@ -110,6 +122,7 @@
 				<!--<img id="user" class="tool" src="images/user.jpg"/>-->
 				<img id="resources" class="tool" src="images/download.jpg"
 					onclick="loadResources()" />
+				<img id="km" class="tool" src="images/km.jpg" onclick="loadQuizResources()" />
 				<img id="info" class="tool" src="images/info.png"/>
 				<img id="ss-support_1" class="tool" src="images/ss-supported.png"/>
 				<img id="ss-support_2" class="tool" src="images/ss-not-supported.png" style="display:none"/>

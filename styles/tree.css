@@ -1,0 +1,37 @@
+a {
+	text-decoration: none;
+}
+
+li:hover{
+	color: #04AA6D;
+	 padding: 2px;
+}
+
+ul, #tUL, li {
+	list-style-type: none;
+	font-size: 16px!;
+}
+#tUL {
+	margin: 0;
+	padding: 4px;
+}
+.caret {
+	cursor: pointer;
+	user-select: none;
+}
+.caret::before {
+	content: "[+]";
+	color: black;
+	display: inline-block;
+	margin-right: 6px;
+}
+.caret-down::before {
+	content: "[-]";
+	/*transform: rotate(90deg);*/
+}
+.nested {
+	display: none;
+}
+.active {
+	display: block;
+}

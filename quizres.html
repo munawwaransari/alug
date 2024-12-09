@@ -5,12 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="#" />
 	<link rel="stylesheet" type="text/css" href="styles/tree.css" media="screen">
-	<title>Arabic learning - Download Resources</title>
+	<title>Arabic learning - Quiz Resources</title>
 	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
 	<script src="scripts/data-util.js"></script>
 	<script>
 	window.onload = function(){
-		loadChapters();
+		loadQuizes([
+			"Alphabets",
+			"Basics",
+			"Conditional Sentences",
+			"Diacritic Rules",
+			"Erab (إعراب)",
+			"Noun Patterns",
+			"Plurals",
+			"Pronouns",
+			"Relative Nouns"
+		]);
 		
 		var toggler = document.getElementsByClassName("caret");
         for (var i = 0; i < toggler.length; i++) {
@@ -21,35 +31,23 @@
         }
 	};
 	
-	function loadChapters(){
+	function loadQuizes(list){
 		var div = $("#tUL");
-		var topics = parent.topics;
-		var alink = '<a href="$1#page=$2">$3</a>'
-		for (const [key, value] of Object.entries(topics)){
-			var topicName = key.split(' - ')[1];
-			var topicPath = encodeURI(getLocationPath() + "pdfs/" + key + ' - Arabic.pdf');
-			
-			var li = '<li><span class="caret">'+topicName+'</span>'+
+		list.every(function(q){
+			var alink = '<a onclick="openQ(\'quiz.html\',\''+q+'\')">'+q+'</a>';
+			var li = '<li><span class="caret">'+alink+'</span>'+
 					 '<ul class="nested">';
-			value.every(function(t){
-				var l = alink.replace('$1', topicPath)
-							 .replace('$2', t.pageNo)
-							 .replace('$3', t.topic);
-			    li = li + '<li>'+l+'</li>';
-				return true;
-			});
 			li = li + '</ul></li>';
 			div.append($(li));
-		}
+			return true;
+		});
 	}
 	
-	/*
-	function openPdf(url, page){
-		var w = parent ? parent.window : window;
-		var p = page > 0 ? "#page="+page : "";
-		w.open(url+p, "_blank"); 
+	function openQ(file, topic){
+		if(parent && parent.openQuizV2){
+			parent.openQuizV2('', file, topic);
+		}
 	}
-	*/
 	</script>
 </head>
 <body>
