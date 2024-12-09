@@ -180,67 +180,14 @@ function loadQuranSearch(text){
 	}, 5);
 }
 
-function showAlphabetChart(){
-	console.log("showAlphabetChart");
+function showChart(file){
+	console.log("showChart: "+ file);
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
-		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "alpha.html"));
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + file+".html"));
 		//$('#title-img').hide();
 	}, 5);
 }
-
-function showSynonymChart(){
-	console.log("showSynonymChart");
-	$('.reading-pane').attr("src","");
-	setTimeout(function(){
-		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "synonym.html"));
-		//$('#title-img').hide();
-	}, 5);
-}
-
-function showHomonymChart(){
-	console.log("showHomonymChart");
-	$('.reading-pane').attr("src","");
-	setTimeout(function(){
-		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "homonym.html"));
-		//$('#title-img').hide();
-	}, 5);
-}
-
-/*
-async function loadJsonData(url,  callback, errorCallback)
-{
-	try {
-		const response = await fetch(url);
-		if (!response.ok) {
-			throw new Error(`HTTP error! Status: ${response.status}`);
-		}
-		const data = await response.json();
-		callback(data);
-	} 
-	catch (error) {
-		console.error("Fetch error:", error);
-		if (errorCallback){
-			errorCallback(error);
-		}
-	}
-};
-
-async function loadHtmlData(url,  callback)
-{
-	try {
-		const response = await fetch(url);
-		if (!response.ok) {
-			throw new Error(`HTTP error! Status: ${response.status}`);
-		}
-		const data = await response.text();
-		callback(data);
-	} 
-	catch (error) {
-		console.error("Fetch error:", error);
-	}
-};
-*/
 
 //ref: https://stackoverflow.com/questions/7434685/how-can-i-be-notified-when-an-element-is-added-to-the-page
 function nodeInserted(elementQuerySelector){
@@ -301,9 +248,10 @@ function updateToolDescription(id){
 			if(states.menu !== "visible"){
 				updateStates({"menu": "visible"});
 				var menuItems = {
-					"Alphabets": "showAlphabetChart()",
-					"Synonyms": "showSynonymChart()",
-					"Homonymn": "showHomonymChart()"
+					"Alphabets": "showChart(\'alpha\')",
+					"Synonyms": "showChart(\'synonym\')",
+					"Homonymn": "showChart(\'homonym\')",
+					"Antonym": "showChart(\'antonym\')"
 				};
 				
 				var menu = '<div class="tool-menu">';
