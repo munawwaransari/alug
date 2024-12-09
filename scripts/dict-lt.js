@@ -64,7 +64,7 @@ function loadTable(data){
 function addAsHtmlTable(container, table, columns){
 	var wordColumn = 0;
 	container.empty();
-	container.html("<p>...Loading...</p>");
+	//container.append("<p>...Loading...</p>");
 	var headings = "<tr>";
 	columns.every(function(col, i){
 		if(columns[i] == "WORD")
@@ -104,7 +104,11 @@ function addAsHtmlTable(container, table, columns){
 	
 	
 	container.append('<input id="txtFilter" style="font-size:18px; max-width=100px;" onchange="filterTable('+wordColumn+');"/>')
-	container.append(htmlTable);
+	container.append($('<a style="font-size:10px; width:100%;text-align:center;" href="#" onclick="var w = parent ? parent.window: window;'+
+							'w.open(\'https://github.com/mdanok/ArabicLT\',\'_blank\')">'+
+							'Data source: https://github.com/mdanok/ArabicLT'+
+					 '</a>'));container.append(htmlTable);
+	
 	$(".csvTable tbody").append($(tableRows));
 	container.find("p").remove();
 }
