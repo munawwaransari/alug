@@ -137,7 +137,7 @@
 	</style>
 	<script>
 	  window.onload = function(){
-	      var url = getLocationPath() + 'data/synonym.json';
+	      var url = getLocationPath() + 'data/grmr/synonym.json';
 	      loadJsonData(url, function(data){
 		        console.log(data.synonyms);
 		        var div = $("#synonyms");
@@ -148,9 +148,9 @@
 		    });
 		}
 
-		function playSynonym(text){
+		function playSynonym(text, altText){
 		  if(parent.playText) {
-			parent.playText(text, 'ar-SA');
+			parent.playText(text, 'ar-SA', {"en-US": altText.replaceAll("/",".")});
 		  }
 		}
 
@@ -171,7 +171,7 @@
                           adiv +
                         '</div>'+
                         '<div class="flip-card-back">'+
-                            '<img onmouseenter="playSynonym(\''+syn.ar+'\')" '+ 
+                            '<img onmouseenter="playSynonym(\''+syn.ar+'\', \''+syn.en+'\')" '+ 
                                 'style="top:18%; width:96%; height:80%" class="alpha-image" src="'+syn.image+'">'+
                             '</img>'+
 							'<span style="top:10px; margin-bottom:0">'+syn.en+'<br/>'+syn.ur+'</span>'+
