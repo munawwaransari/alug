@@ -4,6 +4,8 @@ html {
 
 body{
 	height: 100%;
+	width: 90%;
+	margin-right: 10%;
 	position: absolute;
 	display: flex;
 	text-align: center;
