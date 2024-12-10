@@ -36,7 +36,7 @@ $(document).ready(function()
 			});
 			$(document).trigger("nodeInserted",['#languages']);
 		}
-	}, 5000);
+	}, 10000);
 	nodeInserted("#languages");
 	$(document).on("nodeInserted",function(e,q){
 		if (q === "#languages"){
