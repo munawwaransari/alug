@@ -20,23 +20,6 @@ $(document).ready(function()
 		window.onresize = undefined;
 	}
 	
-	setTimeout(function(){
-		var l = $("#languages");
-		if(l.length == 0){
-			$("#main").append('<select id="languages"/>');
-			var voices = speechSynthesis.getVoices().filter(function(v){
-				var lang = v.lang.replace('_','-');
-				var flag = lang === 'ur-IN' || lang ==='ur-PK' || lang === 'ur-IN' ||
-						   lang === 'ar-SA' || 
-						   lang === 'en-US';
-				if(flag){
-					$("#main #languages").append($('<option value="'+ lang + '" select>'+v.name+'</option>'))
-				}
-				return flag;
-			});
-			$(document).trigger("nodeInserted",['#languages']);
-		}
-	}, 10000);
 	nodeInserted("#languages");
 	$(document).on("nodeInserted",function(e,q){
 		if (q === "#languages"){
@@ -98,6 +81,23 @@ $(document).ready(function()
 		}
 	});
 });
+
+function loadLanguages(){
+	var l = $("#languages");
+	if(l.length == 0)
+		$("#main").append('<select id="languages"/>');
+	var voices = speechSynthesis.getVoices().filter(function(v){
+		var lang = v.lang.replace('_','-');
+		var flag = lang === 'ur-IN' || lang ==='ur-PK' || lang === 'ur-IN' ||
+				   lang === 'ar-SA' || 
+				   lang === 'en-US';
+		if(flag){
+			$("#main #languages").append($('<option value="'+ lang + '" select>'+v.name+'</option>'))
+		}
+		return flag;
+	});
+	$(document).trigger("nodeInserted",['#languages']);
+};
 
 			
 function singInUser(){
