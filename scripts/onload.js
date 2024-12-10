@@ -25,6 +25,15 @@ $(document).ready(function()
 		if (q === "#languages"){
 			$("#languages").parent().hide();
 			
+			var c = "";
+			var o = $("#languages option");
+			if(o && o.length > 0){
+				o.each(function(i, opt){
+					c = c + opt.value + ", ";
+				});
+			}
+			alert(c);
+			
 			// set support options
 			var arVoices =  $("#languages option").filter(function(i, x){
 				return x.value === 'ar-SA' || x.value === 'ar_SA';
