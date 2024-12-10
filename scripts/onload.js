@@ -23,7 +23,7 @@ $(document).ready(function()
 	nodeInserted("#languages");
 	$(document).on("nodeInserted",function(e,q){
 		if (q === "#languages"){
-			$("#languages").parent().show();
+			$("#languages").parent().hide();
 			
 			/*
 			var c = "";
@@ -84,6 +84,8 @@ $(document).ready(function()
 
 function loadLanguages(){
 	var l = $("#languages");
+	l.empty();
+	/*
 	if(l.length == 0)
 		$("#main").append('<select id="languages"/>');
 	var voices = speechSynthesis.getVoices().filter(function(v){
@@ -97,6 +99,9 @@ function loadLanguages(){
 		return flag;
 	});
 	$(document).trigger("nodeInserted",['#languages']);
+	*/
+	const event = new Event('onvoiceloaded');
+	document.dispatchEvent(event);
 };
 
 			
