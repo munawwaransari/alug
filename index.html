@@ -17,16 +17,29 @@
 			var speech_synthesis_supportd = false;
 			var autoplay_cache = [];
 			var states = {};
+			var arSupported = false, urSupported = false;
 	
 			window.topics = alug_chapters;
 			window.updateStates = function (s){ $.extend(states, s); };
+			
+			window.isLangSupported = function(lang){
+				return lang === "en-US" || 
+					   //lang === "ar-SA" || 
+					   lang === "ur-PK" || 
+					   lang === "ur-IN";
+			}
 			
 			window.getLang = function(){
 				return document.getElementById('lang-options').value.split("-")[0];
 			}
 			
-			window.playText = function(txt, lang){
+			window.playText = function(txt, lang, options){
+			  if(!autoplay) return;
 			  if(lang){
+				if(! window.isLangSupported(lang) && options && options["en-US"]){
+					lang = "en-US";
+					txt = options["en-US"];
+				}
 			    console.log("current lang:" + $("#languages").val());
 			    $("#languages").val(lang);
 			    //setTimeout(function(arg) { window.playText(arg); }, 1);

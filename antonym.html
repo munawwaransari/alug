@@ -87,9 +87,9 @@
 		    });
 		}
 
-		function playAntonyms(text){
+		function playAntonyms(text, altText){
 		  if(parent.playText) {
-			parent.playText(text, 'ar-SA');
+			parent.playText(text, 'ar-SA', {"en-US": altText});
 		  }
 		}
 
@@ -104,7 +104,8 @@
 							'<span style="top:10px; margin-bottom:0; font-size:18px">'+h.names[0]+'<br/>'+h.ur[0]+'/'+h.en[0]+'</span>'+
                         '</div>'+
                         '<div class="flip-card-back">'+
-                            '<img onmouseout="playAntonyms(\''+h.names[0]+'\')" onmouseenter="playAntonyms(\''+h.names[1]+'\')" '+ 
+                            '<img onmouseout="playAntonyms(\''+h.names[0]+'\', \''+h.en[0]+'\')" '+
+								 'onmouseenter="playAntonyms(\''+h.names[1]+'\', \''+h.en[1]+'\')" '+ 
                                 'style="top:18%; width:94%; height:80%" class="alpha-image" src="'+h.images[1]+'">'+
                             '</img>'+
 							'<span style="top:10px; margin-bottom:0; font-size:18px">'+h.names[1]+'<br/>'+h.ur[1]+'/'+h.en[1]+'</span>'+

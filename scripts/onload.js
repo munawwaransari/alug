@@ -24,6 +24,17 @@ $(document).ready(function()
 	$(document).on("nodeInserted",function(e,q){
 		if (q === "#languages"){
 			$("#languages").parent().hide();
+			
+			// set support options
+			var arVoices =  $("#languages option").filter(function(i, x){
+				return x.value === 'ar-SA' || x.value === 'ar_SA';
+			});
+			var urVoices = $("#languages option").filter(function(i, x){
+				return x.value === 'ur-PK' || x.value === 'ur_PK' ||
+					   x.value === 'ur-IN' || x.value === 'ur_IN';
+			});
+			arSupported = arVoices.length >  0;
+			urSupported = urVoices.length >  0;
 		}
 		$("#text").text("");
 		$("#play").click();
