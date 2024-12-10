@@ -36,8 +36,8 @@
 
 			function loadVoices(){
 				try{
-					logHeading("Supported languages:");
-					console.log(speechSynthesis.getVoices());
+					//logHeading("Supported languages:");
+					//console.log(speechSynthesis.getVoices());
 					
 					var voices = speechSynthesis.getVoices();
 					/*
@@ -48,6 +48,8 @@
 							   lang === 'en' || lang.includes('en-us');
 					});
 					*/
+					
+					logHeading("Supported languages: "+ voices.length);
 					for(var i=0; i < voices.length; i++){
 					  var v = voices[i].name + "( "+ voices[i].lang +" )";
 					  logInfo(v);
