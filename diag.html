@@ -38,12 +38,16 @@
 				try{
 					logHeading("Supported languages:");
 					console.log(speechSynthesis.getVoices());
+					
+					var voices = speechSynthesis.getVoices();
+					/*
 					var voices = speechSynthesis.getVoices().filter(function(v){
 						var lang = v.lang.toLowerCase();
 						return lang === 'ur' || lang.includes('ur-in') || lang.includes('ur-pk') || lang.includes('urdu') ||
 							   lang === 'ar' || lang.includes('ar-sa') || lang.includes('arabic') ||
 							   lang === 'en' || lang.includes('en-us');
 					});
+					*/
 					for(var i=0; i < voices.length; i++){
 					  var v = voices[i].name + "( "+ voices[i].lang +" )";
 					  logInfo(v);
