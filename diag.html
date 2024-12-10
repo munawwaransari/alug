@@ -13,13 +13,15 @@
 
 				if(browserSupport){
 					window.speechSynthesis.onvoicechanged = function(){
-						document.append("onvoicechanged: fired");
+						setTimeout(function(){
+							logInfo("speechSynthesis onvoicechanged fired!");
+						},50);
+						
+						//setTimeout(function(){
+						//	var btn = document.getElementById('loadVoices');
+						//	btn.click();
+						//}, 1000);
 					};
-					
-					setTimeout(function(){
-						var btn = document.getElementById('loadVoices');
-						btn.click();
-					}, 1000);
 				}	  	  				  			  
 			}
 			
@@ -48,7 +50,6 @@
 							   lang === 'en' || lang.includes('en-us');
 					});
 					*/
-					
 					logHeading("Supported languages: [ voices = "+ voices.length + " ]");
 					for(var i=0; i < voices.length; i++){
 					  var v = voices[i].name + "( "+ voices[i].lang +" )";
@@ -80,6 +81,6 @@
 		</script>
 	</head>
 	<body>
-	 <button id="loadVoices" onclick="loadVoices()"/>
+	 <button id="loadVoices" onclick="loadVoices()">Load</button>
 	</body>
 </html>
