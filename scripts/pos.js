@@ -672,6 +672,8 @@ class posAPI {
 						 '<th>مصدر</th>'+
 						 '<th>الماضي</th>'+
 						 '<th>المضارع</th>'+
+						 '<th>اسم الفاعل</th>'+
+						 '<th>اسم المفعول</th>'+
 					   '</table>');
 		container.append(vTable);
 		
@@ -679,6 +681,10 @@ class posAPI {
 			var entryName = keyVal[0];
 			var xform = keyVal[1];
 			if(xform){
+				var ap = xform.filter(x=>x.en==="active participle")
+									   .map(x=>x.form);
+				var pp = xform.filter(x=>x.en==="passive participle")
+									   .map(x=>x.form);
 				var vn = xform.filter(x=>x.en==="verbal noun")
 									   .map(x=>x.form);
 				var pst = xform.filter(x=>x.en.startsWith("past "))
@@ -695,6 +701,15 @@ class posAPI {
 				}else{
 					row = row + '<td>-</td>';
 				}
+				if(ap.length > 0)
+					row += '<td>'+alink.replaceAll('\$',ap[0])+'</td>';
+				else
+					row += '<td>-</td>';
+				
+				if(pp.length > 0)
+					row += '<td>'+alink.replaceAll('\$',pp[0])+'</td>';
+				else
+					row += '<td>-</td>';
 				row = row +'</tr>';
 				
 				$("#vTable tbody").append($(row));
