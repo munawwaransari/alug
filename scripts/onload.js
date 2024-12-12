@@ -224,11 +224,11 @@ function loadQuranSearch(text){
 	}, 5);
 }
 
-function showChart(file){
-	console.log("showChart: "+ file);
+function showChart(name){
+	console.log("showChart: "+ name);
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
-		$('.reading-pane').attr('src', encodeURI(getLocationPath() + file+".html"));
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "cards.html?data="+name));
 		//$('#title-img').hide();
 	}, 5);
 }
