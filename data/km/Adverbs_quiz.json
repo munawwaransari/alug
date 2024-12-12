@@ -1,0 +1,87 @@
+[
+	{
+		"id": "quiz-1",
+		"ur-PK_display": "درست جواب کا انتخاب کریں",
+		"en-US_display": "Select the correct object effect:",
+		"questions": [
+			{
+				"name": "q1",
+				"input": "checkbox",
+				"question": "Select all adverbs of place (ظرف المكان)",
+				"options": {
+					"a": "خَلفَ",
+					"b": "وَرَاءَ", 
+					"c": "صَبَاحًا", 
+					"d": "عِندَ"
+				},
+				"answer": ["a","b","d"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q2",
+				"input": "checkbox",
+				"question": "Select all adverbs of time (ظرف الزمان)",
+				"options": {
+					"a": "غَدًا",
+					"b": "قَبلَ", 
+					"c": "الآن", 
+					"d": "اَمَامَ"
+				},
+				"answer": ["a", "b", "c"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q3",
+				"input": "radio",
+				"question": "Choose correct adverb type: <b>غَالِبًا</b>",
+				"options": {
+					"a": "Adverb of time (ظرف الزمان)",
+					"b": "Adverb of place (ظرف المكان)", 
+					"c": "Adverb of frequency (ظرف التّكرار)", 
+					"d": "Adverb of manners (الحال)"
+				},
+				"answer": ["c"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q4",
+				"input": "radio",
+				"question": "Choose correct adverb type: <b>مَسرُورًا</b>",
+				"options": {
+					"a": "Adverb of time (ظرف الزمان)",
+					"b": "Adverb of place (ظرف المكان)", 
+					"c": "Adverb of frequency (ظرف التّكرار)", 
+					"d": "Adverb of manners (الحال)"
+				},
+				"answer": ["d"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q5",
+				"input": "radio",
+				"question": "Choose correct adverb type: <b>يَمِينَ</b>",
+				"options": {
+					"a": "Adverb of time (ظرف الزمان)",
+					"b": "Adverb of place (ظرف المكان)", 
+					"c": "Adverb of frequency (ظرف التّكرار)", 
+					"d": "Adverb of manners (الحال)"
+				},
+				"answer": ["b"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q6",
+				"input": "radio",
+				"question": "Choose correct adverb type: <b>مَبكِرًا</b>",
+				"options": {
+					"a": "Adverb of time (ظرف الزمان)",
+					"b": "Adverb of place (ظرف المكان)", 
+					"c": "Adverb of frequency (ظرف التّكرار)", 
+					"d": "Adverb of manners (الحال)"
+				},
+				"answer": ["a"],
+				"style": "font-size: 18px;font-weight: bold;"
+			}
+		]
+	}
+]

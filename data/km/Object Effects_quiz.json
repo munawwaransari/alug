@@ -1,0 +1,75 @@
+[
+	{
+		"id": "quiz-1",
+		"ur-PK_display": "درست جواب کا انتخاب کریں",
+		"en-US_display": "Select the correct object effect:",
+		"questions": [
+			{
+				"name": "q1",
+				"input": "radio",
+				"question": "لِيُحِقَّ <span style=\"background-color: yellow\">ٱلْحَقَّ</span> وَيُبْطِلَ <span style=\"background-color: yellow\">ٱلْبَـٰطِلَ</span> وَلَوْ كَرِهَ ٱلْمُجْرِمُونَ [8:8]",
+				"options": {
+					"a": "المفعول معه",
+					"b": "المفعول به", 
+					"c": "اللمفعول المطلق", 
+					"c": "اللمفعول له / المفعول لأجله"
+				},
+				"answer": ["b"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q3",
+				"input": "radio",
+				"question": "أَنَّا صَبَبْنَا الْمَاءَ <span style=\"background-color:yellow\">صَبًّا</span>[80:25]",
+				"options": {
+					"a": "المفعول معه",
+					"b": "المفعول به", 
+					"c": "اللمفعول المطلق", 
+					"d": "اللمفعول له / المفعول لأجله"
+				},
+				"answer": ["c"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q4",
+				"input": "radio",
+				"question": "وَلَا تَقْتُلُوا أَوْلَادَكُمْ <span style=\"background-color:yellow\">خَشْيَةَ</span> إِمْلَاقٍ[17:31]",
+				"options": {
+					"a": "المفعول معه",
+					"b": "المفعول به", 
+					"c": "اللمفعول المطلق", 
+					"d": "اللمفعول له / المفعول لأجله"
+				},
+				"answer": ["d"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q5",
+				"input": "radio",
+				"question": "كَلَّا إِذَا دُكَّتِ الْأَرْضُ <span style=\"background-color:yellow\">دَكًّا دَكًّا</span> [89:21]",
+				"options": {
+					"a": "المفعول معه",
+					"b": "المفعول به", 
+					"c": "اللمفعول المطلق", 
+					"d": "اللمفعول له / المفعول لأجله"
+				},
+				"answer": ["c"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q7",
+				"input": "radio",
+				"question": "دَرَستُ <span style=\"background-color:yellow\">وَ الكِتَابَ</span>",
+				"options": {
+					"a": "المفعول معه",
+					"b": "المفعول به", 
+					"c": "اللمفعول المطلق", 
+					"d": "اللمفعول له / المفعول لأجله"
+				},
+				"answer": ["a"],
+				"style": "font-size: 18px;font-weight: bold;"
+			}
+			
+		]
+	}
+]
