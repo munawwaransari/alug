@@ -578,10 +578,12 @@ class posAPI {
 	addNounInfoHtml(container, res){
 		var api = this;
 		container.empty();
+		var filters = [];
 		var nTable = $('<table id="nTable" class="nTable"><tr>'+
 						 '<th style="font-size: 22px;">اسم (واحد)</th>'+
 						 '<th style="font-size: 22px;">جمع (مكسّر)</th>'+
-						  '<th style="font-size: 14px;">Type</th>'+
+						 '<th style="font-size: 14px;">Example</th>'+
+						 '<th style="font-size: 14px;">Type</th>'+
 					   '</table>');
 		container.append(nTable);
 		
@@ -597,19 +599,49 @@ class posAPI {
 				values.xforms.every(function(xform){
 					row = row + '<tr>';
 					row = row + '<td>'+alink.replaceAll('\$',xform.form)+'</td>';
-					if(xform.plurals && xform.plurals.length > 0)
-						row = row + '<td>'+alink.replaceAll('$',xform.plurals[0].form)+'</td>';
+					if(xform.plurals && xform.plurals.length > 0){
+						var plurals = xform.plurals.map(x=>alink.replaceAll('$', x.form)).join('<br/>');
+						//row = row + '<td>'+alink.replaceAll('$',xform.plurals[0].form)+'</td>';
+						row = row + '<td>'+plurals+'</td>';
+					}
 					else
 						row = row + '<td>-</td>';
+					
+					if(xform["e.g."]){
+						var example = xform["e.g."].join('<br/>');
+						row = row +'<td>'+example+'</td>';	
+					}else{
+						row = row +'<td></td>';	
+					}
+					
 					if(rowSpan < 1 || counter == 0)
 						row = row +'<td rowspan='+rowSpan+'>'+values.ar+'<br/>'+ values.en +'</td>';
+
+					
 					row = row +'</tr>';
 					
+					var oval = values.ar+' - '+values.en;
+					if(filters.indexOf(values.ar+' - '+values.en) === -1){
+						filters.push(values.ar+' - '+values.en);
+					}
 					counter++;
 					return true;
 				});
 				$("#nTable tbody").append($(row));
 			}
+		}
+		
+		// Add filter drop down
+		if(filters.length > 0){
+			var sel = '<select class="nFilter" '+ 
+					  'onchange="filterTableRows(\'#nTable\', 4, $(\'.nFilter\').val().replace(\' - \',\'\'), \'all\')">'+
+					  '<option value="all">Show All</option>';
+			filters.every(function(n){
+				sel += '<option value="'+n+'"><b>'+n+'</b></option>';
+				return true;
+			});	
+			sel += '</select>';
+			container.prepend($(sel));
 		}
 	}
 

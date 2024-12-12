@@ -108,37 +108,19 @@ function removePunctuations(w){
 	var text = w.replace(new RegExp("["+punctuation+"]+","g"), '');
 	return text;
 }
-/*
-function replaceWithLink(verse, word, text){
-	var link = encodeURI("https://glosbe.com/ar/"+lang+"/"+text);
-	var click_event = (parent ? "parent.window" : "window") + ".open(updateLang(this.href), '_blank'); return false;";
-	if( verse.search(word) == -1){
-		word = word.replace(new RegExp("ٍ","g"),'')
-				   .replace(new RegExp("ً","g"),'')
-				   .replace(new RegExp("ٌ","g"),'')
-				   .replace(new RegExp("ٞ","g"),'')
-				   .replace(new RegExp("ۡ","g"),"ْ")
-				   .replace(new RegExp("ۖ","g"),'')
-				   .replace(new RegExp("ۗ","g"),'')
-				   .replace(new RegExp("ۘ","g"),'')
-				   .replace(new RegExp("ۙ","g"),'')
-				   .replace(new RegExp("ۚ","g"),'')
-				   .replace(new RegExp("ۛ","g"),'')
-				   .replace(new RegExp("ۜ","g"),'')
-				   .replace(new RegExp("ٖ","g"),'')
-				   .replace(new RegExp("اْ", "g"), 'ا۟')
-				   .replace(new RegExp("مَٰ","g"),"مَـٰ")
-				   .replace(new RegExp("ثَٰ","g"),"ثَـٰ")
-				   .replace(new RegExp("بَٰ","g"),"بَـٰ")
-				   .replace(new RegExp("كَٰ","g"),"كَـٰ")
-				   .replace(new RegExp("لَٰ","g"),"لَـٰ")
-				   .replace(new RegExp("قَٰ","g"),"قَـٰ")
-				   .replace(new RegExp("يّٞ","g"),"ىٌّ");
+
+function filterTableRows(table, column, txt, allText){
+	
+	if(txt === allText){
+		$(table + " tr td").show();
+		return;
 	}
-	if( verse.search(word) == -1){
-		word = word.replace(new RegExp("^كَ","g"),'')
-				   .replace(new RegExp("^لِ","g"),'');
-	}
-	return verse.replace(word, '<a title="click to view in glosbe.com" class="word" style="cursor:pointer;" href="'+link+'" onclick="'+click_event+'">'+word+'</a>');
+	$(table + " tr td").hide();
+	$(table + " tr td:nth-child("+column+")").filter((i, td) => {
+		if($(td).text().startsWith(txt) === false){
+			$(td).parent().children().hide();
+		}else{
+			$(td).parent().children().show();
+		}
+	});
 }
-*/

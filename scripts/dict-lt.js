@@ -114,14 +114,7 @@ function addAsHtmlTable(container, table, columns){
 }
 
 function filterTable(wordColumn){
-	var txt = $("#txtFilter").val();
-	$(".csvTable td:nth-child("+wordColumn+")").filter((i, td) => {
-		if($(td).text().startsWith(txt) === false){
-			$(td).parent().hide();
-		}else{
-			$(td).parent().show();
-		}
-	});
+	filterTableRows('.csvTable', wordColumn, $("#txtFilter").val());
 }
 
 /*

@@ -52,7 +52,7 @@ function showVerbTable(key){
 
 function checkWord(w){
 	$("#wordSearchText").val(w);
-	analyzeSelectedWord();
+	//analyzeSelectedWord();
 }
 
 
