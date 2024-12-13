@@ -2,7 +2,7 @@
 	{
 		"id": "quiz-1",
 		"ur-PK_display": "تمام درست جوابات کا انتخاب کریں",
-		"en-US_display": "Choose all correct answers:",
+		"en-US_display": "Choose all correct answers",
 		"questions": [
 			{
 				"name": "q1",

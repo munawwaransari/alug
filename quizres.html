@@ -36,7 +36,7 @@
 	function loadQuizes(list){
 		var div = $("#tUL");
 		list.every(function(q){
-			var alink = '<a onclick="openQ(\'quiz.html\',\''+q+'\')">'+q+'</a>';
+			var alink = '<a onclick="openQ(\''+q+'\')">'+q+'</a>';
 			var li = '<li><span class="caret">'+alink+'</span>'+
 					 '<ul class="nested">';
 			li = li + '</ul></li>';
@@ -45,9 +45,17 @@
 		});
 	}
 	
-	function openQ(file, topic){
-		if(parent && parent.openQuizV2){
-			parent.openQuizV2('', file, topic);
+	function openQ(topic){
+		if(parent){
+			var langOption = parent.getLangOption();
+			var data_path = getLocationPath() + 'data/km/' + topic + '_quiz.json';
+			var abs_path = getLocationPath() + 'quiz.html?&topic=' + topic + '&lang=' + langOption + '&data=' + data_path;
+			parent.openInline(abs_path);
+		}else{
+			var langOption = "en-US";
+			var data_path = getLocationPath() + 'data/km/' + topic + '_quiz.json';
+			var abs_path = getLocationPath() + 'quiz.html?&topic=' + topic + '&lang=' + langOption + '&data=' + data_path;
+			window.open(abs_path, "_blank");
 		}
 	}
 	</script>

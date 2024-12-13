@@ -30,7 +30,6 @@
         var n = window.document.createElement("div")
           , e = '<h2>Available Voices</h2><select id="languages"><option value="">autodetect language</option>';
         _.forEach(a, function(a) {
-			console.log(a.lang);
             e += '<option value="' + a.lang.replace('_', '-') + '"">' + a.name + " (" + a.lang.replace('_', '-') + ")</option>"
         }),
         n.innerHTML = e,
