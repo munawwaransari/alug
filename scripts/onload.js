@@ -353,3 +353,32 @@ function checkBrowserSupport(){
 		speech_synthesis_supportd = false;
 	}	
 }
+
+function autoplayAudio(chapter, page){
+	var lang = parent ? parent.getLangOption() : "en-US"
+	var url = getLocationPath() + 'data/audio/'+ lang + '_' + chapter + '_autoplay.json';
+	console.log('Loding play file: ' + url);
+	loadJsonData(url, function(data){
+		
+		var sections = jQuery.map(data, function(obj) {
+			if(obj.pageNo === page)
+			return obj.sections;
+		});
+		
+		// Load play list
+		$('#playSections').find('option').remove().end();
+		if(sections){
+			sections.forEach(function(sect){
+				//console.log(sect.play);
+				$('#playSections').append('<option value="'+ sect.play +'">'+sect.topic+'</option>');					
+			});
+			
+			$("#text").text($('#playSections').val());
+			
+			if(autoplay)
+				$("#play").click();
+		}
+	}, function(err){
+		alert("Please change language option and retry!");
+	});
+}

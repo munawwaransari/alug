@@ -25,7 +25,7 @@
 		var div = $("#tUL");
 		var topics = parent.topics;
 		//var alink = '<a href="$1#page=$2">$3</a>'
-		var alink = '<a href="$1?page=$2">$3</a>'
+		var alink = '<a href="#" onclick="openTopic(\'$1\', $2, \'$3\')">$4</a>'
 		for (const [key, value] of Object.entries(topics)){
 			var topicName = key.split('-')[1];
 			//var topicPath = encodeURI(getLocationPath() + "pdfs/" + key + ' - Arabic.pdf');
@@ -34,9 +34,10 @@
 			var li = '<li><span class="caret">'+topicName+'</span>'+
 					 '<ul class="nested">';
 			value.every(function(t){
-				var l = alink.replace('$1', topicPath)
-							 .replace('$2', t.pageNo)
-							 .replace('$3', t.topic);
+				var l = alink.replaceAll('$1', topicName)
+							 .replaceAll('$2', t.pageNo)
+							 .replaceAll('$3', topicPath)
+							 .replaceAll('$4', t.topic);
 			    li = li + '<li>'+l+'</li>';
 				return true;
 			});
@@ -45,13 +46,13 @@
 		}
 	}
 	
-	/*
-	function openPdf(url, page){
-		var w = parent ? parent.window : window;
-		var p = page > 0 ? "#page="+page : "";
-		w.open(url+p, "_blank"); 
+	function openTopic(topic, page, path){
+		if(parent){
+			parent.openInline(path, {topic: topic, page: page});
+		}else{
+			window.open(path, "_blank");
+		}
 	}
-	*/
 	</script>
 </head>
 <body>

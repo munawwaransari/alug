@@ -29,8 +29,31 @@
 					   lang === "ur-IN";
 			}
 			
+			window.isAutoPlayEnabled = function(){
+				return autoplay;
+			}
+			
 			window.getLang = function(){
 				return document.getElementById('lang-options').value.split("-")[0];
+			}
+			
+			window.getLangOption = function(){
+				return document.getElementById('lang-options').value;
+			}
+			
+			window.openInline = function(url, playOptions){
+				console.log("openInline");
+				var flag = autoplay;
+				var po=playOptions;
+				$('.reading-pane').attr("src","");
+				setTimeout(function(){
+					$('.reading-pane').attr('src', url);
+					
+					if(po){
+						autoplayAudio(po.topic, po.page);
+					}
+					
+				}, 5);
 			}
 			
 			window.playText = function(txt, lang, options){
@@ -104,7 +127,7 @@
 			}
 		</script>
 		</script>
-		<script src="scripts/chapters.js"></script>
+		<!-- <script src="scripts/chapters.js"></script> -->
 	</head>
 	<body>
 		<section id="main" class="main"></section>
