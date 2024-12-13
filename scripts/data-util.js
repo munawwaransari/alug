@@ -124,3 +124,8 @@ function filterTableRows(table, column, txt, allText){
 		}
 	});
 }
+
+function isOS(os){
+	return navigator.userAgent.includes(os+";") || 
+	navigator.userAgent.includes(os);
+}

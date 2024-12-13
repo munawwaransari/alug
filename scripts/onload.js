@@ -4,6 +4,13 @@
 
 $(document).ready(function()
 {
+	if(isOS("Android")){
+		setTimeout(function(){
+			if(speechSynthesis.onvoiceschanged)
+				speechSynthesis.onvoiceschanged();
+		}, 10);
+	}
+	
 	$(".tool").on('click', function(){
 		updateToolDescription(event.target.id);
 	});
