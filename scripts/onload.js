@@ -362,7 +362,7 @@ function checkBrowserSupport(){
 }
 
 function autoplayAudio(chapter, page){
-	var lang = parent ? parent.getLangOption() : "en-US"
+	var lang = parent ? parent.getLangOption() : "en-US";
 	var url = getLocationPath() + 'data/audio/'+ lang + '_' + chapter + '_autoplay.json';
 	console.log('Loding play file: ' + url);
 	loadJsonData(url, function(data){
