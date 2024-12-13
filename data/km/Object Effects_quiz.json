@@ -7,69 +7,81 @@
 			{
 				"name": "q1",
 				"input": "radio",
-				"question": "لِيُحِقَّ <span style=\"background-color: yellow\">ٱلْحَقَّ</span> وَيُبْطِلَ <span style=\"background-color: yellow\">ٱلْبَـٰطِلَ</span> وَلَوْ كَرِهَ ٱلْمُجْرِمُونَ [8:8]",
+				"question": "لِيُحِقَّ <span style=\"background-color: yellow\">ٱلْحَقَّ</span> وَيُبْطِلَ <span style=\"background-color: yellow\">ٱلْبَـٰطِلَ</span> وَلَوْ كَرِهَ ٱلْمُجْرِمُونَ <sup>[8:8]</sup>",
 				"options": {
 					"a": "المفعول معه",
 					"b": "المفعول به", 
 					"c": "اللمفعول المطلق", 
-					"c": "اللمفعول له / المفعول لأجله"
+					"c": "المفعول له"
 				},
 				"answer": ["b"],
 				"style": "font-size: 18px;font-weight: bold;"
 			},
 			{
-				"name": "q3",
+				"name": "q2",
 				"input": "radio",
-				"question": "أَنَّا صَبَبْنَا الْمَاءَ <span style=\"background-color:yellow\">صَبًّا</span>[80:25]",
+				"question": "أأَنَّا صَبَبْنَا الْمَاءَ <span style=\"background-color:yellow\">صَبًّا</span><sup> [80:25]</sup>",
 				"options": {
 					"a": "المفعول معه",
 					"b": "المفعول به", 
 					"c": "اللمفعول المطلق", 
-					"d": "اللمفعول له / المفعول لأجله"
+					"d": "المفعول له"
 				},
 				"answer": ["c"],
 				"style": "font-size: 18px;font-weight: bold;"
 			},
 			{
-				"name": "q4",
+				"name": "q3",
 				"input": "radio",
-				"question": "وَلَا تَقْتُلُوا أَوْلَادَكُمْ <span style=\"background-color:yellow\">خَشْيَةَ</span> إِمْلَاقٍ[17:31]",
+				"question": "وَلَا تَقْتُلُوا أَوْلَادَكُمْ <span style=\"background-color:yellow\">خَشْيَةَ</span> إِمْلَاقٍ<sup> [17:31]</sup>",
 				"options": {
 					"a": "المفعول معه",
 					"b": "المفعول به", 
 					"c": "اللمفعول المطلق", 
-					"d": "اللمفعول له / المفعول لأجله"
+					"d": "المفعول له"
 				},
 				"answer": ["d"],
 				"style": "font-size: 18px;font-weight: bold;"
 			},
 			{
-				"name": "q5",
+				"name": "q4",
 				"input": "radio",
-				"question": "كَلَّا إِذَا دُكَّتِ الْأَرْضُ <span style=\"background-color:yellow\">دَكًّا دَكًّا</span> [89:21]",
+				"question": "كَلَّا إِذَا دُكَّتِ الْأَرْضُ <span style=\"background-color:yellow\">دَكًّا دَكًّا</span> <sup> [89:21]</sup>",
 				"options": {
 					"a": "المفعول معه",
 					"b": "المفعول به", 
 					"c": "اللمفعول المطلق", 
-					"d": "اللمفعول له / المفعول لأجله"
+					"d": "المفعول له"
 				},
 				"answer": ["c"],
 				"style": "font-size: 18px;font-weight: bold;"
 			},
 			{
-				"name": "q7",
+				"name": "q5",
 				"input": "radio",
 				"question": "دَرَستُ <span style=\"background-color:yellow\">وَ الكِتَابَ</span>",
 				"options": {
 					"a": "المفعول معه",
 					"b": "المفعول به", 
 					"c": "اللمفعول المطلق", 
-					"d": "اللمفعول له / المفعول لأجله"
+					"d": "المفعول له"
 				},
 				"answer": ["a"],
 				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q6",
+				"input": "radio",
+				"question": "<B>المفعول به</B> Select sentences having only",
+				"options": {
+					"a": "وَكَلَّمَ اللَّهُ مُوسَىٰ تَكْلِيمًا <sup> [4:164]</sup>",
+					"b": "وَاللَّهُ جَعَلَ لَكُم مِّمَّا خَلَقَ ظِلَالًا <sup> [16:81]</sup>", 
+					"c": "ثُمَّ شَقَقْنَا الْأَرْضَ شَقًّا <sup> [80:26]</sup>", 
+					"d": "وَجَعَلَ لَكُمْ سَرَابِيلَ <sup> [16:81]</sup>"
+				},
+				"answer": ["b", "d"],
+				"style": "font-size: 18px;font-weight: bold;"
 			}
-			
 		]
 	}
 ]

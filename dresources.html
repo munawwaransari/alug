@@ -24,10 +24,12 @@
 	function loadChapters(){
 		var div = $("#tUL");
 		var topics = parent.topics;
-		var alink = '<a href="$1#page=$2">$3</a>'
+		//var alink = '<a href="$1#page=$2">$3</a>'
+		var alink = '<a href="$1?page=$2">$3</a>'
 		for (const [key, value] of Object.entries(topics)){
 			var topicName = key.split(' - ')[1];
-			var topicPath = encodeURI(getLocationPath() + "pdfs/" + key + ' - Arabic.pdf');
+			//var topicPath = encodeURI(getLocationPath() + "pdfs/" + key + ' - Arabic.pdf');
+			var topicPath = encodeURI(getLocationPath() + "html/" + key.replaceAll(' ','') + '-Arabic.html');
 			
 			var li = '<li><span class="caret">'+topicName+'</span>'+
 					 '<ul class="nested">';

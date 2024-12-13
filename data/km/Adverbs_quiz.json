@@ -35,7 +35,7 @@
 				"input": "radio",
 				"question": "Choose correct adverb type: <b>غَالِبًا</b>",
 				"options": {
-					"a": "Adverb of time (ظرف الزمان)",
+					"a": "<sup>Adverb of time</sup> (ظرف الزمان)",
 					"b": "Adverb of place (ظرف المكان)", 
 					"c": "Adverb of frequency (ظرف التّكرار)", 
 					"d": "Adverb of manners (الحال)"
