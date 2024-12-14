@@ -113,16 +113,19 @@ function filterTableRows(table, column, txt, allText){
 	
 	if(txt === allText){
 		$(table + " tr td").show();
+		$(table + " tr th:nth-child("+column+")").show();
 		return;
 	}
 	$(table + " tr td").hide();
 	$(table + " tr td:nth-child("+column+")").filter((i, td) => {
-		if($(td).text()!=="" && $(td).text().startsWith(txt) === false){
+		if($(td).text().startsWith(txt) === false){
 			$(td).parent().children().hide();
 		}else{
 			$(td).parent().children().show();
 		}
 	});
+	$(table + " tr td:nth-child("+column+")").hide();
+	$(table + " tr th:nth-child("+column+")").hide();
 }
 
 function isOS(os){

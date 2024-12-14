@@ -609,14 +609,18 @@ class posAPI {
 					
 					if(xform["e.g."]){
 						var example = xform["e.g."].join('<br/>');
+						var qlinkExp = new RegExp("(\[(\d+)\:(\d+)\])$","g");
+						if(example.match(qlinkExp)){
+							example = example.replace(qlinkExp, '<a href="https://tanzil.net/#$2:$3">$1</a>');
+						}
 						row = row +'<td>'+example+'</td>';	
 					}else{
 						row = row +'<td></td>';	
 					}
 					
-					if(rowSpan < 1 || counter == 0)
-						row = row +'<td rowspan='+rowSpan+'>'+values.ar+'<br/>'+ values.en +'</td>';
-
+					//if(rowSpan < 1 || counter == 0)
+					//	row = row +'<td rowspan='+rowSpan+'>'+values.ar+'<br/>'+ values.en +'</td>';
+					row = row +'<td>'+values.ar+'<br/>'+ values.en +'</td>';
 					
 					row = row +'</tr>';
 					
@@ -760,7 +764,12 @@ class posAPI {
 					
 					var ex = "";
 					if (values["e.g."] && values["e.g."][counter]){
-						ex = '<span style="font-size:16px;"><br/>'+values["e.g."][counter]+'</span>';
+						var qlinkExp = /(\[(\d+)\:(\d+)\])/g;
+						ex = values["e.g."][counter];
+						if(ex.match(qlinkExp)){
+							ex = ex.replace(qlinkExp, '<a href="#" onclick="var w=parent?parent.window:window;w.open(\'https://tanzil.net/#$2:$3\',\'_blank\');">$1</a>');
+						}
+						ex = '<span style="font-size:16px;"><br/>'+ex+'</span>';
 					}
 					row = row + '<td>'+alink.replaceAll('\$',values["en-words"][counter])+ex+'</td>';
 					//if(rowSpan < 1 || counter == 0)
