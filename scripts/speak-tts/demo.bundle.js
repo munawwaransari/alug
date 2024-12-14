@@ -30,7 +30,7 @@
         var n = window.document.createElement("div")
           , e = '<h2>Available Voices</h2><select id="languages"><option value="">autodetect language</option>';
         _.forEach(a, function(a) {
-            e += '<option value="' + a.lang.replace('_', '-') + '"">' + a.name + " (" + a.lang.replace('_', '-') + ")</option>"
+            e += '<option value="' + (a.lang ? a.lang.replace('_', '-'): a.lang) + '"">' + a.name + " (" + a.lang.replace('_', '-') + ")</option>"
         }),
         n.innerHTML = e,
         window.document.body.appendChild(n)
@@ -130,7 +130,7 @@
             a.speechSynthesis.cancel()
         }
         function k(a) {
-            a && (d.lang.replace('_','-') = a.replace('_','-'))
+            a && (d.lang = a)
         }
         function m(n) {
             var i = u["default"].trim(u["default"].get(n, "text"))
