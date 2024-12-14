@@ -120,7 +120,7 @@
 		cursor: pointer;
       }
 	  
-	  .wTable, .cnjTable, .vTable, .nTable, .csvTable {
+	  .wTable, .cnjTable, .vTable, .nTable, .csvTable, .pTable {
 	    display:flex;
 		flex-direction:column;
 		align-items:center;
@@ -130,13 +130,13 @@
 		text-align: center;
 	  }
 	  
-	  .wTable, .cnjTable, .csvTable {
+	  .wTable, .cnjTable, .csvTable, .pTable {
 		border: none;
 		border-collapse: collapse;
 		margin-bottom: 4px;
 	  }
 	  
-	  .vTable, .nTable, .csvTable {
+	  .vTable, .nTable, .csvTable, .pTable {
 		border: none;
 		border-collapse: collapse;
 		margin-bottom: 20px!important;
@@ -166,6 +166,10 @@
 	  }
 	  
 	  .csvTable th, td {
+		height: 30px;
+	  }
+	  
+	  .pTable th, td {
 		height: 30px;
 	  }
 
@@ -228,10 +232,9 @@
 		<div  class="autocomplete">
 			<input id="wordSearchText" onchange="searchWord()" style="width:100px;"/>
 			<button id="SearchD" class="dropbtn" title="Analyze" style="background-color:#4B5AC5;top:-8px; height: 30px;" onclick="analyzeSelectedWord()"><b>تحليل</b></button>
-			<button id="btnVerbs" class="dropbtn" title="Verbs" style="top:-8px; height: 30px;" onclick="showVerbTable()" style="background:">فعل</button>
-			<!-- <button id="btnNouns" class="dropbtn" title="Nouns" style="top:-8px; height: 30px;" onclick="showNounTable()">اسم</button> -->
+			<button id="btnVerbs" class="dropbtn" title="Verbs" onclick="showVerbTable()">فعل</button>
 			<div id="ism" class="dropdown">
-			  <button class="dropbtn">الاسم</button>
+			  <button class="dropbtn">اسم</button>
 			  <div class="dropdown-content">
 				<a href="#" onclick="showNounTable('ism','الاسم', 'Noun')">Noun Patterns</a>
 				<a href="#" onclick="loadArabicLTTable('plural.csv', 'ism','الجمع', 'Plural')">Plural</a>
@@ -239,6 +242,7 @@
 				<a href="#" onclick="loadArabicLTTable('antonyms.csv', 'ism','المتضادات', 'Antonyms')">Antonyms</a>
 			  </div>
 			</div>
+			<button id="btnHarf" class="dropbtn" title="Particles" onclick="showParticleTable()">حرف</button>
 			<div class="dropdown">
 			  <button class="dropbtn">معاني</button>
 			  <div class="dropdown-content">

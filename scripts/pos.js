@@ -717,6 +717,83 @@ class posAPI {
 		}
 	}
 	
+	getParticleInfo(){
+		var res = {};
+		for (const keyVal of Object.entries(posAPI.posRules)){
+			if(keyVal[0] === "Harf"){
+				var patternInfo = keyVal[1]["matches"];
+				for (const mKeyVal of Object.entries(patternInfo)){
+					
+					if(mKeyVal[0] !== "ignore"){
+						var matchInfo = mKeyVal[1];
+						res[mKeyVal[0]] = matchInfo;
+					}
+				}
+			}
+		}
+		return res;
+	}
+	
+	addParticleInfoHtml(container, res){
+		var api = this;
+		container.empty();
+		var filters = [];
+		var nTable = $('<table id="pTable" class="pTable"><tr>'+
+						 '<th style="font-size: 22px;">حرف</th>'+
+						 '<th style="font-size: 22px;">Meaning</th>'+
+						 '<th style="font-size: 14px;">Type</th>'+
+					   '</table>');
+		container.append(nTable);
+		
+		var alink = '<a href="#" style=" text-decoration: none" '+
+						' onclick="checkWord(\'$\');">$</a>';
+		for (const keyVal of Object.entries(res)){
+			var entryName = keyVal[0];
+			var values = keyVal[1];
+			if(values){							   
+				var row = "";
+				var counter = 0;
+				var rowSpan = values.words.length;
+				values.words.every(function(w){
+					row = row + '<tr>';
+					row = row + '<td>'+alink.replaceAll('\$',w)+'</td>';
+					
+					var ex = "";
+					if (values["e.g."] && values["e.g."][counter]){
+						ex = '<span style="font-size:16px;"><br/>'+values["e.g."][counter]+'</span>';
+					}
+					row = row + '<td>'+alink.replaceAll('\$',values["en-words"][counter])+ex+'</td>';
+					//if(rowSpan < 1 || counter == 0)
+					//	row = row + '<td rowspan="'+rowSpan+'">'+values.ar+'<br/>'+ values.en+'</td>';
+					row = row + '<td>'+values.ar+'<br/>'+ values.en+'</td>';
+					
+					row = row +'</tr>';
+					
+					var oval = values.ar+' - '+values.en;
+					if(filters.indexOf(values.ar+' - '+values.en) === -1){
+						filters.push(values.ar+' - '+values.en);
+					}
+					counter++;
+					return true;
+				});
+				$("#pTable tbody").append($(row));
+			}
+		}
+		
+		// Add filter drop down
+		if(filters.length > 0){
+			var sel = '<select class="nFilter" '+ 
+					  'onchange="filterTableRows(\'#pTable\', 3, $(\'.nFilter\').val().replace(\' - \',\'\'), \'all\')">'+
+					  '<option value="all">Show All</option>';
+			filters.every(function(n){
+				sel += '<option value="'+n+'"><b>'+n+'</b></option>';
+				return true;
+			});	
+			sel += '</select>';
+			container.prepend($(sel));
+		}
+	}
+	
 	analyzeWord(word, addConjugates){
 		var apiInstance = this;
 		var result={

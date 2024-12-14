@@ -117,7 +117,7 @@ function filterTableRows(table, column, txt, allText){
 	}
 	$(table + " tr td").hide();
 	$(table + " tr td:nth-child("+column+")").filter((i, td) => {
-		if($(td).text().startsWith(txt) === false){
+		if($(td).text()!=="" && $(td).text().startsWith(txt) === false){
 			$(td).parent().children().hide();
 		}else{
 			$(td).parent().children().show();
