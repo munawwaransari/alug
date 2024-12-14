@@ -55,7 +55,7 @@ function autoplayAudio(chapter, page, lang){
 			$("#play").click();
 		}
 	}, function(err){
-		alert("Please change language option and retry!");
+		console.log("Please change language option and retry!");
 	});
 }
 

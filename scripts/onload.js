@@ -386,6 +386,6 @@ function autoplayAudio(chapter, page){
 				$("#play").click();
 		}
 	}, function(err){
-		alert("Please change language option and retry!");
+		console.log("Please change language option and retry!");
 	});
 }
