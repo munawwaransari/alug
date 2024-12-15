@@ -38,8 +38,8 @@ class cmpAPI {
 		if(table) table.empty();
 		
 		var topics = sel.split(" vs ");
-		var tableHtml = '<table id="xTable" class="pTable"><tr>'+
-						 '<th style="font-size: 22px;">Topic</th>';
+		var tableHtml = '<table id="xTable" class="pTable"><tr>';
+						// '<th style="font-size: 22px;">Topic</th>';
 		for(var i=0; i < topics.length; i++)				 
 			tableHtml += '<th style="font-size: 22px;">'+topics[i]+'</th>';
 		tableHtml +='</table>';
@@ -48,15 +48,20 @@ class cmpAPI {
 		table = $(containerClass+ " table");
 		var cmp = cmpAPI.cmpData.filter(x=>x["topics"].join(' vs ') === sel)[0];
 		
-		//var alink = '<a href="#" style=" text-decoration: none" '+
-		//				' onclick="checkWord(\'$\');">$</a>';
+		if(cmp["notes"]){
+			var r = $('<tr><td style="font-size:14px;background-color:#F6F6BA;" colspan="'+topics.length+'">'+cmp["notes"]+'</td></tr>');
+			$(containerClass+ " #xTable tbody").append(r);
+		}
+		var alink = '<a href="#" style=" text-decoration: none" '+
+						' onclick="checkWord(\'$\');">$</a>';
 						
 		var featureCount = cmp["ar"].length;
 		var rows = "";
 		for(var f=0; f < featureCount; f++){
-			rows += '<tr><td>'+cmp["ar"][f]+'<br/>'+cmp["en"][f]+'</td>';
+			rows += '<tr><td style="font-weight:bold;font-size:14px;background-color:#D2ECAD;" colspan="'+topics.length+'">'+'(' + cmp["ar"][f]+') '+cmp["en"][f]+'</td></tr>'+
+					'<tr>';
 			for(var i=0; i < topics.length; i++){
-				rows += '<td>'+cmp["features"][topics[i]][f]+'</td>';	
+				rows += '<td>'+replaceQLink(cmp["features"][topics[i]][f])+'</td>';	
 			}
 			rows += '</tr>';
 		}

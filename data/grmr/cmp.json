@@ -1,27 +1,142 @@
 [
+    {
+        "topics": [
+            "همزة القطع",
+            "همزة الوصل"
+        ],
+        "ar": [
+            "تعريف",
+            "مَصدر",
+            "اسم النكرة",
+            "اسم المعرفة",
+            "فعل األمر",
+            "فعل الماضى"
+        ],
+        "en": [
+            "Definition",
+            "Verbal Noun",
+            "Common Noun",
+            "Proper Noun",
+            "Imperative",
+            "Past tesnse"
+        ],
+        "features": {
+            "همزة القطع": [
+                "أَ إِ أُ (في بِناءِ الكلام) <br/> ئ (في وسطِ الكلام) <br/> ء (في نهاية الكلمة)",
+                "مَصدر is not written with همزة القطع",
+                "All common nouns <br/>e.g. أَنْوَر, شَيء except<br/>اِمرَؤ ، اِمرَاَة، اِبن ، اِبنة، اِثنَان، اِثنَتَان",
+                "All proper nouns except having لام تعريف (ال)<br/>e.g. أَنْوَر, شَيء, سَوداء",
+                "All imperatives that ae 4 lettered ones (فعل الأمر الرباعية)<br/>e.g. أَطعِم (أَفعَلَ)",
+                "All except having 4 or 5 letters ماضى الخماسى والسداسى<br/>e.g. أَكَلَ (ثُلاثي)"
+            ],
+            "همزة الوصل": [
+                "اَ اِ اُ (في بِناءِ الكلام) <br/> ا (في وسطِ الكلام)",
+                "مَصدر is written with همزة الوصل <br/> e.g. اِستِقبال, اِجتِهاد, اِنفِجَار",
+                "Following are written with همزة الوصل:<br/>اِمرَؤ ، اِمرَاَة، اِبن ، اِبنة، اِثنَان، اِثنَتَان",
+                "Proper noun starting with لام تعريف (ال)<br/>e.g. النُّور, الرَّفِيق, المُلك",
+                "All imperatives which 4 are not 4 lettered<br/>e.g. اُكتُب (فَعَلَ), اِستَمِع (اِفتَعَلَ)",
+                "Past tense patterns having 4 or 5 letters<br/>e.g. اِبتَسِمَ (خُماسي),  اِستَسمَعَ (سُداسي)"
+            ]
+        }
+    },
+    {
+        "topics": [
+            "قَبْلِ",
+            "قَبْلُ",
+            "قِبَلِ"
+        ],
+        "notes": " بعد، قبل، أثناء، الآن، مُنذُ Also applicable to ",
+        "ar": [
+            "تعريف",
+            "إِضافَت",
+            "مُضاف only",
+            "ظرف"
+        ],
+        "en": [
+            "Definition",
+            "Relation",
+            "Partial relation",
+            "Adverb"
+        ],
+        "features": {
+            "قَبْلِ": [
+                "Meaning: before (followed by related noun)",
+                "Used as مضاف<br/>e.g. وَهُم مِّن بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ [30:3]",
+                "Always used with مُضاف إليه",
+                "When used as adverb (ظرف), erab is Fataha(َ ) "
+            ],
+            "قَبْلُ": [
+                "Meaning: before (no related noun after it)",
+                "Used as مضاف<br/>e.g. وَهُم مِّن بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ [30:3]",
+                "Used as مضاف without مُضاف إليه. <br/>Erab is dhamma.<br/>e.g. لِلَّهِ الْأَمْرُ مِن قَبْلُ وَمِن بَعْدُ [30:4]",
+                "e.g. قَبْلَ وِعَاءِ أَخِيهِ [12:76]"
+            ],
+            "قِبَلِ": [
+                "Meaning: by someone/on the part of/from",
+                "Used as مضاف. <br/>Followed by مُضاف إليه.<br/>e.g. مِن قِبَلِ الرَّجُل<br/>مِن قِبَلِ نَفسِهِ",
+                "Generally used in a passive construct<br/>e.g. خُدِعَ الشُّرطةَ مِن قِبَلَ اللُصُوص<br/>The police was tricked by the thieves.",
+                "-"
+            ]
+        }
+    },
 	{
-		"topics": ["همزة القطع", "همزة الوصل"],
-		"ar": ["تعريف", "مَصدر", "اسم النكرة", "اسم المعرفة", "فعل األمر", "فعل الماضى"],
-		"en": ["Definition", "Verbal Noun", "Common Noun", "Proper Noun", "Imperative", "Past tesnse"],
-		"features": {
-			"همزة القطع": 
-			[
-				"أَ إِ أُ (في بِناءِ الكلام) <br/> ئ (في وسطِ الكلام) <br/> ء (في نهاية الكلمة)",
-				"مَصدر is not written with همزة القطع",
-				"All common nouns <br/>e.g. أَنْوَر, شَيء except<br/>اِمرَؤ ، اِمرَاَة، اِبن ، اِبنة، اِثنَان، اِثنَتَان",
-				"All proper nouns except having لام تعريف (ال)<br/>e.g. أَنْوَر, شَيء, سَوداء",
-				"All imperatives that ae 4 lettered ones (فعل الأمر الرباعية)<br/>e.g. أَطعِم (أَفعَلَ)",
-				"All except having 4 or 5 letters ماضى الخماسى والسداسى<br/>e.g. أَكَلَ (ثُلاثي)"
-			],
-			"همزة الوصل": 
-			[
-				"اَ اِ اُ (في بِناءِ الكلام) <br/> ا (في وسطِ الكلام)",
-				"مَصدر is written with همزة الوصل <br/> e.g. اِستِقبال, اِجتِهاد, اِنفِجَار",
-				"Following are written with همزة الوصل:<br/>اِمرَؤ ، اِمرَاَة، اِبن ، اِبنة، اِثنَان، اِثنَتَان",
-				"Proper noun starting with لام تعريف (ال)<br/>e.g. النُّور, الرَّفِيق, المُلك",
-				"All imperatives which 4 are not 4 lettered<br/>e.g. اُكتُب (فَعَلَ), اِستَمِع (اِفتَعَلَ)",
-				"Past tense patterns having 4 or 5 letters<br/>e.g. اِبتَسِمَ (خُماسي),  اِستَسمَعَ (سُداسي)"
-			]
-		}
-	}
+        "topics": [
+            "إذ",
+            "إذا"
+        ],
+        "ar": [
+            "تعريف",
+            "بناء",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Construct",
+			"Example"
+        ],
+        "features": {
+            "إذ": [
+                "when (at the time in past)<br/>used before جملة فعلية ماضية",
+                "(إذ)(جملة فعلية ماضية)(جملة)",
+				"فَكَيْفَ إِذَا جَمَعْنَاهُمْ لِيَوْمٍ لَّا رَيْبَ فِيهِ [3:25]"
+            ],
+            "إذا": [
+                "when (in future time)<br/>used before جملة فعلية ماضية",
+                "(إذا)(جملة فعلية ماضية)(جملة)",
+				"وَإِذْ قَتَلْتُمْ نَفْسًا [2:72]"
+            ]
+        }
+    },
+	{
+        "topics": [
+            "النِّداء",
+            "ترخِيم"
+        ],
+        "ar": [
+            "تعريف",
+            "مُنادَى العَلَم",
+            "مُنادَى النَكَرة",
+            "مُنادَى النَكَرة"
+        ],
+        "en": [
+            "Definition",
+            "Proper Noun",
+            "Intentional Common Noun",
+            "Unintentional Common Noun"
+        ],
+        "features": {
+            "النِّداء": [
+                "ياء الإستغاثة ( يَا / اَي / اَيَا / هَيَا / هَيت / أيُّها)",
+                "Proper noun is مرفُوع <br/> tanween is dropped<br/>e.g. يَا آدَمُ / يَا نُوحُ",
+                "Noun is مرفُوع <br/> tanween is dropped<br/>e.g. يَا اَيُّهَا الإِنسَانُ / يَا إِنسَانُ",
+                "Noun is مَنصُوب <br/>e.g. يَا حَسْرَتَىٰ <br/> يَا حَسرَتًا عَلَي العِباد "
+            ],
+            "ترخِيم": [
+                "Letters of noun invoked<br/> are reduced <br/>out of affection",
+                "يَا عائِشَةُ -> يَا عائِشَ / يَا عائِشُ",
+                "-",
+                "-"
+            ]
+        }
+    }
 ]

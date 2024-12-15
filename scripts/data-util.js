@@ -132,3 +132,13 @@ function isOS(os){
 	return navigator.userAgent.includes(os+";") || 
 	navigator.userAgent.includes(os);
 }
+
+function replaceQLink(val){
+	var qlinkExp = /(\[(\d+)\:(\d+)\])/g;
+	ex = val;
+	if(ex.match(qlinkExp)){
+		ex = ex.replace(qlinkExp, '<a href="#" onclick="var w=parent?parent.window:window;w.open(\'https://tanzil.net/#$2:$3\',\'_blank\');">$1</a>');
+		return '<span style="font-size:18px;"><br/>'+ex+'</span>';
+	}
+	return '<span style="font-size:18px;">'+val+'</span>';
+}
