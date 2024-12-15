@@ -10,6 +10,7 @@
 	<script src="scripts/data-util.js"></script>
 	<script src="scripts/autocomplete.js"></script>
 	<script src="scripts/pos.js"></script>
+	<script src="scripts/cmp.js"></script>
 	<script src="scripts/dict.js"></script>
 	<script src="scripts/dict-lt.js"></script>
 	<style>
@@ -130,7 +131,7 @@
 		text-align: center;
 	  }
 	  
-	  .wTable, .cnjTable, .csvTable, .pTable {
+	  .wTable, .cnjTable, .csvTable, .pTable, #xTable {
 		border: none;
 		border-collapse: collapse;
 		margin-bottom: 4px;
@@ -146,7 +147,7 @@
 	  th, td {
 		border: 1px solid black;
 		left-padding: 8px;
-		right-padding: 8-px;
+		right-padding: 8px;
 	  }
 	  
 	  .wTable th, td {
@@ -242,7 +243,15 @@
 				<a href="#" onclick="loadArabicLTTable('antonyms.csv', 'ism','المتضادات', 'Antonyms')">Antonyms</a>
 			  </div>
 			</div>
-			<button id="btnHarf" class="dropbtn" title="Particles" onclick="showParticleTable()">حرف</button>
+			
+			<div class="dropdown">
+			  <button class="dropbtn">حرف</button>
+			  <div class="dropdown-content">
+				<a href="#" onclick="showParticleTable()">Prepositions</a>
+				<a href="#" onclick="showComparisions()">Harf Compare</a>
+			  </div>
+			</div>
+			<!-- <button id="btnHarf" class="dropbtn" title="Particles" onclick="showParticleTable()">حرف</button> -->
 			<div class="dropdown">
 			  <button class="dropbtn">معاني</button>
 			  <div class="dropdown-content">

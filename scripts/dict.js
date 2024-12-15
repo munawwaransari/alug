@@ -10,7 +10,7 @@ var lastIndex = undefined;
 var formFilters = [];
 var index1 = ["ا","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م","ن","و","ه","ي"];
 var index2Suffixes = ["آ","إ","أ","ا","ؤ","و","ئ","ي","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م","ن","ه"];
-var posAPIObj;
+var posAPIObj, cmpAPIObj;
 var dState = {};
 
 window.onload = function(){
@@ -18,6 +18,13 @@ window.onload = function(){
 	posAPIObj = new posAPI(getLocationPath(), function(msg, err){
 		if(err){
 			console.log("Failed to initialize pos api");
+			return;
+		}
+	});
+	
+	cmpAPIObj = new cmpAPI(getLocationPath(), function(msg, err){
+		if(err){
+			console.log("Failed to initialize cmp api");
 			return;
 		}
 	});
@@ -59,7 +66,6 @@ function checkWord(w){
 	$("#wordSearchText").val(w);
 	//analyzeSelectedWord();
 }
-
 
 function analyzeSelectedWord(){
 		
@@ -202,4 +208,12 @@ function showNounTable(k, v1, v2){
 	updateState(k, {ar: v1, en: v2});
 	var nTable = posAPIObj.getNounInfo();
 	posAPIObj.addNounInfoHtml($(".dictionary"), nTable);
+}
+
+function showComparisions(){
+	cmpAPIObj.addComparisionList($(".dictionary"));
+}
+
+function loadComparision(){
+	cmpAPIObj.addComparisionTable(".dictionary", $(".dictionary select").val());
 }

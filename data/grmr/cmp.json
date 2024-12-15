@@ -1,0 +1,27 @@
+[
+	{
+		"topics": ["همزة القطع", "همزة الوصل"],
+		"ar": ["تعريف", "مَصدر", "اسم النكرة", "اسم المعرفة", "فعل األمر", "فعل الماضى"],
+		"en": ["Definition", "Verbal Noun", "Common Noun", "Proper Noun", "Imperative", "Past tesnse"],
+		"features": {
+			"همزة القطع": 
+			[
+				"أَ إِ أُ (في بِناءِ الكلام) <br/> ئ (في وسطِ الكلام) <br/> ء (في نهاية الكلمة)",
+				"مَصدر is not written with همزة القطع",
+				"All common nouns <br/>e.g. أَنْوَر, شَيء except<br/>اِمرَؤ ، اِمرَاَة، اِبن ، اِبنة، اِثنَان، اِثنَتَان",
+				"All proper nouns except having لام تعريف (ال)<br/>e.g. أَنْوَر, شَيء, سَوداء",
+				"All imperatives that ae 4 lettered ones (فعل الأمر الرباعية)<br/>e.g. أَطعِم (أَفعَلَ)",
+				"All except having 4 or 5 letters ماضى الخماسى والسداسى<br/>e.g. أَكَلَ (ثُلاثي)"
+			],
+			"همزة الوصل": 
+			[
+				"اَ اِ اُ (في بِناءِ الكلام) <br/> ا (في وسطِ الكلام)",
+				"مَصدر is written with همزة الوصل <br/> e.g. اِستِقبال, اِجتِهاد, اِنفِجَار",
+				"Following are written with همزة الوصل:<br/>اِمرَؤ ، اِمرَاَة، اِبن ، اِبنة، اِثنَان، اِثنَتَان",
+				"Proper noun starting with لام تعريف (ال)<br/>e.g. النُّور, الرَّفِيق, المُلك",
+				"All imperatives which 4 are not 4 lettered<br/>e.g. اُكتُب (فَعَلَ), اِستَمِع (اِفتَعَلَ)",
+				"Past tense patterns having 4 or 5 letters<br/>e.g. اِبتَسِمَ (خُماسي),  اِستَسمَعَ (سُداسي)"
+			]
+		}
+	}
+]
