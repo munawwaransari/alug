@@ -268,3 +268,63 @@ function showTriliteralVerbTable(){
 	$(".dictionary").append('<div style="height:10px;"></div>');
 	$(".dictionary").append($(table));
 }
+
+function showInadequateVerbTable(){
+	
+	$(".dictionary").empty();
+	var table = '<table class="pTable">'+
+				'<tr style="background-color:#E8E885;"><td><b>توقيت (Timing)</b></td></tr>'+
+				'<tr style="background-color:#E8E885;"><td>to become / to change<br/>أصبَحَ / أَمسَ / ظَلّ / بَاتَ</td></tr>'+
+					'<tr><td>اصبَحَ الطَّقَسُ جَمِيلَةً<br/>The weather has become beautiful<br/>بَاتَ المَريضُ جَادًا<br/>The patient became (in night) seriosly ill</td></tr>'+
+				'</tr>'+
+				'<tr style="background-color:#E8E885;"><td><b>تحويل (Transition)</b></td></tr>'+
+				'<tr style="background-color:#E8E885;"><td>to tansition / become<br/>صَارَ / صَارَ إِلَي</td></tr>'+
+					'<tr><td>صَارَ الماءُ جَليِدًا<br/>The water became ice<br/>صارَ إلَي لِصٍّ<br/>He beame a thief</td></tr>'+
+				'</tr>'+
+				'<tr style="background-color:#E8E885;"><td><b>نفي (Negation)</b></td></tr>'+
+				'<tr style="background-color:#E8E885;"><td>لَيسَ</td></tr>'+
+					'<tr><td>أَلَيْسَ الصُّبْحُ بِقَرِيبٍ [11:81]<br/>Is not the morning approaching?<br/>لَيسَ المُعَلِّمُ حاضِرًا<br/>The teacher is not present</td></tr>'+
+				'</tr>'+
+				'<tr style="background-color:#E8E885;"><td><b>استمرار (Continuation)</b></td></tr>'+
+				'<tr style="background-color:#E8E885;"><td>to remain / continue<br/>مَازالَ / مابَرِحَ / ماأنفَكَّ</td></tr>'+
+					'<tr><td>مابرح الجوء لَطيفًا<br/>Weather is still nice<br/>مازال الطِّفلُ نَائمًا<br/>The baby is still asleep</td></tr>'+
+					
+				'</tr>'+
+				'<table>';
+	$(".dictionary").append('<div style="height:10px;"></div>');
+	$(".dictionary").append($(table));
+}
+
+function showWeakVerbTable(){
+	
+	$(".dictionary").empty();
+	var table = '<table class="pTable">'+
+				'<tr><td style="background-color:#E8E885;"><b>مِثال</b></td>'+
+					'<td rowspan="3">(يَفعَلُ) يَوجِدُ => يَجِدُ<br/><br/>(يَفعِلُونَ) يَوذِرُونَ => يَذِرُونَ</td></tr>'+
+				'<tr style="background-color:#E8E885;"><td>ف كلمة => ا و ي</td></tr>'+
+					'<tr><td>(و ج د)</td></tr>'+
+				'</tr>'+
+				'<tr><td style="background-color:#E8E885;"><b>أَجوَف</b></td>'+
+					'<td rowspan="3">(فَعَلَ) قَوَلَ => قَالَ<br/><br/>(فُعِلَ) قُوِلَ => قِيلَ</td></tr>'+
+				'<tr><td style="background-color:#E8E885;">ع كلمة => ا و ي</td></tr>'+
+					'<tr><td>(ق و ل)</td></tr>'+
+				'</tr>'+
+				'<tr><td style="background-color:#E8E885;"><b>نَاقِص</b></td>'+
+					'<td rowspan="3">(فَعَلُوا) رَضَيُوا=> رَضُوا<br/></td></tr>'+
+				'<tr><td style="background-color:#E8E885;">ل كلمة => ا و ي</td></tr>'+
+					'<tr><td>(ر ض ي)</td></tr>'+
+				'</tr>'+
+				'<tr><td style="background-color:#E8E885;"><b>لَفِيف</b></td>'+
+					'<td rowspan="3">(اِفتَعَلَ) إوتَقَيَ => إتْتَقَي => إتَّقَي<br/><br/>(فَعِلنَا) وَقِينَا=> وَقِنَا</td></tr>'+
+				'<tr><td style="background-color:#E8E885;">و/ي root has</td></tr>'+
+					'<tr><td>(و ق ي)</td></tr>'+
+				'</tr>'+
+				'<tr><td style="background-color:#E8E885;"><b>مَهمُوز</b></td>'+
+					'<td rowspan="3">(فَعَلُوا) رَأَيُو => رَأَو<br/><br/>(يَفعَلُ) يَاكُلُ [Exception]</td></tr>'+
+				'<tr><td style="background-color:#E8E885;">root has hamza</td></tr>'+
+					'<tr><td>(أ ك ل)</td></tr>'+
+				'</tr>'+
+				'<table>';
+	$(".dictionary").append('<div style="height:10px;"></div><div style="width:100%; text-align:center">حرف العِلَّت When root of a word has one or more </div>');
+	$(".dictionary").append($(table));
+}
