@@ -217,3 +217,54 @@ function showComparisions(){
 function loadComparision(){
 	cmpAPIObj.addComparisionTable(".dictionary", $(".dictionary select").val());
 }
+
+function showTriliteralVerbTable(){
+	
+	$(".dictionary").empty()
+	var table = '<table class="pTable">'+
+				'<tr style="background-color:#B6D7A8;font-size:16px;">'+
+					'<th>الماضي المعلُوم</th>'+
+					'<th>المُضارع المعلوم<br/>(مُرفُوع)</th>'+
+					'<th>الماضي المجهُول</th>'+
+					'<th>المُضارع المجهُول<br/>(مُرفُوع)</th>'+
+				'</tr>'+
+				'<tr>'+
+					'<td>فَعَلَ</td><td>يَفْعَلُ</td>'+
+					'<td>فُعِلَ</td><td>يُفْعَلَ</td></tr>'+
+					'<tr style="background-color:#E8E885"><td>(فَتَحَ)</td><td>(يَفْتَحُ)</td>'+
+					'<td>(فُتِحَ)</td><td>(يُفْتَحُ)</td>'+
+				'</tr>'+
+				'<tr>'+
+					'<td>فَعَلَ</td><td>يَفْعِلُ</td>'+
+					'<td>فُعِلَ</td><td>يُفْعَلَ</td></tr>'+
+					'<tr style="background-color:#E8E885"><td>(ضَرَبَ)</td><td>(يَضْرِبُ)</td>'+
+					'<td>(ضُرِبَ)</td><td>(يُضرَبُ)</td>'+
+				'</tr>'+
+				'<tr>'+
+					'<td>فَعَلَ</td><td>يَفْعُلُ</td><td>يَفْعُلَ</td>'+
+					'<td>يُفْعَلَ</td></tr>'+
+					'<tr style="background-color:#E8E885"><td>(نَصَرَ)</td><td>(يَنْصُرُ)</td>'+
+					'<td>(نُصِرَ)</td><td>(يُنْصَرُ)</td>'+
+				'</tr>'+
+				'<tr>'+
+					'<td>فَعِلَ</td><td>يَفْعَلُ</td>'+
+					'<td>فُعِلَ</td><td>يُفْعَلَ</td></tr>'+
+					'<tr style="background-color:#CFE2F3"><td>(سَمِعَ)</td><td>(يَسْمَعُ)</td>'+
+					'<td>(سُمِعَ)</td><td>(يُسْمَعُ)</td>'+
+				'</tr>'+
+				'<tr>'+
+					'<td>فَعِلَ</td><td>يَفْعِلُ</td>'+
+					'<td>فُعِلَ</td><td>يُفْعَلَ</td></tr>'+
+					'<tr style="background-color:#CFE2F3"><td>(حَسِبَ)</td><td>(يَحسِبُ)</td>'+
+					'<td>(حُسِبَ)</td><td>(يُحْسَبُ)</td>'+
+				'</tr>'+
+				'<tr>'+
+					'<td>فَعُلَ</td><td>يَفْعُلَ</td>'+
+					'<td>فُعِلَ</td><td>يُفْعَلَ</td></tr>'+
+					'<tr style="background-color:#DFB4C9"><td>(كَرُمَ)</td><td>(يَكْرُمُ)</td>'+
+					'<td>(كُرِمَ)</td><td>(يُكْرَمُ)</td>'+
+				'</tr>'+
+				'<table>';
+	$(".dictionary").append('<div style="height:10px;"></div>');
+	$(".dictionary").append($(table));
+}

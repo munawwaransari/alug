@@ -233,9 +233,22 @@
 		<div  class="autocomplete">
 			<input id="wordSearchText" onchange="searchWord()" style="width:100px;"/>
 			<button id="SearchD" class="dropbtn" title="Analyze" style="background-color:#4B5AC5;top:-8px; height: 30px;" onclick="analyzeSelectedWord()"><b>تحليل</b></button>
-			<button id="btnVerbs" class="dropbtn" title="Verbs" onclick="showVerbTable()">فعل</button>
+
+			<div id="btnVerbs" class="dropdown">
+			  <button class="dropbtn">الفعل</button>
+			  <div class="dropdown-content">
+				<a href="#" onclick="showVerbTable()">أبواب الفعل</a>
+				<a href="#" onclick="showTriliteralVerbTable()">افعال ثلاثي مجرَّد</a>
+				<a href="#" onclick="">Doubled (مُضاعَفة)</a>
+				<a href="#" onclick="">Weak Verbs (افعال المُعتِلَة)</a>
+				<a href="#" onclick="">Adequate (افعال التَّامَّة)</a>
+				<a href="#" onclick="">Inadequate (افعال النَّاقِصة)</a>
+				<a href="#" onclick="">Phrases</a>
+			  </div>
+			</div>
+			
 			<div id="ism" class="dropdown">
-			  <button class="dropbtn">اسم</button>
+			  <button class="dropbtn">الاِسم</button>
 			  <div class="dropdown-content">
 				<a href="#" onclick="showNounTable('ism','الاسم', 'Noun')">Noun Patterns</a>
 				<a href="#" onclick="loadArabicLTTable('plural.csv', 'ism','الجمع', 'Plural')">Plural</a>
@@ -245,7 +258,7 @@
 			</div>
 			
 			<div class="dropdown">
-			  <button class="dropbtn">حرف</button>
+			  <button class="dropbtn">الحرف</button>
 			  <div class="dropdown-content">
 				<a href="#" onclick="showParticleTable()">Prepositions</a>
 				<a href="#" onclick="showComparisions()">Compare</a>
