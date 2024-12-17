@@ -304,35 +304,35 @@ function showWeakVerbTable(){
 				'<tr style="background-color:#E8E885;"><td>ف كلمة => ا و ي</td></tr>'+
 					'<tr><td>(و ج د)</td></tr>'+
 				'</tr>'+
-				'<tr><td colspan="2">'+replaceQLink('وَمَن يَلْعَنِ اللَّهُ فَلَن تَجِدَ لَهُ نَصِيرًا [4:52]')+'</td></tr>'
+				'<tr><td colspan="2">'+replaceQLink('وَمَن يَلْعَنِ اللَّهُ فَلَن تَجِدَ لَهُ نَصِيرًا [4:52]', false)+'</td></tr>'
 				+
 				'<tr><td style="background-color:#E8E885;"><b>أَجوَف</b></td>'+
 					'<td rowspan="3">(فَعَلَ) قَوَلَ => قَالَ<br/><br/>(فُعِلَ) قُوِلَ => قِيلَ</td></tr>'+
 				'<tr><td style="background-color:#E8E885;">ع كلمة => ا و ي</td></tr>'+
 					'<tr><td>(ق و ل)</td></tr>'+
 				'</tr>'+
-				'<tr><td colspan="2">'+replaceQLink('وَأَن تَصُومُوا خَيْرٌ لَّكُمْ [2:184]')+'</td></tr>'
+				'<tr><td colspan="2">'+replaceQLink('وَأَن تَصُومُوا خَيْرٌ لَّكُمْ [2:184]', false)+'</td></tr>'
 				+
 				'<tr><td style="background-color:#E8E885;"><b>نَاقِص</b></td>'+
 					'<td rowspan="3">(فَعَلُوا) رَضَيُوا=> رَضُوا<br/></td></tr>'+
 				'<tr><td style="background-color:#E8E885;">ل كلمة => ا و ي</td></tr>'+
 					'<tr><td>(ر ض ي)</td></tr>'+
 				'</tr>'+
-				'<tr><td colspan="2">'+replaceQLink('رَّضِيَ اللَّهُ عَنْهُمْ وَرَضُوا عَنْهُ [5:119]')+'</td></tr>'
+				'<tr><td colspan="2">'+replaceQLink('رَّضِيَ اللَّهُ عَنْهُمْ وَرَضُوا عَنْهُ [5:119]', false)+'</td></tr>'
 				+
 				'<tr><td style="background-color:#E8E885;"><b>لَفِيف</b></td>'+
 					'<td rowspan="3">(اِفتَعَلَ) إوتَقَيَ => إتْتَقَي => إتَّقَي<br/><br/>(فَعِلنَا) وَقِينَا=> وَقِنَا</td></tr>'+
 				'<tr><td style="background-color:#E8E885;">و/ي root has</td></tr>'+
 					'<tr><td>(و ق ي)</td></tr>'+
 				'</tr>'+
-				'<tr><td colspan="2">'+replaceQLink('وَقِنَا عَذَابَ النَّارِ [3:16]')+'</td></tr>'
+				'<tr><td colspan="2">'+replaceQLink('وَقِنَا عَذَابَ النَّارِ [3:16]', false)+'</td></tr>'
 				+
 				'<tr><td style="background-color:#E8E885;"><b>مَهمُوز</b></td>'+
 					'<td rowspan="3">(فَعَلُوا) رَأَيُو => رَأَو<br/><br/>(يَفعَلُ) يَاكُلُ [Exception]</td></tr>'+
 				'<tr><td style="background-color:#E8E885;">root has hamza</td></tr>'+
 					'<tr><td>(أ ك ل)</td></tr>'+
 				'</tr>'+
-				'<tr><td colspan="2">'+replaceQLink('وَلَئِنْ أَرْسَلْنَا رِيحًا فَرَأَوْهُ مُصْفَرًّا [30:51]')+'</td></tr>'+
+				'<tr><td colspan="2">'+replaceQLink('وَلَئِنْ أَرْسَلْنَا رِيحًا فَرَأَوْهُ مُصْفَرًّا [30:51]', false)+'</td></tr>'+
 				'<table>';
 	$(".dictionary").append('<div style="height:10px;"></div><div style="width:100%; text-align:center">حرف العِلَّت When root of a word has one or more </div>');
 	$(".dictionary").append($(table));
