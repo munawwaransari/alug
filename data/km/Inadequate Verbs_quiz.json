@@ -1,0 +1,166 @@
+[
+	{
+		"id": "quiz-1",
+		"ur-PK_display": "درست جواب کا انتخاب کریں",
+		"en-US_display": "Select the correct answer:",
+		"questions": [
+			{
+				"name": "q1",
+				"input": "radio",
+				"question": "______ الكلبُ يَنبَحُ",
+				"options": {
+					"a": "مَنذُ",
+					"b": "ما زَال", 
+					"c": "ما صارَ"
+				},
+				"answer": ["b"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q2",
+				"input": "radio",
+				"question": "______ القمر أرزقًا",
+				"options": {
+					"a": "أصبحت",
+					"b": "أصبح", 
+					"c": "ظل", 
+					"d": "ظلَّت"
+				},
+				"answer": ["a"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q3",
+				"input": "checkbox",
+				"question": "ليسَ المُعَلِّمُ ______",
+				"options": {
+					"a": "غَائبًا",
+					"b": "بِغَائبٍ", 
+					"c": "حَاضِرًا", 
+					"d": "بِحَاضِرِ"
+				},
+				"answer": ["a","b","c","d"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q4",
+				"input": "radio",
+				"question": "النَّاسُ رَغِبَ _______ المُتَسَوِّل",
+				"options": {
+					"a": "مِن",
+					"b": "إلَي", 
+					"c": "عَن", 
+					"d": "عِندَ"
+				},
+				"answer": ["c"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q5",
+				"input": "radio",
+				"question": "القِطُّ رَغِبَ _______ اللَبن",
+				"options": {
+					"a": "مِن",
+					"b": "إلَي", 
+					"c": "عَن", 
+					"d": "عِندَ"
+				},
+				"answer": ["b"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q6",
+				"input": "radio",
+				"question": "ذَهَبَ الطَّائرُ _______ الحشَرَة",
+				"options": {
+					"a": "بِ",
+					"b": "لِ",
+					"d": "كَ"
+				},
+				"answer": ["a"],
+				"style": "font-size: 18px;font-weight: bold;"
+			}
+		]
+	},
+	{
+		"id": "quiz-2",
+		"ur-PK_display": "درست جواب کا انتخاب کریں",
+		"en-US_display": "Select the correct answer:",
+		"questions": [
+			{
+				"name": "q1",
+				"input": "radio",
+				"question": "Choose correct translations: (Try to read it)",
+				"options": {
+					"a": "حَاوِل قَرَيت",
+					"b": "حَاوِل إِن تَقرَءَهُ", 
+					"c": "حَاوِل أَن تَقرَءَهُ",
+					"d": "حَاوِل قِرَاءَتِهِ"
+				},
+				"answer": ["c", "d"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q2",
+				"input": "radio",
+				"question": "without me",
+				"options": {
+					"a": "مِن دُونِ",
+					"b": "مِن دُونِي", 
+					"c": "مِن دُونَنِي"
+				},
+				"answer": ["b"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q3",
+				"input": "checkbox",
+				"question": "(During)",
+				"options": {
+					"a": "أثناء",
+					"b": "في", 
+					"c": "بينا"
+				},
+				"answer": ["a","c"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q4",
+				"input": "radio",
+				"question": "?What are you (searching for)",
+				"options": {
+					"a": "بحث عن",
+					"b": "بحث", 
+					"c": "يجد"
+				},
+				"answer": ["a"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q5",
+				"input": "radio",
+				"question": "She (laughed at) me",
+				"options": {
+					"a": "ضحكت",
+					"b": "ضحك", 
+					"c": "ضحك من", 
+					"d": "ضحكت من"
+				},
+				"answer": ["d"],
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q6",
+				"input": "radio",
+				"question": "!Get out of here",
+				"options": {
+					"a": "إذهب هناك!",
+					"b": "إذهب عن هنا!",
+					"d": "إذهب إلَي هنا!"
+				},
+				"answer": ["b"],
+				"style": "font-size: 18px;font-weight: bold;"
+			}
+		]
+	}
+]
