@@ -34,23 +34,28 @@ class cmpAPI {
 	
 	addComparisionTable(containerClass, sel){
 		var api = this;
-		var table = $(containerClass+ " table");
-		if(table) table.empty();
 		
+		var nfilter = $(containerClass + " .nFilter");
+		$(containerClass).empty();
+		$(containerClass).append(nfilter);
+		$(containerClass).append('<div style="height:10px;"></div>');
+		
+				
 		var topics = sel.split(" vs ");
 		var tableHtml = '<table id="xTable" class="pTable"><tr>';
-						// '<th style="font-size: 22px;">Topic</th>';
+		var tableHeaders = "";
 		for(var i=0; i < topics.length; i++)				 
-			tableHtml += '<th style="font-size: 22px;">'+topics[i]+'</th>';
-		tableHtml +='</table>';
+			tableHeaders += '<th style="font-size: 22px;">'+topics[i]+'</th>';
+		tableHtml += tableHeaders+'</table>';
+		
 		$(containerClass).append($(tableHtml));
 		
-		table = $(containerClass+ " table");
+		//table = $(containerClass+ " #Table");
 		var cmp = cmpAPI.cmpData.filter(x=>x["topics"].join(' vs ') === sel)[0];
 		
 		if(cmp["notes"]){
-			var r = $('<tr><td style="font-size:14px;background-color:#F6F6BA;" colspan="'+topics.length+'">'+cmp["notes"]+'</td></tr>');
-			$(containerClass+ " #xTable tbody").append(r);
+			var r = $('<tr><td style="font-size:14px;background-color:#F6F6BA;" colspan="'+topics.length+'">'+replaceQLink(cmp["notes"])+'</td></tr>');
+			$("#xTable tbody").append(r);
 		}
 		var alink = '<a href="#" style=" text-decoration: none" '+
 						' onclick="checkWord(\'$\');">$</a>';
@@ -65,6 +70,6 @@ class cmpAPI {
 			}
 			rows += '</tr>';
 		}
-		$(containerClass+ " #xTable tbody").append($(rows));
+		$("#xTable tbody").append($(rows));
 	}
 }

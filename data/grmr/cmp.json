@@ -1,89 +1,10 @@
 [
-    {
-        "topics": [
-            "همزة القطع",
-            "همزة الوصل"
-        ],
-        "ar": [
-            "تعريف",
-            "مَصدر",
-            "اسم النكرة",
-            "اسم المعرفة",
-            "فعل األمر",
-            "فعل الماضى"
-        ],
-        "en": [
-            "Definition",
-            "Verbal Noun",
-            "Common Noun",
-            "Proper Noun",
-            "Imperative",
-            "Past tesnse"
-        ],
-        "features": {
-            "همزة القطع": [
-                "أَ إِ أُ (في بِناءِ الكلام) <br/> ئ (في وسطِ الكلام) <br/> ء (في نهاية الكلمة)",
-                "مَصدر is not written with همزة القطع",
-                "All common nouns <br/>e.g. أَنْوَر, شَيء except<br/>اِمرَؤ ، اِمرَاَة، اِبن ، اِبنة، اِثنَان، اِثنَتَان",
-                "All proper nouns except having لام تعريف (ال)<br/>e.g. أَنْوَر, شَيء, سَوداء",
-                "All imperatives that ae 4 lettered ones (فعل الأمر الرباعية)<br/>e.g. أَطعِم (أَفعَلَ)",
-                "All except having 4 or 5 letters ماضى الخماسى والسداسى<br/>e.g. أَكَلَ (ثُلاثي)"
-            ],
-            "همزة الوصل": [
-                "اَ اِ اُ (في بِناءِ الكلام) <br/> ا (في وسطِ الكلام)",
-                "مَصدر is written with همزة الوصل <br/> e.g. اِستِقبال, اِجتِهاد, اِنفِجَار",
-                "Following are written with همزة الوصل:<br/>اِمرَؤ ، اِمرَاَة، اِبن ، اِبنة، اِثنَان، اِثنَتَان",
-                "Proper noun starting with لام تعريف (ال)<br/>e.g. النُّور, الرَّفِيق, المُلك",
-                "All imperatives which 4 are not 4 lettered<br/>e.g. اُكتُب (فَعَلَ), اِستَمِع (اِفتَعَلَ)",
-                "Past tense patterns having 4 or 5 letters<br/>e.g. اِبتَسِمَ (خُماسي),  اِستَسمَعَ (سُداسي)"
-            ]
-        }
-    },
-    {
-        "topics": [
-            "قَبْلِ",
-            "قَبْلُ",
-            "قِبَلِ"
-        ],
-        "notes": " بعد، قبل، أثناء، الآن، مُنذُ Also applicable to ",
-        "ar": [
-            "تعريف",
-            "إِضافَت",
-            "مُضاف only",
-            "ظرف"
-        ],
-        "en": [
-            "Definition",
-            "Relation",
-            "Partial relation",
-            "Adverb"
-        ],
-        "features": {
-            "قَبْلِ": [
-                "Meaning: before (followed by related noun)",
-                "Used as مضاف<br/>e.g. وَهُم مِّن بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ [30:3]",
-                "Always used with مُضاف إليه",
-                "When used as adverb (ظرف), erab is Fataha(َ ) "
-            ],
-            "قَبْلُ": [
-                "Meaning: before (no related noun after it)",
-                "Used as مضاف<br/>e.g. وَهُم مِّن بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ [30:3]",
-                "Used as مضاف without مُضاف إليه. <br/>Erab is dhamma.<br/>e.g. لِلَّهِ الْأَمْرُ مِن قَبْلُ وَمِن بَعْدُ [30:4]",
-                "e.g. قَبْلَ وِعَاءِ أَخِيهِ [12:76]"
-            ],
-            "قِبَلِ": [
-                "Meaning: by someone/on the part of/from",
-                "Used as مضاف. <br/>Followed by مُضاف إليه.<br/>e.g. مِن قِبَلِ الرَّجُل<br/>مِن قِبَلِ نَفسِهِ",
-                "Generally used in a passive construct<br/>e.g. خُدِعَ الشُّرطةَ مِن قِبَلَ اللُصُوص<br/>The police was tricked by the thieves.",
-                "-"
-            ]
-        }
-    },
 	{
         "topics": [
             "إذ",
             "إذا"
         ],
+		"notes": "(in that case) is adevrb of time إِذًا / إذَن<br/>إِنَّكَ إِذًا لَّمِنَ الظَّالِمِينَ [2:145]",
         "ar": [
             "تعريف",
             "بناء",
@@ -136,6 +57,171 @@
                 "يَا عائِشَةُ -> يَا عائِشَ / يَا عائِشُ",
                 "-",
                 "-"
+            ]
+        }
+    },
+	{
+        "topics": [
+            "إِنَّ / أَنَّ",
+			"أَن"
+        ],
+        "ar": [
+            "تعريف",
+            "الاستخدام",
+			"مع الضمير",
+			"مع المصدر"
+        ],
+        "en": [
+            "Definition",
+            "Usage",
+			"with Pronoun",
+			"with gerund"
+        ],
+        "features": {
+            "إِنَّ / أَنَّ": [
+                "that (indeed)",
+				"اسم المنصوب / ضمير Used before<br/><br/>فَيَعْلَمُونَ أَنَّهُ الْحَقُّ مِن رَّبِّهِمْ [2:26]",
+				".Conjugated with pronoun e.g<br/>إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً [2:30]<br/><br/>.detached pronouns also used e.g<br/>أَلَا إِنَّهُمْ هُمُ الْمُفْسِدُونَ [2:12]",
+				"إِنَّ الْمُتَّقِينَ فِي جَنَّاتٍ وَعُيُونٍ [15:45]<br/><br/>أَوَلَا يَعْلَمُونَ أَنَّ اللَّهَ يَعْلَمُ مَا يُسِرُّونَ وَمَا يُعْلِنُونَ [2:77]"
+            ],
+			"أَن": [
+                "to / that",
+				"فعل المضارع المنصوب Used before<br/><br/>إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تَذْبَحُوا بَقَرَةً [2:67]",
+				"not followed by pronoun",
+				"(مصدر المنصوب <- أن+فعل)<br/>replaced with gerund<br/>أُريدُ أَن أَدرُسُ العربِيَّة<br/><=<br/>أُريدُ الدِّراسَةَ العربِيَّة<br/><br/>اَدرِسُ القُرآنَ لِأَن أَفهَمَ الإسلام<br/><=<br/>اَدرِسُ القُرآنَ لِفَهمِ الإسلام"
+            ]
+        }
+    },
+	{
+        "topics": [
+            "ثُمَّ",
+            "ثَمَّ"
+        ],
+        "ar": [
+            "تعريف",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+			"Example"
+        ],
+        "features": {
+            "ثُمَّ": [
+                "after that (conjunction)",
+				"ثُمَّ يُمِيتُكُمْ ثُمَّ يُحْيِيكُمْ ثُمَّ إِلَيْهِ تُرْجَعُونَ [2:28]"
+            ],
+            "ثَمَّ": [
+                "thereto (adverb of time)",
+				"فَأَيْنَمَا تُوَلُّوا فَثَمَّ وَجْهُ اللَّهِ [2:115]"
+            ]
+        }
+    },
+    {
+        "topics": [
+            "قَبْلِ",
+            "قَبْلُ",
+            "قِبَلِ"
+        ],
+        "notes": " بعد، قبل، أثناء، الآن، مُنذُ Also applicable to <br/> (دُبُر opposite) is an adverb meaning before or front قُبُل<br/>إِن كَانَ قَمِيصُهُ قُدَّ مِن قُبُلٍ فَصَدَقَتْ [12:26] e.g.",
+        "ar": [
+            "تعريف",
+            "إِضافَت",
+            "مُضاف only",
+            "ظرف"
+        ],
+        "en": [
+            "Definition",
+            "Relation",
+            "Partial relation",
+            "Adverb"
+        ],
+        "features": {
+            "قَبْلِ": [
+                "Meaning: before (followed by related noun)",
+                "Used as مضاف<br/>e.g. وَهُم مِّن بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ [30:3]",
+                "Always used with مُضاف إليه",
+                "When used as adverb (ظرف), erab is Fataha(َ ) "
+            ],
+            "قَبْلُ": [
+                "Meaning: before (no related noun after it)",
+                "Used as مضاف<br/>e.g. وَهُم مِّن بَعْدِ غَلَبِهِمْ سَيَغْلِبُونَ [30:3]",
+                "Used as مضاف without مُضاف إليه. <br/>Erab is dhamma.<br/>e.g. لِلَّهِ الْأَمْرُ مِن قَبْلُ وَمِن بَعْدُ [30:4]",
+                "e.g. قَبْلَ وِعَاءِ أَخِيهِ [12:76]"
+            ],
+            "قِبَلِ": [
+                "Meaning: by someone/on the part of/from",
+                "Used as مضاف. <br/>Followed by مُضاف إليه.<br/>e.g. مِن قِبَلِ الرَّجُل<br/>مِن قِبَلِ نَفسِهِ",
+                "Generally used in a passive construct<br/>e.g. خُدِعَ الشُّرطةَ مِن قِبَلَ اللُصُوص<br/>The police was tricked by the thieves.",
+                "-"
+            ]
+        }
+    },
+	{
+        "topics": [
+            "همزة القطع",
+            "همزة الوصل"
+        ],
+        "ar": [
+            "تعريف",
+            "مَصدر",
+            "اسم النكرة",
+            "اسم المعرفة",
+            "فعل األمر",
+            "فعل الماضى"
+        ],
+        "en": [
+            "Definition",
+            "Verbal Noun",
+            "Common Noun",
+            "Proper Noun",
+            "Imperative",
+            "Past tesnse"
+        ],
+        "features": {
+            "همزة القطع": [
+                "أَ إِ أُ (في بِناءِ الكلام) <br/> ئ (في وسطِ الكلام) <br/> ء (في نهاية الكلمة)",
+                "مَصدر is not written with همزة القطع",
+                "All common nouns <br/>e.g. أَنْوَر, شَيء except<br/>اِمرَؤ ، اِمرَاَة، اِبن ، اِبنة، اِثنَان، اِثنَتَان",
+                "All proper nouns except having لام تعريف (ال)<br/>e.g. أَنْوَر, شَيء, سَوداء",
+                "All imperatives that ae 4 lettered ones (فعل الأمر الرباعية)<br/>e.g. أَطعِم (أَفعَلَ)",
+                "All except having 4 or 5 letters ماضى الخماسى والسداسى<br/>e.g. أَكَلَ (ثُلاثي)"
+            ],
+            "همزة الوصل": [
+                "اَ اِ اُ (في بِناءِ الكلام) <br/> ا (في وسطِ الكلام)",
+                "مَصدر is written with همزة الوصل <br/> e.g. اِستِقبال, اِجتِهاد, اِنفِجَار",
+                "Following are written with همزة الوصل:<br/>اِمرَؤ ، اِمرَاَة، اِبن ، اِبنة، اِثنَان، اِثنَتَان",
+                "Proper noun starting with لام تعريف (ال)<br/>e.g. النُّور, الرَّفِيق, المُلك",
+                "All imperatives which 4 are not 4 lettered<br/>e.g. اُكتُب (فَعَلَ), اِستَمِع (اِفتَعَلَ)",
+                "Past tense patterns having 4 or 5 letters<br/>e.g. اِبتَسِمَ (خُماسي),  اِستَسمَعَ (سُداسي)"
+            ]
+        }
+    },
+	{
+        "topics": [
+           "واؤ العطف",
+           "واؤ المعِيَّة",
+           "واؤ الحال"
+        ],
+        "ar": [
+            "تعريف",
+            "مثال"
+        ],
+        "en": [
+            "Meaning",
+            "Example"
+        ],
+        "features": {
+            "واؤ العطف": [
+                "and (conjunction)",
+				"إِنَّا أَرْسَلْنَاكَ شَاهِدًا وَمُبَشِّرًا وَنَذِيرًا [33:45]<br/><br/>فَضْلًا مِّنَ اللَّهِ وَنِعْمَةً [49:8]"
+            ],
+            "واؤ المعِيَّة": [
+                "at the same time (acting as Subject)",
+				"ضَحَكَ وَ زَيدًا<br/>He laughed and (so did) Zaid"
+            ],
+			"واؤ الحال": [
+                "while (adverb)",
+				"اقْتَرَبَ لِلنَّاسِ حِسَابُهُمْ وَهُمْ فِي غَفْلَةٍ مُّعْرِضُونَ [21:1]<br/><br/>جَاءَ الطِّفلُ وَ هُوَ يَبكِي"
             ]
         }
     }
