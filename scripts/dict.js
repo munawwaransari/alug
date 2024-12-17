@@ -220,6 +220,7 @@ function loadComparision(){
 
 function showTriliteralVerbTable(){
 	
+	var alink = '<a href="#" style=" text-decoration: none" onclick="checkWord(\'$\');">$</a>';
 	$(".dictionary").empty()
 	var table = '<table class="pTable">'+
 				'<tr style="background-color:#B6D7A8;font-size:16px;">'+
@@ -231,38 +232,38 @@ function showTriliteralVerbTable(){
 				'<tr>'+
 					'<td>فَعَلَ</td><td>يَفْعَلُ</td>'+
 					'<td>فُعِلَ</td><td>يُفْعَلَ</td></tr>'+
-					'<tr style="background-color:#E8E885"><td>(فَتَحَ)</td><td>(يَفْتَحُ)</td>'+
-					'<td>(فُتِحَ)</td><td>(يُفْتَحُ)</td>'+
+					'<tr style="background-color:#E8E885"><td>('+alink.replaceAll('$', 'فَتَحَ')+')</td><td>('+alink.replaceAll('$', 'يَفْتَحُ')+')</td>'+
+					'<td>('+alink.replaceAll('$', 'فُتِحَ')+')</td><td>('+alink.replaceAll('$', 'يُفْتَحُ')+')</td>'+
 				'</tr>'+
 				'<tr>'+
 					'<td>فَعَلَ</td><td>يَفْعِلُ</td>'+
 					'<td>فُعِلَ</td><td>يُفْعَلَ</td></tr>'+
-					'<tr style="background-color:#E8E885"><td>(ضَرَبَ)</td><td>(يَضْرِبُ)</td>'+
+					'<tr style="background-color:#E8E885"><td>('+alink.replaceAll('$', 'ضَرَبَ')+')</td><td>('+alink.replaceAll('$', 'يَضْرِبُ')+')</td>'+
 					'<td>(ضُرِبَ)</td><td>(يُضرَبُ)</td>'+
 				'</tr>'+
 				'<tr>'+
 					'<td>فَعَلَ</td><td>يَفْعُلُ</td><td>يَفْعُلَ</td>'+
 					'<td>يُفْعَلَ</td></tr>'+
-					'<tr style="background-color:#E8E885"><td>(نَصَرَ)</td><td>(يَنْصُرُ)</td>'+
-					'<td>(نُصِرَ)</td><td>(يُنْصَرُ)</td>'+
+					'<tr style="background-color:#E8E885"><td>('+alink.replaceAll('$', 'نَصَرَ')+')</td><td>('+alink.replaceAll('$', 'يَنْصُرُ')+')</td>'+
+					'<td>('+alink.replaceAll('$', 'نُصِرَ')+')</td><td>('+alink.replaceAll('$', 'يُنْصَرُ')+')</td>'+
 				'</tr>'+
 				'<tr>'+
 					'<td>فَعِلَ</td><td>يَفْعَلُ</td>'+
 					'<td>فُعِلَ</td><td>يُفْعَلَ</td></tr>'+
-					'<tr style="background-color:#CFE2F3"><td>(سَمِعَ)</td><td>(يَسْمَعُ)</td>'+
-					'<td>(سُمِعَ)</td><td>(يُسْمَعُ)</td>'+
+					'<tr style="background-color:#CFE2F3"><td>('+alink.replaceAll('$', 'سَمِعَ')+')</td><td>('+alink.replaceAll('$', 'يَسْمَعُ')+')</td>'+
+					'<td>('+alink.replaceAll('$', 'سُمِعَ')+')</td><td>('+alink.replaceAll('$', 'يُسْمَعُ')+')</td>'+
 				'</tr>'+
 				'<tr>'+
 					'<td>فَعِلَ</td><td>يَفْعِلُ</td>'+
 					'<td>فُعِلَ</td><td>يُفْعَلَ</td></tr>'+
-					'<tr style="background-color:#CFE2F3"><td>(حَسِبَ)</td><td>(يَحسِبُ)</td>'+
-					'<td>(حُسِبَ)</td><td>(يُحْسَبُ)</td>'+
+					'<tr style="background-color:#CFE2F3"><td>('+alink.replaceAll('$', 'حَسِبَ')+')</td><td>('+alink.replaceAll('$', 'يَحسِبُ')+')</td>'+
+					'<td>('+alink.replaceAll('$', 'حُسِبَ')+')</td><td>('+alink.replaceAll('$', 'يُحْسَبُ')+')</td>'+
 				'</tr>'+
 				'<tr>'+
 					'<td>فَعُلَ</td><td>يَفْعُلَ</td>'+
 					'<td>فُعِلَ</td><td>يُفْعَلَ</td></tr>'+
-					'<tr style="background-color:#DFB4C9"><td>(كَرُمَ)</td><td>(يَكْرُمُ)</td>'+
-					'<td>(كُرِمَ)</td><td>(يُكْرَمُ)</td>'+
+					'<tr style="background-color:#DFB4C9"><td>('+alink.replaceAll('$', 'كَرُمَ')+')</td><td>('+alink.replaceAll('$', 'يَكْرُمُ')+')</td>'+
+					'<td>('+alink.replaceAll('$', 'كُرِمَ')+')</td><td>('+alink.replaceAll('$', 'يُكْرَمُ')+')</td>'+
 				'</tr>'+
 				'<table>';
 	$(".dictionary").append('<div style="height:10px;"></div>');
@@ -271,14 +272,20 @@ function showTriliteralVerbTable(){
 
 function showInadequateVerbTable(){
 	
+	var alink = '<a href="#" style=" text-decoration: none" onclick="checkWord(\'$\');">$</a>';
 	$(".dictionary").empty();
 	var table = '<table class="pTable">'+
 				'<tr style="background-color:#E8E885;"><td><b>توقيت (Timing)</b></td></tr>'+
-				'<tr style="background-color:#E8E885;"><td>to become / to change<br/>أصبَحَ / أَمسَ / ظَلّ / بَاتَ</td></tr>'+
+				'<tr style="background-color:#E8E885;"><td>to become / to change<br/>'+
+							alink.replaceAll('$', 'أصبَح')+' / '+
+							alink.replaceAll('$', 'أَمسَ')+' / '+
+							alink.replaceAll('$', 'ظَلّ')+' / '+
+							alink.replaceAll('$', 'بَاتَ')+'</td></tr>'+
 					'<tr><td>اصبَحَ الطَّقَسُ جَمِيلَةً<br/>The weather has become beautiful<br/>بَاتَ المَريضُ جَادًا<br/>The patient became (in night) seriosly ill</td></tr>'+
 				'</tr>'+
 				'<tr style="background-color:#E8E885;"><td><b>تحويل (Transition)</b></td></tr>'+
-				'<tr style="background-color:#E8E885;"><td>to tansition / become<br/>صَارَ / صَارَ إِلَي</td></tr>'+
+				'<tr style="background-color:#E8E885;"><td>to tansition / become<br/>'+
+						alink.replaceAll('$', 'صَارَ')+' / صَارَ إِلَي</td></tr>'+
 					'<tr><td>صَارَ الماءُ جَليِدًا<br/>The water became ice<br/>صارَ إلَي لِصٍّ<br/>He beame a thief</td></tr>'+
 				'</tr>'+
 				'<tr style="background-color:#E8E885;"><td><b>نفي (Negation)</b></td></tr>'+
@@ -288,7 +295,6 @@ function showInadequateVerbTable(){
 				'<tr style="background-color:#E8E885;"><td><b>استمرار (Continuation)</b></td></tr>'+
 				'<tr style="background-color:#E8E885;"><td>to remain / continue<br/>مَازالَ / مابَرِحَ / ماأنفَكَّ</td></tr>'+
 					'<tr><td>مابرح الجوء لَطيفًا<br/>Weather is still nice<br/>مازال الطِّفلُ نَائمًا<br/>The baby is still asleep</td></tr>'+
-					
 				'</tr>'+
 				'<table>';
 	$(".dictionary").append('<div style="height:10px;"></div>');
@@ -297,38 +303,39 @@ function showInadequateVerbTable(){
 
 function showWeakVerbTable(){
 	
+	var alink = '<a href="#" style=" text-decoration: none" onclick="checkWord(\'$\');">$</a>';
 	$(".dictionary").empty();
 	var table = '<table class="pTable">'+
 				'<tr><td style="background-color:#E8E885;"><b>مِثال</b></td>'+
-					'<td rowspan="3">(يَفعَلُ) يَوجِدُ => يَجِدُ<br/><br/>(يَفعِلُونَ) يَوذِرُونَ => يَذِرُونَ</td></tr>'+
+					'<td rowspan="3">(يَفعَلُ) يَوجِدُ => '+alink.replaceAll('$', 'يَجِدُ')+'<br/><br/>(يَفعِلُونَ) يَوذِرُونَ => يَذِرُونَ</td></tr>'+
 				'<tr style="background-color:#E8E885;"><td>ف كلمة => ا و ي</td></tr>'+
 					'<tr><td>(و ج د)</td></tr>'+
 				'</tr>'+
 				'<tr><td colspan="2">'+replaceQLink('وَمَن يَلْعَنِ اللَّهُ فَلَن تَجِدَ لَهُ نَصِيرًا [4:52]', false)+'</td></tr>'
 				+
 				'<tr><td style="background-color:#E8E885;"><b>أَجوَف</b></td>'+
-					'<td rowspan="3">(فَعَلَ) قَوَلَ => قَالَ<br/><br/>(فُعِلَ) قُوِلَ => قِيلَ</td></tr>'+
+					'<td rowspan="3">(فَعَلَ) قَوَلَ => '+alink.replaceAll('$', 'قَالَ')+'<br/><br/>(فُعِلَ) قُوِلَ => قِيلَ</td></tr>'+
 				'<tr><td style="background-color:#E8E885;">ع كلمة => ا و ي</td></tr>'+
 					'<tr><td>(ق و ل)</td></tr>'+
 				'</tr>'+
 				'<tr><td colspan="2">'+replaceQLink('وَأَن تَصُومُوا خَيْرٌ لَّكُمْ [2:184]', false)+'</td></tr>'
 				+
 				'<tr><td style="background-color:#E8E885;"><b>نَاقِص</b></td>'+
-					'<td rowspan="3">(فَعَلُوا) رَضَيُوا=> رَضُوا<br/></td></tr>'+
+					'<td rowspan="3">(فَعَلُوا) رَضَيُوا=> '+alink.replaceAll('$', 'رَضُوا')+'<br/></td></tr>'+
 				'<tr><td style="background-color:#E8E885;">ل كلمة => ا و ي</td></tr>'+
 					'<tr><td>(ر ض ي)</td></tr>'+
 				'</tr>'+
 				'<tr><td colspan="2">'+replaceQLink('رَّضِيَ اللَّهُ عَنْهُمْ وَرَضُوا عَنْهُ [5:119]', false)+'</td></tr>'
 				+
 				'<tr><td style="background-color:#E8E885;"><b>لَفِيف</b></td>'+
-					'<td rowspan="3">(اِفتَعَلَ) إوتَقَيَ => إتْتَقَي => إتَّقَي<br/><br/>(فَعِلنَا) وَقِينَا=> وَقِنَا</td></tr>'+
+					'<td rowspan="3">(اِفتَعَلَ) إوتَقَيَ => إتْتَقَي => '+alink.replaceAll('$', 'إتَّقَي')+'<br/><br/>(فَعِلنَا) وَقِينَا=> وَقِنَا</td></tr>'+
 				'<tr><td style="background-color:#E8E885;">و/ي root has</td></tr>'+
 					'<tr><td>(و ق ي)</td></tr>'+
 				'</tr>'+
 				'<tr><td colspan="2">'+replaceQLink('وَقِنَا عَذَابَ النَّارِ [3:16]', false)+'</td></tr>'
 				+
 				'<tr><td style="background-color:#E8E885;"><b>مَهمُوز</b></td>'+
-					'<td rowspan="3">(فَعَلُوا) رَأَيُو => رَأَو<br/><br/>(يَفعَلُ) يَاكُلُ [Exception]</td></tr>'+
+					'<td rowspan="3">(فَعَلُوا) رَأَيُو => '+alink.replaceAll('$', 'رَأَو')+'<br/><br/>(يَفعَلُ) يَاكُلُ [Exception]</td></tr>'+
 				'<tr><td style="background-color:#E8E885;">root has hamza</td></tr>'+
 					'<tr><td>(أ ك ل)</td></tr>'+
 				'</tr>'+
