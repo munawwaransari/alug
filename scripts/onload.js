@@ -231,6 +231,14 @@ function loadQuranSearch(text){
 	}, 5);
 }
 
+function showClock(){
+	console.log("showChart: "+ name);
+	$('.reading-pane').attr("src","");
+	setTimeout(function(){
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "clock-test.html"));
+	}, 5);
+}
+
 function showChart(name){
 	console.log("showChart: "+ name);
 	$('.reading-pane').attr("src","");
@@ -303,7 +311,8 @@ function updateToolDescription(id){
 					"Synonyms": "showChart(\'synonym\')",
 					"Homonymn": "showChart(\'homonym\')",
 					"Antonym": "showChart(\'antonym\')",
-					"Colors": "showChart(\'colors\')"
+					"Colors": "showChart(\'colors\')",
+					"Clock": "showClock()"
 				};
 				
 				var menu = '<div class="tool-menu">';
