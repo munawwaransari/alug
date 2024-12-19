@@ -4,6 +4,13 @@
 
 $(document).ready(function()
 {
+	if(isOS("Android")){
+		setTimeout(function(){
+			if(speechSynthesis.onvoiceschanged)
+				speechSynthesis.onvoiceschanged();
+		}, 10);
+	}
+	
 	$(".tool").on('click', function(){
 		updateToolDescription(event.target.id);
 	});
@@ -24,6 +31,28 @@ $(document).ready(function()
 	$(document).on("nodeInserted",function(e,q){
 		if (q === "#languages"){
 			$("#languages").parent().hide();
+			
+			/*
+			var c = "";
+			var o = $("#languages option");
+			if(o && o.length > 0){
+				o.each(function(i, opt){
+					c = c + opt.value + ", ";
+				});
+			}
+			alert(c);
+			*/
+			
+			// set support options
+			var arVoices =  $("#languages option").filter(function(i, x){
+				return x.value === 'ar-SA' || x.value === 'ar_SA';
+			});
+			var urVoices = $("#languages option").filter(function(i, x){
+				return x.value === 'ur-PK' || x.value === 'ur_PK' ||
+					   x.value === 'ur-IN' || x.value === 'ur_IN';
+			});
+			arSupported = arVoices.length >  0;
+			urSupported = urVoices.length >  0;
 		}
 		$("#text").text("");
 		$("#play").click();
@@ -59,6 +88,28 @@ $(document).ready(function()
 		}
 	});
 });
+
+function loadLanguages(){
+	var l = $("#languages");
+	l.empty();
+	/*
+	if(l.length == 0)
+		$("#main").append('<select id="languages"/>');
+	var voices = speechSynthesis.getVoices().filter(function(v){
+		var lang = v.lang.replace('_','-');
+		var flag = lang === 'ur-IN' || lang ==='ur-PK' || lang === 'ur-IN' ||
+				   lang === 'ar-SA' || 
+				   lang === 'en-US';
+		if(flag){
+			$("#main #languages").append($('<option value="'+ lang + '" select>'+v.name+'</option>'))
+		}
+		return flag;
+	});
+	$(document).trigger("nodeInserted",['#languages']);
+	*/
+	const event = new Event('onvoiceloaded');
+	document.dispatchEvent(event);
+};
 
 			
 function singInUser(){
@@ -129,6 +180,22 @@ function toggleIcon(id){
 	
 };
 
+function loadResources(){
+	console.log("loadResources");
+	$('.reading-pane').attr("src","");
+	setTimeout(function(){
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "dresources.html"));
+	}, 5);
+}
+
+function loadQuizResources(){
+	console.log("loadQuizResources");
+	$('.reading-pane').attr("src","");
+	setTimeout(function(){
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "quizres.html"));
+	}, 5);
+}
+
 function loadDictionarySearch(text){
 
 	console.log("loadDictionarySearch");
@@ -164,65 +231,22 @@ function loadQuranSearch(text){
 	}, 5);
 }
 
-function showAlphabetChart(){
-	console.log("showAlphabetChart");
+function showClock(){
+	console.log("showChart: "+ name);
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
-		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "alpha.html"));
-		//$('#title-img').hide();
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "clock-test.html"));
 	}, 5);
 }
 
-function showSynonymChart(){
-	console.log("showSynonymChart");
+function showChart(name){
+	console.log("showChart: "+ name);
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
-		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "synonym.html"));
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "cards.html?data="+name));
 		//$('#title-img').hide();
 	}, 5);
 }
-
-function showHomonymChart(){
-	console.log("showHomonymChart");
-	$('.reading-pane').attr("src","");
-	setTimeout(function(){
-		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "homonym.html"));
-		//$('#title-img').hide();
-	}, 5);
-}
-
-async function loadJsonData(url,  callback, errorCallback)
-{
-	try {
-		const response = await fetch(url);
-		if (!response.ok) {
-			throw new Error(`HTTP error! Status: ${response.status}`);
-		}
-		const data = await response.json();
-		callback(data);
-	} 
-	catch (error) {
-		console.error("Fetch error:", error);
-		if (errorCallback){
-			errorCallback(error);
-		}
-	}
-};
-
-async function loadHtmlData(url,  callback)
-{
-	try {
-		const response = await fetch(url);
-		if (!response.ok) {
-			throw new Error(`HTTP error! Status: ${response.status}`);
-		}
-		const data = await response.text();
-		callback(data);
-	} 
-	catch (error) {
-		console.error("Fetch error:", error);
-	}
-};
 
 //ref: https://stackoverflow.com/questions/7434685/how-can-i-be-notified-when-an-element-is-added-to-the-page
 function nodeInserted(elementQuerySelector){
@@ -283,9 +307,12 @@ function updateToolDescription(id){
 			if(states.menu !== "visible"){
 				updateStates({"menu": "visible"});
 				var menuItems = {
-					"Alphabets": "showAlphabetChart()",
-					"Synonyms": "showSynonymChart()",
-					"Homonymn": "showHomonymChart()"
+					"Alphabets": "showChart(\'alpha\')",
+					"Synonyms": "showChart(\'synonym\')",
+					"Homonymn": "showChart(\'homonym\')",
+					"Antonym": "showChart(\'antonym\')",
+					"Colors": "showChart(\'colors\')",
+					"Clock": "showClock()"
 				};
 				
 				var menu = '<div class="tool-menu">';
@@ -342,4 +369,33 @@ function checkBrowserSupport(){
 	else{
 		speech_synthesis_supportd = false;
 	}	
+}
+
+function autoplayAudio(chapter, page){
+	var lang = parent ? parent.getLangOption() : "en-US";
+	var url = getLocationPath() + 'data/audio/'+ lang + '_' + chapter + '_autoplay.json';
+	console.log('Loding play file: ' + url);
+	loadJsonData(url, function(data){
+		
+		var sections = jQuery.map(data, function(obj) {
+			if(obj.pageNo === page)
+			return obj.sections;
+		});
+		
+		// Load play list
+		$('#playSections').find('option').remove().end();
+		if(sections){
+			sections.forEach(function(sect){
+				//console.log(sect.play);
+				$('#playSections').append('<option value="'+ sect.play +'">'+sect.topic+'</option>');					
+			});
+			
+			$("#text").text($('#playSections').val());
+			
+			if(autoplay)
+				$("#play").click();
+		}
+	}, function(err){
+		console.log("Please change language option and retry!");
+	});
 }

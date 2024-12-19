@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset='utf-8'>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=yes" />
 		<link rel="stylesheet" type="text/css" href="styles/quizlib-styles.css" media="screen">
 		<link rel="stylesheet" type="text/css" href="styles/quizlib.css" media="screen">
 		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
@@ -65,7 +66,8 @@
     <body>
         <!-- Quiz Results -->
         <!-- For this multi quiz, we'll use the same result element and move it to active quiz when the answer button is pressed. -->
-        <div id="quiz-result" class="card">
+        <div id="topicHeading" style="background-color:#93C54B; font-weight: bold;"></div>
+		<div id="quiz-result" class="card">
             You Scored <span id="quiz-percent"></span>% - <span id="quiz-score"></span>/<span id="quiz-max-score"></span><br/>
         </div>
     </body>

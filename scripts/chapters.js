@@ -55,11 +55,11 @@ function autoplayAudio(chapter, page, lang){
 			$("#play").click();
 		}
 	}, function(err){
-		alert("Please change language option and retry!");
+		console.log("Please change language option and retry!");
 	});
 }
 
-function openQuizV2(chapter, file, topic){
+function openQuizV2(chapter, file, topic, lang){
 	console.log("Quiz file: " + file);
 	var loaction = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
 	var data_path = location + 'data/km/' + topic + '_quiz.json';
@@ -67,7 +67,7 @@ function openQuizV2(chapter, file, topic){
 
 		//console.log("data_path: " + data_path);
 		//var abs_path = getLocationPath() + file + '?chapter=' + chapter + '&topic=' + topic + '&data=' + JSON.stringify(data);
-		var abs_path = getLocationPath() + file + '?chapter=' + chapter + '&topic=' + topic + '&lang=' + langOption + '&data=' + data_path;
+		var abs_path = getLocationPath() + file + '?chapter=' + chapter + '&topic=' + topic + '&lang=' + (langOption ?? window.getLang()) + '&data=' + data_path;
 		$('.reading-pane').attr('src', encodeURI(abs_path));
 		//$('#title-img').hide();
 		
