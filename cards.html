@@ -59,7 +59,7 @@
     /*
     Styles
     */
-	    #cardContainer {
+	 #cardContainer {
         display: flex;
         flex-direction:row;
         flex-wrap: wrap;
@@ -197,6 +197,9 @@
 			case "homonym":
 				darwHomonymn(div, cdata);
 				break;
+			case "colors":
+				drawColors(div, cdata);
+				break;
 		  }
 		} 
 		
@@ -307,6 +310,48 @@
 		    div.append($(fdiv));
 		  }else{
 		   div.append($(adiv));
+		  }
+		} 
+		
+		function drawColors(div, color){
+		
+		  var tooltip = color.en;
+		  		             
+		  if(color.image){
+			var back= "", backColor = "", backStyle = "";
+			if(color.image[0] === "#"){
+				backColor = 'color:'+invertColor(color.image);
+				backStyle = 'style="background-color:'+color.image+';"';
+				back = '<p style="font-size:38px;margin-top:50px;'+backColor+'">'+color.names[1]+
+							'<br/><span style="font-size:28px;'+backColor+'">'+color.en+'</span>'+
+							'<br/><span style="font-size:32px;'+backColor+'">'+color.ur+'</span>'+
+							'</p>';
+			}
+			else{
+				backColor = 'color:black';
+				backStyle = 'style="background-image: url(\''+color.image+'\');"';
+				back = '<p style="font-size:38px;margin-top:50px;color:black">'+color.names[1]+
+							'<br/><span style="font-size:28px;color:black">'+color.en+'</span>'+
+							'<br/><span style="font-size:32px;color:black">'+color.ur+'</span>'+
+							'</p>';
+			}
+							
+		    var cdiv = '<div class="flip-card">'+
+						'<div class="flip-card-inner">'+
+                        '<div class="flip-card-front" '+backStyle+'>'+
+							'<p style="font-size:38px;margin-top:50px;'+backColor+';">'+color.names[0]+
+							'<br/><span style="font-size:28px;'+backColor+';">'+color.en+'</span>'+
+							'<br/><span style="font-size:32px;'+backColor+';">'+color.ur+'</span>'+
+							'</p>'+
+                        '</div>'+
+                        '<div class="flip-card-back" '+backStyle+'>'+
+							back+
+                        '</div>'+
+                      '</div>'+
+                    '</div>';
+		    div.append($(cdiv));
+		  }else{
+		   div.append($(cdiv));
 		  }
 		} 
 	</script>

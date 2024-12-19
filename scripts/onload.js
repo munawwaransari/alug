@@ -302,7 +302,8 @@ function updateToolDescription(id){
 					"Alphabets": "showChart(\'alpha\')",
 					"Synonyms": "showChart(\'synonym\')",
 					"Homonymn": "showChart(\'homonym\')",
-					"Antonym": "showChart(\'antonym\')"
+					"Antonym": "showChart(\'antonym\')",
+					"Colors": "showChart(\'colors\')"
 				};
 				
 				var menu = '<div class="tool-menu">';
