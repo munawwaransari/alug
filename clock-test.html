@@ -165,8 +165,11 @@
 					if(min > 20){
 						m= numberNames[units] + ' ' + tensNames[tens];
 					}
+					else if (tensNames[min] !== undefined){
+						m=  tensNames[min];
+					}
 					else if (tens > 9){
-						m= tensNames[tens];
+						m=  tensNames[tens];
 						if(min > 0 && numberNames[units] !== undefined)
 							m+= ' '+ numberNames[units];
 					}else if(min > 0 && numberNames[units] !== undefined){
@@ -175,7 +178,7 @@
 					
 					ret = m === undefined ? h : h + ' ' + m;
 					if(partNames[min] === undefined && numberNames[units] !== undefined && 
-					   (units > 2) && !(m >=11 && m <= 19))
+					   (min > 2) && !(m >=11 && m <= 19))
 					{
 						ret += " دَقَائِق";
 					}
