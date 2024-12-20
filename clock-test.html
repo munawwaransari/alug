@@ -19,7 +19,7 @@
 			
 			.arabicTime {
 				padding: 10px;
-				font-size: 30px;
+				font-size: 34px;
 			}
 		</style>
 		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
@@ -38,7 +38,7 @@
 				
 				$("#second").hide();
 				$("#timeText").html(getTimeInArabic(h, m));
-				$("#")
+				$("#timeText2").html(getTime2(h, m));
 			}
 			
 			function pauseClock(){
@@ -54,7 +54,9 @@
 				var date = new Date;
 				scount = date.getSeconds();
 				mcount = date.getMinutes();
-				hcount = date.getHours() % 12;
+				hcount = date.getHours();
+				if(hcount > 12)
+					hcount -= 12;
 				
 				$("#hourText").val(hcount);
 				$("#minuteText").val(mcount);
@@ -78,6 +80,7 @@
 					draw("hour", hcount, mcount);
 					
 					$("#timeText").html(getTimeInArabic(hcount, mcount));
+					$("#timeText2").html(getTime2(hcount, mcount));
 						
 				}, 1000);
 			}
@@ -88,18 +91,18 @@
 				var radius = $(".clock").width()/2 - ((name === "hour") ? 80 : 40);
 				var x1 = 180, x2 = 180;
 				var y1 = 180, y2 = 100;
-				var x2 = x1 + rotateX(x2, radius, angle);
-				var y2 = y1 + rotateY(y2,  radius, angle);
+				var x2 = x1 + rotateX(radius, angle);
+				var y2 = y1 + rotateY(radius, angle);
 				svgLine.setAttribute("x2", x2);
 				svgLine.setAttribute("y2", y2);
 				svgLine.setAttribute("r", radius);
 			}
 			
-			function rotateX(x, radius, angle){
+			function rotateX(radius, angle){
 				return radius * Math.cos(Math.PI * 2 * angle / 360);
 			}
 			
-			function rotateY(y, radius, angle){
+			function rotateY(radius, angle){
 				return radius * Math.sin(Math.PI * 2 * angle / 360);
 			}
 			
@@ -111,6 +114,7 @@
 				"15": "وَالرُّبُعُ",	
 				"20": "وَالثُّلُثُ",
 				"30": "وَالنِّصفُ",
+				"40": "إلَّا ثُلث",
 				"45": "إلَّا رُبُعًا",
 				"50": "إلَّا عَشَرَ",
 				"55": "إلَّا خَمسَ"
@@ -120,14 +124,23 @@
 				"20": "وَعِشَرُون",
 				"30": "وَثَلاثُون",
 				"40": "وَاَربَعُون",
-				"50": "وَخَمسُون"	
+				"50": "وَخَمسُون",
+				"11": "أَحَدَ وَعَشَرَ",
+				"12": "إثنَا وَعَشَرَ",
+				"13": "ثَلاثَةَ وَعَشَرَ",
+				"14": "اَربَعَةَ وَعَشَرَ",
+				"15": "خَمسَةَ وَعَشَرَ",
+				"16": "سِتَّةَ وَعَشَرَ",
+				"17": "سَبعَةَ وَعَشَرَ",
+				"18": "ثَمانِيَةَ وَعَشَرَ",
+				"19": "تِسعَةَ وَعَشَرَ",
 			};
 			var numberNames = {
 				"1": "وَواحِد",
 				"2": "وَاِثنَان",
 				"3": "وَثَلاثَةُ",
-				"4": "وَاَربَعُ",
-				"5": "وَخَمسُ",
+				"4": "وَاَربَعَةُ",
+				"5": "وَخَمسَةُ",
 				"6": "وَسِتَّةُ",
 				"7": "وَسَبعَةُ",
 				"8": "وَثَمَانِيَةُ",
@@ -136,25 +149,44 @@
 			};
 			
 			function getTimeInArabic(hour, min){
-				var h = hourNames[hour];
+				if(hour < 1 || hour > 12 || min < 0 || min > 59)
+					return;
+					
+				var h = hourNames[hour-1];
 				var m = partNames[min];
 				var ret = '';
+				var units = min % 10;
+				var tens = Math.floor(min / 10)*10;
 
-				if(!m){
-					var tens = Math.floor(min / 10)*10;
-					var units = min % 10;
-					
-					m = tensNames[tens];
-					if(numberNames[units] !== undefined){
-						m+= ' '+ numberNames[units];
+				if(m === undefined){
+					if(min > 20){
+						m= numberNames[units] + ' ' + tensNames[tens];
 					}
-					ret = h + ' ' + m;
-					if(units !== undefined && units > 2)
+					else if (tens > 9){
+						m= tensNames[tens];
+						if(min > 0 && numberNames[units] !== undefined)
+							m+= ' '+ numberNames[units];
+					}else if(min > 0 && numberNames[units] !== undefined){
+						m=numberNames[units];
+					}
+					
+					ret = m === undefined ? h : h + ' ' + m;
+					if(partNames[min] === undefined && numberNames[units] !== undefined && 
+					   (units > 2) && !(m >=11 && m <= 19))
+					{
 						ret += " دَقَائِق";
+					}
 				}else{
 					ret = h + ' ' + m;
 				}
 				return ret;
+			}
+			
+			function getTime2(hour, min){
+				var amPm = hour > 12 ? " pm" : " am";
+				var h = hour > 9 ? ""+hour : "0"+hour;
+				var m = min > 9 ? ""+min : "0"+min;
+				return h + " : " + m + amPm;
 			}
 		</script>
 	</head>
@@ -169,9 +201,10 @@
 			<button onclick="pauseClock()">Pause</button>
 			<button onclick="runClock()">Run Clock</button>
 			<button onclick="setClock()">Set Clock</button>
-			<label>Hour:<input id="hourText" style="width:24px;" maxlength="2" pattern="[0-9]{2}"/></label>
-			<label>Minute:<input id="minuteText" style="width:24px;" maxlength="2" pattern="[0-9]{2}"/></label>
+			<label>Hour:<input id="hourText" style="width:28px;font-size:18px;" maxlength="2" pattern="[0-9]{2}"/></label>
+			<label>Minute:<input id="minuteText" style="width:28px;font-size:18px;" maxlength="2" pattern="[0-9]{2}"/></label>
 		</div>
 		<div style="margin:auto;" id="timeText" class="arabicTime"></div>
+		<div style="margin:auto;" id="timeText2" class="arabicTime"></div>
 	</body>
 </html>
