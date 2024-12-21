@@ -760,6 +760,14 @@ class posAPI {
 				var row = "";
 				var counter = 0;
 				var rowSpan = values.words.length;
+				
+				//Add notes
+				if(values.notes){
+					row = row + '<tr style="font-size:18px;"><td style="background-color:#F6F6BA;" colspan="2">'+
+								values.notes+'</td>'+
+								'<td>'+values.ar+'<br/>'+ values.en+'</td>';
+								+'</td></tr>';
+				}
 				values.words.every(function(w){
 					row = row + '<tr>';
 					row = row + '<td>'+alink.replaceAll('\$',w)+'</td>';
@@ -767,18 +775,8 @@ class posAPI {
 					var ex = "";
 					if (values["e.g."] && values["e.g."][counter]){
 						ex = replaceQLink(values["e.g."][counter]);
-						/*
-						var qlinkExp = /(\[(\d+)\:(\d+)\])/g;
-						ex = values["e.g."][counter];
-						if(ex.match(qlinkExp)){
-							ex = ex.replace(qlinkExp, '<a href="#" onclick="var w=parent?parent.window:window;w.open(\'https://tanzil.net/#$2:$3\',\'_blank\');">$1</a>');
-						}
-						ex = '<span style="font-size:16px;"><br/>'+ex+'</span>';
-						*/
 					}
 					row = row + '<td>'+alink.replaceAll('\$',values["en-words"][counter])+ex+'</td>';
-					//if(rowSpan < 1 || counter == 0)
-					//	row = row + '<td rowspan="'+rowSpan+'">'+values.ar+'<br/>'+ values.en+'</td>';
 					row = row + '<td>'+values.ar+'<br/>'+ values.en+'</td>';
 					
 					row = row +'</tr>';
