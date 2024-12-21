@@ -235,16 +235,22 @@ function showClock(){
 	console.log("showChart: "+ name);
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
-		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "clock-test.html"));
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "clock.html"));
 	}, 5);
 }
 
-function showChart(name){
+function showChart(sel){
+	var name = $('#sel'+sel).val();
 	console.log("showChart: "+ name);
 	$('.reading-pane').attr("src","");
+	var path = "";
+	switch (sel){
+		case "Vocabulary": path = 'cards.html?data='+name; break;
+		case "Misc": path = name+'.html'; break;
+		default: console.log('Error: invalid section');	return;
+	}
 	setTimeout(function(){
-		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "cards.html?data="+name));
-		//$('#title-img').hide();
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() +  path));
 	}, 5);
 }
 
@@ -307,17 +313,37 @@ function updateToolDescription(id){
 			if(states.menu !== "visible"){
 				updateStates({"menu": "visible"});
 				var menuItems = {
-					"Alphabets": "showChart(\'alpha\')",
-					"Synonyms": "showChart(\'synonym\')",
-					"Homonymn": "showChart(\'homonym\')",
-					"Antonym": "showChart(\'antonym\')",
-					"Colors": "showChart(\'colors\')",
-					"Clock": "showClock()"
+					"Vocabulary": {
+						"Alphabets": "alpha",
+						"Synonyms": "synonym",
+						"Homonymn": "homonym",
+						"Antonym": "antonym",
+						"Colors": "colors"
+					},
+					"Misc" :{
+						"Clock": "clock",
+						"Number": "number"
+					}
 				};
 				
 				var menu = '<div class="tool-menu">';
 				for (const [key, value] of Object.entries(menuItems)){
-					menu = menu + '<span class="menuitem" onclick="'+value+';">'+key+'</span>';
+					var type = Object.prototype.toString.call(value);
+					if(type === "[object String]")
+						menu = menu + '<span class="menuitem" onclick="'+value+';">'+key+'</span>';
+					else{
+						var onAction = 'showChart(\''+key+'\')';
+						menu += '<span class="menuitem" onclick="'+onAction+'">'+
+							key+':<select id="sel'+key+'" ' +
+									' onchange="'+onAction+'">';
+						for(const [k,v]of Object.entries(value))
+							menu += '<option value="'+v+'">'+k+'</option>';
+						menu += '</select></span>';
+						$("#selVocab").val('Alphabets');
+						setTimeout(function(){
+							showChart('Vocabulary');
+						},10);
+					}
 				}
 				menu = menu + '</div>';
 				toolMessage.append(menu);

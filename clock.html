@@ -26,7 +26,6 @@
 			}
 		</style>
 		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
-		<!-- <script type="text/javascript" src="scripts/jquery.svg/jquery.svg.js"></script> -->
 		<script>
 			var scount, mcount, hcount, interval;
 			
@@ -218,115 +217,6 @@
 				var m = min > 9 ? ""+min : "0"+min;
 				return h + " : " + m; // + amPm;
 			}
-			
-			function showNumberText(){
-				var txt = $("#numText").val();
-				$("#numberDiv").html(getNumberText(txt));
-			}
-			
-			function getNumberText(txt){
-			
-				var val = parseInt(txt, 10);
-				if(val < 100){
-					return getUpto99(val)
-				}
-				
-				if(val > 99 && val < 1000){
-					return getUpto999(val);
-				}
-				
-				if(val > 999 && val < 10000){
-					return getUpto9999(val);
-				}
-				
-				if(val > 9999 && val < 1000000){
-					var p1 = Math.floor(val / 1000);
-					var p2 = val - p1*1000;
-					var v1 = getNumberText(p1);
-					if(v1[0] === 'و' && v1[1] === 'َ')
-						v1 = removePrefix(v1);
-					var v2 = p2 > 0 ? getNumberText(p2) : "";
-					return v1 + ' آلاف ' + v2;
-				}
-				return txt;
-			}
-			
-			function get100To999(val){
-				if(val == 100) return "مِأْئَة";
-				if(val == 200) return "مِأْئَتَانِ";
-				var ret = numberNames[Math.floor(val/100)]
-							.replace(new RegExp("َةُ$","g"),"ُ");
-				if(numberNames[val/100]){
-					ret = removePrefix(ret);
-				}
-				return ret + ' مِأْئَة'; 
-			}
-			
-			function get1000To9999(val){
-				if(val == 1000) return "اَلفٌ";
-				if(val == 2000) return "اَلفَين";
-				var ret = numberNames[Math.floor(val/1000)] + ' ' + "آلاف";
-				if(numberNames[val/1000]){
-					return removePrefix(ret);
-				}
-				return ret; 
-			}
-			
-			function getUpto9999(val){
-				if(val % 1000 === 0 && val < 10000){
-					return get1000To9999(val);
-				}
-				
-				if(val > 1000 && val < 10000){
-					var hundreds = val % 1000;
-					var thousands = val - hundreds;
-					
-					var v100 = getNumberText(hundreds);
-					var v1000 = get1000To9999(thousands);
-					return v1000+' وَ'+ removePrefix(v100);
-				}
-				return val;
-			}
-			
-			function getUpto999(val){
-				if(val % 100 === 0 && val < 1000){
-					return get100To999(val);
-				}
-				
-				if(val > 100 && val < 1000){
-					var tens = val % 100;
-					var hundreds = val - tens;
-					var v99 = getUpto99(tens, false);
-					if(val % 100 !== 0 && v99[0] !== 'و')
-						v99 = 'وَ' + v99;
-					var v999 = get100To999(hundreds);
-					if (tens === 0){
-						v999 = removePrefix(v999);
-					}
-					return v999+' '+ v99;
-				}
-			}
-			
-			function getUpto99(val, pfx=false){
-				if(numberNames[val])
-					return pfx ? removePrefix(numberNames[val])
-							   :numberNames[val];
-				if(tensNames[val])
-					return pfx ? removePrefix(tensNames[val])
-							   :tensNames[val];
-							   
-				var units = val % 10;
-				var tens = Math.floor(val / 10)*10;
-				if(pfx)
-					return numberNames[units] + ' ' + ((tens > 0) ? tensNames[tens] : '');
-				return removePrefix(numberNames[units]) + ' ' + ((tens > 0) ? tensNames[tens] : '');
-			}
-			
-			function removePrefix(txt){
-				if(txt[0] === 'و')
-					return txt.substring(2);
-				return txt;
-			}
 		</script>
 	</head>
 	<body style="display:flex;justify-content: center;flex-direction: column;">
@@ -337,17 +227,11 @@
 			  <line id="second" x1="180" y1="180" x2="180" y2="40" style="stroke:green;stroke-width:4"/>
 		</svg>
 		<div style="margin:auto;">
-			<!-- <button onclick="pauseClock()">Pause</button> -->
 			<button onclick="runClock()">Run Clock</button>
-			<!-- <button onclick="setClock()">Set Clock</button> -->
 			<label>Hour:<select id="selHour" onchange="setClock()"></select></label>
 			<label>Minute:<select id="selMinute" onchange="setClock()"></select></label>
 		</div>
 		<div id="timeText" class="arabicTime"></div>
 		<div id="timeText2" class="arabicTime"></div>
-		<div class="arabicTime">
-			<label>Check Number:<input id="numText" style="width:100px;font-size:16px;" maxlength="6" onchange="showNumberText()"/></label>
-		</div>
-		<div id="numberDiv" class="arabicTime" />
 	</body>
 </html>

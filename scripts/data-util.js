@@ -168,3 +168,9 @@ function padZero(str, len) {
 	var zeros = new Array(len).join('0');
 	return (zeros + str).slice(-len);
 }
+
+function removeTimePrefix(txt){
+	if(txt[0] === 'و')
+		return txt.substring(2);
+	return txt;
+}
