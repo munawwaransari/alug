@@ -1020,3 +1020,25 @@ function toggleTableDiv(tableId){
 	else
 		alink.text("Hide");
 }
+
+function makeImperative(pattern, gender){
+	
+	//remove 2nd person letters; ad dhamza al wasl
+	var p = pattern.replace(/^[يت][َُِ]?/g, '');
+	
+	var p = p.replace(/^([ء-ي])(?:(ْ|[ء-ي]))/g, 'ا$1$2');
+	//remove erab
+	return update2ndGender(p, gender);
+}
+
+function make2ndPerson(pattern, gender){
+
+	var p = pattern.replace(/^[يت][َُِ]?/g, "ت");
+	return update2ndGender(p, gender);
+}
+
+function update2ndGender(pattern, gender){
+	if(gender == 'm')
+		return pattern.replace(/(([ء-ي])[َُِ]?)$/g, '$2ْ');
+	return pattern.replace(/(([ء-ي])[َُِ]?)$/g, '$2ِي');
+}

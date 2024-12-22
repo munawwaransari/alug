@@ -344,3 +344,63 @@ function showWeakVerbTable(){
 	$(".dictionary").append('<div style="height:10px;"></div><div style="width:100%; text-align:center">حرف العِلَّت When root of a word has one or more </div>');
 	$(".dictionary").append($(table));
 }
+
+function showImperativeTable(){
+	var examples = {
+		"I": "فَأَمَّا الْيَتِيمَ فَلَا تَقْهَرْ [93:9]",
+		"II": "وَأَطِيعُوا اللَّهَ وَأَطِيعُوا الرَّسُولَ [5:92]",
+		"III": "وَلَا تُقَاتِلُوهُمْ عِندَ الْمَسْجِدِ الْحَرَامِ [2:191]",
+		"IV": "وَلَا تُطِعْ كُلَّ حَلَّافٍ مَّهِينٍ [68:10]",
+		"V": "فَتُذَكِّرَ إِحْدَاهُمَا الْأُخْرَىٰ [2:282]",
+		"VI": "",
+		"VII": "",
+		"VIII": "وَلَا تَتَّبِعُوا خُطُوَاتِ الشَّيْطَانِ [2:168]",
+		"IX": "",
+		"X": "وَلَا تَمْنُن تَسْتَكْثِرُ [74:6]"
+	};
+	var container = $(".dictionary");
+	var verbInfo = posAPIObj.getVerbInfo();
+	var api = this;
+	container.empty();
+	var alink = '<a href="#" style=" text-decoration: none" '+
+					' onclick="checkWord(\'$\');">$</a>';
+	var vTable = $('<table id="vTable" class="vTable"><tr>'+
+					 '<th class="engText" style="font-size: 14px;">Form</th>'+
+					 '<th class="engText">Gender<br/>M/F</th>'+
+					 '<th class="engText">2nd Person<br/>مضارع</th>'+
+					 '<th colspan="2" class="engText">Imperative<br/>الأمر/النهي</th>'+
+				   '</table>');
+	container.append(vTable);
+	
+	for (const keyVal of Object.entries(verbInfo)){
+		var entryName = keyVal[0];
+		var xform = keyVal[1];
+		if(xform){
+			var pa = xform.filter(x=>x.en==="present (active)")
+								   .map(x=>x.form)								   
+			
+			var impM1 = makeImperative(pa[0], 'm');
+			var impM2 = impM1.replace(new RegExp("^(ا|([ء-ي]))","g"), "لا ت$2");
+			
+			var impF1 = makeImperative(pa[0], 'f');
+			var impF2 = impF1.replace(new RegExp("^(ا|([ء-ي]))","g"), "لا ت$2");
+			var formNumber = entryName.split(' ')[1]; 
+			var row = '<tr>'+
+					  '<td rowspan="2" class="engText">'+formNumber+'</td>'+
+					  '<td class="engText">M</td>'+
+					  '<td class="engText" style="color:#DD6188">('+make2ndPerson(pa[0], 'm')+')</td>'+
+					  '<td style="color:#7575BB">'+impM1+'</td>'+
+					  '<td style="color:#7575BB">'+impM2+'</td>'+
+					  '</tr>'+
+					  '<td class="engText">F</td>'+
+					  '<td class="engText" style="color:#DD6188">('+make2ndPerson(pa[0], 'f')+')</td>'+
+					  '<td style="color:#7575BB">'+impF1+'</td>'+
+					  '<td style="color:#7575BB">'+impF2+'</td>'+
+					  '</tr/>'+
+					  '<tr>'+
+					  '<td style="background-color:#F6F6BA;font-size:18px;" colspan="5">'+replaceQLink(examples[formNumber], false)+'</td>'+
+					  '</tr>';			
+			$("#vTable tbody").append($(row));
+		}
+	}
+}
