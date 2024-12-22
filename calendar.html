@@ -1,0 +1,441 @@
+<!--
+	Author: munawwar_ali@yahoo.com
+	
+	ref: https://www.thatsoftwaredude.com/pages/9209/full-source-for-javascript-calendar
+//-->
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes" />
+	<head>
+		<link rel="shortcut icon" href="#" />
+		<style>
+		body, *{
+			padding:0px;
+			margin:0px;
+			box-sizing: border-box;
+		}
+		
+		select {
+			margin-left: 28px;;
+			align: center;
+			text-align:center;
+			width: 25%;
+		}
+		
+		.calendar
+		{
+			background-color: white;
+			padding: 20px;
+			box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
+		}
+
+		.calendar .dropdown
+		{
+			display: none;
+			position: absolute;
+			background-color: #fff;
+			color: #1caff6;
+			text-align: center;
+			font-size: 14pt;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			padding-left: 30px;
+			padding-right: 30px;
+			width: 160px;
+			left: 0px;
+			z-index: 2000;
+		}
+
+		.calendar .dropdown .dropdown-item
+		{
+			cursor:pointer;
+			opacity: .7;
+			transition: .5s opacity;
+		}
+
+		.calendar .dropdown .dropdown-item:hover
+		{
+			opacity: 1;
+		}
+
+		.calendar .years
+		{
+			display:none;
+		}
+
+		.calendar .title
+		{
+			text-align:center;
+			font-size:20pt;
+		}
+
+		.calendar .calendar-btn
+		{
+			float: left;
+			background-color: #24aeff;
+			color: white;
+			text-align: center;
+			font-size: 14pt;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			position: relative;
+			width: 30%;
+			cursor: pointer;
+			transition: .5s background-color;
+		}
+
+		.calendar .calendar-btn:hover{
+			background-color:#1f71a1;
+		}
+
+		.calendar .year-btn
+		{
+			float:right;
+		}
+
+		.calendar .calendar-dates .days .day
+		{
+			float:left;
+			width: 12%;
+			margin: 1%;
+			padding: 1%;
+			font-size:13pt;
+			text-align:center;
+			border-radius: 10px;
+			border: solid 1px #ddd;
+		}
+
+		.calendar .calendar-dates .days .day.blank
+		{
+			background-color: white;
+			border:none;
+		}
+
+		.calendar .calendar-dates .days .day.selected
+		{
+			background-color: #1caff6!important;
+			color: white;
+			cursor:pointer;
+			opacity: .5;
+			transition: .5s opacity;
+		}
+
+		.calendar .calendar-dates .days .day.selected:hover
+		{
+			opacity: 1;
+		}
+
+		.calendar .calendar-dates .days .day.label
+		{
+			height: 40px;
+			background-color: white;
+			color: black;
+			border:none;
+			font-weight:bold;
+		}
+
+		.clear{
+			clear:both;
+		}
+
+		@media only screen and (max-width: 960px) {
+			.calendar{
+				width: 100%;
+				margin: 0px;
+				margin: 0px;
+				box-sizing: border-box;
+				position: relative;
+				left: 0px;
+			}
+		}
+		
+		.sel:hover {
+			background-color:#619614;
+			cursor: pointer;
+		}
+		
+		.calenderDisplay {
+			font-size: 28px;
+			padding: 10px;
+			width: 100%;
+			text-align: center;
+			margin: auto;
+		}
+		 
+		</style>
+		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+		<script>
+		var calendarType = 'gregorian';
+		var month_days = ['', 'الأوَّل', 'الثاني', 'الثالث', 'الرابع', 'الخامس', 'السادس', 'السابع',
+						  'الثامن', 'التاسع', 'العاشر', 'الحادي عشر', 'الثاني عشر', 'الثالث عشر', 'الرابع عشر',
+						  'الخامس عشر', 'السادس عشر', 'السابع عشر', 'الثامن عشر', 'التاسع عشر', 'العشرين', 'الحادي والعشرون',
+						  'الثاني والعشرون', 'الثالث والعشرون', 'الرابع والعشرون', 'الخامس والعشرون', 'السادس والعشرون', 'السابع والعشرون', 'الثامن والعشرون', 
+						  'التاسع والعشرون', 'الثَلثين', 'الحادي والثَلثين'];
+		var numbers_ar = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+		var months_ar = ["يناير", "فبراير", "يمشي", "أبريل", "ماي", "يونيو", "يوليو", "أغسطس", "سبتمبر", "اكتوبر", "نوفمبر", "ديسمبر"];
+		var months_islamic = ["مُحرَّم", "صَفَر", "ربيعُ الأوَّل", "ربيعُ الآخِر", "جُمادى الأَوَّل", "جُمادى الثَانِي", "رَجَب", "شَعبان", "رَمَضان", "شَوَّال", "ذوالقعدة", "ذوالحجة"];
+		
+		function translateNumber(num){
+			var retStr = "";
+			var numStr = num.toString();
+			for(var i =0; i < numStr.length; i++){
+				var digit = parseInt(numStr[i], 10);
+				retStr += numbers_ar[digit];
+			}
+			return '<b>'+retStr+'</b>';
+		}
+		
+		function displayDate(date){		
+			var html = "";
+			if(calendarType === 'gregorian'){
+				html = '<div>'+ 
+							'<span>'+ date.Day +' </span>' + 
+							'<span>'+ months_en[date.Month] + ' </span>' + 
+							'<span>'+ date.Year + ' </span>' +
+						'</div>'+
+						'<div>'+ 
+							'<span>'+ translateNumber(date.Day) +' </span>' + 
+							'<span>'+ months_ar[date.Month] + ' </span>' + 
+							'<span>'+ translateNumber(date.Year) + ' </span>' +
+						'</div>';
+			}
+			else{
+				html = '<div>'+
+							 '<span>' + month_days[date.Day] + ' </span>'+
+							 '<span>('+ translateNumber(date.Day) +') </span>' + 
+							 '<span>'+ months_islamic[date.Month] + ' </span>' + 
+							 '<span>'+ translateNumber(date.Year) + ' </span>' + 
+						 '</div>';
+			}
+			
+			$(".calenderDisplay").html(html);
+		}
+
+		var months_en = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+		var months = months_en.map((x,i) => "("+x+") " + months_ar[i]);
+		var startYear = new Date().getFullYear() - 15;
+		var endYear = new Date().getFullYear() + 5;
+		var month = 0, month_hijri = 0;
+		var year = 0, year_hijri = 0;
+		var sel_day = -1;
+
+		function loadCalendarMonths(resetDay=true) {
+			if(resetDay) sel_day = 0;
+			document.getElementById("months").innerHTML = "";
+			for (var i = 0; i < 12; i++) {
+				var doc = document.createElement("div");
+				doc.innerHTML = calendarType === 'gregorian' ?
+						months[i] : 
+						months_islamic[i];
+				doc.classList.add("dropdown-item");
+
+				doc.onclick = (function () {
+					var selectedMonth = i;
+					return function () {
+						month = selectedMonth;
+						document.getElementById("curMonth").innerHTML = calendarType === 'gregorian' ?
+							months[month] : 
+							months_islamic[month_hijri];
+						sel_day = 0
+						loadCalendarDays();
+						return month;
+					}
+				})();
+
+				document.getElementById("months").appendChild(doc);
+			}
+		}
+
+		function loadCalendarYears(resetDay) {
+		
+			if(resetDay) sel_day = 0;
+			document.getElementById("years").innerHTML = "";
+
+			for (var i = startYear; i <= endYear; i++) {
+				var doc = document.createElement("div");
+				doc.innerHTML = i;
+				doc.classList.add("dropdown-item");
+
+				doc.onclick = (function () {
+					var selectedYear = i;
+					return function () {
+						year = selectedYear;
+						document.getElementById("curYear").innerHTML = year;
+						sel_day = 0;
+						loadCalendarDays();
+						return year;
+					}
+				})();
+
+				document.getElementById("years").appendChild(doc);
+			}
+		}
+
+		function loadCalendarDays() {
+			document.getElementById("calendarDays").innerHTML = "";
+
+			var tmpDate, gregDate = new Date(year, month, 0);
+			if(calendarType === 'hijri'){
+				tmpDate = gregorianToHijri(gregDate);
+			}else{
+				tmpDate = gregorianDate(gregDate);
+			}
+			
+			var num = daysInMonth(month, year);
+			var dayofweek = gregDate.getDay();       // find where to start calendar day of week
+
+			//add week day selection
+			if(dayofweek < 6){
+				for (var i = 0; i <= dayofweek; i++) {
+					var d = document.createElement("div");
+					d.classList.add("day");
+					d.classList.add("blank");
+					document.getElementById("calendarDays").appendChild(d);
+				}
+			}
+
+			for (var i = 0; i < num; i++) {
+				var tmp = i + 1;
+				var d = document.createElement("div");
+				d.id = "calendarday_" + i;
+				d.className = "day sel";
+				if(i == sel_day){
+					d.className += " selected";
+				}
+				d.onclick = (function(){
+					sel_day = parseInt(this.id.substring(12));
+					loadCalendarDays();
+				});
+				d.innerHTML = calendarType === 'gregorian' ? tmp : translateNumber(tmp);
+
+				document.getElementById("calendarDays").appendChild(d);
+			}
+
+			var clear = document.createElement("div");
+			clear.className = "clear";
+			document.getElementById("calendarDays").appendChild(clear);
+			
+			if(calendarType === 'gregorian'){
+				displayDate(gregorianDate(new Date(year, month, sel_day+1)));
+			}
+			else{
+				displayDate({ Year: year_hijri, Month: month_hijri, Day: sel_day+1 });
+			}
+		}
+
+		function daysInMonth(month, year)
+		{
+			if(calendarType === 'gregorian'){
+				var d = new Date(year, month+1, 0);
+				return d.getDate();
+			}
+			else{
+				return 30;
+			}
+		}
+
+		function loadCalendar(){
+			
+			calendarType = $('#cal').val();
+			
+			var gregDate = new Date();
+			var date;
+			if(calendarType === 'gregorian'){
+				date = gregorianDate(gregDate)
+				month = date.Month;
+				year = date.Year;
+			}
+			else{
+				date = gregorianToHijri(gregDate);
+				month_hijri = date.Month;
+				year_hijri = date.Year;
+			}
+			sel_day = date.Day - 1;
+			startYear = date.Year - 15;
+			endYear = date.Year + 5;
+			
+			document.getElementById("curMonth").innerHTML = calendarType === 'gregorian' ? 
+				months_en[month] : 
+				months_islamic[month_hijri];
+			document.getElementById("curYear").innerHTML =  calendarType === 'gregorian' ? year : year_hijri;
+			loadCalendarMonths(false);
+			loadCalendarYears(false);
+			loadCalendarDays();
+		}
+		
+		function gregorianDate(date){
+			return { 
+				Year: date.getFullYear(), 
+				Month: date.getMonth(), 
+				Day: date.getDate()
+			};
+		}
+		
+		function gregorianToHijri(gDate) {	
+			const day = gDate.getDate();
+			const month = gDate.getMonth();
+			const year = gDate.getFullYear();
+
+			const jd = Math.floor((1461 * (year + 4800 + Math.floor((month - 14) / 12))) / 4) +
+					   Math.floor((367 * (month - 2 - 12 * (Math.floor((month - 14) / 12)))) / 12) -
+					   Math.floor((3 * (Math.floor((year + 4900 + Math.floor((month - 14) / 12)) / 100))) / 4) +
+					   day - 32075;
+
+			const l = jd - 1948440 + 10632;
+			const n = Math.floor((l - 1) / 10631);
+			const l1 = l - 10631 * n + 354;
+			const j = (Math.floor((10985 - l1) / 5316)) * (Math.floor((50 * l1) / 17719)) + (Math.floor(l1 / 5670)) * (Math.floor((43 * l1) / 15238));
+			const l2 = l1 - (Math.floor((30 - j) / 15)) * (Math.floor((17719 * j) / 50)) - (Math.floor(j / 16)) * (Math.floor((15238 * j) / 43)) + 29;
+
+			const m = Math.floor((24 * l2) / 709);
+			const d = l2 - Math.floor((709 * m) / 24);
+			const y = 30 * n + j - 30;
+
+			return { Year: y, Month: m, Day: d };
+		}
+		
+		window.addEventListener('load', function () {
+			loadCalendar()
+		});
+		</script>
+	</head>
+	<body style="display:flex;justify-content: center;flex-direction: column;">
+		 <div class="calendar" id="calendar">
+			<div class="calendar-btn month-btn" onclick="$('#months').toggle('fast')">
+				<span id="curMonth"></span>
+				<div id="months" class="months dropdown"></div>
+			</div>
+
+			<select id="cal" onchange="loadCalendar()">
+				<option value="gregorian" selcet>Gregorian</option>
+				<option value="hijri">Hijri</option>
+			</select>
+			
+			<div class="calendar-btn year-btn" onclick="$('#years').toggle('fast')">
+				<span id="curYear"></span>
+				<div id="years" class="years dropdown"></div>
+			</div>
+
+			<div class="clear"></div>
+			<div class="calendar-dates">
+				<div class="days">
+					<div class="day label">SUN<br/><span style="font-size:18px;color:indigo">الأَحَد</span></div>
+					<div class="day label">MON<br/><span style="font-size:18px;color:indigo">الإثنَين</span></div>
+					<div class="day label">TUE<br/><span style="font-size:18px;color:indigo">الثَّلاثَة</span></div>
+					<div class="day label">WED<br/><span style="font-size:18px;color:indigo">الأربَعة</span></div>
+					<div class="day label">THUR<br/><span style="font-size:18px;color:indigo">الخَمِيس</span></div>
+					<div class="day label">FRI<br/><span style="font-size:18px;color:indigo">الجُمعَة</span></div>
+					<div class="day label">SAT<br/><span style="font-size:18px;color:indigo">السَّبت</span></div>
+
+					<div class="clear"></div>
+				</div>
+
+				<div id="calendarDays" class="days">
+				</div>
+			</div>
+		</div>
+		<div class="calenderDisplay">
+			Date here
+		</div>
+	</body>
+</html>
