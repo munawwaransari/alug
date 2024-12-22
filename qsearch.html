@@ -51,7 +51,6 @@
 	
 	div,table {
 		width: 100%;
-		padding: 10px;
 		rtl: true;
 		text-align: center;
 		margin: 0;
@@ -104,21 +103,31 @@
 		width:80px;
 		font-size:28px!important;
 	}
+	
+	/* Dropdown Button */
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 6px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+}
 	</style>
 </head>
 
 <body>
-	<div style="text-align: center; padding: 20px;display:inline-block">
+	<div style="text-align: center;display:inline-block">
 		<div  class="autocomplete">
 			<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:4px" onclick="showArabicKeyboard('arabic')"/>
 			<input id="searchText">
-			<button id="filterWord" onclick="filterWords()">Words</button>
-			<button id="SearchQ" onclick="search()">Quran</button>
-			<button id="SearchH" title="Search sunnah.com" onclick="searchHadith()">Hadith</button>
-			<button onclick="listSurahs()">Index</button>
+			<button class="dropbtn" id="filterWord" onclick="filterWords()">Words</button>
+			<button class="dropbtn" id="SearchQ" onclick="search()"><b>القُرآن</b></button>
+			<button class="dropbtn" id="SearchH" title="Search sunnah.com" onclick="searchHadith()">الحديث</button>
+			<button class="dropbtn" onclick="listSurahs()">Index</button>
 		</div>
 		<br/>
-		<p style="font-size: 8px">Powered by <a href='https://quranjs.com/' onclick="window.open(this.href, '_blank'); return false;">QuranJS API</a></p>
+		<p style="font-size: 8px;">Powered by <a href='https://quranjs.com/' onclick="window.open(this.href, '_blank'); return false;">QuranJS API</a></p>
 	</div>
 	<div id="qari" style="text-align: center; padding: 20px;display:none">
 		<label>Select Qari:</label>
@@ -126,10 +135,14 @@
 			<option value="AbdulSamad_64kbps_QuranExplorer.Com" select>Abdul Basit Abdul Samad</option>
 			<option value="Alafasy_128kbps">Alafasy</option>
 			<option value="Abdurrahmaan_As-Sudais_192kbps">Abdurrahman Al-Saudais</option>
-			<option value="Saood_ash-Shuraym_128kbps">Saood Ash-Shuraym</option>		
+			<option value="Saood_ash-Shuraym_128kbps">Saood Ash-Shuraym</option>
+			<option value="translations/urdu_shamshad_ali_khan_46kbps">Shamshad Ali Khan (Urdu)</option>
+			<option value="translations/urdu_farhat_hashmi">Farhat Hashmi (Urdu)</option>	
+			<option value="translations/Makarem_Kabiri_16Kbps">Makreem Kabiri (Farsi)</option>
+			<option value="English/Sahih_Intnl_Ibrahim_Walk_192kbps">Sahih Ibrahim (English)</option>					
 		</select>
 		<br/>
-		<p style="font-size: 8px">Powered by <a href='https://everyayah.com/' onclick="window.open(this.href, '_blank'); return false;">https://everyayah.com/</a></p>
+		<p style="font-size: 8px;">Powered by <a href='https://everyayah.com/' onclick="window.open(this.href, '_blank'); return false;">https://everyayah.com/</a></p>
 	</div>
 	</td></tr>
 	</table>

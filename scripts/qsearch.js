@@ -66,7 +66,7 @@ function loadWordsFrom(data){
 	setTimeout(function(){listWordInfo();}, 50);
 	
 	autocomplete(document.getElementById('searchText'), function(val, callback){
-		var condition = val.length > 1 && val !== lastSuggestionInput;
+		var condition = val.length > 0 && val !== lastSuggestionInput;
 		if(condition){
 			lastSuggestionInput = val;
 			//getQSuggesstions(val, callback);
