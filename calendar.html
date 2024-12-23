@@ -71,7 +71,7 @@
 
 		.calendar .calendar-btn
 		{
-			float: left;
+			float: right;
 			background-color: #24aeff;
 			color: white;
 			text-align: center;
@@ -90,12 +90,12 @@
 
 		.calendar .year-btn
 		{
-			float:right;
+			float:left;
 		}
-
+		
 		.calendar .calendar-dates .days .day
 		{
-			float:left;
+			float: left;
 			width: 12%;
 			margin: 1%;
 			padding: 1%;
@@ -125,6 +125,13 @@
 			opacity: 1;
 		}
 
+		.calendar .calendar-dates .days.leftToRight .day {
+			float: left;
+		}
+		.calendar .calendar-dates .days.rightToLeft .day {
+			float: right;
+		}
+		
 		.calendar .calendar-dates .days .day.label
 		{
 			height: 40px;
@@ -165,7 +172,7 @@
 		</style>
 		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
 		<script>
-		var calendarType = 'gregorian';
+		var calendarType = 'hijri';
 		var month_days = ['', 'الأوَّل', 'الثاني', 'الثالث', 'الرابع', 'الخامس', 'السادس', 'السابع',
 						  'الثامن', 'التاسع', 'العاشر', 'الحادي عشر', 'الثاني عشر', 'الثالث عشر', 'الرابع عشر',
 						  'الخامس عشر', 'السادس عشر', 'السابع عشر', 'الثامن عشر', 'التاسع عشر', 'العشرين', 'الحادي والعشرون',
@@ -315,10 +322,14 @@
 			clear.className = "clear";
 			document.getElementById("calendarDays").appendChild(clear);
 			
+			$(".day.label span").show();
+			$(".day.label br").show();
 			if(calendarType === 'gregorian'){
+				$(".day.label span:nth-child(2)").hide();
 				displayDate(gregorianDate(new Date(year, month, sel_day+1)));
 			}
 			else{
+				$(".day.label span:nth-child(1)").hide();
 				displayDate({ Year: year_hijri, Month: month_hijri, Day: sel_day+1 });
 			}
 		}
@@ -340,6 +351,7 @@
 			
 			var gregDate = new Date();
 			var date;
+			toggleDireection();
 			if(calendarType === 'gregorian'){
 				date = gregorianDate(gregDate)
 				month = date.Month;
@@ -361,6 +373,20 @@
 			loadCalendarMonths(false);
 			loadCalendarYears(false);
 			loadCalendarDays();
+		}
+		
+		function toggleDireection(){
+			var className = ".days";
+			//cls.every(function(className){
+				if(calendarType === 'gregorian'){
+					$(className).removeClass('rightToLeft');
+					$(className).addClass('leftToRight');
+				}
+				else{
+					$(className).removeClass('leftToRight');
+					$(className).addClass('rightToLeft');
+				}
+			//});
 		}
 		
 		function gregorianDate(date){
@@ -395,6 +421,7 @@
 		}
 		
 		window.addEventListener('load', function () {
+			$("#cal").val(calendarType);
 			loadCalendar()
 		});
 		</script>
@@ -407,8 +434,8 @@
 			</div>
 
 			<select id="cal" onchange="loadCalendar()">
-				<option value="gregorian" selcet>Gregorian</option>
-				<option value="hijri">Hijri</option>
+				<option value="gregorian">Gregorian</option>
+				<option value="hijri" select>Hijri</option>
 			</select>
 			
 			<div class="calendar-btn year-btn" onclick="$('#years').toggle('fast')">
@@ -419,13 +446,13 @@
 			<div class="clear"></div>
 			<div class="calendar-dates">
 				<div class="days">
-					<div class="day label">SUN<br/><span style="font-size:18px;color:indigo">الأَحَد</span></div>
-					<div class="day label">MON<br/><span style="font-size:18px;color:indigo">الإثنَين</span></div>
-					<div class="day label">TUE<br/><span style="font-size:18px;color:indigo">الثَّلاثَة</span></div>
-					<div class="day label">WED<br/><span style="font-size:18px;color:indigo">الأربَعة</span></div>
-					<div class="day label">THUR<br/><span style="font-size:18px;color:indigo">الخَمِيس</span></div>
-					<div class="day label">FRI<br/><span style="font-size:18px;color:indigo">الجُمعَة</span></div>
-					<div class="day label">SAT<br/><span style="font-size:18px;color:indigo">السَّبت</span></div>
+					<div class="day label"><span>SUN</span><span style="font-size:18px;color:indigo">الأَحَد</span></div>
+					<div class="day label"><span>MON</span><span style="font-size:18px;color:indigo">الإثنَين</span></div>
+					<div class="day label"><span>TUE</span><span style="font-size:18px;color:indigo">الثَّلاثَة</span></div>
+					<div class="day label"><span>WED</span><span style="font-size:18px;color:indigo">الأربَعة</span></div>
+					<div class="day label"><span>THU</span><span style="font-size:18px;color:indigo">الخَمِيس</span></div>
+					<div class="day label"><span>FRI</span><span style="font-size:18px;color:indigo">الجُمعَة</span></div>
+					<div class="day label"><span>SAT</span><span style="font-size:18px;color:indigo">السَّبت</span></div>
 
 					<div class="clear"></div>
 				</div>
