@@ -14,9 +14,35 @@
 				padding: 10px;
 				font-size: 30px;
 			}
+			
+			.num-disp{
+				display: flex;
+				flex-wrap: wrap; /* This enables wrapping of flex items */
+				gap: 10px; /* Optional: Adds space between items */
+				float: right;
+				direction: rtl;
+				text-align: center;
+				margin:auto;
+				width: 100%;
+			}
+			
+			.num-box{
+				padding: 10px;
+				font-size: 30px;
+				text-align: center;
+				box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+				width: 100px;
+			}
+			
+			.num-disp .num-box:hover {
+				background-color: #84BA38;
+				color: #0707FB;
+				transition: transform 0.6s;
+				transform-style: preserve-3d;
+				box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+			}
 		</style>
 		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
-		<!-- <script type="text/javascript" src="scripts/jquery.svg/jquery.svg.js"></script> -->
 		<script>
 			var tensNames = {
 				"10": "وَعَشَرَ",
@@ -53,6 +79,10 @@
 			window.onload = function(){
 				$("#numText").val(100000)
 				showNumberText();
+				
+				setTimeout(function(){
+					displayNumbers();
+				}, 10);
 			}
 			
 			function showNumberText(){
@@ -163,12 +193,41 @@
 					return txt.substring(2);
 				return txt;
 			}
+			
+			function removeDiacritic(txt){
+				return txt.replace(new RegExp('ُ$','g'), '');
+			}
+			
+			function displayNumbers(){
+				$("#numberDisplay").empty();
+				for(var i=1; i < 20; i++){
+					var numText =removeDiacritic(removePrefix(getNumberText(i+"")));
+					$("#numberDisplay").append($('<div class="num-box">'+i+'<br/>'+numText+'</div>'));
+				}
+				
+				for(var i=20; i < 100; i+=10){
+					var numText =removeDiacritic(removePrefix(getNumberText(i+"")));
+					$("#numberDisplay").append($('<div class="num-box">'+i+'<br/>'+numText+'</div>'));
+				}
+				
+				for(var i=100; i < 1000; i+=200){
+					var numText =removeDiacritic(removePrefix(getNumberText(i+"")));
+					$("#numberDisplay").append($('<div class="num-box">'+i+'<br/>'+numText+'</div>'));
+				}
+				
+				for(var i=1000; i < 12000; i+=3000){
+					var numText =removeDiacritic(removePrefix(getNumberText(i+"")));
+					$("#numberDisplay").append($('<div class="num-box">'+i+'<br/>'+numText+'</div>'));
+				}
+			}
 		</script>
 	</head>
 	<body style="display:flex;justify-content: center;flex-direction: column;">
 		<div class="arabicNumber">
 			<label>Check Number:<input id="numText" style="width:100px;font-size:16px;" maxlength="6" onchange="showNumberText()"/></label>
 		</div>
-		<div id="numberDiv" class="arabicNumber" />
+		<div id="numberDiv" class="arabicNumber" ></div>
+		<br/>
+		<div id="numberDisplay" class="num-disp" ></div>
 	</body>
 </html>
