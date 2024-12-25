@@ -322,8 +322,9 @@ function updateToolDescription(id){
 					},
 					"Misc" :{
 						"Clock": "clock",
+						"Calendar": "calendar",
 						"Number": "number",
-						"Calendar": "calendar"
+						"Patterns": "patterns"
 					}
 				};
 				

@@ -986,6 +986,15 @@ class posAPI {
 			return true;
 		});
 	}
+	
+	removeDiacritics(pattern)
+	{
+		return this.#removeErab(pattern, true);
+	}
+	
+	applyPattern(word, pInfo){
+		return this.#P2Conjugate(word, pInfo, {xRoot: word}, pInfo.form)
+	}
 }
 
 function toggleConjugations(tableId, index){
