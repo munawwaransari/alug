@@ -213,8 +213,15 @@
 							 '<span>'+ months_islamic[date.Month] + ' </span>' + 
 							 '<span>'+ translateNumber(date.Year) + ' </span>' + 
 						 '</div>';
+						 
+				/*
+				playCalendarText(
+					translateNumber(date.Day) + ' '+ 
+					months_islamic[date.Month] + ' ' + 
+					translateNumber(date.Year)
+				);
+				*/
 			}
-			
 			$(".calenderDisplay").html(html);
 		}
 
@@ -424,6 +431,12 @@
 			$("#cal").val(calendarType);
 			loadCalendar()
 		});
+		
+		function playCalendarText(txt){
+			if(parent && parent.playText){
+				parent.playText(txt, 'ar-SA');
+			}
+		}
 		</script>
 	</head>
 	<body style="display:flex;justify-content: center;flex-direction: column;">
