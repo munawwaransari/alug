@@ -319,6 +319,7 @@ function updateToolDescription(id){
 						"Homonymn": "homonym",
 						"Antonym": "antonym",
 						"Hyperbole": "hyperbole",
+						"Greetings": "greetings",
 						"Colors": "colors"
 					},
 					"Misc" :{

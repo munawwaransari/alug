@@ -200,6 +200,9 @@
 			case "hyperbole":
 				darwHyperbole(div, cdata);
 				break;
+			case "greetings":
+				darwGreetings(div, cdata);
+				break;
 			case "colors":
 				drawColors(div, cdata);
 				break;
@@ -340,6 +343,31 @@
 		  // div.append($(fdiv));
 		  //}
 		}		
+		
+		function darwGreetings(div, h){             
+
+			h.names.every(function(name, i){			
+				var fdiv = '<div class="flip-card">'+
+						  '<div class="flip-card-inner">'+
+							'<div class="flip-card-front">'+
+								'<span style="position:relative; display:flex; align-items:center; font-size:34px">'+
+									name+
+								'</span>'+
+							'</div>'+
+							'<div class="flip-card-back">'+
+								'<img onmouseenter="playCard(\''+name+'\')" '+ 
+									'style="opacity:0;top:24%; width:94%; height:76%" class="alpha-image" src="">'+
+								'</img>'+
+								'<span style="position:relative; display:flex; align-items:center; font-size:32px">'+
+									h.en[i]+
+								'</span>'+
+							  '</div>'+
+						  '</div>'+
+						'</div>';
+				div.append($(fdiv));
+				return true;
+			});
+		}	
 		
 		function drawColors(div, color){
 		

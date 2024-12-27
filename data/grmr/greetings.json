@@ -1,0 +1,34 @@
+{
+    "greetings": [
+        {
+            "names": [
+                "سلامٌ عليك",
+                "اَهلًا",
+                "مرحباً",
+                "أهلًا و سَهلًا",
+                "أهلًا فِيك",
+                "صباح الخير",
+                "مساءّالخير",
+                "صباح النور",
+                "مساء النور",
+                "مع السّلامة",
+                "يلّا باي",
+                "بشوفك"
+            ],
+            "en": [
+                "Peace be on you",
+                "Hi",
+                "Welcome",
+                "Welcome",
+                "You too",
+                "Good Morning",
+                "Good Evening",
+                "Very Good Morning",
+                "very Good Evening",
+                "Good Bye",
+                "Okay Bye",
+                "See You"
+            ]
+        }
+    ]
+}
