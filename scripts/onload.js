@@ -318,6 +318,7 @@ function updateToolDescription(id){
 						"Synonyms": "synonym",
 						"Homonymn": "homonym",
 						"Antonym": "antonym",
+						"Hyperbole": "hyperbole",
 						"Colors": "colors"
 					},
 					"Misc" :{

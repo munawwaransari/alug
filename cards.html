@@ -197,6 +197,9 @@
 			case "homonym":
 				darwHomonymn(div, cdata);
 				break;
+			case "hyperbole":
+				darwHyperbole(div, cdata);
+				break;
 			case "colors":
 				drawColors(div, cdata);
 				break;
@@ -311,7 +314,32 @@
 		  }else{
 		   div.append($(adiv));
 		  }
-		} 
+		}
+
+		function darwHyperbole(div, h){             
+		  //if(h.images){
+		    var fdiv = '<div class="flip-card">'+
+                      '<div class="flip-card-inner">'+
+                        '<div class="flip-card-front">'+
+							'<span style="position:relative; display:flex; align-items:center; font-size:34px">'+
+								h.names[0]+'<br/>'+h.en[0]+
+							'</span>'+
+                        '</div>'+
+                        '<div class="flip-card-back">'+
+                            '<img onmouseenter="playCard(\''+h.names[1]+'\')" '+ 
+                                'style="opacity:0;top:24%; width:94%; height:76%" class="alpha-image" src="">'+
+                            '</img>'+
+							'<span style="position:relative; display:flex; align-items:center; font-size:32px">'+
+								h.names[1]+
+							'</span>'+
+                          '</div>'+
+                      '</div>'+
+                    '</div>';
+		    div.append($(fdiv));
+		  //}else{
+		  // div.append($(fdiv));
+		  //}
+		}		
 		
 		function drawColors(div, color){
 		
