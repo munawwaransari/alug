@@ -64,8 +64,8 @@ function loadWordsFrom(data){
 	});
 	
 	setTimeout(function(){
-		$("#searchText").val('');
-		search();
+		//$("#searchText").val('');
+		listSurahs();
 	}, 50);
 	
 	autocomplete(document.getElementById('searchText'), function(val, callback){
@@ -280,16 +280,28 @@ function listSurahs(){
 		div.empty();
 		var table = '<table class="surahIndex"><th>Index</th><th>Surah Name (en)</th><th>Surah Name (ar)</th>';
 		for (const [index, surah] of Object.entries(data)) {
-			
 			var tanzilLink = '<a style="cursor:pointer;font-size:18px" href="https://tanzil.net/#'+index+'" '+
 				 'onclick="var w = parent ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
 				 '[' + surah.en+ ']'+
 				 '</a>';
-			table = table+ '<tr>'+'<td>'+index+'</td>'+'<td>'+tanzilLink+'</td>'+'<td class="qword">'+surah.ar+'</td></tr>';	
+			table = table+ '<tr>'+'<td>'+index+'</td>'+'<td>'+tanzilLink+'</td>'+
+								'<td onclick="searchText(\''+
+										surah.ar.trim()
+											    .replace('ٱ','ا')
+												.replace('إ','ا')
+												.replace('ال','')+
+									'\')" ' + 
+								' class="qword">'+surah.ar+'</td>'+
+							'</tr>';	
 		}
 		table = table+'</table>';
 		div.append($(table));
 	});
+}
+
+function searchText(txt){
+	$("#searchText").val(txt);
+	search();
 }
 
 async function listSurahsAsync(url, callback)
