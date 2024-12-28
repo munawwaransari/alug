@@ -320,16 +320,17 @@
 		}
 
 		function darwHyperbole(div, h){             
-		  //if(h.images){
 		    var fdiv = '<div class="flip-card">'+
                       '<div class="flip-card-inner">'+
-                        '<div class="flip-card-front">'+
+                        '<div class="flip-card-front" '+
+							'onmouseenter="playCard(\''+h.names[0]+'\')" '+
+							'>'+
 							'<span style="position:relative; display:flex; align-items:center; font-size:34px">'+
 								h.names[0]+'<br/>'+h.en[0]+
 							'</span>'+
                         '</div>'+
                         '<div class="flip-card-back">'+
-                            '<img onmouseenter="playCard(\''+h.names[1]+'\')" '+ 
+                            '<img '+ 
                                 'style="opacity:0;top:24%; width:94%; height:76%" class="alpha-image" src="">'+
                             '</img>'+
 							'<span style="position:relative; display:flex; align-items:center; font-size:32px">'+
@@ -339,9 +340,6 @@
                       '</div>'+
                     '</div>';
 		    div.append($(fdiv));
-		  //}else{
-		  // div.append($(fdiv));
-		  //}
 		}		
 		
 		function darwGreetings(div, h){             
@@ -349,13 +347,15 @@
 			h.names.every(function(name, i){			
 				var fdiv = '<div class="flip-card">'+
 						  '<div class="flip-card-inner">'+
-							'<div class="flip-card-front">'+
+							'<div class="flip-card-front" '+
+								'onmouseenter="playCard(\''+name+'\')" '+
+								'>'+
 								'<span style="position:relative; display:flex; align-items:center; font-size:34px">'+
 									name+
 								'</span>'+
 							'</div>'+
 							'<div class="flip-card-back">'+
-								'<img onmouseenter="playCard(\''+name+'\')" '+ 
+								'<img '+ 
 									'style="opacity:0;top:24%; width:94%; height:76%" class="alpha-image" src="">'+
 								'</img>'+
 								'<span style="position:relative; display:flex; align-items:center; font-size:32px">'+
@@ -394,7 +394,10 @@
 							
 		    var cdiv = '<div class="flip-card">'+
 						'<div class="flip-card-inner">'+
-                        '<div class="flip-card-front" '+backStyle+'>'+
+                        '<div class="flip-card-front" '+
+							'onmouseenter="playCard(\''+color.names[0]+
+								'.'+color.names[1]+'\')" '+
+							backStyle+'>'+
 							'<p style="font-size:38px;margin-top:50px;'+backColor+';">'+color.names[0]+
 							'<br/><span style="font-size:28px;'+backColor+';">'+color.en+'</span>'+
 							'<br/><span style="font-size:32px;'+backColor+';">'+color.ur+'</span>'+
