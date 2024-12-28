@@ -121,10 +121,10 @@
 		<div  class="autocomplete">
 			<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:4px" onclick="showArabicKeyboard('arabic')"/>
 			<input id="searchText">
-			<button class="dropbtn" id="filterWord" onclick="filterWords()">Words</button>
-			<button class="dropbtn" id="SearchQ" onclick="search()"><b>القُرآن</b></button>
+			<button class="dropbtn" id="SearchQ" onclick="search()">القُرآن</button>
 			<button class="dropbtn" id="SearchH" title="Search sunnah.com" onclick="searchHadith()">الحديث</button>
-			<button class="dropbtn" onclick="listSurahs()">Index</button>
+			<button class="dropbtn" id="filterWord" onclick="filterWords()">Words</button>
+			<button class="dropbtn" onclick="listSurahs()">Surahs</button>
 		</div>
 		<br/>
 		<p style="font-size: 8px;">Powered by <a href='https://quranjs.com/' onclick="window.open(this.href, '_blank'); return false;">QuranJS API</a></p>

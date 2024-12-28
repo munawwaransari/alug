@@ -63,7 +63,10 @@ function loadWordsFrom(data){
 		return d.word;
 	});
 	
-	setTimeout(function(){listWordInfo();}, 50);
+	setTimeout(function(){
+		$("#searchText").val('');
+		search();
+	}, 50);
 	
 	autocomplete(document.getElementById('searchText'), function(val, callback){
 		var condition = val.length > 0 && val !== lastSuggestionInput;
@@ -104,17 +107,6 @@ function search(){
 			if(resulText){
 				var verseKeys = res.verseKey.split(":");
 				var verse = resulText.replace(/[<>\/a-zA-Z]+/ig, '');				
-				/*
-				//var replacedWords = [];
-				var wIndex = 0;
-				var wordMap = res.words.map(function(w){
-					wIndex++;
-					var url = "https://www.almaany.com/quran/"+verseKeys[0]+"/"+verseKeys[1]+"/"+wIndex;
-					return '<span class="word" style="cursor:pointer" onclick="showWordAnalysis(\''+url+'\');">'+w.text+'</span>';
-					//replacedWords.push({"word": w.text, "text": replaceWord(w) });
-				});
-				verse = wordMap.join('');
-				*/
 				
 				var spanId = verseKeys[0]+"_"+verseKeys[1]; //res.verseKey.replace(":","_");
 				var play = parent.playAudio ? '<span id="'+spanId+'">'+
@@ -145,10 +137,10 @@ function search(){
 								 '</a>';
 								 
 				div.append($('<div>'+verse+'</div>'+
-							  '<div style="fonct-size:12px;"><span>'+tanzilLink+'</span>'+
-								   '<span>'+copy+'</span>'+
-								   '<span>'+play+'</span>'+
-							       '<span>'+translationLink+'</span>'+
+							  '<div style="font-size:12px;"><span>'+tanzilLink+'</span>'+
+								   '<span style="padding:8px;">'+copy+'</span>'+
+								   '<span style="padding:8px;">'+play+'</span>'+
+							       '<span style="padding:8px;">'+translationLink+'</span>'+
 							 '</div>'));
 			}
 		});
@@ -267,7 +259,7 @@ function listWordInfo(filter){
 function filterWords(){
 	$("#qari").hide();
 	var text = $("#searchText").val();
-	listWordInfo(text);
+	listWordInfo();
 }
 
 function selectWordAndSearchInQuran(word){
