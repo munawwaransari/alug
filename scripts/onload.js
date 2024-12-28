@@ -245,9 +245,9 @@ function showChart(sel){
 	$('.reading-pane').attr("src","");
 	var path = "";
 	switch (sel){
-		case "Vocabulary": path = 'cards.html?data='+name; break;
+		case "Vocab": path = 'cards.html?data='+name; break;
 		case "Misc": path = name+'.html'; break;
-		case "Charts": path = 'charts.html?folder='+name; break;
+		case "Chart": path = 'charts.html?folder='+name; break;
 		default: console.log('Error: invalid section');	return;
 	}
 	setTimeout(function(){
@@ -314,7 +314,7 @@ function updateToolDescription(id){
 			if(states.menu !== "visible"){
 				updateStates({"menu": "visible"});
 				var menuItems = {
-					"Vocabulary": {
+					"Vocab": {
 						"Alphabets": "alpha",
 						"Synonyms": "synonym",
 						"Homonymn": "homonym",
@@ -324,7 +324,7 @@ function updateToolDescription(id){
 						"Colors": "colors",
 						"Pronouns": "pronouns"
 					},
-					"Charts" :{
+					"Chart" :{
 						"Alphabets": "alphabets",
 						"Synonyms": "synonym",
 						"Homonym": "homonym",
