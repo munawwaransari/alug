@@ -320,7 +320,8 @@ function updateToolDescription(id){
 						"Antonym": "antonym",
 						"Hyperbole": "hyperbole",
 						"Greetings": "greetings",
-						"Colors": "colors"
+						"Colors": "colors",
+						"Pronouns (Detached)": "pronouns (detached)"
 					},
 					"Misc" :{
 						"Clock": "clock",

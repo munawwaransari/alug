@@ -206,6 +206,9 @@
 			case "colors":
 				drawColors(div, cdata);
 				break;
+			case "pronouns (detached)":
+				drawPronouns(div, cdata);
+				break;
 		  }
 		} 
 		
@@ -413,6 +416,31 @@
 		   div.append($(cdiv));
 		  }
 		} 
+		
+		function drawPronouns(div, p){             
+		
+			var fdiv = '<div class="flip-card">'+
+					  '<div class="flip-card-inner">'+
+						'<div class="flip-card-front" '+
+							'>'+
+							'<span style="position:relative; display:flex; align-items:center; font-size:34px">'+
+								p.names[0]+'<br/>'+p.en[0]+
+							'</span>'+
+						'</div>'+
+						'<div class="flip-card-back" '+ 
+							'onmouseenter="playCard(\''+p.names[0]+'.'+p.names[1]+'\')" '+
+							'>'+
+							'<img '+ 
+								'style="opacity:0;top:24%; width:94%; height:76%" class="alpha-image" src="">'+
+							'</img>'+
+							'<span style="position:relative; display:flex; align-items:center; font-size:32px">'+
+								p.names[1]+'<br/>'+p.en[1]+
+							'</span>'+
+						  '</div>'+
+					  '</div>'+
+					'</div>';
+		div.append($(fdiv));
+	}	
 	</script>
 </head>
   <body>

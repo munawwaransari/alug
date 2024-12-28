@@ -1,0 +1,44 @@
+{
+    "pronouns (detached)": [
+        {
+            "names": ["هُوَ", "هِيَ"],
+			"en": ["He","She"],
+            "images": []
+        },
+		{
+            "names": ["هُمَا", "هُمَا"],
+			"en": ["They both (masculine)","You both (feminine)"],
+            "images": []
+        },
+		{
+            "names": ["هُم", "هُنَّ"],
+			"en": ["They (masculine)","They (feminine)"],
+            "images": []
+        },
+		{
+            "names": ["اَنتَ", "اَنتِ"],
+			"en": ["You (masculine)","You (feminine)"],
+            "images": []
+        },
+		{
+            "names": ["اَنتُمَا", "اَنتُمَا"],
+			"en": ["You both (masculine)","You both (feminine)"],
+            "images": []
+        },
+		{
+            "names": ["اَنتُم", "اَنتُنَّ"],
+			"en": ["You all (masculine)","You all (feminine)"],
+            "images": []
+        },
+		{
+            "names": ["اَنَا", "اَنَا"],
+			"en": ["I (masculine)","I (feminine)"],
+            "images": []
+        },
+		{
+            "names": ["نَحنُ", "نَحنُ"],
+			"en": ["We (masculine)","We (feminine)"],
+            "images": []
+        }
+    ]
+}
