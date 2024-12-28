@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+	<title>Chart Test</title>
+	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+	<script src="scripts/data-util.js"></script>
+	<style>
+		.chart {
+			display: flex;
+			flex-direction:row;
+			flex-wrap: wrap;
+			direction: rtl;
+		}
+		
+		.chartTile {
+			width: 200px;
+			height: auto;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var folder = decodeURI(getParamValue("folder"));
+			if(folder){
+				var url = getLocationPath() + 'images/charts/'+folder+'/';
+				loadCharts(url, getMax(folder));
+			}
+		}	
+		
+		function getMax(folder){
+			var max = 10;
+			switch (folder){
+				case "alphabets": max = 28; break;
+				case "antonym": max = 30; break;
+				case "homonym": max=32; break;
+				case "jarr": max=16; break;
+				case "synonym": max=12; break;
+			}
+			return max;
+		}
+		
+		function loadCharts(url, maxFiles){
+		
+		    var div = '<div class="chart">';
+			for(var i=1; i <=maxFiles; i++){
+				div += '<img class="chartTile" src="'+url+i+'.png"></img>';
+			}
+            div += '</div>';
+			$("#chartContainer").empty();
+			$("#chartContainer").append($(div));
+		}
+	</script>
+</head>
+  <body>
+    <div id="chartContainer">
+  </div>
+</body>
+</html>

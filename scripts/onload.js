@@ -247,6 +247,7 @@ function showChart(sel){
 	switch (sel){
 		case "Vocabulary": path = 'cards.html?data='+name; break;
 		case "Misc": path = name+'.html'; break;
+		case "Charts": path = 'charts.html?folder='+name; break;
 		default: console.log('Error: invalid section');	return;
 	}
 	setTimeout(function(){
@@ -322,6 +323,13 @@ function updateToolDescription(id){
 						"Greetings": "greetings",
 						"Colors": "colors",
 						"Pronouns": "pronouns"
+					},
+					"Charts" :{
+						"Alphabets": "alphabets",
+						"Synonyms": "synonym",
+						"Homonym": "homonym",
+						"Antonyms": "antonym",
+						"Jarr": "jarr"
 					},
 					"Misc" :{
 						"Clock": "clock",
