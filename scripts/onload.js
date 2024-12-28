@@ -321,7 +321,7 @@ function updateToolDescription(id){
 						"Hyperbole": "hyperbole",
 						"Greetings": "greetings",
 						"Colors": "colors",
-						"Pronouns (Detached)": "pronouns (detached)"
+						"Pronouns": "pronouns"
 					},
 					"Misc" :{
 						"Clock": "clock",

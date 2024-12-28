@@ -1,114 +1,100 @@
 {
-    "antonyms": [
+    "pronouns": [
         {
-            "names": ["طويل", "قصير"],
-			"en": ["Long","Short"],
-			"ur": ["لمبا","چھوٹا"],
+            "names": [
+                "هُوَ",
+                "هِيَ"
+            ],
+            "en": [
+                "He",
+                "She"
+            ],
             "images": [
-				"https://images.freeimages.com/images/large-previews/993/long-tunnel-1-1186460.jpg?fmt=webp&h=350",
-				"https://images.freeimages.com/images/large-previews/82b/small-country-bridge-1227042.jpg?fmt=webp&h=350"
-			]
+            ]
         },
-		{
-            "names": ["نحيل", "سمين"],
-			"en": ["Slim","Fat"],
-			"ur": ["دُبلا","موٹا"],
+        {
+            "names": [
+                "هُمَا",
+                "هُمَا"
+            ],
+            "en": [
+                "They both (M)",
+                "You both (F)"
+            ],
             "images": [
-				"https://images.freeimages.com/variants/yuTfnowPjG3eExT1uHfabQWN/f4a36f6589a0e50e702740b15352bc00e4bfaf6f58bd4db850e167794d05993d?fmt=webp&h=350",
-				"https://images.freeimages.com/images/large-previews/db8/fat-shadow-man-1168363.jpg?fmt=webp&h=350"
-			]
+            ]
         },
-		{
-            "names": ["حُلُوٌ", "مُر"],
-			"en": ["Sweeet","Bitter"],
-			"ur": ["میٹھا","تلخ"],
+        {
+            "names": [
+                "هُم",
+                "هُنَّ"
+            ],
+            "en": [
+                "They (M)",
+                "They (F)"
+            ],
             "images": [
-				"https://images.freeimages.com/images/large-previews/792/gradient-icing-birthday-cake-0410-5697654.jpg?fmt=webp&h=350",
-				"https://images.freeimages.com/images/large-previews/683/karela-1-1519230.jpg?fmt=webp&h=350"
-			]
+            ]
         },
-		{
-            "names": ["سريع", "بطيء"],
-			"en": ["Fast", "Slow"],
-			"ur": ["تیز","سُست"],
+        {
+            "names": [
+                "اَنتَ",
+                "اَنتِ"
+            ],
+            "en": [
+                "You (M)",
+                "You (F)"
+            ],
             "images": [
-				"https://images.freeimages.com/images/large-previews/0e1/arctic-hare-snow-leap-0410-5700136.jpg?fmt=webp&h=350",
-				"https://images.freeimages.com/images/large-previews/448/mother-sloth-embracing-baby-0410-5699407.jpg?fmt=webp&h=350"
-			]
+            ]
         },
-		{
-            "names": ["خفيف", "ثقيل"],
-			"en": ["Light", "Heavy"],
-			"ur": ["ہلکا", "بھاری"],
+        {
+            "names": [
+                "اَنتُمَا",
+                "اَنتُمَا"
+            ],
+            "en": [
+                "You both (M)",
+                "You both (F)"
+            ],
             "images": [
-				"https://images.freeimages.com/image/previews/fed/autumn-watercolor-leaf-png-5691099.png?fmt=webp&h=350",
-				"https://images.freeimages.com/images/large-previews/53c/heavy-tension-1191360.jpg?fmt=webp&h=350"
-			]
+            ]
         },
-		{
-            "names": ["بارد", "حار"],
-			"en": ["Cold", "Hot"],
-			"ur": ["سرد","گرم"],
+        {
+            "names": [
+                "اَنتُم",
+                "اَنتُنَّ"
+            ],
+            "en": [
+                "You all (M)",
+                "You all (F)"
+            ],
             "images": [
-				"https://images.freeimages.com/image/previews/551/snowy-beanie-cap-png-art-5702343.png?fmt=webp&h=350",
-				"https://images.freeimages.com/images/large-previews/f66/steamy-ceramic-mug-close-up-0410-5699840.jpg?fmt=webp&h=350"
-			]
+            ]
         },
-		{
-            "names": ["وفير", "نادر"],
-			"en": ["Abundant", "Rare"],
-			"ur": ["وافر","نایاب"],
+        {
+            "names": [
+                "اَنَا",
+                "اَنَا"
+            ],
+            "en": [
+                "I (M)",
+                "I (F)"
+            ],
             "images": [
-				"https://images.freeimages.com/vhq/images/previews/4ae/macro-grass-30140.jpg?fmt=webp&h=350",
-				"https://images.freeimages.com/images/large-previews/e9b/rare-flower-1496015.jpg?fmt=webp&h=350"
-			]
+            ]
         },
-		{
-            "names": ["ضوضاء", "صَمت"],
-			"en": ["Noise", "Silence"],
-			"ur": ["شور","خاموشی"],
+        {
+            "names": [
+                "نَحنُ",
+                "نَحنُ"
+            ],
+            "en": [
+                "We (M)",
+                "We (F)"
+            ],
             "images": [
-				"https://images.freeimages.com/images/large-previews/e5c/wall-of-sound-1521663.jpg?fmt=webp&h=350",
-				"https://images.freeimages.com/images/large-previews/46f/silence-1189377.jpg?fmt=webp&h=350"
-			]
-        },
-		{
-            "names": ["زكي", "غبي"],
-			"en": ["Smart", "Stupid"],
-			"ur": ["ہوشیار","بیوقوف"],
-            "images": [
-				"https://images.freeimages.com/images/large-previews/982/noughts-and-crosses-1238835.jpg?fmt=webp&h=350",
-				"https://images.freeimages.com/images/large-previews/31d/earnie-the-emu-1364511.jpg?fmt=webp&h=350"
-			]
-        },
-		{
-            "names": ["غالي", "رخيص"],
-			"en": ["Expensive", "Cheap"],
-			"ur": ["قیمتی","سستا"],
-            "images": [
-				"https://images.freeimages.com/images/large-previews/a4a/blue-jewels-2-1167276.jpg?fmt=webp&h=350",
-				"https://images.freeimages.com/images/large-previews/a06/zapatos-2-1366295.jpg?fmt=webp&h=350"
-			]
-        },
-		{
-            "names": ["مُتزوِّج", "اعزب"],
-			"en": ["Married", "Bachelor"],
-			"ur": ["شادی شدہ", "کنوارا"],
-            "images": [
-				"https://images.freeimages.com/images/large-previews/b53/old-couple-1316755.jpg?fmt=webp&h=350",
-				"https://images.freeimages.com/variants/GdABE7UN1AYgEbd2hxSFTK2R/f4a36f6589a0e50e702740b15352bc00e4bfaf6f58bd4db850e167794d05993d?fmt=webp&h=350"
-				
-			]
-        },
-		{
-            "names": ["صعب", "سهل"],
-			"en": ["Difficult", "Easy"],
-			"ur": ["مشکل", "آسان"],
-            "images": [
-				"https://images.freeimages.com/images/large-previews/1fc/jigsaw-1173046.jpg?fmt=webp&h=350",
-				"https://images.freeimages.com/images/large-previews/152/the-best-shoes-1186640.jpg?fmt=webp&h=350"
-				
-			]
+            ]
         }
     ]
 }
