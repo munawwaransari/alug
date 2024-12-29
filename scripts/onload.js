@@ -329,7 +329,10 @@ function updateToolDescription(id){
 						"Synonyms": "synonym",
 						"Homonym": "homonym",
 						"Antonyms": "antonym",
-						"Jarr": "jarr"
+						"Jarr": "jarr",
+						"Verbs": "verbs",
+						"Verb Forms": "verb-forms",
+						"Imperatives": "imperative"
 					},
 					"Misc" :{
 						"Clock": "clock",
