@@ -349,20 +349,23 @@ function updateToolDescription(id){
 						menu = menu + '<span class="menuitem" onclick="'+value+';">'+key+'</span>';
 					else{
 						var onAction = 'showChart(\''+key+'\')';
-						menu += '<span class="menuitem" onclick="'+onAction+'">'+
+						menu += '<span class="menuitem" onclick="toggleMenu([\'Vocab\',\'Chart\',\'Misc\'],\'sel'+key+'\')">'+
 							key+':<select id="sel'+key+'" ' +
 									' onchange="'+onAction+'">';
 						for(const [k,v]of Object.entries(value))
 							menu += '<option value="'+v+'">'+k+'</option>';
 						menu += '</select></span>';
-						$("#selVocab").val('Alphabets');
-						setTimeout(function(){
-							showChart('Vocabulary');
-						},10);
 					}
+					
+					$("#sel"+key).hide();
 				}
 				menu = menu + '</div>';
 				toolMessage.append(menu);
+				
+				setTimeout(function(){
+					toggleMenu(['Vocab', 'Chart', 'Misc'], 'selVocab');
+				},10);
+
 			}else{
 				updateStates({"menu": "hidden"});
 			}
@@ -375,6 +378,18 @@ function updateToolDescription(id){
 		}
 		break;			
 	}
+}
+
+function toggleMenu(items, key){
+	items.every(function(mi){
+		if("sel"+mi == key){
+			$("#sel"+mi).show();
+			showChart(mi);
+		}else{
+			$("#sel"+mi).hide();
+		}
+		return true;
+	});
 }
 
 function updateInitialStates(){
