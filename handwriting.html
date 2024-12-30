@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<!-- https://www.cssscript.com/drawing-handwriting-canvas/ -->
+	
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+	<title>Chart Test</title>
+	<style>
+	#draw-area {
+		padding: 10px;
+		transform-style: preserve-3d;
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	}
+	
+	#textResult{
+		padding: 10px;
+		font-size: 28px;
+		text-align: center;
+		width: 100px;
+	}
+	</style>
+	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+	<script src="scripts/hw-canvas/main.js"></script>
+	<script src='https://unpkg.com/tesseract.js@5.0.0/dist/tesseract.min.js'></script>
+	<script>
+		var canvasElement;
+		var canvas;
+		var imageUrl;
+		
+		window.onload = function(){
+			canvasElement = document.querySelector('#draw-area');
+			canvas = new HandwritingCanvas(canvasElement);
+		}
+		
+		function clearCanvas(){
+			if(canvas)
+				canvas.clear();
+			$("#textResult").empty();
+		}
+		
+		async function toPNG(){
+			if (canvas.isEmpty) {
+			  return;
+			}
+			if(imageUrl)
+				URL.revokeObjectURL(imageUrl);			
+			
+			const blob = await canvas.toBlob('image/png');
+			imageUrl = URL.createObjectURL(blob);
+			const imgElement = document.createElement('img');
+
+			imgElement.src = imageUrl;
+			const createdPngElement = document.querySelector('#result');
+			if (createdPngElement.firstChild) {
+			  createdPngElement.removeChild(createdPngElement.firstChild);
+			}
+			createdPngElement.appendChild(imgElement);
+		}
+		
+		async function canvasToText(){
+			$("#textResult").html('Converting...');
+			const blob = await canvas.toBlob('image/png');
+			const reader = new FileReader();
+			reader.readAsDataURL(new Blob([blob], { type: 'image/png' })); 
+			reader.onloadend = function() {
+				var output = $("#textResult");
+			    Tesseract.recognize(
+					reader.result, 'ara'
+			    ).then(result => {
+					if(result.data)
+						output.text(result.data.text);
+					else
+						output.text('Error!');
+			    }).catch(err => {
+					output.text('Processing Failed');
+					console.log(err);
+			    });
+			}
+		}
+		
+		async function saveBlobAsImage() {
+			const blob = await canvas.toBlob('image/png');
+			const filename = "sample.png";
+			const file = new File([blob], filename, { type: blob.type });
+			const url = URL.createObjectURL(file);
+			const a = document.createElement('a');
+			a.href = url;
+			a.download = filename;
+			
+			const div = document.querySelector('#result');
+			div.appendChild(a);
+			a.click();
+			div.removeChild(a);
+			URL.revokeObjectURL(url);
+		}
+	</script>
+</head>
+<body>
+	<canvas id="draw-area"></canvas>
+	<div id="result"></div>
+	<button onclick="clearCanvas()">Clear</button>
+	<!-- <button onclick="toPNG()">PNG</button> -->
+	<button onclick="canvasToText()">Convert to Text</button>
+	<!-- <button onclick="saveBlobAsImage()">Save PNG</button> -->
+	<div id="textResult"></div>
+</body>
+</html>
