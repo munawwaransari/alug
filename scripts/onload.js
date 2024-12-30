@@ -456,3 +456,11 @@ function autoplayAudio(chapter, page){
 		console.log("Please change language option and retry!");
 	});
 }
+
+function loadHandwriting(){
+	console.log("loadHandwriting");
+	$('.reading-pane').attr("src","");
+	setTimeout(function(){
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "draw.html"));
+	}, 5);	
+}

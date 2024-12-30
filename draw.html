@@ -66,7 +66,7 @@
 	  bgColor: "white",
 	}
 	const brushSizes = [6, 8, 10, 12, 14];
-	const colors = "red,orange,green,blue,cyan,black".split(",");
+	const colors = "red,orange,green,blue,black".split(",");
 	var currentColor = "blue";
 	var currentWidth = 12;
 	var currentSelectBrush;
@@ -155,7 +155,7 @@
 		//*** Add Convert Buttons
 		var convBtn = document.createElement("button");
 		convBtn.height = 16;
-		convBtn.innerHTML = 'Conv';
+		convBtn.innerHTML = 'OCR';
 		convBtn.addEventListener('click', function() {
 			$("#ocrResult").html('Converting...');
 			canvas.toBlob(function(blob){
