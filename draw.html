@@ -9,6 +9,7 @@
 	<title>Canvas Draw Test</title>
 	<style>
 	#can {
+	  width: 100%;
 	  position: absolute;
 	  top: 32px;
 	  left: 0px;
@@ -17,6 +18,7 @@
 	}
 
 	.colors {
+	  left:0;
 	  border: 1px solid black;
 	  display: inline-flex;
 	}
@@ -63,8 +65,8 @@
 	  height: maxHeight, //160,
 	  bgColor: "white",
 	}
-	const brushSizes = [2, 4, 6, 8, 10, 12, 14];
-	const colors = "red,orange,yellow,green,cyan,blue,purple,white,gray,black".split(",");
+	const brushSizes = [6, 8, 10, 12, 14];
+	const colors = "red,orange,green,blue,black".split(",");
 	var currentColor = "blue";
 	var currentWidth = 12;
 	var currentSelectBrush;
@@ -153,7 +155,7 @@
 		//*** Add Convert Buttons
 		var convBtn = document.createElement("button");
 		convBtn.height = 16;
-		convBtn.innerHTML = 'Convert';
+		convBtn.innerHTML = 'Conv';
 		convBtn.addEventListener('click', function() {
 			$("#ocrResult").html('Converting...');
 			canvas.toBlob(function(blob){
