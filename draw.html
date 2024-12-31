@@ -373,7 +373,10 @@
 	  
 	  var img = document.getElementById("can-img");
 	  if(img.src !== ''){
-		ctx.drawImage(img, imgX+20, imgY+20, canvas.width, canvas.height);
+		if(img.width > canvas.width || img.height > canvas.height)
+			ctx.drawImage(img, imgX+20, imgY+20, canvas.width, canvas.height);
+		else
+			ctx.drawImage(img, imgX+20, imgY+20);
 	  }
 	}
 	
