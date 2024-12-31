@@ -8,6 +8,14 @@
     <link rel="shortcut icon" href="#" />
 	<title>Canvas Draw Test</title>
 	<style>
+	#can-img{
+	  width: 100%;
+	  position: relative;
+	  left: 0;
+	  top: 30;
+	  display: none;
+	}
+	
 	#can {
 	  width: 100%;
 	  position: absolute;
@@ -142,6 +150,16 @@
 		});
 		colorSel.appendChild(saveBtn);
 		
+		//*** Add Image Button
+		var imageBtn = document.createElement("button");
+		imageBtn.height = 16;
+		imageBtn.innerHTML = 'Img';
+		imageBtn.addEventListener('click', function() {
+			let imgUrl = prompt("Enter image url:");
+			$("#can-img").prop('src', imgUrl);
+		});
+		colorSel.appendChild(imageBtn);
+		
 		//*** Add Clear Buttons
 		var clearBtn = document.createElement("button");
 		clearBtn.height = 16;
@@ -158,9 +176,14 @@
 		convBtn.innerHTML = 'OCR';
 		convBtn.addEventListener('click', function() {
 			$("#ocrResult").html('Converting...');
-			canvas.toBlob(function(blob){
-				canvasToText(blob);
-			});
+			var img = document.getElementById("can-img");
+			if(img.src !== ''){
+				runOCR(img.src);
+			}else{
+				canvas.toBlob(function(blob){
+					canvasToText(blob);
+				});
+			}
 		});
 		colorSel.appendChild(convBtn);
 	}
@@ -317,6 +340,7 @@
 
 	// function to display drawing 
 	function display() {
+	
 	  ctx.clearRect(0, 0, w, h);
 	  ctx.fillStyle = "rgba(0,0,0,0.25)";
 	  const imgX = cw - (drawing.width / 2) | 0;
@@ -346,6 +370,11 @@
 
 		}
 	  }
+	  
+	  var img = document.getElementById("can-img");
+	  if(img.src !== ''){
+		ctx.drawImage(img, imgX+20, imgY+20, canvas.width, canvas.height);
+	  }
 	}
 	
 	//************************************************************
@@ -367,7 +396,6 @@
 	async function canvasToText(blob){
 		var output = $("#ocrResult");
 		try{
-			//const blob = await canvas.toBlob('image/png');
 			const reader = new FileReader();
 			reader.readAsDataURL(new Blob([blob], { type: 'image/png' })); 
 			reader.onloadend = function() {
@@ -401,6 +429,7 @@
 	<body>
 	  <div class="can-container">
 		  <canvas id="can"></canvas>
+		  <img id="can-img" ></img>
 		  <div class="colors" id="colorSel"></div>
 	  </div>
 	  <div id="ocrResult"> </div>
