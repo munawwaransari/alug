@@ -383,8 +383,12 @@
 		Tesseract.recognize(
 			url, 'ara'
 		).then(result => {
-			if(result.data)
+			if(result.data){
 				output.text(result.data.text);
+				output.append('<br/><br/>'+
+				'<a style="font-size:14px;" href="#" '+
+				'onclick="copy()">[Copy text]</a>');
+			}
 			else
 				output.text('Error!');
 		}).catch(err => {
@@ -423,6 +427,14 @@
 
 		// Remove the link from the document
 		document.body.removeChild(link);
+	}
+	
+	function copy(){ 
+		var txt = $("#ocrResult").text();
+		var index = txt.indexOf("\n");
+		if(index > 0)
+			txt = txt.substring(0, index);
+		navigator.clipboard.writeText(txt);
 	}
 	</script>
 </head>
