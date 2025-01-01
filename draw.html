@@ -433,10 +433,8 @@
 	}
 	
 	function copy(){ 
-		var txt = $("#ocrResult").text();
-		var index = txt.indexOf("\n");
-		if(index > 0)
-			txt = txt.substring(0, index);
+		var txt = $("#ocrResult").text()
+								 .replace('\n[Copy text]', '');
 		navigator.clipboard.writeText(txt);
 	}
 	</script>
