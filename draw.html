@@ -62,6 +62,10 @@
 		background-color:#F5F9AA;
 		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	}
+	
+	.btn {
+		margin-left : 4px;
+	}
 	</style>
 	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
 	<script src='https://unpkg.com/tesseract.js@5.0.0/dist/tesseract.min.js'></script>
@@ -140,43 +144,26 @@
 		
 		//*** Add Save Button
 		/*
-		var saveBtn = document.createElement("button");
-		saveBtn.height = 16;
-		//clearBtn.className = "swatch";
-		saveBtn.innerHTML = 'Save';
-		saveBtn.addEventListener('click', function() {
+		addButton('Save',  function() {
 			canvas.toBlob(function(blob){
 				saveCanvas(blob);
 			});
 		});
-		colorSel.appendChild(saveBtn);
 		*/
 		
 		//*** Add Image Button
-		var imageBtn = document.createElement("button");
-		imageBtn.height = 16;
-		imageBtn.innerHTML = 'Img';
-		imageBtn.addEventListener('click', function() {
+		addButton('Img', function() {
 			let imgUrl = prompt("Enter image url:");
 			$("#can-img").prop('src', imgUrl);
 		});
-		colorSel.appendChild(imageBtn);
 		
 		//*** Add Clear Buttons
-		var clearBtn = document.createElement("button");
-		clearBtn.height = 16;
-		//clearBtn.className = "swatch";
-		clearBtn.innerHTML = 'Clear';
-		clearBtn.addEventListener('click', function() {
+		addButton('Clear',  function() {
 			location.reload();
 		});
-		colorSel.appendChild(clearBtn);
 		
 		//*** Add Convert Buttons
-		var convBtn = document.createElement("button");
-		convBtn.height = 16;
-		convBtn.innerHTML = 'OCR';
-		convBtn.addEventListener('click', function() {
+		addButton('OCR', function() {
 			$("#ocrResult").html('Converting...');
 			var img = document.getElementById("can-img");
 			if(img.src !== ''){
@@ -187,7 +174,15 @@
 				});
 			}
 		});
-		colorSel.appendChild(convBtn);
+	}
+	
+	function addButton(name, func){
+		var btn = document.createElement("button");
+		btn.height = 16;
+		btn.className = "btn";
+		btn.innerHTML = name;
+		btn.addEventListener('click', func);
+		colorSel.appendChild(btn);
 	}
 
 	var updateDisplay = true; // when true the display needs updating
@@ -439,6 +434,11 @@
 								 .replace('\n[Copy text]', '');
 		navigator.clipboard.writeText(txt);
 	}
+	
+	function credit(){
+		var w=parent?parent.window:window; 
+		w.open("https://github.com/tesseract-ocr/tesseract","_blank");
+	}
 	</script>
 </head>
 	<body>
@@ -448,5 +448,8 @@
 		  <div class="colors" id="colorSel"></div>
 	  </div>
 	  <div id="ocrResult"> </div>
+	  <div style="position:absolute;display:block;font-size:10px;bottom:150px;margin:auto;">
+		Powered by: <a href="#" onclick="credit()">https://github.com/tesseract-ocr/tesseract</a>
+	  </div>
 	</body>
 </html>
