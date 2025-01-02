@@ -281,10 +281,15 @@ function listSurahs(){
 		var table = '<table class="surahIndex"><th>Index</th><th>Surah Name (en)</th><th>Surah Name (ar)</th>';
 		for (const [index, surah] of Object.entries(data)) {
 			var tanzilLink = '<a style="cursor:pointer;font-size:18px" href="https://tanzil.net/#'+index+'" '+
-				 'onclick="var w = parent ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
-				 '[' + surah.en+ ']'+
-				 '</a>';
-			table = table+ '<tr>'+'<td>'+index+'</td>'+'<td>'+tanzilLink+'</td>'+
+				 'onclick="var w = parent ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+index+'</a>';
+				 
+			var enName = surah.en.substring(surah.en.indexOf('(')+1, surah.en.length-1);
+			table = table+ '<tr>'+'<td>'+tanzilLink+'</td>'+
+								'<td onclick="searchText(\''+
+									enName.replace('The','').trim()
+								+'\')" class="qword" style="font-szie:16px;">' +
+								surah.en+
+								'</td>'+
 								'<td onclick="searchText(\''+
 										surah.ar.trim()
 											    .replace('ٱ','ا')
