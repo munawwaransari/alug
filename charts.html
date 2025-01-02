@@ -68,6 +68,7 @@
 			var isAlphabet = url.includes('alphabets') || 
 							 url.includes('homonym') ||
 							 url.includes('synonym') || 
+							 url.includes('antonym') || 
 							 url.includes('jarr');
 			tesseract_imageToText(url, 'ara', function(success, data){
 				if(success === true){
