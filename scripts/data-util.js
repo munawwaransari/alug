@@ -178,3 +178,20 @@ function removeTimePrefix(txt){
 		return txt.substring(2);
 	return txt;
 }
+
+async function tesseract_imageToText(url, lang, callback){
+	var cb = callback;
+	Tesseract.recognize(
+		url, lang
+	).then(result => {
+		cb(true, result.data.text);
+	}).catch(err => {
+		cb(false, err);
+	});
+}
+
+function playCard(text, altText){
+	if(parent.playText) {
+		parent.playText(text, 'ar-SA', {'en-US': altText});
+	}
+}

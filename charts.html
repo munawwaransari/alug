@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="#" />
 	<title>Chart Test</title>
 	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+	<script src='https://unpkg.com/tesseract.js@5.0.0/dist/tesseract.min.js'></script>
 	<script src="scripts/data-util.js"></script>
 	<style>
 		.chart {
@@ -19,6 +20,11 @@
 			width:180px;
 			height: auto;
 			padding: 4px;
+			cursor: pointer; 
+		}
+		
+		.chartTile:hover {
+			box-shadow: 0 4px 8px 0 #6D7E55;
 		}
 	</style>
 	<script>
@@ -49,11 +55,34 @@
 		
 		    var div = '<div class="chart">';
 			for(var i=1; i <=maxFiles; i++){
-				div += '<img class="chartTile" src="'+url+i+'.png"></img>';
+				var imgUrl = url+i+'.png';
+				div += '<img class="chartTile" src="'+imgUrl+'" '+
+							'onclick="parseImageAndPlay(\''+imgUrl+'\')"></img>';
 			}
             div += '</div>';
 			$("#chartContainer").empty();
 			$("#chartContainer").append($(div));
+		}
+		
+		function parseImageAndPlay(url){
+			var isAlphabet = url.includes('alphabets') || 
+							 url.includes('homonym') ||
+							 url.includes('synonym') || 
+							 url.includes('jarr');
+			tesseract_imageToText(url, 'ara', function(success, data){
+				if(success === true){
+					if(isAlphabet){
+						var t = data.split('\n').filter(x => x != "");
+						if(t.length > 0){
+							data = t[t.length-1];
+						}
+					}
+					data = data.replace(/[©\+\>\<\|\-0-9\.a-zA-Z\"\']+/g, '');
+					if(isAlphabet)
+						data = data.replace(/\s+/g, '.');
+					playCard(data)
+				}
+			});
 		}
 	</script>
 </head>
