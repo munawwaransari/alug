@@ -283,10 +283,15 @@ function listSurahs(){
 			var tanzilLink = '<a style="cursor:pointer;font-size:18px" href="https://tanzil.net/#'+index+'" '+
 				 'onclick="var w = parent ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+index+'</a>';
 				 
-			var enName = surah.en.substring(surah.en.indexOf('(')+1, surah.en.length-1);
+			var enName = surah.en.substring(surah.en.indexOf('(')+1, surah.en.length-1)
+								 .replace('The','')
+								 .trim();
+			if(enName.includes(' ')){
+				enName = enName.split(' ')[0];
+			}
 			table = table+ '<tr>'+'<td>'+tanzilLink+'</td>'+
 								'<td onclick="searchText(\''+
-									enName.replace('The','').trim()
+									enName
 								+'\')" class="qword" style="font-szie:16px;">' +
 								surah.en+
 								'</td>'+
