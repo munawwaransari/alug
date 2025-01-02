@@ -160,10 +160,11 @@
 				<img id="topics_2" class="tool" style="margin-top: 4px;" src="images/menu-disabled.jpg" onclick="toggleMenu()"/>
 				!-->
 				<img id="alpha" class="tool" src="images/alpha.jpg" />
-				<img id="qsearch" class="tool" src="images/qsearch.jpg" onclick="loadQuranSearch()" />
-				<img id="dict" class="tool" src="images/dict.jpg" onclick="loadSampleDictionary()" />
+				<img id="qsearch" class="tool" src="images/qsearch.jpg" onclick="loadQuranSearch()"/>
+				<img id="dict" class="tool" src="images/dict.jpg" onclick="loadSampleDictionary()"/>
 				<img id="l-option" class="tool" src="images/languages.png">
-					<div class="tooltiptext">
+					<div id="l-option-child" style="display:none;padding:0;margin:0">
+						<span style="font-size:12px;">Select Language:</span>
 						<select id="lang-options">
 							<option value="en-US" select>English</option>
 							<option value="ur-PK">اردو</option>

@@ -268,14 +268,24 @@ function nodeInserted(elementQuerySelector){
 
 function updateToolDescription(id){
 	
-	var toolMessage = $("#tool-description");
-	if(id !== "topics_1" && id !== "topics_2"){
-		$("#l-option+.tooltiptext").hide();
-		toolMessage.empty();
+	var lOption = $("#l-option-child");
+	lOption = lOption.detach();
+	if(id === "l-option"){
+		$('#tool-description').empty();
+		lOption.appendTo($('#tool-description'));
+		lOption.show();
+		return;
+	}else{
+		lOption.appendTo($('#l-option'));
+		lOption.hide();
 	}
+	
 	if(id !== "alpha"){
 		updateStates({"menu": "hidden"});
 	}
+
+	var toolMessage = $("#tool-description");
+	toolMessage.empty();
 	
 	switch(id){
 		case "info": 
@@ -372,11 +382,35 @@ function updateToolDescription(id){
 		}
 		break;
 		
-		case "l-option":
+		case "qsearch":
 		{
-			$("#l-option+.tooltiptext").toggle();
+			toolMessage.html($('<p Style="padding:0;margin:0;"><b>Quran search</b></p>'));
 		}
-		break;			
+		break;
+		
+		case "dict":
+		{
+			toolMessage.html($('<p Style="padding:0;margin:0;"><b>Grammar & Word Analysis</b></p>'));
+		}
+		break;
+
+		case "resources":
+		{
+			toolMessage.html($('<p Style="padding:0;margin:0;"><b>Learning resources</b></p>'));
+		}
+		break;
+
+		case "km":
+		{
+			toolMessage.html($('<p Style="padding:0;margin:0;"><b>Knowledge Check</b></p>'));
+		}
+		break;
+		
+		case "hw":
+		{
+			toolMessage.html($('<p Style="padding:0;margin:0;"><b>Practice Letter Writing</b></p>'));
+		}
+		break;
 	}
 }
 
