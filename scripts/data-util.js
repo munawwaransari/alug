@@ -1,3 +1,7 @@
+//
+//	Author: munawwar_ali@yahoo.com
+//
+
 function getLocationPath(){
 	return window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
 }
