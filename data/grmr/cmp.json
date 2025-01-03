@@ -1,6 +1,35 @@
 [
 	{
         "topics": [
+            "علاماتُ التَّشكِيل",
+            "إعراب"
+        ],
+		"notes": null,
+        "ar": [
+            "تعريف",
+			"استعمال",
+			"مِثال"
+        ],
+        "en": [
+            "Definition",
+			"Usage",
+			"Example"
+        ],
+        "features": {
+            "علاماتُ التَّشكِيل": [
+                "<b>علاماتُ التَّشكِيل </b>are optionallly used on any letter of a word to indicate its correct pronunciation<br/><b> ضَمَّة ( ُ )، فَتَحَة ( َ )، كَسَرَة ( ِ )،<br/> سُكُون ( ْ )، شَدَّة ( ّ )،مَدَّة (~)،</b>",
+				"optional and used on any letter except last letter of a word<br/><br/>",
+				"زَيْد --> letters ز and ي have diacritics <br/>فَتَحة and سُكُون respectively <br/><br/>يَضْرِبْ --> letter ب is having سُكُون as erab <br/>making it مَجزُوم<br/>"
+            ],
+            "إعراب": [
+                "<b>إعراب </b>are used as grammatical notions on nouns and verbs to identify cases and states. <br/><b>Noun --> رَفع ( ُ )، نَصب ( َ )،<br/> جر ( ِ )، تنوِين( ٌ/ ٍ/ ً)<br/>Verbs --> رَفع ( ُ )، نَصب ( َ )، جزم ( ْ )</b>",
+				"used on last letter of the noun, and for verbs it is fixed for each pattern",
+				"زَيدٌ --> letter د has تَنوِين as erab <br/>(indicating nominative case) <br/><br/>كِتَابُ اللهِ --> letter ب has ضَمَّة as erab <br/>(its tanween removed)<br/>and letter ه has كَسَرَة as erab <br/>(indicatin possesive noun)<br/>"
+            ]
+        }
+    },
+	{
+        "topics": [
             "إذ",
             "إذا"
         ],
