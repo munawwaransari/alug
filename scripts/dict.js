@@ -409,6 +409,13 @@ function showPronounInfo(k, v1, v2){
 	var container = $(".dictionary");
 	container.empty();
 	updateState(k, {ar: v1, en: v2});
+	
+	container.append($('<select class="pronounFilter" onchange="filterPronounView()">'+
+					'<option value="all">Show All</option>'+
+					'<option value="Subjective Pronouns">Subjective Pronouns</option>'+
+					'<option value="Objective Pronouns">Objective Pronouns</option>'+
+					+'</select>'));
+					
 	addPronounConjugation(container, "images/pronouns/subject/", "Subjective Pronouns", "ضمائرُ المُنفَصِلَة",{
 		"3": ["he","they(m2)","they(m)","she","they(f2)","they(f)"],
 		"2": ["you(m)","you(m2)","you all(m)","you(f)","you(f2)","you all(f)"],
@@ -421,8 +428,18 @@ function showPronounInfo(k, v1, v2){
 	});
 }
 
+function filterPronounView(){
+	var val = $(".pronounFilter").val();
+	if(val == 'all'){
+		$('.pTable tr').show();
+	}else{
+		$('.pTable tr').hide();
+		$("#pTable_"+val[0]+' tr').show();
+	}
+}
+
 function addPronounConjugation(container, path, en, ar, pronounMap){
-	var pTable = '<table id="pTable" class="pTable"><tr>'+
+	var pTable = '<table id="pTable_'+en[0]+'" class="pTable"><tr>'+
 					'<th colspan="3" class="engText" style="font-size: 18px;">'+en+' ('+ar+')</th>';		
 	pTable += getRows(en[0]+'3', path, pronounMap["3"], 'Third person (غائب)');	
 	pTable += getRows(en[0]+'2', path, pronounMap["2"], 'Second person (حاضر)');
