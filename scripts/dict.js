@@ -404,3 +404,44 @@ function showImperativeTable(){
 		}
 	}
 }
+
+function showPronounInfo(k, v1, v2){
+	var container = $(".dictionary");
+	container.empty();
+	updateState(k, {ar: v1, en: v2});
+	addPronounConjugation(container, "images/pronouns/subject/", "Subjective Pronouns", "ضمائرُ المُنفَصِلَة",{
+		"3": ["he","they(m2)","they(m)","she","they(f2)","they(f)"],
+		"2": ["you(m)","you(m2)","you all(m)","you(f)","you(f2)","you all(f)"],
+		"1": ["i","we"]
+	});
+	addPronounConjugation(container, "images/pronouns/object/", "Objective Pronouns", "ضمائرُ المُتَّصِلَة",{
+		"3": ["him","them(m2)","them(m)","her","them(f2)","them(f)"],
+		"2": ["you(m)","you(m2)","you all(m)", "you(f)","you(f2)","you all(f)"],
+		"1": ["me","us"]
+	});
+}
+
+function addPronounConjugation(container, path, en, ar, pronounMap){
+	var pTable = '<table id="pTable" class="pTable"><tr>'+
+					'<th colspan="3" class="engText" style="font-size: 18px;">Subjective Pronoun (ضمائر المُنفَصِلَة)</th>';		
+	pTable += getRows(path, pronounMap["3"], 'Third person (غائب)');	
+	pTable += getRows(path, pronounMap["2"], 'Second person (حاضر)');
+	pTable += getRows(path, pronounMap["1"], 'First person (حاضر)');
+	pTable += '</table>';
+	container.append($(pTable));
+}
+
+function getRows(path, arr, title){
+	var rows = '<tr><td colspan="3" style="background-color:#E8E885; font-size:16px;">'+title+'</td></tr>';
+	for(var i=0; i < arr.length; i++){
+		if(i == 0){
+			rows += '<tr>';
+		}
+		if(i == 3){
+			rows += '</tr><tr>';
+		}
+		rows += '<td><img width="100px;" src="'+path+arr[i]+'.png" /></td>';
+	}
+	rows += '</tr>';
+	return rows;
+}
