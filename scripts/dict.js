@@ -423,25 +423,139 @@ function showPronounInfo(k, v1, v2){
 
 function addPronounConjugation(container, path, en, ar, pronounMap){
 	var pTable = '<table id="pTable" class="pTable"><tr>'+
-					'<th colspan="3" class="engText" style="font-size: 18px;">Subjective Pronoun (ضمائر المُنفَصِلَة)</th>';		
-	pTable += getRows(path, pronounMap["3"], 'Third person (غائب)');	
-	pTable += getRows(path, pronounMap["2"], 'Second person (حاضر)');
-	pTable += getRows(path, pronounMap["1"], 'First person (حاضر)');
+					'<th colspan="3" class="engText" style="font-size: 18px;">'+en+' ('+ar+')</th>';		
+	pTable += getRows(en[0]+'3', path, pronounMap["3"], 'Third person (غائب)');	
+	pTable += getRows(en[0]+'2', path, pronounMap["2"], 'Second person (حاضر)');
+	pTable += getRows(en[0]+'1', path, pronounMap["1"], 'First person (مُتكلِّم)');
 	pTable += '</table>';
 	container.append($(pTable));
+	showExampleRow(null);
 }
 
-function getRows(path, arr, title){
+function getRows(id, path, arr, title){
 	var rows = '<tr><td colspan="3" style="background-color:#E8E885; font-size:16px;">'+title+'</td></tr>';
 	for(var i=0; i < arr.length; i++){
 		if(i == 0){
 			rows += '<tr>';
 		}
 		if(i == 3){
-			rows += '</tr><tr>';
+			rows +='</tr><tr><td id="'+id+'" colspan="3" class="exp">example</td></tr>';
+			rows += '<tr>';
 		}
-		rows += '<td><img width="100px;" src="'+path+arr[i]+'.png" /></td>';
+		rows += '<td><img onclick="showExampleRow(\''+id+'\',\''+arr[i]+'\')" width="100px;" src="'+path+arr[i]+'.png" /></td>';
 	}
+	//if(arr.length < 3){		
+	//	rows +='</tr><tr><td id="'+id+'" colspan="2" class="exp">example</td></tr>';
+	//}
 	rows += '</tr>';
 	return rows;
+}
+
+function showExampleRow(id, value){
+	$(".exp").hide();
+	if(id){
+		$("#"+id).html(id[0] === 'S' ?  getRandomExample1(value) : getRandomExample2(value));
+		$("#"+id).show();	
+	}
+}
+
+function getRandomExample2(v){
+	var examples = ["كِتَاب", "فُندُوق", "مِندِيل", "لِبَاس", "مِزاج"];
+	
+	const randomNumber = Math.ceil(Math.random() * examples.length);
+	var ex = examples[randomNumber-1].split("|");
+	var suffix = "";
+	var val = v.split(/[()]+/);
+	
+	if(val[0].includes("you")){
+		if(val[0] === 'you'){
+			if(val[1].includes('2'))
+				suffix = 'ُكُمَا'; 	
+			else if(val[1] === 'm')
+				suffix = 'ُكَ'; 	
+			else 
+				suffix = 'ُكِ'; 	
+		}
+		else {
+			if(val[1] === 'm')
+				suffix = 'كُم'; 	
+			else
+				suffix = 'ُكُنَّ'; 	
+		}	
+	} 
+	else if(val[0].includes("them")){
+			if(val[1].includes('2'))
+				suffix = "ُهُمَا"
+			else if(val[1] === 'm')
+				suffix = 'ُهُم'; 	
+			else
+				suffix = 'ُهُنَّ'; 	
+	}
+	else if(val[0] === 'him')
+		suffix = 'ُهُ'; 	
+	else if(val[0] === 'her') 
+		suffix = 'ُهَا'; 	
+	return ex[0] + suffix;
+}
+
+function getRandomExample1(v){
+	var examples = ["مُدَرِّس|ان|وُن|َة|تَانِ|َات", 
+			  "عالِم|ان|وُن|َة|تَانِ|َات", 
+			  "شاهِد|ان|وُن|َة|تَانِ|َات", 
+			  "مُهَنّدِس|ان|وُن|َة|تَانِ|َات"];
+	
+	const randomNumber = Math.ceil(Math.random() * examples.length);
+	var ex = examples[randomNumber-1].split("|");
+	var prefix = "";
+	
+	var val = v.split(/[()]+/);
+	var index=0;
+	switch(val[1]){
+		case "m": val[0] === "you" ? index = 0 : index = 2; break;
+		case "f": val[0] === "you" ? index = 3 : index = 5; break;
+		case "m2": index = 1; break;
+		case "f2": index = 4; break;
+		default:
+			if(val[0] == 'she') index = 3;
+			if(val[0] == 'he') index = 0;
+			break;
+	}
+	
+	var ret = ex[0];
+	if(index > 0){
+		ret += ex[index];
+	}
+	return getPronoun(val[0], val[1]) + ' ' + ret;
+}
+
+function getPronoun(val1, val2){
+	if(val1.includes('you')){
+		if (val1 === "you all"){
+			if(val2=="m") 
+				return 'اَنتُم';	
+			else
+				return 'اَنتُنَّ';	
+		}else if(val2.includes('2')){
+			return 'اَنتُماَ';	
+		}else if(val2 == "m"){
+			return 'اَنتَ';
+		}else{
+			return 'اَنتِ';
+		}
+	}
+	
+	if(val1.includes('they')){
+		if(val2.includes('2')){
+			return 'هُمَا';
+		}
+		else { 
+			if(val2=="m")
+				return 'هُم';	
+			else
+				return 'هُنَّ';
+		}
+	}
+	if(val1 === 'he') return 'هُوَ';
+	if(val1 === 'she') return 'هِيَ';
+	return '';
 }
