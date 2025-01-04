@@ -7,6 +7,7 @@
 	<head>
 		<link rel="shortcut icon" href="#" />
 		<link rel="stylesheet" type="text/css" href="styles/styles.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="styles/autoc-styles.css" media="screen">
 		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
 		<script type="text/javascript" src="scripts/quizlib/quizlib.1.0.1.min.js"></script>
 		<script src="data/topics.js"></script>
@@ -135,6 +136,7 @@
 		<div id="support" style="display:none"></div>
 		<script src="scripts/speak-tts/demo.bundle.js"></script>
 		<script src="scripts/data-util.js"></script>
+		<script src="scripts/autocomplete.js"></script>
 		<script src="scripts/onload.js"></script>
 		<!-- <button onclick="loadLanguages()">Load</button> -->
 		<div class="toolDiv">
@@ -145,6 +147,7 @@
 				<button id="play"> Play </button>
 			</span>
 			<span class="toolSpan">
+				<img id="in-search" class="tool" src="images/insearch.png" />
 				<!--<img id="user" class="tool" src="images/user.jpg"/>-->
 				<img id="resources" class="tool" src="images/download.jpg"
 					onclick="loadResources()" />
@@ -161,7 +164,7 @@
 				!-->
 				<img id="alpha" class="tool" src="images/alpha.jpg" />
 				<img id="qsearch" class="tool" src="images/qsearch.jpg" onclick="loadQuranSearch()"/>
-				<img id="dict" class="tool" src="images/dict.jpg" onclick="loadSampleDictionary()"/>
+				<img id="dict" class="tool" src="images/dict.jpg" onclick="loadGrammarView()"/>
 				<img id="l-option" class="tool" src="images/languages.png">
 					<div id="l-option-child" style="display:none;padding:0;margin:0">
 						<span style="font-size:16px;">Select Language:</span>

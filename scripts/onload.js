@@ -62,7 +62,7 @@ $(document).ready(function()
 		if(searchVal && searchVal != 'undefined'){
 			loadQuranSearch(searchVal);
 		}else{
-			loadSampleDictionary();
+			loadGrammarView();
 		}
 	});
 	
@@ -206,12 +206,19 @@ function loadDictionarySearch(text){
 	}, 5);
 }
 
-function loadSampleDictionary(){
+function loadGrammarView(params){
 
-	console.log("loadSampleDictionary");
+	console.log("loadGrammarView");
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
-		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "dict.html"));
+		var path = "dict.html?";
+		if(params){
+			if(params["action"])
+				path += "&action="+params["action"];
+			if(params["data"])
+				path += "&data="+params["data"];
+		}
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + path));
 		//$('#title-img').hide();
 	}, 5);
 }
@@ -288,6 +295,25 @@ function updateToolDescription(id){
 	toolMessage.empty();
 	
 	switch(id){
+		case 'in-search':
+			var sdiv = $('<div>'+
+			'<input id="insearchtxt" class="isearch"/>'+
+			'<button id="isearchD" class="dropbtn" '+
+				'style="background-color:#6AA84F;top:-8px; height: 30px;" '+
+				'onclick="isearch()"><b>Go!</b></button>'+
+			'</div>');
+			toolMessage.html(sdiv);
+			
+			autocomplete(document.getElementById('insearchtxt'), function(val, callback){
+				var condition = val.length > 1 && val !== lastiSearchSuggestionInput;
+				if(val.length > 1 && val !== lastiSearchSuggestionInput){
+					lastiSearchSuggestionInput = val;
+					getiSearchSuggesstions(val, callback);
+				}
+				return condition;
+			});
+		break;
+		
 		case "info": 
 		{
 			toolMessage.html(states.info);
@@ -497,4 +523,51 @@ function loadHandwriting(){
 	setTimeout(function(){
 		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "draw.html"));
 	}, 5);	
+}
+
+var lastiSearchSuggestionInput;
+var isearchData;
+async function getiSearchSuggesstions(txt, callback){
+
+	var fileUrl = getLocationPath() + 'data/isearch.json';
+	console.log('getting suggestions: '+fileUrl);
+	var txt_lc = txt ? txt.toLowerCase().trim() : '';
+	
+	if(isearchData === undefined)
+		loadJsonData(fileUrl, function(data){
+			isearchData = data;
+			handleiSearchData(txt_lc, callback);
+		});
+	else
+		handleiSearchData(txt_lc, callback);
+}
+
+function handleiSearchData(txt, callback){
+	
+	// update global var for suggestions
+	var res = [];
+	for(const [k,v] of Object.entries(isearchData)){
+		if(k.toLowerCase().includes(txt)){
+			res.push(' '+k);
+		}
+	}
+	if(callback){
+		callback(res);
+	}
+}
+
+function isearch(){
+	var data = $("#insearchtxt").val().trim();
+	var obj = isearchData[data];
+	if(obj.data && obj.data !== '@key')
+		data = obj.data;
+	if(data.includes("-"))
+		data = data.split("-")[1].trim();
+	
+	if(obj.path === "dict.html"){
+		loadGrammarView({
+			action: obj.action,
+			data: data
+		});
+	}
 }

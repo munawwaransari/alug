@@ -147,3 +147,12 @@ body, .toolDiv {
 	color: white;
 	z-index: 1;
 }
+
+.isearch {
+	width:300px;
+	height: 32px;
+	font-size: 20px;
+	padding: 4px;
+	margin: auto;
+	vertical-align: middle;
+}	

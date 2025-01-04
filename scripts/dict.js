@@ -50,6 +50,64 @@ window.onload = function(){
 	});
 	$(".index").append($('<div id="btnindex" class="btnl" onclick="toggleIndex(\'index\')">Collapse</div>'));
 	toggleIndex('index');
+	
+	handleParams();
+}
+
+function handleParams(){
+	
+	var action = getParamValue('action');
+	switch(action){
+		case 'analyze':
+		var word = getParamValue('data');
+		if(word && word.trim()){
+			$("#wordSearchText").val(word);
+			analyzeSelectedWord();
+		}
+		break;
+		
+		case 'vtab-all': showVerbTable(); break;
+		case 'vtab-3': showTriliteralVerbTable(); break;
+		case 'vtab-inad': showInadequateVerbTable(); break;
+		case 'vtab-weak': showWeakVerbTable(); break;
+		case 'vtab-imp': showImperativeTable();break;
+		
+		case 'noun-pat': showNounTable(); break;
+		case 'pronoun': 
+			showPronounInfo('ism', 'ضَمائر', 'Pronouns');
+			var sel = decodeURI(getParamValue('data'));
+			if(sel){
+				$(".pronounFilter").val(sel);
+				filterPronounView();
+			}
+			break;
+		case 'noun-plural':
+			loadArabicLTTable('plural.csv', 'ism','الجمع', 'Plural');
+			break;
+		case 'noun-syn':
+			loadArabicLTTable('synonyms.csv', 'ism','المرادفات', 'Synonyms');
+			break;
+		case 'noun-ant':
+			loadArabicLTTable('antonyms.csv', 'ism','المتضادات', 'Antonyms');
+			break;
+			
+		case 'prep':
+			var data = getParamValue('data');
+			setTimeout(function(){
+				showParticleTable();
+				if(data){
+					$(".nFilter").val(data);
+				}
+			});
+			break;
+		case 'cmp':
+			var data = getParamValue('data');
+			showComparisions();
+			if(data){
+				$(".nFilter").val(data);
+			}
+			break;
+	}
 }
 
 function showVerbTable(){

@@ -1,0 +1,87 @@
+{
+    "Analyze": {
+        "path": "dict.html",
+        "action": "analyze",
+        "data": "@Key"
+    },
+    "All verbs": {
+        "path": "dict.html",
+        "action": "vtab-all"
+    },
+    "Triliterate verbs": {
+        "path": "dict.html",
+        "action": "vtab-3"
+    },
+    "Inadequate verbs": {
+        "path": "dict.html",
+        "action": "vtab-inad"
+    },
+    "Weak Verbs": {
+        "path": "dict.html",
+        "action": "vtab-weak"
+    },
+    "Imperative": {
+        "path": "dict.html",
+        "action": "vtab-imp"
+    },
+    "patterns": {
+        "path": "dict.html",
+        "action": "noun-pat"
+    },
+    "Pronouns": {
+        "path": "dict.html",
+        "action": "pronoun"
+    },
+    "Subjective Pronouns": {
+        "path": "dict.html",
+        "action": "pronoun",
+        "data": "@key"
+    },
+    "Objective Pronouns": {
+        "path": "dict.html",
+        "action": "pronoun",
+        "data": "@key"
+    },
+    "Demonstrative Pronouns": {
+        "path": "dict.html",
+        "action": "pronoun",
+        "data": "@key"
+    },
+    "Relative Pronouns": {
+        "path": "dict.html",
+        "action": "pronoun",
+        "data": "@key"
+    },
+    "Plural": {
+        "path": "dict.html",
+        "action": "noun-plural"
+    },
+    "Synonyms": {
+        "path": "dict.html",
+        "action": "noun-syn"
+    },
+    "Antonyms": {
+        "path": "dict.html",
+        "action": "noun-ant"
+    },
+    "Prepositions": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "all"
+    },
+    "Accusative Markers": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "Accusative Markers"
+    },
+    "Jussive Markers": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "Jussive Markers"
+    },
+    "Conjunctions": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "Conjunctions"
+    }
+}
