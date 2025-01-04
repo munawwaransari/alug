@@ -12,13 +12,21 @@ var index1 = ["ا","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","
 var index2Suffixes = ["آ","إ","أ","ا","ؤ","و","ئ","ي","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م","ن","ه"];
 var posAPIObj, cmpAPIObj;
 var dState = {};
+var params = { "action": undefined, data: undefined};
 
 window.onload = function(){
 	 
+	params["action"] = decodeURI(getParamValue('action'));
+	params["data"] = arRemovePunct(decodeURI(getParamValue('data')));
+	
 	posAPIObj = new posAPI(getLocationPath(), function(msg, err){
 		if(err){
 			console.log("Failed to initialize pos api");
 			return;
+		}
+		
+		if(params.action){
+			handleParams();
 		}
 	});
 	
@@ -50,16 +58,25 @@ window.onload = function(){
 	});
 	$(".index").append($('<div id="btnindex" class="btnl" onclick="toggleIndex(\'index\')">Collapse</div>'));
 	toggleIndex('index');
-	
-	handleParams();
+}
+
+function selectAndTrigger(data, filterClass){
+	var d = data ? data.toLowerCase() : data;
+	const select = document.getElementsByClassName(filterClass)[0];
+	for (let i = 0; i < select.options.length; i++) {
+		if (arRemovePunct(select.options[i].value).toLowerCase().includes(d)) {
+		  $("."+filterClass).val(select.options[i].value);
+		  $("."+filterClass).trigger('onchange');
+		}
+	}
 }
 
 function handleParams(){
 	
-	var action = getParamValue('action');
+	var action = params["action"]; //getParamValue('action');
 	switch(action){
 		case 'analyze':
-		var word = getParamValue('data');
+		var word = params["data"]; //getParamValue('data');
 		if(word && word.trim()){
 			$("#wordSearchText").val(word);
 			analyzeSelectedWord();
@@ -72,10 +89,15 @@ function handleParams(){
 		case 'vtab-weak': showWeakVerbTable(); break;
 		case 'vtab-imp': showImperativeTable();break;
 		
-		case 'noun-pat': showNounTable(); break;
+		case 'noun-pat': 
+			showNounTable(); 
+			if(params["data"]){
+				selectAndTrigger(params["data"], 'nFilter');
+			}
+			break;
 		case 'pronoun': 
 			showPronounInfo('ism', 'ضَمائر', 'Pronouns');
-			var sel = decodeURI(getParamValue('data'));
+			var sel = decodeURI(params["data"]);
 			if(sel){
 				$(".pronounFilter").val(sel);
 				filterPronounView();
@@ -92,16 +114,14 @@ function handleParams(){
 			break;
 			
 		case 'prep':
-			var data = getParamValue('data');
 			setTimeout(function(){
 				showParticleTable();
-				if(data){
-					$(".nFilter").val(data);
-				}
+				if(params["data"])
+					selectAndTrigger(params["data"], 'nFilter');
 			});
 			break;
 		case 'cmp':
-			var data = getParamValue('data');
+			var data = params["data"];
 			showComparisions();
 			if(data){
 				$(".nFilter").val(data);

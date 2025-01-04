@@ -87,7 +87,7 @@ function getDeviceType() {
 }
 
 function arRemovePunct(txt){
-	var punctuation = "َٰ ّ َ ً ْ ُ ٌ ِ ٍ" ;
+	var punctuation = "ًٌٍََُِّْٰ";
 	return txt.replace(new RegExp("["+punctuation+"]+","g"), '')
 				.replace(new RegExp("ٱ", "g"), 'ا')
 				.replace(new RegExp("إ", "g"), 'ا')

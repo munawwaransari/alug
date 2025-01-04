@@ -1,10 +1,5 @@
 {
-    "Analyze": {
-        "path": "dict.html",
-        "action": "analyze",
-        "data": "@Key"
-    },
-    "All verbs": {
+    "All verbs;I II III IV V VI VII VIII IX X": {
         "path": "dict.html",
         "action": "vtab-all"
     },
@@ -24,64 +19,110 @@
         "path": "dict.html",
         "action": "vtab-imp"
     },
-    "patterns": {
+    "Noun patterns;اسم;": {
         "path": "dict.html",
         "action": "noun-pat"
     },
-    "Pronouns": {
+	"Noun of the instrument;اسم الآلة": {
         "path": "dict.html",
-        "action": "pronoun"
+        "action": "noun-pat",
+		"data": "@key"
     },
-    "Subjective Pronouns": {
+	"Noun of place;اسمُ الزمان ومكان": {
+        "path": "dict.html",
+        "action": "noun-pat",
+		"data": "@key"
+    },
+	"Comparative;اسمُ التفضيل": {
+        "path": "dict.html",
+        "action": "noun-pat",
+		"data": "@key"
+    },
+	"Diminutive;اسمُ التصغير": {
+        "path": "dict.html",
+        "action": "noun-pat",
+		"data": "@key"
+    },
+	"Hyperbole;اسمُ المُبالغة": {
+        "path": "dict.html",
+        "action": "noun-pat",
+		"data": "@key"
+    },
+    "Pronouns;ضمير;ضمائر": {
+        "path": "dict.html",
+        "action": "pronoun",
+        "data": "all"
+    },
+    "Subjective Pronouns;ضمائر المنفصلة": {
         "path": "dict.html",
         "action": "pronoun",
         "data": "@key"
     },
-    "Objective Pronouns": {
+    "Objective Pronouns;ضمائر المتصلة": {
         "path": "dict.html",
         "action": "pronoun",
         "data": "@key"
     },
-    "Demonstrative Pronouns": {
+    "Demonstrative Pronouns;اسماء الإشارة;": {
         "path": "dict.html",
         "action": "pronoun",
         "data": "@key"
     },
-    "Relative Pronouns": {
+    "Relative Pronouns;اسماء الموصول": {
         "path": "dict.html",
         "action": "pronoun",
         "data": "@key"
     },
-    "Plural": {
+    "Plural;جمع": {
         "path": "dict.html",
         "action": "noun-plural"
     },
-    "Synonyms": {
+    "Synonyms;مرادفات;": {
         "path": "dict.html",
         "action": "noun-syn"
     },
-    "Antonyms": {
+    "Antonyms;متضادات": {
         "path": "dict.html",
         "action": "noun-ant"
     },
-    "Prepositions": {
+    "Prepositions;حروف;حرف": {
         "path": "dict.html",
         "action": "prep",
         "data": "all"
     },
-    "Accusative Markers": {
+    "Accusative Markers;نواصب الفعل": {
         "path": "dict.html",
         "action": "prep",
         "data": "Accusative Markers"
     },
-    "Jussive Markers": {
+    "Jussive Markers;جوازم الفعل": {
         "path": "dict.html",
         "action": "prep",
         "data": "Jussive Markers"
     },
-    "Conjunctions": {
+    "Conjunctions;حروف العطف": {
         "path": "dict.html",
         "action": "prep",
         "data": "Conjunctions"
-    }
+    },
+	"حروفُ مَشبة بِالفعل (إنَّ)":{
+		"path": "dict.html",
+        "action": "prep",
+        "data": "حروفُ مَشبة بِالفعل (إنَّ)"
+	},
+	"حروف مشبة بالفعل (كانَ)":{
+		"path": "dict.html",
+        "action": "prep",
+        "data": "حروف مشبة بالفعل (كانَ)"
+	},
+	"حروف مشبة بِالفعل (كَادَ)":{
+		"path": "dict.html",
+        "action": "prep",
+        "data": "حروف مشبة بِالفعل (كَادَ)"
+	},
+	"حروف مشبة بِالفعل (ظَنَّ)":{
+		"path": "dict.html",
+        "action": "prep",
+        "data": "حروف مشبة بِالفعل (ظَنَّ)"
+	}
 }

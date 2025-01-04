@@ -63,6 +63,7 @@ $(document).ready(function()
 			loadQuranSearch(searchVal);
 		}else{
 			loadGrammarView();
+			updateToolDescription('in-search');
 		}
 	});
 	
@@ -511,6 +512,8 @@ function autoplayAudio(chapter, page){
 			
 			if(autoplay)
 				$("#play").click();
+			
+			
 		}
 	}, function(err){
 		console.log("Please change language option and retry!");
@@ -525,6 +528,7 @@ function loadHandwriting(){
 	}, 5);	
 }
 
+// ---- i search 
 var lastiSearchSuggestionInput;
 var isearchData;
 async function getiSearchSuggesstions(txt, callback){
@@ -545,10 +549,16 @@ async function getiSearchSuggesstions(txt, callback){
 function handleiSearchData(txt, callback){
 	
 	// update global var for suggestions
+	var txtInput = txt ? arRemovePunct(txt) : txt;
 	var res = [];
 	for(const [k,v] of Object.entries(isearchData)){
-		if(k.toLowerCase().includes(txt)){
-			res.push(' '+k);
+		var kVal=arRemovePunct(k);
+		if(kVal.toLowerCase().includes(txtInput)){
+			if(kVal.includes(";")){
+				res.push(' '+k.split(";")[0].trim());
+			}else{
+				res.push(' '+kVal);
+			}
 		}
 	}
 	if(callback){
@@ -557,8 +567,17 @@ function handleiSearchData(txt, callback){
 }
 
 function isearch(){
-	var data = $("#insearchtxt").val().trim();
-	var obj = isearchData[data];
+	var data = arRemovePunct($("#insearchtxt").val().trim());
+	//var obj = isearchData[data];
+	var objKey;
+	var res = Object.keys(isearchData).reduce(function (filtered, key) {
+		if (arRemovePunct(key).startsWith(data)){
+			objKey = key;
+			return key;
+		}
+	}, {});
+	if(objKey === undefined) return;
+	var obj = isearchData[objKey];
 	if(obj.data && obj.data !== '@key')
 		data = obj.data;
 	if(data.includes("-"))
