@@ -274,7 +274,7 @@ function nodeInserted(elementQuerySelector){
     }
 };
 
-function updateToolDescription(id){
+function updateToolDescription(id, opt){
 	
 	var lOption = $("#l-option-child");
 	lOption = lOption.detach();
@@ -400,7 +400,8 @@ function updateToolDescription(id){
 				toolMessage.append(menu);
 				
 				setTimeout(function(){
-					toggleMenu(['Vocab', 'Chart', 'Misc'], 'selVocab');
+					var sel = opt && opt["alpha-selection"] ?  opt["alpha-selection"] : 'selVocab';
+					toggleMenu(['Vocab', 'Chart', 'Misc'], sel);
 				},10);
 
 			}else{
@@ -580,13 +581,22 @@ function isearch(){
 	var obj = isearchData[objKey];
 	if(obj.data && obj.data !== '@key')
 		data = obj.data;
-	if(data.includes("-"))
-		data = data.split("-")[1].trim();
+	//if(data.includes("-"))
+	//	data = data.split("-")[1].trim();
 	
 	if(obj.path === "dict.html"){
 		loadGrammarView({
 			action: obj.action,
 			data: data
 		});
+	}else if(obj.path === "cards.html" || obj.path === "charts.html" ||
+			 obj.path === "clock.html" || obj.path === "calendar.html" ||
+			 obj.path === "number.html")		 
+	{
+		updateToolDescription('alpha', {"alpha-selection": "sel"+obj.action});
+		if(obj.data){
+			$("#sel"+obj.action).val(obj.data);
+			$("#sel"+obj.action).trigger('onchange');
+		}	
 	}
 }

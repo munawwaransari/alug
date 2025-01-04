@@ -25,7 +25,7 @@ window.onload = function(){
 			return;
 		}
 		
-		if(params.action){
+		if(params.action && params.action !== 'cmp'){
 			handleParams();
 		}
 	});
@@ -34,6 +34,9 @@ window.onload = function(){
 		if(err){
 			console.log("Failed to initialize cmp api");
 			return;
+		}
+		if(params.action === 'cmp'){
+			handleParams();
 		}
 	});
 	
@@ -121,11 +124,7 @@ function handleParams(){
 			});
 			break;
 		case 'cmp':
-			var data = params["data"];
 			showComparisions();
-			if(data){
-				$(".nFilter").val(data);
-			}
 			break;
 	}
 }
