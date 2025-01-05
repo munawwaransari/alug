@@ -6,6 +6,7 @@ var lang = "ar";
 var lastSuggestionInput = undefined;
 var qf_list = [];
 var q_summary = {};
+var loadStatus;
 
 window.onload = function(){
 	
@@ -22,8 +23,18 @@ window.onload = function(){
 	
 	var searchVal = decodeURI(getParamValue("search"));	
 	if(searchVal && searchVal != 'undefined'){
-		$("#searchText").val(searchVal);
-		search();
+		if(searchVal === 'surahs'){
+			listSurahs();
+			loadStatus = "surahs";
+		}
+		else if(searchVal === 'words'){
+			loadStatus = "words";
+		}
+		else{
+			$("#searchText").val(searchVal);
+			search();
+			loadStatus = "search";
+		}
 	}	
 	
 	if(parent.playAudio == undefined){
@@ -64,8 +75,14 @@ function loadWordsFrom(data){
 	});
 	
 	setTimeout(function(){
-		//$("#searchText").val('');
-		listSurahs();
+		if(loadStatus === "words"){
+			loadWordPending = false;
+			$("#searchText").val('');
+			filterWords();
+		}
+		else if (!loadStatus){
+			listSurahs();
+		}
 	}, 50);
 	
 	autocomplete(document.getElementById('searchText'), function(val, callback){

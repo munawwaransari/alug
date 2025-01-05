@@ -551,7 +551,7 @@ function handleiSearchData(txt, callback){
 	
 	// update global var for suggestions
 	var txtInput = txt ? arRemovePunct(txt) : txt;
-	var res = [];
+	var res = getDefaultActions(txt);
 	for(const [k,v] of Object.entries(isearchData)){
 		var kVal=arRemovePunct(k);
 		if(kVal.toLowerCase().includes(txtInput)){
@@ -569,20 +569,46 @@ function handleiSearchData(txt, callback){
 
 function isearch(){
 	var data = arRemovePunct($("#insearchtxt").val().trim());
-	//var obj = isearchData[data];
-	var objKey;
-	var res = Object.keys(isearchData).reduce(function (filtered, key) {
-		if (arRemovePunct(key).startsWith(data)){
-			objKey = key;
-			return key;
+	var obj, objKey;
+	
+	if(data.startsWith('...')){
+		var action, value, key = data.trim();
+		if(key.startsWith('...Analyze ')){
+			action = 'analyze';
+			data = key.replace('...Analyze ','');
+			obj = {
+				"path": "dict.html",
+				"action": action,
+				"data": data
+			}
 		}
-	}, {});
-	if(objKey === undefined) return;
-	var obj = isearchData[objKey];
-	if(obj.data && obj.data !== '@key')
-		data = obj.data;
-	//if(data.includes("-"))
-	//	data = data.split("-")[1].trim();
+		else if(key.startsWith('...QuranSearch ')){
+			action = 'qsearch';
+			data = key.replace('...QuranSearch ','');
+			obj = {
+				"path": "qsearch.html",
+				"action": 'search',
+				"data": data
+			}
+		}
+		
+		if(!action){
+			return;
+		}
+	}
+	
+	if(!obj){
+		var res = Object.keys(isearchData).reduce(function (filtered, key) {
+			if (arRemovePunct(key).startsWith(data)){
+				objKey = key;
+				return key;
+			}
+		}, {});
+		if(objKey === undefined) return;
+		var obj = isearchData[objKey];
+		if(obj.data && obj.data !== '@key')
+			data = obj.data;
+	}
 	
 	if(obj.path === "dict.html"){
 		loadGrammarView({
@@ -598,5 +624,20 @@ function isearch(){
 			$("#sel"+obj.action).val(obj.data);
 			$("#sel"+obj.action).trigger('onchange');
 		}	
+	}else if(obj.path === 'qsearch.html'){
+		updateToolDescription('qsearch');
+		loadQuranSearch(obj.data)
 	}
+}
+
+function getDefaultActions(txt){
+	var res = [];
+	
+	if(txt){
+		if(txt.match(/[\u0621-\u064A]+/g) && !txt.includes(' ')){
+			res.push('...Analyze '+arRemovePunct(txt));
+		}
+		res.push('...QuranSearch '+arRemovePunct(txt));
+	}
+	return res;
 }
