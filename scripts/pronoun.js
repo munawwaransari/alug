@@ -235,15 +235,15 @@ function showFiveNouns(k, v1, v2){
 	pTable += '</table>';
 	container.append($(pTable));
 	
-	var examples = '<div style="margin-top:16px;margin:auto;text-align:center;"><b>Examples</b></div><br/>'+
-				   '<div style="font-size:24px;margin:auto;text-align:center;">حَمُو أخِيهَ هُنا</div>'+
-				   '<div style="font-size:16px;margin:auto;text-align:center;">His brother\'s father-in-law is here<div><br/>'+
-				   '<div style="font-size:24px;margin:auto;text-align:center;">رَاَيتُ أَخَاكَ</div>'+
-				   '<div style="font-size:16px;margin:auto;text-align:center;">I saw your brother<div><br/>'+
-				   '<div style="font-size:24px;margin:auto;text-align:center;">فَمُو الأسَدِ مَفتُوحٌ</div>'+
-				   '<div style="font-size:16px;margin:auto;text-align:center;">The lion\'s mouth is open<div><br/>'+
-				   '<div style="font-size:24px;margin:auto;text-align:center;">اِسمُ أَخِي هَارُون</div>'+
-				   '<div style="font-size:16px;margin:auto;text-align:center;">My brother\'s name is Aaron<div>';
+	var examples = '<div style="margin-top:16px;font-size:14px;margin:auto;text-align:center;"><b>Examples</b></div><br/>'+
+				   '<div style="font-size:20px;margin:auto;text-align:center;">حَمُو أخِيهَ هُنا</div>'+
+				   '<div style="font-size:12px;margin:auto;text-align:center;">His brother\'s father-in-law is here<div><br/>'+
+				   '<div style="font-size:20px;margin:auto;text-align:center;">رَاَيتُ أَخَاكَ</div>'+
+				   '<div style="font-size:12px;margin:auto;text-align:center;">I saw your brother<div><br/>'+
+				   '<div style="font-size:20px;margin:auto;text-align:center;">فَمُو الأسَدِ مَفتُوحٌ</div>'+
+				   '<div style="font-size:12px;margin:auto;text-align:center;">The lion\'s mouth is open<div><br/>'+
+				   '<div style="font-size:20px;margin:auto;text-align:center;">اِسمُ أَخِي هَارُون</div>'+
+				   '<div style="font-size:12px;margin:auto;text-align:center;">My brother\'s name is Aaron<div>';
 					
 	container.append($(examples));
 }
