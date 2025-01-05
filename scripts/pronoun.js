@@ -212,3 +212,38 @@ function getPronoun(val1, val2){
 	if(val1 === 'she') return 'هِيَ';
 	return '';
 }
+
+function showFiveNouns(k, v1, v2){
+	var container = $(".dictionary");
+	container.empty();
+	updateState(k, {ar: v1, en: v2});		
+	
+	var fiveNouns = ['اَب', 'اَخ', 'حَم', 'فَم', 'ذُو'];
+	var fiveNouns_opposite = ['اُم', 'اُخت', 'حماة', 'فَمة', 'ذات'];
+	var pTable = '<table id="n5Table" class="pTable" style="margin-top:20px;font-size:18px;">'+
+				 '<tr style="background-color:#CFE2F3">'+
+				 '<th>&nbsp;اسم&nbsp;</th><th>&nbsp;مؤنث&nbsp;</th><th>&nbsp;مرفوع&nbsp;</th><th>&nbsp;منصوب&nbsp;</th><th>&nbsp;مجزوم&nbsp;</th></tr>';
+	for(var i=0; i < fiveNouns.length; i++){
+		var n = fiveNouns[i].replace(/ُو$/g,'');
+		pTable += '<tr><td><b>'+fiveNouns[i]+'</b></td>'+
+				  '<td>'+fiveNouns_opposite[i]+'</td>'+
+				  '<td style="background-color:#C4DBBB">'+n+'ُو'+'</td>'+
+				  '<td style="background-color:#EAD1DC">'+n+'َا'+'</td>'+
+				  '<td style="background-color:#C8C3D6">'+n+'ِي'+'</td>'+
+				  '</tr>';
+	}
+	pTable += '</table>';
+	container.append($(pTable));
+	
+	var examples = '<div style="margin-top:16px;margin:auto;text-align:center;"><b>Examples</b></div><br/>'+
+				   '<div style="font-size:24px;margin:auto;text-align:center;">حَمُو أخِيهَ هُنا</div>'+
+				   '<div style="font-size:16px;margin:auto;text-align:center;">His brother\'s father-in-law is here<div><br/>'+
+				   '<div style="font-size:24px;margin:auto;text-align:center;">رَاَيتُ أَخَاكَ</div>'+
+				   '<div style="font-size:16px;margin:auto;text-align:center;">I saw your brother<div><br/>'+
+				   '<div style="font-size:24px;margin:auto;text-align:center;">فَمُو الأسَدِ مَفتُوحٌ</div>'+
+				   '<div style="font-size:16px;margin:auto;text-align:center;">The lion\'s mouth is open<div><br/>'+
+				   '<div style="font-size:24px;margin:auto;text-align:center;">اِسمُ أَخِي هَارُون</div>'+
+				   '<div style="font-size:16px;margin:auto;text-align:center;">My brother\'s name is Aaron<div>';
+					
+	container.append($(examples));
+}

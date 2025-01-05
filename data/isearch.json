@@ -23,6 +23,10 @@
         "path": "dict.html",
         "action": "noun-pat"
     },
+	"Five Nouns;اسماءُ الخَمسة;": {
+        "path": "dict.html",
+        "action": "five-noun"
+    },
     "Noun of the instrument;اسم الآلة": {
         "path": "dict.html",
         "action": "noun-pat",

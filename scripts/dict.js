@@ -98,6 +98,11 @@ function handleParams(){
 				selectAndTrigger(params["data"], 'nFilter');
 			}
 			break;
+
+		case 'five-noun':
+			showFiveNouns('ism', 'اسماءُ الخَمسة', 'Five Nouns');
+			break;
+			
 		case 'pronoun': 
 			showPronounInfo('ism', 'ضَمائر', 'Pronouns');
 			var sel = decodeURI(params["data"]);
