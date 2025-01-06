@@ -111,57 +111,94 @@ function search(){
 	const text = arRemovePunct(document.getElementById("searchText").value);
 	var div = $("#searchResult");
 	div.empty();
+	
+	var ctx = window.QuranJS.Search.search;
+	var opt = { language: window.QuranJS.Language.ENGLISH, size: 10 };
+	// check if verse key
+	if(text.trim().match(/^\d{1,3}\:\d{1,3}$/g)){
+		ctx = window.QuranJS.Verses.findByKey;
+		opt = { words: 1};
+	}
+	
 	div.html('Searching '+text+' in the Quran...');
-	SearchQuran(window.QuranJS.Search.search, text, function(data){
+	SearchQuran(ctx, opt, text, function(data){
 		console.log(data);
+		
+		if(!data){
+			div.html('No results found for '+ text);
+			return;
+		}
+		
+		if(data.results == undefined && data.words){
+			var ayah = "";
+			var ayahText = data.words.reduce(function(a, x){
+				if(x.position > 2) 
+					ayah+= " ";
+				else
+					ayah+= a.translation.text + " ";
+				ayah += x.translation.text;
+				return ayah;
+			});
+			div.html('');
+			displayVerse(div, ayahText, text, false);
+			return;
+		}
+		
 		if(data.results.length == 0){
 			div.html('No results found for '+ text);
 			return;
 		}
+		
 		div.html('');
 		data.results.forEach(function(res){
 			var resulText = res.highlighted ?? res.text;
 			if(resulText){
-				var verseKeys = res.verseKey.split(":");
-				var verse = resulText.replace(/[<>\/a-zA-Z]+/ig, '');				
-				
-				var spanId = verseKeys[0]+"_"+verseKeys[1]; //res.verseKey.replace(":","_");
-				var play = parent.playAudio ? '<span id="'+spanId+'">'+
-											  
-											  '<img title="Qirat" src="images/speech-enabled.png" style="visibility:visible;width:20px;cursor: pointer;" '+
-										      'onclick="playVerse(\''+getQiratPlayUrl(res.verseKey)+'\',\''+res.verseKey+'\')"/>'+
-											  
-											  '<img title="Stop" src="images/stop.png" style="visibility:hidden;width:20px;cursor: pointer;" '+
-										      'onclick="stopPlayVerse()"/>'+
-											  '</span>': '';
-			
-				var copy = 	'<span>'+			  
-								'<img id="analyzeIcon" src="images/analyze.jpg" style="width:20px;cursor: pointer;" '+
-								'onclick="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')"/>'+
-								
-								'<img id="copyIcon" src="images/copy.jpg" style="visibility:visible;width:20px;cursor: pointer;" '+
-								'onclick="copyTextToClipboard(\''+resulText.replace(/[<>\/a-zA-Z]+/ig, '')+'\');"/>'+
-							'</span>';
-											  
-				var tanzilLink = '<a title="Click to view in tanzil.com" style="font-size:18px" href="https://tanzil.net/#'+res.verseKey+'" '+
-							     'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
-								 '[' + res.verseKey+ ']'+
-								 '</a>';
-								 
-				var translationLink = '<a title="Click to view translation in tanzil.com" style="font-size:10px" href="https://tanzil.net/#trans/en.sahih/'+res.verseKey+'" '+
-							     'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
-								 '[en]'+
-								 '</a>';
-								 
-				div.append($('<div>'+verse+'</div>'+
-							  '<div style="font-size:12px;"><span>'+tanzilLink+'</span>'+
-								   '<span style="padding:8px;">'+copy+'</span>'+
-								   '<span style="padding:8px;">'+play+'</span>'+
-							       '<span style="padding:8px;">'+translationLink+'</span>'+
-							 '</div>'));
+				//var verseKeys = res.verseKey.split(":");
+				var verse = resulText.replace(/[<>\/a-zA-Z]+/ig, '');
+				displayVerse(div, verse, res.verseKey);
 			}
 		});
 	});
+}
+
+function displayVerse(div, verse, verseKey, analysis=true){
+	var verseKeys = verseKey.split(":");
+	var spanId = verseKeys[0]+"_"+verseKeys[1]; //res.verseKey.replace(":","_");
+	var play = parent.playAudio ? '<span id="'+spanId+'">'+
+								  
+								  '<img title="Qirat" src="images/speech-enabled.png" style="visibility:visible;width:20px;cursor: pointer;" '+
+								  'onclick="playVerse(\''+getQiratPlayUrl(verseKey)+'\',\''+verseKey+'\')"/>'+
+								  
+								  '<img title="Stop" src="images/stop.png" style="visibility:hidden;width:20px;cursor: pointer;" '+
+								  'onclick="stopPlayVerse()"/>'+
+								  '</span>': '';
+
+	var copy = "";
+	if(analysis)
+		copy = '<span>'+			  
+					'<img id="analyzeIcon" src="images/analyze.jpg" style="width:20px;cursor: pointer;" '+
+					'onclick="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')"/>'+
+					
+					'<img id="copyIcon" src="images/copy.jpg" style="visibility:visible;width:20px;cursor: pointer;" '+
+					'onclick="copyTextToClipboard(\''+verse.replace(/[<>\/a-zA-Z]+/ig, '')+'\');"/>'+
+				'</span>';
+								  
+	var tanzilLink = '<a title="Click to view in tanzil.com" style="font-size:18px" href="https://tanzil.net/#'+verseKey+'" '+
+					 'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
+					 '[' + verseKey+ ']'+
+					 '</a>';
+					 
+	var translationLink = '<a title="Click to view translation in tanzil.com" style="font-size:10px" href="https://tanzil.net/#trans/en.sahih/'+verseKey+'" '+
+					 'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
+					 '[en]'+
+					 '</a>';
+					 
+	div.append($('<div>'+verse+'</div>'+
+				  '<div style="font-size:12px;"><span>'+tanzilLink+'</span>'+
+					   '<span style="padding:8px;">'+copy+'</span>'+
+					   '<span style="padding:8px;">'+play+'</span>'+
+					   '<span style="padding:8px;">'+translationLink+'</span>'+
+				 '</div>'));
 }
 
 function analyzeSelection(text, surah, verse){
@@ -216,18 +253,11 @@ function showWordAnalysis(word, surah, verse, pos){
 	}
 }
 
-function searchVerse(verseKey){
-	SearchQuran(window.QuranJS.Verses.findByKey, verseKey, function(data){
-		console.log(data);
-	});
-}
-
-function SearchQuran(ctx, text, callback){
-	
-	const response = ctx(text,  { language: window.QuranJS.Language.ENGLISH, size: 10 })
-					.then((data)=>{								   
+function SearchQuran(ctx, opt, text, callback){
+	const response = ctx(text, opt)
+					.then((data, ext)=>{								   
 						if(callback)
-							callback(data);
+							callback(data, ext);
 					},
 					(error) => {
 						console.error("Quran search error:", error);
