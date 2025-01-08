@@ -154,11 +154,11 @@ function search(pageNumber){
 		div.html('');
 		
 		// Add search navigation
-		var nav = '<div style="margin-bottom:10px;padding:10px;background-color:#9DBF6C;">'+
+		var nav = '<div style="font-size:14px;margin-bottom:10px;padding:10px;background-color:#9DBF6C;">'+
 				  (data.currentPage > 1 ? 
 					'<span onclick="search('+(data.currentPage-1)+')" style="cursor:pointer;margin-right:20px;"><b>Prev</b></span>' 
 					: '') +
-				  '<span>Showing page '+ data.currentPage +' of ' + data.totalPages+ '<span>'+
+				  '<span>Showing '+ data.currentPage +' of ' + data.totalPages+ '<span>'+
 				  (data.currentPage < data.totalPages ? 
 					'<span onclick="search('+(data.currentPage+1)+')" style="cursor:pointer;margin-left:20px;"><b>Next</b></span>' 
 					: '') +
