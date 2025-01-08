@@ -198,21 +198,25 @@ function displayVerse(div, verse, verseKey, analysis=true){
 					'onclick="copyTextToClipboard(\''+verse.replace(/[<>\/a-zA-Z]+/ig, '')+'\');"/>'+
 				'</span>';
 								  
-	var tanzilLink = '<a title="Click to view in tanzil.com" style="font-size:18px" href="https://tanzil.net/#'+verseKey+'" '+
-					 'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
+	var tanzilLink = '<a title="Click to view in tanzil.com" '+
+						'style="position:absolute;margin-top:6px;" '+
+						'href="https://tanzil.net/#'+verseKey+'" '+
+						'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
 					 '[' + verseKey+ ']'+
 					 '</a>';
 					 
-	var translationLink = '<a title="Click to view translation in tanzil.com" style="font-size:10px" href="https://tanzil.net/#trans/en.sahih/'+verseKey+'" '+
+	var translationLink = '<a title="Click to view translation in tanzil.com" '+
+							 'style="position:absolute;margin-right:10px;margin-left:-16px;margin-top:6px;font-size:10px;" '+
+							 'href="https://tanzil.net/#trans/en.sahih/'+verseKey+'" '+
 					 'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
-					 '[en]'+
-					 '</a>';
+					 '[en]</a>';
 					 
-	div.append($('<div>'+verse+'</div>'+
-				  '<div style="margin-bottom:12px;font-size:12px;"><span>'+tanzilLink+'</span>'+
-					   '<span style="padding:8px;">'+copy+'</span>'+
-					   '<span style="padding:8px;">'+play+'</span>'+
-					   '<span style="padding:8px;">'+translationLink+'</span>'+
+	div.append($('<div style="padding-bottom:4px;">'+verse+'</div>'+
+				  '<div style="font-size:12px;padding-bottom:12px;">'+
+					   '<span style="padding-right:8px;">'+translationLink+'</span>'+
+					   '<span style="padding-right:8px;">'+copy+'</span>'+
+					   '<span style="padding-right:8px;">'+play+'</span>'+
+					   '<span style="margin-left:-16px;">'+tanzilLink+'</span>'+
 				 '</div>'));
 }
 
