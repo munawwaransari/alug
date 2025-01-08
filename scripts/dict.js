@@ -5,11 +5,11 @@
 var lastSuggestionInput = undefined;
 var mappings = {};
 var dict = {};
-var lastIndex2 = undefined;
-var lastIndex = undefined;
-var formFilters = [];
-var index1 = ["ا","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م","ن","و","ه","ي"];
-var index2Suffixes = ["آ","إ","أ","ا","ؤ","و","ئ","ي","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م","ن","ه"];
+//var lastIndex2 = undefined;
+//var lastIndex = undefined;
+//var formFilters = [];
+//var index1 = ["ا","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م","ن","و","ه","ي"];
+//var index2Suffixes = ["آ","إ","أ","ا","ؤ","و","ئ","ي","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م","ن","ه"];
 var posAPIObj, cmpAPIObj;
 var dState = {};
 var params = { "action": undefined, data: undefined};
@@ -55,12 +55,12 @@ window.onload = function(){
 	});
 	 
 	// add index
-	index1.every(function(key){
-	  addIndex(key);
-	  return true;
-	});
-	$(".index").append($('<div id="btnindex" class="btnl" onclick="toggleIndex(\'index\')">Collapse</div>'));
-	toggleIndex('index');
+	//index1.every(function(key){
+	//  addIndex(key);
+	//  return true;
+	//});
+	//$(".index").append($('<div id="btnindex" class="btnl" onclick="toggleIndex(\'index\')">Collapse</div>'));
+	//toggleIndex('index');
 }
 
 function selectAndTrigger(data, filterClass){
@@ -156,6 +156,7 @@ function analyzeSelectedWord(){
 	posAPIObj.addHtml($(".dictionary"), res, true);
 }
 
+/*
 function addIndex(letter){
 	var idiv = '<div class="letter" onclick="addIndex2(\''+letter+'\')">'+letter+'</div>';
 	$(".index").append($(idiv));
@@ -200,6 +201,7 @@ function toggleForm(f){
 	//console.log(formFilters);
 	loadDictionary(lastIndex);
 }
+*/
 
 function selectWord(text){
 	$("#wordSearchText").val(text);				
