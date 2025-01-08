@@ -209,7 +209,7 @@ function displayVerse(div, verse, verseKey, analysis=true){
 					 '</a>';
 					 
 	div.append($('<div>'+verse+'</div>'+
-				  '<div style="font-size:12px;"><span>'+tanzilLink+'</span>'+
+				  '<div style="margin-bottom:12px;font-size:12px;"><span>'+tanzilLink+'</span>'+
 					   '<span style="padding:8px;">'+copy+'</span>'+
 					   '<span style="padding:8px;">'+play+'</span>'+
 					   '<span style="padding:8px;">'+translationLink+'</span>'+
