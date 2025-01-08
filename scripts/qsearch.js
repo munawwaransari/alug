@@ -206,14 +206,14 @@ function displayVerse(div, verse, verseKey, analysis=true){
 					 '</a>';
 					 
 	var translationLink = '<a title="Click to view translation in tanzil.com" '+
-							 'style="position:absolute;margin-right:10px;margin-left:-16px;margin-top:6px;font-size:10px;" '+
+							 'style="position:absolute;margin-right:10px;margin-left:-10px;margin-top:6px;font-size:10px;" '+
 							 'href="https://tanzil.net/#trans/en.sahih/'+verseKey+'" '+
 					 'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
 					 '[en]</a>';
 					 
 	div.append($('<div style="padding-bottom:4px;">'+verse+'</div>'+
 				  '<div style="font-size:12px;padding-bottom:12px;">'+
-					   '<span style="padding-right:8px;">'+translationLink+'</span>'+
+					   '<span style="padding-right:12px;">'+translationLink+'</span>'+
 					   '<span style="padding-right:8px;">'+copy+'</span>'+
 					   '<span style="padding-right:8px;">'+play+'</span>'+
 					   '<span style="margin-left:-16px;">'+tanzilLink+'</span>'+
