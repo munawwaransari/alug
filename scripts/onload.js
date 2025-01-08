@@ -67,6 +67,10 @@ $(document).ready(function()
 			
 			var query = decodeURI(getParamValue("q"));	
 			if(query && query !== "undefined"){
+				if(query === "sitemap"){
+					genAndDownloadSitemap();
+					return;
+				}
 				getiSearchSuggesstions(query, function(res){
 					if(res){
 						if(res.length > 1){
@@ -658,4 +662,51 @@ function getDefaultActions(txt){
 		res.push('...QuranSearch '+arRemovePunct(txt));
 	}
 	return res;
+}
+
+function genAndDownloadSitemap(){
+	var dataFile =  getLocationPath() + 'data/isearch.json'; 
+	loadJsonData(dataFile, function(data){
+		var siteMap = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+		siteMap += getDefaultSiteMapUrls();
+		for(const [k,v] of Object.entries(data)){
+			var keys = k.split(";").filter(x => x !== "");
+			keys.every(function(xKey){
+				siteMap += getSitemapUrl(xKey);
+				return true;
+			});
+		}
+		siteMap += '</urlset>';
+		saveTextAsFile(siteMap, "site-map.xml");
+	});
+}
+
+function saveTextAsFile(text, filename) {
+    const blob = new Blob([text], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+function getDefaultSiteMapUrls(){
+	return getSitemapUrl() + 
+		   getSitemapUrl('Quran search');
+}
+
+function getSitemapUrl(query){
+	var priority = '1.0';
+	var dateStr = '2025-01-08'
+	var baseUrl = 'https://munawwaransari.github.io/alug';
+	if(query) baseUrl += '?q='+encodeURI(query);
+	return '<url>'+
+      '<loc>'+baseUrl+'</loc>'+
+      '<lastmod>'+dateStr+'</lastmod>'+
+      '<changefreq>monthly</changefreq>'+
+      '<priority>'+priority+'</priority>'+
+   '</url>';
 }
