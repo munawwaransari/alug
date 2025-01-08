@@ -105,7 +105,7 @@ function loadWordsFrom(data){
 /* 
 Search Quran using QuranJS API  
 */
-function search(){
+function search(pageNumber){
 	$("#qari").show();
 	stopPlayVerse();
 	const text = arRemovePunct(document.getElementById("searchText").value);
@@ -114,6 +114,8 @@ function search(){
 	
 	var ctx = window.QuranJS.Search.search;
 	var opt = { language: window.QuranJS.Language.ENGLISH, size: 10 };
+	if(pageNumber)
+		opt.page = pageNumber;
 	// check if verse key
 	if(text.trim().match(/^\d{1,3}\:\d{1,3}$/g)){
 		ctx = window.QuranJS.Verses.findByKey;
@@ -150,6 +152,19 @@ function search(){
 		}
 		
 		div.html('');
+		
+		// Add search navigation
+		var nav = '<div style="margin-bottom:10px;padding:10px;background-color:#9DBF6C;">'+
+				  (data.currentPage > 1 ? 
+					'<span onclick="search('+(data.currentPage-1)+')" style="cursor:pointer;margin-right:20px;"><b>Prev</b></span>' 
+					: '') +
+				  '<span>Showing page '+ data.currentPage +' of ' + data.totalPages+ '<span>'+
+				  (data.currentPage < data.totalPages ? 
+					'<span onclick="search('+(data.currentPage+1)+')" style="cursor:pointer;margin-left:20px;"><b>Next</b></span>' 
+					: '') +
+				  '</div>';
+		div.append($(nav));
+		
 		data.results.forEach(function(res){
 			var resulText = res.highlighted ?? res.text;
 			if(resulText){
@@ -179,7 +194,7 @@ function displayVerse(div, verse, verseKey, analysis=true){
 					'<img id="analyzeIcon" src="images/analyze.jpg" style="width:20px;cursor: pointer;" '+
 					'onclick="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')"/>'+
 					
-					'<img id="copyIcon" src="images/copy.jpg" style="visibility:visible;width:20px;cursor: pointer;" '+
+					'<img id="copyIcon" src="images/copy.jpg" style="margin-left:10px;visibility:visible;width:20px;cursor: pointer;" '+
 					'onclick="copyTextToClipboard(\''+verse.replace(/[<>\/a-zA-Z]+/ig, '')+'\');"/>'+
 				'</span>';
 								  
