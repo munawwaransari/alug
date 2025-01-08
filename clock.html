@@ -1,0 +1,237 @@
+<!--
+	Author: munawwar_ali@yahoo.com
+//-->
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes" />
+	<head>
+		<link rel="shortcut icon" href="#" />
+		<style>
+			.clock {
+				margin: auto;
+				position: relative;
+				width: 360px;
+				height: 360px;
+				background-image: url('images/clock-bg.png');
+				background-repeat: no-repeat;
+				border: 1px red dotted;
+			}
+			
+			.arabicTime {
+				text-align: center;
+				margin:auto;
+				width: 360px;
+				padding: 10px;
+				font-size: 30px;
+			}
+		</style>
+		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+		<script>
+			var scount, mcount, hcount, interval;
+			
+			window.onload = function(){
+				//Set hour list
+				var selHour = $("#selHour");
+				for(var h=1; h < 13; h++){
+					var hhText = h > 9 ? h : "0"+h;
+					selHour.append('<option value="'+hhText+'">'+hhText+'</option>')
+				}
+				
+				//Set minute list
+				var selMinute = $("#selMinute");
+				for(var m=0; m < 60; m++){
+					var mmText = m > 9 ? m : "0"+m;
+					selMinute.append('<option value="'+mmText+'">'+mmText+'</option>')
+				}
+				
+				runClock();
+			}
+			
+			function setClock(){
+				pauseClock();
+				var h = $("#selHour").val();
+				var m = $("#selMinute").val();
+				draw("hour", h, m);
+				draw("minute", m, 0);
+				
+				$("#second").hide();
+				$("#timeText").html(getTimeInArabic(h, m));
+				$("#timeText2").html(getTime2(h, m));
+			}
+			
+			function pauseClock(){
+				if(interval){
+					clearInterval(interval);
+					interval = undefined;
+				}
+			}
+			
+			function runClock(){
+				if(interval !== undefined)
+					return;
+				var date = new Date;
+				scount = date.getSeconds();
+				mcount = date.getMinutes();
+				hcount = date.getHours();
+				if(hcount > 12)
+					hcount -= 12;
+				
+				$("#selHour").val(hcount > 9 ? hcout : "0"+hcount);
+				$("#selMinute").val(mcount > 9 ? mcount : "0"+mcount);
+				$("#second").show();
+				
+				interval = setInterval(function(){
+					
+					scount++;
+					if(scount > 59){
+					    scount = 0;
+					    mcount++;
+						if(mcount > 59){
+						  mcount = 0;
+						  hcount++;
+						  if(hcount > 12) 
+							hcount = 0;
+						}
+					}
+					draw("second", scount, 0);
+					draw("minute", mcount, 0);
+					draw("hour", hcount, mcount);
+					
+					$("#timeText").html(getTimeInArabic(hcount, mcount));
+					$("#timeText2").html(getTime2(hcount, mcount));
+						
+				}, 1000);
+			}
+			
+			function draw(name, value, value2){
+				var svgLine = document.getElementById(name);
+				var angle = -90+(value2*0.5) + (value* ((name === "hour") ? 30 : 6));
+				var radius = $(".clock").width()/2 - ((name === "hour") ? 80 : 40);
+				var x1 = 180, x2 = 180;
+				var y1 = 180, y2 = 100;
+				var x2 = x1 + rotateX(radius, angle);
+				var y2 = y1 + rotateY(radius, angle);
+				svgLine.setAttribute("x2", x2);
+				svgLine.setAttribute("y2", y2);
+				svgLine.setAttribute("r", radius);
+			}
+			
+			function rotateX(radius, angle){
+				return radius * Math.cos(Math.PI * 2 * angle / 360);
+			}
+			
+			function rotateY(radius, angle){
+				return radius * Math.sin(Math.PI * 2 * angle / 360);
+			}
+			
+			var hourNames = [
+				"الواحِدَة", "الثَّانِيَة", "الثَّالِثَة", "الرَّابِعَة", "الخامِسَة", "السَّادِسَة", "السَّابِعَة", "الثَّامِنَة", "التَّاسِعَة", "العَاشِرَة", "الحادِية عَشَرَة", "الثَّانِيَة عَشَرَة"
+			];
+			
+			var partNames = {
+				"15": "وَالرُّبُعُ",	
+				"20": "وَالثُّلُثُ",
+				"30": "وَالنِّصفُ",
+				"40": "إلَّا ثُلث",
+				"45": "إلَّا رُبُعًا",
+				"50": "إلَّا عَشَرَ",
+				"55": "إلَّا خَمسَ"
+			};
+			var tensNames = {
+				"10": "وَعَشَرَ",
+				"20": "وَعِشَرُون",
+				"30": "وَثَلاثُون",
+				"40": "وَاَربَعُون",
+				"50": "وَخَمسُون",
+				"60": "وَسِتُّون",
+				"70": "وَسَبعُون",
+				"80": "وَثَمانُون",
+				"90": "وَتِسعُون",
+				"11": "أَحَدَ وَعَشَرَ",
+				"12": "إثنَا وَعَشَرَ",
+				"13": "ثَلاثَةَ وَعَشَرَ",
+				"14": "اَربَعَةَ وَعَشَرَ",
+				"15": "خَمسَةَ وَعَشَرَ",
+				"16": "سِتَّةَ وَعَشَرَ",
+				"17": "سَبعَةَ وَعَشَرَ",
+				"18": "ثَمانِيَةَ وَعَشَرَ",
+				"19": "تِسعَةَ وَعَشَرَ",
+			};
+			var numberNames = {
+				"1": "وَواحِد",
+				"2": "وَاِثنَان",
+				"3": "وَثَلاثَةُ",
+				"4": "وَاَربَعَةُ",
+				"5": "وَخَمسَةُ",
+				"6": "وَسِتَّةُ",
+				"7": "وَسَبعَةُ",
+				"8": "وَثَمَانِيَةُ",
+				"9": "وَتِسعَةُ"
+			};
+			
+			function getTimeInArabic(hour, min){
+				if(hour < 1 || hour > 12 || min < 0 || min > 59)
+					return;
+					
+				var h = hourNames[hour-1];
+				var m = partNames[min];
+				var ret = '';
+				var units = min % 10;
+				var tens = Math.floor(min / 10)*10;
+
+				if(m === undefined){
+					if(min > 20){
+						m= numberNames[units] + ' ' + tensNames[tens];
+					}
+					else if (tensNames[min] !== undefined){
+						m=  tensNames[min];
+					}
+					else if (tens > 9){
+						m=  tensNames[tens];
+						if(min > 0 && numberNames[units] !== undefined)
+							m+= ' '+ numberNames[units];
+					}else if(min > 0 && numberNames[units] !== undefined){
+						m=numberNames[units];
+					}
+					
+					ret = m === undefined ? h : h + ' ' + m;
+					if(partNames[min] === undefined && numberNames[units] !== undefined && 
+					   (min > 2) && !(m >=11 && m <= 19))
+					{
+						ret += " دَقَائِق";
+					}
+				}else{
+					if(m.includes('إلَّا')){
+						var hh = parseInt(hour) + 1;
+						if(hh > 12) hh = 1;
+						h = hourNames[hh-1];
+					}
+					ret = h + ' ' + m;
+				}
+				return ret;
+			}
+			
+			function getTime2(hour, min){
+				//var amPm = hour > 12 ? " pm" : " am";
+				var h = hour > 9 ? ""+hour : "0"+hour;
+				var m = min > 9 ? ""+min : "0"+min;
+				return h + " : " + m; // + amPm;
+			}
+		</script>
+	</head>
+	<body style="display:flex;justify-content: center;flex-direction: column;">
+		<svg class="clock">
+			  <circle id="cp" cx="180" cy="180" r="2" style="stroke:red;stroke-fill:red;stroke-width:20;" />
+			  <line id="hour" x1="180" y1="180" x2="180" y2="60" style="stroke:red;stroke-width:12"/>
+			  <line id="minute" x1="180" y1="180" x2="180" y2="50" style="stroke:blue;stroke-width:8"/>
+			  <line id="second" x1="180" y1="180" x2="180" y2="40" style="stroke:green;stroke-width:4"/>
+		</svg>
+		<div style="margin:auto;">
+			<button onclick="runClock()">Run Clock</button>
+			<label>Hour:<select id="selHour" onchange="setClock()"></select></label>
+			<label>Minute:<select id="selMinute" onchange="setClock()"></select></label>
+		</div>
+		<div id="timeText" class="arabicTime"></div>
+		<div id="timeText2" class="arabicTime"></div>
+	</body>
+</html>

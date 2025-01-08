@@ -1,0 +1,252 @@
+<!--
+	Author: munawwar_ali@yahoo.com
+//-->
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes" />
+	<head>
+		<link rel="shortcut icon" href="#" />
+		<style>
+			.arabicNumber {
+				text-align: center;
+				margin:auto;
+				width: 360px;
+				padding: 10px;
+				font-size: 30px;
+			}
+			
+			.num-disp{
+				display: flex;
+				flex-wrap: wrap; /* This enables wrapping of flex items */
+				gap: 10px; /* Optional: Adds space between items */
+				float: right;
+				direction: rtl;
+				text-align: center;
+				margin:auto;
+				width: 100%;
+			}
+			
+			.num-box{
+				padding: 10px;
+				font-size: 30px;
+				text-align: center;
+				box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+				width: 100px;
+				cursor: pointer;
+			}
+			
+			.num-disp .num-box:hover {
+				background-color: #84BA38;
+				color: #0707FB;
+				transition: transform 0.6s;
+				transform-style: preserve-3d;
+				box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+			}
+		</style>
+		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+		<script>
+			var tensNames = {
+				"10": "وَعَشَرَ",
+				"20": "وَعِشَرُون",
+				"30": "وَثَلاثُون",
+				"40": "وَاَربَعُون",
+				"50": "وَخَمسُون",
+				"60": "وَسِتُّون",
+				"70": "وَسَبعُون",
+				"80": "وَثَمانُون",
+				"90": "وَتِسعُون",
+				"11": "أَحَدَ وَعَشَرَ",
+				"12": "إثنَا وَعَشَرَ",
+				"13": "ثَلاثَةَ وَعَشَرَ",
+				"14": "اَربَعَةَ وَعَشَرَ",
+				"15": "خَمسَةَ وَعَشَرَ",
+				"16": "سِتَّةَ وَعَشَرَ",
+				"17": "سَبعَةَ وَعَشَرَ",
+				"18": "ثَمانِيَةَ وَعَشَرَ",
+				"19": "تِسعَةَ وَعَشَرَ",
+			};
+			var numberNames = {
+				"1": "وَواحِد",
+				"2": "وَاِثنَان",
+				"3": "وَثَلاثَةُ",
+				"4": "وَاَربَعَةُ",
+				"5": "وَخَمسَةُ",
+				"6": "وَسِتَّةُ",
+				"7": "وَسَبعَةُ",
+				"8": "وَثَمَانِيَةُ",
+				"9": "وَتِسعَةُ"
+			};
+			
+			window.onload = function(){
+				$("#numText").val(100000)
+				showNumberText();
+				
+				setTimeout(function(){
+					displayNumbers();
+				}, 10);
+			}
+			
+			function showNumberText(play){
+				var txt = $("#numText").val();
+				var numText = getNumberText(txt);
+				$("#numberDiv").html(numText);
+				
+				if(play){
+					playNumberText(numText);
+				}
+			}
+			
+			function playNumberText(txt){
+				if(parent && parent.playText){
+					parent.playText(txt, 'ar-SA');
+				}
+			}
+			
+			function getNumberText(txt){
+			
+				var val = parseInt(txt, 10);
+				if(val < 100){
+					return getUpto99(val)
+				}
+				
+				if(val > 99 && val < 1000){
+					return getUpto999(val);
+				}
+				
+				if(val > 999 && val < 10000){
+					return getUpto9999(val);
+				}
+				
+				if(val > 9999 && val < 1000000){
+					var p1 = Math.floor(val / 1000);
+					var p2 = val - p1*1000;
+					var v1 = getNumberText(p1);
+					if(v1[0] === 'و' && v1[1] === 'َ')
+						v1 = removePrefix(v1);
+					var v2 = p2 > 0 ? getNumberText(p2) : "";
+					return v1 + ' آلاف ' + v2;
+				}
+				return txt;
+			}
+			
+			function get100To999(val){
+				if(val == 100) return "مِأْئَة";
+				if(val == 200) return "مِأْئَتَانِ";
+				var ret = numberNames[Math.floor(val/100)]
+							.replace(new RegExp("َةُ$","g"),"ُ");
+				if(numberNames[val/100]){
+					ret = removePrefix(ret);
+				}
+				return ret + ' مِأْئَة'; 
+			}
+			
+			function get1000To9999(val){
+				if(val == 1000) return "اَلفٌ";
+				if(val == 2000) return "اَلفَين";
+				var ret = numberNames[Math.floor(val/1000)] + ' ' + "آلاف";
+				if(numberNames[val/1000]){
+					return removePrefix(ret);
+				}
+				return ret; 
+			}
+			
+			function getUpto9999(val){
+				if(val % 1000 === 0 && val < 10000){
+					return get1000To9999(val);
+				}
+				
+				if(val > 1000 && val < 10000){
+					var hundreds = val % 1000;
+					var thousands = val - hundreds;
+					
+					var v100 = getNumberText(hundreds);
+					var v1000 = get1000To9999(thousands);
+					return v1000+' وَ'+ removePrefix(v100);
+				}
+				return val;
+			}
+			
+			function getUpto999(val){
+				if(val % 100 === 0 && val < 1000){
+					return get100To999(val);
+				}
+				
+				if(val > 100 && val < 1000){
+					var tens = val % 100;
+					var hundreds = val - tens;
+					var v99 = getUpto99(tens, false);
+					if(val % 100 !== 0 && v99[0] !== 'و')
+						v99 = 'وَ' + v99;
+					var v999 = get100To999(hundreds);
+					if (tens === 0){
+						v999 = removePrefix(v999);
+					}
+					return v999+' '+ v99;
+				}
+			}
+			
+			function getUpto99(val, pfx=false){
+				if(numberNames[val])
+					return pfx ? removePrefix(numberNames[val])
+							   :numberNames[val];
+				if(tensNames[val])
+					return pfx ? removePrefix(tensNames[val])
+							   :tensNames[val];
+							   
+				var units = val % 10;
+				var tens = Math.floor(val / 10)*10;
+				if(pfx)
+					return numberNames[units] + ' ' + ((tens > 0) ? tensNames[tens] : '');
+				return removePrefix(numberNames[units]) + ' ' + ((tens > 0) ? tensNames[tens] : '');
+			}
+			
+			function removePrefix(txt){
+				if(txt[0] === 'و')
+					return txt.substring(2);
+				return txt;
+			}
+			
+			function removeDiacritic(txt){
+				return txt.replace(new RegExp('ُ$','g'), '');
+			}
+			
+			function displayNumbers(){
+				$("#numberDisplay").empty();
+				for(var i=1; i < 20; i++){
+					var numText =removeDiacritic(removePrefix(getNumberText(i+"")));
+					$("#numberDisplay").append(getNumDiv(i, numText));
+				}
+				
+				for(var i=20; i < 100; i+=10){
+					var numText =removeDiacritic(removePrefix(getNumberText(i+"")));
+					$("#numberDisplay").append(getNumDiv(i, numText));
+				}
+				
+				for(var i=100; i < 1000; i+=200){
+					var numText =removeDiacritic(removePrefix(getNumberText(i+"")));
+					$("#numberDisplay").append(getNumDiv(i, numText));
+				}
+				
+				for(var i=1000; i < 12000; i+=3000){
+					var numText =removeDiacritic(removePrefix(getNumberText(i+"")));
+					$("#numberDisplay").append(getNumDiv(i, numText));
+				}
+				
+				function getNumDiv(n, txt){
+					return $('<div class="num-box" '+
+									   'onclick="playNumberText(\''+txt+'\')">'+
+									   n+'<br/>'+txt+
+								   '</div>')
+				}
+			}
+		</script>
+	</head>
+	<body style="display:flex;justify-content: center;flex-direction: column;">
+		<div class="arabicNumber">
+			<label>Check Number:<input id="numText" style="width:100px;font-size:16px;" maxlength="6" onchange="showNumberText(true)"/></label>
+		</div>
+		<div id="numberDiv" class="arabicNumber" ></div>
+		<br/>
+		<div id="numberDisplay" class="num-disp" ></div>
+	</body>
+</html>

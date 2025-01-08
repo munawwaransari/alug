@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+	<title>Chart Test</title>
+	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+	<script src='https://unpkg.com/tesseract.js@5.0.0/dist/tesseract.min.js'></script>
+	<script src="scripts/data-util.js"></script>
+	<style>
+		.chart {
+			display: flex;
+			flex-direction:row;
+			flex-wrap: wrap;
+			direction: rtl;
+		}
+		
+		.chartTile {
+			width:180px;
+			height: auto;
+			padding: 4px;
+			cursor: pointer; 
+		}
+		
+		.chartTile:hover {
+			box-shadow: 0 4px 8px 0 #6D7E55;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var folder = decodeURI(getParamValue("folder"));
+			if(folder){
+				var url = getLocationPath() + 'images/charts/'+folder+'/';
+				loadCharts(url, getMax(folder));
+			}
+		}	
+		
+		function getMax(folder){
+			var max = 10;
+			switch (folder){
+				case "alphabets": max = 28; break;
+				case "antonym": max = 30; break;
+				case "homonym": max=32; break;
+				case "jarr": max=16; break;
+				case "synonym": max=12; break;
+				case "verbs": max=28; break;
+				case "verb-forms": max=32; break;
+				case "imperative": max=32; break;
+			}
+			return max;
+		}
+		
+		function loadCharts(url, maxFiles){
+		
+		    var div = '<div class="chart">';
+			for(var i=1; i <=maxFiles; i++){
+				var imgUrl = url+i+'.png';
+				div += '<img class="chartTile" src="'+imgUrl+'" '+
+							'onclick="parseImageAndPlay(\''+imgUrl+'\')"></img>';
+			}
+            div += '</div>';
+			$("#chartContainer").empty();
+			$("#chartContainer").append($(div));
+		}
+		
+		function parseImageAndPlay(url){
+			var isAlphabet = url.includes('alphabets') || 
+							 url.includes('homonym') ||
+							 url.includes('synonym') || 
+							 url.includes('antonym') || 
+							 url.includes('jarr');
+			tesseract_imageToText(url, 'ara', function(success, data){
+				if(success === true){
+					if(isAlphabet){
+						var t = data.split('\n').filter(x => x != "");
+						if(t.length > 0){
+							data = t[t.length-1];
+						}
+					}
+					data = data.replace(/[©\+\>\<\|\-0-9\.a-zA-Z\"\']+/g, '');
+					if(isAlphabet)
+						data = data.replace(/\s+/g, '.');
+					playCard(data)
+				}
+			});
+		}
+	</script>
+</head>
+  <body>
+    <div id="chartContainer">
+  </div>
+</body>
+</html>

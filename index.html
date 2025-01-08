@@ -1,12 +1,16 @@
-<!--
-	Author: munawwar_ali@yahoo.com
-//-->
 <html>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, user-scalable=yes" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="author" content="Munawwar Ansari (munawwar_ali@yahoo)" />
+	<meta name="keywords" content="learn Arabic, learn Arabic online, Arabic course, Arabic courses, learning Arabic, Arabic language learning, how to learn Arabic, how to speak Arabic, how to read Arabic, how to write Arabic, how to study Arabic, Arabic videos, Arabic vocabulary, Arabic quiz, Quran search, Arabic conjugation"/>
+	<meta name="description" content="Arabic Language Learning Resources">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Arabic Language Learning Resources</title>
 	<head>
 		<link rel="shortcut icon" href="#" />
 		<link rel="stylesheet" type="text/css" href="styles/styles.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="styles/autoc-styles.css" media="screen">
 		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
 		<script type="text/javascript" src="scripts/quizlib/quizlib.1.0.1.min.js"></script>
 		<script src="data/topics.js"></script>
@@ -17,15 +21,53 @@
 			var speech_synthesis_supportd = false;
 			var autoplay_cache = [];
 			var states = {};
+			var arSupported = false, urSupported = false;
 	
+			window.topics = alug_chapters;
 			window.updateStates = function (s){ $.extend(states, s); };
+			
+			window.isLangSupported = function(lang){
+				return lang === "en-US" || 
+					   lang === "ar-SA" || 
+					   lang === "ur-PK" || 
+					   lang === "ur-IN" ||
+					   lang === "hi-IN";
+			}
+			
+			window.isAutoPlayEnabled = function(){
+				return autoplay;
+			}
 			
 			window.getLang = function(){
 				return document.getElementById('lang-options').value.split("-")[0];
 			}
 			
-			window.playText = function(txt, lang){
+			window.getLangOption = function(){
+				return document.getElementById('lang-options').value;
+			}
+			
+			window.openInline = function(url, playOptions){
+				console.log("openInline");
+				var flag = autoplay;
+				var po=playOptions;
+				$('.reading-pane').attr("src","");
+				setTimeout(function(){
+					$('.reading-pane').attr('src', url);
+					
+					if(po){
+						autoplayAudio(po.topic, po.page);
+					}
+					
+				}, 5);
+			}
+			
+			window.playText = function(txt, lang, options){
+			  if(!autoplay) return;
 			  if(lang){
+				if(! window.isLangSupported(lang) && options && options["en-US"]){
+					lang = "en-US";
+					txt = options["en-US"];
+				}
 			    console.log("current lang:" + $("#languages").val());
 			    $("#languages").val(lang);
 			    //setTimeout(function(arg) { window.playText(arg); }, 1);
@@ -90,40 +132,50 @@
 			}
 		</script>
 		</script>
-		<script src="scripts/chapters.js"></script>
+		<!-- <script src="scripts/chapters.js"></script> -->
 	</head>
 	<body>
 		<section id="main" class="main"></section>
 		<div id="support" style="display:none"></div>
 		<script src="scripts/speak-tts/demo.bundle.js"></script>
 		<script src="scripts/data-util.js"></script>
+		<script src="scripts/autocomplete.js"></script>
 		<script src="scripts/onload.js"></script>
+		<!-- <button onclick="loadLanguages()">Load</button> -->
 		<div class="toolDiv">
-			<span class="toolSpan"><b>Arabic Language Learners Guide</b></span>
+			<span class="toolSpan"><b><a target="_blank" href="LICENSE.md">Arabic Language Learning Guide</a></h></b></span>
 			<span class="toolSpan">
 				<select id="playSections"></select>
 				<textarea id="text"></textarea>
 				<button id="play"> Play </button>
 			</span>
 			<span class="toolSpan">
+				<img id="in-search" class="tool" src="images/insearch.png" />
 				<!--<img id="user" class="tool" src="images/user.jpg"/>-->
+				<img id="resources" class="tool" src="images/download.jpg"
+					onclick="loadResources()" />
+				<img id="km" class="tool" src="images/km.jpg" onclick="loadQuizResources()" />
 				<img id="info" class="tool" src="images/info.png"/>
 				<img id="ss-support_1" class="tool" src="images/ss-supported.png"/>
 				<img id="ss-support_2" class="tool" src="images/ss-not-supported.png" style="display:none"/>
-				<!--<img id="email" class="tool" src="images/email.png" onclick="window.open('mailto:munawwar_ali@yahoo.com', '_blank')"/>-->
+				<img id="hw" class="tool" src="images/hw.png" onclick="loadHandwriting()"/>
 				<img id="speech_1" class="tool" src="images/speech-enabled.png" onclick="toggleAutoplay()"/>
 				<img id="speech_2" class="tool" src="images/speech-disabled.png" onclick="toggleAutoplay()" style="display:none"/>
+				<!--
 				<img id="topics_1" class="tool" style="margin-top: 4px;display:none" src="images/menu-enabled.jpg" onclick="toggleMenu()" />
 				<img id="topics_2" class="tool" style="margin-top: 4px;" src="images/menu-disabled.jpg" onclick="toggleMenu()"/>
+				!-->
 				<img id="alpha" class="tool" src="images/alpha.jpg" />
-				<img id="qsearch" class="tool" src="images/qsearch.jpg" onclick="loadQuranSearch()" />
-				<img id="dict" class="tool" src="images/dict.jpg" onclick="loadSampleDictionary()" />
+				<img id="qsearch" class="tool" src="images/qsearch.jpg" onclick="loadQuranSearch()"/>
+				<img id="dict" class="tool" src="images/dict.jpg" onclick="loadGrammarView()"/>
 				<img id="l-option" class="tool" src="images/languages.png">
-					<div class="tooltiptext">
+					<div id="l-option-child" style="display:none;padding:0;margin:0">
+						<span style="font-size:16px;">Select Language:</span>
 						<select id="lang-options">
 							<option value="en-US" select>English</option>
 							<option value="ur-PK">اردو</option>
 							<option value="ar-SA">العربي</option>
+							<option value="hi-IN">हिन्दी</option>
 						</select>
 					</div>
 				</img>

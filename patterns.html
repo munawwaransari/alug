@@ -1,0 +1,176 @@
+<!--
+	Author: munawwar_ali@yahoo.com
+//-->
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes" />
+	<head>
+		<link rel="shortcut icon" href="#" />
+		<style>
+			.kalima {
+				text-align: center;
+				margin:auto;
+				width: 56px;
+				padding: 4px;
+				font-size: 24px;
+			}
+			.pDiv{
+				text-align: center;
+				margin:auto;
+				width: 100%;
+				padding: 10px;
+			}
+			.enText {
+				font-size: 18px;
+			}
+			
+			.arText{
+				font-size: 26px;
+			}
+			
+			#display {
+				font-size: 30px;
+			}
+		</style>
+		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+		<script src="scripts/data-util.js"></script>
+		<script src="scripts/pos.js"></script>
+		<script>			
+			var sel = {};
+			var pat_kalimas = [];
+			var patterns = {};
+			var patternsInfo = {};
+			var posAPIInstance;
+			window.onload = function(){
+				posAPIInstance = new posAPI(getLocationPath(), function(msg, err){
+					if(err){
+						console.log("Failed to initialize pos api");
+						return;
+					}
+					getPatterns();
+					loadPatterns();
+				});
+				
+				function getPatterns(){
+					var nounInfo = posAPIInstance.getNounInfo();
+					patterns["noun"] = [];
+					for(const [key, val] of Object.entries(nounInfo)){
+						val.xforms.map(function(x){
+							if(x.form !== 'فعل'){
+								patterns["noun"].push(x.form);
+								patternsInfo[x.form] = x;
+							}
+						});;
+					}
+					
+					var verbInfo = posAPIInstance.getVerbInfo();
+					patterns["verb"] = [];
+					for(const [key, val] of Object.entries(verbInfo)){
+						for(const [key2, val2] of Object.entries(val)){
+							if(val2.pos === "verb"){
+								patterns["verb"].push(val2.form);
+								patternsInfo[val2.form] = val2;
+							}
+							else if(val2.pos === "noun"){
+								patterns["noun"].push(val2.form);
+								patternsInfo[val2.form] = val2;
+							}
+						}
+					}
+					
+					//sort
+					patterns["noun"].sort();
+					patterns["verb"].sort();
+				}
+			}
+			
+			function loadPatterns(){
+				$("#patterns").empty();
+				var pos = $("#pos").val();
+				if(patterns[pos]){
+					patterns[pos].every(function(n, i){
+						$("#patterns").append('<option value="'+n+'">'+n+'</option>');
+						return true;
+					});
+				}				
+				loadPatternKalimas();
+			}	
+			
+			function loadPatternKalimas(){
+				var pat = posAPIInstance.removeDiacritics($("#patterns").val());
+				pat_kalimas = [];
+				$("#pDiv").empty();
+				for(var i=0; i < pat.length; i++){
+					
+					id = pat[i] === 'ف' ? "fa_kalima" :
+						 pat[i] === 'ع' ? "ain_kalima" :
+						 pat[i] === 'ل' ? "laam_kalima" : 
+						 "additional_" + i;
+					
+					
+					//Add pattern letter
+					$("#pDiv").append('<select id="'+id+'" class="kalima" onchange="applyPattern(this.id)"/></select>');
+					loadKalimaLists("#"+id);
+					
+					//select value
+					var val = getKalimaSelection(id, pat[i]);
+					$("#"+id).val(val);
+					
+					//Disable additional pattern elements
+					if(id.includes("kalima") === false){
+						$("#"+id).attr('disabled', 'disabled');
+					}
+				}
+				
+				applyPattern();
+			}
+			
+			function getKalimaSelection(id, val){
+				var v = val;
+				if(id.includes("kalima") && sel[id] !== undefined){
+						v = sel[id];		
+				}
+				
+				return v;
+			}
+			
+			function loadKalimaLists(id){
+				$(id).empty();
+				letters.every(function(code){
+					$(id).append('<option value="'+code+'">'+code+'</option>');
+					return true;
+				});
+			}
+			
+			function applyPattern(id){
+				var root = $('#fa_kalima').val()+$('#ain_kalima').val()+$('#laam_kalima').val();
+				var pInfo = patternsInfo[$("#patterns").val()];
+				if(pInfo.pos === undefined){
+					pInfo.pos = $("#pos").val();
+				}
+				var word = posAPIInstance.applyPattern(root, pInfo);
+				$("#display").html(word);
+				
+				//update selection
+				if(id) sel[id] = $('#'+id).val();
+			}
+			
+			var letters = [    "ء",    "ا",    "ب",    "ت",    "ث",    "ج",    "ح",    "خ",    "د",    "ذ",    "ر",    "ز",    "س",    "ش",    "ص",    "ض",    "ط",    "ظ",    "ع",    "غ",    "ف",    "ق",    "ك",    "ل",    "م",    "ن",    "و",    "ه",    "ي"];
+		</script>
+	</head>
+	<body style="display:flex;justify-content: center;flex-direction: column;">
+		<div class="pDiv">
+			<select id="pos" onchange="loadPatterns();">
+				<option value="noun">(اسم) Noun</option>
+				<option value="verb">(فعل) Verb</option>
+			</select>
+		</div>
+		<div class="pDiv">
+			<label class="enText">Patterns:</label>
+			<select id="patterns" class="arText" onchange="loadPatternKalimas()" ></select>
+		</div>
+		<div id="pDiv" class="pDiv" style="direction: rtl"></div>
+		<div id="display" class="pDiv" style="direction: rtl">
+		</div>
+	</body>
+</html>

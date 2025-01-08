@@ -2,10 +2,15 @@ html {
   font-family: 'Helvetica Neue', Helvetica, Arial, serif;
 }
 
-body {
-  width: 50%;
-  min-width: 820px;
-  margin: 0 auto;
+body{
+	height: 100%;
+	width: 90%;
+	margin-right: 10%;
+	position: absolute;
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	direction: rtl;
 }
 
 .card {
@@ -17,6 +22,7 @@ body {
   -webkit-box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
   box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
+  text-align: right;
 }
 
 #quiz-result {

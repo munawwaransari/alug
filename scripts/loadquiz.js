@@ -4,8 +4,9 @@
 */
 function loadQuiz(quizzes, obj, ch, lang){
 					
+	$("#topicHeading").text("Quiz: " + ch);
 	var div = undefined;
-	var div = $('<div id="'+obj.id+'"><h4>'+ch+' - '+obj[lang+"_display"]+'</h4></div>');
+	var div = $('<div id="'+obj.id+'"><h4>'+obj[lang+"_display"]+'</h4></div>');
 	if(obj.questions){
 		obj.questions.forEach(function(q){
 			var child = prepareQuestion(q, ch);

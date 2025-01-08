@@ -1,0 +1,256 @@
+{
+	"All verbs;forms": {
+        "path": "dict.html",
+        "action": "vtab-all"
+    },
+    "Triliterate verbs;ثلاثي مجرد": {
+        "path": "dict.html",
+        "action": "vtab-3"
+    },
+    "Inadequate verbs;توقيت;Timing;تحويل;Transition;نفي;Negation;استمرار;Continuation;": {
+        "path": "dict.html",
+        "action": "vtab-inad"
+    },
+    "Weak Verbs;مِثال;أَجوَف;نَاقِص;لَفِيف;مَهمُوز;": {
+        "path": "dict.html",
+        "action": "vtab-weak"
+    },
+    "Imperative;أمر;نهي;": {
+        "path": "dict.html",
+        "action": "vtab-imp"
+    },
+    "Noun patterns;اسم;": {
+        "path": "dict.html",
+        "action": "noun-pat"
+    },
+	"Five Nouns;اسماءُ الخَمسة;": {
+        "path": "dict.html",
+        "action": "five-noun"
+    },
+    "Noun of the instrument;اسم الآلة": {
+        "path": "dict.html",
+        "action": "noun-pat",
+        "data": "@key"
+    },
+    "Noun of place;اسمُ الزمان ومكان": {
+        "path": "dict.html",
+        "action": "noun-pat",
+        "data": "@key"
+    },
+    "Comparative;اسمُ التفضيل": {
+        "path": "dict.html",
+        "action": "noun-pat",
+        "data": "@key"
+    },
+    "Diminutive;اسمُ التصغير": {
+        "path": "dict.html",
+        "action": "noun-pat",
+        "data": "@key"
+    },
+    "Hyperbole;اسمُ المُبالغة": {
+        "path": "dict.html",
+        "action": "noun-pat",
+        "data": "@key"
+    },
+    "Pronouns;ضمير;ضمائر": {
+        "path": "dict.html",
+        "action": "pronoun",
+        "data": "all"
+    },
+    "Subjective Pronouns;ضمائر المنفصلة": {
+        "path": "dict.html",
+        "action": "pronoun",
+        "data": "@key"
+    },
+    "Objective Pronouns;ضمائر المتصلة": {
+        "path": "dict.html",
+        "action": "pronoun",
+        "data": "@key"
+    },
+    "Demonstrative Pronouns;اسماء الإشارة;": {
+        "path": "dict.html",
+        "action": "pronoun",
+        "data": "@key"
+    },
+    "Relative Pronouns;اسماء الموصول": {
+        "path": "dict.html",
+        "action": "pronoun",
+        "data": "@key"
+    },
+    "Plural;جمع": {
+        "path": "dict.html",
+        "action": "noun-plural"
+    },
+    "Synonyms;مرادفات;": {
+        "path": "dict.html",
+        "action": "noun-syn"
+    },
+    "Antonyms;متضادات": {
+        "path": "dict.html",
+        "action": "noun-ant"
+    },
+    "Prepositions;حروف;حرف": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "all"
+    },
+    "حرف الجر - Preposition;Jar;جر;": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "@key"
+    },
+    "إِن - Preposition": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "@key"
+    },
+    "لام - Preposition;ل;": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "@key"
+    },
+    "مَا - Preposition;استفهامية;موصولة;نافية;ليس;كافة;إستِمرَار;مصدرية;ظرفية;": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "@key"
+    },
+    "واؤ - Preposition;واؤ العطف;واؤ المَعِيَّة;واؤ الحال;": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "@key"
+    },
+    "Accusative Markers;نواصب الفعل": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "Accusative Markers"
+    },
+    "Jussive Markers;جوازم الفعل": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "Jussive Markers"
+    },
+    "Conjunctions;حروف العطف": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "Conjunctions"
+    },
+    "حروفُ مَشبة بِالفعل (إنَّ)": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "حروفُ مَشبة بِالفعل (إنَّ)"
+    },
+    "حروف مشبة بالفعل (كانَ)": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "حروف مشبة بالفعل (كانَ)"
+    },
+    "حروف مشبة بِالفعل (كَادَ)": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "حروف مشبة بِالفعل (كَادَ)"
+    },
+    "حروف مشبة بِالفعل (ظَنَّ)": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "حروف مشبة بِالفعل (ظَنَّ)"
+    },
+    "compare;vs;": {
+        "path": "dict.html",
+        "action": "cmp"
+    },
+    "Alphabets (Cards);Vocabulary;الأبجدية": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "alpha"
+    },
+    "Synonyms (Cards);Vocabulary;مرادفات;": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "synonym"
+    },
+    "Homonyms (Cards);Vocabulary;متجانسات;متجانسة;": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "homonym"
+    },
+    "Antonyms (Cards);Vocabulary;متضادات;متضاد;": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "antonym"
+    },
+    "Hyperbole (Cards);Charts;Vocabulary;مبالغة": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "hyperbole"
+    },
+    "Greetings (Cards);Charts;Vocabulary;تحيات;تحية;": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "greetings"
+    },
+    "Colors (Cards);Coluors;Charts;Vocabulary;ألوان;لون": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "colors"
+    },
+    "Pronouns (Cards);Charts;Vocabulary;ضمير;ضمائر": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "pronouns"
+    },
+    "Alphabets (Charts);Cards;Vocabulary;الأبجدية": {
+        "path": "charts.html",
+        "action": "Chart",
+        "data": "alphabets"
+    },
+	"Synonyms (Charts);Cards;Vocabulary;مرادفات;": {
+        "path": "charts.html",
+        "action": "Chart",
+        "data": "synonym"
+    },
+	"Homonyms (Charts);Cards;Vocabulary;متجانسات;متجانسة;": {
+        "path": "charts.html",
+        "action": "Chart",
+        "data": "homonym"
+    },
+	"Antonyms (Charts);Cards;Vocabulary;متضادات;متضاد;": {
+        "path": "charts.html",
+        "action": "Chart",
+        "data": "antonym"
+    },
+	"Jar (Charts);Cards;Vocabulary;حرف الجر;حروف الجر;": {
+        "path": "charts.html",
+        "action": "Chart",
+        "data": "jarr"
+    },
+	"Verbs (Charts);Cards;Vocabulary;افعال;فعل;": {
+        "path": "charts.html",
+        "action": "Chart",
+        "data": "verbs"
+    },
+	"Verb Forms (Charts);Cards;Vocabulary;اوزان;وزن;": {
+        "path": "charts.html",
+        "action": "Chart",
+        "data": "verb-forms"
+    },
+	"Imperative (Charts);Cards;Vocabulary;أمر;نهي;": {
+        "path": "charts.html",
+        "action": "Chart",
+        "data": "imperative"
+    },
+	"Clock (Charts);Time;Cards;Vocabulary;ساعة;وقت;": {
+        "path": "clock.html",
+        "action": "Misc",
+        "data": "clock"
+    },
+	"Calendar (Charts);Time;Cards;Vocabulary;تقويم;": {
+        "path": "calendar.html",
+        "action": "Misc",
+        "data": "calendar"
+    },
+	"Numbers (Charts);Numbers;Cards;Vocabulary;أرقام;اعداد;عدد;رقم;": {
+        "path": "number.html",
+        "action": "Misc",
+        "data": "number"
+    }
+}

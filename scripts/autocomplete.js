@@ -1,6 +1,7 @@
 //var suggestions = [];
 //var arr = [];
 
+var skip_prefix_check = false;
 function fireInputEvent(inp){
 	const event = new Event('input', {
 	  bubbles: true,
@@ -22,10 +23,13 @@ function refreshAutoCompleteList(inp, val, arr){
 	}
 	a.innerHTML = "";
 	
+	skip_prefix_check =  inp.id === "insearchtxt";
+	
 	/*for each item in the array...*/
 	for (i = 0; i < arr.length; i++) {
 		/*check if the item starts with the same letters as the text field value:*/
-		if (arRemovePunct(arr[i]).substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+		if (skip_prefix_check || 
+		    arRemovePunct(arr[i]).substr(0, val.length).toUpperCase() == val.toUpperCase()) {
 		  /*create a DIV element for each matching element:*/
 		  b = document.createElement("DIV");
 		  /*make the matching letters bold:*/

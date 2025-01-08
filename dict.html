@@ -9,14 +9,35 @@
 	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
 	<script src="scripts/data-util.js"></script>
 	<script src="scripts/autocomplete.js"></script>
+	<script src="scripts/pos.js"></script>
+	<script src="scripts/cmp.js"></script>
 	<script src="scripts/dict.js"></script>
+	<script src="scripts/dict-lt.js"></script>
+	<script src="scripts/pronoun.js"></script>
 	<style>
-	
-	.selectedIndex {
-		color: indigo!important;
+	.nFilter{
+		position: relative;
+		display: inline-block;
+		font-size: 18px;
+		width: 300px;
+		margin: auto;
+		align: center;
+		padding: 12px;
+		margin-botton: 10px;
 	}
 	
-	.index {
+	/*
+	.nFilter content{
+	  position: absolute;
+	  background-color: #f9f9f9;
+	  min-width: 160px;
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	  padding: 12px 16px;
+	  z-index: 1;
+	}
+	*/
+	
+	.index, .index2 {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap; 
@@ -53,7 +74,7 @@
 	
 	.dictionary{
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		flex-wrap: wrap; 
 		width: 100%;
 		direction: rtl;
@@ -62,25 +83,31 @@
 	}
 	
 	.word{
-		 font-size: 22px;
 		 border: 2px solid indigo;
 		 box-shadow: 1px 1px;
 		 padding: 4px 4px;
 		 margin-left: 8px;
 		 margin-right: 8px;
-		 margin-top: 4px;
+		 margin-top: 0px;
 		 margin-bottom: 4px;
 		 width: 180px;
 		 float: left;
 	}
-	
+
 	.letter:hover {
 		color: indigo;
 	}
 	
 	.letter{
-		font-size: 34px;
+		font-size: 28px;
 		color: red;
+		padding: 10px;
+		cursor: pointer;
+	}
+	
+	.btnl{
+		font-size: 14px;
+		color: blue;
 		padding: 10px;
 		cursor: pointer;
 	}
@@ -94,6 +121,81 @@
 		max-height: 16px;
 		cursor: pointer;
       }
+	  
+	  .wTable, .cnjTable, .vTable, .nTable, .csvTable, .pTable {
+	    display:flex;
+		flex-direction:column;
+		align-items:center;
+		flex-wrap:wrap;
+		align-items:center;
+		justify-content: center;
+		text-align: center;
+	  }
+	  
+	  .wTable, .cnjTable, .csvTable, .pTable, #xTable {
+		border: none;
+		border-collapse: collapse;
+		margin-bottom: 4px;
+	  }
+	  
+	  .vTable, .nTable, .csvTable, .pTable {
+		border: none;
+		border-collapse: collapse;
+		margin-bottom: 20px!important;
+		font-size: 22px;
+	  }
+	  
+	  th, td {
+		border: 1px solid black;
+		left-padding: 8px;
+		right-padding: 8px;
+	  }
+	  
+	  .wTable th, td {
+		height: 24px;
+	  }
+	  
+	  .cnjTable th, td{
+		height: 24px;
+	  }
+	  
+	  .vTable th, td{
+		height: 30px;
+	  }
+	  
+	  .nTable th, td{
+		height: 30px;
+	  }
+	  
+	  .csvTable th, td {
+		height: 30px;
+	  }
+	  
+	  .pTable th, td {
+		height: 30px;
+	  }
+
+	  .hidden{
+		display: none;
+	  }
+	  
+	  .shown{
+		display: block;
+	  }
+	
+	.engText {
+		font-size: 16px;
+	}
+	
+	.pronounFilter{
+		position:relative;
+		font-size: 16px;
+        text-align: center;
+		padding: 10px;
+		margin: auto;
+		margin-bottom: 10px;
+		margin-top: 10px;
+	}
 	</style>
 </head>
   <body>
@@ -101,13 +203,54 @@
 		
 		<div  class="autocomplete">
 			<input id="wordSearchText" onchange="searchWord()" style="width:100px;"/>
-			<button id="SearchD" style="top:-8px; height: 30px;" onclick="openMeaning()">Dictionary</button>
-			<button id="SearchQ" style="top:-8px; height: 30px;" onclick="searchInQuran()">Quran</button>
+			<button id="SearchD" class="dropbtn" title="Analyze" style="background-color:#4B5AC5;top:-8px; height: 30px;" onclick="analyzeSelectedWord()"><b>تحليل</b></button>
+
+			<div id="btnVerbs" class="dropdown">
+			  <button class="dropbtn">الفعل</button>
+			  <div class="dropdown-content">
+				<a href="#" onclick="showVerbTable()">أبواب الفعل</a>
+				<a href="#" onclick="showTriliteralVerbTable()">افعال ثلاثي مجرَّد</a>
+				<a href="#" onclick="showInadequateVerbTable()">Inadequate (افعال النَّاقِصة)</a>
+				<a href="#" onclick="showWeakVerbTable()">Weak Verbs (افعال المُعتِلَة)</a>
+				<a href="#" onclick="showImperativeTable()">Imperatives (الأمر والنهى)</a>
+			  </div>
+			</div>
+			
+			<div id="ism" class="dropdown">
+			  <button class="dropbtn">الاِسم</button>
+			  <div class="dropdown-content">
+				<a href="#" onclick="showNounTable('ism','الاسم', 'Noun')">Noun Patterns</a>
+				<a href="#" onclick="showFiveNouns('ism', 'اسماءُ الخَمسة', 'Five Nouns')">Five Nouns</a>
+				<a href="#" onclick="showPronounInfo('ism', 'ضَمائر', 'Pronouns')">Pronouns</a>
+				<a href="#" onclick="loadArabicLTTable('plural.csv', 'ism','الجمع', 'Plural')">Plural</a>
+				<a href="#" onclick="loadArabicLTTable('synonyms.csv', 'ism','المرادفات', 'Synonyms')">Synonyms</a>
+				<a href="#" onclick="loadArabicLTTable('antonyms.csv', 'ism','المتضادات', 'Antonyms')">Antonyms</a>
+			  </div>
+			</div>
+			
+			<div class="dropdown">
+			  <button class="dropbtn">الحرف</button>
+			  <div class="dropdown-content">
+				<a href="#" onclick="showParticleTable()">Prepositions</a>
+				<a href="#" onclick="showComparisions()">Compare</a>
+			  </div>
+			</div>
+			<!-- <button id="btnHarf" class="dropbtn" title="Particles" onclick="showParticleTable()">حرف</button> -->
+			<div class="dropdown">
+			  <button class="dropbtn">معاني</button>
+			  <div class="dropdown-content">
+				<a href="#" onclick="lookupEx('https://www.almaany.com/ar/dict/ar-$/')">Almaany</a>
+				<a href="#" onclick="lookupEx('https://glosbe.com/ar/$/')">Glosbe</a>
+			  </div>
+			</div>
+			<!-- <button id="btnMeaning" style="top:-8px; height: 30px;" onclick="">Meaning</button> -->
+			<!-- <button id="SearchQ" style="top:-8px; height: 30px;" onclick="searchInQuran()">Quran</button> -->
 		</div>
 		<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:4px"
 			 onclick="showArabicKeyboard('arabic')"/>
 	</div>
     <div class="index"></div>
+	<div class="index2"></div>
 	<div class="formClass"></div>
 	<div class="dictionary"></div>
   </div>

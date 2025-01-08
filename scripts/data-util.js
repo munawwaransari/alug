@@ -1,3 +1,7 @@
+//
+//	Author: munawwar_ali@yahoo.com
+//
+
 function getLocationPath(){
 	return window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
 }
@@ -17,11 +21,12 @@ function getParamValue(paramName){
 	}
 }
 
-async function loadJsonData(url,  callback, errorCallback)
+async function loadJsonData(url, callback, errorCallback)
 {
 
 	try {
-		const response = await fetch(url);
+		console.log('Fetching: '+ url);
+		const response = await fetch(url+"?nocache=123");
 		if (!response.ok) {
 
 			throw new Error(`HTTP error! Status: ${response.status}`);
@@ -82,7 +87,7 @@ function getDeviceType() {
 }
 
 function arRemovePunct(txt){
-	var punctuation = "َٰ ّ َ ً ْ ُ ٌ ِ ٍ" ;
+	var punctuation = "ًٌٍََُِّْٰ";
 	return txt.replace(new RegExp("["+punctuation+"]+","g"), '')
 				.replace(new RegExp("ٱ", "g"), 'ا')
 				.replace(new RegExp("إ", "g"), 'ا')
@@ -102,37 +107,95 @@ function replaceWord(w){
 	return text;
 }
 
-/*
-function replaceWithLink(verse, word, text){
-	var link = encodeURI("https://glosbe.com/ar/"+lang+"/"+text);
-	var click_event = (parent ? "parent.window" : "window") + ".open(updateLang(this.href), '_blank'); return false;";
-	if( verse.search(word) == -1){
-		word = word.replace(new RegExp("ٍ","g"),'')
-				   .replace(new RegExp("ً","g"),'')
-				   .replace(new RegExp("ٌ","g"),'')
-				   .replace(new RegExp("ٞ","g"),'')
-				   .replace(new RegExp("ۡ","g"),"ْ")
-				   .replace(new RegExp("ۖ","g"),'')
-				   .replace(new RegExp("ۗ","g"),'')
-				   .replace(new RegExp("ۘ","g"),'')
-				   .replace(new RegExp("ۙ","g"),'')
-				   .replace(new RegExp("ۚ","g"),'')
-				   .replace(new RegExp("ۛ","g"),'')
-				   .replace(new RegExp("ۜ","g"),'')
-				   .replace(new RegExp("ٖ","g"),'')
-				   .replace(new RegExp("اْ", "g"), 'ا۟')
-				   .replace(new RegExp("مَٰ","g"),"مَـٰ")
-				   .replace(new RegExp("ثَٰ","g"),"ثَـٰ")
-				   .replace(new RegExp("بَٰ","g"),"بَـٰ")
-				   .replace(new RegExp("كَٰ","g"),"كَـٰ")
-				   .replace(new RegExp("لَٰ","g"),"لَـٰ")
-				   .replace(new RegExp("قَٰ","g"),"قَـٰ")
-				   .replace(new RegExp("يّٞ","g"),"ىٌّ");
-	}
-	if( verse.search(word) == -1){
-		word = word.replace(new RegExp("^كَ","g"),'')
-				   .replace(new RegExp("^لِ","g"),'');
-	}
-	return verse.replace(word, '<a title="click to view in glosbe.com" class="word" style="cursor:pointer;" href="'+link+'" onclick="'+click_event+'">'+word+'</a>');
+function removePunctuations(w){
+	var punctuation = "ۡۧـۦۥۣۤۢۡ۠۟۞۝ۜۛۚۙۘۗۖە";
+	var text = w.replace(new RegExp("["+punctuation+"]+","g"), '');
+	return text;
 }
-*/
+
+function filterTableRows(table, column, txt, allText){
+	
+	if(txt === allText){
+		$(table + " tr td").show();
+		//$(table + " tr th:nth-child("+column+")").show();
+		$(table + ' tr th:contains(\''+txt+'\')').show();
+		return;
+	}
+	$(table + " tr td").hide();
+	//var tableRows = $(table + " tr td:nth-child("+column+")");
+	var tableRows = $(table + ' tr td:contains(\''+txt+'\')');
+	tableRows.filter((i, td) => {
+		if($(td).text().startsWith(txt) === false){
+			$(td).parent().children().hide();
+		}else{
+			$(td).parent().children().show();
+		}
+	});
+	$(table + ' tr td:contains(\''+txt+'\')').hide();
+	//$(table + " tr td:nth-child("+column+")").hide();
+	$(table + " tr th:nth-child("+column+")").hide();
+}
+
+function isOS(os){
+	return navigator.userAgent.includes(os+";") || 
+	navigator.userAgent.includes(os);
+}
+
+function replaceQLink(val, addBreak=true){
+	var qlinkExp = /(\[(\d+)\:(\d+)\])/g;
+	ex = val;
+	if(ex.match(qlinkExp)){
+		ex = ex.replace(qlinkExp, '<a href="#" onclick="var w=parent?parent.window:window;w.open(\'https://tanzil.net/#$2:$3\',\'_blank\');">$1</a>');
+		return '<span style="font-size:18px;">'+(addBreak ? '<br/>':'')+ex+'</span>';
+	}
+	return '<span style="font-size:18px;">'+val+'</span>';
+}
+
+//https://stackoverflow.com/questions/35969656/how-can-i-generate-the-opposite-color-according-to-current-color
+function invertColor(hex) {
+	if (hex.indexOf('#') === 0) {
+		hex = hex.slice(1);
+	}
+	// convert 3-digit hex to 6-digits.
+	if (hex.length === 3) {
+		hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+	}
+	if (hex.length !== 6) {
+		throw new Error('Invalid HEX color.');
+	}
+	// invert color components
+	var r = (255 - parseInt(hex.slice(0, 2), 16)).toString(16),
+		g = (255 - parseInt(hex.slice(2, 4), 16)).toString(16),
+		b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
+	// pad each with zeros and return
+	return '#' + padZero(r) + padZero(g) + padZero(b);
+}
+
+function padZero(str, len) {
+	len = len || 2;
+	var zeros = new Array(len).join('0');
+	return (zeros + str).slice(-len);
+}
+
+function removeTimePrefix(txt){
+	if(txt[0] === 'و')
+		return txt.substring(2);
+	return txt;
+}
+
+async function tesseract_imageToText(url, lang, callback){
+	var cb = callback;
+	Tesseract.recognize(
+		url, lang
+	).then(result => {
+		cb(true, result.data.text);
+	}).catch(err => {
+		cb(false, err);
+	});
+}
+
+function playCard(text, altText){
+	if(parent.playText) {
+		parent.playText(text, 'ar-SA', {'en-US': altText});
+	}
+}

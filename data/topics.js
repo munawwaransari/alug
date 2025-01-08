@@ -3,7 +3,7 @@
 //
 
 var alug_chapters = {
-	"P0.1 - Basics": [
+	"P0.1-Basics": [
 		{topic: "Arabic Language", pageNo: 1}, 
 		{topic: "Parts Of Speech", pageNo: 2}, 
 		{topic: "Alphabets", pageNo: 4},
@@ -14,7 +14,7 @@ var alug_chapters = {
 		{topic: "Diacritic rules", pageNo: 10},
 		{topic: "Word forms - الاوزان", pageNo: 11}
 	],
-	"P0.2 - Vocabulary": [
+	"P0.2-Vocabulary": [
 		{topic: "Alphabets", pageNo: 2, lang: "ar-SA"}, 
 		{topic: "Homonyms", pageNo: 4, lang: "ar-SA"}, 
 		{topic: "Synonyms", pageNo: 6},
@@ -32,16 +32,14 @@ var alug_chapters = {
 		{topic: "Day in Quran", pageNo: 31}, 
 		
 	],
-	"P0.3 - Sample Dictionary": [
-	], 
-	"P1 - Pronouns": [
+	"P1-Pronouns": [
 		{topic: "Possesive Constructs ", pageNo: 3}, 
 		{topic: "واؤ الإشباع", pageNo: 4}, 
 		{topic: "اسماء الإشارة", pageNo: 5},
 		{topic: "الاسم الموصول", pageNo: 6},
 		{topic: "ذُو vs ذات vs أُولو", pageNo: 7}
 	],
-	"P2 - Nouns": [
+	"P2-Nouns": [
 		{topic: "إعرابُ الأسماء", pageNo: 3}, 
 		{topic: "Definite (مَعرِفَة) vs Indefinite (نَكِرَة)", pageNo: 6}, 
 		{topic: "Masculine vs Feminine (تاء التّانيس)", pageNo: 7},
@@ -52,14 +50,14 @@ var alug_chapters = {
 		{topic: "Possessive Construction  - اضافة", pageNo: 16},
 		{topic: "The Five Nouns (اسماء الخمسة)", pageNo: 20}
 	], 
-	"P2.1 - Noun Patterns": [
+	"P2.1-Noun Patterns": [
 		{topic: "إسمُ الآلة and إِسمُ الزمان ومكان", pageNo: 2}, 
 		{topic: "Superlative (إسمُ التفضيل) & Diminutive", pageNo: 3}, 
 		{topic: "إسم المبالغة – Hyperbole", pageNo: 4},
 		{topic: "Irregular Plural Patterns", pageNo: 5},	
 		{topic: "إسمُ الفاعل وإسمُ المفعُول", pageNo: 6}
 	], 
-	"P2.2 - Object Effects": [
+	"P2.2-Object Effects": [
 		{topic: "Direct Object (المفعول به)", pageNo: 2}, 
 		{topic: "Absolute Effect (المفعول المطلق)", pageNo: 3}, 
 		{topic: "Adverb (المفعول فيه (الظرف", pageNo: 4},
@@ -72,7 +70,7 @@ var alug_chapters = {
 		{topic: "Exclusion (المستثنى)", pageNo: 11},
 		{topic: "Vocative (المنادى)", pageNo: 12}
 	], 
-	"P3 - Verbs": [
+	"P3-Verbs": [
 		{topic: "ثلاثي مُجرَّد – Verb Forms (I)", pageNo: 4}, 
 		{topic: "ثلاثي مزيد - Verb Forms (I to X)", pageNo: 5}, 
 		{topic: "Verb Ending - Cases", pageNo: 10}, 
@@ -84,7 +82,7 @@ var alug_chapters = {
 		{topic: "Double Consonant Verbs (مضاعفة)", pageNo: 18}, 
 		{topic: "Weak Verbs - الافعال المعتلة", pageNo: 19}
 	], 
-	"P3.1 - Verb Conjugations": [
+	"P3.1-Verb Conjugations": [
 		{topic: "Form I", pageNo: 2}, 
 		{topic: "Form I  - Defective (مثال)", pageNo: 3}, 
 		{topic: "Form I  - Defective (اجوف)", pageNo: 4}, 
@@ -92,7 +90,7 @@ var alug_chapters = {
 		{topic: "Imperatives- Conjugation (ناقص)", pageNo: 6}
 		
 	], 
-	"P4 - Sentences": [
+	"P4-Sentences": [
 		{topic: "Nominal Sentences", pageNo: 2}, 
 		{topic: "Verbal Sentences", pageNo: 12}, 
 		{topic: "Conditional Sentences", pageNo: 20}, 
@@ -106,7 +104,7 @@ var alug_chapters = {
 		{topic: "كادَ   and its sisters", pageNo: 9}, 
 		{topic: "ظَنَّ   and its sisters", pageNo: 10}
 	], 
-	"P5 - Particles": [
+	"P5-Particles": [
 		{topic: "Conjunctions", pageNo: 3}, 
 		{topic: "نواصب الفعل", pageNo: 5}, 
 		{topic: "جوازم الفعل", pageNo: 6}, 
@@ -126,42 +124,42 @@ var alug_chapters = {
 
 var knowledge_checks = [
 	{
-		ch: "P0.1 - Basics", 	topic: "Alphabets",  pageNo: 4
+		ch: "P0.1-Basics", 	topic: "Alphabets",  pageNo: 4
 	},
 	{
-		ch: "P0.1 - Basics", 	topic: "Diacritic Rules",  pageNo: 10
+		ch: "P0.1-Basics", 	topic: "Diacritic Rules",  pageNo: 10
 	},
 	{
-		ch: "P0.1 - Basics", 	topic: "Basics",  pageNo: 13
+		ch: "P0.1-Basics", 	topic: "Basics",  pageNo: 13
 	},
 	{
-		ch: "P1 - Pronouns", 	topic: "Pronouns",  pageNo: 8
+		ch: "P1-Pronouns", 	topic: "Pronouns",  pageNo: 8
 	},
 	{
-		ch: "P2 - Nouns", 	topic: "Relative Nouns",  pageNo: 8
+		ch: "P2-Nouns", 	topic: "Relative Nouns",  pageNo: 8
 	},
 	{
-		ch: "P2 - Nouns", 	topic: "Plurals",  pageNo: 8
+		ch: "P2-Nouns", 	topic: "Plurals",  pageNo: 8
 	},
 	{
-		ch: "P2 - Nouns", 	topic: "Erab (إعراب)",  pageNo: 8
+		ch: "P2-Nouns", 	topic: "Erab (إعراب)",  pageNo: 8
 	},
 	{
-		ch: "P2.1 - Noun Patterns", 	topic: "Noun Patterns",  pageNo: 10
+		ch: "P2.1-Noun Patterns", 	topic: "Noun Patterns",  pageNo: 10
 	},
 	{
-		ch: "P2 - Nouns", 	topic: "Nouns - 2",  pageNo: 21
+		ch: "P2-Nouns", 	topic: "Nouns - 2",  pageNo: 21
 	},	
 	{
-		ch: "P3 - Verbs", 	topic: "Verbs",  pageNo: 21
+		ch: "P3-Verbs", 	topic: "Verbs",  pageNo: 21
 	},
 	{
-		ch: "P4 - Sentences", 	topic: "Sentences - 1",  pageNo: 11
+		ch: "P4-Sentences", 	topic: "Sentences - 1",  pageNo: 11
 	},
 	{
-		ch: "P4 - Sentences", 	topic: "Sentences - 2",  pageNo: 20
+		ch: "P4-Sentences", 	topic: "Sentences - 2",  pageNo: 20
 	},
 	{
-		ch: "P4 - Sentences", 	topic: "Conditional Sentences",  pageNo: 20
+		ch: "P4-Sentences", 	topic: "Conditional Sentences",  pageNo: 20
 	}
 ];

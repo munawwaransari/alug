@@ -6,9 +6,16 @@ var lang = "ar";
 var lastSuggestionInput = undefined;
 var qf_list = [];
 var q_summary = {};
+var loadStatus;
 
 window.onload = function(){
 	
+	window.addEventListener("contextmenu", e =>
+	{
+	  e.preventDefault();
+	  //console.log("selected text:", window.getSelection().toString());
+	});
+
 	var langParam = decodeURI(getParamValue("lang"));
 	if(langParam && langParam != 'undefined' && ( langParam ==='ar' || langParam ==='ur' || langParam ==='en') ){
 		lang = langParam;
@@ -16,8 +23,18 @@ window.onload = function(){
 	
 	var searchVal = decodeURI(getParamValue("search"));	
 	if(searchVal && searchVal != 'undefined'){
-		$("#searchText").val(searchVal);
-		search();
+		if(searchVal === 'surahs'){
+			listSurahs();
+			loadStatus = "surahs";
+		}
+		else if(searchVal === 'words'){
+			loadStatus = "words";
+		}
+		else{
+			$("#searchText").val(searchVal);
+			search();
+			loadStatus = "search";
+		}
 	}	
 	
 	if(parent.playAudio == undefined){
@@ -32,40 +49,57 @@ window.onload = function(){
 /* 
 Loads all words of Quran 
 */
+var all_q_words = undefined;
 async function loadQList(){
 	
-	var fileUrl = getLocationPath() + "q.dic/qf-list.json";
-	loadJsonData(fileUrl, function(data){
-		q_summary = {
-			"credit": data[0].credit,
-			"word_total": data[0].word_total,
-			"freq_total": data[0].freq_total,
-		};
-		qf_list = data.slice(1);
-		var q_words = qf_list.map(function(d){
-			return d.word;
-		});
-		
-		setTimeout(function(){listWordInfo();}, 50);
-		
-		//setTimeout(function(){
-			autocomplete(document.getElementById('searchText'), function(val, callback){
-				var condition = val.length > 1 && val !== lastSuggestionInput;
-				if(condition){
-					lastSuggestionInput = val;
-					//getQSuggesstions(val, callback);
-					val = val.trim();
-					var suggestionsList = q_words.filter(function(w){
-						return arRemovePunct(w).startsWith(val);
-					});
-					if(callback){
-						callback(suggestionsList);	
-					}
-				}
-				return condition;
+	if(all_q_words == undefined){
+		var fileUrl = getLocationPath() + "data/qrn/qf-list.json";
+		loadJsonData(fileUrl, function(data){
+			all_q_words = data;
+			loadWordsFrom(data);
+		});		
+	}else{
+		loadWordsFrom(all_q_words);
+	}
+}
+
+function loadWordsFrom(data){
+	q_summary = {
+		"credit": data[0].credit,
+		"word_total": data[0].word_total,
+		"freq_total": data[0].freq_total,
+	};
+	qf_list = data.slice(1);
+	var q_words = qf_list.map(function(d){
+		return d.word;
+	});
+	
+	setTimeout(function(){
+		if(loadStatus === "words"){
+			loadWordPending = false;
+			$("#searchText").val('');
+			filterWords();
+		}
+		else if (!loadStatus){
+			listSurahs();
+		}
+	}, 50);
+	
+	autocomplete(document.getElementById('searchText'), function(val, callback){
+		var condition = val.length > 0 && val !== lastSuggestionInput;
+		if(condition){
+			lastSuggestionInput = val;
+			//getQSuggesstions(val, callback);
+			val = val.trim();
+			var suggestionsList = q_words.filter(function(w){
+				return arRemovePunct(w).startsWith(val);
 			});
-		//}, 10);
-	});			
+			if(callback){
+				callback(suggestionsList);	
+			}
+		}
+		return condition;
+	});
 }
 
 /* 
@@ -77,65 +111,141 @@ function search(){
 	const text = arRemovePunct(document.getElementById("searchText").value);
 	var div = $("#searchResult");
 	div.empty();
+	
+	var ctx = window.QuranJS.Search.search;
+	var opt = { language: window.QuranJS.Language.ENGLISH, size: 10 };
+	// check if verse key
+	if(text.trim().match(/^\d{1,3}\:\d{1,3}$/g)){
+		ctx = window.QuranJS.Verses.findByKey;
+		opt = { words: 1};
+	}
+	
 	div.html('Searching '+text+' in the Quran...');
-	SearchQuran(window.QuranJS.Search.search, text, function(data){
+	SearchQuran(ctx, opt, text, function(data){
 		console.log(data);
+		
+		if(!data){
+			div.html('No results found for '+ text);
+			return;
+		}
+		
+		if(data.results == undefined && data.words){
+			var ayah = "";
+			var ayahText = data.words.reduce(function(a, x){
+				if(x.position > 2) 
+					ayah+= " ";
+				else
+					ayah+= a.translation.text + " ";
+				ayah += x.translation.text;
+				return ayah;
+			});
+			div.html('');
+			displayVerse(div, ayahText, text, false);
+			return;
+		}
+		
 		if(data.results.length == 0){
 			div.html('No results found for '+ text);
 			return;
 		}
+		
 		div.html('');
 		data.results.forEach(function(res){
 			var resulText = res.highlighted ?? res.text;
 			if(resulText){
-				var verseKeys = res.verseKey.split(":");
-				var verse = ""; //resulText;
-				var replacedWords = [];
-				var wIndex = 0;
-				res.words.forEach(function(w){
-					wIndex++;
-					var url = "https://www.almaany.com/quran/"+verseKeys[0]+"/"+verseKeys[1]+"/"+wIndex;
-					verse = verse + '<p class="word" style="cursor:pointer" onclick="showWordAnalysis(\''+url+'\');">'+				 
-									   w.text + '&nbsp;'+
-									'</p>';
-					replacedWords.push({"word": w.text, "text": replaceWord(w) });
-				});
-				
-				var spanId = verseKeys[0]+"_"+verseKeys[1]; //res.verseKey.replace(":","_");
-				var play = parent.playAudio ? '<span id="'+spanId+'">'+
-											  
-											  '<img title="Qirat" src="images/speech-enabled.png" style="visibility:visible;width:20px;cursor: pointer;" '+
-										      'onclick="playVerse(\''+getQiratPlayUrl(res.verseKey)+'\',\''+res.verseKey+'\')"/>'+
-											  
-											  '<img title="Stop" src="images/stop.png" style="visibility:hidden;width:20px;cursor: pointer;" '+
-										      'onclick="stopPlayVerse()"/>'+
-											  '</span>': '';
-										
-				var copy = 	'<span>'+			  
-								'<img id="copyIcon" src="images/copy.jpg" style="visibility:visible;width:20px;cursor: pointer;" '+
-								'onclick="copyTextToClipboard(\''+resulText+'\');alert(\'Copied!\');"/>'+
-							'</span>';
-											  
-				var tanzilLink = '<a title="Click to view in tanzil.com" style="font-size:18px" href="https://tanzil.net/#'+res.verseKey+'" '+
-							     'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
-								 '[' + res.verseKey+ ']'+
-								 '</a>';
-								 
-				var translationLink = '<a title="Click to view translation in tanzil.com" style="font-size:10px" href="https://tanzil.net/#trans/en.sahih/'+res.verseKey+'" '+
-							     'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
-								 '[Trasnlatation (en)]'+
-								 '</a>';
-								 
-				div.append($('<div class="verse">'+verse+' '+tanzilLink+' '+copy+play+' <span>'+translationLink+'</span></div>'));
+				//var verseKeys = res.verseKey.split(":");
+				var verse = resulText.replace(/[<>\/a-zA-Z]+/ig, '');
+				displayVerse(div, verse, res.verseKey);
 			}
 		});
 	});
 }
 
-/*
-Load word analysis from almaany.com/quran
-*/
-function showWordAnalysis(url){
+function displayVerse(div, verse, verseKey, analysis=true){
+	var verseKeys = verseKey.split(":");
+	var spanId = verseKeys[0]+"_"+verseKeys[1]; //res.verseKey.replace(":","_");
+	var play = parent.playAudio ? '<span id="'+spanId+'">'+
+								  
+								  '<img title="Qirat" src="images/speech-enabled.png" style="visibility:visible;width:20px;cursor: pointer;" '+
+								  'onclick="playVerse(\''+getQiratPlayUrl(verseKey)+'\',\''+verseKey+'\')"/>'+
+								  
+								  '<img title="Stop" src="images/stop.png" style="visibility:hidden;width:20px;cursor: pointer;" '+
+								  'onclick="stopPlayVerse()"/>'+
+								  '</span>': '';
+
+	var copy = "";
+	if(analysis)
+		copy = '<span>'+			  
+					'<img id="analyzeIcon" src="images/analyze.jpg" style="width:20px;cursor: pointer;" '+
+					'onclick="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')"/>'+
+					
+					'<img id="copyIcon" src="images/copy.jpg" style="visibility:visible;width:20px;cursor: pointer;" '+
+					'onclick="copyTextToClipboard(\''+verse.replace(/[<>\/a-zA-Z]+/ig, '')+'\');"/>'+
+				'</span>';
+								  
+	var tanzilLink = '<a title="Click to view in tanzil.com" style="font-size:18px" href="https://tanzil.net/#'+verseKey+'" '+
+					 'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
+					 '[' + verseKey+ ']'+
+					 '</a>';
+					 
+	var translationLink = '<a title="Click to view translation in tanzil.com" style="font-size:10px" href="https://tanzil.net/#trans/en.sahih/'+verseKey+'" '+
+					 'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
+					 '[en]'+
+					 '</a>';
+					 
+	div.append($('<div>'+verse+'</div>'+
+				  '<div style="font-size:12px;"><span>'+tanzilLink+'</span>'+
+					   '<span style="padding:8px;">'+copy+'</span>'+
+					   '<span style="padding:8px;">'+play+'</span>'+
+					   '<span style="padding:8px;">'+translationLink+'</span>'+
+				 '</div>'));
+}
+
+function analyzeSelection(text, surah, verse){
+	let selection = window.getSelection();
+	let selectedText = selection.toString().trim();
+	if (selectedText) {
+		var txt = removePunctuations(text.trim());
+		if(txt){
+			var prevVal = null;
+			var words = txt.split(' ')
+							.filter(function(w){
+								const result = w !== "" && prevVal !== w;
+								prevVal = w;
+								return result;
+							});
+								
+			var pos = findIndex(words, selectedText);
+			/*var pos = txt.substring(0, txt.indexOf(selectedText))
+						  .split(' ')
+						  .length;	
+			*/
+			showWordAnalysis(words[pos], surah, verse, pos+1);	
+		}
+	}else{
+		alert('Select a word to analyze!');
+	}
+}
+
+function findIndex(words, txt){
+	var index = -1;
+	if(words){
+		words.every(function(w, i){
+			if(removePunctuations(w).trim()
+								    .includes(removePunctuations(txt)
+								    .trim()))
+			{
+				index = i;
+				return false;
+			}
+			return true;
+		});
+	}
+	return index;
+}
+
+function showWordAnalysis(word, surah, verse, pos){
+	var url = "https://www.almaany.com/quran/"+surah+"/"+verse+"/"+pos;
 	if(parent.getLang){
 		parent.window.open(url, '_blank');
 	}else{
@@ -143,18 +253,11 @@ function showWordAnalysis(url){
 	}
 }
 
-function searchVerse(verseKey){
-	SearchQuran(window.QuranJS.Verses.findByKey, verseKey, function(data){
-		console.log(data);
-	});
-}
-
-function SearchQuran(ctx, text, callback){
-	
-	const response = ctx(text,  { language: window.QuranJS.Language.ENGLISH, size: 10 })
-					.then((data)=>{								   
+function SearchQuran(ctx, opt, text, callback){
+	const response = ctx(text, opt)
+					.then((data, ext)=>{								   
 						if(callback)
-							callback(data);
+							callback(data, ext);
 					},
 					(error) => {
 						console.error("Quran search error:", error);
@@ -203,7 +306,7 @@ function listWordInfo(filter){
 function filterWords(){
 	$("#qari").hide();
 	var text = $("#searchText").val();
-	listWordInfo(text);
+	listWordInfo();
 }
 
 function selectWordAndSearchInQuran(word){
@@ -217,23 +320,45 @@ Loads Quran surah index
 function listSurahs(){
 	$("#qari").hide();
 	var path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
-	var url = path + 'data/qsurah.json';
+	var url = path + 'data/qrn/qsurah.json';
 	listSurahsAsync(url, function(data){
 		
 		var div = $("#searchResult");
 		div.empty();
 		var table = '<table class="surahIndex"><th>Index</th><th>Surah Name (en)</th><th>Surah Name (ar)</th>';
 		for (const [index, surah] of Object.entries(data)) {
-			
 			var tanzilLink = '<a style="cursor:pointer;font-size:18px" href="https://tanzil.net/#'+index+'" '+
-				 'onclick="var w = parent ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
-				 '[' + surah.en+ ']'+
-				 '</a>';
-			table = table+ '<tr>'+'<td>'+index+'</td>'+'<td>'+tanzilLink+'</td>'+'<td class="qword">'+surah.ar+'</td></tr>';	
+				 'onclick="var w = parent ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+index+'</a>';
+				 
+			var enName = surah.en.substring(surah.en.indexOf('(')+1, surah.en.length-1)
+								 .replace('The','')
+								 .trim();
+			if(enName.includes(' ')){
+				enName = enName.split(' ')[0];
+			}
+			table = table+ '<tr>'+'<td>'+tanzilLink+'</td>'+
+								'<td onclick="searchText(\''+
+									enName
+								+'\')" class="qword" style="font-szie:16px;">' +
+								surah.en+
+								'</td>'+
+								'<td onclick="searchText(\''+
+										surah.ar.trim()
+											    .replace('ٱ','ا')
+												.replace('إ','ا')
+												.replace('ال','')+
+									'\')" ' + 
+								' class="qword">'+surah.ar+'</td>'+
+							'</tr>';	
 		}
 		table = table+'</table>';
 		div.append($(table));
 	});
+}
+
+function searchText(txt){
+	$("#searchText").val(txt);
+	search();
 }
 
 async function listSurahsAsync(url, callback)
@@ -308,11 +433,11 @@ function playVerse(url, verseKey){
 		parent.playAudio(url2, function(action){
 			
 			if(action == "pause" || action == "ended"){
-				togglePlayButtons(verseKey, "visisble", "hidden");
+				togglePlayButtons(verseKey, "visisble", "collapse");
 			}
 		});
 		
-		togglePlayButtons(verseKey, "hidden", "visisble");
+		togglePlayButtons(verseKey, "collapse", "visisble");
 	}
 }
 
