@@ -64,6 +64,24 @@ $(document).ready(function()
 		}else{
 			loadGrammarView();
 			updateToolDescription('in-search');
+			
+			var query = decodeURI(getParamValue("q"));	
+			if(query && query !== "undefined"){
+				getiSearchSuggesstions(query, function(res){
+					if(res){
+						if(res.length > 1){
+							var res2 = res.filter(x => !x.startsWith("..."));
+							if(res2.length > 0)
+								res = res2;
+						}
+						if(res.length > 0){
+							$("#insearchtxt").val(res[0]);
+							isearch();
+						}
+					}
+				})
+			}
+			
 		}
 	});
 	
