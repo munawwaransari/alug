@@ -156,11 +156,13 @@ function search(pageNumber){
 		// Add search navigation
 		var nav = '<div style="font-size:12px;margin-bottom:10px;padding:10px;background-color:#9DBF6C;">'+
 				  (data.currentPage > 1 ? 
-					'<span onclick="search('+(data.currentPage-1)+')" style="cursor:pointer;margin-right:20px;"><b>Prev</b></span>' 
+					'<span onclick="search('+(data.currentPage-1)+')" style="cursor:pointer;margin-right:20px;">'+
+						'<b>&lt;&nbsp;Prev</b></span>' 
 					: '') +
 				  '<span>'+ data.currentPage +' of ' + data.totalPages+ '<span>'+
 				  (data.currentPage < data.totalPages ? 
-					'<span onclick="search('+(data.currentPage+1)+')" style="cursor:pointer;margin-left:20px;"><b>Next</b></span>' 
+					'<span onclick="search('+(data.currentPage+1)+')" style="cursor:pointer;margin-left:20px;">'+
+						'<b>Next&nbsp;&gt;</b></span>' 
 					: '') +
 				  '</div>';
 		div.append($(nav));
