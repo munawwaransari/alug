@@ -186,7 +186,7 @@ function displayVerse(div, verse, verseKey, analysis=true){
 								  '<img title="Qirat" src="images/speech-enabled.png" style="visibility:visible;width:20px;cursor: pointer;" '+
 								  'onclick="playVerse(\''+getQiratPlayUrl(verseKey)+'\',\''+verseKey+'\')"/>'+
 								  
-								  '<img title="Stop" src="images/stop.png" style="visibility:hidden;width:20px;cursor: pointer;" '+
+								  '<img title="Stop" src="images/stop.png" style="visibility:hidden;width:0px;cursor: pointer;" '+
 								  'onclick="stopPlayVerse()"/>'+
 								  '</span>': '';
 
@@ -218,7 +218,7 @@ function displayVerse(div, verse, verseKey, analysis=true){
 					   '<span style="padding-right:12px;">'+translationLink+'</span>'+
 					   '<span style="padding-right:8px;">'+copy+'</span>'+
 					   '<span style="padding-right:8px;">'+play+'</span>'+
-					   '<span style="margin-left:-16px;">'+tanzilLink+'</span>'+
+					   '<span style="margin-left:0px;">'+tanzilLink+'</span>'+
 				 '</div>'));
 }
 
@@ -430,8 +430,11 @@ function getQiratPlayUrl(verseKey){
 function togglePlayButtons(verseKey, v, h){
 	var id = verseKey.replace(":","_");
 	var elem = document.getElementById(id);
-	elem.children[0].style = "visibility:"+v+";width:20px;cursor: pointer;"
-	elem.children[1].style = "visibility:"+h+";width:20px;cursor: pointer;";
+	
+	var vW = v[0] === 'v' ? 'width:20px' : 'width:0px';
+	var hW = h[0] === 'v' ? 'width:20px' : 'width:0px';
+	elem.children[0].style = 'visibility:'+v+';'+vW+';cursor:pointer;';
+	elem.children[1].style = 'visibility:'+h+';'+hW+';cursor:pointer;';
 }
 
 function updateLang(url){
