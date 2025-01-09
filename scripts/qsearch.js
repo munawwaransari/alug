@@ -183,7 +183,7 @@ function displayVerse(div, verse, verseKey, analysis=true){
 	var spanId = verseKeys[0]+"_"+verseKeys[1]; //res.verseKey.replace(":","_");
 	var play = parent.playAudio ? '<span id="'+spanId+'">'+
 								  
-								  '<img title="Qirat" src="images/speech-enabled.png" style="visibility:visible;width:20px;cursor: pointer;" '+
+								  '<img title="Play Qirat" src="images/speech-enabled.png" style="visibility:visible;width:20px;cursor: pointer;" '+
 								  'onclick="playVerse(\''+getQiratPlayUrl(verseKey)+'\',\''+verseKey+'\')"/>'+
 								  
 								  '<img title="Stop" src="images/stop.png" style="visibility:hidden;width:0px;cursor: pointer;" '+
@@ -193,7 +193,9 @@ function displayVerse(div, verse, verseKey, analysis=true){
 	var copy = "";
 	if(analysis)
 		copy = '<span>'+			  
-					'<img id="analyzeIcon" src="images/analyze.jpg" style="width:20px;cursor: pointer;" '+
+					'<img id="analyzeIcon" '+
+					'title="select a word to analyze" '+
+					'src="images/analyze.jpg" style="width:20px;cursor: pointer;" '+
 					'onclick="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')"/>'+
 					
 					'<img id="copyIcon" src="images/copy.jpg" style="margin-left:10px;visibility:visible;width:20px;cursor: pointer;" '+
