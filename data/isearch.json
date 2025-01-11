@@ -158,10 +158,45 @@
         "path": "dict.html",
         "action": "cmp"
     },
-    "Alphabets (Cards);Vocabulary;الأبجدية": {
-        "path": "cards.html",
-        "action": "Vocab",
-        "data": "alpha"
+	"Erab vs Tashkeel;علاماتُ التَّشكِيل;إعراب;": {
+        "path": "dict.html",
+        "action": "cmp",
+		"data": "pos:0"
+    },
+	"Hamza;همزة القطع;همزة الوصل;": {
+        "path": "dict.html",
+        "action": "cmp",
+		"data": "pos:1"
+    },
+	"واؤ;العطف;المعِيَّة;واؤ الحال": {
+        "path": "dict.html",
+        "action": "cmp",
+		"data": "pos:2"
+    },
+	"Vocative;النِّداء;ترخِيم;": {
+        "path": "dict.html",
+        "action": "cmp",
+		"data": "pos:3"
+    },
+	"Sentence types;جملة خبرية;جملة إنشائية": {
+        "path": "dict.html",
+        "action": "cmp",
+		"data": "pos:8"
+    },
+    "Affirmative sentence;إيجابي;": {
+        "path": "dict.html",
+        "action": "cmp",
+        "data": "pos:9"
+    },
+	"Negative sentence;نفي;": {
+        "path": "dict.html",
+        "action": "cmp",
+        "data": "pos:9"
+    },
+	"Interrogative sentence;استفهامي;": {
+        "path": "dict.html",
+        "action": "cmp",
+        "data": "pos:9"
     },
     "Synonyms (Cards);Vocabulary;مرادفات;": {
         "path": "cards.html",
