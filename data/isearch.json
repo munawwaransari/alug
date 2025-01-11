@@ -198,6 +198,31 @@
         "action": "cmp",
         "data": "pos:9"
     },
+	"Direct Object;المفعُول بِهِ;": {
+        "path": "dict.html",
+        "action": "obj-effect",
+        "data": "pos:1"
+    },
+	"Absolute Effect;المفعول المطلق;": {
+        "path": "dict.html",
+        "action": "obj-effect",
+        "data": "pos:2"
+    },
+	"Causal Object;المفعول له;مفعول ألجله": {
+        "path": "dict.html",
+        "action": "obj-effect",
+        "data": "pos:3"
+    },
+	"Comitative Object;المفعُول مَعَهُ;": {
+        "path": "dict.html",
+        "action": "obj-effect",
+        "data": "pos:4"
+    },
+	"Adverb (as Object);المفعول فيه": {
+        "path": "dict.html",
+        "action": "obj-effect",
+        "data": "pos:5"
+    },
     "Synonyms (Cards);Vocabulary;مرادفات;": {
         "path": "cards.html",
         "action": "Vocab",

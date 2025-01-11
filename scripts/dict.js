@@ -134,6 +134,22 @@ function handleParams(){
 					selectAndTrigger(params["data"], 'nFilter');
 			});
 			break;
+			
+		case 'obj-effect':
+			setTimeout(function(){
+				showObjectEffects('ism','المفاعيل', 'Object');
+				if(params["data"])
+					if(params["data"].startsWith("pos:")){
+						var index = parseInt(params["data"].substring(4));
+						setTimeout(function(){
+							selectIndexAndTrigger(index, 'pronounFilter');
+						}, 150);
+					}
+					else
+						selectAndTrigger(params["data"], 'pronounFilter');
+			});
+			break;
+			
 		case 'cmp':
 			var data = params["data"];
 			if(data.startsWith("pos:")){
