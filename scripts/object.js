@@ -2,33 +2,40 @@
 //	Author: munawwar_ali@yahoo.com
 //
 
-var objectEffectsData;
+var objectEffectsData, adverbData;
 
-function showObjectEffects(k, v1, v2){
+function showObjectEffects(k, v1, v2, dataPath){
 	updateState(k, {ar: v1, en: v2});
 	var container = $(".dictionary");
 	container.html("Loading...");
-	if(objectEffectsData === undefined){
-		var loc = getLocationPath() + "data/grmr/objecteffects.json";
+	var daraSrc = dataPath ?  adverbData: objectEffectsData;
+	if(daraSrc === undefined){
+		var loc = getLocationPath() + (dataPath ?? "data/grmr/objecteffects.json");
 		loadJsonData(loc, function(data){
-			objectEffectsData = data;
-			showObjectEffectTable();
+			if(dataPath){
+				adverbData = data;
+			}
+			else{
+				objectEffectsData = data;
+			}
+			showObjectEffectTable(dataPath ? 'a':'o');
 		});
 	}else{
-		showObjectEffectTable();
+		showObjectEffectTable(dataPath ? 'a':'o');
 	}
 }
 
-function showObjectEffectTable(){
+function showObjectEffectTable(opt){
 	var container = $(".dictionary");
 	container.empty();
 	
-	if(!objectEffectsData || objectEffectsData.length == 0)
+	var daraSrc = opt == 'o' ? objectEffectsData : adverbData;
+	if(!daraSrc || daraSrc.length == 0)
 		return;
 	
-	createSelectionFilters(container, objectEffectsData);
+	createSelectionFilters(container, daraSrc);
 	
-	objectEffectsData.every(function(objData){
+	daraSrc.every(function(objData){
 		addObjectEffectTable(container, objData);
 		return true;
 	});
@@ -36,7 +43,7 @@ function showObjectEffectTable(){
 
 function addObjectEffectTable(container, objData){
 	var id = makeId('pTable_',objData.name_en);
-	var pTable = '<table id="'+id+'" class="pTable"><tr><td>'+objData.name_ar+'</td></tr>';
+	var pTable = '<table id="'+id+'" class="pTable"><tr><td style="background-color:#ACE892;">'+objData.name_ar+'</td></tr>';
 	
 	if(objData["notes"]){
 		pTable += '<tr><td style="font-size:14px;background-color:#F6F6BA;"">'+
@@ -89,15 +96,21 @@ function addObjectEffectTable(container, objData){
 	if(objData["set"] && objData["construct_ar"]){
 		objData["set"].every(function(val, index){
 			pTable += '<tr><td style="background-color:#F2F2B3;padding-top:8px;padding-bottom:8px;">'+
-						objData["construct_ar"][index]+
+						(objData["set_name"] === undefined ? objData["construct_ar"][index] : objData["set_name"])+
 					  '</td></tr>'
 			var div = '<div style="disaply:flex;flex-direction:column;align-content:center;width:100%;">';
 			var setData_ar = val.split(",").filter(x=>x!=='');
-			var setData_en = (objData["set_en"])[index].split(",").filter(x=>x!=='');
-			
+			var setData_en = objData["set_en"];
+			if(setData_en)
+				setData_en = (objData["set_en"])[index].split(",").filter(x=>x!=='');		
 			setData_ar.every(function(val2, i){
-				div += '<span>'+val2+'<p class="engText">('+setData_en[i]+')</p></span>';
-				if(index < setData_en.length - 1)
+				div += '<span>'+val2;
+				if(setData_en)
+					div+= '<p class="engText">('+setData_en[i]+')</p>';
+				else
+					div+= '<p/>';
+				div += '</span>';
+				if(index < setData_ar.length - 1)
 					div += '<span style="padding:10px;"></span>';
 				return true;
 			});

@@ -150,6 +150,21 @@ function handleParams(){
 			});
 			break;
 			
+		case 'adv':
+			setTimeout(function(){
+				showObjectEffects('ism','ظُرُوف', 'Adverbs', 'data/grmr/adverb.json');
+				if(params["data"])
+					if(params["data"].startsWith("pos:")){
+						var index = parseInt(params["data"].substring(4));
+						setTimeout(function(){
+							selectIndexAndTrigger(index, 'pronounFilter');
+						}, 150);
+					}
+					else
+						selectAndTrigger(params["data"], 'pronounFilter');
+			});
+			break;
+			
 		case 'cmp':
 			var data = params["data"];
 			if(data.startsWith("pos:")){

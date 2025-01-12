@@ -223,6 +223,21 @@
         "action": "obj-effect",
         "data": "pos:5"
     },
+	"Adverbs;ظُرُوف;ظرف": {
+        "path": "dict.html",
+        "action": "adv",
+        "data": "pos:1"
+    },
+	"Distinction;Distinctive;of Number;of Quality;of Quantity;التمييز;مميز العدد;مميزة الكمية;مميزة الجودة": {
+        "path": "dict.html",
+        "action": "adv",
+        "data": "pos:2"
+    },
+	"Exclusion;Exceptions;المستثنى;أداةُ الإستِثناء;": {
+        "path": "dict.html",
+        "action": "adv",
+        "data": "pos:3"
+    },
     "Synonyms (Cards);Vocabulary;مرادفات;": {
         "path": "cards.html",
         "action": "Vocab",
