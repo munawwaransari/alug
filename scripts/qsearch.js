@@ -141,8 +141,26 @@ function search(pageNumber){
 				ayah += x.translation.text;
 				return ayah;
 			});
-			div.html('');
-			displayVerse(div, ayahText, text, false);
+			
+			// Try to get the Arabic text
+
+			SearchQuran(window.QuranJS.Search.search, 
+					    { language: window.QuranJS.Language.ENGLISH, size: 10 }, 
+						ayahText, 
+			function(data2){
+				div.html('');
+				data2.results.forEach(function(res2){
+					var resulText = res2.highlighted ?? res2.text;
+					if(resulText){
+						//var verseKeys = res.verseKey.split(":");
+						var verse2 = resulText.replace(/[<>\/a-zA-Z]+/ig, '');
+						if(res2.verseKey == text){
+							displayVerse(div, verse2, res2.verseKey, {});
+						}
+					}
+				});
+				displayVerse(div, ayahText, text, {controls: true});
+			});
 			return;
 		}
 		
@@ -178,7 +196,35 @@ function search(pageNumber){
 	});
 }
 
-function displayVerse(div, verse, verseKey, analysis=true){
+function getVerseTranslation(id, verseKey){
+	var div = $("#"+id);
+	var alink = $("#"+id+"_en");
+	alink.addClass('blink');
+	SearchQuran(window.QuranJS.Verses.findByKey, 
+				{ words: 1}, 
+				verseKey, 
+	  function(data){	
+		if(!data){
+			return;
+		}
+		if(data.results == undefined && data.words){
+			var ayah = "";
+			var ayahText = data.words.reduce(function(a, x){
+				if(x.position > 2) 
+					ayah+= " ";
+				else
+					ayah+= a.translation.text + " ";
+				ayah += x.translation.text;
+				return ayah;
+			});
+			
+			displayVerse(div, ayahText, verseKey, {});
+			alink.remove();
+		}
+	});
+}
+
+function displayVerse(div, verse, verseKey, options){
 	var verseKeys = verseKey.split(":");
 	var spanId = verseKeys[0]+"_"+verseKeys[1]; //res.verseKey.replace(":","_");
 	var play = parent.playAudio ? '<span id="'+spanId+'">'+
@@ -191,16 +237,17 @@ function displayVerse(div, verse, verseKey, analysis=true){
 								  '</span>': '';
 
 	var copy = "";
-	if(analysis)
-		copy = '<span>'+			  
+	if(options == undefined || options.analysis)
+		copy = '';
+		/*'<span>'+			  
 					'<img id="analyzeIcon" '+
-					'title="select a word to analyze" '+
+					'title="select a word in the verse to analyze" '+
 					'src="images/analyze.jpg" style="width:20px;cursor: pointer;" '+
 					'onclick="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')"/>'+
 					
 					'<img id="copyIcon" src="images/copy.jpg" style="margin-left:10px;visibility:visible;width:20px;cursor: pointer;" '+
 					'onclick="copyTextToClipboard(\''+verse.replace(/[<>\/a-zA-Z]+/ig, '')+'\');"/>'+
-				'</span>';
+				'</span>';*/
 								  
 	var tanzilLink = '<a title="Click to view in tanzil.com" '+
 						'style="position:absolute;margin-top:6px;" '+
@@ -209,19 +256,22 @@ function displayVerse(div, verse, verseKey, analysis=true){
 					 '[' + verseKey+ ']'+
 					 '</a>';
 					 
-	var translationLink = '<a title="Click to view translation in tanzil.com" '+
-							 'style="position:absolute;margin-right:10px;margin-left:-10px;margin-top:6px;font-size:10px;" '+
-							 'href="https://tanzil.net/#trans/en.sahih/'+verseKey+'" '+
-					 'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
+	var transLinkId = 'div'+verseKeys[0]+'_'+verseKeys[1];
+	var translationLink = '<a title="Click to see translation" id="'+transLinkId+'_en"'+
+	'style="position:absolute;margin-right:10px;margin-left:-10px;margin-top:6px;font-size:10px;" '+
+							 'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\');">'+
 					 '[en]</a>';
 					 
-	div.append($('<div style="padding-bottom:4px;">'+verse+'</div>'+
-				  '<div style="font-size:12px;padding-bottom:12px;">'+
-					   '<span style="padding-right:12px;">'+translationLink+'</span>'+
+	var divHtml = '<div style="padding-bottom:4px;">'+verse+'</div>'+
+				  '<div style="font-size:12px;padding-bottom:12px;" id="'+transLinkId+'">';
+	divHtml += (options == undefined || options.translateLink) ? '<span style="padding-right:12px;">'+
+						translationLink+'</span>':'';
+	divHtml += (options == undefined || options.controls) ?
 					   '<span style="padding-right:8px;">'+copy+'</span>'+
 					   '<span style="padding-right:8px;">'+play+'</span>'+
-					   '<span style="margin-left:0px;">'+tanzilLink+'</span>'+
-				 '</div>'));
+					   '<span style="margin-left:0px;">'+tanzilLink+'</span>':'';
+	divHtml += '</div>'; 
+	div.append($(divHtml));
 }
 
 function analyzeSelection(text, surah, verse){
@@ -348,7 +398,7 @@ function listSurahs(){
 		
 		var div = $("#searchResult");
 		div.empty();
-		var table = '<table class="surahIndex"><th>Index</th><th>Surah Name (en)</th><th>Surah Name (ar)</th>';
+		var table = '<table class="surahIndex"><th>Index</th><th>#Ayah</th><th>Surah Name (en)</th><th>Surah Name (ar)</th>';
 		for (const [index, surah] of Object.entries(data)) {
 			var tanzilLink = '<a style="cursor:pointer;font-size:18px" href="https://tanzil.net/#'+index+'" '+
 				 'onclick="var w = parent ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+index+'</a>';
@@ -360,9 +410,10 @@ function listSurahs(){
 				enName = enName.split(' ')[0];
 			}
 			table = table+ '<tr>'+'<td>'+tanzilLink+'</td>'+
+								'<td style="font-size:14px">'+surah.ayahCount+'</td>'+
 								'<td onclick="searchText(\''+
 									enName
-								+'\')" class="qword" style="font-szie:16px;">' +
+								+'\')" class="qword" style="font-szie:13px;">' +
 								surah.en+
 								'</td>'+
 								'<td onclick="searchText(\''+
