@@ -398,7 +398,7 @@ function listSurahs(){
 		
 		var div = $("#searchResult");
 		div.empty();
-		var table = '<table class="surahIndex"><th>Index</th><th>#Ayah</th><th>Surah Name (en)</th><th>Surah Name (ar)</th>';
+		var table = '<table class="surahIndex"><th>Index</th><th>#Ayah</th><th>Surah(en)</th><th>Surah</th>';
 		for (const [index, surah] of Object.entries(data)) {
 			var tanzilLink = '<a style="cursor:pointer;font-size:18px" href="https://tanzil.net/#'+index+'" '+
 				 'onclick="var w = parent ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+index+'</a>';
