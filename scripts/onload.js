@@ -589,8 +589,12 @@ function handleiSearchData(txt, callback){
 	}
 }
 
-function isearch(){
-	var data = arRemovePunct($("#insearchtxt").val().trim());
+window.inSearch = function(txt) {
+	isearch(txt);
+};
+
+function isearch(txt){
+	var data = arRemovePunct( (txt ?? $("#insearchtxt").val()).trim());
 	var obj, objKey;
 	
 	if(data.startsWith('...')){
