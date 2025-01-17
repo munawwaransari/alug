@@ -263,7 +263,7 @@ function displayVerse(div, verse, verseKey, options){
 					 '[en]</a>';
 					 
 	var divHtml = '<div style="padding-bottom:4px;font-size:22px;">'+verse+'</div>'+
-				  '<div style="font-size:12px;padding-bottom:12px;" id="'+transLinkId+'">';
+				  '<div style="font-size:14px;padding-bottom:12px;" id="'+transLinkId+'">';
 	divHtml += (options == undefined || options.translateLink) ? '<span style="padding-right:12px;">'+
 						translationLink+'</span>':'';
 	var surah_name = surah_list ? '<span style="margin:auto;font-size:14px;padding-right:6px;color:#49348D;"><b>'+surah_list[parseInt(verseKeys[0])].ar+'</b></span>' : '';
