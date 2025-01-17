@@ -262,7 +262,7 @@ function displayVerse(div, verse, verseKey, options){
 							 'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\');">'+
 					 '[en]</a>';
 					 
-	var divHtml = '<div style="padding-bottom:4px;">'+verse+'</div>'+
+	var divHtml = '<div style="padding-bottom:4px;font-size:18px;">'+verse+'</div>'+
 				  '<div style="font-size:12px;padding-bottom:12px;" id="'+transLinkId+'">';
 	divHtml += (options == undefined || options.translateLink) ? '<span style="padding-right:12px;">'+
 						translationLink+'</span>':'';
