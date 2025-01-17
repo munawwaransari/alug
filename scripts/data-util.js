@@ -149,7 +149,7 @@ function replaceQLink(val, addBreak=true){
 		var qLink = getLocationPath()+"?q="+val;
 		//ex = ex.replace(qlinkExp, '<a href="#" onclick="var w=parent?parent.window:window;w.open(\'https://tanzil.net/#$2:$3\',\'_blank\');">$1</a>');
 		ex = ex.replace(qlinkExp, '<a href="#" '+
-					'onclick="if(parent.inSearch) parent.inSearch(\'...QuranSearch $1\');">$1</a>');
+					'onclick="if(parent.inSearch) parent.inSearch(\'...QuranSearch $2:$3\');">$1</a>');
 					//var w=parent?parent.window:window;w.open(\''+getLocationPath()+'?q=$2:$3\');">$1</a>');
 		return '<span style="font-size:18px;">'+(addBreak ? '<br/>':'')+ex+'</span>';
 	}

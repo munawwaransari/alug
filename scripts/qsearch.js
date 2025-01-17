@@ -266,10 +266,14 @@ function displayVerse(div, verse, verseKey, options){
 				  '<div style="font-size:12px;padding-bottom:12px;" id="'+transLinkId+'">';
 	divHtml += (options == undefined || options.translateLink) ? '<span style="padding-right:12px;">'+
 						translationLink+'</span>':'';
+	var surah_name = surah_list ? '<span style="margin-right:6px;"><b>'+surah_list[parseInt(verseKeys[0])].ar+'</b></span>' : '';
+		
 	divHtml += (options == undefined || options.controls) ?
 					   '<span style="padding-right:8px;">'+copy+'</span>'+
 					   '<span style="padding-right:8px;">'+play+'</span>'+
-					   '<span style="margin-left:0px;">'+tanzilLink+'</span>':'';
+					   surah_name+
+					   '<span style="margin-left:0px;">'+tanzilLink+'</span>'
+					   :'';
 	divHtml += '</div>'; 
 	div.append($(divHtml));
 }
@@ -390,12 +394,14 @@ function selectWordAndSearchInQuran(word){
 /*
 Loads Quran surah index
 */
+var surah_list;
 function listSurahs(){
 	$("#qari").hide();
 	var path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
 	var url = path + 'data/qrn/qsurah.json';
 	listSurahsAsync(url, function(data){
-		
+	
+		surah_list = data;
 		var div = $("#searchResult");
 		div.empty();
 		var table = '<table class="surahIndex"><th>Index</th><th>#Ayah</th><th>Surah(en)</th><th>Surah</th>';
