@@ -237,17 +237,18 @@ function displayVerse(div, verse, verseKey, options){
 								  '</span>': '';
 
 	var copy = "";
-	if(options == undefined || options.analysis)
-		copy = '';
-		/*'<span>'+			  
+	//if(options == undefined || options.analysis)
+		copy = 
+		'<span>'+			  
 					'<img id="analyzeIcon" '+
 					'title="select a word in the verse to analyze" '+
 					'src="images/analyze.jpg" style="width:20px;cursor: pointer;" '+
 					'onclick="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')"/>'+
-					
+					/*
 					'<img id="copyIcon" src="images/copy.jpg" style="margin-left:10px;visibility:visible;width:20px;cursor: pointer;" '+
 					'onclick="copyTextToClipboard(\''+verse.replace(/[<>\/a-zA-Z]+/ig, '')+'\');"/>'+
-				'</span>';*/
+					*/
+		'</span>';
 								  
 	var tanzilLink = '<a title="Click to view in tanzil.com" '+
 						'style="position:absolute;margin-top:6px;" '+
@@ -281,7 +282,7 @@ function displayVerse(div, verse, verseKey, options){
 function analyzeSelection(text, surah, verse){
 	let selection = window.getSelection();
 	let selectedText = selection.toString().trim();
-	if (selectedText) {
+	if (selectedText && selectedText.match(/[\u0621-\u064A]+/g)) {
 		var txt = removePunctuations(text.trim());
 		if(txt){
 			var prevVal = null;
@@ -300,7 +301,7 @@ function analyzeSelection(text, surah, verse){
 			showWordAnalysis(words[pos], surah, verse, pos+1);	
 		}
 	}else{
-		alert('Select a word to analyze!');
+		alert('Select a word (from the ayah) to analyze!');
 	}
 }
 
