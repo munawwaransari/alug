@@ -291,15 +291,6 @@ function searchInQuran(){
 	}
 }
 
-function lookupEx(site, txt){
-	var w = parent ? parent.window : window;
-	var lang = parent.getLang ? parent.getLang(): 'en';
-	if(site.includes('$'))
-		site = site.replace('$', lang);
-	var url = site+(txt ?? $("#wordSearchText").val());
-	w.open(url, "_blank");	
-}
-
 function OpenInChatGPT(){
 	var txt = $("#wordSearchText").val();
 	var lang = parent.getLang();
