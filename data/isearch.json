@@ -158,10 +158,85 @@
         "path": "dict.html",
         "action": "cmp"
     },
-    "Alphabets (Cards);Vocabulary;الأبجدية": {
-        "path": "cards.html",
-        "action": "Vocab",
-        "data": "alpha"
+	"Erab vs Tashkeel;علاماتُ التَّشكِيل;إعراب;": {
+        "path": "dict.html",
+        "action": "cmp",
+		"data": "pos:0"
+    },
+	"Hamza;همزة القطع;همزة الوصل;": {
+        "path": "dict.html",
+        "action": "cmp",
+		"data": "pos:1"
+    },
+	"واؤ;العطف;المعِيَّة;واؤ الحال": {
+        "path": "dict.html",
+        "action": "cmp",
+		"data": "pos:2"
+    },
+	"Vocative;النِّداء;ترخِيم;": {
+        "path": "dict.html",
+        "action": "cmp",
+		"data": "pos:3"
+    },
+	"Sentence types;جملة خبرية;جملة إنشائية": {
+        "path": "dict.html",
+        "action": "cmp",
+		"data": "pos:8"
+    },
+    "Affirmative sentence;إيجابي;": {
+        "path": "dict.html",
+        "action": "cmp",
+        "data": "pos:9"
+    },
+	"Negative sentence;نفي;": {
+        "path": "dict.html",
+        "action": "cmp",
+        "data": "pos:9"
+    },
+	"Interrogative sentence;استفهامي;": {
+        "path": "dict.html",
+        "action": "cmp",
+        "data": "pos:9"
+    },
+	"Direct Object;المفعُول بِهِ;": {
+        "path": "dict.html",
+        "action": "obj-effect",
+        "data": "pos:1"
+    },
+	"Absolute Effect;المفعول المطلق;": {
+        "path": "dict.html",
+        "action": "obj-effect",
+        "data": "pos:2"
+    },
+	"Causal Object;المفعول له;مفعول ألجله": {
+        "path": "dict.html",
+        "action": "obj-effect",
+        "data": "pos:3"
+    },
+	"Comitative Object;المفعُول مَعَهُ;": {
+        "path": "dict.html",
+        "action": "obj-effect",
+        "data": "pos:4"
+    },
+	"Adverb (as Object);المفعول فيه": {
+        "path": "dict.html",
+        "action": "obj-effect",
+        "data": "pos:5"
+    },
+	"Adverbs;ظُرُوف;ظرف": {
+        "path": "dict.html",
+        "action": "adv",
+        "data": "pos:1"
+    },
+	"Distinction;Distinctive;of Number;of Quality;of Quantity;التمييز;مميز العدد;مميزة الكمية;مميزة الجودة": {
+        "path": "dict.html",
+        "action": "adv",
+        "data": "pos:2"
+    },
+	"Exclusion;Exceptions;المستثنى;أداةُ الإستِثناء;": {
+        "path": "dict.html",
+        "action": "adv",
+        "data": "pos:3"
     },
     "Synonyms (Cards);Vocabulary;مرادفات;": {
         "path": "cards.html",

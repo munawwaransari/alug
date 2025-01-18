@@ -155,4 +155,22 @@ body, .toolDiv {
 	padding: 4px;
 	margin: auto;
 	vertical-align: middle;
-}	
+}
+
+/* Clear text icon */
+input[type="reset"] + input[type="text"]:empty{
+     display: none;
+}
+
+input[type="reset"]
+{
+  background-image: url( ../images/cleartxt.png );
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  top: 2px;
+  left: -24px;
+} 

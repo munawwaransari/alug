@@ -35,6 +35,12 @@ function filterPronounView(){
 		$('.pTable tr').show();
 	}else{
 		$('.pTable tr').hide();
+		var t = $("#pTable_"+val[0]);
+		t.remove();
+		var lst = $(".pronounFilter");
+		lst.remove();
+		$(".dictionary").prepend(t);
+		$(".dictionary").prepend(lst);
 		$("#pTable_"+val[0]+' tr').show();
 	}
 }

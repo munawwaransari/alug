@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="#" />
 	<link rel="stylesheet" type="text/css" href="styles/autoc-styles.css" media="screen">
-	<title>Dictionary Test</title>
+	<title>Arabic Grammar & Word Analysis</title>
 	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
 	<script src="scripts/data-util.js"></script>
 	<script src="scripts/autocomplete.js"></script>
@@ -14,6 +14,7 @@
 	<script src="scripts/dict.js"></script>
 	<script src="scripts/dict-lt.js"></script>
 	<script src="scripts/pronoun.js"></script>
+	<script src="scripts/object.js"></script>
 	<style>
 	.nFilter{
 		position: relative;
@@ -197,12 +198,35 @@
 		margin-bottom: 10px;
 		margin-top: 10px;
 	}
+	
+	em {
+		font-weight: bold;
+		background-color:#EEEEA7;
+	}
+	
+	input[type="text"]:empty + input[type="reset"]{
+		display: none;
+	}
+	
+	input[type="reset"]
+	{
+	  background-image: url( ../images/cleartxt.png );
+	  background-position: center center;
+	  background-repeat: no-repeat;
+	  border: none;
+	  background-color: transparent;
+	  cursor: pointer;
+	  position: relative;
+	  top: -12px;
+	  left: -26px;
+	} 
 	</style>
 </head>
   <body>
     <div style="float:right">
 		
 		<div  class="autocomplete">
+			<input type="reset" value="" alt="clear" title="Clear" onclick="$('#wordSearchText').val('');"/>
 			<input id="wordSearchText" onchange="searchWord()" style="width:100px;"/>
 			<button id="SearchD" class="dropbtn" title="Analyze" style="background-color:#4B5AC5;top:-8px; height: 30px;" onclick="analyzeSelectedWord()"><b>تحليل</b></button>
 
@@ -221,6 +245,7 @@
 			  <button class="dropbtn">الاِسم</button>
 			  <div class="dropdown-content">
 				<a href="#" onclick="showNounTable('ism','الاسم', 'Noun')">Noun Patterns</a>
+				<a href="#" onclick="showObjectEffects('ism','المفاعيل', 'Object')">Object Effects</a>
 				<a href="#" onclick="showFiveNouns('ism', 'اسماءُ الخَمسة', 'Five Nouns')">Five Nouns</a>
 				<a href="#" onclick="showPronounInfo('ism', 'ضَمائر', 'Pronouns')">Pronouns</a>
 				<a href="#" onclick="loadArabicLTTable('plural.csv', 'ism','الجمع', 'Plural')">Plural</a>
@@ -232,8 +257,9 @@
 			<div class="dropdown">
 			  <button class="dropbtn">الحرف</button>
 			  <div class="dropdown-content">
+				<a href="#" onclick="showObjectEffects('ism','ظُرُوف', 'Adverbs', 'data/grmr/adverb.json')">Adverbs</a>
 				<a href="#" onclick="showParticleTable()">Prepositions</a>
-				<a href="#" onclick="showComparisions()">Compare</a>
+				<a href="#" onclick="showComparisions(0)">Compare</a>
 			  </div>
 			</div>
 			<!-- <button id="btnHarf" class="dropbtn" title="Particles" onclick="showParticleTable()">حرف</button> -->
@@ -247,7 +273,7 @@
 			<!-- <button id="btnMeaning" style="top:-8px; height: 30px;" onclick="">Meaning</button> -->
 			<!-- <button id="SearchQ" style="top:-8px; height: 30px;" onclick="searchInQuran()">Quran</button> -->
 		</div>
-		<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:4px"
+		<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:-22px"
 			 onclick="showArabicKeyboard('arabic')"/>
 	</div>
     <!-- 

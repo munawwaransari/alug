@@ -74,6 +74,12 @@ function selectAndTrigger(data, filterClass){
 	}
 }
 
+function selectIndexAndTrigger(index, filterClass){
+	const select = document.getElementsByClassName(filterClass)[0];
+	$("."+filterClass).val(select.options[index].value);
+	$("."+filterClass).trigger('onchange');
+}
+
 function handleParams(){
 	
 	var action = params["action"]; //getParamValue('action');
@@ -128,8 +134,45 @@ function handleParams(){
 					selectAndTrigger(params["data"], 'nFilter');
 			});
 			break;
+			
+		case 'obj-effect':
+			setTimeout(function(){
+				showObjectEffects('ism','المفاعيل', 'Object');
+				if(params["data"])
+					if(params["data"].startsWith("pos:")){
+						var index = parseInt(params["data"].substring(4));
+						setTimeout(function(){
+							selectIndexAndTrigger(index, 'pronounFilter');
+						}, 150);
+					}
+					else
+						selectAndTrigger(params["data"], 'pronounFilter');
+			});
+			break;
+			
+		case 'adv':
+			setTimeout(function(){
+				showObjectEffects('ism','ظُرُوف', 'Adverbs', 'data/grmr/adverb.json');
+				if(params["data"])
+					if(params["data"].startsWith("pos:")){
+						var index = parseInt(params["data"].substring(4));
+						setTimeout(function(){
+							selectIndexAndTrigger(index, 'pronounFilter');
+						}, 150);
+					}
+					else
+						selectAndTrigger(params["data"], 'pronounFilter');
+			});
+			break;
+			
 		case 'cmp':
-			showComparisions();
+			var data = params["data"];
+			if(data.startsWith("pos:")){
+				var index = parseInt(data.substring(4));
+				showComparisions(index);
+				selectIndexAndTrigger(index, 'nFilter');
+			}
+			else showComparisions(0);
 			break;
 	}
 }
@@ -294,8 +337,8 @@ function showNounTable(k, v1, v2){
 	posAPIObj.addNounInfoHtml($(".dictionary"), nTable);
 }
 
-function showComparisions(){
-	cmpAPIObj.addComparisionList($(".dictionary"));
+function showComparisions(inp){
+	cmpAPIObj.addComparisionList($(".dictionary"), inp);
 }
 
 function loadComparision(){

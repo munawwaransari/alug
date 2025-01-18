@@ -1,0 +1,93 @@
+[
+	{
+        "name_ar": "ظُرُوف",
+        "name_en": "Adverbs",
+		"construct_sep": "/",
+        "construct_ar": [
+            "ظرفُ الزَّمان",
+            "ظرفُ المكان",
+            "ظرفُ التكرار",
+			"الحال"
+        ],
+        "construct_en": [
+            "Temporal Adverb",
+            "Adverb of Place",
+            "Adverb of Frequency",
+			"Adverb of Manner"
+        ],
+        "examples": [
+            "وَلَا تَشْتَرُوا بِآيَاتِي ثَمَنًا قَلِيلًا [2:41]",
+            "وَرَفَعْنَا فَوْقَكُمُ الطُّورَ [2:63]",
+            "وَلَن يَتَمَنَّوْهُ أَبَدًا [2:95]",
+			"لَا تَقْرَبُوا الصَّلَاةَ وَأَنتُمْ سُكَارَىٰ [4:43]<br/><br/>وَيَنقَلِبُ إِلَىٰ أَهْلِهِ مَسْرُورًا [84:9]<br/><br/>فَاتَّبِعُوا مِلَّةَ إِبْرَاهِيمَ حَنِيفًا [3:95]"
+        ],
+		"em":[ "قَلِيلًا", "الطُّورَ","أَبَدًا","سُكَارَىٰ,مَسْرُورًا,حَنِيفًا"],
+        "set": [
+            "صباحًا,مساءً,ليلًا,صيفًا,شتِاءً1,الآن,بعد,قبل,غدًا,أمسًا,مُبكِرًا",
+            "فَوقَ,تَحتَ,عِندَ,اَمامَ,خَلفَ,وَرَاءَ,يَمِينَ,يَسارَ,شِمالَ,شَرقَ,غَربَ,جُنُوبَ",
+            "اَحيانًا,نادِرًا,اَبَدًا,غالِبًا,دائِمًا,كثِيرًا",
+			"راكِبًا,ضاحِكًا,مُخلِصًا,قائمةً"
+        ],
+		"set_en":[
+			"in the morning,at evening,at night,(in) summer,(in) winter,now,later,before,tomorrow,yesterday,early",
+			"above,below,at,in front,behind,beyond,right,left,north,east,west,south",
+			"sometimes,rarely,never,often,always,a lot",
+			"riding,laughing,sincerely,standing"
+		]
+    },
+	{
+        "name_ar": "التمييز",
+        "name_en": "Distinction",
+		"construct_sep": "/",
+        "construct_ar": [
+            "مميز العدد",
+            "مميزة الكمية",
+            "مميزة الجودة"
+        ],
+        "construct_en": [
+            "Distinctive of Number",
+            "Distinctive of Quantity",
+            "Distinctive of Quality"
+        ],
+        "notes": "Clarifies or disambiguates – Number / Quantity or Quality",
+        "examples": [
+            "<p style=\"background-color:#D6CCB1;margin-top:-8px;padding:0;\">Distinctive of Number</p>إِنِّي رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًا [12:4]",
+            "فَاجْلِدُوهُمْ ثَمَانِينَ جَلْدَةً [24:4]",
+			"<br/>لَدَيَّ خَمسُونَ دُولارًا",
+			"<p style=\"background-color:#D6CCB1;margin-top:-8px;padding:0;\">Distinctive of Quantity</p>فَسَوَّاهُنَّ سَبْعَ سَمَاوَاتٍ [2:29]",
+			"لَهُ تِسْعٌ وَتِسْعُونَ نَعْجَةً [38:23]",
+			"<br/>اِشتَرَيتُ كِيلًا تُفَّاحًا",
+			"<p style=\"background-color:#D6CCB1;margin-top:-8px;padding:0;\">Distinctive of Quality</p>وَالَّذِينَ آمَنُوا أَشَدُّ حُبًّا لِّلَّهِ [2:165]",
+			"وَمَنْ أَحْسَنُ مِنَ اللَّهِ صِبْغَةً [2:138]",
+			"<br/>زَيدٌ يَلعَبُ جَيِّدُا"
+        ],
+		"em":[ "كَوْكَبًا", "جَلْدَةً", "دُولارًا", "سَمَاوَاتٍ", "نَعْجَةً", "تُفَّاحًا", "حُبًّا", "صِبْغَةً", "جَيِّدُا"]
+    },
+	{
+        "name_ar": "المستثنى",
+        "name_en": "Exclusion",
+		"construct_sep": "+",
+        "construct_ar": [
+            "الجُملَة",
+            "أداةُ الإستِثناء",
+            "المستثنى"
+        ],
+        "construct_en": [
+            "Sentence",
+            "Exception particle",
+            "The exception"
+        ],
+        "notes": "Used to exclude someone or some action",
+        "examples": [
+            "وَمَا يَخْدَعُونَ إِلَّا أَنفُسَهُمْ [2:9]",
+			"يْسُوا سَوَاءً [3:113]",
+			"لَعَلَّكَ بَاخِعٌ نَّفْسَكَ أَلَّا يَكُونُوا مُؤْمِنِينَ [26:3]",
+			"أَلَيْسَ فِي جَهَنَّمَ مَثْوًى لِّلْمُتَكَبِّرِينَ [39:60]"
+        ],
+		"em":[ "أَنفُسَهُمْ", "سَوَاءً", "أَلَّا يَكُونُوا", "مَثْوًى"],
+		"set_name": "أداةُ الإستِثناء",
+		"set": [
+            "إِلَّا,غَيْر,سِوَى,عَدَا,ما عَدا,خَلا,ما خَلا,حاشا,لَيسَ,لا يَكُونُ"
+        ]
+    }
+]

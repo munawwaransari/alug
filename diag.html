@@ -1,86 +1,99 @@
 <html>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <head>
 		<link rel="shortcut icon" href="#" />
-		<script>
-			window.onload = function(){
-			
-				checkBrowser();
-			
-				logHeading("Speech Synthesis support");
-				var browserSupport = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
-				logInfo("browser support:" + browserSupport ? "Supported": "Not Supported");
+  </head>
+  <body>
+	 <button onclick="loadVoices()">Load</button>
+	 <!-- <button onclick="openUrl()">Open</button> -->
+  </body>
+  <script>
+	window.onload = function(){
+	
+		checkBrowser();
+	
+		logHeading("Speech Synthesis support");
+		var browserSupport = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+		logInfo("browser support:" + browserSupport ? "Supported": "Not Supported");
 
-				if(browserSupport){
-					window.speechSynthesis.onvoicechanged = function(){
-						setTimeout(function(){
-							logInfo("speechSynthesis onvoicechanged fired!");
-						},50);
-						
-						//setTimeout(function(){
-						//	var btn = document.getElementById('loadVoices');
-						//	btn.click();
-						//}, 1000);
-					};
-				}	  	  				  			  
-			}
-			
-			function checkBrowser(){
-				const userAgent = navigator.userAgent;
+		if(browserSupport){
+			window.speechSynthesis.onvoicechanged = function(){
+				setTimeout(function(){
+					logInfo("speechSynthesis onvoicechanged fired!");
+				},50);						
+			};
+		}
+	}
+	
+	function checkBrowser(){
+		const userAgent = navigator.userAgent;
 
-				logHeading(userAgent);
-				if (userAgent.includes("Edg") || userAgent.includes("Chrome")) {
-					logInfo("Browser is supported");
-				} else {
-					logError("Browser is not supported");
-				}
-			}
+		logHeading(userAgent);
+		if (userAgent.includes("Edg") || userAgent.includes("Chrome")) {
+			logInfo("Browser is supported");
+		} else {
+			logError("Browser is not supported");
+		}
+	}
 
-			function loadVoices(){
-				try{
-					//logHeading("Supported languages:");
-					//console.log(speechSynthesis.getVoices());
-					
-					var voices = speechSynthesis.getVoices();
-					/*
-					var voices = speechSynthesis.getVoices().filter(function(v){
-						var lang = v.lang.toLowerCase();
-						return lang === 'ur' || lang.includes('ur-in') || lang.includes('ur-pk') || lang.includes('urdu') ||
-							   lang === 'ar' || lang.includes('ar-sa') || lang.includes('arabic') ||
-							   lang === 'en' || lang.includes('en-us');
-					});
-					*/
-					logHeading("Supported languages: [ voices = "+ voices.length + " ]");
-					for(var i=0; i < voices.length; i++){
-					  var v = voices[i].name + "( "+ voices[i].lang +" )";
-					  logInfo(v);
-					}
-				  }
-				  catch(err){
-					logError(err);
-				  }
-			}
+	function loadVoices(){
+		try{
+			//logHeading("Supported languages:");
+			//console.log(speechSynthesis.getVoices());
 			
-			function logHeading(txt){
-				
-				const headNode = document.createElement('h3');
-				headNode.innerHTML = txt;
-				document.body.appendChild(headNode);
+			var voices = speechSynthesis.getVoices();
+			/*
+			var voices = speechSynthesis.getVoices().filter(function(v){
+				var lang = v.lang.toLowerCase();
+				return lang === 'ur' || lang.includes('ur-in') || lang.includes('ur-pk') || lang.includes('urdu') ||
+					   lang === 'ar' || lang.includes('ar-sa') || lang.includes('arabic') ||
+					   lang === 'en' || lang.includes('en-us');
+			});
+			*/
+			logHeading("Supported languages: [ voices = "+ voices.length + " ]");
+			for(var i=0; i < voices.length; i++){
+			  var v = voices[i].name + "( "+ voices[i].lang +" )";
+			  logInfo(v);
 			}
-			function logInfo(txt){
-				const headNode = document.createElement('p');
-				headNode.innerHTML = txt;
-				document.body.appendChild(headNode);
-			}
-			function logError(err){
-				const headNode = document.createElement('h3');
-				headNode.innerHTML = 'Error:' + err.message;
-				headNode.style.color = 'red';
-				document.body.appendChild(headNode);
-			}
-		</script>
-	</head>
-	<body>
-	 <button id="loadVoices" onclick="loadVoices()">Load</button>
-	</body>
+		  }
+		  catch(err){
+			logError(err);
+		  }
+	}
+	
+	function logHeading(txt){
+		
+		const headNode = document.createElement('h3');
+		headNode.innerHTML = txt;
+		document.body.appendChild(headNode);
+	}
+	function logInfo(txt){
+		const headNode = document.createElement('p');
+		headNode.innerHTML = txt;
+		document.body.appendChild(headNode);
+	}
+	function logError(err){
+		const headNode = document.createElement('h3');
+		headNode.innerHTML = 'Error:' + err.message;
+		headNode.style.color = 'red';
+		document.body.appendChild(headNode);
+	}
+	
+	function openUrl(){
+		loadHiddenHtml('https://www.almaany.com/quran/30/5/7', function(html){
+			console.log(html);
+		});
+	}
+	function loadHiddenHtml(url, callback){
+		console.log('Opening...:'+ url);
+		let handle = window.open(url, '_blank'); //,'width=600,height=300,left=0,top=0');
+		if(handle){
+			handle.addEventListener('load', function() {
+				if(callback)
+					callback(handle.document.body.innerHTML);
+				console.log('...done!');
+			});
+		}
+	}
+	</script>
 </html>

@@ -17,17 +17,21 @@ class cmpAPI {
 		});	
 	}
 
-	addComparisionList(container){
+	addComparisionList(container, inp){
 		var api = this;
 		container.empty();
 		var sel = '<select class="nFilter" onchange="loadComparision()">';
-		var first = null;
+		var first = null, index = 0, indexValue = inp;
 		cmpAPI.cmpData.map(function(cEntry){
 			var val = cEntry["topics"].join(' vs ');
 			sel += '<option value="'+val+'"><b>'+val+'</b></option>';
-			if(first === null)
+			if(index === indexValue)
 				first = val;
+			index=index+1;
 		});
+		if(first === null && cmpAPI.cmpData.length > 0){
+			first = cmpAPI.cmpData["topics"].join(' vs ')
+		}
 		container.prepend($(sel+'</select>'));
 		api.addComparisionTable("."+container[0].className, first);
 	}

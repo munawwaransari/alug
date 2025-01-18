@@ -321,8 +321,9 @@ function updateToolDescription(id, opt){
 		case 'in-search':
 			var sdiv = $('<div>'+
 			'<input id="insearchtxt" class="isearch"/>'+
+			'<input type="reset" value="" alt="clear" title="Clear" onclick="$(\'#insearchtxt\').val(\'\');"/>'+
 			'<button id="isearchD" class="dropbtn" '+
-				'style="background-color:#6AA84F;top:-8px; height: 30px;" '+
+				'style="background-color:#6AA84F;top:-8px; height: 30px;margin-left:-18px;" '+
 				'onclick="isearch()"><b>Go!</b></button>'+
 			'</div>');
 			toolMessage.html(sdiv);
@@ -589,8 +590,12 @@ function handleiSearchData(txt, callback){
 	}
 }
 
-function isearch(){
-	var data = arRemovePunct($("#insearchtxt").val().trim());
+window.inSearch = function(txt) {
+	isearch(txt);
+};
+
+function isearch(txt){
+	var data = arRemovePunct( (txt ?? $("#insearchtxt").val()).trim());
 	var obj, objKey;
 	
 	if(data.startsWith('...')){

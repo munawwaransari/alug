@@ -253,5 +253,65 @@
                 "-"
             ]
         }
+    },
+	{
+        "topics": [
+            "جملة خبرية",
+            "جملة إنشائية"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "بناء",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Construct",
+            "Example"
+        ],
+        "features": {
+            "جملة خبرية": [
+                "Nominal senteces informing about something<br/> These can be command, negative, excalmative or vocative",
+                "<b>مُبتدا + خبر</b><br/>(<b>مُبتدا</b>) Starts with a topic<br/>(<b>خبر</b>) followed by the information",
+                "<b>الحَمدُ لِلَّهِ </b><br/> (مُبتدا)(خبر)",
+                "When used as adverb (ظرف), erab is Fataha(َ ) "
+            ],
+            "جملة إنشائية": [
+                "Nominal senteces informing about some action<br/> These can be command, conditions, or interrogations",
+                "<b>مُسنَد + مُسنَد إليهِ</b><br/>(<b>مُسنَد</b>) Starts with subject<br/>(<b>مُسنَد إليهِ</b>) followed by the predicate",
+                "<b>(هُوَ) خَلَقَ الإنسان </b><br/> (مُسنَد) (مُسنَد إليه)"
+            ]
+        }
+    },
+	{
+        "topics": [
+            "إيجابي",
+            "نفي",
+			"استفهامي"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Example"
+        ],
+        "features": {
+            "إيجابي": [
+                "Affirmative sentences",
+                "<u style=\"top:0\">حرف التوكيد+(مُبتدا)(خبر)</u><br/><br/>الرَّجُلُ تَاجِرٌ<br/><br/>أَلَا لِلَّهِ الدِّينُ الْخَالِصُ [39:3]<br/><br/>إِنَّكَ لَمِنَ الْمُرْسَلِينَ [36:3]"
+            ],
+            "نفي": [
+                "Negative sentences",
+                "<u style=\"top:0\">حرف النفي+(مُبتدا)(خبر)</u><br/><br/>لَيسَ الرَّجُلُ تَاجِرًا<br/><br/>مَا هَٰذِهِ الْحَيَاةُ الدُّنْيَا إِلَّا لَهْوٌ وَلَعِبٌ [29:64]<br/><br/>إِنْ هُوَ إِلَّا ذِكْرَىٰ لِلْعَالَمِينَ [6:90]"
+            ],
+			"استفهامي":[
+				"Interrogative sentences",
+				"<u style=\"top:0\">حرف الإستفهام+(مُبتدا)(خبر)</u><br/><br/>اَيُّ الرَّجُلُ تَاجِرٌ؟<br/><br/> مَنِ الَذي تَاجِرٌ؟<br/><br/>اَلَيسَ الرَّجُلُ تَاجِرًا؟<br/><br/>اَاَنتَ تَاجِرٌ؟"
+			]
+        }
     }
 ]
