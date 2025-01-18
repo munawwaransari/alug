@@ -291,12 +291,12 @@ function searchInQuran(){
 	}
 }
 
-function lookupEx(site){
+function lookupEx(site, txt){
 	var w = parent ? parent.window : window;
 	var lang = parent.getLang ? parent.getLang(): 'en';
 	if(site.includes('$'))
 		site = site.replace('$', lang);
-	var url = site+$("#wordSearchText").val();
+	var url = site+(txt ?? $("#wordSearchText").val());
 	w.open(url, "_blank");	
 }
 

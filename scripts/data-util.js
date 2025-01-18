@@ -204,3 +204,23 @@ function playCard(text, altText){
 		parent.playText(text, 'ar-SA', {'en-US': altText});
 	}
 }
+
+function lookupEx(site, txt, errorText){
+	
+	if(errorText && (txt === undefined || txt === "")){
+		alert(errorText);
+		return;
+	}
+	var  word = txt ?? $("#wordSearchText").val();
+	if (word && word.match(/[\u0621-\u064A]+/g)) {		
+		var w = parent ? parent.window : window;
+		var lang = parent.getLang ? parent.getLang(): 'en';
+		if(site.includes('$'))
+			site = site.replace('$', lang);
+		var url = site+word;
+		w.open(url, "_blank");
+	}
+	else if(errorText){
+		alert(errorText);
+	}
+}

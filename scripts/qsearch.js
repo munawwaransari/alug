@@ -236,16 +236,36 @@ function displayVerse(div, verse, verseKey, options){
 								  'onclick="stopPlayVerse()"/>'+
 								  '</span>': '';
 
-	var copy = "";
-	//if(options == undefined || options.analysis)
-		copy = 
+	var analysisOptions = 
 		'<span>'+			  
-					'<img id="analyzeIcon" '+
+					/*
+					'<img class="analyzeIcon" '+
 					'title="select a word in the verse to analyze" '+
 					'src="images/analyze.jpg" style="width:20px;cursor: pointer;" '+
 					'onclick="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')"/>'+
-					/*
-					'<img id="copyIcon" src="images/copy.jpg" style="margin-left:10px;visibility:visible;width:20px;cursor: pointer;" '+
+					*/
+					
+					'<span class="dropdown">'+
+					  '<button class="dropbtn" '+
+						'style="width:20px;'+
+							   'background: url(images/analyze.jpg);' + 
+							   'background-repeat: no-repeat;'+
+							   'background-size: 20px 20px;"'+
+						'>معني</button>'+
+					  '<div class="dropdown-content">'+
+						'<a href="#" onclick="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')">Analyze (Almaany)</a>'+
+						'<a href="#" onclick="lookupEx(\'https://www.almaany.com/ar/dict/ar-$/\',' +
+											' window.getSelection().toString().trim(),'+
+											' \'Select a word (from the ayah)!\');"'+
+						'>Meaning (Almaany)</a>'+
+						'<a href="#" onclick="lookupEx(\'https://glosbe.com/ar/$/\',' +
+											' window.getSelection().toString().trim(),'+
+											' \'Select a word (from the ayah)!\');"'+
+						'>Meaning (Glosbe)</a>'+
+					  '</div>'+
+					'</span>'+
+					
+					/*'<img id="copyIcon" src="images/copy.jpg" style="margin-left:10px;visibility:visible;width:20px;cursor: pointer;" '+
 					'onclick="copyTextToClipboard(\''+verse.replace(/[<>\/a-zA-Z]+/ig, '')+'\');"/>'+
 					*/
 		'</span>';
@@ -270,7 +290,7 @@ function displayVerse(div, verse, verseKey, options){
 	var surah_name = surah_list ? '<span style="margin:auto;font-size:14px;padding-right:6px;color:#49348D;"><b>'+surah_list[parseInt(verseKeys[0])].ar+'</b></span>' : '';
 		
 	divHtml += (options == undefined || options.controls) ?
-					   '<span style="padding-right:8px;">'+copy+'</span>'+
+					   '<span style="padding-right:8px;">'+analysisOptions+'</span>'+
 					   '<span style="padding-right:8px;">'+play+'</span>'+
 					   surah_name+
 					   '<span style="margin:auto;">'+tanzilLink+'</span>'
