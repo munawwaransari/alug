@@ -203,12 +203,30 @@
 		font-weight: bold;
 		background-color:#EEEEA7;
 	}
+	
+	input[type="text"]:empty + input[type="reset"]{
+		display: none;
+	}
+	
+	input[type="reset"]
+	{
+	  background-image: url( ../images/cleartxt.png );
+	  background-position: center center;
+	  background-repeat: no-repeat;
+	  border: none;
+	  background-color: transparent;
+	  cursor: pointer;
+	  position: relative;
+	  top: -12px;
+	  left: -26px;
+	} 
 	</style>
 </head>
   <body>
     <div style="float:right">
 		
 		<div  class="autocomplete">
+			<input type="reset" value="" alt="clear" title="Clear" onclick="$('#wordSearchText').val('');"/>
 			<input id="wordSearchText" onchange="searchWord()" style="width:100px;"/>
 			<button id="SearchD" class="dropbtn" title="Analyze" style="background-color:#4B5AC5;top:-8px; height: 30px;" onclick="analyzeSelectedWord()"><b>تحليل</b></button>
 
@@ -255,7 +273,7 @@
 			<!-- <button id="btnMeaning" style="top:-8px; height: 30px;" onclick="">Meaning</button> -->
 			<!-- <button id="SearchQ" style="top:-8px; height: 30px;" onclick="searchInQuran()">Quran</button> -->
 		</div>
-		<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:4px"
+		<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:-22px"
 			 onclick="showArabicKeyboard('arabic')"/>
 	</div>
     <!-- 
