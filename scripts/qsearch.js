@@ -156,7 +156,7 @@ function search(pageNumber){
 						//refWords = res2.words;
 						var verse2 = resulText.replace(/[<>\/a-zA-Z]+/ig, '');
 						if(res2.verseKey == text){
-							displayVerse(div, verse2, res2.verseKey, { words: res2.words });
+							displayVerse(div, verse2, res2.verseKey, { words: res2.words, rtl: true });
 						}
 					}
 				});
@@ -191,7 +191,12 @@ function search(pageNumber){
 			if(resulText){
 				//var verseKeys = res.verseKey.split(":");
 				var verse = resulText.replace(/[<>\/a-zA-Z]+/ig, '');
-				displayVerse(div, verse, res.verseKey, { words: res.words, controls: true, translateLink: true});
+				displayVerse(div, verse, res.verseKey, { 
+					words: res.words, 
+					controls: true, 
+					translateLink: true,
+					rtl: true
+				});
 			}
 		});
 	});
@@ -242,7 +247,8 @@ function displayVerse(div, verse, verseKey, options){
 							 'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\');">'+
 					 '[en]</a>';
 					 
-	var divHtml = '<div style="padding-bottom:4px;font-size:22px;display:inline-flex;flex-wrap:wrap;direction:rtl;align-items:center;justify-content:center;/">'+
+	var direction = options.rtl ? 'direction:rtl;' : '';
+	var divHtml = '<div style="padding-bottom:4px;font-size:22px;display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;'+direction+'">'+
 						getWordSpans(verse, options ? options.words: undefined, verseKeys[0]+verseKeys[1])+
 				  '</div>'+
 				  '<div style="font-size:14px;padding-bottom:12px;" id="'+transLinkId+'">';
