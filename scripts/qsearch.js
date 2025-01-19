@@ -149,13 +149,14 @@ function search(pageNumber){
 						ayahText, 
 			function(data2){
 				div.html('');
+				//var refWords = undefined;
 				data2.results.forEach(function(res2){
 					var resulText = res2.highlighted ?? res2.text;
 					if(resulText){
-						//var verseKeys = res.verseKey.split(":");
+						//refWords = res2.words;
 						var verse2 = resulText.replace(/[<>\/a-zA-Z]+/ig, '');
 						if(res2.verseKey == text){
-							displayVerse(div, verse2, res2.verseKey, { words: data2.words });
+							displayVerse(div, verse2, res2.verseKey, { words: res2.words });
 						}
 					}
 				});
@@ -190,7 +191,7 @@ function search(pageNumber){
 			if(resulText){
 				//var verseKeys = res.verseKey.split(":");
 				var verse = resulText.replace(/[<>\/a-zA-Z]+/ig, '');
-				displayVerse(div, verse, res.verseKey, { words: res.words, controls: true });
+				displayVerse(div, verse, res.verseKey, { words: res.words, controls: true, translateLink: true});
 			}
 		});
 	});
@@ -241,11 +242,11 @@ function displayVerse(div, verse, verseKey, options){
 							 'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\');">'+
 					 '[en]</a>';
 					 
-	var divHtml = '<div style="padding-bottom:4px;font-size:22px;">'+
+	var divHtml = '<div style="padding-bottom:4px;font-size:22px;display:inline-flex;flex-wrap:wrap;direction:rtl;align-items:center;justify-content:center;/">'+
 						getWordSpans(verse, options ? options.words: undefined, verseKeys[0]+verseKeys[1])+
 				  '</div>'+
 				  '<div style="font-size:14px;padding-bottom:12px;" id="'+transLinkId+'">';
-	divHtml += (options.controls || options.translateLink) ? '<span style="padding-right:12px;">'+
+	divHtml += (options.translateLink) ? '<span style="padding-right:12px;">'+
 						translationLink+'</span>':'';
 	var surah_name = surah_list ? '<span style="margin:auto;font-size:14px;padding-right:6px;color:#49348D;"><b>'+surah_list[parseInt(verseKeys[0])].ar+'</b></span>' : '';
 		
