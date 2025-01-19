@@ -307,13 +307,6 @@ function getPlayOptions(verseKey, verseKeys){
 
 function getAnalysisOptions(verse, verseKeys){
 	return '<span>'+			  
-					/*
-					'<img class="analyzeIcon" '+
-					'title="select a word in the verse to analyze" '+
-					'src="images/analyze.jpg" style="width:20px;cursor: pointer;" '+
-					'onclick="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')"/>'+
-					*/
-					
 					'<span class="dropdown">'+
 					  '<button class="dropbtn" '+
 						'style="width:20px;'+
@@ -322,7 +315,7 @@ function getAnalysisOptions(verse, verseKeys){
 							   'background-size: 20px 20px;"'+
 						'>معني</button>'+
 					  '<div class="dropdown-content">'+
-						'<a href="#" onclick="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')">Analyze (Almaany)</a>'+
+						'<a href="#" onclick="analyzeSelection('+verseKeys[0]+','+verseKeys[1]+')">Analyze (Almaany)</a>'+
 						'<a href="#" onclick="anlayzeLookup(\'https://www.almaany.com/ar/dict/ar-$/\')"' +
 						'>Meaning (Almaany)</a>'+
 						'<a href="#" onclick="anlayzeLookup(\'https://glosbe.com/ar/$/\')"' +
@@ -341,48 +334,18 @@ function anlayzeLookup(url){
 	lookupEx(url, $(".sel-word").text(), "Select a word (from the ayah)!");
 }
 
-function analyzeSelection(text, surah, verse){
-	//let selection =  window.getSelection();
-	//let selectedText = selection.toString().trim();
-	let selectedText = $(".sel-word").text().trim();
-	if (selectedText){ // && selectedText.match(/[\u0621-\u064A]+/g)) {
-		var txt = removePunctuations(text.trim());
-		if(txt){
-			var prevVal = null;
-			var words = txt.split(' ')
-							.filter(function(w){
-								const result = w !== "" && prevVal !== w;
-								prevVal = w;
-								return result;
-							});
-								
-			var pos = findIndex(words, selectedText);
-			/*var pos = txt.substring(0, txt.indexOf(selectedText))
-						  .split(' ')
-						  .length;	
-			*/
-			showWordAnalysis(words[pos], surah, verse, pos+1);	
+function analyzeSelection(surah, verse){
+	let wordElem = $(".sel-word");
+	let selectedWord = wordElem.text().trim();
+	if (selectedWord){ 
+		var txt = removePunctuations(selectedWord.trim());
+		if(txt){								
+			var pos = parseInt(wordElem[0].id.split("-")[1]);
+			showWordAnalysis(selectedWord, surah, verse, pos+1);	
 		}
 	}else{
 		alert('Select a word (from the ayah) to analyze!');
 	}
-}
-
-function findIndex(words, txt){
-	var index = -1;
-	if(words){
-		words.every(function(w, i){
-			if(removePunctuations(w).trim()
-								    .includes(removePunctuations(txt)
-								    .trim()))
-			{
-				index = i;
-				return false;
-			}
-			return true;
-		});
-	}
-	return index;
 }
 
 function showWordAnalysis(word, surah, verse, pos){
