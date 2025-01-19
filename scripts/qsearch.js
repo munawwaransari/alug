@@ -155,7 +155,7 @@ function search(pageNumber){
 						//var verseKeys = res.verseKey.split(":");
 						var verse2 = resulText.replace(/[<>\/a-zA-Z]+/ig, '');
 						if(res2.verseKey == text){
-							displayVerse(div, verse2, res2.verseKey, {});
+							displayVerse(div, verse2, res2.verseKey, { words: data2.words });
 						}
 					}
 				});
@@ -190,7 +190,7 @@ function search(pageNumber){
 			if(resulText){
 				//var verseKeys = res.verseKey.split(":");
 				var verse = resulText.replace(/[<>\/a-zA-Z]+/ig, '');
-				displayVerse(div, verse, res.verseKey);
+				displayVerse(div, verse, res.verseKey, { words: res.words, controls: true });
 			}
 		});
 	});
@@ -218,7 +218,7 @@ function getVerseTranslation(id, verseKey){
 				return ayah;
 			});
 			
-			displayVerse(div, ayahText, verseKey, {});
+			displayVerse(div, ayahText, verseKey, { words: data.words });
 			alink.remove();
 		}
 	});
@@ -226,6 +226,67 @@ function getVerseTranslation(id, verseKey){
 
 function displayVerse(div, verse, verseKey, options){
 	var verseKeys = verseKey.split(":");
+	var playOptions = getPlayOptions(verseKey, verseKeys);
+	var analysisOptions = getAnalysisOptions(verse, verseKeys);
+	var tanzilLink = '<a title="Click to view in tanzil.com" '+
+						'style="position:absolute;margin-top:6px;" '+
+						'href="https://tanzil.net/#'+verseKey+'" '+
+						'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
+					 '[' + verseKey+ ']'+
+					 '</a>';
+					 
+	var transLinkId = 'div'+verseKeys[0]+'_'+verseKeys[1];
+	var translationLink = '<a title="Click to see translation" id="'+transLinkId+'_en"'+
+	'style="position:absolute;margin-right:10px;margin-left:-10px;margin-top:6px;font-size:10px;" '+
+							 'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\');">'+
+					 '[en]</a>';
+					 
+	var divHtml = '<div style="padding-bottom:4px;font-size:22px;">'+
+						getWordSpans(verse, options ? options.words: undefined, verseKeys[0]+verseKeys[1])+
+				  '</div>'+
+				  '<div style="font-size:14px;padding-bottom:12px;" id="'+transLinkId+'">';
+	divHtml += (options.controls || options.translateLink) ? '<span style="padding-right:12px;">'+
+						translationLink+'</span>':'';
+	var surah_name = surah_list ? '<span style="margin:auto;font-size:14px;padding-right:6px;color:#49348D;"><b>'+surah_list[parseInt(verseKeys[0])].ar+'</b></span>' : '';
+		
+	divHtml += (options == undefined || options.controls) ?
+					   '<span style="padding-right:8px;">'+analysisOptions+'</span>'+
+					   '<span style="padding-right:8px;">'+playOptions+'</span>'+
+					   surah_name+
+					   '<span style="margin:auto;">'+tanzilLink+'</span>'
+					   :'';
+	divHtml += '</div>'; 
+	div.append($(divHtml));
+}
+
+function selectWordInAyah(){
+	var id = event.target.id;
+	if(id.endsWith("-en"))
+		id = id.replace(/\-en$/g, '');
+	$(".word-ar").removeClass("sel-word");
+	$(".word-en").removeClass("sel-word-en");
+	$("#"+id).addClass("sel-word");
+	$("#"+id+"-en").addClass("sel-word-en");
+}
+
+function getWordSpans(verse, words, vId){
+	if(words && words.length > 0){
+	
+		var vSpans = '';
+		words.map(function(w, i){
+			var word = w.translation ? w.translation.text : w.text;
+			var wClass = w.translation ? 'word-en' : 'word-ar';
+			var id = w.translation ? vId+'-'+i+'-word-en' : vId+'-'+i+'-word';
+			vSpans += '<span id="'+id+'" class="'+wClass+'" onclick="selectWordInAyah()">'+
+						word+
+						'</span>&nbsp;';
+		});
+		return vSpans;
+	}
+	return verse;
+}
+
+function getPlayOptions(verseKey, verseKeys){
 	var spanId = verseKeys[0]+"_"+verseKeys[1]; //res.verseKey.replace(":","_");
 	var play = parent.playAudio ? '<span id="'+spanId+'">'+
 								  
@@ -234,10 +295,12 @@ function displayVerse(div, verse, verseKey, options){
 								  
 								  '<img title="Stop" src="images/stop.png" style="visibility:hidden;width:0px;cursor: pointer;" '+
 								  'onclick="stopPlayVerse()"/>'+
-								  '</span>': '';
+								  '</span>':'';
+  return play;
+}
 
-	var analysisOptions = 
-		'<span>'+			  
+function getAnalysisOptions(verse, verseKeys){
+	return '<span>'+			  
 					/*
 					'<img class="analyzeIcon" '+
 					'title="select a word in the verse to analyze" '+
@@ -254,13 +317,9 @@ function displayVerse(div, verse, verseKey, options){
 						'>معني</button>'+
 					  '<div class="dropdown-content">'+
 						'<a href="#" onclick="analyzeSelection(\''+verse+'\','+verseKeys[0]+','+verseKeys[1]+')">Analyze (Almaany)</a>'+
-						'<a href="#" onclick="lookupEx(\'https://www.almaany.com/ar/dict/ar-$/\',' +
-											' window.getSelection().toString().trim(),'+
-											' \'Select a word (from the ayah)!\');"'+
+						'<a href="#" onclick="anlayzeLookup(\'https://www.almaany.com/ar/dict/ar-$/\')"' +
 						'>Meaning (Almaany)</a>'+
-						'<a href="#" onclick="lookupEx(\'https://glosbe.com/ar/$/\',' +
-											' window.getSelection().toString().trim(),'+
-											' \'Select a word (from the ayah)!\');"'+
+						'<a href="#" onclick="anlayzeLookup(\'https://glosbe.com/ar/$/\')"' +
 						'>Meaning (Glosbe)</a>'+
 					  '</div>'+
 					'</span>'+
@@ -269,40 +328,18 @@ function displayVerse(div, verse, verseKey, options){
 					'onclick="copyTextToClipboard(\''+verse.replace(/[<>\/a-zA-Z]+/ig, '')+'\');"/>'+
 					*/
 		'</span>';
-								  
-	var tanzilLink = '<a title="Click to view in tanzil.com" '+
-						'style="position:absolute;margin-top:6px;" '+
-						'href="https://tanzil.net/#'+verseKey+'" '+
-						'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
-					 '[' + verseKey+ ']'+
-					 '</a>';
-					 
-	var transLinkId = 'div'+verseKeys[0]+'_'+verseKeys[1];
-	var translationLink = '<a title="Click to see translation" id="'+transLinkId+'_en"'+
-	'style="position:absolute;margin-right:10px;margin-left:-10px;margin-top:6px;font-size:10px;" '+
-							 'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\');">'+
-					 '[en]</a>';
-					 
-	var divHtml = '<div style="padding-bottom:4px;font-size:22px;">'+verse+'</div>'+
-				  '<div style="font-size:14px;padding-bottom:12px;" id="'+transLinkId+'">';
-	divHtml += (options == undefined || options.translateLink) ? '<span style="padding-right:12px;">'+
-						translationLink+'</span>':'';
-	var surah_name = surah_list ? '<span style="margin:auto;font-size:14px;padding-right:6px;color:#49348D;"><b>'+surah_list[parseInt(verseKeys[0])].ar+'</b></span>' : '';
-		
-	divHtml += (options == undefined || options.controls) ?
-					   '<span style="padding-right:8px;">'+analysisOptions+'</span>'+
-					   '<span style="padding-right:8px;">'+play+'</span>'+
-					   surah_name+
-					   '<span style="margin:auto;">'+tanzilLink+'</span>'
-					   :'';
-	divHtml += '</div>'; 
-	div.append($(divHtml));
+}
+
+function anlayzeLookup(url){
+	let selectedText = $(".sel-word").text().trim();	
+	lookupEx(url, $(".sel-word").text(), "Select a word (from the ayah)!");
 }
 
 function analyzeSelection(text, surah, verse){
-	let selection = window.getSelection();
-	let selectedText = selection.toString().trim();
-	if (selectedText && selectedText.match(/[\u0621-\u064A]+/g)) {
+	//let selection =  window.getSelection();
+	//let selectedText = selection.toString().trim();
+	let selectedText = text ?? $(".sel-word").text().trim();
+	if (selectedText){ // && selectedText.match(/[\u0621-\u064A]+/g)) {
 		var txt = removePunctuations(text.trim());
 		if(txt){
 			var prevVal = null;
