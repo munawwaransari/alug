@@ -266,8 +266,7 @@ function displayVerse(div, verse, verseKey, options){
 	div.append($(divHtml));
 }
 
-function selectWordInAyah(){
-	var id = event.target.id;
+function selectWordInAyah(id){
 	if(id.endsWith("-en"))
 		id = id.replace(/\-en$/g, '');
 	$(".word-ar").removeClass("sel-word");
@@ -284,7 +283,7 @@ function getWordSpans(verse, words, vId){
 			var word = w.translation ? w.translation.text : w.text;
 			var wClass = w.translation ? 'word-en' : 'word-ar';
 			var id = w.translation ? vId+'-'+i+'-word-en' : vId+'-'+i+'-word';
-			vSpans += '<span id="'+id+'" class="'+wClass+'" onclick="selectWordInAyah()">'+
+			vSpans += '<span id="'+id+'" class="'+wClass+'" onclick="selectWordInAyah(this.id)">'+
 						word+
 						'</span>&nbsp;';
 		});
@@ -345,7 +344,7 @@ function anlayzeLookup(url){
 function analyzeSelection(text, surah, verse){
 	//let selection =  window.getSelection();
 	//let selectedText = selection.toString().trim();
-	let selectedText = text ?? $(".sel-word").text().trim();
+	let selectedText = $(".sel-word").text().trim();
 	if (selectedText){ // && selectedText.match(/[\u0621-\u064A]+/g)) {
 		var txt = removePunctuations(text.trim());
 		if(txt){
