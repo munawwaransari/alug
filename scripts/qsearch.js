@@ -149,11 +149,28 @@ function search(pageNumber){
 			});
 	
 			var verseKey = text.trim(); //"";	
-			// Try to search the key and get exact vesre
+			var keys = verseKey.split(":");
+			var verseNumber = parseInt(keys[1]);
 			div.html('');
-			SearchQuran(window.QuranJS.Search.search, 
-					    { language: window.QuranJS.Language.ENGLISH, size: 10 }, 
-						ayahText, 
+			
+			// Add Next & Prev navigation for singl everse
+			var nav = '<div style="font-size:12px;margin-bottom:10px;padding:10px;background-color:#9DBF6C;">';
+			if(verseNumber > 1){
+				nav +=  '<span onclick="searchText(\''+(keys[0])+':'+(verseNumber-1)+'\')" '+
+						'style="cursor:pointer;margin-right:20px;">'+
+						'<b>&lt;&nbsp;Prev</b></span>' +
+						'<span>&nbsp;&nbsp;</span>';
+			}
+			nav += '<span onclick="searchText(\''+(+keys[0])+':'+(verseNumber+1)+'\')" style="cursor:pointer;margin-left:20px;">'+
+							'<b>Next&nbsp;&gt;</b></span>';
+			nav += '</div>';
+			div.append($(nav));
+		
+			// Try to search the key and get exact vesre
+			//SearchQuran(window.QuranJS.Search.search, 
+			//		    { language: window.QuranJS.Language.ENGLISH, size: 50 }, 
+			//			ayahText, 
+			searchVerseKey(1, ayahText, verseKey,
 			function(data2){
 				data2.results.forEach(function(res2){
 					var resulText = res2.highlighted ?? res2.text;
@@ -215,7 +232,6 @@ function search(pageNumber){
 		}
 		
 		div.html('');
-		
 		// Add search navigation
 		var nav = '<div style="font-size:12px;margin-bottom:10px;padding:10px;background-color:#9DBF6C;">'+
 				  (data.currentPage > 1 ? 
@@ -243,6 +259,24 @@ function search(pageNumber){
 				});
 			}
 		});
+	});
+}
+
+function searchVerseKey(page, ayahText, verseKey, callback){
+	
+	SearchQuran(window.QuranJS.Search.search, { 
+		language: window.QuranJS.Language.ENGLISH, 
+		size: 50,
+		page: page		
+	}, 	
+	ayahText, function(data){
+		var res = data.results.filter(x => x.verseKey === verseKey);
+		if(res.length > 0){
+			callback(data);
+		}
+		else if(data.currentPage < data.totalPages){
+			searchVerseKey(data.currentPage+1, ayahText, verseKey, callback);
+		}
 	});
 }
 
