@@ -190,7 +190,6 @@ function search(pageNumber){
 						}
 					}
 				});
-				//displayVerse(div, ayahText, text, {controls: true});
 			});
 			return;
 		}
@@ -258,7 +257,8 @@ function getVerseTranslation(id, verseKey, sfx = '_en', lang = window.QuranJS.La
 			
 			displayVerse(div, ayahText, verseKey, { 
 				words: data.words,
-				bgColor: sfx === '_en' ? '#F6F0F2' : '#E8EEF4'
+				bgColor: sfx === '_en' ? '#F6F0F2' : '#E8EEF4',
+				keepFocus: true
 			});
 			alink.remove();
 		}
@@ -278,17 +278,17 @@ function displayVerse(div, verse, verseKey, options){
 					 
 	var transLinkId = 'div'+verseKeys[0]+'_'+verseKeys[1];
 	var translationLink = '<a title="Click to see translation" id="'+transLinkId+'_en"'+
-	'style="position:absolute;margin-right:10px;margin-left:-10px;margin-top:6px;font-size:10px;" '+
+	'style="position:absolute;margin-right:10px;margin-left:-14px;margin-top:6px;font-size:12px;" '+
 							 'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\',\'_en\');">'+
 					 '[en]</a>'+
 					 '<a title="Click to see translation" id="'+transLinkId+'_ur"'+
-	'style="position:absolute;margin-right:10px;margin-left:-30px;margin-top:6px;font-size:10px;" '+
+	'style="position:absolute;margin-right:10px;margin-left:-34px;margin-top:6px;font-size:12px;" '+
 							 'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\', \'_ur\',window.QuranJS.Language.URDU);">'+
 					 '[ur]</a>';
 					 
 	var bgColor = options.bgColor ? 'background-color:'+options.bgColor+';' : '';
 	var direction = verse.match(/^[\x00-\x7F]+/g) ? '' : 'direction:rtl;';
-	var divHtml = '<div style="padding-bottom:4px;font-size:22px;display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;'+direction+bgColor+'">'+
+	var divHtml = '<div id="vdiv'+verseKeys[0]+verseKeys[1]+'"  style="padding-bottom:4px;font-size:22px;display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;'+direction+bgColor+'font-family:hafs;">'+
 						getWordSpans(verse, options ? options.words: undefined, verseKeys[0]+verseKeys[1])+
 				  '</div>'+
 				  '<div style="font-size:14px;padding-bottom:12px;" id="'+transLinkId+'">';
@@ -302,8 +302,21 @@ function displayVerse(div, verse, verseKey, options){
 					   surah_name+
 					   '<span style="margin:auto;">'+tanzilLink+'</span>'
 					   :'';
-	divHtml += '</div>'; 
+	divHtml += '</div>';
 	div.append($(divHtml));
+	
+	if(options.keepFocus){
+		//setTimeout(function(){
+			var elem = $("#vdiv"+verseKeys[0]+verseKeys[1]);
+			if(elem.length > 0){
+				elem[0].scrollIntoView({
+					behavior: 'smooth', 
+					block: 'start', 
+					inline: 'nearest'
+				});
+			}
+		//}, 1);
+	}
 }
 
 function selectWordInAyah(id){
@@ -372,6 +385,10 @@ function getAnalysisOptions(verse, verseKeys){
 						'>معني</button>'+
 					  '<div class="dropdown-content">'+
 						'<a href="#" onclick="analyzeSelection('+verseKeys[0]+','+verseKeys[1]+')">Analyze (Almaany)</a>'+
+						/*
+						'<a href="#" onclick="analyzeLookup(\'https://www.almaany.com/ar/thes/ar-ar/\')"' +
+						'>Thesauras (Almaany)</a>'+
+						*/
 						'<a href="#" onclick="analyzeLookup(\'https://www.almaany.com/ar/dict/ar-$/\')"' +
 						'>Meaning (Almaany)</a>'+
 						'<a href="#" onclick="analyzeLookup(\'https://glosbe.com/ar/$/\')"' +
