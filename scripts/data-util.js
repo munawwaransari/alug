@@ -217,7 +217,7 @@ function lookupEx(site, txt, errorText){
 		var lang = parent.getLang ? parent.getLang(): 'en';
 		if(site.includes('$'))
 			site = site.replace('$', lang);
-		var url = site+word;
+		var url = site+removePunctuations(word);
 		w.open(url, "_blank");
 	}
 	else if(errorText){
