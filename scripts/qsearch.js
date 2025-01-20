@@ -366,9 +366,9 @@ function getAnalysisOptions(verse, verseKeys){
 						'>معني</button>'+
 					  '<div class="dropdown-content">'+
 						'<a href="#" onclick="analyzeSelection('+verseKeys[0]+','+verseKeys[1]+')">Analyze (Almaany)</a>'+
-						'<a href="#" onclick="anlayzeLookup(\'https://www.almaany.com/ar/dict/ar-$/\')"' +
+						'<a href="#" onclick="analyzeLookup(\'https://www.almaany.com/ar/dict/ar-$/\')"' +
 						'>Meaning (Almaany)</a>'+
-						'<a href="#" onclick="anlayzeLookup(\'https://glosbe.com/ar/$/\')"' +
+						'<a href="#" onclick="analyzeLookup(\'https://glosbe.com/ar/$/\')"' +
 						'>Meaning (Glosbe)</a>'+
 					  '</div>'+
 					'</span>'+
@@ -379,7 +379,7 @@ function getAnalysisOptions(verse, verseKeys){
 		'</span>';
 }
 
-function anlayzeLookup(url){
+function analyzeLookup(url){
 	let selectedText = $(".sel-word").text().trim();	
 	lookupEx(url, $(".sel-word").text(), "Select a word (from the ayah)!");
 }
