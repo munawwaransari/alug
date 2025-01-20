@@ -812,6 +812,7 @@ class posAPI {
 			parseOutput: []
 		};
 		var word2 = apiInstance.#removeErab(word, true);
+		word2 = removePunctuations(removeAlPrefix(word2));
 		for (const keyVal of Object.entries(posAPI.posRules)){
 			var patternInfo = keyVal[1];
 			

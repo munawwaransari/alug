@@ -108,8 +108,8 @@ function replaceWord(w){
 }
 
 function removePunctuations(w){
-	var punctuation = "ۡۧـۦۥۣۤۢۡ۠۟۞۝ۜۛۚۙۘۗۖە";
-	var text = w.replace(new RegExp("["+punctuation+"]+","g"), '');
+	var punctuation = "ۡۧـۦۥۣۤۢۡ۠ٓ۟۞۝ۜۛۚۙۘۡۗۖە";
+	var text = w.replaceAll(new RegExp("["+punctuation+"]+","g"), '');
 	return text;
 }
 
@@ -180,6 +180,12 @@ function padZero(str, len) {
 	len = len || 2;
 	var zeros = new Array(len).join('0');
 	return (zeros + str).slice(-len);
+}
+
+function removeAlPrefix(txt){
+	if(txt.startsWith('ال') && txt.length > 4)
+		return txt.substring(2);
+	return txt;
 }
 
 function removeTimePrefix(txt){

@@ -130,6 +130,13 @@
 				  });
 				}
 			}
+			
+			window.redirect = function(url, action, data){
+				$('.reading-pane').attr("src","");
+				setTimeout(function(){
+					$('.reading-pane').attr('src', encodeURI(getLocationPath()+url+"?action="+action+"&data="+data));
+				}, 5);
+			}
 		</script>
 		</script>
 		<!-- <script src="scripts/chapters.js"></script> -->

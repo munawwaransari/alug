@@ -420,16 +420,18 @@ function getAnalysisOptions(verse, verseKeys){
 							   'background-repeat: no-repeat;'+
 							   'background-size: 20px 20px;"'+
 						'>معني</button>'+
-					  '<div class="dropdown-content">'+
-						'<a href="#" onclick="analyzeSelection('+verseKeys[0]+','+verseKeys[1]+')">Analyze (Almaany)</a>'+
-						/*
-						'<a href="#" onclick="analyzeLookup(\'https://www.almaany.com/ar/thes/ar-ar/\')"' +
-						'>Thesauras (Almaany)</a>'+
-						*/
+					  '<div class="dropdown-content">'
+					    +
+						'<a href="#" onclick="analyzeLocal()" >Analyze (تحليل)</a>'
+						+
+						'<a href="#" onclick="analyzeSelection('+verseKeys[0]+','+verseKeys[1]+')">Analyze (Almaany)</a>'
+						+
 						'<a href="#" onclick="analyzeLookup(\'https://www.almaany.com/ar/dict/ar-$/\')"' +
-						'>Meaning (Almaany)</a>'+
+						'>Meaning (Almaany)</a>'
+						+
 						'<a href="#" onclick="analyzeLookup(\'https://glosbe.com/ar/$/\')"' +
-						'>Meaning (Glosbe)</a>'+
+						'>Meaning (Glosbe)</a>'
+						+
 					  '</div>'+
 					'</span>'+
 					
@@ -437,6 +439,17 @@ function getAnalysisOptions(verse, verseKeys){
 					'onclick="copyTextToClipboard(\''+verse.replace(/[<>\/a-zA-Z]+/ig, '')+'\');"/>'+
 					*/
 		'</span>';
+}
+
+function analyzeLocal(){
+	if(parent && parent.redirect){
+		var word = $(".sel-word").text().trim();
+		if(word !== ""){
+			parent.redirect("dict.html", 
+							"analyze", 
+							word);
+		}
+	}
 }
 
 function analyzeLookup(url){
