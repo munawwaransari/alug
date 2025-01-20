@@ -278,11 +278,11 @@ function displayVerse(div, verse, verseKey, options){
 					 
 	var transLinkId = 'div'+verseKeys[0]+'_'+verseKeys[1];
 	var translationLink = '<a title="Click to see translation" id="'+transLinkId+'_en"'+
-	'style="position:absolute;margin-right:10px;margin-left:-14px;margin-top:6px;font-size:12px;" '+
+	'style="position:absolute;margin-right:10px;margin-left:-18px;margin-top:6px;font-size:12px;" '+
 							 'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\',\'_en\');">'+
 					 '[en]</a>'+
 					 '<a title="Click to see translation" id="'+transLinkId+'_ur"'+
-	'style="position:absolute;margin-right:10px;margin-left:-34px;margin-top:6px;font-size:12px;" '+
+	'style="position:absolute;margin-right:10px;margin-left:-44px;margin-top:6px;font-size:12px;" '+
 							 'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\', \'_ur\',window.QuranJS.Language.URDU);">'+
 					 '[ur]</a>';
 					 
