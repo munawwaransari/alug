@@ -54,13 +54,11 @@ window.onload = function(){
 			mappings = data;
 	});
 	 
-	// add index
-	//index1.every(function(key){
-	//  addIndex(key);
-	//  return true;
-	//});
-	//$(".index").append($('<div id="btnindex" class="btnl" onclick="toggleIndex(\'index\')">Collapse</div>'));
-	//toggleIndex('index');
+	$("#wordSearchText").keyup(function(event) {
+		if (event.keyCode === 13) {
+			$("#SearchD").click();
+		}
+	});
 }
 
 function selectAndTrigger(data, filterClass){

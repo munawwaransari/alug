@@ -10,6 +10,12 @@ var loadStatus;
 
 window.onload = function(){
 	
+	$("#searchText").keyup(function(event) {
+		if (event.keyCode === 13) {
+			$("#SearchQ").click();
+		}
+	});
+
 	window.addEventListener("contextmenu", e =>
 	{
 	  e.preventDefault();
