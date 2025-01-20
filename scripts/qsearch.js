@@ -160,7 +160,7 @@ function search(pageNumber){
 					if(resulText){
 						var verse2 = resulText.replace(/[<>\/a-zA-Z]+/ig, '');
 						if(res2.verseKey == verseKey){
-							displayVerse(div, verse2, verseKey, { words: res2.words, controls: true });
+							displayVerse(div, verse2, verseKey, { words: res2.words, controls: true, direction: 'rtl' });
 							
 							// Try to add English translation
 							SearchQuran(window.QuranJS.Verses.findByKey, { 
@@ -172,7 +172,8 @@ function search(pageNumber){
 							function(data3){
 								displayVerse(div, data3.words[0].translation.text, verseKey, {
 									words: data3.words,
-									bgColor: '#F6F0F2'
+									bgColor: '#F6F0F2',
+									direction: 'ltr'
 								});
 								
 								// Try to add Urdu translation
@@ -182,8 +183,22 @@ function search(pageNumber){
 								function(data4){
 									displayVerse(div, data4.words[0].translation.text, verseKey, {
 										words: data4.words,
-										bgColor: '#E8EEF4'
+										bgColor: '#E8EEF4',
+										direction: 'rtl'
 									});
+									
+									// Try to add Hindi translation
+									SearchQuran(window.QuranJS.Verses.findByKey, 
+												{ words:1, language: window.QuranJS.Language.HINDI, size: 10 }, 
+												verseKey, 
+									function(data5){
+										displayVerse(div, data5.words[0].translation.text, verseKey, {
+											words: data5.words,
+											bgColor: '#E8EEF4',
+											direction: 'ltr'
+										});
+									});
+
 								});
 							});
 							return true;
@@ -224,7 +239,7 @@ function search(pageNumber){
 					words: res.words, 
 					controls: true, 
 					translateLink: true,
-					rtl: true
+					direction: 'rtl'
 				});
 			}
 		});
@@ -258,7 +273,8 @@ function getVerseTranslation(id, verseKey, sfx = '_en', lang = window.QuranJS.La
 			displayVerse(div, ayahText, verseKey, { 
 				words: data.words,
 				bgColor: sfx === '_en' ? '#F6F0F2' : '#E8EEF4',
-				keepFocus: true
+				keepFocus: true,
+				direction: (sfx === '_ar' || sfx === '_ur') ? 'rtl' : 'ltr'
 			});
 			
 			var scrollPosition = $(window).scrollTop();
@@ -283,15 +299,27 @@ function displayVerse(div, verse, verseKey, options){
 	var translationLink = '<a title="Click to see translation" id="'+transLinkId+'_en"'+
 	'style="position:absolute;margin-right:10px;margin-left:-18px;margin-top:6px;font-size:12px;" '+
 							 'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\',\'_en\');">'+
-					 '[en]</a>'+
-					 '<a title="Click to see translation" id="'+transLinkId+'_ur"'+
-	'style="position:absolute;margin-right:10px;margin-left:-44px;margin-top:6px;font-size:12px;" '+
-							 'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\', \'_ur\',window.QuranJS.Language.URDU);">'+
-					 '[ur]</a>';
+					 '[en]</a>';
+	//if(parent && parent.getLang && parent.getLang() == 'ur'){
+		translationLink +=				 
+		'<a title="Click to see translation" id="'+transLinkId+'_ur"'+
+			'style="position:absolute;margin-right:10px;margin-left:-44px;margin-top:6px;font-size:12px;" '+
+			'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\', \'_ur\',window.QuranJS.Language.URDU);">'+
+		'[ur]</a>';
+	//}
+	
+	//if(parent && parent.getLang && parent.getLang() == 'hi'){
+		translationLink +=				 
+		'<a title="Click to see translation" id="'+transLinkId+'_hi"'+
+			'style="position:absolute;margin-right:10px;margin-left:-68px;margin-top:6px;font-size:12px;" '+
+			'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\', \'_hi\',window.QuranJS.Language.HINDI);">'+
+		'[hi]</a>';
+	//}
 					 
 	var bgColor = options.bgColor ? 'background-color:'+options.bgColor+';' : '';
-	var direction = verse.match(/^[\x00-\x7F]+/g) ? '' : 'direction:rtl;';
-	var divHtml = '<div id="vdiv'+verseKeys[0]+verseKeys[1]+'"  style="padding-bottom:4px;font-size:22px;display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;'+direction+bgColor+'font-family:hafs;">'+
+	var direction =  options.direction ? 'direction:'+options.direction+';' :
+						verse.match(/^[\x00-\x7F]+/g) ? '' : 'direction:rtl;';
+	var divHtml = '<div id="vdiv'+verseKeys[0]+verseKeys[1]+'"  style="padding-bottom:4px;font-size:22px;display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;'+direction+bgColor+'">'+
 						getWordSpans(verse, options ? options.words: undefined, verseKeys[0]+verseKeys[1])+
 				  '</div>'+
 				  '<div style="font-size:14px;padding-bottom:12px;" id="'+transLinkId+'">';
@@ -327,14 +355,18 @@ function selectWordInAyah(id){
 		id = id.replace(/\-en$/g, '');
 	else if(id.endsWith("-ur"))
 		id = id.replace(/\-ur$/g, '');
+	else if(id.endsWith("-hi"))
+		id = id.replace(/\-hi$/g, '');
 	
 	$(".word-ar").removeClass("sel-word");
 	$(".word-en").removeClass("sel-word-en");
 	$(".word-ur").removeClass("sel-word-ur");
+	$(".word-hi").removeClass("sel-word-hi");
 	
-	$("#"+id).addClass("sel-word");
+	$("#"+id).addClass("sel-word");	
 	$("#"+id+"-en").addClass("sel-word-en");
 	$("#"+id+"-ur").addClass("sel-word-ur");
+	$("#"+id+"-hi").addClass("sel-word-hi");
 }
 
 function getWordSpans(verse, words, vId){
@@ -345,16 +377,18 @@ function getWordSpans(verse, words, vId){
 			var word = w.translation ? w.translation.text : w.text;
 			if(language == undefined){
 				if(w.translation){
-					if(word.match(/^[\x00-\x7F]+/g))
+					if(word.trim().match(/^[\x00-\x7F]+/g))
 						language = "-en";
+					else if(word.trim().match(/^[\u0900-\u097F]+/g))
+						language = "-hi";
 					else
 						language = "-ur";
 				}
 				else language = "";
 			}
 			
-			var wClass = w.translation ? 'word'+language : 'word-ar';
-			var id = w.translation ? vId+'-'+i+'-word'+language : vId+'-'+i+'-word';
+			var wClass = language !== "" ? 'word'+language : 'word-ar';
+			var id = language !== "" ? vId+'-'+i+'-word'+language : vId+'-'+i+'-word';
 			vSpans += '<span id="'+id+'" class="'+wClass+'" onclick="selectWordInAyah(this.id)">'+
 						word+
 						'</span>&nbsp;';
