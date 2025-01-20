@@ -260,7 +260,10 @@ function getVerseTranslation(id, verseKey, sfx = '_en', lang = window.QuranJS.La
 				bgColor: sfx === '_en' ? '#F6F0F2' : '#E8EEF4',
 				keepFocus: true
 			});
+			
+			var scrollPosition = $(window).scrollTop();
 			alink.remove();
+			$(window).scrollTop(scrollPosition);
 		}
 	});
 }
