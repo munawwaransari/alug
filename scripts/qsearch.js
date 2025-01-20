@@ -141,42 +141,44 @@ function search(pageNumber){
 				ayah += x.translation.text;
 				return ayah;
 			});
-			
-			// Try to get the Arabic text
+	
+			var verseKey = text.trim(); //"";	
+			// Try to search the key and get exact vesre
 			div.html('');
 			SearchQuran(window.QuranJS.Search.search, 
 					    { language: window.QuranJS.Language.ENGLISH, size: 10 }, 
 						ayahText, 
 			function(data2){
-				var verseKey = "";
 				data2.results.forEach(function(res2){
 					var resulText = res2.highlighted ?? res2.text;
 					if(resulText){
-						verseKey = res2.verseKey;
 						var verse2 = resulText.replace(/[<>\/a-zA-Z]+/ig, '');
-						if(res2.verseKey == text){
-							displayVerse(div, verse2, res2.verseKey, { words: res2.words });
+						if(res2.verseKey == verseKey){
+							displayVerse(div, verse2, verseKey, { words: res2.words, controls: true });
 							
-							// Try to add Urdu translation
-							SearchQuran(window.QuranJS.Verses.findByKey, 
-										{ words:1, language: window.QuranJS.Language.URDU, size: 10 }, 
-										verseKey, 
+							// Try to add English translation
+							SearchQuran(window.QuranJS.Verses.findByKey, { 
+								words:1, 
+								language: window.QuranJS.Language.ENGLISH, 
+								size: 10
+							}, 
+							verseKey, 
 							function(data3){
-								displayVerse(div, data3.words[0].translation.text, verseKey, { words: data3.words });
-								/*
-								data3.results.forEach(function(res3){
-									var resulText = res3.highlighted ?? res3.text;
-									if(resulText){
-										var verse3 = resulText.replace(/[<>\/a-zA-Z]+/ig, '');
-										if(res3.verseKey == text){
-											displayVerse(div, verse3, res3.verseKey, { words: res3.words });
-										}
-									}
+								displayVerse(div, data3.words[0].translation.text, verseKey, {
+									words: data3.words,
+									bgColor: '#F6F0F2'
 								});
-								*/
 								
-								// Display Arabic text
-								displayVerse(div, ayahText, text, {controls: true});
+								// Try to add Urdu translation
+								SearchQuran(window.QuranJS.Verses.findByKey, 
+											{ words:1, language: window.QuranJS.Language.URDU, size: 10 }, 
+											verseKey, 
+								function(data4){
+									displayVerse(div, data4.words[0].translation.text, verseKey, {
+										words: data4.words,
+										bgColor: '#E8EEF4'
+									});
+								});
 							});
 							return true;
 						}
@@ -228,9 +230,11 @@ function getVerseTranslation(id, verseKey, sfx = '_en', lang = window.QuranJS.La
 	var div = $("#"+id);
 	var alink = $("#"+id+sfx);
 	alink.addClass('blink');
-	SearchQuran(window.QuranJS.Verses.findByKey, 
-				{ words: 1, language:  lang}, 
-				verseKey, 
+	SearchQuran(window.QuranJS.Verses.findByKey, { 
+				words: 1, 
+				language:  lang
+			}, 
+			verseKey, 
 	  function(data){	
 		if(!data){
 			return;
@@ -246,7 +250,10 @@ function getVerseTranslation(id, verseKey, sfx = '_en', lang = window.QuranJS.La
 				return ayah;
 			});
 			
-			displayVerse(div, ayahText, verseKey, { words: data.words });
+			displayVerse(div, ayahText, verseKey, { 
+				words: data.words,
+				bgColor: sfx === '_en' ? '#F6F0F2' : '#E8EEF4'
+			});
 			alink.remove();
 		}
 	});
@@ -273,8 +280,9 @@ function displayVerse(div, verse, verseKey, options){
 							 'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\', \'_ur\',window.QuranJS.Language.URDU);">'+
 					 '[ur]</a>';
 					 
+	var bgColor = options.bgColor ? 'background-color:'+options.bgColor+';' : '';
 	var direction = verse.match(/^[\x00-\x7F]+/g) ? '' : 'direction:rtl;';
-	var divHtml = '<div style="padding-bottom:4px;font-size:22px;display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;'+direction+'">'+
+	var divHtml = '<div style="padding-bottom:4px;font-size:22px;display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;'+direction+bgColor+'">'+
 						getWordSpans(verse, options ? options.words: undefined, verseKeys[0]+verseKeys[1])+
 				  '</div>'+
 				  '<div style="font-size:14px;padding-bottom:12px;" id="'+transLinkId+'">';
