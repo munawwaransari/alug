@@ -48,6 +48,8 @@ class posSearch {
 	#findWordInfo(word){
 		var w = lightenWord(word);
 		var ret = { found: false, info: [] };
+		if(word === "")
+			return ret;
 		for (let [key, value] of Object.entries(posSearch.posSearchMetadata)) {
 			let isAntonym = false;
 			var index = value.words.indexOf(w);
@@ -109,12 +111,12 @@ class posSearch {
 		if(res.found){
 			container.empty();
 			var table = '<table class="pTable">'+
-						'<tr style="font-size:14px;"><th>(لفظ) Word</th><th>PoS</th><th>(تفاصيل) Details</th></tr>';
+						'<tr style="background-color:#ACE892;font-size:14px;"><th>(لفظ) Word</th><th>PoS</th><th>(تفاصيل) Details</th></tr>';
 			if(res.info){
 				res.info.every(function(metaInfo){
 					table += '<tr><td>'+metaInfo.word+'</td>'+
-							 '<td>'+metaInfo.pos+'</td>'+
-							 '<td>';
+							 '<td>&nbsp;&nbsp;'+metaInfo.pos+'&nbsp;&nbsp;</td>'+
+							 '<td>&nbsp;';
 					if(metaInfo.plurals && metaInfo.plurals.trim() !== ''){
 						table += '<span><b style="font-size:14px;">(جمع) Plurals</b><br/>&nbsp;&nbsp;'+
 						thisInstance.#addAnalysisLink(metaInfo.plurals)+
@@ -130,7 +132,7 @@ class posSearch {
 						thisInstance.#addAnalysisLink(metaInfo.antonyms)+
 						'</span><br/>'
 					}					
-					table += '</td></tr>';
+					table += '&nbsp;</td></tr>';
 					return true;
 				});
 				table += '</table>';

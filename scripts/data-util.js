@@ -233,6 +233,7 @@ function lookupEx(site, txt, errorText){
 
 function lightenWord(word){
 	if(word){
+		word = word.trim();
 		word = word.replace(/(ٓ)([^ا|أ|إ|آ])/g,'ا$2');
 		word = removePunctuations(word);
 		word = removeAlPrefix(word);
