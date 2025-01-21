@@ -475,17 +475,6 @@ function getAnalysisOptions(verse, verseKeys){
 		'</span>';
 }
 
-function analyzeLocal(txt){
-	if(parent && parent.redirect){
-		var word = txt ?? $(".sel-word").text().trim();
-		if(word !== ""){
-			parent.redirect("dict.html", 
-							"analyze", 
-							word);
-		}
-	}
-}
-
 function analyzeLookup(url){
 	let selectedText = $(".sel-word").text().trim();	
 	lookupEx(url, $(".sel-word").text(), "Select a word (from the ayah)!");
