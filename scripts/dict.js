@@ -59,8 +59,8 @@ window.onload = function(){
 	});
 	
 	autocomplete(document.getElementById('wordSearchText'), function(val, callback){
-		var condition = val.length > 0 && val !== lastSuggestionInput;
-		if(val.length > 0 && val !== lastSuggestionInput){
+		var condition = val.length > 1 && val !== lastSuggestionInput;
+		if(val.length > 1 && val !== lastSuggestionInput){
 			lastSuggestionInput = val;
 			getSuggesstions(val, callback);
 		}
