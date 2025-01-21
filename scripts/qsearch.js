@@ -475,9 +475,9 @@ function getAnalysisOptions(verse, verseKeys){
 		'</span>';
 }
 
-function analyzeLocal(){
+function analyzeLocal(txt){
 	if(parent && parent.redirect){
-		var word = $(".sel-word").text().trim();
+		var word = txt ?? $(".sel-word").text().trim();
 		if(word !== ""){
 			parent.redirect("dict.html", 
 							"analyze", 

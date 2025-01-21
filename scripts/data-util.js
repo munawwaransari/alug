@@ -109,12 +109,12 @@ function replaceWord(w){
 
 function removePunctuations(w){
 	var punctuation = "ۡۧـۦۥۣۤۢۡ۠ٓ۟۞۝ۜۛۚۙۘۡۗۖە";
-	var text = w.replaceAll(new RegExp("["+punctuation+"]+","g"), '');
-	return text;
+	return w.replaceAll(new RegExp("["+punctuation+"]+","g"), '');
 }
 
-function filterTableRows(table, column, txt, allText){
+function filterTableRows(table, column, searchText, allText){
 	
+	var txt = searchText ?  removeAlPrefix(removePunctuations(searchText)) : searchText;
 	if(txt === allText){
 		$(table + " tr td").show();
 		//$(table + " tr th:nth-child("+column+")").show();
@@ -125,7 +125,7 @@ function filterTableRows(table, column, txt, allText){
 	//var tableRows = $(table + " tr td:nth-child("+column+")");
 	var tableRows = $(table + ' tr td:contains(\''+txt+'\')');
 	tableRows.filter((i, td) => {
-		if($(td).text().startsWith(txt) === false){
+		if($(td).text().trim().startsWith(txt) === false){
 			$(td).parent().children().hide();
 		}else{
 			$(td).parent().children().show();
@@ -228,5 +228,26 @@ function lookupEx(site, txt, errorText){
 	}
 	else if(errorText){
 		alert(errorText);
+	}
+}
+
+function lightenWord(word){
+	if(word){
+		word = word.replace(/(ٓ)([^ا|أ|إ|آ])/g,'ا$2');
+		word = removePunctuations(word);
+		word = removeAlPrefix(word);
+		word = word.replace(/ة$/g, '');
+	}
+	return word;
+}
+
+function analyzeLocal(txt){
+	if(parent && parent.redirect){
+		var word = txt ?? $(".sel-word").text().trim();
+		if(word !== ""){
+			parent.redirect("dict.html", 
+							"analyze", 
+							word);
+		}
 	}
 }
