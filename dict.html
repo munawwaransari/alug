@@ -229,7 +229,16 @@
 		<div  class="autocomplete">
 			<input type="reset" value="" alt="clear" title="Clear" onclick="$('#wordSearchText').val('');"/>
 			<input id="wordSearchText" onchange="searchWord()" style="width:100px;"/>
-			<button id="SearchD" class="dropbtn" title="Analyze" style="background-color:#4B5AC5;top:-8px; height: 30px;" onclick="analyzeSelectedWord()"><b>تحليل</b></button>
+			
+			<div id="btnVerbs" class="dropdown">
+				<button id="SearchD" class="dropbtn" title="Analyze" style="background-color:#4B5AC5;top:-8px; height: 30px;">
+					<b>تحليل</b>
+				</button>
+				<div class="dropdown-content">
+					<a href="#" onclick="analyzeSelectedWord()">Analyze</a>
+					<a href="#" onclick="analyzeSelectedWordOld()">Conjugate</a>
+				</div>
+			</div>
 
 			<div id="btnVerbs" class="dropdown">
 			  <button class="dropbtn">الفعل</button>

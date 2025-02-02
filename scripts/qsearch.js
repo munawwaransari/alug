@@ -153,7 +153,7 @@ function search(pageNumber){
 			var verseNumber = parseInt(keys[1]);
 			div.html('');
 			
-			// Add Next & Prev navigation for singl everse
+			// Add Next & Prev navigation for single verse
 			var nav = '<div style="font-size:12px;margin-bottom:10px;padding:10px;background-color:#9DBF6C;">';
 			if(verseNumber > 1){
 				nav +=  '<span onclick="searchText(\''+(keys[0])+':'+(verseNumber-1)+'\')" '+

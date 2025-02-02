@@ -224,6 +224,14 @@ function analyzeSelectedWord(){
 	posSearchObj.searchAndAddHtml(word, $(".dictionary"));
 }
 
+function analyzeSelectedWordOld(){
+		
+	var word = $("#wordSearchText").val();
+	
+	var res = posAPIObj.analyzeWord(word, true);	
+	posAPIObj.addHtml($(".dictionary"), res, true);
+}
+
 /*
 function addIndex(letter){
 	var idiv = '<div class="letter" onclick="addIndex2(\''+letter+'\')">'+letter+'</div>';
