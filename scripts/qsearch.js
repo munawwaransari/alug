@@ -7,6 +7,7 @@ var lastSuggestionInput = undefined;
 var qf_list = [];
 var q_summary = {};
 var loadStatus;
+var isAutoPlayQirat;
 
 window.onload = function(){
 	
@@ -108,6 +109,7 @@ function loadWordsFrom(data){
 	});
 }
 
+
 /* 
 Search Quran using QuranJS API  
 */
@@ -161,11 +163,25 @@ function search(pageNumber){
 						'<b>&lt;&nbsp;Prev</b></span>' +
 						'<span>&nbsp;&nbsp;</span>';
 			}
-			nav += '<span onclick="searchText(\''+(+keys[0])+':'+(verseNumber+1)+'\')" style="cursor:pointer;margin-left:20px;">'+
-							'<b>Next&nbsp;&gt;</b></span>';
+			
+			//add play surah option
+			var checked = isAutoPlayQirat ? 'checked': '';
+			var chk = '<span>'+
+						'<input id="chkQir" style="border: 4px solid #8585D4;" type="Checkbox" '+
+						checked+
+						' onclick="onVerseLoaded(\''+(+keys[0])+'\','+ verseNumber +')">'+
+						'&nbsp;Qirat&nbsp;'+
+					  '</span>';
+			nav += chk;
+			
+			// add next
+			nav += '<span onclick="searchText(\''+(+keys[0])+':'+(verseNumber+1)+'\')" '+
+						 'style="cursor:pointer;margin-left:20px;">'+
+						 '<b>Next&nbsp;&gt;</b></span>';
 			nav += '</div>';
 			div.append($(nav));
-		
+			onVerseLoaded(keys[0], verseNumber);
+			
 			// Try to search the key and get exact vesre
 			//SearchQuran(window.QuranJS.Search.search, 
 			//		    { language: window.QuranJS.Language.ENGLISH, size: 50 }, 
@@ -609,7 +625,26 @@ function listSurahs(){
 	});
 }
 
+function onVerseLoaded(chapter, verse){
+	isAutoPlayQirat = $("#chkQir").prop('checked');
+	if(isAutoPlayQirat){
+		var verseKey  = chapter + ":" + (verse);
+		var play = parent.playAudio;
+		setTimeout(function(){
+			playVerse(getQiratPlayUrl(verseKey), verseKey, function(msg){
+				if(msg === "ended"){
+					var nextVerse = chapter + ":" + (verse+1);
+					setTimeout(function(){
+						searchText(nextVerse);
+					}, 300);
+				}
+			});
+		},100);
+	}
+}
+
 function searchText(txt){
+	
 	$("#searchText").val(txt);
 	search();
 }
@@ -676,7 +711,7 @@ function updateLang(url){
 	return encodeURI("https://glosbe.com/ar/"+lang+"/"+current_lang[1]);
 }
 
-function playVerse(url, verseKey){
+function playVerse(url, verseKey, cb){
 	
 	// Update Qari
 	var selected_qari = document.getElementById('qari-options').value;
@@ -691,6 +726,8 @@ function playVerse(url, verseKey){
 			if(action == "pause" || action == "ended"){
 				togglePlayButtons(verseKey, "visisble", "collapse");
 			}
+			
+			if (cb) cb(action);
 		});
 		
 		togglePlayButtons(verseKey, "collapse", "visisble");
