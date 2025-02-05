@@ -605,7 +605,8 @@ function listSurahs(){
 				enName = enName.split(' ')[0];
 			}
 			table = table+ '<tr>'+'<td>'+tanzilLink+'</td>'+
-								'<td style="font-size:14px">'+surah.ayahCount+'</td>'+
+								'<td style="font-size:14px;cursor:pointer;" '+
+									'onclick="searchText(\''+index+':1\')">1:'+surah.ayahCount+'&nbsp;&#9737;</td>'+
 								'<td onclick="searchText(\''+
 									enName
 								+'\')" class="qword" style="font-szie:13px;">' +
