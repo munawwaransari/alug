@@ -606,7 +606,7 @@ function listSurahs(){
 			}
 			table = table+ '<tr>'+'<td>'+tanzilLink+'</td>'+
 								'<td style="font-size:14px;cursor:pointer;" '+
-									'onclick="searchText(\''+index+':1\')">1:'+surah.ayahCount+'&nbsp;&#9737;</td>'+
+									'onclick="isAutoPlayQirat=true; searchText(\''+index+':1\')">1:'+surah.ayahCount+'&nbsp;&#9835;</td>'+
 								'<td onclick="searchText(\''+
 									enName
 								+'\')" class="qword" style="font-szie:13px;">' +
