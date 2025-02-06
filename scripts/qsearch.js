@@ -7,7 +7,7 @@ var lastSuggestionInput = undefined;
 var qf_list = [];
 var q_summary = {};
 var loadStatus;
-var isAutoPlayQirat;
+var isAutoPlayQirat, changeQari;
 
 window.onload = function(){
 	
@@ -169,7 +169,7 @@ function search(pageNumber){
 			var chk = '<span>'+
 						'<input id="chkQir" style="border: 4px solid #8585D4;" type="Checkbox" '+
 						checked+
-						' onclick="onVerseLoaded(\''+(+keys[0])+'\','+ verseNumber +')">'+
+						' onclick="onVerseLoaded(\''+(+keys[0])+'\','+ verseNumber +');">'+
 						'&nbsp;Qirat&nbsp;'+
 					  '</span>';
 			nav += chk;
@@ -606,7 +606,7 @@ function listSurahs(){
 			}
 			table = table+ '<tr>'+'<td>'+tanzilLink+'</td>'+
 								'<td style="font-size:14px;cursor:pointer;" '+
-									'onclick="isAutoPlayQirat=true; searchText(\''+index+':1\')">1-'+surah.ayahCount+'&nbsp;&#9835;</td>'+
+									'onclick="changeQari=true;isAutoPlayQirat=true; searchText(\''+index+':1\')">1-'+surah.ayahCount+'&nbsp;&#9835;</td>'+
 								'<td onclick="searchText(\''+
 									enName
 								+'\')" class="qword" style="font-szie:13px;">' +
@@ -626,9 +626,30 @@ function listSurahs(){
 	});
 }
 
+function selectQariForLanguage(lang){
+	switch(lang){
+		case 'en':
+			$("#qari-options").val('English/Sahih_Intnl_Ibrahim_Walk_192kbps');
+		break;
+		
+		case 'ur':
+			$("#qari-options").val('translations/urdu_shamshad_ali_khan_46kbps');
+		break;
+		
+		case 'ar':
+			$("#qari-options").val('AbdulSamad_64kbps_QuranExplorer.Com');
+		break;
+	}
+}
+
 function onVerseLoaded(chapter, verse){
 	isAutoPlayQirat = $("#chkQir").prop('checked');
 	if(isAutoPlayQirat){
+		if(changeQari && parent && parent.getLang){
+			changeQari = undefined;
+			selectQariForLanguage(parent.getLang());
+		}
+		
 		var verseKey  = chapter + ":" + (verse);
 		var play = parent.playAudio;
 		setTimeout(function(){
