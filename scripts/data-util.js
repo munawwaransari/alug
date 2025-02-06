@@ -108,7 +108,7 @@ function replaceWord(w){
 }
 
 function removePunctuations(w){
-	var punctuation = "ۡۧـۦۥۣۤۢۡ۠ٓ۟۞۝ۜۛۚۙۘۡۗۖە";
+	var punctuation = "ۡۧـۦۥۣۤۢۡ۠ٓ۟۞۝ۜۛۚۙۘۡۗۖەۢ";
 	return w.replaceAll(new RegExp("["+punctuation+"]+","g"), '');
 }
 
@@ -234,10 +234,12 @@ function lookupEx(site, txt, errorText){
 function lightenWord(word){
 	if(word){
 		word = word.trim();
+		word = word.replace(/ٰ/g, 'ا'); // replace mad harkat with alif
 		word = word.replace(/(ٓ)([^ا|أ|إ|آ])/g,'ا$2');
 		word = removePunctuations(word);
 		word = removeAlPrefix(word);
 		word = word.replace(/ة$/g, '');
+		word = word.replace(/([ًٌٍَُِّْ])/g, ''); //reove Erab
 	}
 	return word;
 }
