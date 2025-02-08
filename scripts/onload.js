@@ -316,6 +316,8 @@ function updateToolDescription(id, opt){
 
 	var toolMessage = $("#tool-description");
 	toolMessage.empty();
+	toolMessage.show();
+	$("#psHolder").hide();
 	
 	switch(id){
 		case 'in-search':
@@ -350,11 +352,17 @@ function updateToolDescription(id, opt){
 			toolMessage.html(states.ss_support);
 		}
 		break;
-		
+				
 		case "speech_1": 
-		case "speech_2": 
 		{
 			toolMessage.html(states.speech);
+		}
+		break;
+		
+		case "speech_2": 
+		{
+			toolMessage.hide();
+			$("#psHolder").show();
 		}
 		break;
 		

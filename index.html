@@ -152,11 +152,6 @@
 		<div class="toolDiv">
 			<span class="toolSpan"><b><a target="_blank" href="LICENSE.md">Arabic Language Learning Guide</a></h></b></span>
 			<span class="toolSpan">
-				<select id="playSections"></select>
-				<textarea id="text"></textarea>
-				<button id="play"> Play </button>
-			</span>
-			<span class="toolSpan">
 				<img id="in-search" class="tool" src="images/insearch.png" />
 				<!--<img id="user" class="tool" src="images/user.jpg"/>-->
 				<img id="resources" class="tool" src="images/download.jpg"
@@ -166,7 +161,8 @@
 				<img id="ss-support_1" class="tool" src="images/ss-supported.png"/>
 				<img id="ss-support_2" class="tool" src="images/ss-not-supported.png" style="display:none"/>
 				<img id="hw" class="tool" src="images/hw.png" onclick="loadHandwriting()"/>
-				<img id="speech_1" class="tool" src="images/speech-enabled.png" onclick="toggleAutoplay()"/>
+				<img id="speech_1" class="tool" src="images/speech-enabled.png" onclick="toggleAutoplay()">
+				</img>
 				<img id="speech_2" class="tool" src="images/speech-disabled.png" onclick="toggleAutoplay()" style="display:none"/>
 				<!--
 				<img id="topics_1" class="tool" style="margin-top: 4px;display:none" src="images/menu-enabled.jpg" onclick="toggleMenu()" />
@@ -187,8 +183,15 @@
 					</div>
 				</img>
 			</span>
-			<span class="toolSpan" id="tool-description" style="font-size:16px;"></span>
-			<span class="menu-container" style="display:none;"></span>
+			<span class="toolSpan" style="font-size:16px;">
+				<span id="psHolder" style="display:none">
+					<select id="playSections"></select>
+					<textarea id="text"></textarea>
+					<button id="play"> Play </button>
+				</span>
+				<span id="tool-description"/>
+			</span>
+			<span class="menu-container" style="display:none;font-size:16px;"></span>
 		</div>
 		<iframe class="reading-pane" />
 		</div>
