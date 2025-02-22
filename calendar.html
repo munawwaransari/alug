@@ -170,9 +170,20 @@
 			margin: auto;
 		}
 		 
+		@keyframes blink {
+		  0% { opacity: 1; }
+		  50% { opacity: 0.5; }
+		  100% { opacity: 1; }
+		}
+
+		.blink {
+		  animation: blink 1.5s infinite;
+		  font-weight: bold;
+		}
 		</style>
 		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
 		<script src="scripts/data-util.js"></script>
+		<script src="scripts/ptimings.js"></script>
 		<script>
 		var calendarType = 'hijri';
 		var month_days = ['', 'الأوَّل', 'الثاني', 'الثالث', 'الرابع', 'الخامس', 'السادس', 'السابع',
@@ -444,59 +455,15 @@
 			}
 		}
 		
-		// --- Counties and Cities
-		
 		function onCityChanged(){
 			$("#divPrayTimes").html("Loading prayer times...");
-			showPrayerTimings();
-		}
-		
-		function getLastDateStr(){
-			return (last_Date.Day < 10 ? ("0"+last_Date.Day) : last_Date.Day )+
-				   "-"+
-				   ((last_Date.Month+1) < 10 ? ("0"+(last_Date.Month+1)) : (last_Date.Month+1)) +
-				   "-"+
-				   last_Date.Year;
-		}
-		function getPrayerAPI(city){
-			var url = "";
-			if(calendarType === 'hijri'){
-				var dateStr = last_Date.Year+"/"+(last_Date.Month+1);
-				url = 'https://api.aladhan.com/v1/hijriCalendarByCity/'+dateStr+'?country=IN&city='+city;
-			}else{
-				url = 'https://api.aladhan.com/v1/timingsByCity/'+getLastDateStr()+'?country=IN&city='+city;
-			}
-			return url;
-		}
-		
-		function showPrayerTimings(){
 			var city = $("#txtCity").val();
-			if(city){
-				var url = getPrayerAPI(city);
-				console.log('Loading prayr times for '+ calendarType + ' for city' + city);
-				loadJsonData(url, function(data){
-				
-					var prayTable = '<table style="margin-top:10px;">';
-					prayTable += '<tr><th style="width:100px;"><th colspan="2" style="text-align:left;">Prayer Timings:</th></tr>'+
-								 '<tr><th/><th style="text-align:left;width:150px;">Event</th>'+
-								     '<th style="text-align:left;width:150px;">Time</th></tr>';
-					var timings = (calendarType === 'hijri') ? 
-						  data.data.filter(t=> t.date.hijri.date === '21-08-1446')[0].timings
-						: data.data.timings;
-					Object.keys(timings).forEach(function(key){
-						if(key !== ''){
-							prayTable += '<tr><td/><td>'+key+'</td><td>'+timings[key]+'</td></tr>';
-						}
-					});
-					prayTable += '</table>';
-					$("#divPrayTimes").html(prayTable);
-				});
-			}
+			showPrayerTimings($("#divPrayTimes"), calendarType, city);
 		}
 		</script>
 	</head>
 	<body style="display:flex;justify-content: center;flex-direction: column;">
-		 <div class="calendar" id="calendar">
+		<div class="calendar" id="calendar">
 			<div class="calendar-btn month-btn" onclick="$('#months').toggle('fast')">
 				<span id="curMonth"></span>
 				<div id="months" class="months dropdown"></div>
@@ -534,7 +501,14 @@
 			Date here
 		</div>
 		<div style="display:flex;flex-direction:row;justify-content:center;">
-			<label>&nbsp;&nbsp;City:</label><input id="txtCity" value="Pune" title="Enter a city name" onchange="onCityChanged()"/>
+			<label>&nbsp;&nbsp;City:</label>
+			<input id="txtCity" value="Pune" title="Enter a city name" onchange="onCityChanged()" list="citiyNames"/>
+			<datalist id="citiyNames">
+			  <option value="Pune">Pune</option>
+			  <option value="Mumbai">Mumbai</option>
+			  <option value="Thane">Thane</option>
+			</datalist>
+			<button style="margin-left:4px;" onclick='$("#calendar").toggle()'>&nbsp;ߛ&nbsp;</button>
 		</div>
 		<div id="divPrayTimes" style="display:flex;flex-direction:row;justify-content:center;">
 		</div>
