@@ -262,6 +262,7 @@
 					var selectedMonth = i;
 					return function () {
 						month = selectedMonth;
+						month_hijri = selectedMonth;
 						document.getElementById("curMonth").innerHTML = calendarType === 'gregorian' ?
 							months[month] : 
 							months_islamic[month_hijri];
