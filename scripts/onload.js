@@ -354,15 +354,16 @@ function updateToolDescription(id, opt){
 		break;
 				
 		case "speech_1": 
-		{
-			toolMessage.html(states.speech);
-		}
-		break;
-		
 		case "speech_2": 
 		{
-			toolMessage.hide();
-			$("#psHolder").show();
+			toolMessage.html(states.speech);
+			if($("#playSections option").length > 0){
+				toolMessage.hide();
+				$("#psHolder").show();
+			}else{
+				$("#psHolder").hide();
+				toolMessage.show();
+			}
 		}
 		break;
 		
