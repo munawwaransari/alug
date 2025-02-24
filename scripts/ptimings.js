@@ -32,7 +32,7 @@ function showPrayerTimings(container, cType, city){
 							'<th style="'+dir+';width:150px;">'+transTimeText(cType, 'Time')+'</th></tr>';
 			
 			var timings = (calendarType === 'hijri') ? 
-				  data.data.filter(t=> t.date.hijri.date === '21-08-1446')[0].timings
+				  data.data.filter(t=> t.date.hijri.date === getLastDateStr())[0].timings
 				: data.data.timings;
 				
 			var flag = 0, cblink = "", pastFlag = 0, rows = '';
