@@ -70,13 +70,16 @@
 				}
 			    console.log("current lang:" + $("#languages").val());
 			    $("#languages").val(lang);
+				if($("#languages").val() !== lang){
+					$("#languages").val(lang.replace("-","_"));
+				}
 			    //setTimeout(function(arg) { window.playText(arg); }, 1);
 			  }
 			  console.log("lang:" + $("#languages").val());
-				console.log("playing..."+txt);
-				stopAudio();
-				$("#text").text(txt);
-				$("#play").click();
+			  console.log("playing..."+txt);
+			  stopAudio();
+			  $("#text").text(txt);
+			  $("#play").click();
 			}
 			
 			var audio = undefined;
