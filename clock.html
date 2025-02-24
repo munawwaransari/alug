@@ -80,9 +80,13 @@
 				$("#selHour").val(hcount > 9 ? hcount : "0"+hcount);
 				$("#selMinute").val(mcount > 9 ? mcount : "0"+mcount);
 				$("#second").show();
+
+				$("#timeText").html(getTimeInArabic(hcount, mcount));
+				$("#timeText2").html(getTime2(hcount, mcount));
 				
 				interval = setInterval(function(){
 					
+					var m = mcount, h = hcount;
 					scount++;
 					if(scount > 59){
 					    scount = 0;
@@ -98,8 +102,10 @@
 					draw("minute", mcount, 0);
 					draw("hour", hcount, mcount);
 					
-					$("#timeText").html(getTimeInArabic(hcount, mcount));
-					$("#timeText2").html(getTime2(hcount, mcount));
+					if(m !== mcount || h !== hcount){
+						$("#timeText").html(getTimeInArabic(hcount, mcount));
+						$("#timeText2").html(getTime2(hcount, mcount));
+					}
 						
 				}, 1000);
 			}
@@ -218,6 +224,14 @@
 				var m = min > 9 ? ""+min : "0"+min;
 				return h + " : " + m; // + amPm;
 			}
+			
+			function playTime(){
+				if(parent && parent.playText){
+					var txt = $("#timeText").text();
+					parent.playText(txt, 'ar-SA');
+				}
+			}
+
 		</script>
 	</head>
 	<body style="display:flex;justify-content: center;flex-direction: column;">
@@ -233,6 +247,12 @@
 			<label>Minute:<select id="selMinute" onchange="setClock()"></select></label>
 		</div>
 		<div id="timeText" class="arabicTime"></div>
-		<div id="timeText2" class="arabicTime"></div>
+		<div id="timeText2" style="font-size:38px;" class="arabicTime"></div>
+		<div id="playTime" class="arabicTime">
+			<img style="width:30px;cursor:pointer;" 
+				 src="images/speech-enabled.png" 
+				 title="Click to listen time"
+				 onclick="playTime()"></img>
+		</div>
 	</body>
 </html>
