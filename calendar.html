@@ -329,11 +329,19 @@
 				var d = document.createElement("div");
 				d.id = "calendarday_" + i;
 				d.className = "day sel";
-				if(i == sel_day){
-					d.className += " selected";
+				
+				if(calendarType === 'gregorian'){
+					if(i == sel_day){
+						d.className += " selected";
+					}
+				}else{
+					if((i+1) == sel_day){
+						d.className += " selected";
+					}
 				}
 				d.onclick = (function(){
 					sel_day = parseInt(this.id.substring(12));
+					if(calendarType === 'hijri') sel_day++;
 					loadCalendarDays();
 				});
 				d.innerHTML = calendarType === 'gregorian' ? tmp : translateNumber(tmp);
@@ -354,7 +362,7 @@
 			}
 			else{
 				$(".day.label span:nth-child(1)").hide();
-				displayDate({ Year: year_hijri, Month: month_hijri, Day: sel_day+1 });
+				displayDate({ Year: year_hijri, Month: month_hijri, Day: sel_day });
 			}
 			onCityChanged();
 		}
@@ -460,6 +468,24 @@
 			$("#divPrayTimes").html("Loading prayer times...");
 			var city = $("#txtCity").val();
 			showPrayerTimings($("#divPrayTimes"), calendarType, city);
+			showGreetings();
+		}
+		
+		function showGreetings(){
+			$("#adv").empty();
+			if(calendarType === "hijri"){
+				if(last_Date.Month === 8 && last_Date.Day < 2){
+					$("#adv").html("!! Ramadhan Mubarak !!");
+				}
+				
+				if(last_Date.Month === 9 && last_Date.Day < 2){
+					$("#adv").html("!! Eid -ul- Fitr Mubarak !!");
+				}
+				
+				if(last_Date.Month === 11 && (last_Date.Day === 9 || last_Date.Day === 10)){
+					$("#adv").html("!! Eid -ul- Adhha Mubarak !!");
+				}
+			}
 		}
 		</script>
 	</head>
@@ -500,6 +526,8 @@
 		</div>
 		<div class="calenderDisplay">
 			Date here
+		</div>
+		<div id="adv" style="display:flex;flex-direction:row;justify-content:center;margin-bottom:10px;margin-top:10px;font-size:20px;">
 		</div>
 		<div style="display:flex;flex-direction:row;justify-content:center;">
 			<label>&nbsp;&nbsp;City:</label>
