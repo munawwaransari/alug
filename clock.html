@@ -47,7 +47,10 @@
 				
 				runClock();
 				
-				$("#playTime").on("touchend touchcancel", playTime);
+				var pt = document.getElementById("playTime");
+				pt.addEventListener("touchend",() => playTime());
+				pt.addEventListener("touchcancel",() => playTime());
+				
 				$("#playTime").on("click", playTime);
 			}
 			
