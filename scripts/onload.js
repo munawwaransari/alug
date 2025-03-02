@@ -407,6 +407,7 @@ function updateToolDescription(id, opt){
 						"Clock": "clock",
 						"Calendar": "calendar",
 						"Number": "number",
+						"Abjad": "abjad",
 						"Patterns": "patterns"
 					}
 				};
