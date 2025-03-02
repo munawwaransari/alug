@@ -193,7 +193,7 @@ function search(pageNumber){
 					if(resulText){
 						var verse2 = resulText.replace(/[<>\/a-zA-Z]+/ig, '');
 						if(res2.verseKey == verseKey){
-							displayVerse(div, verse2, verseKey, { words: res2.words, controls: true, direction: 'rtl' });
+							displayVerse(div, verse2, verseKey, { words: res2.words, controls: true, direction: 'rtl', ayahOption: $("#ayah-options").val() });
 							
 							// Try to add English translation
 							SearchQuran(window.QuranJS.Verses.findByKey, { 
@@ -271,7 +271,8 @@ function search(pageNumber){
 					words: res.words, 
 					controls: true, 
 					translateLink: true,
-					direction: 'rtl'
+					direction: 'rtl',
+					ayahOption: $("#ayah-options").val()
 				});
 			}
 		});
@@ -369,9 +370,13 @@ function displayVerse(div, verse, verseKey, options){
 	var bgColor = options.bgColor ? 'background-color:'+options.bgColor+';' : '';
 	var direction =  options.direction ? 'direction:'+options.direction+';' :
 						verse.match(/^[\x00-\x7F]+/g) ? '' : 'direction:rtl;';
-	var divHtml = '<div id="vdiv'+verseKeys[0]+verseKeys[1]+'"  style="padding-bottom:4px;font-size:22px;display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;'+direction+bgColor+'">'+
-						getWordSpans(verse, options ? options.words: undefined, verseKeys[0]+verseKeys[1])+
-				  '</div>'+
+	var divHtml = '<div id="vdiv'+verseKeys[0]+verseKeys[1]+'"  style="padding-bottom:4px;font-size:22px;display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;'+direction+bgColor+'">';
+	if(options.ayahOption === "image"){
+		divHtml += '<img style="padding:4px;max-width:80%" src="https://everyayah.com/data/images_png/'+verseKeys[0]+'_'+verseKeys[1]+'.png" />';
+	}else{
+		divHtml += getWordSpans(verse, options ? options.words: undefined, verseKeys[0]+verseKeys[1]);
+	}
+	divHtml +=	'</div>'+
 				  '<div style="font-size:14px;padding-bottom:12px;" id="'+transLinkId+'">';
 	divHtml += (options.translateLink) ? '<span style="padding-right:12px;">'+
 						translationLink+'</span>':'';
