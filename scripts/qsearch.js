@@ -372,7 +372,7 @@ function displayVerse(div, verse, verseKey, options){
 						verse.match(/^[\x00-\x7F]+/g) ? '' : 'direction:rtl;';
 	var divHtml = '<div id="vdiv'+verseKeys[0]+verseKeys[1]+'"  style="padding-bottom:4px;font-size:22px;display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;'+direction+bgColor+'">';
 	if(options.ayahOption === "image"){
-		divHtml += '<img style="padding:4px;max-width:80%" src="https://everyayah.com/data/images_png/'+verseKeys[0]+'_'+verseKeys[1]+'.png" />';
+		divHtml += '<img style="padding:4px;max-width:96%" src="https://everyayah.com/data/images_png/'+verseKeys[0]+'_'+verseKeys[1]+'.png" />';
 	}else{
 		divHtml += getWordSpans(verse, options ? options.words: undefined, verseKeys[0]+verseKeys[1]);
 	}
