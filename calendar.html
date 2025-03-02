@@ -185,7 +185,7 @@
 		<script src="scripts/data-util.js"></script>
 		<script src="scripts/ptimings.js"></script>
 		<script>
-		var calendarType = 'hijri';
+		var calendarType = 'gregorian';
 		var month_days = ['', 'الأوَّل', 'الثاني', 'الثالث', 'الرابع', 'الخامس', 'السادس', 'السابع',
 						  'الثامن', 'التاسع', 'العاشر', 'الحادي عشر', 'الثاني عشر', 'الثالث عشر', 'الرابع عشر',
 						  'الخامس عشر', 'السادس عشر', 'السابع عشر', 'الثامن عشر', 'التاسع عشر', 'العشرين', 'الحادي والعشرون',
@@ -497,8 +497,8 @@
 			</div>
 
 			<select id="cal" onchange="loadCalendar()">
-				<option value="gregorian">Gregorian</option>
-				<option value="hijri" select>Hijri</option>
+				<option value="gregorian" select>Gregorian</option>
+				<option value="hijri">Hijri</option>
 			</select>
 			
 			<div class="calendar-btn year-btn" onclick="$('#years').toggle('fast')">
