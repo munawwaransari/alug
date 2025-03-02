@@ -46,6 +46,9 @@
 				}
 				
 				runClock();
+				
+				$("#playTime").on("touchend", playTime);
+				$("#playTime").on("click", playTime);
 			}
 			
 			function setClock(){
@@ -251,9 +254,7 @@
 		<div id="playTime" class="arabicTime">
 			<img style="width:30px;cursor:pointer;" 
 				 src="images/speech-enabled.png" 
-				 title="Click to listen time"
-				 onclick="playTime()" 
-				 ontouchend="playTime()"></img>
+				 title="Click to listen time"></img>
 		</div>
 	</body>
 </html>
