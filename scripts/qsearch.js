@@ -297,6 +297,31 @@ function searchVerseKey(page, ayahText, verseKey, callback){
 	});
 }
 
+//https://github.com/spa5k/tafsir_api
+function getVerseTafsir(id, verseKey){
+
+	var div = $("#"+id);
+	var alink = $("#"+id+'_tafsir');
+	alink.addClass('blink');
+	var scrollPosition = $(window).scrollTop();
+	
+	var tafsir = $("#tafsir-options").val();
+	var style = tafsir.startsWith("ur-") ? " font-size:18px;":" font-size:16px;";
+	var vKey = verseKey.split(":");
+	var url = "https://cdn.jsdelivr.net/gh/spa5k/tafsir_api@main/tafsir/"+tafsir+"/"+vKey[0]+"/"+vKey[1]+".json";
+	loadJsonData(url, function(data){
+		var childId = id+'_tafsir_123';
+		var elem = document.getElementById(childId); 
+		if(elem)
+			elem.parentNode.removeChild(elem);
+
+		div.append($('<div id="'+childId+'" style="'+style+'">'+data.text+'</div>'));
+		
+		alink.removeClass('blink');
+		$(window).scrollTop(scrollPosition);
+	});
+}
+
 function getVerseTranslation(id, verseKey, sfx = '_en', lang = window.QuranJS.Language.ENGLISH){
 	var div = $("#"+id);
 	var alink = $("#"+id+sfx);
@@ -351,22 +376,30 @@ function displayVerse(div, verse, verseKey, options){
 	'style="position:absolute;margin-right:10px;margin-left:-18px;margin-top:6px;font-size:12px;" '+
 							 'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\',\'_en\');">'+
 					 '[en]</a>';
-	//if(parent && parent.getLang && parent.getLang() == 'ur'){
+	//'ur'
 		translationLink +=				 
 		'<a title="Click to see translation" id="'+transLinkId+'_ur"'+
 			'style="position:absolute;margin-right:10px;margin-left:-44px;margin-top:6px;font-size:12px;" '+
 			'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\', \'_ur\',window.QuranJS.Language.URDU);">'+
 		'[ur]</a>';
-	//}
+	//
 	
-	//if(parent && parent.getLang && parent.getLang() == 'hi'){
+	//'hi'
 		translationLink +=				 
 		'<a title="Click to see translation" id="'+transLinkId+'_hi"'+
 			'style="position:absolute;margin-right:10px;margin-left:-68px;margin-top:6px;font-size:12px;" '+
 			'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\', \'_hi\',window.QuranJS.Language.HINDI);">'+
 		'[hi]</a>';
-	//}
+	//
 					 
+	//tafseer link
+		translationLink +=				 
+		'<a title="Click to see tafseer" id="'+transLinkId+'_tafsir"'+
+			'style="position:absolute;margin-right:10px;margin-left:-108px;margin-top:6px;font-size:12px;" '+
+			'href="#" onclick="getVerseTafsir(\''+transLinkId+'\', \''+verseKey+'\');">'+
+		'[tafsir]</a>';
+	//
+
 	var bgColor = options.bgColor ? 'background-color:'+options.bgColor+';' : '';
 	var direction =  options.direction ? 'direction:'+options.direction+';' :
 						verse.match(/^[\x00-\x7F]+/g) ? '' : 'direction:rtl;';
