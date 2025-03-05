@@ -167,6 +167,9 @@ function search(pageNumber){
 			//add play surah option
 			var checked = isAutoPlayQirat ? 'checked': '';
 			var chk = '<span>'+
+						'<input id="chkTafsir" style="border: 4px solid #8585D4;" type="Checkbox" '+
+						' onclick="playTafsir(\''+verseKey+'\')">'+
+						'&nbsp;Tafsir&nbsp;'+
 						'<input id="chkQir" style="border: 4px solid #8585D4;" type="Checkbox" '+
 						checked+
 						' onclick="onVerseLoaded(\''+(+keys[0])+'\','+ verseNumber +');">'+
@@ -229,6 +232,11 @@ function search(pageNumber){
 											words: data5.words,
 											bgColor: '#E8EEF4',
 											direction: 'ltr'
+										});
+										
+										//Add tafsir
+										getVerseTafsir(null, verseKey, function(t, s){
+											div.append($('<div id="tafsir" style="'+s+'">'+t.text+'</div>'));
 										});
 									});
 
@@ -298,7 +306,7 @@ function searchVerseKey(page, ayahText, verseKey, callback){
 }
 
 //https://github.com/spa5k/tafsir_api
-function getVerseTafsir(id, verseKey){
+function getVerseTafsir(id, verseKey, callback){
 
 	var div = $("#"+id);
 	var alink = $("#"+id+'_tafsir');
@@ -310,6 +318,13 @@ function getVerseTafsir(id, verseKey){
 	var vKey = verseKey.split(":");
 	var url = "https://cdn.jsdelivr.net/gh/spa5k/tafsir_api@main/tafsir/"+tafsir+"/"+vKey[0]+"/"+vKey[1]+".json";
 	loadJsonData(url, function(data){
+		
+		if(callback){
+			callback(data, style);
+			return;
+		}
+		
+		
 		var childId = id+'_tafsir_123';
 		var elem = document.getElementById(childId); 
 		if(elem)
@@ -680,6 +695,18 @@ function selectQariForLanguage(lang){
 	}
 }
 
+function playTafsir(verseKey){
+	var isPlayTafsir = $("#chkTafsir").prop('checked');
+	if(isPlayTafsir && parent.playText){
+		$("#chkQir").prop('checked', '');
+		var lang = $("#tafsir-options").val().substring(0,2);
+		getVerseTafsir(null, verseKey, function(t){
+			$("#tafsir").html(t.text); 	
+			parent.playText(t.text, lang === 'ur' ? 'ur-PK':'en-US');
+		});
+	}
+}
+
 function onVerseLoaded(chapter, verse){
 	isAutoPlayQirat = $("#chkQir").prop('checked');
 	if(isAutoPlayQirat){
@@ -692,7 +719,7 @@ function onVerseLoaded(chapter, verse){
 		var play = parent.playAudio;
 		setTimeout(function(){
 			playVerse(getQiratPlayUrl(verseKey), verseKey, function(msg){
-				if(msg === "ended"){
+				if(msg === "ended"){					
 					var nextVerse = chapter + ":" + (verse+1);
 					setTimeout(function(){
 						searchText(nextVerse);
