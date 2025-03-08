@@ -305,6 +305,20 @@ function searchVerseKey(page, ayahText, verseKey, callback){
 	});
 }
 
+function changeTafsir(){
+	const text = arRemovePunct(document.getElementById("searchText").value);
+	if(text.trim().match(/^\d{1,3}\:\d{1,3}$/g)){
+		var div = $("#tafsir");
+		if(div.length > 0){
+			$("#chkTafsir").prop('checked', '');
+			stopPlayVerse();
+			getVerseTafsir(null, text, function(t){
+				div.html(t.text);
+			});
+		}
+	}
+}
+
 //https://github.com/spa5k/tafsir_api
 function getVerseTafsir(id, verseKey, callback){
 
@@ -696,14 +710,23 @@ function selectQariForLanguage(lang){
 }
 
 function playTafsir(verseKey){
+
 	var isPlayTafsir = $("#chkTafsir").prop('checked');
 	if(isPlayTafsir && parent.playText){
 		$("#chkQir").prop('checked', '');
 		var lang = $("#tafsir-options").val().substring(0,2);
-		getVerseTafsir(null, verseKey, function(t){
-			$("#tafsir").html(t.text); 	
-			parent.playText(t.text, lang === 'ur' ? 'ur-PK':'en-US');
-		});
+		//getVerseTafsir(null, verseKey, function(t){
+			//$("#tafsir").html(t.text); 	
+			//parent.playText(t.text, lang === 'ur' ? 'ur-PK':
+			//						lang === 'ar' ? 'ar-SA': 'en-US');
+		//});
+
+		var text = $("#tafsir").html(); 	
+		parent.playText(text, lang === 'ur' ? 'ur-PK':
+							  lang === 'ar' ? 'ar-SA': 'en-US');
+		
+	}else{
+		stopPlayVerse();
 	}
 }
 
@@ -727,6 +750,9 @@ function onVerseLoaded(chapter, verse){
 				}
 			});
 		},100);
+	}
+	else{
+		stopPlayVerse();
 	}
 }
 
@@ -800,6 +826,9 @@ function updateLang(url){
 
 function playVerse(url, verseKey, cb){
 	
+	$("#chkTafsir").prop('checked', '');
+	stopPlayVerse();
+			
 	// Update Qari
 	var selected_qari = document.getElementById('qari-options').value;
 	var current_url = decodeURI(url);
@@ -821,7 +850,7 @@ function playVerse(url, verseKey, cb){
 	}
 }
 
-function stopPlayVerse(){
+function stopPlayVerse(){	
 	if(parent && parent.stopAudio){
 		parent.stopAudio();
 	}
