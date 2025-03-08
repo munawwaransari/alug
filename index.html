@@ -69,11 +69,9 @@
 					txt = options["en-US"];
 				}
 			    console.log("current lang:" + $("#languages").val());
-			    $("#languages").val(lang);
-				if($("#languages").val() !== lang){
-					$("#languages").val(lang.replace("-","_"));
+				if(setPlayLang(lang) === false){
+					console.log(lang + " not supported");
 				}
-			    //setTimeout(function(arg) { window.playText(arg); }, 1);
 			  }
 			  console.log("lang:" + $("#languages").val());
 			  console.log("playing..."+txt);
@@ -139,6 +137,23 @@
 				setTimeout(function(){
 					$('.reading-pane').attr('src', encodeURI(getLocationPath()+url+"?action="+action+"&data="+data));
 				}, 5);
+			}
+			
+			function setPlayLang(lang){
+				$("#languages").val(lang);
+				if($("#languages").val() !== lang){
+					lang = lang.replace("-","_");
+					$("#languages").val(lang);
+					if($("#languages").val() !== lang){
+						if(lang === "ur-PK" || lang === "ur_PK"){
+							setPlayLang("ur-IN");
+						}
+					}
+					else{
+						return true;
+					}
+				}
+				return false;
 			}
 		</script>
 		</script>
