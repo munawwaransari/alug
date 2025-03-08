@@ -84,8 +84,7 @@
 			
 			var audio = undefined;
 			window.stopAudio = function(){
-				$("#text").text("...", "en-US");
-				$("#play").click();
+				playText("..", "en-US");
 				if(audio){
 				
 					audio.pause();
