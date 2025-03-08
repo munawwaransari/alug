@@ -165,12 +165,13 @@ input[type="reset"]
 			<button class="dropbtn" id="filterWord" onclick="filterWords()">Words</button>
 			<button class="dropbtn" id="SearchH" title="Search sunnah.com" onclick="searchHadith()">الحديث</button>
 		</div>
-		<br/>
-		<p style="font-size: 9px;">Powered by <a href='https://quranjs.com/' onclick="window.open(this.href, '_blank'); return false;">QuranJS API</a></p>
+		<p style="font-size: 9px;">Powered by <a href='https://quranjs.com/' onclick="window.open(this.href, '_blank'); return false;">QuranJS API,</a>&nbsp;&nbsp;
+		<a href='https://everyayah.com/' onclick="window.open(this.href, '_blank'); return false;">everyayah.com,</a>&nbsp;&nbsp;
+		<a href='https://github.com/spa5k/tafsir_api/' onclick="window.open(this.href, '_blank'); return false;">spa5k/tafsir_api</a></p>
 	</div>
-	<div id="qari" style="text-align:center;padding:0px;display:none">
-		<label>Select Qari:</label>
-		<select id="qari-options">
+	<div id="qari" style="text-align:center;padding:0px;display:none;margin:auto;">
+		<label>Qari:</label>
+		<select id="qari-options" style="width:100px;">
 			<option value="AbdulSamad_64kbps_QuranExplorer.Com" select>Abdul Basit Abdul Samad</option>
 			<option value="Alafasy_128kbps">Alafasy</option>
 			<option value="Abdurrahmaan_As-Sudais_192kbps">Abdurrahman Al-Saudais</option>
@@ -180,18 +181,16 @@ input[type="reset"]
 			<option value="translations/Makarem_Kabiri_16Kbps">Makreem Kabiri (Farsi)</option>
 			<option value="English/Sahih_Intnl_Ibrahim_Walk_192kbps">Sahih Ibrahim (English)</option>					
 		</select>
-		&nbsp;
-		<label>Ayah as:</label>
-		<select id="ayah-options" onchange="search()">
+		<label>Ayah:</label>
+		<select id="ayah-options"  style="width:44px;"  onchange="search()">
 			<option value="text" select>Text</option>
 			<option value="image">Image</option>
 		</select>
-		<br/>
 		<label>Tafsir:</label>
-		<select style="margin-top:8px;" id="tafsir-options" onchange="changeTafsir()">
+		<select style="width:100px;" id="tafsir-options" onchange="changeTafsir()">
 			<option value="ur-tafsir-bayan-ul-quran" select>Bayan ul Quran (ur)</option>
 			<option value="ur-tafsir-fe-zalul-quran-syed-qatab">Fi Zial ul Quran (ur)</option>
-			<option value="ur-tazkirul-quran">Tazkir ul Quran (ur)</option>
+			<!-- <option value="ur-tazkirul-quran">Tazkir ul Quran (ur)</option> -->
 			<option value="ur-tafseer-ibn-e-kaseer">Ibn e Kaseer (ur)</option>
 			<option value="en-tafisr-ibn-kathir">Ibn e Kaseer (en)</option>
 			<option value="en-tafsir-ibn-abbas">Ibn e Abbas (en)</option>
@@ -204,9 +203,8 @@ input[type="reset"]
 			<option value="ar-tafseer-al-qurtubi">Tafsir ul Qurtabi (ar)</option>
 			<option value="ar-tafsir-al-tabari">Tafsir al Tabari (ar)</option>
 		</select>
-		<br/>
-		<p style="font-size: 9px;">Powered by <a href='https://everyayah.com/' onclick="window.open(this.href, '_blank'); return false;">https://everyayah.com/</a></p>
 	</div>
+	<br/>
 	</td></tr>
 	</table>
 	<div id="searchResult" style="width: 100%;text-align: center;">Loading words of Quran...</div>
