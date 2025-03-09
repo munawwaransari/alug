@@ -30,7 +30,7 @@ $(document).ready(function()
 	nodeInserted("#languages");
 	$(document).on("nodeInserted",function(e,q){
 		if (q === "#languages"){
-			//--------------$("#languages").parent().hide();
+			$("#languages").parent().hide();
 			loadVoiceOptions(true, false);
 			updateVoiceSelection();
 			
