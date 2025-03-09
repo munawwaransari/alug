@@ -61,6 +61,15 @@
 				}, 5);
 			}
 			
+			window.playTextAll = function(txt, lang){
+				setPlayLang(lang, true);
+				stopAudio();
+				console.log("lang:" + $("#languages").val());
+			    console.log("playing..."+txt.substring(0, 20)+"...");
+			    $("#text").text(txt);
+			    $("#play").click();
+			}
+			
 			window.playText = function(txt, lang, options){
 			  if(!autoplay) return;
 			  if(lang){
@@ -137,9 +146,13 @@
 				}, 5);
 			}
 			
-			function setPlayLang(lang){
+			window.getAllVoices = function(){
+				return $('#languages option'); 
+			}
 			
-				var voice = states[lang] ?? lang;
+			function setPlayLang(lang, force){
+			
+				var voice = force ? lang : states[lang] ?? lang;
 				$("#languages").val(voice);
 				if($("#languages").val() !== voice){
 					voice = voice.replace("-","_");

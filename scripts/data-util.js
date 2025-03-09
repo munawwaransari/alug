@@ -254,3 +254,19 @@ function analyzeLocal(txt){
 		}
 	}
 }
+
+function loadAllVoices(sel, voicesAll ){
+	if(sel && sel.append){
+		var filter = {}, o = '';
+		for(var i = 0; i < voicesAll.length; i++){
+			var lang = voicesAll[i].value.replace(/^([a-z]{2}-[A-Z]{2})(\d+)$/g,'$1')
+			if(lang && filter[lang] === undefined){
+				var value = ' value="'+lang+'" ';
+				o += '<option '+value+'>'+lang+'</option>';
+				filter[lang] = true;
+			}
+		}
+		sel.children().remove().end();
+		sel.append($(o));
+	}
+}

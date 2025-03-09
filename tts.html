@@ -1,0 +1,68 @@
+<!--
+	Author: munawwar_ali@yahoo.com
+//-->
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes" />
+	<head>
+		<title>Text to Speech</title>
+		<link rel="shortcut icon" href="#" />
+		<style>
+			
+		</style>
+		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+		<script src="scripts/data-util.js"></script>
+		<script>
+			window.onload = function(){
+				if(parent && parent.getAllVoices){
+					loadAllVoices($("#selLang"), parent.getAllVoices());
+				}
+			}
+			
+			function playText(){
+				if(parent && parent.playTextAll){
+					parent.playTextAll($("#txtInput").val(), $("#selLang").val());
+				}
+			}
+			
+			function openTranslate(){
+				var target = $("#selLang").val().substring(0,2);
+				var w = parent ? parent.window : window;
+				var txt = encodeURI($("#txtInput").val()); 
+				var url = 'https://libretranslate.com/?q='+txt+'&source=auto&target='+target;
+				w.open(url, "_blank");
+			}
+			
+			async function translateText(){
+				var target = $("#selLang").val().substring(0,2);
+				if(target !== "en"){
+					const res = await fetch("https://libretranslate.com/translate", {
+					  method: "POST",
+					  body: JSON.stringify({
+						q: "Type or paste language text to play.",
+						source: "en",
+						target: "it",
+						format: "text",
+						alternatives: 3,
+					  }),
+					  headers: { "Content-Type": "application/json" },
+					});
+
+					var t = await res.json();
+					$("#txtInput").text(t);
+				}
+			}
+		</script>
+	</head>
+	<body style="display:flex;justify-content: center;flex-direction: column;">
+		<div id="txtInputDiv" style="margin:auto;width:90%;">
+			<select id="selLang"></select>
+			<button onclick="playText()">Play Text</button>
+			<a href="#" onclick="openTranslate()">Translate</a>
+			<textarea id="txtInput"
+					  style="margin:auto;width:96%;height:80%;" 
+					 >Type or paste language text to play.</textarea>
+			<br/>
+		</div>
+	</body>
+</html>

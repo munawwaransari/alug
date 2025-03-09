@@ -150,58 +150,16 @@ function loadVoiceOptions(fill, clean){
 		$("#voice-options").append($(o));
 	}
 	
-	// Clean the language list as it appear to be added with malformed html
-	/*
-	if(voices.length > 0 && clean){
-		var counters = {}, value;
-		o = '';
-		var voicesAll = $('#languages option'); 
-		$("#languages").children().remove().end();
-		for(var i = 0; i < voicesAll.length; i++){
-			var lang = voicesAll[i].value.replace(/^([a-z]{2}-[A-Z]{2})(\d+)$/g,'$1')
-			if(counters[lang] === undefined){
-				counters[lang] = 0;
-			}else{
-				counters[lang]++;
-			}
-			
-			if(lang === "" || lang === "autodetect language"){
-				value = '';
-			}else if(states[lang] === undefined && counters[lang] === 0){
-				value = ' value="'+lang+'" ';
-			}else if (states[lang] === voicesAll[i].text){
-				value = ' value="'+lang+'" ';
-			}else{
-				value = ' value="'+lang+counters[lang]+'" ';	
-			}
-			
-			var valText = voicesAll[i].text;
-			o += '<option '+value+'>'+valText+'</option>';
-		}
-		$("#languages").append($(o));
-	}
-	*/
+	//const langSelectionEvent = new Event("lang-changed");
+	//document.dispatchEvent(langSelectionEvent);
+	
 	return voices;
 }
 
 function loadLanguages(){
 	var l = $("#languages");
 	l.empty();
-	/*
-	if(l.length == 0)
-		$("#main").append('<select id="languages"/>');
-	var voices = speechSynthesis.getVoices().filter(function(v){
-		var lang = v.lang.replace('_','-');
-		var flag = lang === 'ur-IN' || lang ==='ur-PK' || lang === 'ur-IN' ||
-				   lang === 'ar-SA' || 
-				   lang === 'en-US';
-		if(flag){
-			$("#main #languages").append($('<option value="'+ lang + '" select>'+v.name+'</option>'))
-		}
-		return flag;
-	});
-	$(document).trigger("nodeInserted",['#languages']);
-	*/
+	
 	const event = new Event('onvoiceloaded');
 	document.dispatchEvent(event);
 };
@@ -350,6 +308,7 @@ function showChart(sel){
 		case "Vocab": path = 'cards.html?data='+name; break;
 		case "Misc": path = name+'.html'; break;
 		case "Chart": path = 'charts.html?folder='+name; break;
+		case "TTS": path = 'tts.html';break;
 		default: console.log('Error: invalid section');	return;
 	}
 	setTimeout(function(){
@@ -481,6 +440,9 @@ function updateToolDescription(id, opt){
 						"Number": "number",
 						"Abjad": "abjad",
 						"Patterns": "patterns"
+					},
+					"TTS" :{
+						"Text-to-Speech": "tts"
 					}
 				};
 				
@@ -491,7 +453,7 @@ function updateToolDescription(id, opt){
 						menu = menu + '<span class="menuitem" onclick="'+value+';">'+key+'</span>';
 					else{
 						var onAction = 'showChart(\''+key+'\')';
-						menu += '<span class="menuitem" onclick="toggleMenu([\'Vocab\',\'Chart\',\'Misc\'],\'sel'+key+'\')">'+
+						menu += '<span class="menuitem" onclick="toggleMenu([\'Vocab\',\'Chart\',\'Misc\',\'TTS\'],\'sel'+key+'\')">'+
 							key+':<select id="sel'+key+'" ' +
 									' onchange="'+onAction+'">';
 						for(const [k,v]of Object.entries(value))
@@ -506,7 +468,7 @@ function updateToolDescription(id, opt){
 				
 				setTimeout(function(){
 					var sel = opt && opt["alpha-selection"] ?  opt["alpha-selection"] : 'selVocab';
-					toggleMenu(['Vocab', 'Chart', 'Misc'], sel);
+					toggleMenu(['Vocab', 'Chart', 'Misc', 'TTS'], sel);
 				},10);
 
 			}else{
