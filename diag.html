@@ -23,6 +23,14 @@
 				},50);						
 			};
 		}
+		
+		loadVoices();
+		if (
+		  typeof speechSynthesis !== "undefined" &&
+		  speechSynthesis.onvoiceschanged !== undefined
+		) {
+		  speechSynthesis.onvoiceschanged = loadVoices;
+		}
 	}
 	
 	function checkBrowser(){
