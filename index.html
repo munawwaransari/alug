@@ -16,7 +16,7 @@
 		<script src="data/topics.js"></script>
 		<script>
 			var langOption = 'en-US';
-			var autoplay = true;
+			var autoplay = false;
 			var menuOption = false;
 			var speech_synthesis_supportd = false;
 			var autoplay_cache = [];
@@ -69,12 +69,10 @@
 					txt = options["en-US"];
 				}
 			    console.log("current lang:" + $("#languages").val());
-				if(setPlayLang(lang) === false){
-					console.log(lang + " not supported");
-				}
+				setPlayLang(lang);
 			  }
 			  console.log("lang:" + $("#languages").val());
-			  console.log("playing..."+txt);
+			  console.log("playing..."+txt.substring(0, 20)+"...");
 			  stopAudio();
 			  $("#text").text(txt);
 			  $("#play").click();
@@ -140,20 +138,18 @@
 			}
 			
 			function setPlayLang(lang){
-				$("#languages").val(lang);
-				if($("#languages").val() !== lang){
-					lang = lang.replace("-","_");
-					$("#languages").val(lang);
-					if($("#languages").val() !== lang){
-						if(lang === "ur-PK" || lang === "ur_PK"){
-							setPlayLang("ur-IN");
-						}
-					}
-					else{
-						return true;
+			
+				var voice = states[lang] ?? lang;
+				$("#languages").val(voice);
+				if($("#languages").val() !== voice){
+					voice = voice.replace("-","_");
+					$("#languages").val(voice);
+					
+					if($("#languages").val() !== voice){
+						return false;
 					}
 				}
-				return false;
+				return true;
 			}
 		</script>
 		</script>
@@ -179,9 +175,9 @@
 				<img id="ss-support_1" class="tool" src="images/ss-supported.png"/>
 				<img id="ss-support_2" class="tool" src="images/ss-not-supported.png" style="display:none"/>
 				<img id="hw" class="tool" src="images/hw.png" onclick="loadHandwriting()"/>
-				<img id="speech_1" class="tool" src="images/speech-enabled.png" onclick="toggleAutoplay()">
+				<img id="speech_1" class="tool" src="images/speech-enabled.png" onclick="toggleAutoplay()" style="display:none">
 				</img>
-				<img id="speech_2" class="tool" src="images/speech-disabled.png" onclick="toggleAutoplay()" style="display:none"/>
+				<img id="speech_2" class="tool" src="images/speech-disabled.png" onclick="toggleAutoplay()" />
 				<!--
 				<img id="topics_1" class="tool" style="margin-top: 4px;display:none" src="images/menu-enabled.jpg" onclick="toggleMenu()" />
 				<img id="topics_2" class="tool" style="margin-top: 4px;" src="images/menu-disabled.jpg" onclick="toggleMenu()"/>
@@ -191,13 +187,15 @@
 				<img id="dict" class="tool" src="images/dict.jpg" onclick="loadGrammarView()"/>
 				<img id="l-option" class="tool" src="images/languages.png">
 					<div id="l-option-child" style="display:none;padding:0;margin:0">
-						<span style="font-size:16px;">Select Language:</span>
-						<select id="lang-options">
+						<span style="font-size:16px;">Language:</span>
+						<select id="lang-options" onchange="loadVoiceOptions(true, false)">
 							<option value="en-US" select>English</option>
 							<option value="ur-PK">اردو</option>
 							<option value="ar-SA">العربي</option>
 							<option value="hi-IN">हिन्दी</option>
 						</select>
+						<span style="font-size:16px;">&nbsp;&nbsp; Voice:</span>
+						<select id="voice-options" style="width:100px;" onchange="updateVoiceSelection()"></Select>
 					</div>
 				</img>
 			</span>

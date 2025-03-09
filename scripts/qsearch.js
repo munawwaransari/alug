@@ -132,7 +132,7 @@ function search(pageNumber){
 	
 	div.html('Searching '+text+' in the Quran...');
 	SearchQuran(ctx, opt, text, function(data){
-		console.log(data);
+		//console.log(data);
 		
 		if(!data){
 			div.html('No results found for '+ text);

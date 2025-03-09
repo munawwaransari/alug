@@ -30,7 +30,9 @@ $(document).ready(function()
 	nodeInserted("#languages");
 	$(document).on("nodeInserted",function(e,q){
 		if (q === "#languages"){
-			$("#languages").parent().hide();
+			//--------------$("#languages").parent().hide();
+			loadVoiceOptions(true, false);
+			updateVoiceSelection();
 			
 			/*
 			var c = "";
@@ -111,6 +113,76 @@ $(document).ready(function()
 		}
 	});
 });
+
+function updateVoiceSelection(){
+	var lang = $("#lang-options").val();
+	var val = $('#voice-options option:selected').val();
+	if(val){
+		states[lang] = val;
+		loadVoiceOptions(true, true);
+		
+		const event = new Event('onvoiceloaded');
+		document.dispatchEvent(event);
+	}	
+}
+
+function loadVoiceOptions(fill, clean){
+	var l = $("#lang-options").val();
+	var voices = $('#languages option[value^="'+l.substring(0,2)+'"]');
+	//if(voices.length === 0){
+	//	voices = $('#languages option:contains("'+l.replace('-','_')+'")');
+	//}
+	if(voices.length > 0 && fill){
+		$("#voice-options").empty();
+		var filter = {};
+		var o = '';
+		for(var i = 0; i < voices.length; i++){
+			var val = voices[i].value;
+			if(filter[voices[i].value] === undefined) 
+			{
+				var selected = (states[l] === val) ? " selected " : "";
+				//var value = (i === 0) ? ' value="'+l+'" ' : ' value="'+l+i+'" ';
+				var value = ' value="'+val+'" ';
+				o += '<option '+value+selected+'>'+voices[i].text+'</option>';
+				filter[voices[i].value] = true;
+			}
+		}
+		$("#voice-options").append($(o));
+	}
+	
+	// Clean the language list as it appear to be added with malformed html
+	/*
+	if(voices.length > 0 && clean){
+		var counters = {}, value;
+		o = '';
+		var voicesAll = $('#languages option'); 
+		$("#languages").children().remove().end();
+		for(var i = 0; i < voicesAll.length; i++){
+			var lang = voicesAll[i].value.replace(/^([a-z]{2}-[A-Z]{2})(\d+)$/g,'$1')
+			if(counters[lang] === undefined){
+				counters[lang] = 0;
+			}else{
+				counters[lang]++;
+			}
+			
+			if(lang === "" || lang === "autodetect language"){
+				value = '';
+			}else if(states[lang] === undefined && counters[lang] === 0){
+				value = ' value="'+lang+'" ';
+			}else if (states[lang] === voicesAll[i].text){
+				value = ' value="'+lang+'" ';
+			}else{
+				value = ' value="'+lang+counters[lang]+'" ';	
+			}
+			
+			var valText = voicesAll[i].text;
+			o += '<option '+value+'>'+valText+'</option>';
+		}
+		$("#languages").append($(o));
+	}
+	*/
+	return voices;
+}
 
 function loadLanguages(){
 	var l = $("#languages");
