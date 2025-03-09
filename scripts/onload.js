@@ -132,8 +132,8 @@ function loadVoiceOptions(fill, clean){
 	//if(voices.length === 0){
 	//	voices = $('#languages option:contains("'+l.replace('-','_')+'")');
 	//}
+	$("#voice-options").empty();
 	if(voices.length > 0 && fill){
-		$("#voice-options").empty();
 		var filter = {};
 		var o = '';
 		for(var i = 0; i < voices.length; i++){
