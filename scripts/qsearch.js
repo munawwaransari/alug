@@ -393,12 +393,7 @@ function displayVerse(div, verse, verseKey, options){
 	var verseKeys = verseKey.split(":");
 	var playOptions = getPlayOptions(verseKey, verseKeys);
 	var analysisOptions = getAnalysisOptions(verse, verseKeys);
-	var tanzilLink = '<a title="Click to view in tanzil.com" '+
-						'style="position:absolute;margin-top:6px;" '+
-						'href="https://tanzil.net/#'+verseKey+'" '+
-						'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
-					 '[' + verseKey+ ']'+
-					 '</a>';
+	var verseLinkOptions = getVerseLinkOptions(verseKey);
 					 
 	var transLinkId = 'div'+verseKeys[0]+'_'+verseKeys[1];
 	var translationLink = '<a title="Click to see translation" id="'+transLinkId+'_en"'+
@@ -445,10 +440,12 @@ function displayVerse(div, verse, verseKey, options){
 	var surah_name = surah_list ? '<span style="margin:auto;font-size:14px;padding-right:6px;color:#49348D;"><b>'+surah_list[parseInt(verseKeys[0])].ar+'</b></span>' : '';
 		
 	divHtml += (options == undefined || options.controls) ?
+					   '<span style="margin-top:-4;padding-right:8px;cursor:pointer;">'+
+							'<a href="#" onclick="getReferences()">References</a></span>'+
 					   '<span style="padding-right:8px;">'+analysisOptions+'</span>'+
 					   '<span style="padding-right:8px;">'+playOptions+'</span>'+
 					   surah_name+
-					   '<span style="margin:auto;">'+tanzilLink+'</span>'
+					   '<span style="margin:auto;">'+verseLinkOptions+'</span>'
 					   :'';
 	divHtml += '</div>';
 	div.append($(divHtml));
@@ -526,6 +523,43 @@ function getPlayOptions(verseKey, verseKeys){
 								  'onclick="stopPlayVerse()"/>'+
 								  '</span>':'';
   return play;
+}
+
+function reloadVerse(verseKey){
+	$("#searchText").val(verseKey);
+	search();
+}
+
+function getReferences(){
+	var word = $(".sel-word").text().trim();
+	if(word !== ""){
+		$("#searchText").val(word);
+		search();
+	}
+}
+
+function getVerseLinkOptions(verseKey){
+	
+	var localLink = '<a href="#" title="Reload verse" onclick="reloadVerse(\''+verseKey+'\')">Research</a>';
+	var tanzilLink = '<a title="Click to view in tanzil.com" '+
+						'href="https://tanzil.net/#'+verseKey+'" '+
+						'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
+					 'tanzil.net'+
+					 '</a>';
+
+	return '<span>'+			  
+					'<span class="dropdown">'+
+					  '<button class="dropbtn" style="width:50px; background-color:#EEEEEE;color:black;">'+
+						'['+verseKey+']</button>'+
+					  '<div class="dropdown-content">'
+					    +
+						localLink
+						+
+						tanzilLink
+						+
+					  '</div>'+
+					'</span>'+
+		'</span>';
 }
 
 function getAnalysisOptions(verse, verseKeys){

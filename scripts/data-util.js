@@ -87,12 +87,12 @@ function getDeviceType() {
 }
 
 function arRemovePunct(txt){
-	var punctuation = "ًٌٍََُِّْٰ";
-	return txt.replace(new RegExp("["+punctuation+"]+","g"), '')
-				.replace(new RegExp("ٱ", "g"), 'ا')
-				.replace(new RegExp("إ", "g"), 'ا')
-				.replace(new RegExp("أ", "g"), 'ا')
-				.replace(new RegExp("ى", "g"), 'ي');
+	var punctuation = "ًٌٍََُِّْٰۡ";
+	return txt.replaceAll(new RegExp("["+punctuation+"]+","g"), '')
+				.replaceAll(new RegExp("ٱ", "g"), 'ا')
+				.replaceAll(new RegExp("إ", "g"), 'ا')
+				.replaceAll(new RegExp("أ", "g"), 'ا')
+				.replaceAll(new RegExp("ى", "g"), 'ي');
 }
 
 function replaceWord(w){
