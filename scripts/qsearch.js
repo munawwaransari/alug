@@ -754,17 +754,17 @@ function listSurahs(){
 				enName = enName.split(' ')[0];
 			}
 			table = table+ '<tr>'+'<td>'+tanzilLink+'</td>'+
-								'<td style="font-size:14px;cursor:pointer;"> '+
+								'<td style="width:100px;font-size:14px;cursor:pointer;"> '+
 									'<span class="dropbtn" '+
 										   'title="Translation & Tafsir" '+
 										   'style="background-color:#EEEEEE;color:black;" '+
 										   'onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">'+
 										'1-'+surah.ayahCount+
 									'</span>&nbsp;&nbsp;'+
-									'<span>'+getQuranAudioOptions(index)+'</span>' //&nbsp;&nbsp;'
+									'<span style="width:100px;">'+getQuranAudioOptions(index)+'</span>'
 									+'<span/>'
 								+'</td>'+
-								'<td style="width:150px;" onclick="searchText(\''+
+								'<td onclick="searchText(\''+
 								enName
 								+'\')" class="qword" style="font-szie:13px;">' +
 								surah.en.replace("(","<br/>(")+
