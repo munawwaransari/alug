@@ -572,11 +572,11 @@ function loadQuranPdfOptions(){
 	languages.forEach(function(lang){
 		var l = lang === "Arabic" ? "arabic": lang;
 		var url = 'https://www.truemuslims.net/PDF-quran-in-all-languages/'+l+'.pdf';
-		options += '<a href="'+url+'" '+
+		options += '<a '+
 			(isOS("Android") ?
-				'onclick="var w = parent.window ? parent.window : window; w.open(\''+url+'\');">'
+				'href="#" onclick="var w = parent.window ? parent.window : window; w.open(\''+url+'\');">'
 				:
-				'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \"_blank\"); return false;">')
+				'href="'+url+'" onclick="var w = parent.window ? parent.window : window; w.open(this.href, \"_blank\"); return false;">')
 					+lang +
 				   '</a>';
 		return true;
