@@ -742,7 +742,7 @@ function listSurahs(){
 		surah_list = data;
 		var div = $("#searchResult");
 		div.empty();
-		var table = '<table class="surahIndex"><th>#</th><th>#Ayah</th><th>Surah(en)</th><th>Surah</th>';
+		var table = '<table class="surahIndex"><th>#</th><th>#Ayah</th><th>Surah</th>';
 		for (const [index, surah] of Object.entries(data)) {
 			var tanzilLink = '<a style="cursor:pointer;font-size:18px" href="https://tanzil.net/#'+index+'" '+
 				 'onclick="var w = parent ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+index+'</a>';
@@ -761,21 +761,13 @@ function listSurahs(){
 										   'onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">'+
 										'1-'+surah.ayahCount+
 									'</span>&nbsp;&nbsp;'+
-									'<span style="width:100px;">'+getQuranAudioOptions(index)+'</span>'
+									'<span>'+getQuranAudioOptions(index)+'</span>'
 									+'<span/>'
 								+'</td>'+
-								'<td onclick="searchText(\''+
-								enName
-								+'\')" class="qword" style="font-szie:13px;">' +
-								surah.en.replace("(","<br/>(")+
+								'<td onclick="searchText(\''+enName+'\')" '+
+									'class="qword" style="font-szie:13px;">' +
+								surah.ar+'<br/>'+surah.en.substring(surah.en.indexOf("("))+
 								'</td>'+
-								'<td onclick="searchText(\''+
-								surah.ar.trim()
-										.replace('ٱ','ا')
-										.replace('إ','ا')
-										.replace('ال','')+
-								'\')" ' + 
-								' class="qword">'+surah.ar+'</td>'+
 							'</tr>';	
 		}
 		table = table+'</table>';
