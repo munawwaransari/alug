@@ -742,7 +742,7 @@ function listSurahs(){
 		surah_list = data;
 		var div = $("#searchResult");
 		div.empty();
-		var table = '<table class="surahIndex"><th>Index</th><th>#Ayah</th><th>Surah(en)</th><th>Surah</th>';
+		var table = '<table class="surahIndex"><th>#</th><th>#Ayah</th><th>Surah(en)</th><th>Surah</th>';
 		for (const [index, surah] of Object.entries(data)) {
 			var tanzilLink = '<a style="cursor:pointer;font-size:18px" href="https://tanzil.net/#'+index+'" '+
 				 'onclick="var w = parent ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+index+'</a>';
@@ -754,7 +754,7 @@ function listSurahs(){
 				enName = enName.split(' ')[0];
 			}
 			table = table+ '<tr>'+'<td>'+tanzilLink+'</td>'+
-								'<td style="width:100px;font-size:14px;cursor:pointer;"> '+
+								'<td style="width:160px;font-size:14px;cursor:pointer;"> '+
 									'<span class="dropbtn" '+
 										   'title="Translation & Tafsir" '+
 										   'style="background-color:#EEEEEE;color:black;" '+
