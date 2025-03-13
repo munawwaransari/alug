@@ -570,7 +570,8 @@ function loadQuranPdfOptions(){
 	var options = '';
 	
 	languages.forEach(function(lang){
-		var url = 'https://www.truemuslims.net/PDF-quran-in-all-languages/'+lang+'.pdf';
+		var l = lang === "Arabic" ? "arabic": lang;
+		var url = 'https://www.truemuslims.net/PDF-quran-in-all-languages/'+l+'.pdf';
 		options += '<a href="'+url+'" '+
 					  'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \"_blank\"); return false;">'+
 					  lang +
