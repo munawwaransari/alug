@@ -538,6 +538,55 @@ function getReferences(){
 	}
 }
 
+//https://www.truemuslims.net
+function getQuranAudioOptions(chapter){
+	
+	var languages = ["Arabic", "Bangla", "English", "Gujarati", "Hindi", "Kashmiri", "Malayalam", "Persian", "Tamil", "Urdu"];
+	var options = '';
+	var id = 'q-ch'+chapter;
+	
+	languages.forEach(function(lang){
+		var ch = chapter > 99 ? chapter : chapter > 9 ? "0"+chapter : "00"+chapter; 
+		var url = encodeURI('https://www.truemuslims.net/Quran/'+lang+'/'+ch+'.mp3');
+		options += '<p onclick="playChapterUrl(\''+url+'\',\''+id+'\')">'+lang+'</p>';
+		return true;
+	});
+	
+	return '<span class="dropdown">'+
+					  '<button id="'+id+'" '+
+							   'class="dropbtn" '+
+							   'onclick="stopPlayChapter(\''+id+'\')" '+
+							   'style="background-color:#EEEEEE;color:black;">'+
+						'&#9835;</button>'+
+					  '<div class="dropdown-content" style="">'+options+'</div>'+
+		   '</span>';
+}
+
+//https://www.truemuslims.net/PDF-quran-in-all-languages/arabic.pdf
+function getQuranPdfOptions(){
+	
+	var languages = ["Arabic", "Bangla", "English", "Gujarati", "Hindi", "Kashmiri", "Malayalam", "Persian", "Tamil", "Urdu"];
+	var options = '';
+	
+	languages.forEach(function(lang){
+		var url = 'https://www.truemuslims.net/PDF-quran-in-all-languages/'+lang+'.pdf';
+		options += '<p><a href="'+url+'" '+
+					  'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
+					  lang +
+				   '</a></p>';
+		return true;
+	});
+	
+	return '<span class="dropdown">'+
+					  '<button '+
+							   'class="dropbtn" '+
+							   'style="width:30px;background-color:#EEEEEE;color:black;">'+
+						'\u06DE;</button>'+
+					  '<div class="dropdown-content" style="">'+options+'</div>'+
+		   '</span>';
+}
+
+
 function getVerseLinkOptions(verseKey){
 	
 	var localLink = '<a href="#" title="Reload verse" onclick="reloadVerse(\''+verseKey+'\')">Research</a>';
@@ -706,8 +755,15 @@ function listSurahs(){
 				enName = enName.split(' ')[0];
 			}
 			table = table+ '<tr>'+'<td>'+tanzilLink+'</td>'+
-								'<td style="font-size:14px;cursor:pointer;" '+
-									'onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">1-'+surah.ayahCount+'&nbsp;&#9835;</td>'+
+								'<td style="font-size:14px;cursor:pointer;"> '+
+									'<span class="dropdown" '+
+										   'onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">'+
+										'1-'+surah.ayahCount+
+									'</span>&nbsp;&nbsp;'+
+									'<span>'+getQuranAudioOptions(index)+'</span>' //&nbsp;&nbsp;'
+									//+'<span>'+getQuranPdfOptions()+'</span>'
+									+'<span/>'
+								+'</td>'+
 								'<td onclick="searchText(\''+
 									enName
 								+'\')" class="qword" style="font-szie:13px;">' +
@@ -856,6 +912,40 @@ function updateLang(url){
 	var current_url = decodeURI(url);
 	var current_lang = current_url.replace("https://glosbe.com/ar/",'').split("/");
 	return encodeURI("https://glosbe.com/ar/"+lang+"/"+current_lang[1]);
+}
+
+var last_ch_play_id;
+function stopPlayChapter(id){
+	$("#"+id).html('&#9835;');
+	if(parent && parent.stopAudio)
+		parent.stopAudio();
+}
+
+function openQuranPdf(url){
+	
+	var w= parent? parent.window:window;
+	w.open(url,'_blank');
+	return false;
+	
+	//if(parent && parent.openInline){
+	//	parent.openInline(url);
+	//}		
+}
+
+function playChapterUrl(url, id){
+  	if (last_ch_play_id)
+		stopPlayChapter(last_ch_play_id);
+	last_ch_play_id = id;
+		
+	if(parent && parent.playAudio){
+		$("#"+id).html('||');
+		parent.playAudio(url, function(action){		
+			if(action == "pause" || action == "ended"){
+				stopPlayChapter(id);
+				last_ch_play_id = undefined;
+			}
+		});
+	}	
 }
 
 function playVerse(url, verseKey, cb){
