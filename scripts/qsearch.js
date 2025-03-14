@@ -742,7 +742,7 @@ function listSurahs(){
 		surah_list = data;
 		var div = $("#searchResult");
 		div.empty();
-		var table = '<table class="surahIndex"><th>#</th><th>#Ayah</th><th>Surah</th>';
+		var table = '<table class="surahIndex"><th>#</th><th>Surah</th><th>Qirat</th><th>Tafsir</th>';
 		for (const [index, surah] of Object.entries(data)) {
 			var tanzilLink = '<a style="cursor:pointer;font-size:18px" href="https://tanzil.net/#'+index+'" '+
 				 'onclick="var w = parent ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+index+'</a>';
@@ -753,22 +753,24 @@ function listSurahs(){
 			if(enName.includes(' ')){
 				enName = enName.split(' ')[0];
 			}
-			table = table+ '<tr>'+'<td>'+tanzilLink+'</td>'+
-								'<td style="width:160px;font-size:14px;cursor:pointer;"> '+
-									'<span class="dropbtn" '+
-										   'title="Translation & Tafsir" '+
-										   'style="background-color:#EEEEEE;color:black;" '+
-										   'onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">'+
-										'1-'+surah.ayahCount+
-									'</span>&nbsp;&nbsp;'+
-									'<span>'+getQuranAudioOptions(index)+'</span>'
-									+'<span/>'
-								+'</td>'+
-								'<td onclick="searchText(\''+enName+'\')" '+
-									'class="qword" style="font-szie:13px;">' +
-								surah.ar+'<br/>'+surah.en.substring(surah.en.indexOf("("))+
-								'</td>'+
-							'</tr>';	
+			table += '<tr>'+
+						 '<td>'+tanzilLink+'</td>'+
+						 '<td onclick="searchText(\''+enName+'\')" '+
+							 'class="qword" style="font-szie:13px;">' +
+							 surah.ar+'<br/>'+surah.en.substring(surah.en.indexOf("("))+
+						 '</td>'+
+						 '<td style="font-size:14px;cursor:pointer;"> '+
+							 '<span>'+getQuranAudioOptions(index)+'</span>'+
+						 '</td>'+
+						 '<td style="font-size:14px;cursor:pointer;"> '+
+							 '<span class="dropbtn" '+
+							   'title="Tafsir" '+
+							   'style="background-color:#EEEEEE;color:black;" '+
+							   'onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">'+
+							   '1-'.concat(surah.ayahCount)+
+							'</span>'+
+						 '</td>'+
+					'</tr>';	
 		}
 		table = table+'</table>';
 		div.append($(table));
