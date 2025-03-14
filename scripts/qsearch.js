@@ -608,24 +608,16 @@ function getQuranAudioOptions(chapter){
 	});
 	
 	return '<span class="dropdown">'+
-				  '<button id="'+id+'" '+
-						   'class="dropbtn" '+
-						   'style="background-color:#EEEEEE;color:black;">'+
-				   '\u23F5'+ //play
-				   '</button>'+
-				   '<div class="dropdown-content" style="">'+options+'</div>'+
-				   '<button id="'+id+'-pause" '+
-						   'class="dropbtn" '+
-						   'onclick="pauseOrplayQuranChapter(\''+id+'\')" '+
-						   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">'+
-				   '\u23F8'+ //pause
-				   '</button>'+
-				   '<button id="'+id+'-stop" '+
-						   'class="dropbtn" '+
-						   'onclick="stopQuranChapter(\''+id+'\')" '+
-						   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">'+
-				   '\u23F9'+ // stop
-				   '</button>'+
+			  '<button id="'+id+'" '+
+					   'class="dropbtn" '+
+					   'style="background-color:#EEEEEE;color:black;">\u23F5</button>'+ //play
+			   '<div class="dropdown-content" style="">'+options+'</div>'+
+			   '<button id="'+id+'-pause" class="dropbtn" '+
+					   'onclick="pauseOrplayQuranChapter(\''+id+'\')" '+
+					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23F8</button>'+ //pause
+			   '<button id="'+id+'-stop" class="dropbtn" '+
+					   'onclick="stopQuranChapter(\''+id+'\')" '+
+					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23F9</button>'+ //stop
 		   '</span>';
 }
 
@@ -827,7 +819,7 @@ function listSurahs(){
 							 'class="qword" style="max-width:80px;font-szie:14px;">' +
 							 surah.ar+'<br/>'+surah.en.substring(surah.en.indexOf("("))+
 						 '</td>'+
-						 '<td style="font-size:14px;cursor:pointer;"> '+
+						 '<td style="font-size:14px;cursor:pointer;">'+
 							 '<span>'+getQuranAudioOptions(index)+'</span>'+
 						 '</td>'+
 						 '<td style="font-size:14px;cursor:pointer;"> '+
