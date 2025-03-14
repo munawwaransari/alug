@@ -610,7 +610,7 @@ function getQuranAudioOptions(chapter){
 	return '<span class="dropdown">'+
 			  '<button id="'+id+'" '+
 					   'class="dropbtn" '+
-					   'style="background-color:#EEEEEE;color:black;">\u23F5</button>'+ //play
+					   'style="background-color:#EEEEEE;color:black;">&#9835</button>'+ //play
 			   '<div class="dropdown-content" style="">'+options+'</div>'+
 			   '<button id="'+id+'-pause" class="dropbtn" '+
 					   'onclick="pauseOrplayQuranChapter(\''+id+'\')" '+
