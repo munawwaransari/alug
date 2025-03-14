@@ -9,12 +9,13 @@
 	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
 	<script src="scripts/data-util.js"></script>
 	<script src="scripts/autocomplete.js"></script>
-	<script src="scripts/pos.js"></script>
-	<script src="scripts/cmp.js"></script>
-	<script src="scripts/dict.js"></script>
 	<script src="scripts/dict-lt.js"></script>
+	<script src="scripts/pos-search.js"></script>
+	<script src="scripts/pos.js"></script>
 	<script src="scripts/pronoun.js"></script>
 	<script src="scripts/object.js"></script>
+	<script src="scripts/cmp.js"></script>
+	<script src="scripts/dict.js"></script>
 	<style>
 	.nFilter{
 		position: relative;
@@ -210,7 +211,7 @@
 	
 	input[type="reset"]
 	{
-	  background-image: url( ../images/cleartxt.png );
+	  background-image: url( images/cleartxt.png );
 	  background-position: center center;
 	  background-repeat: no-repeat;
 	  border: none;
@@ -228,7 +229,16 @@
 		<div  class="autocomplete">
 			<input type="reset" value="" alt="clear" title="Clear" onclick="$('#wordSearchText').val('');"/>
 			<input id="wordSearchText" onchange="searchWord()" style="width:100px;"/>
-			<button id="SearchD" class="dropbtn" title="Analyze" style="background-color:#4B5AC5;top:-8px; height: 30px;" onclick="analyzeSelectedWord()"><b>تحليل</b></button>
+			
+			<div id="btnVerbs" class="dropdown">
+				<button id="SearchD" class="dropbtn" title="Analyze" style="background-color:#4B5AC5;top:-8px; height: 30px;">
+					<b>تحليل</b>
+				</button>
+				<div class="dropdown-content">
+					<a href="#" onclick="analyzeSelectedWord()">Analyze</a>
+					<a href="#" onclick="analyzeSelectedWordOld()">Conjugate</a>
+				</div>
+			</div>
 
 			<div id="btnVerbs" class="dropdown">
 			  <button class="dropbtn">الفعل</button>

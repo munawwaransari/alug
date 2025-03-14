@@ -31,6 +31,8 @@ $(document).ready(function()
 	$(document).on("nodeInserted",function(e,q){
 		if (q === "#languages"){
 			$("#languages").parent().hide();
+			loadVoiceOptions(true, false);
+			updateVoiceSelection();
 			
 			/*
 			var c = "";
@@ -112,24 +114,52 @@ $(document).ready(function()
 	});
 });
 
+function updateVoiceSelection(){
+	var lang = $("#lang-options").val();
+	var val = $('#voice-options option:selected').val();
+	if(val){
+		states[lang] = val;
+		loadVoiceOptions(true, true);
+		
+		const event = new Event('onvoiceloaded');
+		document.dispatchEvent(event);
+	}	
+}
+
+function loadVoiceOptions(fill, clean){
+	var l = $("#lang-options").val();
+	var voices = $('#languages option[value^="'+l.substring(0,2)+'"]');
+	//if(voices.length === 0){
+	//	voices = $('#languages option:contains("'+l.replace('-','_')+'")');
+	//}
+	$("#voice-options").empty();
+	if(voices.length > 0 && fill){
+		var filter = {};
+		var o = '';
+		for(var i = 0; i < voices.length; i++){
+			var val = voices[i].value;
+			if(filter[voices[i].value] === undefined) 
+			{
+				var selected = (states[l] === val) ? " selected " : "";
+				//var value = (i === 0) ? ' value="'+l+'" ' : ' value="'+l+i+'" ';
+				var value = ' value="'+val+'" ';
+				o += '<option '+value+selected+'>'+voices[i].text+'</option>';
+				filter[voices[i].value] = true;
+			}
+		}
+		$("#voice-options").append($(o));
+	}
+	
+	//const langSelectionEvent = new Event("lang-changed");
+	//document.dispatchEvent(langSelectionEvent);
+	
+	return voices;
+}
+
 function loadLanguages(){
 	var l = $("#languages");
 	l.empty();
-	/*
-	if(l.length == 0)
-		$("#main").append('<select id="languages"/>');
-	var voices = speechSynthesis.getVoices().filter(function(v){
-		var lang = v.lang.replace('_','-');
-		var flag = lang === 'ur-IN' || lang ==='ur-PK' || lang === 'ur-IN' ||
-				   lang === 'ar-SA' || 
-				   lang === 'en-US';
-		if(flag){
-			$("#main #languages").append($('<option value="'+ lang + '" select>'+v.name+'</option>'))
-		}
-		return flag;
-	});
-	$(document).trigger("nodeInserted",['#languages']);
-	*/
+	
 	const event = new Event('onvoiceloaded');
 	document.dispatchEvent(event);
 };
@@ -278,6 +308,7 @@ function showChart(sel){
 		case "Vocab": path = 'cards.html?data='+name; break;
 		case "Misc": path = name+'.html'; break;
 		case "Chart": path = 'charts.html?folder='+name; break;
+		case "TTS": path = 'tts.html';break;
 		default: console.log('Error: invalid section');	return;
 	}
 	setTimeout(function(){
@@ -316,6 +347,8 @@ function updateToolDescription(id, opt){
 
 	var toolMessage = $("#tool-description");
 	toolMessage.empty();
+	toolMessage.show();
+	$("#psHolder").hide();
 	
 	switch(id){
 		case 'in-search':
@@ -350,11 +383,18 @@ function updateToolDescription(id, opt){
 			toolMessage.html(states.ss_support);
 		}
 		break;
-		
+				
 		case "speech_1": 
 		case "speech_2": 
 		{
 			toolMessage.html(states.speech);
+			if($("#playSections option").length > 0){
+				toolMessage.hide();
+				$("#psHolder").show();
+			}else{
+				$("#psHolder").hide();
+				toolMessage.show();
+			}
 		}
 		break;
 		
@@ -398,7 +438,11 @@ function updateToolDescription(id, opt){
 						"Clock": "clock",
 						"Calendar": "calendar",
 						"Number": "number",
+						"Abjad": "abjad",
 						"Patterns": "patterns"
+					},
+					"TTS" :{
+						"Text-to-Speech": "tts"
 					}
 				};
 				
@@ -409,7 +453,7 @@ function updateToolDescription(id, opt){
 						menu = menu + '<span class="menuitem" onclick="'+value+';">'+key+'</span>';
 					else{
 						var onAction = 'showChart(\''+key+'\')';
-						menu += '<span class="menuitem" onclick="toggleMenu([\'Vocab\',\'Chart\',\'Misc\'],\'sel'+key+'\')">'+
+						menu += '<span class="menuitem" onclick="toggleMenu([\'Vocab\',\'Chart\',\'Misc\',\'TTS\'],\'sel'+key+'\')">'+
 							key+':<select id="sel'+key+'" ' +
 									' onchange="'+onAction+'">';
 						for(const [k,v]of Object.entries(value))
@@ -424,7 +468,7 @@ function updateToolDescription(id, opt){
 				
 				setTimeout(function(){
 					var sel = opt && opt["alpha-selection"] ?  opt["alpha-selection"] : 'selVocab';
-					toggleMenu(['Vocab', 'Chart', 'Misc'], sel);
+					toggleMenu(['Vocab', 'Chart', 'Misc', 'TTS'], sel);
 				},10);
 
 			}else{

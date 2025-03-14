@@ -20,7 +20,7 @@ body, .toolDiv {
 	align-items: center;
 }
 
-.toolSpan {
+#tool-description, .toolSpan {
 	padding-top: 4px;
 	text-align: center;
 	display: flex;

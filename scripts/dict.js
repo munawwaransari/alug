@@ -10,7 +10,7 @@ var dict = {};
 //var formFilters = [];
 //var index1 = ["ا","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م","ن","و","ه","ي"];
 //var index2Suffixes = ["آ","إ","أ","ا","ؤ","و","ئ","ي","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س","ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م","ن","ه"];
-var posAPIObj, cmpAPIObj;
+var posAPIObj, cmpAPIObj, posSearchObj;
 var dState = {};
 var params = { "action": undefined, data: undefined};
 
@@ -19,15 +19,33 @@ window.onload = function(){
 	params["action"] = decodeURI(getParamValue('action'));
 	params["data"] = arRemovePunct(decodeURI(getParamValue('data')));
 	
+	/*
+	setTimeout(function(){
+		posSearchObj = new posSearch(getLocationPath(), function(msg, err){
+			if(err){
+				console.log("Failed to initialize pos search api");
+				return;
+			}
+		});		
+	}, 10);
+	*/
+	
 	posAPIObj = new posAPI(getLocationPath(), function(msg, err){
 		if(err){
 			console.log("Failed to initialize pos api");
 			return;
 		}
 		
-		if(params.action && params.action !== 'cmp'){
-			handleParams();
-		}
+		posSearchObj = new posSearch(getLocationPath(), function(msg, err){
+			if(err){
+				console.log("Failed to initialize pos search api");
+				return;
+			}
+			
+			if(params.action && params.action !== 'cmp'){
+				handleParams();
+			}
+		});			
 	});
 	
 	cmpAPIObj = new cmpAPI(getLocationPath(), function(msg, err){
@@ -54,13 +72,11 @@ window.onload = function(){
 			mappings = data;
 	});
 	 
-	// add index
-	//index1.every(function(key){
-	//  addIndex(key);
-	//  return true;
-	//});
-	//$(".index").append($('<div id="btnindex" class="btnl" onclick="toggleIndex(\'index\')">Collapse</div>'));
-	//toggleIndex('index');
+	$("#wordSearchText").keyup(function(event) {
+		if (event.keyCode === 13) {
+			$("#SearchD").click();
+		}
+	});
 }
 
 function selectAndTrigger(data, filterClass){
@@ -80,6 +96,11 @@ function selectIndexAndTrigger(index, filterClass){
 	$("."+filterClass).trigger('onchange');
 }
 
+function loadWord(txt){
+	$("#wordSearchText").val(txt);
+	analyzeSelectedWord();
+}
+
 function handleParams(){
 	
 	var action = params["action"]; //getParamValue('action');
@@ -87,8 +108,9 @@ function handleParams(){
 		case 'analyze':
 		var word = params["data"]; //getParamValue('data');
 		if(word && word.trim()){
-			$("#wordSearchText").val(word);
-			analyzeSelectedWord();
+			loadWord(word);
+			//$("#wordSearchText").val(word);
+			//analyzeSelectedWord();
 		}
 		break;
 		
@@ -195,6 +217,17 @@ function checkWord(w){
 function analyzeSelectedWord(){
 		
 	var word = $("#wordSearchText").val();
+	
+	//var res = posAPIObj.analyzeWord(word, true);	
+	//posAPIObj.addHtml($(".dictionary"), res, true);
+	
+	posSearchObj.searchAndAddHtml(word, $(".dictionary"));
+}
+
+function analyzeSelectedWordOld(){
+		
+	var word = $("#wordSearchText").val();
+	
 	var res = posAPIObj.analyzeWord(word, true);	
 	posAPIObj.addHtml($(".dictionary"), res, true);
 }
@@ -289,15 +322,6 @@ function searchInQuran(){
 	if(txt !== null && txt !== ''){
 		loadSearch(txt, true);
 	}
-}
-
-function lookupEx(site){
-	var w = parent ? parent.window : window;
-	var lang = parent.getLang ? parent.getLang(): 'en';
-	if(site.includes('$'))
-		site = site.replace('$', lang);
-	var url = site+$("#wordSearchText").val();
-	w.open(url, "_blank");	
 }
 
 function OpenInChatGPT(){

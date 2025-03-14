@@ -87,12 +87,12 @@ function getDeviceType() {
 }
 
 function arRemovePunct(txt){
-	var punctuation = "ًٌٍََُِّْٰ";
-	return txt.replace(new RegExp("["+punctuation+"]+","g"), '')
-				.replace(new RegExp("ٱ", "g"), 'ا')
-				.replace(new RegExp("إ", "g"), 'ا')
-				.replace(new RegExp("أ", "g"), 'ا')
-				.replace(new RegExp("ى", "g"), 'ي');
+	var punctuation = "ًٌٍََُِّْٰۡ";
+	return txt.replaceAll(new RegExp("["+punctuation+"]+","g"), '')
+				.replaceAll(new RegExp("ٱ", "g"), 'ا')
+				.replaceAll(new RegExp("إ", "g"), 'ا')
+				.replaceAll(new RegExp("أ", "g"), 'ا')
+				.replaceAll(new RegExp("ى", "g"), 'ي');
 }
 
 function replaceWord(w){
@@ -108,13 +108,13 @@ function replaceWord(w){
 }
 
 function removePunctuations(w){
-	var punctuation = "ۡۧـۦۥۣۤۢۡ۠۟۞۝ۜۛۚۙۘۗۖە";
-	var text = w.replace(new RegExp("["+punctuation+"]+","g"), '');
-	return text;
+	var punctuation = "ۡۧـۦۥۣۤۢۡ۠ٓ۟۞۝ۜۛۚۙۘۡۗۖەۢ";
+	return w.replaceAll(new RegExp("["+punctuation+"]+","g"), '');
 }
 
-function filterTableRows(table, column, txt, allText){
+function filterTableRows(table, column, searchText, allText){
 	
+	var txt = searchText ?  removeAlPrefix(removePunctuations(searchText)) : searchText;
 	if(txt === allText){
 		$(table + " tr td").show();
 		//$(table + " tr th:nth-child("+column+")").show();
@@ -125,7 +125,7 @@ function filterTableRows(table, column, txt, allText){
 	//var tableRows = $(table + " tr td:nth-child("+column+")");
 	var tableRows = $(table + ' tr td:contains(\''+txt+'\')');
 	tableRows.filter((i, td) => {
-		if($(td).text().startsWith(txt) === false){
+		if($(td).text().trim().startsWith(txt) === false){
 			$(td).parent().children().hide();
 		}else{
 			$(td).parent().children().show();
@@ -182,6 +182,12 @@ function padZero(str, len) {
 	return (zeros + str).slice(-len);
 }
 
+function removeAlPrefix(txt){
+	if(txt.startsWith('ال') && txt.length > 4)
+		return txt.substring(2);
+	return txt;
+}
+
 function removeTimePrefix(txt){
 	if(txt[0] === 'و')
 		return txt.substring(2);
@@ -202,5 +208,65 @@ async function tesseract_imageToText(url, lang, callback){
 function playCard(text, altText){
 	if(parent.playText) {
 		parent.playText(text, 'ar-SA', {'en-US': altText});
+	}
+}
+
+function lookupEx(site, txt, errorText){
+	
+	if(errorText && (txt === undefined || txt === "")){
+		alert(errorText);
+		return;
+	}
+	var  word = txt ?? $("#wordSearchText").val();
+	if (word && word.match(/[\u0621-\u064A]+/g)) {		
+		var w = parent ? parent.window : window;
+		var lang = parent.getLang ? parent.getLang(): 'en';
+		if(site.includes('$'))
+			site = site.replace('$', lang);
+		var url = site+removePunctuations(word);
+		w.open(url, "_blank");
+	}
+	else if(errorText){
+		alert(errorText);
+	}
+}
+
+function lightenWord(word){
+	if(word){
+		word = word.trim();
+		word = word.replace(/ٰ/g, 'ا'); // replace mad harkat with alif
+		word = word.replace(/(ٓ)([^ا|أ|إ|آ])/g,'ا$2');
+		word = removePunctuations(word);
+		word = removeAlPrefix(word);
+		word = word.replace(/ة$/g, '');
+		word = word.replace(/([ًٌٍَُِّْ])/g, ''); //reove Erab
+	}
+	return word;
+}
+
+function analyzeLocal(txt){
+	if(parent && parent.redirect){
+		var word = txt ?? $(".sel-word").text().trim();
+		if(word !== ""){
+			parent.redirect("dict.html", 
+							"analyze", 
+							word);
+		}
+	}
+}
+
+function loadAllVoices(sel, voicesAll ){
+	if(sel && sel.append){
+		var filter = {}, o = '';
+		for(var i = 0; i < voicesAll.length; i++){
+			var lang = voicesAll[i].value.replace(/^([a-z]{2}-[A-Z]{2})(\d+)$/g,'$1')
+			if(lang && filter[lang] === undefined){
+				var value = ' value="'+lang+'" ';
+				o += '<option '+value+'>'+lang+'</option>';
+				filter[lang] = true;
+			}
+		}
+		sel.children().remove().end();
+		sel.append($(o));
 	}
 }

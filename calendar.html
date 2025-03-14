@@ -170,10 +170,22 @@
 			margin: auto;
 		}
 		 
+		@keyframes blink {
+		  0% { opacity: 1; }
+		  50% { opacity: 0.5; }
+		  100% { opacity: 1; }
+		}
+
+		.blink {
+		  animation: blink 1.5s infinite;
+		  font-weight: bold;
+		}
 		</style>
 		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+		<script src="scripts/data-util.js"></script>
+		<script src="scripts/ptimings.js"></script>
 		<script>
-		var calendarType = 'hijri';
+		var calendarType = 'gregorian';
 		var month_days = ['', 'الأوَّل', 'الثاني', 'الثالث', 'الرابع', 'الخامس', 'السادس', 'السابع',
 						  'الثامن', 'التاسع', 'العاشر', 'الحادي عشر', 'الثاني عشر', 'الثالث عشر', 'الرابع عشر',
 						  'الخامس عشر', 'السادس عشر', 'السابع عشر', 'الثامن عشر', 'التاسع عشر', 'العشرين', 'الحادي والعشرون',
@@ -193,7 +205,9 @@
 			return '<b>'+retStr+'</b>';
 		}
 		
+		var last_Date = new Date();
 		function displayDate(date){		
+			last_Date = date;
 			var html = "";
 			if(calendarType === 'gregorian'){
 				html = '<div>'+ 
@@ -248,6 +262,7 @@
 					var selectedMonth = i;
 					return function () {
 						month = selectedMonth;
+						month_hijri = selectedMonth;
 						document.getElementById("curMonth").innerHTML = calendarType === 'gregorian' ?
 							months[month] : 
 							months_islamic[month_hijri];
@@ -314,11 +329,19 @@
 				var d = document.createElement("div");
 				d.id = "calendarday_" + i;
 				d.className = "day sel";
-				if(i == sel_day){
-					d.className += " selected";
+				
+				if(calendarType === 'gregorian'){
+					if(i == sel_day){
+						d.className += " selected";
+					}
+				}else{
+					if((i+1) == sel_day){
+						d.className += " selected";
+					}
 				}
 				d.onclick = (function(){
 					sel_day = parseInt(this.id.substring(12));
+					if(calendarType === 'hijri') sel_day++;
 					loadCalendarDays();
 				});
 				d.innerHTML = calendarType === 'gregorian' ? tmp : translateNumber(tmp);
@@ -332,14 +355,16 @@
 			
 			$(".day.label span").show();
 			$(".day.label br").show();
+			
 			if(calendarType === 'gregorian'){
 				$(".day.label span:nth-child(2)").hide();
 				displayDate(gregorianDate(new Date(year, month, sel_day+1)));
 			}
 			else{
 				$(".day.label span:nth-child(1)").hide();
-				displayDate({ Year: year_hijri, Month: month_hijri, Day: sel_day+1 });
+				displayDate({ Year: year_hijri, Month: month_hijri, Day: sel_day });
 			}
+			onCityChanged();
 		}
 
 		function daysInMonth(month, year)
@@ -430,7 +455,7 @@
 		
 		window.addEventListener('load', function () {
 			$("#cal").val(calendarType);
-			loadCalendar()
+			loadCalendar();
 		});
 		
 		function playCalendarText(txt){
@@ -438,18 +463,42 @@
 				parent.playText(txt, 'ar-SA');
 			}
 		}
+		
+		function onCityChanged(){
+			$("#divPrayTimes").html("Loading prayer times...");
+			var city = $("#txtCity").val();
+			showPrayerTimings($("#divPrayTimes"), calendarType, city);
+			showGreetings();
+		}
+		
+		function showGreetings(){
+			$("#adv").empty();
+			if(calendarType === "hijri"){
+				if(last_Date.Month === 8 && last_Date.Day < 2){
+					$("#adv").html("!! Ramadhan Mubarak !!");
+				}
+				
+				if(last_Date.Month === 9 && last_Date.Day < 2){
+					$("#adv").html("!! Eid -ul- Fitr Mubarak !!");
+				}
+				
+				if(last_Date.Month === 11 && (last_Date.Day === 9 || last_Date.Day === 10)){
+					$("#adv").html("!! Eid -ul- Adhha Mubarak !!");
+				}
+			}
+		}
 		</script>
 	</head>
 	<body style="display:flex;justify-content: center;flex-direction: column;">
-		 <div class="calendar" id="calendar">
+		<div class="calendar" id="calendar">
 			<div class="calendar-btn month-btn" onclick="$('#months').toggle('fast')">
 				<span id="curMonth"></span>
 				<div id="months" class="months dropdown"></div>
 			</div>
 
 			<select id="cal" onchange="loadCalendar()">
-				<option value="gregorian">Gregorian</option>
-				<option value="hijri" select>Hijri</option>
+				<option value="gregorian" select>Gregorian</option>
+				<option value="hijri">Hijri</option>
 			</select>
 			
 			<div class="calendar-btn year-btn" onclick="$('#years').toggle('fast')">
@@ -477,6 +526,20 @@
 		</div>
 		<div class="calenderDisplay">
 			Date here
+		</div>
+		<div id="adv" style="display:flex;flex-direction:row;justify-content:center;margin-bottom:10px;margin-top:10px;font-size:20px;">
+		</div>
+		<div style="display:flex;flex-direction:row;justify-content:center;">
+			<label>&nbsp;&nbsp;City:</label>
+			<input id="txtCity" value="Pune" title="Enter a city name" onchange="onCityChanged()" list="citiyNames"/>
+			<datalist id="citiyNames">
+			  <option value="Pune">Pune</option>
+			  <option value="Mumbai">Mumbai</option>
+			  <option value="Thane">Thane</option>
+			</datalist>
+			<button style="margin-left:4px;" onclick='$("#calendar").toggle()'>&nbsp;ߛ&nbsp;</button>
+		</div>
+		<div id="divPrayTimes" style="display:flex;flex-direction:row;justify-content:center;">
 		</div>
 	</body>
 </html>

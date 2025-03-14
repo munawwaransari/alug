@@ -27,6 +27,17 @@
 		direction: rtl;
 	}
 	
+	.sel-word, .sel-word-en, .sel-word-ur, .sel-word-hi {
+		background-color:#EEEE63;
+	}
+	.word-ar, .word-en, .word-ur, .word-hi {
+		white-space: nowrap;
+	}
+
+	.word-ar:hover, .word-en:hover, .word-ar:hover, .word-hi:hover{
+		background-color:#EEEE63;
+	}
+	
 	.word {
 		color: indigo;
 		direction: rtl;
@@ -51,7 +62,6 @@
 	
 	div,table {
 		width: 100%;
-		rtl: true;
 		text-align: center;
 		margin: 0;
 	}
@@ -131,7 +141,7 @@ input[type="reset"] + input[type="text"]:empty{
 
 input[type="reset"]
 {
-  background-image: url( ../images/cleartxt.png );
+  background-image: url( images/cleartxt.png );
   background-position: center center;
   background-repeat: no-repeat;
   border: none;
@@ -151,16 +161,24 @@ input[type="reset"]
 			<input type="reset" value="" alt="clear" title="Clear" onclick="$('#searchText').val('');"/>
 			<input id="searchText">
 			<button class="dropbtn" id="SearchQ" onclick="search()">الـقُـرآن</button>
+			<span class="dropdown" style="display:inline-block">
+			  <button class="dropdown dropbtn" title="Raed Quran">۞</button>
+			  <div id="qPDF" class="dropdown-content"></div>
+			</span>
 			<button class="dropbtn" onclick="listSurahs()">Surahs</button>
 			<button class="dropbtn" id="filterWord" onclick="filterWords()">Words</button>
 			<button class="dropbtn" id="SearchH" title="Search sunnah.com" onclick="searchHadith()">الحديث</button>
 		</div>
-		<br/>
-		<p style="font-size: 9px;">Powered by <a href='https://quranjs.com/' onclick="window.open(this.href, '_blank'); return false;">QuranJS API</a></p>
 	</div>
-	<div id="qari" style="text-align:center;padding:0px;display:none">
-		<label>Select Qari:</label>
-		<select id="qari-options">
+	<div>
+	<p style="font-size: 9px;">Powered by <a href='https://quranjs.com/' onclick="window.open(this.href, '_blank'); return false;">QuranJS API,</a>&nbsp;&nbsp;
+	<a href='https://www.truemuslims.net'onclick="window.open(this.href, '_blank'); return false;">www.truemuslims.net,</a>&nbsp;&nbsp;
+	<a href='https://everyayah.com/' onclick="window.open(this.href, '_blank'); return false;">everyayah.com,</a>&nbsp;&nbsp;
+	<a href='https://github.com/spa5k/tafsir_api/' onclick="window.open(this.href, '_blank'); return false;">spa5k/tafsir_api</a></p>
+	</div>
+	<div id="qari" style="text-align:center;padding:0px;display:none;margin:auto;">
+		<label>Qari:</label>
+		<select id="qari-options" style="width:100px;">
 			<option value="AbdulSamad_64kbps_QuranExplorer.Com" select>Abdul Basit Abdul Samad</option>
 			<option value="Alafasy_128kbps">Alafasy</option>
 			<option value="Abdurrahmaan_As-Sudais_192kbps">Abdurrahman Al-Saudais</option>
@@ -170,9 +188,30 @@ input[type="reset"]
 			<option value="translations/Makarem_Kabiri_16Kbps">Makreem Kabiri (Farsi)</option>
 			<option value="English/Sahih_Intnl_Ibrahim_Walk_192kbps">Sahih Ibrahim (English)</option>					
 		</select>
-		<br/>
-		<p style="font-size: 9px;">Powered by <a href='https://everyayah.com/' onclick="window.open(this.href, '_blank'); return false;">https://everyayah.com/</a></p>
+		<label>Ayah:</label>
+		<select id="ayah-options"  style="width:44px;"  onchange="search()">
+			<option value="text" select>Text</option>
+			<option value="image">Image</option>
+		</select>
+		<label>Tafsir:</label>
+		<select style="width:100px;" id="tafsir-options" onchange="changeTafsir()">
+			<option value="ur-tafsir-bayan-ul-quran" select>Bayan ul Quran (ur)</option>
+			<option value="ur-tafsir-fe-zalul-quran-syed-qatab">Fi Zial ul Quran (ur)</option>
+			<!-- <option value="ur-tazkirul-quran">Tazkir ul Quran (ur)</option> -->
+			<option value="ur-tafseer-ibn-e-kaseer">Ibn e Kaseer (ur)</option>
+			<option value="en-tafisr-ibn-kathir">Ibn e Kaseer (en)</option>
+			<option value="en-tafsir-ibn-abbas">Ibn e Abbas (en)</option>
+			<option value="en-kashani-tafsir">Kashani (en)</option>
+			<option value="en-al-qushairi-tafsir">Al Quashairi (en)</option>
+			<option value="en-al-jalalayn">Jalalayn (en)</option>
+			<option value="en-tazkirul-quran">Tazkir ul Quran (en)</option>		
+			<option value="en-tafsir-maarif-ul-quran">Maarif ul Quran (en)</option>
+			<option value="kashf-al-asrar-tafsir">Kashf al Asrar (en)</option>					
+			<option value="ar-tafseer-al-qurtubi">Tafsir ul Qurtabi (ar)</option>
+			<option value="ar-tafsir-al-tabari">Tafsir al Tabari (ar)</option>
+		</select>
 	</div>
+	<br/>
 	</td></tr>
 	</table>
 	<div id="searchResult" style="width: 100%;text-align: center;">Loading words of Quran...</div>

@@ -32,7 +32,7 @@ function loadArabicLTTable(csv, key, v1, v2){
 		var w = parent ? parent.window: window;
 		var loc =  getLocationPath(); //w.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
 		var path = encodeURI(loc + 'data/arabiclt/' + csv);
-		loadHtmlData(path, loadTable);
+		loadHtmlData(path, loadCsvTable);
 	}else if(table && table.length > 0){
 		addAsHtmlTable($(".dictionary"), table, table[0].split(","));
 	}else{
@@ -40,7 +40,7 @@ function loadArabicLTTable(csv, key, v1, v2){
 	}
 }
 
-function loadTable(data){
+function loadCsvTable(data, addHtml = true){
 	var table = [];
 	var columns, tableData;
 	if(data.length > 1){
@@ -57,8 +57,11 @@ function loadTable(data){
 			console.log('Error: invalid or unsupported csv data');
 			return false;
 		}
-		addAsHtmlTable($(".dictionary"), tableData, columns);
+		
+		if(addHtml)
+			addAsHtmlTable($(".dictionary"), tableData, columns);
 	}
+	return tableData;
 }
 
 function addAsHtmlTable(container, table, columns){

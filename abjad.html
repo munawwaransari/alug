@@ -1,0 +1,149 @@
+<!--
+	Author: munawwar_ali@yahoo.com
+//-->
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes" />
+	<head>
+		<link rel="shortcut icon" href="#" />
+		<title>Arabic Alphabet System</title>
+		<style>
+			.arabicNumber {
+				text-align: center;
+				margin:auto;
+				width: 360px;
+				padding: 10px;
+				font-size: 30px;
+			}
+			
+			.num-disp{
+				display: flex;
+				flex-wrap: wrap; /* This enables wrapping of flex items */
+				gap: 10px; /* Optional: Adds space between items */
+				float: right;
+				direction: rtl;
+				text-align: center;
+				margin:auto;
+				width: 100%;
+			}
+			
+			.num-box{
+				padding: 10px;
+				font-size: 30px;
+				text-align: center;
+				box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+				width: 100px;
+				cursor: pointer;
+			}
+			
+			.num-disp .num-box:hover {
+				background-color: #84BA38;
+				color: #0707FB;
+				transition: transform 0.6s;
+				transform-style: preserve-3d;
+				box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+			}
+		</style>
+		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+		<script>
+			var abjadNomatch = /[^ابجدهوزحطيكلمنسعفصقرشتثخذضظغ]/g;
+			var abjad = {
+				"ا": 1,
+				"ب": 2,
+				"ج": 3,
+				"د": 4,
+				"ه": 5,
+				"و": 6,
+				"ز": 7,
+				"ح": 8,
+				"ط": 9,
+				"ي": 10,
+				"ك": 20,
+				"ل": 30,
+				"م": 40,
+				"ن": 50,
+				"س": 60,
+				"ع": 70,
+				"ف": 80,
+				"ص": 90,
+				"ق": 10,
+				"ر": 20,
+				"ش": 30,
+				"ت": 40,
+				"ث": 50,
+				"خ": 60,
+				"ذ": 70,
+				"ض": 800,
+				"ظ": 900,
+				"غ": 1000	
+			};
+			
+			window.onload = function(){
+				$("#textInput").val("ابجد")
+				showTextValue();
+				
+				setTimeout(function(){
+					displayNumbers();
+				}, 10);
+			}
+			
+			function showTextValue(){
+				var txt = $("#textInput").val();
+				var value = getNumberValue(txt.replace(abjadNomatch, ''));
+				$("#numberDiv").html(value);
+			}
+			
+			function getNumberValue(txt){
+				return txt.split('').reduce(function(prev, letter){
+					if(prev)
+						return prev + abjad[letter];
+					return abjad[letter];
+				}, 0);
+			}
+			
+			function displayNumbers(byKey=0){
+				$("#numberDisplay").empty();
+				
+				var keys = Object.keys(abjad);
+				if(byKey)
+					keys = keys.sort(); 
+				
+				keys.forEach(function(k){
+					$("#numberDisplay").append(getNumDiv(abjad[k], k));
+				});
+				
+				//for(const [key, val] of Object.entries(abjad)){
+				//	$("#numberDisplay").append(getNumDiv(val, key));
+				//}
+			}
+			
+			function getNumDiv(n, txt){
+					return $('<div class="num-box" onclick="appendTextToInput(\''+txt+'\')">'+n+'<br/>'+txt+'</div>')
+			}
+			
+			function appendTextToInput(txt){
+				var elem = $("#textInput");
+				elem.val(elem.val() + txt);
+				showTextValue();
+			}
+		</script>
+	</head>
+	<body style="display:flex;justify-content: center;flex-direction: column;">
+		<div class="arabicNumber">
+			<label>Check Value:
+			<input id="textInput" 
+				   style="width:100px;font-size:16px;" 
+				   maxlength="6" 
+				   onchange="showTextValue()"/>
+			</label>
+			<button onclick="$('#textInput').val(''); $('#numberDiv').html('');">x</button>
+		</div>
+		<div id="numberDiv" class="arabicNumber" ></div>
+		<br/>
+		<div class="arabicNumber" style="font-size:16px">Sort by 
+		<input type="radio" name="sortOrder" value="0" onclick="displayNumbers(0)"/> Value
+		<input type="radio" name="sortOrder" value="1" onclick="displayNumbers(1)"/> Letter
+		</div>
+		<div id="numberDisplay" class="num-disp" ></div>
+	</body>
+</html>

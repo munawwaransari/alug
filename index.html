@@ -16,7 +16,7 @@
 		<script src="data/topics.js"></script>
 		<script>
 			var langOption = 'en-US';
-			var autoplay = true;
+			var autoplay = false;
 			var menuOption = false;
 			var speech_synthesis_supportd = false;
 			var autoplay_cache = [];
@@ -61,6 +61,15 @@
 				}, 5);
 			}
 			
+			window.playTextAll = function(txt, lang){
+				setPlayLang(lang, true);
+				stopAudio();
+				console.log("lang:" + $("#languages").val());
+			    console.log("playing..."+txt.substring(0, 20)+"...");
+			    $("#text").text(txt);
+			    $("#play").click();
+			}
+			
 			window.playText = function(txt, lang, options){
 			  if(!autoplay) return;
 			  if(lang){
@@ -69,19 +78,18 @@
 					txt = options["en-US"];
 				}
 			    console.log("current lang:" + $("#languages").val());
-			    $("#languages").val(lang);
-			    //setTimeout(function(arg) { window.playText(arg); }, 1);
+				setPlayLang(lang);
 			  }
 			  console.log("lang:" + $("#languages").val());
-				console.log("playing..."+txt);
-				stopAudio();
-				$("#text").text(txt);
-				$("#play").click();
+			  console.log("playing..."+txt.substring(0, 20)+"...");
+			  stopAudio();
+			  $("#text").text(txt);
+			  $("#play").click();
 			}
 			
 			var audio = undefined;
 			window.stopAudio = function(){
-				$("#text").text("");
+				$("#text").text('\u200B');
 				$("#play").click();
 				if(audio){
 				
@@ -90,9 +98,11 @@
 				}
 			}
 			
+			var audio_last_time;
 			window.pauseAudio = function(){
 				if(audio){
 				
+					audio_last_time = audio.currentTime;
 					audio.pause();
 					audio.currentTime = 0;
 				}
@@ -100,7 +110,9 @@
 			
 			window.resumeAudio = function(){
 				if(audio){
-					audio.resume();
+					audio.currentTime = audio_last_time ? audio_last_time : 0;
+					audio.play();
+					//audio.resume();
 				}
 			}
 			
@@ -130,6 +142,32 @@
 				  });
 				}
 			}
+			
+			window.redirect = function(url, action, data){
+				$('.reading-pane').attr("src","");
+				setTimeout(function(){
+					$('.reading-pane').attr('src', encodeURI(getLocationPath()+url+"?action="+action+"&data="+data));
+				}, 5);
+			}
+			
+			window.getAllVoices = function(){
+				return $('#languages option'); 
+			}
+			
+			function setPlayLang(lang, force){
+			
+				var voice = force ? lang : states[lang] ?? lang;
+				$("#languages").val(voice);
+				if($("#languages").val() !== voice){
+					voice = voice.replace("-","_");
+					$("#languages").val(voice);
+					
+					if($("#languages").val() !== voice){
+						return false;
+					}
+				}
+				return true;
+			}
 		</script>
 		</script>
 		<!-- <script src="scripts/chapters.js"></script> -->
@@ -145,11 +183,6 @@
 		<div class="toolDiv">
 			<span class="toolSpan"><b><a target="_blank" href="LICENSE.md">Arabic Language Learning Guide</a></h></b></span>
 			<span class="toolSpan">
-				<select id="playSections"></select>
-				<textarea id="text"></textarea>
-				<button id="play"> Play </button>
-			</span>
-			<span class="toolSpan">
 				<img id="in-search" class="tool" src="images/insearch.png" />
 				<!--<img id="user" class="tool" src="images/user.jpg"/>-->
 				<img id="resources" class="tool" src="images/download.jpg"
@@ -159,8 +192,9 @@
 				<img id="ss-support_1" class="tool" src="images/ss-supported.png"/>
 				<img id="ss-support_2" class="tool" src="images/ss-not-supported.png" style="display:none"/>
 				<img id="hw" class="tool" src="images/hw.png" onclick="loadHandwriting()"/>
-				<img id="speech_1" class="tool" src="images/speech-enabled.png" onclick="toggleAutoplay()"/>
-				<img id="speech_2" class="tool" src="images/speech-disabled.png" onclick="toggleAutoplay()" style="display:none"/>
+				<img id="speech_1" class="tool" src="images/speech-enabled.png" onclick="toggleAutoplay()" style="display:none">
+				</img>
+				<img id="speech_2" class="tool" src="images/speech-disabled.png" onclick="toggleAutoplay()" />
 				<!--
 				<img id="topics_1" class="tool" style="margin-top: 4px;display:none" src="images/menu-enabled.jpg" onclick="toggleMenu()" />
 				<img id="topics_2" class="tool" style="margin-top: 4px;" src="images/menu-disabled.jpg" onclick="toggleMenu()"/>
@@ -170,18 +204,27 @@
 				<img id="dict" class="tool" src="images/dict.jpg" onclick="loadGrammarView()"/>
 				<img id="l-option" class="tool" src="images/languages.png">
 					<div id="l-option-child" style="display:none;padding:0;margin:0">
-						<span style="font-size:16px;">Select Language:</span>
-						<select id="lang-options">
+						<span style="font-size:16px;">Language:</span>
+						<select id="lang-options" onchange="loadVoiceOptions(true, false)">
 							<option value="en-US" select>English</option>
 							<option value="ur-PK">اردو</option>
 							<option value="ar-SA">العربي</option>
 							<option value="hi-IN">हिन्दी</option>
 						</select>
+						<span style="font-size:16px;">&nbsp;&nbsp; Voice:</span>
+						<select id="voice-options" style="width:100px;" onchange="updateVoiceSelection()"></Select>
 					</div>
 				</img>
 			</span>
-			<span class="toolSpan" id="tool-description" style="font-size:16px;"></span>
-			<span class="menu-container" style="display:none;"></span>
+			<span class="toolSpan" style="font-size:16px;">
+				<span id="psHolder" style="display:none">
+					<select id="playSections"></select>
+					<textarea id="text"></textarea>
+					<button id="play"> Play </button>
+				</span>
+				<span id="tool-description"/>
+			</span>
+			<span class="menu-container" style="display:none;font-size:16px;"></span>
 		</div>
 		<iframe class="reading-pane" />
 		</div>
