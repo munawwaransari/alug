@@ -544,7 +544,7 @@ function playQuranChapterUrl(url, id){
 
   	if (last_ch_play_id)
 		stopQuranChapter(last_ch_play_id);
-	$("#"+id+" dropdown-content").hide();
+	$("#"+id+"+.dropdown-content").hide();
 	
 	if(parent && parent.playAudio){
 		
@@ -608,25 +608,24 @@ function getQuranAudioOptions(chapter){
 	});
 	
 	return '<span class="dropdown">'+
-					  '<button id="'+id+'" '+
-							   'class="dropbtn" '+
-							   'style="background-color:#EEEEEE;color:black;">'+
-					   '\u23F5'+ //play
-					   '</button>'+
-					   '<div class="dropdown-content" style="">'+options+'</div>'+
-				'</span>'+
-			   '<button id="'+id+'-pause" '+
-					   'class="dropbtn" '+
-					   'onclick="pauseOrplayQuranChapter(\''+id+'\')" '+
-					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">'+
-			   '\u23F8'+ //pause
-			   '</button>'+
-			   '<button id="'+id+'-stop" '+
-					   'class="dropbtn" '+
-					   'onclick="stopQuranChapter(\''+id+'\')" '+
-					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">'+
-			   '\u23F9'+ // stop
-			   '</button>'+
+				  '<button id="'+id+'" '+
+						   'class="dropbtn" '+
+						   'style="background-color:#EEEEEE;color:black;">'+
+				   '\u23F5'+ //play
+				   '</button>'+
+				   '<div class="dropdown-content" style="">'+options+'</div>'+
+				   '<button id="'+id+'-pause" '+
+						   'class="dropbtn" '+
+						   'onclick="pauseOrplayQuranChapter(\''+id+'\')" '+
+						   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">'+
+				   '\u23F8'+ //pause
+				   '</button>'+
+				   '<button id="'+id+'-stop" '+
+						   'class="dropbtn" '+
+						   'onclick="stopQuranChapter(\''+id+'\')" '+
+						   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">'+
+				   '\u23F9'+ // stop
+				   '</button>'+
 		   '</span>';
 }
 
@@ -825,7 +824,7 @@ function listSurahs(){
 			table += '<tr>'+
 						 '<td>'+tanzilLink+'</td>'+
 						 '<td onclick="searchText(\''+enName+'\')" '+
-							 'class="qword" style="font-szie:13px;">' +
+							 'class="qword" style="max-width:80px;font-szie:14px;">' +
 							 surah.ar+'<br/>'+surah.en.substring(surah.en.indexOf("("))+
 						 '</td>'+
 						 '<td style="font-size:14px;cursor:pointer;"> '+
