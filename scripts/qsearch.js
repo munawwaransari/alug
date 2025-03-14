@@ -541,16 +541,20 @@ function getReferences(){
 
 var last_ch_play_id;
 function playQuranChapterUrl(url, id){
+
   	if (last_ch_play_id)
 		stopQuranChapter(last_ch_play_id);
-	last_ch_play_id = id;
-
+	$("#"+id+" dropdown-content").hide();
+	
 	if(parent && parent.playAudio){
+		
+		last_ch_play_id = id;
 		
 		var pauseBtn = $("#"+id+"-pause");
 		pauseBtn.show();
 		$("#"+id+"-stop").show();
-	
+		$("#"+id).hide();
+		
 		parent.playAudio(url, function(action){		
 			if(action == "pause"){
 				pauseBtn.html(pauseBtn.html() === '\u23F8' ? '\u23EF' : '\u23F8');
@@ -585,6 +589,7 @@ function stopQuranChapter(id){
 		$("#"+id+"-pause").hide();
 		$("#"+id+"-stop").hide();
 	}
+	$("#"+id).show();
 }
 
 
