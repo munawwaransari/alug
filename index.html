@@ -98,9 +98,11 @@
 				}
 			}
 			
+			var audio_last_time;
 			window.pauseAudio = function(){
 				if(audio){
 				
+					audio_last_time = audio.currentTime;
 					audio.pause();
 					audio.currentTime = 0;
 				}
@@ -108,7 +110,9 @@
 			
 			window.resumeAudio = function(){
 				if(audio){
-					audio.resume();
+					audio.currentTime = audio_last_time ? audio_last_time : 0;
+					audio.play();
+					//audio.resume();
 				}
 			}
 			

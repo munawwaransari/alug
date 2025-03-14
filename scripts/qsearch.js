@@ -539,6 +539,55 @@ function getReferences(){
 	}
 }
 
+var last_ch_play_id;
+function playQuranChapterUrl(url, id){
+  	if (last_ch_play_id)
+		stopQuranChapter(last_ch_play_id);
+	last_ch_play_id = id;
+
+	if(parent && parent.playAudio){
+		
+		var pauseBtn = $("#"+id+"-pause");
+		pauseBtn.show();
+		$("#"+id+"-stop").show();
+	
+		parent.playAudio(url, function(action){		
+			if(action == "pause"){
+				pauseBtn.html(pauseBtn.html() === '\u23F8' ? '\u23EF' : '\u23F8');
+			}
+			else if(action == "ended"){
+				stopQuranChapter(id);
+				last_ch_play_id = undefined;
+			}
+		});
+	}	
+}
+
+function pauseOrplayQuranChapter(id){
+
+	if(parent && parent.pauseAudio && parent.resumeAudio){
+		
+		var pauseBtn = $("#"+id+"-pause");
+		if(pauseBtn.html() === "\u23EF"){ // resume
+			parent.resumeAudio();
+			pauseBtn.html('\u23F8'); //pause			
+		}else{
+			parent.pauseAudio();
+		} 
+	}
+}
+
+function stopQuranChapter(id){
+
+	if(parent && parent.stopAudio){
+		parent.stopAudio();
+
+		$("#"+id+"-pause").hide();
+		$("#"+id+"-stop").hide();
+	}
+}
+
+
 //https://www.truemuslims.net
 function getQuranAudioOptions(chapter){
 	
@@ -549,17 +598,30 @@ function getQuranAudioOptions(chapter){
 	languages.forEach(function(lang){
 		var ch = chapter > 99 ? chapter : chapter > 9 ? "0"+chapter : "00"+chapter; 
 		var url = encodeURI('https://www.truemuslims.net/Quran/'+lang+'/'+ch+'.mp3');
-		options += '<p onclick="playChapterUrl(\''+url+'\',\''+id+'\')">'+lang+'</p>';
+		options += '<p onclick="playQuranChapterUrl(\''+url+'\',\''+id+'\')">'+lang+'</p>';
 		return true;
 	});
 	
 	return '<span class="dropdown">'+
 					  '<button id="'+id+'" '+
 							   'class="dropbtn" '+
-							   'onclick="stopPlayChapter(\''+id+'\')" '+
 							   'style="background-color:#EEEEEE;color:black;">'+
-						'&#9835;</button>'+
-					  '<div class="dropdown-content" style="">'+options+'</div>'+
+					   '\u23F5'+ //play
+					   '</button>'+
+					   '<div class="dropdown-content" style="">'+options+'</div>'+
+				'</span>'+
+			   '<button id="'+id+'-pause" '+
+					   'class="dropbtn" '+
+					   'onclick="pauseOrplayQuranChapter(\''+id+'\')" '+
+					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">'+
+			   '\u23F8'+ //pause
+			   '</button>'+
+			   '<button id="'+id+'-stop" '+
+					   'class="dropbtn" '+
+					   'onclick="stopQuranChapter(\''+id+'\')" '+
+					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">'+
+			   '\u23F9'+ // stop
+			   '</button>'+
 		   '</span>';
 }
 
@@ -742,7 +804,9 @@ function listSurahs(){
 		surah_list = data;
 		var div = $("#searchResult");
 		div.empty();
-		var table = '<table class="surahIndex"><th>#</th><th>Surah</th><th>Qirat</th><th>Tafsir</th>';
+		var table = '<table style="max-width:512px;margin:auto;" '+
+						   'class="surahIndex">'+
+						   '<th>#</th><th>Surah</th><th>Qirat</th><th>Tafsir</th>';
 		for (const [index, surah] of Object.entries(data)) {
 			var tanzilLink = '<a style="cursor:pointer;font-size:18px" href="https://tanzil.net/#'+index+'" '+
 				 'onclick="var w = parent ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+index+'</a>';
@@ -908,13 +972,6 @@ function updateLang(url){
 	return encodeURI("https://glosbe.com/ar/"+lang+"/"+current_lang[1]);
 }
 
-var last_ch_play_id;
-function stopPlayChapter(id){
-	$("#"+id).html('&#9835;');
-	if(parent && parent.stopAudio)
-		parent.stopAudio();
-}
-
 function openQuranPdf(url){
 	
 	var w= parent? parent.window:window;
@@ -924,22 +981,6 @@ function openQuranPdf(url){
 	//if(parent && parent.openInline){
 	//	parent.openInline(url);
 	//}		
-}
-
-function playChapterUrl(url, id){
-  	if (last_ch_play_id)
-		stopPlayChapter(last_ch_play_id);
-	last_ch_play_id = id;
-		
-	if(parent && parent.playAudio){
-		$("#"+id).html('||');
-		parent.playAudio(url, function(action){		
-			if(action == "pause" || action == "ended"){
-				stopPlayChapter(id);
-				last_ch_play_id = undefined;
-			}
-		});
-	}	
 }
 
 function playVerse(url, verseKey, cb){
