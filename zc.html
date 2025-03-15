@@ -232,16 +232,34 @@
 				if(isNaN(sum))
 					$("#payableZakat").text(" - Error in input");
 				else
-					$("#payableZakat").text("  payable = "+(sum > 0 ? sum.toFixed(2) : '0.00'));
+					$("#payableZakat").text("  = "+(sum > 0 ? sum.toFixed(2) : '0.00'));
+			}
+		}
+		
+		function resetFields(){
+			if(confirm("Are you sure ? ")){
+				var fields = $("td input");
+				if(fields.length > 0){
+					for(var count =0; count < fields.length; count++){
+						$(fields[count]).val(0);
+						$(fields[count]).trigger("change");
+					}
+				}
 			}
 		}
 		</script>
 	</head>
 	<body>
-		<p>Refernce: <a href="https://archive.org/download/IslamicData/islamic%20data.zip/zakat_calc.xls">Zakat Calculator V2005</a></p>
+		<div>
+			<span>Refernce: <a href="https://archive.org/download/IslamicData/islamic%20data.zip/zakat_calc.xls"
+					onclick="var w = parent ? parent.window ? window; w.open(this.href, '_blank');"
+					>Zakat Calculator V2005</a>
+			</span>
+		</div>
 		<div id="container" style="display:flex;justify-content: center;flex-direction: column;width:100%;">
-			<div>
-				<span class="z-title" style="font-size:24px">Total Payable Zakat:</span><B><span id="payableZakat"></span></B>
+			<div style="font-size:24px">
+				<span><button onclick="resetFields()">Reset</button></span>
+				<span class="z-title">Total Payable Zakat:</span><B><span id="payableZakat"></span></B>
 			</div>
 		</div>
 	</body>
