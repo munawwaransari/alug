@@ -1,0 +1,199 @@
+{
+    "ZakatHeads": [
+		{
+			"section": "Genral Liabilities (Deductions)",
+			"values": [
+			{
+				"name": "Direct Payables/Liabilities",
+				"entries": [
+					"LESS: Loans taken from Friends/Relatives",
+					"LESS: Loans from Banks/Institutions",
+					"LESS: Income/Wealth Tax Payable"
+				],
+				"rates": [
+					2.5
+                ],
+				"input": [
+					"Actual Value"
+				],
+				"output": "+"
+			}]
+		},
+		{
+            "section": "Zakat on Jewelry and Precious Stones",
+            "values": [
+                {
+                    "name": "GOLD (2.5%)",
+                    "entries": [
+                        "24 Carat Gold/Jewelry",
+                        "22 Carat Gold/Jewelery",
+                        "18 Carat Gold/Jewelry",
+                        "Other Gold Valuables"
+                    ],
+                    "rates": [
+                        2.5
+                    ],
+                    "input": [
+                        "Weight (gms)",
+                        "Price/gm"
+                    ],
+                    "output": "*"
+                },
+                {
+                    "name": "SILVER (2.5%)",
+                    "entries": [
+                        "Silver/Jewelery"
+                    ],
+                    "rates": [
+                        2.5
+                    ],
+                    "input": [
+                        "Weight (gms)",
+                        "Price/gm"
+                    ],
+                    "output": "*"
+                },
+                {
+                    "name": "PRECIOUS STONES (2.5%)",
+                    "entries": [
+                        "Diamonds, Rubies, Etc"
+                    ],
+                    "rates": [
+                        2.5
+                    ],
+                    "input": [
+                        "Net Market Value"
+                    ],
+                    "output": "+"
+                }
+            ]
+        },
+        {
+            "section": "Zakat on Cash / Investment / Wealth",
+            "values": [
+                {
+                    "name": "Cash in Hand/Bank (2.5%)",
+                    "entries": [
+                        "Cash in hand",
+                        "Cash in Saving Account",
+                        "Cash in Current Account",
+                        "Cash in Fixed Deposits"
+                    ],
+                    "rates": [
+                        2.5
+                    ],
+                    "input": [
+                        "Actual Value"
+                    ],
+                    "output": "+"
+                },
+                {
+                    "name": "Zakat on Loans/Investments/Funds (2.5%)",
+                    "entries": [
+                        "Cash Loans received",
+                        "PF Contributions to date",
+                        "Insurance Premiums to date",
+                        "Value of Stocks/Dividents",
+                        "Investment in Security Deposits",
+                        "Investment in Private Chits/Funds",
+                        "Other sources of Wealth"
+                    ],
+                    "rates": [
+                        2.5
+                    ],
+                    "input": [
+                        "Actual Value"
+                    ],
+                    "output": "+"
+                },
+                {
+                    "name": "Zakat on Land/Property",
+                    "entries": [
+                        "Landed Property held as an Investment/Business",
+                        "Rentals Coming from Property (after deducting expenses)"
+                    ],
+                    "rates": [
+                        2.5
+                    ],
+                    "input": [
+                        "Estimated Value"
+                    ],
+                    "output": "+"
+                }
+            ]
+        },
+        {
+            "section": "Zakat on Business/Stocks/Partnership",
+            "values": [
+                {
+                    "name": "Zakat on Business/Stock-in-Trade (2.5%)",
+                    "entries": [
+                        "Value of Saleable Stock",
+                        "Value of Damaged / Dead Stock",
+                        "Amount Receivable from Credit Sales",
+                        "LESS: Amount Payable to Suppliers",
+                        "LESS: Bad Debts"
+                    ],
+					"rates": [
+                        2.5
+                    ],
+                    "input": [
+                        "Estimated Value"
+                    ],
+                    "output": "+"
+                },
+				{
+                    "name": "Zakat on Share in Partnership Firms (2.5%)",
+                    "entries": [
+						"Capital Balance as per Last balance Sheet",
+						"Loans Advanced by you to the Firm as of Date",
+						"Accumulated Profit from the date of Balance Sheet to this Date",
+						"LESS:  Withdrawals made by you during the current Year"
+                    ],
+					"rates": [
+                        2.5
+                    ],
+                    "input": [
+                        "Estimated Value"
+                    ],
+                    "output": "+"
+                }
+            ]
+        },
+		{
+            "section": "Zakat on Agriculture/Poultry/Farming",
+            "values": [
+                {
+                    "name": "Zakat on Agricultural Produce (crop) [Value or Kind] (10%, 7.5%, 5%)",
+                    "entries": [
+                        "Produce dependent on Rain Water - @ 10%",
+						"Produce totally dependent on Artificial Irrigation @ 5%",
+						"Produce dependent partially on Rain Water and Partially on Artificial Irrigation @ 7.5%"
+                    ],
+					"rates": [
+                        10.0,
+						7.5,
+						5.0
+                    ],
+                    "input": [
+                        "Value of Produce"
+                    ],
+                    "output": "+"
+                },
+				{
+                    "name": "Zakat on Animals, Poultry & Fish Farming",
+                    "entries": [
+                        "Animals/ Birds more than 6 months Old -  @ 1 Animal or Bird PER 40 either in Kind or Value thereof."
+                    ],
+					"rates": [
+                        2.5
+                    ],
+                    "input": [
+                        "Estimated Value"
+                    ],
+                    "output": "+"
+                }
+            ]
+        }
+    ]
+}

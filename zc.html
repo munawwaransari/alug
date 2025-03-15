@@ -1,0 +1,248 @@
+<!--
+	Author: munawwar_ali@yahoo.com
+//-->
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes" />
+    <link rel="shortcut icon" href="#" />
+	<link rel="stylesheet" type="text/css" href="styles/tree.css" media="screen">
+	<head>
+		<title>Zakat Calculator</title>
+		<link rel="shortcut icon" href="#" />
+		<style>
+		
+		.z-title {
+			color:#08233C;
+			font-weight: bold;
+			text-decoration-line: underline;
+			padding: 4px;
+			padding-top:10px;
+		}
+	
+		.z-section{
+			list-style-type: none;
+			font-size: 16px!important;
+			padding: 4px;
+			margin: 0;
+		}
+		
+		.nested {
+			background-color: white;
+		}
+		.z-section > li {
+			background-color:#D8EECE;
+		}
+		
+		.z-section > li, .caret::before {
+			background-color: #D8EECE;
+			color:#092A49;
+			font-weight: bold;
+		}
+		
+		.estimated {
+			style="border-style: solid;
+			border-width:1px;
+			background-color:#EEEEEE;
+		}
+		
+		td > input {
+			max-width: 100px;
+		}
+		
+		</style>
+		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+		<script src="scripts/data-util.js"></script>
+		<script>
+		var calc = {}, calcCounter = 0;
+		window.addEventListener('load', function () {
+			//Load data
+			loadJsonData(getLocationPath() + 'data/za.json', function(data){
+				if(data && data["ZakatHeads"]){
+					loadZakatTables(data);
+					enableTreeview();
+				}
+			});
+		});
+		
+		function enableTreeview(){
+			var toggler = document.getElementsByClassName("caret");
+			for (var i = 0; i < toggler.length; i++) {
+				toggler[i].addEventListener("click", function() {
+					this.parentElement.querySelector(".nested").classList.toggle("active");
+					this.classList.toggle("caret-down");
+				});
+			}
+		}
+		function loadZakatTables(data){
+			var sections = data["ZakatHeads"];
+			var secCount = 0;
+			sections.every(function(s){
+				secCount++;
+				var style = s.section.includes('(Deductions)') ? ' style="color:red" ' : '';
+				var sec = '<secton>'+
+						  '<div class="z-title">'+
+							'<span '+style+'>'+s.section+'</span>'+
+							'<span id="sec'+secCount+'" style="margin-left:20px;text-decoration:none!important;"></span>'+
+						  '</div>'+
+						  getSectionElements(s.values, secCount)+
+						  '</secton>';
+				$("body").append($(sec));
+				return true;
+			});
+		}
+		
+		function getSectionElements(values, scount){
+			var subSections = '';
+			var subSectionCount = 0;
+			values.every(function(val){
+				subSectionCount++;
+				subSections += '<ul class="z-section"><li>'+
+							   '<span class="caret">'+val.name+'</span>'+
+							   '<span id="subSec'+subSectionCount+'" style="margin-left:20px;"></span>'+
+							   getSubSectionElements(val, scount, subSectionCount)+
+							   '</li></ul>';
+				return true;
+			});
+			return subSections;
+		}
+		
+		function getSubSectionElements(values, scount, subSecCount){
+			var table = '<table class="nested">';
+
+			//Add headers
+			table += '<tr><td></td>';
+			if(values.input && values.input.length > 0){
+				values.input.every(function(inp){
+					table += '<td>'+inp+'</td>';
+					return true;
+				});
+				table += '<td>Estimated Zakat</td>';
+			}
+			table += '</tr>';
+
+			if(values.entries && values.entries.length > 0){
+				var eIndex = 0;
+				values.entries.every(function(ent){
+					
+					calc[ent] = {  
+						"parent": values.name, 
+						"op": values.output, 
+						"inputs": [], 
+						"factors": [], 
+						"rate": eIndex < values.rates.length ? values.rates[eIndex] : values.rates[0], 
+						"output": 0 
+					};
+					eIndex++;
+					
+					table += '<tr style="align:center;">';
+					var isNegative = ent.startsWith('LESS: ');
+					var style1 = isNegative ? 'max-width:250px;color:red;': 'max-width:250px;';
+					table += '<td style="'+style1+'">'+ent+'</td>';
+					
+					calcCounter++;
+					if(values.input && values.input.length > 0){
+						var icount= 0;
+						var style2 = isNegative ? ' style="color:red;" ': '';
+						values.input.every(function(inp){
+							table += '<td><input class="inp'+calcCounter+'" '+ style2 +
+										'value="0" '+
+										'onchange="recalculateChange(\''+ent+'\', '+calcCounter+','+subSecCount+','+scount+')" />'+
+									 '</td>';
+							// add default value
+							calc[ent].inputs.push(0);
+							calc[ent].factors.push(isNegative ? -1 : 1);
+							return true;
+						});
+						table += '<td '+style2+' class="estimated sec'+scount+' subSec'+subSecCount+'" id="calc'+calcCounter+'">0</td>';
+					}
+					table += '</tr>';
+					return true;
+				});
+			}
+			table += '</table>';
+			return table;
+		}
+		
+		function recalculateChange(key, num, subSecCount, secCount){
+			if(calc[key] && calc[key].op){
+				// update calc
+				var inputs = $(".inp"+num);
+				if(inputs.length > 0){
+					var icount = 0;
+					for(var icount =0; icount < inputs.length; icount++){
+						calc[key].inputs[icount] = parseFloat($(inputs[icount]).val());
+					}
+				
+					var icounter = 0;
+					var op = calc[key].op;
+					const aggregation = calc[key].inputs.reduce(
+						function(accumulator, currentValue, index){
+							var factors = currentValue * calc[key].factors[index];
+							return (op === "*") ? 
+								accumulator *  factors: 
+								accumulator + factors;
+						},
+						op === "*" ? 1 : 0,
+					);
+					
+					var payable = (aggregation * calc[key].rate / 100.0).toFixed(2);
+					calc[key].output = payable;
+					$("#calc"+num).text(payable);
+					
+					summariseSubSections(secCount, subSecCount);
+					summariseSubSections(secCount);
+					summariseSubSections();
+				}
+			}
+		}
+		
+		function summariseSubSections(secCount, subSecCount){
+			var idClasses = ".estimated";
+			if(secCount)
+				idClasses+= ".sec"+secCount;
+			if(subSecCount)
+				idClasses+= ".subSec"+subSecCount;
+				
+			var count = 0, sum = 0;
+			var subSections = $(idClasses);
+			if(subSections.length > 0){
+				for(var count =0; count < subSections.length; count++){
+					sum += parseFloat($(subSections[count]).text());
+				}
+			}		
+			
+			if(secCount || subSecCount){
+				var s = "";
+				if(isNaN(sum)){
+					s = " - Error in input";
+					if(secCount)
+						$("#sec"+secCount).text(s);
+					if(subSecCount)
+						$("#subSec"+ subSecCount).text(s);
+				}
+				else{
+					var s = "  Payable = "+(sum > 0 ? sum.toFixed(2) : 0);
+					if(secCount)
+						$("#sec"+secCount).text(s);
+					if(subSecCount)
+						$("#subSec"+ subSecCount).text(s);
+				}
+			}
+			else{
+				if(isNaN(sum))
+					$("#payableZakat").text(" - Error in input");
+				else
+					$("#payableZakat").text("  payable = "+(sum > 0 ? sum.toFixed(2) : '0.00'));
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<p>Refernce: <a href="https://archive.org/download/IslamicData/islamic%20data.zip/zakat_calc.xls">Zakat Calculator V2005</a></p>
+		<div id="container" style="display:flex;justify-content: center;flex-direction: column;width:100%;">
+			<div>
+				<span class="z-title" style="font-size:24px">Total Payable Zakat:</span><B><span id="payableZakat"></span></B>
+			</div>
+		</div>
+	</body>
+</html>
