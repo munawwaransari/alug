@@ -10,18 +10,31 @@
 		<title>Zakat Calculator</title>
 		<link rel="shortcut icon" href="#" />
 		<style>
+		body {
+			font-size: 14px;
+		}
+		
+		.v-message {
+			background-color: #F8FF9C;
+			padding: 2px;
+			margin-top: 4px;
+		}
 		
 		.z-title {
 			color:#08233C;
+			font-size: 14px;
 			font-weight: bold;
 			text-decoration-line: underline;
 			padding: 4px;
 			padding-top:10px;
 		}
-	
+		
+		.caret, table {
+			font-size: 14px;
+		}
+		
 		.z-section{
 			list-style-type: none;
-			font-size: 16px!important;
 			padding: 4px;
 			margin: 0;
 		}
@@ -48,18 +61,20 @@
 		td > input {
 			max-width: 100px;
 		}
-		
 		</style>
 		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
 		<script src="scripts/data-util.js"></script>
 		<script>
 		var calc = {}, calcCounter = 0;
 		window.addEventListener('load', function () {
+			toggleMessage(false);
 			//Load data
 			loadJsonData(getLocationPath() + 'data/za.json', function(data){
 				if(data && data["ZakatHeads"]){
 					loadZakatTables(data);
 					enableTreeview();
+					resetSections(true);
+					expandSections();
 				}
 			});
 		});
@@ -81,32 +96,32 @@
 				var style = s.section.includes('(Deductions)') ? ' style="color:red" ' : '';
 				var sec = '<secton>'+
 						  '<div class="z-title">'+
-							'<span '+style+'>'+s.section+'</span>'+
-							'<span id="sec'+secCount+'" style="margin-left:20px;text-decoration:none!important;"></span>'+
+							'<span>'+s.section+'</span>'+
+							(style==='' ? '<span id="sec'+secCount+'" style="margin-left:20px;text-decoration:none!important;"></span>' : '')+
 						  '</div>'+
-						  getSectionElements(s.values, secCount)+
+						  getSectionElements(s.values, secCount, style)+
 						  '</secton>';
 				$("body").append($(sec));
 				return true;
 			});
 		}
 		
-		function getSectionElements(values, scount){
+		function getSectionElements(values, scount, st){
 			var subSections = '';
 			var subSectionCount = 0;
 			values.every(function(val){
 				subSectionCount++;
 				subSections += '<ul class="z-section"><li>'+
-							   '<span class="caret">'+val.name+'</span>'+
-							   '<span id="subSec'+subSectionCount+'" style="margin-left:20px;"></span>'+
-							   getSubSectionElements(val, scount, subSectionCount)+
+							   '<span class="caret" '+st+'>'+val.name+'</span>'+
+							   (st == '' ? '<span id="subSec'+subSectionCount+'" style="margin-left:20px;"></span>':'')+
+							   getSubSectionElements(val, scount, subSectionCount, st)+
 							   '</li></ul>';
 				return true;
 			});
 			return subSections;
 		}
 		
-		function getSubSectionElements(values, scount, subSecCount){
+		function getSubSectionElements(values, scount, subSecCount, st){
 			var table = '<table class="nested">';
 
 			//Add headers
@@ -116,7 +131,7 @@
 					table += '<td>'+inp+'</td>';
 					return true;
 				});
-				table += '<td>Estimated Zakat</td>';
+				table += st === '' ? '<td>Estimated Zakat</td>' : '<td>Estimated</td>';;
 			}
 			table += '</tr>';
 
@@ -214,13 +229,14 @@
 			if(secCount || subSecCount){
 				var s = "";
 				if(isNaN(sum)){
-					s = " - Error in input";
+					toggleMessage(true, "Error: Please check the input fields for error!");
 					if(secCount)
-						$("#sec"+secCount).text(s);
+						$("#sec"+secCount).text("-");
 					if(subSecCount)
-						$("#subSec"+ subSecCount).text(s);
+						$("#subSec"+ subSecCount).text("-");
 				}
 				else{
+					toggleMessage(false);
 					var s = "  Payable = "+(sum > 0 ? sum.toFixed(2) : 0);
 					if(secCount)
 						$("#sec"+secCount).text(s);
@@ -229,15 +245,19 @@
 				}
 			}
 			else{
-				if(isNaN(sum))
-					$("#payableZakat").text(" - Error in input");
-				else
+				if(isNaN(sum)){
+					toggleMessage(true, "Error: Please check the input fields for error!");
+					$("#payableZakat").text(" - ");
+				}
+				else{
 					$("#payableZakat").text("  = "+(sum > 0 ? sum.toFixed(2) : '0.00'));
+					toggleMessage(false);
+				}
 			}
 		}
 		
-		function resetFields(){
-			if(confirm("Are you sure ? ")){
+		function resetSections(force){
+			if(force || confirm("Are you sure ? ")){
 				var fields = $("td input");
 				if(fields.length > 0){
 					for(var count =0; count < fields.length; count++){
@@ -247,19 +267,38 @@
 				}
 			}
 		}
+		
+		function toggleMessage(state, message=''){
+			$("#v-msg").html(message);
+			state ? $(".v-message").show() : $(".v-message").hide();
+		}
+		function collapseSections(){
+			$(".caret").removeClass("caret-down");
+			$(".nested").removeClass("active");
+		}
+		
+		function expandSections(){
+			$(".caret").addClass("caret-down");
+			$(".nested").addClass("active");
+		}
 		</script>
 	</head>
 	<body>
-		<div>
-			<span>Refernce: <a href="https://archive.org/download/IslamicData/islamic%20data.zip/zakat_calc.xls"
+		<div style="margin-left:4px;">
+			<button style="cursor:pointer;background-color:#568F65;color:#F8FFD4;" onclick="resetSections()">Reset</button>
+			<button style="cursor:pointer;background-color:#568F65;color:#F8FFD4;" onclick="expandSections()">Expand</button>
+			<button style="cursor:pointer;background-color:#568F65;color:#F8FFD4;" onclick="collapseSections()">Collapse</button>
+			<span style="float:right;font-size:12px;">Refernce: <a href="https://archive.org/download/IslamicData/islamic%20data.zip/zakat_calc.xls"
 					onclick="var w = parent ? parent.window ? window; w.open(this.href, '_blank');"
 					>Zakat Calculator V2005</a>
 			</span>
 		</div>
 		<div id="container" style="display:flex;justify-content: center;flex-direction: column;width:100%;">
-			<div style="font-size:24px">
-				<span><button onclick="resetFields()">Reset</button></span>
-				<span class="z-title">Total Payable Zakat:</span><B><span id="payableZakat"></span></B>
+			<div class="v-message">
+				<span id="v-msg"></span>
+				<span style="float:right;font-size:8px;cursor:pointer;padding:0;" onclick="$(this).parent().toggle()">❌</span></div>
+			<div style="font-size:20x;margin-top: 4px;">
+				<span class="z-title">Total Payable Zakat:</span><B><span style="font-size:16px;" id="payableZakat"></span></B>
 			</div>
 		</div>
 	</body>
