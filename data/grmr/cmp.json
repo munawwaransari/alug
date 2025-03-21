@@ -1,34 +1,34 @@
 [
-	{
+    {
         "topics": [
             "علاماتُ التَّشكِيل",
             "إعراب"
         ],
-		"notes": null,
+        "notes": null,
         "ar": [
             "تعريف",
-			"استعمال",
-			"مِثال"
+            "استعمال",
+            "مِثال"
         ],
         "en": [
             "Definition",
-			"Usage",
-			"Example"
+            "Usage",
+            "Example"
         ],
         "features": {
             "علاماتُ التَّشكِيل": [
                 "<b>علاماتُ التَّشكِيل </b>are optionallly used on any letter of a word to indicate its correct pronunciation<br/><b> ضَمَّة ( ُ )، فَتَحَة ( َ )، كَسَرَة ( ِ )،<br/> سُكُون ( ْ )، شَدَّة ( ّ )،مَدَّة (~)،</b>",
-				"optional and used on any letter except last letter of a word<br/><br/>",
-				"زَيْد --> letters ز and ي have diacritics <br/>فَتَحة and سُكُون respectively <br/><br/>يَضْرِبْ --> letter ب is having سُكُون as erab <br/>making it مَجزُوم<br/>"
+                "optional and used on any letter except last letter of a word<br/><br/>",
+                "زَيْد --> letters ز and ي have diacritics <br/>فَتَحة and سُكُون respectively <br/><br/>يَضْرِبْ --> letter ب is having سُكُون as erab <br/>making it مَجزُوم<br/>"
             ],
             "إعراب": [
                 "<b>إعراب </b>are used as grammatical notions on nouns and verbs to identify cases and states. <br/><b>Noun --> رَفع ( ُ )، نَصب ( َ )،<br/> جر ( ِ )، تنوِين( ٌ/ ٍ/ ً)<br/>Verbs --> رَفع ( ُ )، نَصب ( َ )، جزم ( ْ )</b>",
-				"used on last letter of the noun, and for verbs it is fixed for each pattern",
-				"زَيدٌ --> letter د has تَنوِين as erab <br/>(indicating nominative case) <br/><br/>كِتَابُ اللهِ --> letter ب has ضَمَّة as erab <br/>(its tanween removed)<br/>and letter ه has كَسَرَة as erab <br/>(indicatin possesive noun)<br/>"
+                "used on last letter of the noun, and for verbs it is fixed for each pattern",
+                "زَيدٌ --> letter د has تَنوِين as erab <br/>(indicating nominative case) <br/><br/>كِتَابُ اللهِ --> letter ب has ضَمَّة as erab <br/>(its tanween removed)<br/>and letter ه has كَسَرَة as erab <br/>(indicatin possesive noun)<br/>"
             ]
         }
     },
-	{
+    {
         "topics": [
             "همزة القطع",
             "همزة الوصل"
@@ -68,11 +68,11 @@
             ]
         }
     },
-		{
+    {
         "topics": [
-           "واؤ العطف",
-           "واؤ المعِيَّة",
-           "واؤ الحال"
+            "واؤ العطف",
+            "واؤ المعِيَّة",
+            "واؤ الحال"
         ],
         "ar": [
             "تعريف",
@@ -85,19 +85,19 @@
         "features": {
             "واؤ العطف": [
                 "and (conjunction)",
-				"إِنَّا أَرْسَلْنَاكَ شَاهِدًا وَمُبَشِّرًا وَنَذِيرًا [33:45]<br/><br/>فَضْلًا مِّنَ اللَّهِ وَنِعْمَةً [49:8]"
+                "إِنَّا أَرْسَلْنَاكَ شَاهِدًا وَمُبَشِّرًا وَنَذِيرًا [33:45]<br/><br/>فَضْلًا مِّنَ اللَّهِ وَنِعْمَةً [49:8]"
             ],
             "واؤ المعِيَّة": [
                 "at the same time (acting as Subject)",
-				"ضَحَكَ وَ زَيدًا<br/>He laughed and (so did) Zaid"
+                "ضَحَكَ وَ زَيدًا<br/>He laughed and (so did) Zaid"
             ],
-			"واؤ الحال": [
+            "واؤ الحال": [
                 "while (adverb)",
-				"اقْتَرَبَ لِلنَّاسِ حِسَابُهُمْ وَهُمْ فِي غَفْلَةٍ مُّعْرِضُونَ [21:1]<br/><br/>جَاءَ الطِّفلُ وَ هُوَ يَبكِي"
+                "اقْتَرَبَ لِلنَّاسِ حِسَابُهُمْ وَهُمْ فِي غَفْلَةٍ مُّعْرِضُونَ [21:1]<br/><br/>جَاءَ الطِّفلُ وَ هُوَ يَبكِي"
             ]
         }
     },
-		{
+    {
         "topics": [
             "النِّداء",
             "ترخِيم"
@@ -129,12 +129,12 @@
             ]
         }
     },
-	{
+    {
         "topics": [
             "إذ",
             "إذا"
         ],
-		"notes": "(in that case) is adevrb of time إِذًا / إذَن<br/>إِنَّكَ إِذًا لَّمِنَ الظَّالِمِينَ [2:145]",
+        "notes": "(in that case) is adevrb of time إِذًا / إذَن<br/>إِنَّكَ إِذًا لَّمِنَ الظَّالِمِينَ [2:145]",
         "ar": [
             "تعريف",
             "بناء",
@@ -143,54 +143,54 @@
         "en": [
             "Definition",
             "Construct",
-			"Example"
+            "Example"
         ],
         "features": {
             "إذ": [
                 "when (at the time in past)<br/>used before جملة فعلية ماضية",
                 "(إذ)(جملة فعلية ماضية)(جملة)",
-				"فَكَيْفَ إِذَا جَمَعْنَاهُمْ لِيَوْمٍ لَّا رَيْبَ فِيهِ [3:25]"
+                "فَكَيْفَ إِذَا جَمَعْنَاهُمْ لِيَوْمٍ لَّا رَيْبَ فِيهِ [3:25]"
             ],
             "إذا": [
                 "when (in future time)<br/>used before جملة فعلية ماضية",
                 "(إذا)(جملة فعلية ماضية)(جملة)",
-				"وَإِذْ قَتَلْتُمْ نَفْسًا [2:72]"
+                "وَإِذْ قَتَلْتُمْ نَفْسًا [2:72]"
             ]
         }
     },
-	{
+    {
         "topics": [
             "إِنَّ / أَنَّ",
-			"أَن"
+            "أَن"
         ],
         "ar": [
             "تعريف",
             "الاستخدام",
-			"مع الضمير",
-			"مع المصدر"
+            "مع الضمير",
+            "مع المصدر"
         ],
         "en": [
             "Definition",
             "Usage",
-			"with Pronoun",
-			"with gerund"
+            "with Pronoun",
+            "with gerund"
         ],
         "features": {
             "إِنَّ / أَنَّ": [
                 "that (indeed)",
-				"اسم المنصوب / ضمير Used before<br/><br/>فَيَعْلَمُونَ أَنَّهُ الْحَقُّ مِن رَّبِّهِمْ [2:26]",
-				".Conjugated with pronoun e.g<br/>إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً [2:30]<br/><br/>.detached pronouns also used e.g<br/>أَلَا إِنَّهُمْ هُمُ الْمُفْسِدُونَ [2:12]",
-				"إِنَّ الْمُتَّقِينَ فِي جَنَّاتٍ وَعُيُونٍ [15:45]<br/><br/>أَوَلَا يَعْلَمُونَ أَنَّ اللَّهَ يَعْلَمُ مَا يُسِرُّونَ وَمَا يُعْلِنُونَ [2:77]"
+                "اسم المنصوب / ضمير Used before<br/><br/>فَيَعْلَمُونَ أَنَّهُ الْحَقُّ مِن رَّبِّهِمْ [2:26]",
+                ".Conjugated with pronoun e.g<br/>إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً [2:30]<br/><br/>.detached pronouns also used e.g<br/>أَلَا إِنَّهُمْ هُمُ الْمُفْسِدُونَ [2:12]",
+                "إِنَّ الْمُتَّقِينَ فِي جَنَّاتٍ وَعُيُونٍ [15:45]<br/><br/>أَوَلَا يَعْلَمُونَ أَنَّ اللَّهَ يَعْلَمُ مَا يُسِرُّونَ وَمَا يُعْلِنُونَ [2:77]"
             ],
-			"أَن": [
+            "أَن": [
                 "to / that",
-				"فعل المضارع المنصوب Used before<br/><br/>إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تَذْبَحُوا بَقَرَةً [2:67]",
-				"not followed by pronoun",
-				"(مصدر المنصوب <- أن+فعل)<br/>replaced with gerund<br/>أُريدُ أَن أَدرُسُ العربِيَّة<br/><=<br/>أُريدُ الدِّراسَةَ العربِيَّة<br/><br/>اَدرِسُ القُرآنَ لِأَن أَفهَمَ الإسلام<br/><=<br/>اَدرِسُ القُرآنَ لِفَهمِ الإسلام"
+                "فعل المضارع المنصوب Used before<br/><br/>إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تَذْبَحُوا بَقَرَةً [2:67]",
+                "not followed by pronoun",
+                "(مصدر المنصوب <- أن+فعل)<br/>replaced with gerund<br/>أُريدُ أَن أَدرُسُ العربِيَّة<br/><=<br/>أُريدُ الدِّراسَةَ العربِيَّة<br/><br/>اَدرِسُ القُرآنَ لِأَن أَفهَمَ الإسلام<br/><=<br/>اَدرِسُ القُرآنَ لِفَهمِ الإسلام"
             ]
         }
     },
-	{
+    {
         "topics": [
             "ثُمَّ",
             "ثَمَّ"
@@ -201,16 +201,16 @@
         ],
         "en": [
             "Definition",
-			"Example"
+            "Example"
         ],
         "features": {
             "ثُمَّ": [
                 "after that (conjunction)",
-				"ثُمَّ يُمِيتُكُمْ ثُمَّ يُحْيِيكُمْ ثُمَّ إِلَيْهِ تُرْجَعُونَ [2:28]"
+                "ثُمَّ يُمِيتُكُمْ ثُمَّ يُحْيِيكُمْ ثُمَّ إِلَيْهِ تُرْجَعُونَ [2:28]"
             ],
             "ثَمَّ": [
                 "thereto (adverb of time)",
-				"فَأَيْنَمَا تُوَلُّوا فَثَمَّ وَجْهُ اللَّهِ [2:115]"
+                "فَأَيْنَمَا تُوَلُّوا فَثَمَّ وَجْهُ اللَّهِ [2:115]"
             ]
         }
     },
@@ -254,7 +254,7 @@
             ]
         }
     },
-	{
+    {
         "topics": [
             "جملة خبرية",
             "جملة إنشائية"
@@ -284,11 +284,11 @@
             ]
         }
     },
-	{
+    {
         "topics": [
             "إيجابي",
             "نفي",
-			"استفهامي"
+            "استفهامي"
         ],
         "notes": "",
         "ar": [
@@ -308,10 +308,44 @@
                 "Negative sentences",
                 "<u style=\"top:0\">حرف النفي+(مُبتدا)(خبر)</u><br/><br/>لَيسَ الرَّجُلُ تَاجِرًا<br/><br/>مَا هَٰذِهِ الْحَيَاةُ الدُّنْيَا إِلَّا لَهْوٌ وَلَعِبٌ [29:64]<br/><br/>إِنْ هُوَ إِلَّا ذِكْرَىٰ لِلْعَالَمِينَ [6:90]"
             ],
-			"استفهامي":[
-				"Interrogative sentences",
-				"<u style=\"top:0\">حرف الإستفهام+(مُبتدا)(خبر)</u><br/><br/>اَيُّ الرَّجُلُ تَاجِرٌ؟<br/><br/> مَنِ الَذي تَاجِرٌ؟<br/><br/>اَلَيسَ الرَّجُلُ تَاجِرًا؟<br/><br/>اَاَنتَ تَاجِرٌ؟"
-			]
+            "استفهامي": [
+                "Interrogative sentences",
+                "<u style=\"top:0\">حرف الإستفهام+(مُبتدا)(خبر)</u><br/><br/>اَيُّ الرَّجُلُ تَاجِرٌ؟<br/><br/> مَنِ الَذي تَاجِرٌ؟<br/><br/>اَلَيسَ الرَّجُلُ تَاجِرًا؟<br/><br/>اَاَنتَ تَاجِرٌ؟"
+            ]
+        }
+    },
+    {
+        "isVerbComparison": true,
+        "topics": [
+            "فَعلَ - يَفعلُ (I)",
+            "اَفعَلَ - يُفعِلُ (II)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "نوع",
+            "متعدي",
+			"لازم"
+        ],
+        "en": [
+            "Definition",
+            "Verb Type",
+            "Transitive",
+			"Intransitive"
+        ],
+        "features": {
+            "فَعلَ - يَفعلُ (I)": [
+                "<p style=\"direction: ltr\">Indicates minimal sense about the action. Generally used for physical actions by someone/something doing on its own. E.g. to rain, to eat, to run, to witness, etc.</p>",
+                "<p style=\"direction: ltr\">Transitive (متعدي)/<br/>Intransitive (لازم)</p>",
+				"وَ يَومَ<b> نَحشُرُهُم</b> جَمِيعًا [6:22]<br/><br/>اَللهُ الَّذِى <b>رَفَعَ</b> السَّماواتِ بِغَيرِ عَمَدٍ [13:2]<br/><br/>",
+				"ذَلِكَ بَأَنَّهُم قَومٌ لَّا <b>يَفقَهُونَ</b> [5:58]<br/><br/>وَالأمرُ إلَيكِ فَانظُرِي مَاذَا <b>تَأمُرِينَ</b> [27:33]<br/><br/>"
+            ],
+            "اَفعَلَ - يُفعِلُ (II)": [
+                "Indicates an action that requires an object. Generally used for physical actions someone does for/to someone else e.g. to feed someone, to inform someone, to ask someone, etc.",
+                "Mostly transitive (متعدي)",
+				"وَالَّذِينَ <b>يُنفِقُونَ</b> أَموَالَهُم رَئَاءَ النَّاسِ [4:38]<br/><br/><b>وَاَقبَلُواْ</b> عَلَيهِم [12:71]<br/><br/>",
+                "وَ هُوَ <b>يُطعِمُ</b> وَ لَايُطعَمُ [6:14]<br/><br/>فَيَنسَخُ اللهُ مَا <b>يُلقِي</b> الشَّيطانُ [22:52]<br/><br/>"
+            ]
         }
     }
 ]

@@ -17,17 +17,20 @@ class cmpAPI {
 		});	
 	}
 
-	addComparisionList(container, inp){
+	addComparisionList(container, inp, verbCompare){
 		var api = this;
 		container.empty();
 		var sel = '<select class="nFilter" onchange="loadComparision()">';
 		var first = null, index = 0, indexValue = inp;
 		cmpAPI.cmpData.map(function(cEntry){
-			var val = cEntry["topics"].join(' vs ');
-			sel += '<option value="'+val+'"><b>'+val+'</b></option>';
-			if(index === indexValue)
-				first = val;
-			index=index+1;
+			
+			if ((verbCompare && cEntry.isVerbComparison) || (!verbCompare && cEntry.isVerbComparison === undefined)){
+				var val = cEntry["topics"].join(' vs ');
+				sel += '<option value="'+val+'"><b>'+val+'</b></option>';
+				if(index === indexValue)
+					first = val;
+				index=index+1;
+			}
 		});
 		if(first === null && cmpAPI.cmpData.length > 0){
 			first = cmpAPI.cmpData["topics"].join(' vs ')
@@ -70,7 +73,8 @@ class cmpAPI {
 			rows += '<tr><td style="font-weight:bold;font-size:14px;background-color:#D2ECAD;" colspan="'+topics.length+'">'+'(' + cmp["ar"][f]+') '+cmp["en"][f]+'</td></tr>'+
 					'<tr>';
 			for(var i=0; i < topics.length; i++){
-				rows += '<td>'+replaceQLink(cmp["features"][topics[i]][f])+'</td>';	
+				var topic = topics[i];
+				rows += '<td>'+replaceQLink(cmp["features"][topic][f])+'</td>';	
 			}
 			rows += '</tr>';
 		}

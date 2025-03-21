@@ -362,7 +362,11 @@ function showNounTable(k, v1, v2){
 }
 
 function showComparisions(inp){
-	cmpAPIObj.addComparisionList($(".dictionary"), inp);
+	cmpAPIObj.addComparisionList($(".dictionary"), inp, false);
+}
+
+function showVerbComparisions(inp){
+	cmpAPIObj.addComparisionList($(".dictionary"), inp, true);
 }
 
 function loadComparision(){
