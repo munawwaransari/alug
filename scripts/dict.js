@@ -377,9 +377,9 @@ function loadComparision(){
 
 function handleCompareCheck(){
 	 var chk = $("input");
+	 var sel = $("select option");
+	 sel.removeClass(".cmpVerb");
 	 if (chk.is(":checked")){
-		 var sel = $("select option");
-		 sel.removeClass(".cmpVerb");
 		 var selSel = $("select option:selected");
 		 selSel.addClass(".cmpVerb");
 		 $("#cmpLabel").html(selSel.val() + " Compare with ");
