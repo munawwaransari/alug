@@ -235,7 +235,7 @@
 				<button id="SearchD" 
 						class="dropbtn" 
 						title="Analyze" 
-						onclick="toggleDropdownContent(this)"
+						onclick="toggleDropdownContent(this, true)"
 						style="background-color:#4B5AC5;top:-8px; height: 30px;">
 					<b>تحليل</b>
 				</button>
@@ -246,7 +246,7 @@
 			</div>
 
 			<div class="dropdown">
-			  <button class="dropbtn" onclick="toggleDropdownContent(this)">الفعل</button>
+			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">الفعل</button>
 			  <div class="dropdown-content">
 				<a href="#" onclick="showVerbTable();toggleDropdownContent($(this).parent().prev());">أبواب الفعل</a>
 				<a href="#" onclick="showTriliteralVerbTable();toggleDropdownContent($(this).parent().prev());">افعال ثلاثي مجرَّد</a>
@@ -258,7 +258,7 @@
 			</div>
 			
 			<div id="ism" class="dropdown">
-			  <button class="dropbtn" onclick="toggleDropdownContent(this)">الاِسم</button>
+			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">الاِسم</button>
 			  <div class="dropdown-content">
 				<a href="#" onclick="showNounTable('ism','الاسم', 'Noun');toggleDropdownContent($(this).parent().prev());">Noun Patterns</a>
 				<a href="#" onclick="showObjectEffects('ism','المفاعيل', 'Object');toggleDropdownContent($(this).parent().prev());">Object Effects</a>
@@ -271,7 +271,7 @@
 			</div>
 			
 			<div class="dropdown">
-			  <button class="dropbtn" onclick="toggleDropdownContent(this)">الحرف</button>
+			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">الحرف</button>
 			  <div class="dropdown-content">
 				<a href="#" onclick="showObjectEffects('ism','ظُرُوف', 'Adverbs', 'data/grmr/adverb.json');toggleDropdownContent($(this).parent().prev());">Adverbs</a>
 				<a href="#" onclick="showParticleTable();toggleDropdownContent($(this).parent().prev());">Prepositions</a>
@@ -280,7 +280,7 @@
 			</div>
 			<!-- <button id="btnHarf" class="dropbtn" title="Particles" onclick="showParticleTable()">حرف</button> -->
 			<div class="dropdown">
-			  <button class="dropbtn" onclick="toggleDropdownContent(this)">معاني</button>
+			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">معاني</button>
 			  <div class="dropdown-content">
 				<a href="#" onclick="lookupEx('https://www.almaany.com/ar/dict/ar-$/');toggleDropdownContent($(this).parent().prev());">Almaany</a>
 				<a href="#" onclick="lookupEx('https://glosbe.com/ar/$/');toggleDropdownContent($(this).parent().prev());">Glosbe</a>
