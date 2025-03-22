@@ -370,7 +370,23 @@ function showVerbComparisions(inp){
 }
 
 function loadComparision(){
-	cmpAPIObj.addComparisionTable(".dictionary", $(".dictionary select").val());
+	 var comppSel = $("select option[class='.cmpVerb']");
+	 var verbCompare = comppSel.length > 0 ? comppSel.val() : '';
+	 cmpAPIObj.addComparisionTable(".dictionary", $(".dictionary select").val(), verbCompare);
+}
+
+function handleCompareCheck(){
+	 var chk = $("input");
+	 if (chk.is(":checked")){
+		 var sel = $("select option");
+		 sel.removeClass(".cmpVerb");
+		 var selSel = $("select option:selected");
+		 selSel.addClass(".cmpVerb");
+		 $("#cmpLabel").html(selSel.val() + " Compare with ");
+	 }
+	 else{
+		$("#cmpLabel").html("Compare");
+	 }
 }
 
 function showTriliteralVerbTable(){
