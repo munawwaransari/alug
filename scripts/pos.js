@@ -671,18 +671,21 @@ class posAPI {
 	addVerbInfoHtml(container, res){
 		var api = this;
 		container.empty();
-		var alink = '<a href="#" style=" text-decoration: none" '+
-						' onclick="checkWord(\'$\');">$</a>';
+		var alink = '<a href="#" style=" text-decoration: none" onclick="checkWord(\'$\');">$</a>';
+		var cmpLink = '<a href="#" style=" text-decoration: none" onclick="showVerbComparisions(@);">$</a>';
+		
 		var vTable = $('<table id="vTable" class="vTable"><tr>'+
 						 '<th style="font-size: 14px;">Form</th>'+
-						 '<th>مصدر</th>'+
+						 //'<th>مصدر</th>'+
 						 '<th>الماضي</th>'+
 						 '<th>المضارع</th>'+
+						 '<th>مصدر</th>'+
 						 '<th>اسم الفاعل</th>'+
 						 '<th>اسم المفعول</th>'+
 					   '</table>');
 		container.append(vTable);
 		
+		var index = 0;
 		for (const keyVal of Object.entries(res)){
 			var entryName = keyVal[0];
 			var xform = keyVal[1];
@@ -699,14 +702,15 @@ class posAPI {
 				var prt = xform.filter(x=>x.en.startsWith("present "))
 									   .map(x=>x.form);								   
 				var row = '<tr>'+
-						  '<td>'+entryName.split(' ')[1]+'</td>'+
-						  '<td>'+alink.replaceAll('\$',vn[0])+'</td>'+
-						  '<td>'+alink.replaceAll('\$',pst[0])+' - '+alink.replaceAll('\$',prt[0])+'</td>';
+						  '<td>'+cmpLink.replaceAll('\$', entryName.split(' ')[1]).replaceAll('@', index)+'</td>'+
+						  //'<td>'+alink.replaceAll('\$',vn[0])+'</td>'+
+						  '<td>'+cmpLink.replaceAll('\$',pst[0]+' - '+ prt[0]).replaceAll('@', index)+'</td>';
 				if(pst.length > 1){
 					row = row + '<td>'+alink.replaceAll('\$',pst[1])+' - '+alink.replaceAll('\$',prt[1])+'</td>';
 				}else{
 					row = row + '<td>-</td>';
 				}
+				row = row + '<td>'+alink.replaceAll('\$',vn[0])+'</td>';
 				if(ap.length > 0)
 					row += '<td>'+alink.replaceAll('\$',ap[0])+'</td>';
 				else
@@ -719,6 +723,7 @@ class posAPI {
 				row = row +'</tr>';
 				
 				$("#vTable tbody").append($(row));
+				index++;
 			}
 		}
 	}

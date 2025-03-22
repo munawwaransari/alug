@@ -317,7 +317,7 @@
     {
         "isVerbComparison": true,
         "topics": [
-            "فَعلَ - يَفعلُ (Form I)"
+            "فَعلَ - يَفْعلُ (Form I)"
         ],
         "notes": "",
         "ar": [
@@ -331,7 +331,7 @@
             "Examples"
         ],
         "features": {
-            "فَعلَ - يَفعلُ (Form I)": [
+            "فَعلَ - يَفْعلُ (Form I)": [
                 "<p style=\"direction: ltr\">Indicates minimal sense about the action. Generally used for physical actions by someone/something doing on its own. E.g. to rain, to eat, to run, to witness, etc.</p>",
                 "<p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Transitive (متعدي)</u><br/><div>حَشَرَ - يَحشُرُ => to gather</div><div>رَفَعَ - يَرفَعُ => to raise</div><div>أَمَرَ - يَأمٌرُ => to order</div><br/><u>Intransitive (لازم)</u></p><div>فَقِهَ - يَفقَهُون => to comprehend</div><div>نَفَق - يَنفِقُ => to run out</div><div>نَزَلَ - يَنزِلُ => to descend</div><br/>",
 				"وَ يَومَ<b> نَحشُرُهُم</b> جَمِيعًا [6:22]<br/><br/>اَللهُ الَّذِى <b>رَفَعَ</b> السَّماواتِ بِغَيرِعَمَدٍ [13:2]<br/><br/>ذَلِكَ بَأَنَّهُم قَومٌ لَّا <b>يَفقَهُونَ</b> [5:58]<br/><br/>وَالأمرُ إلَيكِ فَانظُرِي مَاذَا <b>تَأمُرِينَ</b> [27:33]<br/><br/>"
@@ -365,7 +365,7 @@
 	{
         "isVerbComparison": true,
         "topics": [
-            "فَاعَلَ - يُفَاعِلُُ (Form III)"
+            "فَاعَلَ - يُفَاعِلُ (Form III)"
         ],
         "notes": "",
         "ar": [

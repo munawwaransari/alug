@@ -26,7 +26,8 @@ class cmpAPI {
 			
 			if ((verbCompare && cEntry.isVerbComparison) || (!verbCompare && cEntry.isVerbComparison === undefined)){
 				var val = cEntry["topics"].join(' vs ');
-				sel += '<option value="'+val+'"><b>'+val+'</b></option>';
+				var selected = index === indexValue ? ' selected ' : '';
+				sel += '<option value="'+val+'" '+selected+'><b>'+val+'</b></option>';
 				if(index === indexValue)
 					first = val;
 				index=index+1;
