@@ -231,8 +231,12 @@
 			<input type="reset" value="" alt="clear" title="Clear" onclick="$('#wordSearchText').val('');"/>
 			<input id="wordSearchText" onchange="searchWord()" style="width:100px;"/>
 			
-			<div id="btnVerbs" class="dropdown">
-				<button id="SearchD" class="dropbtn" title="Analyze" style="background-color:#4B5AC5;top:-8px; height: 30px;">
+			<div class="dropdown">
+				<button id="SearchD" 
+						class="dropbtn" 
+						title="Analyze" 
+						onclick="toggleDropdownContent(this)"
+						style="background-color:#4B5AC5;top:-8px; height: 30px;">
 					<b>تحليل</b>
 				</button>
 				<div class="dropdown-content">
@@ -241,8 +245,8 @@
 				</div>
 			</div>
 
-			<div id="btnVerbs" class="dropdown">
-			  <button class="dropbtn">الفعل</button>
+			<div class="dropdown">
+			  <button class="dropbtn" onclick="toggleDropdownContent(this)">الفعل</button>
 			  <div class="dropdown-content">
 				<a href="#" onclick="showVerbTable()">أبواب الفعل</a>
 				<a href="#" onclick="showTriliteralVerbTable()">افعال ثلاثي مجرَّد</a>
@@ -254,7 +258,7 @@
 			</div>
 			
 			<div id="ism" class="dropdown">
-			  <button class="dropbtn">الاِسم</button>
+			  <button class="dropbtn" onclick="toggleDropdownContent(this)">الاِسم</button>
 			  <div class="dropdown-content">
 				<a href="#" onclick="showNounTable('ism','الاسم', 'Noun')">Noun Patterns</a>
 				<a href="#" onclick="showObjectEffects('ism','المفاعيل', 'Object')">Object Effects</a>
@@ -267,7 +271,7 @@
 			</div>
 			
 			<div class="dropdown">
-			  <button class="dropbtn">الحرف</button>
+			  <button class="dropbtn" onclick="toggleDropdownContent(this)">الحرف</button>
 			  <div class="dropdown-content">
 				<a href="#" onclick="showObjectEffects('ism','ظُرُوف', 'Adverbs', 'data/grmr/adverb.json')">Adverbs</a>
 				<a href="#" onclick="showParticleTable()">Prepositions</a>
@@ -276,7 +280,7 @@
 			</div>
 			<!-- <button id="btnHarf" class="dropbtn" title="Particles" onclick="showParticleTable()">حرف</button> -->
 			<div class="dropdown">
-			  <button class="dropbtn">معاني</button>
+			  <button class="dropbtn" onclick="toggleDropdownContent(this)">معاني</button>
 			  <div class="dropdown-content">
 				<a href="#" onclick="lookupEx('https://www.almaany.com/ar/dict/ar-$/')">Almaany</a>
 				<a href="#" onclick="lookupEx('https://glosbe.com/ar/$/')">Glosbe</a>
