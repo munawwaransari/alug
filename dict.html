@@ -240,50 +240,50 @@
 					<b>تحليل</b>
 				</button>
 				<div class="dropdown-content">
-					<a href="#" onclick="analyzeSelectedWord()">Analyze</a>
-					<a href="#" onclick="analyzeSelectedWordOld()">Conjugate</a>
+					<a href="#" onclick="analyzeSelectedWord();toggleDropdownContent($(this).parent().prev());">Analyze</a>
+					<a href="#" onclick="analyzeSelectedWordOld();toggleDropdownContent($(this).parent().prev());">Conjugate</a>
 				</div>
 			</div>
 
 			<div class="dropdown">
 			  <button class="dropbtn" onclick="toggleDropdownContent(this)">الفعل</button>
 			  <div class="dropdown-content">
-				<a href="#" onclick="showVerbTable()">أبواب الفعل</a>
-				<a href="#" onclick="showTriliteralVerbTable()">افعال ثلاثي مجرَّد</a>
-				<a href="#" onclick="showInadequateVerbTable()">Inadequate (افعال النَّاقِصة)</a>
-				<a href="#" onclick="showWeakVerbTable()">Weak Verbs (افعال المُعتِلَة)</a>
-				<a href="#" onclick="showImperativeTable()">Imperatives (الأمر والنهى)</a>
-				<a href="#" onclick="showVerbComparisions(0)">Compare Verbs</a>
+				<a href="#" onclick="showVerbTable();toggleDropdownContent($(this).parent().prev());">أبواب الفعل</a>
+				<a href="#" onclick="showTriliteralVerbTable();toggleDropdownContent($(this).parent().prev());">افعال ثلاثي مجرَّد</a>
+				<a href="#" onclick="showInadequateVerbTable();toggleDropdownContent($(this).parent().prev());">Inadequate (افعال النَّاقِصة)</a>
+				<a href="#" onclick="showWeakVerbTable();toggleDropdownContent($(this).parent().prev());">Weak Verbs (افعال المُعتِلَة)</a>
+				<a href="#" onclick="showImperativeTable();toggleDropdownContent($(this).parent().prev());">Imperatives (الأمر والنهى)</a>
+				<a href="#" onclick="showVerbComparisions(0);toggleDropdownContent($(this).parent().prev());">Compare Verbs</a>
 			  </div>
 			</div>
 			
 			<div id="ism" class="dropdown">
 			  <button class="dropbtn" onclick="toggleDropdownContent(this)">الاِسم</button>
 			  <div class="dropdown-content">
-				<a href="#" onclick="showNounTable('ism','الاسم', 'Noun')">Noun Patterns</a>
-				<a href="#" onclick="showObjectEffects('ism','المفاعيل', 'Object')">Object Effects</a>
-				<a href="#" onclick="showFiveNouns('ism', 'اسماءُ الخَمسة', 'Five Nouns')">Five Nouns</a>
-				<a href="#" onclick="showPronounInfo('ism', 'ضَمائر', 'Pronouns')">Pronouns</a>
-				<a href="#" onclick="loadArabicLTTable('plural.csv', 'ism','الجمع', 'Plural')">Plural</a>
-				<a href="#" onclick="loadArabicLTTable('synonyms.csv', 'ism','المرادفات', 'Synonyms')">Synonyms</a>
-				<a href="#" onclick="loadArabicLTTable('antonyms.csv', 'ism','المتضادات', 'Antonyms')">Antonyms</a>
+				<a href="#" onclick="showNounTable('ism','الاسم', 'Noun');toggleDropdownContent($(this).parent().prev());">Noun Patterns</a>
+				<a href="#" onclick="showObjectEffects('ism','المفاعيل', 'Object');toggleDropdownContent($(this).parent().prev());">Object Effects</a>
+				<a href="#" onclick="showFiveNouns('ism', 'اسماءُ الخَمسة', 'Five Nouns');toggleDropdownContent($(this).parent().prev());">Five Nouns</a>
+				<a href="#" onclick="showPronounInfo('ism', 'ضَمائر', 'Pronouns');toggleDropdownContent($(this).parent().prev());">Pronouns</a>
+				<a href="#" onclick="loadArabicLTTable('plural.csv', 'ism','الجمع', 'Plural');toggleDropdownContent($(this).parent().prev());">Plural</a>
+				<a href="#" onclick="loadArabicLTTable('synonyms.csv', 'ism','المرادفات', 'Synonyms');toggleDropdownContent($(this).parent().prev());">Synonyms</a>
+				<a href="#" onclick="loadArabicLTTable('antonyms.csv', 'ism','المتضادات', 'Antonyms');toggleDropdownContent($(this).parent().prev());">Antonyms</a>
 			  </div>
 			</div>
 			
 			<div class="dropdown">
 			  <button class="dropbtn" onclick="toggleDropdownContent(this)">الحرف</button>
 			  <div class="dropdown-content">
-				<a href="#" onclick="showObjectEffects('ism','ظُرُوف', 'Adverbs', 'data/grmr/adverb.json')">Adverbs</a>
-				<a href="#" onclick="showParticleTable()">Prepositions</a>
-				<a href="#" onclick="showComparisions(0)">Compare</a>
+				<a href="#" onclick="showObjectEffects('ism','ظُرُوف', 'Adverbs', 'data/grmr/adverb.json');toggleDropdownContent($(this).parent().prev());">Adverbs</a>
+				<a href="#" onclick="showParticleTable();toggleDropdownContent($(this).parent().prev());">Prepositions</a>
+				<a href="#" onclick="showComparisions(0);toggleDropdownContent($(this).parent().prev());">Compare</a>
 			  </div>
 			</div>
 			<!-- <button id="btnHarf" class="dropbtn" title="Particles" onclick="showParticleTable()">حرف</button> -->
 			<div class="dropdown">
 			  <button class="dropbtn" onclick="toggleDropdownContent(this)">معاني</button>
 			  <div class="dropdown-content">
-				<a href="#" onclick="lookupEx('https://www.almaany.com/ar/dict/ar-$/')">Almaany</a>
-				<a href="#" onclick="lookupEx('https://glosbe.com/ar/$/')">Glosbe</a>
+				<a href="#" onclick="lookupEx('https://www.almaany.com/ar/dict/ar-$/');toggleDropdownContent($(this).parent().prev());">Almaany</a>
+				<a href="#" onclick="lookupEx('https://glosbe.com/ar/$/');toggleDropdownContent($(this).parent().prev());">Glosbe</a>
 			  </div>
 			</div>
 			<!-- <button id="btnMeaning" style="top:-8px; height: 30px;" onclick="">Meaning</button> -->
