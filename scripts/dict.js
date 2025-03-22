@@ -355,9 +355,14 @@ function updateState(key, value){
 	}
 }
 
-function toggleDropdownContent(elem){
+function toggleDropdownContent(elem, state){
+	if(state){
+		$(elem).next().addClass("dropdown-content");
+		$(elem).next().show();
+	}else{
 		$(elem).next().toggleClass("dropdown-content");
 		$(elem).next().toggle();
+	}
 }
 
 function showNounTable(k, v1, v2){
