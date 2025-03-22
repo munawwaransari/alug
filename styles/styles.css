@@ -7,6 +7,29 @@ body{
 	position: absolute;
 	flex-direction: column;
 }
+
+.containerHead {
+	margin-top:0; 
+	padding:0;width:100%;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	z-index: 999;
+}
+
+.containerHead:hover {
+	background-color: #D6EEB4;
+}
+
+.containerHead > img {
+	width:14px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-bottom:4px;
+}
+
 .toolDiv {
 	padding: 12px;
 	position: relative;	

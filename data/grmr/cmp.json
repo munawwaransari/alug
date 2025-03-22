@@ -317,8 +317,7 @@
     {
         "isVerbComparison": true,
         "topics": [
-            "فَعلَ - يَفعلُ (I)",
-            "اَفعَلَ - يُفعِلُ (II)"
+            "فَعلَ - يَفعلُ (Form I)"
         ],
         "notes": "",
         "ar": [
@@ -332,16 +331,227 @@
             "Examples"
         ],
         "features": {
-            "فَعلَ - يَفعلُ (I)": [
+            "فَعلَ - يَفعلُ (Form I)": [
                 "<p style=\"direction: ltr\">Indicates minimal sense about the action. Generally used for physical actions by someone/something doing on its own. E.g. to rain, to eat, to run, to witness, etc.</p>",
-                "<p style=\"direction: ltr\"><u>Transitive (متعدي)</u><br/><div>حَشَرَ - يَحشُرُ => to gather</div><div>رَفَعَ - يَرفَعُ => to raise</div><div>أَمَرَ - يَأمٌرُ => to order</div><br/><u>Intransitive (لازم)</u></p><div>فَقِهَ - يَفقَهُون => to comprehend</div><div>نَفَق - يَنفِقُ => to run out</div><div>نَزَلَ - يَنزِلُ => to descend</div><br/>",
+                "<p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Transitive (متعدي)</u><br/><div>حَشَرَ - يَحشُرُ => to gather</div><div>رَفَعَ - يَرفَعُ => to raise</div><div>أَمَرَ - يَأمٌرُ => to order</div><br/><u>Intransitive (لازم)</u></p><div>فَقِهَ - يَفقَهُون => to comprehend</div><div>نَفَق - يَنفِقُ => to run out</div><div>نَزَلَ - يَنزِلُ => to descend</div><br/>",
 				"وَ يَومَ<b> نَحشُرُهُم</b> جَمِيعًا [6:22]<br/><br/>اَللهُ الَّذِى <b>رَفَعَ</b> السَّماواتِ بِغَيرِعَمَدٍ [13:2]<br/><br/>ذَلِكَ بَأَنَّهُم قَومٌ لَّا <b>يَفقَهُونَ</b> [5:58]<br/><br/>وَالأمرُ إلَيكِ فَانظُرِي مَاذَا <b>تَأمُرِينَ</b> [27:33]<br/><br/>"
-            ],
-            "اَفعَلَ - يُفعِلُ (II)": [
+            ]
+        }
+    },
+	{
+        "isVerbComparison": true,
+        "topics": [
+            "فَعَّلَ - يُفَعِّلُ (Form II)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "نوع",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Verb Type",
+            "Examples"
+        ],
+        "features": {
+            "فَعَّلَ - يُفَعِّلُ (Form II)": [
+				"",
+				"",
+				""
+			]
+        }
+    },
+	{
+        "isVerbComparison": true,
+        "topics": [
+            "فَاعَلَ - يُفَاعِلُُ (Form III)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "نوع",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Verb Type",
+            "Examples"
+        ],
+        "features": {
+            "فَاعَلَ - يُفَاعِلُ (Form III)": [
+				"",
+				"",
+				""
+			]
+        }
+    },
+	{
+        "isVerbComparison": true,
+        "topics": [
+            "اَفعَلَ - يُفعِلُ (Form IV)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "نوع",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Verb Type",
+            "Examples"
+        ],
+        "features": {
+            "اَفعَلَ - يُفعِلُ (Form IV)": [
                 "<p style=\"direction: ltr\">Indicates an action that requires an object. Generally used for physical actions someone does for/to someone else e.g. to feed someone, to inform someone, to ask someone, etc..</p>",
-                "<p style=\"direction: ltr\"><u>Mostly transitive (متعدي)</u></p><div>أَنزَلَ - يُنزِلَ => to send/bring down</div><div>أَنفَقَ - يُنفِقُ => to spend</div><div>أَفَقَهَ - يُفقِهُون => to educate/instruct</div><div>أَقبَلَ - يُقبِلُ => to advance/apporach</div><div>أَطعَمَ - يُطعِمُ => to feed</div><div>أَلقَي - يُلقِي => to cast/thorw</div>",
+                "<p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Mostly transitive (متعدي)</u></p><div>أَنزَلَ - يُنزِلَ => to send/bring down</div><div>أَنفَقَ - يُنفِقُ => to spend</div><div>أَفَقَهَ - يُفقِهُون => to educate/instruct</div><div>أَقبَلَ - يُقبِلُ => to advance/apporach</div><div>أَطعَمَ - يُطعِمُ => to feed</div><div>أَلقَي - يُلقِي => to cast/thorw</div><br/>",
 				"وَ<b>أَنزَلَ</b> مِنَ السّمَاءِ مَاءَ [2:22]<br/><br/>وَالَّذِينَ <b>يُنفِقُونَ</b> أَموَالَهُم رَئَاءَ النَّاسِ [4:38]<br/><br/><b>وَاَقبَلُواْ</b> عَلَيهِم [12:71]<br/><br/>وَ هُوَ <b>يُطعِمُ</b> وَ لَايُطعَمُ [6:14]<br/><br/>فَيَنسَخُ اللهُ مَا <b>يُلقِي</b> الشَّيطانُ [22:52]<br/><br/>"
             ]
+        }
+    },
+	{
+        "isVerbComparison": true,
+        "topics": [
+            "تَفَعَّلَ - يَتَفَعِّلُ (Form V)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "نوع",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Verb Type",
+            "Examples"
+        ],
+        "features": {
+            "تَفَعَّلَ - يَتَفَعِّلُ (Form V)": [
+				"",
+				"",
+				""
+			]
+        }
+    },
+	{
+        "isVerbComparison": true,
+        "topics": [
+            "تَفَاعَلَ - يَتَفَاعِلَ (Form VI)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "نوع",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Verb Type",
+            "Examples"
+        ],
+        "features": {
+            "تَفَاعَلَ - يَتَفَاعِلَ (Form VI)": [
+				"",
+				"",
+				""
+			]
+        }
+	},
+	{
+        "isVerbComparison": true,
+        "topics": [
+            "اِنفَعَلَ - يَنفَعِلُ (Form VII)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "نوع",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Verb Type",
+            "Examples"
+        ],
+        "features": {
+            "اِنفَعَلَ - يَنفَعِلُ (Form VII)": [
+				"",
+				"",
+				""
+			]
+        }
+    },
+	{
+        "isVerbComparison": true,
+        "topics": [
+            "اِفتَعَلَ - يَفتَعِلَ (Form VIII)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "نوع",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Verb Type",
+            "Examples"
+        ],
+        "features": {
+            "اِفتَعَلَ - يَفتَعِلَ (Form VIII)": [
+				"",
+				"",
+				""
+			]
+        }
+    },
+	{
+        "isVerbComparison": true,
+        "topics": [
+            "اِفعَلَّ - يَفعَلُّ (Form IX)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "نوع",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Verb Type",
+            "Examples"
+        ],
+        "features": {
+            "اِفعَلَّ - يَفعَلُّ (Form IX)": [
+				"",
+				"",
+				""
+			]
+        }
+    },
+	{
+        "isVerbComparison": true,
+        "topics": [
+            "اِستَفعَلَ - يَستَفعِلُ (Form X)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "نوع",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Verb Type",
+            "Examples"
+        ],
+        "features": {
+            "اِستَفعَلَ - يَستَفعِلُ (Form X)": [
+				"",
+				"",
+				""
+			]
         }
     }
 ]
