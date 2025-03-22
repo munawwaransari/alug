@@ -141,16 +141,32 @@ function isOS(os){
 	navigator.userAgent.includes(os);
 }
 
+function replaceAnalysisLink(val, addBreak){
+	var analysisExp = /([\u0600-\u06ff]+)\s+\-\s+([\u0600-\u06ff]+)/g;
+	var ex = val;
+	if(ex.match(analysisExp)){
+		ex = ex.replaceAll(analysisExp, 
+					'<a href="#" style="text-decoration: none;" '+
+					'onclick="$(\'#wordSearchText\').val(\'$1\');analyzeSelectedWord();">'+
+					'$1 - $2</a>');
+		return '<span style="font-size:18px;">'+(addBreak ? '<br/>':'')+ex+'</span>';
+	}
+	return '';
+}
+
 function replaceQLink(val, addBreak=true){
 
+	var analysisLink = replaceAnalysisLink(val, true);
+	if(analysisLink !== ''){
+		return analysisLink;
+	}
+	
 	var qlinkExp = /(\[(\d+)\:(\d+)\])/g;
-	ex = val;
+	var ex = val;
 	if(ex.match(qlinkExp)){
 		var qLink = getLocationPath()+"?q="+val;
-		//ex = ex.replace(qlinkExp, '<a href="#" onclick="var w=parent?parent.window:window;w.open(\'https://tanzil.net/#$2:$3\',\'_blank\');">$1</a>');
 		ex = ex.replace(qlinkExp, '<a href="#" '+
 					'onclick="if(parent.inSearch) parent.inSearch(\'...QuranSearch $2:$3\');">$1</a>');
-					//var w=parent?parent.window:window;w.open(\''+getLocationPath()+'?q=$2:$3\');">$1</a>');
 		return '<span style="font-size:18px;">'+(addBreak ? '<br/>':'')+ex+'</span>';
 	}
 	return '<span style="font-size:18px;">'+val+'</span>';
