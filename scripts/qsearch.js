@@ -602,8 +602,13 @@ function encodeTafsirUrl(url){
 function getTafsirAudioOptions(index, chapterEn, chapterAr){
 	
 	var tafasir = {
+			"Tafheem-ul-Quran (Syed Abul-Ala Moududi)": "https://archive.org/download/Tafheem-ul-Quran-by-Syed-Abul-Ala-Moududi-Audio-MP3-CD/@index@ - @chapter-en@ - @chapter-ar@.mp3",
+			
 			"Bayan-ul-Quran (Dr. Israr Ahmed)": 
-			"https://ia600202.us.archive.org/4/items/BayanUlQuranInUrduByDr.IsrarAhmedAudioMP3-HQ/@index@ - @chapter-en@ - @chapter-ar@.mp3"
+			"https://ia600202.us.archive.org/4/items/BayanUlQuranInUrduByDr.IsrarAhmedAudioMP3-HQ/@index@ - @chapter-en@ - @chapter-ar@.mp3",
+			
+			"English Tafsir (Mohsin Khan)": "https://ia902907.us.archive.org/5/items/complete-quran-english-tafsir-audio-muhsin-khan/@index@-@chapter-en@.mp3"
+			
 	};
 	var options = '';
 	var id = 't-ch'+index;
@@ -614,6 +619,7 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr){
 			var url = v;
 			switch(k){
 				case "Bayan-ul-Quran (Dr. Israr Ahmed)":
+				case "Tafheem-ul-Quran (Syed Abul-Ala Moududi)":
 					url = url.replace('@index@', ch)
 					   .replace('@chapter-en@', chapterEn.replace(' ( Hud )', '')
 														 .replace(' ( Ta-Ha )', '')
@@ -624,6 +630,87 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr){
 														 .replace(' ( Quraish )', ''))
 					   .replace('@chapter-ar@', 'سورة '+chapterAr);
 				break;
+				
+				case "English Tafsir (Mohsin Khan)": {
+					var cn = chapterEn.split(" ")[0];
+					if(cn.includes("-")){
+						var t = cn.split("-");
+						cn = t[0];
+						for(var i=1; i<t.length; i++) cn += '-' + t[i].toLowerCase();
+					}
+					cn = cn.replace('\'','');
+					var chapter_map = {
+						 'Al-fatihah': 'Al-fatiha',
+						 'Al-imran': 'Aal-e-imraan',
+						 'An-nisa': 'An-nisaa',
+						 'Al-maidah': 'Al-maaida',
+						 'Al-anam': 'Al-anaam',
+						 'Al-araf': 'Al-araaf',
+						 'Al-anfal': 'Al-anfaal',
+						 'Yunus': 'Yoonus',
+						 'Yusuf': 'Yoosuf',
+						 'Ibrahim': 'Ibraheem',
+						 'Al-isra': 'Al-israa',
+						 'Taha': 'Ta-ha',
+						 'Al-anbiya': 'Al-anbiyaa',
+						 'Al-furqan': 'Al-furqaan',
+						 'Ash-shuara': 'Ash-shuaraa',
+						 'Luqman': 'Luqmaan',
+						 'Al-ahzab': 'Al-ahzaab',
+						 'Fatir': 'Faatir',
+						 'As-saaffat': 'As-saaffaat',
+						 'Sad': 'Saad',
+						 'Ghafir': 'Ghaafiral-mumin',
+						 'Fussilat': 'Fussilatha-meem',
+						 'Ash-shura': 'Ash-shoora',
+						 'Ad-dukhan': 'Ad-dukhaan',
+						 'Al-jathiya': 'Al-jaathiya',
+						 'Al-ahqaf': 'Al-ahqaaf',
+						 'Muhammad': 'Muhammadsaas',
+						 'Al-hujurat': 'Al-hujuraat',
+						 'Qaf': 'Qaaf',
+						 'Adh-dhariyat': 'Adh-dhaariyaat',
+						 'At-tur': 'At-toor',
+						 'Ar-rahman': 'Ar-rahmaan',
+						 'Al-waqiah': 'Al-waaqia',
+						 'Al-hadid': 'Al-hadeed',
+						 'Al-mujadilah': 'Al-mujaadila',
+						 'Al-mumtahanah': 'Al-mumtahana',
+						 'Al-jumuah': 'Al-jumua',
+						 'Al-munafiqoon': 'Al-munaafiqoon',
+						 'At-taghabun': 'At-taghaabun',
+						 'At-tahrim': 'At-tahreem',
+						 'Al-maarij': 'Al-maaarij',
+						 'Al-qiyamah': 'Al-qiyaamah',
+						 'Al-insan': 'Al-insaanad-dahr',
+						 'An-naziat': 'An-naziaat',
+						 'At-takwir': 'At-takweer',
+						 'Al-infitar': 'Al-infitaar',
+						 'Al-mutaffifin': 'Al-mutaffifeen',
+						 'Al-inshiqaq': 'Al-inshiqaaq',
+						 'At-tariq': 'At-taariq',
+						 'Al-ghashiya': 'Al-ghaashiya',
+						 'Ad-dhuha': 'Ad-duha',
+						 'As-sharh': 'Al-inshirahash-sharh',
+						 'At-tin': 'At-teen',
+						 'Al-adiyat': 'Al-aadiyaat',
+						 'Al-qariah': 'Al-qaaria',
+						 'At-takathur': 'At-takaathur',
+						 'Al-humazah': 'Al-humaza',
+						 'Al-fil': 'Al-feel',
+						 'Quraish': 'Quraysh',
+						 'Al-maun': 'Al-maaoon',
+						 'Al-kauthor': 'Al-kawthar',
+						 'Al-kafiroon': 'Al-kaafiroon',
+						 'Al-masad': 'Al-masadal-lahab',
+						 'An-nas': 'An-naas'
+					}
+					url = url.replace('@index@', ch)
+							 .replace('@chapter-en@', cn);
+					if(chapter_map[cn])
+						url = url.replace(cn, chapter_map[cn]);
+				}
+				break;
 			}
 			options += '<p onclick="playQuranChapterUrl(\''+encodeTafsirUrl(url)+'\',\''+id+'\')">'+k+'</p>';
 	}
@@ -631,7 +718,7 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr){
 	return '<span class="dropdown">'+
 			  '<button id="'+id+'" '+
 					   'class="dropbtn" '+
-					   'style="background-color:#EEEEEE;color:black;">&#9835</button>'+ //play
+					   'style="background-color:#EEEEEE;color:black;">\u060F</button>'+ //play
 			   '<div class="dropdown-content" style="">'+options+'</div>'+
 			   '<button id="'+id+'-pause" class="dropbtn" '+
 					   'onclick="pauseOrplayQuranChapter(\''+id+'\')" '+
