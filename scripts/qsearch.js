@@ -592,6 +592,55 @@ function stopQuranChapter(id){
 	$("#"+id).show();
 }
 
+function encodeTafsirUrl(url){
+	return encodeURI(url).replace(/'/g, "%27")
+						 .replace(/\(/, '%28')
+						 .replace(/\)/, '%29')
+						 .replace(/%E2%80%8E/g, '');
+}
+
+function getTafsirAudioOptions(index, chapterEn, chapterAr){
+	
+	var tafasir = {
+			"Bayan-ul-Quran (Dr. Israr Ahmed)": 
+			"https://ia600202.us.archive.org/4/items/BayanUlQuranInUrduByDr.IsrarAhmedAudioMP3-HQ/@index@ - @chapter-en@ - @chapter-ar@.mp3"
+	};
+	var options = '';
+	var id = 't-ch'+index;
+	
+	for(const [k,v] of Object.entries(tafasir)){
+		
+			var ch = index > 99 ? index : index > 9 ? "0"+index : "00"+index;
+			var url = v;
+			switch(k){
+				case "Bayan-ul-Quran (Dr. Israr Ahmed)":
+					url = url.replace('@index@', ch)
+					   .replace('@chapter-en@', chapterEn.replace(' ( Hud )', '')
+														 .replace(' ( Ta-Ha )', '')
+														 .replace(' ( Luqman )', '')
+														 .replace(' ( Ya-seen )', '')
+														 .replace(' ( Muhammad )', '')
+														 .replace(' ( Noah )', '')
+														 .replace(' ( Quraish )', ''))
+					   .replace('@chapter-ar@', 'سورة '+chapterAr);
+				break;
+			}
+			options += '<p onclick="playQuranChapterUrl(\''+encodeTafsirUrl(url)+'\',\''+id+'\')">'+k+'</p>';
+	}
+	
+	return '<span class="dropdown">'+
+			  '<button id="'+id+'" '+
+					   'class="dropbtn" '+
+					   'style="background-color:#EEEEEE;color:black;">&#9835</button>'+ //play
+			   '<div class="dropdown-content" style="">'+options+'</div>'+
+			   '<button id="'+id+'-pause" class="dropbtn" '+
+					   'onclick="pauseOrplayQuranChapter(\''+id+'\')" '+
+					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23F8</button>'+ //pause
+			   '<button id="'+id+'-stop" class="dropbtn" '+
+					   'onclick="stopQuranChapter(\''+id+'\')" '+
+					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23F9</button>'+ //stop
+		   '</span>';
+}
 
 //https://www.truemuslims.net
 function getQuranAudioOptions(chapter){
@@ -802,7 +851,7 @@ function listSurahs(){
 		div.empty();
 		var table = '<table style="max-width:512px;margin:auto;" '+
 						   'class="surahIndex">'+
-						   '<th>#</th><th>Surah</th><th>Qirat</th><th>Tafsir</th>';
+						   '<th>#</th><th>Surah</th><th>Qirat</th><th>Tafsir</th><th>Research</th>';
 		for (const [index, surah] of Object.entries(data)) {
 			var tanzilLink = '<a style="cursor:pointer;font-size:18px" href="https://tanzil.net/#'+index+'" '+
 				 'onclick="var w = parent ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+index+'</a>';
@@ -816,15 +865,21 @@ function listSurahs(){
 			table += '<tr>'+
 						 '<td>'+tanzilLink+'</td>'+
 						 '<td onclick="searchText(\''+enName+'\')" '+
-							 'class="qword" style="max-width:80px;font-szie:14px;">' +
-							 surah.ar+'<br/>'+surah.en.substring(surah.en.indexOf("("))+
+							 'class="qword" style="max-width:80px;font-szie:14px;"><b>' +
+							 surah.ar+'</b><br/>'+
+								'<span style="font-size:12px;">'+
+									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
+								'</span>'+
 						 '</td>'+
 						 '<td style="font-size:14px;cursor:pointer;">'+
 							 '<span>'+getQuranAudioOptions(index)+'</span>'+
 						 '</td>'+
+						 '<td style="font-size:14px;cursor:pointer;">'+
+							 '<span>'+getTafsirAudioOptions(index, surah.en, surah.ar)+'</span>'+
+						 '</td>'+
 						 '<td style="font-size:14px;cursor:pointer;"> '+
 							 '<span class="dropbtn" '+
-							   'title="Tafsir" '+
+							   'title="Research" '+
 							   'style="background-color:#EEEEEE;color:black;" '+
 							   'onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">'+
 							   '1-'.concat(surah.ayahCount)+

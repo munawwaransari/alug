@@ -64,8 +64,8 @@ class cmpAPI {
 		var compTable = '', compTableCol1, compTableCol2;
 		if(selArray.length > 1){
 			compTable = '<table id="cmpTable" style="display:flex;padding:0;margin:0;border-collapse:collapse;align:top;"><tr>'+
-							'<td style="align-content:flex-start;padding:0;margin:0;border-color: transparent;border-bottom-style: hidden;border-right-style: hidden;border-left-style: hidden;"></td>'+
-							'<td style="align-content:flex-start;padding:0;margin:0;border-color: transparent;border-bottom-style: hidden;border-right-style: hidden;border-left-style: hidden;"></td>'+
+							'<td style="width:50%;align-content:flex-start;padding:0;margin:0;border-color: transparent;border-bottom-style: hidden;border-right-style: hidden;border-left-style: hidden;"></td>'+
+							'<td style="width:50%;align-content:flex-start;padding:0;margin:0;border-color: transparent;border-bottom-style: hidden;border-right-style: hidden;border-left-style: hidden;"></td>'+
 						'</tr></table>';
 			$(containerClass).append($(compTable));
 			compTableCol1 = $("#cmpTable tr td:first()");

@@ -1,571 +1,571 @@
 {
     "1": {
-        "en": "Al-Fatiha (The opener)",
+        "en": "Al-Fatihah ( The Opening )",
         "ar": "الفاتحة",
         "ayahCount": 7
     },
     "2": {
-        "en": "Al-Baqarah (The cow)",
+        "en": "Al-Baqarah ( The Cow )",
         "ar": "البقرة",
         "ayahCount": 286
     },
     "3": {
-        "en": "Al-Imran (Family of Imran)",
+        "en": "Al-Imran ( The Family of Imran )",
         "ar": "آل عمران",
         "ayahCount": 200
     },
     "4": {
-        "en": "An-Nisa (The Women)",
-        "ar": "ٱلنساء",
+        "en": "An-Nisa ( The Women )",
+        "ar": "النساء",
         "ayahCount": 176
     },
     "5": {
-        "en": "Al-Ma'idah (The Table Spread)",
-        "ar": "ٱلمائدة",
+        "en": "Al-Maidah ( The Table spread with Food )",
+        "ar": "المائدة",
         "ayahCount": 120
     },
     "6": {
-        "en": "Al-Anam (The Cattle)",
-        "ar": "ٱلأنعام",
+        "en": "Al-An'am ( The Cattle )",
+        "ar": "الأنعام",
         "ayahCount": 165
     },
     "7": {
-        "en": "Al-A'raf (The Heights)",
-        "ar": "ٱلأعراف‎",
+        "en": "Al-A'raf (The Heights )",
+        "ar": "الأعراف‎",
         "ayahCount": 206
     },
     "8": {
-        "en": "Al-Anfal (The Spoils of War)",
-        "ar": "ٱلأنفال",
+        "en": "Al-Anfal ( The Spoils of War )",
+        "ar": "الأنفال",
         "ayahCount": 75
     },
     "9": {
-        "en": "At-Taubah (The Repentance)",
-        "ar": "ٱلتوبة",
+        "en": "At-Taubah ( The Repentance )",
+        "ar": "التوبة",
         "ayahCount": 129
     },
     "10": {
-        "en": "Yunus (Jonah)",
+        "en": "Yunus ( Jonah )",
         "ar": "يونس",
         "ayahCount": 109
     },
     "11": {
-        "en": "Hud (Hud)",
+        "en": "Hud ( Hud )",
         "ar": "هود",
         "ayahCount": 123
     },
     "12": {
-        "en": "Yusuf (Joseph)",
+        "en": "Yusuf (Joseph )",
         "ar": "يوسف",
         "ayahCount": 111
     },
     "13": {
-        "en": "Ar-Ra'd (Thunder)",
+        "en": "Ar-Ra'd ( The Thunder )",
         "ar": "الرعد",
         "ayahCount": 43
     },
     "14": {
-        "en": "Ibrahim (Abraham)",
+        "en": "Ibrahim ( Abraham )",
         "ar": "إبراهيم",
         "ayahCount": 52
     },
     "15": {
-        "en": "Al-Hijr (The Stoneland)",
-        "ar": "الحِجْرْ",
+        "en": "Al-Hijr ( The Rocky Tract )",
+        "ar": "الحجر",
         "ayahCount": 99
     },
     "16": {
-        "en": "An-Nahl (The Bee)",
-        "ar": "الْنَّحْل",
+        "en": "An-Nahl ( The Bees )",
+        "ar": "النحل",
         "ayahCount": 128
     },
     "17": {
-        "en": "Al-Isra (The Night Journey)",
+        "en": "Al-Isra ( The Night Journey )",
         "ar": "الإسراء",
         "ayahCount": 111
     },
     "18": {
-        "en": "Al-Kahf (The Cave)",
+        "en": "Al-Kahf ( The Cave )",
         "ar": "الكهف",
         "ayahCount": 110
     },
     "19": {
-        "en": "Maryam (Mary)",
+        "en": "Maryam ( Mary )",
         "ar": "مريم",
         "ayahCount": 98
     },
     "20": {
-        "en": "Ta-Ha (Ta-Ha)",
+        "en": "Taha ( Ta-Ha )",
         "ar": "طه",
         "ayahCount": 135
     },
     "21": {
-        "en": "Al-Anbiya (The Prophets)",
+        "en": "Al-Anbiya ( The Prophets )",
         "ar": "الأنبياء‎",
         "ayahCount": 112
     },
     "22": {
-        "en": "Al-Hajj (The Pilgrimage)",
+        "en": "Al-Hajj ( The Pilgrimage )",
         "ar": "الحج",
         "ayahCount": 78
     },
     "23": {
-        "en": "Al-Mu'minun (The Believers)",
+        "en": "Al-Mu'minoon ( The Believers )",
         "ar": "المؤمنون",
         "ayahCount": 118
     },
     "24": {
-        "en": "An-Nur (The Light)",
+        "en": "An-Noor ( The Light )",
         "ar": "النور",
         "ayahCount": 64
     },
     "25": {
-        "en": "Al-Furqan (The Criterion)",
+        "en": "Al-Furqan (The Criterion )",
         "ar": "الفرقان",
         "ayahCount": 77
     },
     "26": {
-        "en": "Ash-Shu'ara (The Poets)",
+        "en": "Ash-Shuara ( The Poets )",
         "ar": "الشعراء",
         "ayahCount": 227
     },
     "27": {
-        "en": "An-Naml (The Ants)",
+        "en": "An-Naml (The Ants )",
         "ar": "النمل",
         "ayahCount": 93
     },
     "28": {
-        "en": "Al-Qasas (The Story)",
+        "en": "Al-Qasas ( The Stories )",
         "ar": "القصص",
         "ayahCount": 88
     },
     "29": {
-        "en": "Al-Ankabut (Spider)",
+        "en": "Al-Ankaboot ( The Spider )",
         "ar": "العنكبوت",
         "ayahCount": 69
     },
     "30": {
-        "en": "Ar-Rum (The Romans)",
+        "en": "Ar-Room ( The Romans )",
         "ar": "الروم",
         "ayahCount": 60
     },
     "31": {
-        "en": "Luqman (Luqman)",
+        "en": "Luqman ( Luqman )",
         "ar": "لقمان",
         "ayahCount": 34
     },
     "32": {
-        "en": "As-Sajdah (Prostration)",
+        "en": "As-Sajdah ( The Prostration )",
         "ar": "السجدة",
         "ayahCount": 30
     },
     "33": {
-        "en": "Al-Ahzab (The Confederates)",
+        "en": "Al-Ahzab ( The Combined Forces )",
         "ar": "الأحزاب",
         "ayahCount": 73
     },
     "34": {
-        "en": "Saba (Sheba)",
+        "en": "Saba ( Sheba )",
         "ar": "سبأ",
         "ayahCount": 54
     },
     "35": {
-        "en": "Fatir (The Originator)",
+        "en": "Fatir ( The Orignator )",
         "ar": "فاطر",
         "ayahCount": 45
     },
     "36": {
-        "en": "Ya-Sin (Ya Sin)",
-        "ar": "يٰسٓ",
+        "en": "Ya-seen ( Ya-seen )",
+        "ar": "يس",
         "ayahCount": 83
     },
     "37": {
-        "en": "As-Saffat (Those Who Set the Ranks)",
+        "en": "As-Saaffat ( Those Ranges in Ranks )",
         "ar": "الصافات",
         "ayahCount": 182
     },
     "38": {
-        "en": "Sad (The letter Saad)",
+        "en": "Sad ( The Letter Sad )",
         "ar": "ص",
         "ayahCount": 88
     },
     "39": {
-        "en": "Az-Zumar (The Troops)",
+        "en": "Az-Zumar ( The Groups )",
         "ar": "الزمر",
         "ayahCount": 75
     },
     "40": {
-        "en": "Ghafir (The Forgiver)",
+        "en": "Ghafir ( The Forgiver God )",
         "ar": "غافر",
         "ayahCount": 85
     },
     "41": {
-        "en": "Fussilat (Explained in Detail)",
+        "en": "Fussilat ( Explained in Detail )",
         "ar": "فصلت",
         "ayahCount": 54
     },
     "42": {
-        "en": "Ash-Shura (The Consultation)",
+        "en": "Ash-Shura (Consultation )",
         "ar": "الشورى‎",
         "ayahCount": 53
     },
     "43": {
-        "en": "Az-Zukhruf (The Ornaments of Gold)",
+        "en": "Az-Zukhruf ( The Gold Adornment )",
         "ar": "الزخرف",
         "ayahCount": 89
     },
     "44": {
-        "en": "Ad-Dukhan (The Smoke)",
+        "en": "Ad-Dukhan ( The Smoke )",
         "ar": "الدخان",
         "ayahCount": 59
     },
     "45": {
-        "en": "Al-Jathiyah (The Crouching)",
+        "en": "Al-Jathiya ( Crouching )",
         "ar": "الجاثية",
         "ayahCount": 37
     },
     "46": {
-        "en": "Al-Ahqaf (The Wind Curved Sandhill)",
+        "en": "Al-Ahqaf ( The Curved Sand-hills )",
         "ar": "الأحقاف",
         "ayahCount": 35
     },
     "47": {
-        "en": "Muhammad (Muhammad)",
+        "en": "Muhammad ( Muhammad )",
         "ar": "محمد",
         "ayahCount": 38
     },
     "48": {
-        "en": "Al-Fath (The Victory)",
+        "en": "Al-Fath ( The Victory )",
         "ar": "الفتح",
         "ayahCount": 29
     },
     "49": {
-        "en": "Al-Hujurat (The Private Chambers)",
+        "en": "Al-Hujurat ( The Dwellings )",
         "ar": "الحجرات",
         "ayahCount": 18
     },
     "50": {
-        "en": "Qaf (Qaf)",
+        "en": "Qaf ( The Letter Qaf )",
         "ar": "ق",
         "ayahCount": 45
     },
     "51": {
-        "en": "Adh-Dhariyat (The Scatterers)",
+        "en": "Adh-Dhariyat ( The Wind that Scatter )",
         "ar": "الذاريات",
         "ayahCount": 60
     },
     "52": {
-        "en": "At-Tur (The Mountain)",
+        "en": "At-Tur ( The Mount )",
         "ar": "الطور",
         "ayahCount": 49
     },
     "53": {
-        "en": "An-Najm (The Star)",
+        "en": "An-Najm ( The Star )",
         "ar": "النجم",
         "ayahCount": 62
     },
     "54": {
-        "en": "Al-Qamar (The Moon)",
+        "en": "Al-Qamar ( The Moon )",
         "ar": "القمر‎",
         "ayahCount": 55
     },
     "55": {
-        "en": "Ar-Rahman (The Beneficent)",
-        "ar": "الرحمان",
+        "en": "Ar-Rahman ( The Most Graciouse )",
+        "ar": "الرحمن",
         "ayahCount": 78
     },
     "56": {
-        "en": "Al-Waqi'ah (The Inevitable)",
+        "en": "Al-Waqi'ah ( The Event )",
         "ar": "الواقعة‎",
         "ayahCount": 96
     },
     "57": {
-        "en": "Al-Hadid (The Iron)",
+        "en": "Al-Hadid ( The Iron )",
         "ar": "الحديد",
         "ayahCount": 29
     },
     "58": {
-        "en": "Al-Mujadila (The Pleading Women)",
+        "en": "Al-Mujadilah ( She That Disputeth )",
         "ar": "المجادلة",
         "ayahCount": 22
     },
     "59": {
-        "en": "Al-Hashr (The Exile)",
+        "en": "Al-Hashr ( The Gathering )",
         "ar": "الحشر",
         "ayahCount": 24
     },
     "60": {
-        "en": "Al-Mumtahanah (She That is to be Examined)",
+        "en": "Al-Mumtahanah ( The Woman to be examined )",
         "ar": "الممتحنة",
         "ayahCount": 13
     },
     "61": {
-        "en": "As-Saff (The Ranks)",
+        "en": "As-Saff ( The Row )",
         "ar": "الصف",
         "ayahCount": 14
     },
     "62": {
-        "en": "Al-Jumu'ah (Congregation Prayer)",
+        "en": "Al-Jumu'ah ( Friday )",
         "ar": "الجمعة",
         "ayahCount": 11
     },
     "63": {
-        "en": "Al-Munafiqun (The Hypocrites)",
+        "en": "Al-Munafiqoon ( The Hypocrites )",
         "ar": "المنافقون",
         "ayahCount": 11
     },
     "64": {
-        "en": "At-Taghabun (Mutual Disposession)",
+        "en": "At-Taghabun ( Mutual Loss & Gain )",
         "ar": "التغابن",
         "ayahCount": 18
     },
     "65": {
-        "en": "At-Talaq (The Divorce)",
+        "en": "At-Talaq ( The Divorce )",
         "ar": "الطلاق",
         "ayahCount": 12
     },
     "66": {
-        "en": "At-Tahrim (The Prohibition)",
+        "en": "At-Tahrim ( The Prohibition )",
         "ar": "التحريم",
         "ayahCount": 12
     },
     "67": {
-        "en": "Al-Mulk (The Sovereignty)",
+        "en": "Al-Mulk ( Dominion )",
         "ar": "الملك",
         "ayahCount": 30
     },
     "68": {
-        "en": "Al-Qalam (The Pen)",
+        "en": "Al-Qalam ( The Pen )",
         "ar": "القلم",
         "ayahCount": 52
     },
     "69": {
-        "en": "Al-Haqqah (The Reality)",
+        "en": "Al-Haaqqah ( The Inevitable )",
         "ar": "الحاقة",
         "ayahCount": 52
     },
     "70": {
-        "en": "Al-Ma'arij (The Ascending Stairways)",
+        "en": "Al-Ma'arij (The Ways of Ascent )",
         "ar": "المعارج",
         "ayahCount": 44
     },
     "71": {
-        "en": "Nuh (Noah)",
+        "en": "Nooh ( Noah )",
         "ar": "نوح",
         "ayahCount": 28
     },
     "72": {
-        "en": "Al-Jinn (The Jinn)",
+        "en": "Al-Jinn ( The Jinn )",
         "ar": "الجن",
         "ayahCount": 28
     },
     "73": {
-        "en": "Al-Muzzammil (The Enshrouded One)",
+        "en": "Al-Muzzammil (The One wrapped in Garments)",
         "ar": "المزمل",
         "ayahCount": 20
     },
     "74": {
-        "en": "Al-Muddaththir (The Cloaked One)",
+        "en": "Al-Muddaththir ( The One Enveloped )",
         "ar": "المدثر",
         "ayahCount": 56
     },
     "75": {
-        "en": "Al-Qiyamah (The Resurrection)",
+        "en": "Al-Qiyamah ( The Resurrection )",
         "ar": "القيامة",
         "ayahCount": 40
     },
     "76": {
-        "en": "Al-Insan (The Man)",
+        "en": "Al-Insan ( Man )",
         "ar": "الإنسان",
         "ayahCount": 31
     },
     "77": {
-        "en": "Al-Mursalat (The Emissaries)",
+        "en": "Al-Mursalat ( Those sent forth )",
         "ar": "المرسلات",
         "ayahCount": 50
     },
     "78": {
-        "en": "An-Naba (The Tidings)",
+        "en": "An-Naba' ( The Great News )",
         "ar": "النبأ",
         "ayahCount": 40
     },
     "79": {
-        "en": "An-Nazi'at (Those who drag forth)",
+        "en": "An-Nazi'at ( Those who Pull Out )",
         "ar": "النازعات",
         "ayahCount": 46
     },
     "80": {
-        "en": "Abasa (He Frowned)",
+        "en": "Abasa ( He frowned )",
         "ar": "عبس",
         "ayahCount": 42
     },
     "81": {
-        "en": "At-Takwir (The Overthrowing)",
+        "en": "At-Takwir ( The Overthrowing )",
         "ar": "التكوير",
         "ayahCount": 29
     },
     "82": {
-        "en": "Al-Infitar (The Cleaving)",
-        "ar": "الإنفطار",
+        "en": "Al-Infitar ( The Cleaving )",
+        "ar": "الانفطار",
         "ayahCount": 19
     },
     "83": {
-        "en": "Al-Mutaffifin (The Defrauding)",
+        "en": "Al-Mutaffifin (Those Who Deal in Fraud)",
         "ar": "المطففين",
         "ayahCount": 36
     },
     "84": {
-        "en": "Al-Inshiqaq (The Sundering)",
+        "en": "Al-Inshiqaq (The Splitting Asunder)",
         "ar": "الانشقاق",
         "ayahCount": 25
     },
     "85": {
-        "en": "Al-Buruj (The Mansions of the Stars)",
+        "en": "Al-Burooj ( The Big Stars )",
         "ar": "البروج",
         "ayahCount": 22
     },
     "86": {
-        "en": "At-Tariq (The Nightcommer)",
+        "en": "At-Tariq ( The Night-Comer )",
         "ar": "الطارق",
         "ayahCount": 17
     },
     "87": {
-        "en": "Al-Ala (The Most High)",
+        "en": "Al-A'la ( The Most High )",
         "ar": "الأعلى",
         "ayahCount": 19
     },
     "88": {
-        "en": "Al-Ghashiyah (The Overwhelming)",
+        "en": "Al-Ghashiya ( The Overwhelming )",
         "ar": "الغاشية",
         "ayahCount": 26
     },
     "89": {
-        "en": "Al-Fajr (The Dawn)",
+        "en": "Al-Fajr ( The Dawn )",
         "ar": "الفجر",
         "ayahCount": 30
     },
     "90": {
-        "en": "Al-Balad (The City)",
+        "en": "Al-Balad ( The City )",
         "ar": "البلد",
         "ayahCount": 20
     },
     "91": {
-        "en": "Ash-Shams (The Sun)",
+        "en": "Ash-Shams ( The Sun )",
         "ar": "الشمس",
         "ayahCount": 15
     },
     "92": {
-        "en": "Al-Lail (The Night)",
+        "en": "Al-Layl ( The Night )",
         "ar": "الليل",
         "ayahCount": 21
     },
     "93": {
-        "en": "Ad-Duha (The Morning Brightness)",
+        "en": "Ad-Dhuha ( The Forenoon )",
         "ar": "الضحى",
         "ayahCount": 11
     },
     "94": {
-        "en": "Ash-Sharh (The Expansion)",
+        "en": "As-Sharh ( The Opening Forth)",
         "ar": "الشرح",
         "ayahCount": 8
     },
     "95": {
-        "en": "At-Tin (The Fig)",
+        "en": "At-Tin ( The Fig )",
         "ar": "التين",
         "ayahCount": 8
     },
     "96": {
-        "en": "Al-Alaq (The Blood Clot)",
+        "en": "Al-'alaq ( The Clot )",
         "ar": "العلق",
         "ayahCount": 19
     },
     "97": {
-        "en": "Al-Qadr (The Power)",
+        "en": "Al-Qadr ( The Night of Decree )",
         "ar": "القدر",
         "ayahCount": 5
     },
     "98": {
-        "en": "Al-Bayyina (The Evidence)",
+        "en": "Al-Bayyinah ( The Clear Evidence )",
         "ar": "البينة",
         "ayahCount": 8
     },
     "99": {
-        "en": "Az-Zalzalah (The Earthquake)",
+        "en": "Az-Zalzalah ( The Earthquake )",
         "ar": "الزلزلة",
         "ayahCount": 8
     },
     "100": {
-        "en": "Al-Adiyat (The Courser)",
+        "en": "Al-'adiyat ( Those That Run )",
         "ar": "العاديات",
         "ayahCount": 11
     },
     "101": {
-        "en": "Al-Qari'ah (The Calamity)",
+        "en": "Al-Qari'ah ( The Striking Hour )",
         "ar": "القارعة",
         "ayahCount": 11
     },
     "102": {
-        "en": "At-Takathur (Vying for increase)",
+        "en": "At-Takathur ( The piling Up )",
         "ar": "التكاثر",
         "ayahCount": 8
     },
     "103": {
-        "en": "Al-Asr (The Declining Day)",
+        "en": "Al-Asr ( The Time )",
         "ar": "العصر",
         "ayahCount": 3
     },
     "104": {
-        "en": "Al-Humazah (The Slanderer)",
+        "en": "Al-Humazah ( The Slanderer )",
         "ar": "الهمزة",
         "ayahCount": 9
     },
     "105": {
-        "en": "Al-Fil (The Elephant)",
+        "en": "Al-Fil ( The Elephant )",
         "ar": "الفيل",
         "ayahCount": 5
     },
     "106": {
-        "en": "Quraysh (Quraish)",
+        "en": "Quraish ( Quraish )",
         "ar": "قريش",
         "ayahCount": 4
     },
     "107": {
-        "en": "Al-Ma'un (The Small Kindness)",
+        "en": "Al-Ma'un ( Small Kindnesses )",
         "ar": "الماعون",
         "ayahCount": 7
     },
     "108": {
-        "en": "Al-Kawthar (The Abundance)",
+        "en": "Al-Kauthor ( A River in Paradise)",
         "ar": "الكوثر",
         "ayahCount": 3
     },
     "109": {
-        "en": "Al-Kafirun (The Disbelievers)",
+        "en": "Al-Kafiroon ( The Disbelievers )",
         "ar": "الكافرون",
         "ayahCount": 6
     },
     "110": {
-        "en": "An-Nasr (The Divine Support)",
+        "en": "An-Nasr ( The Help )",
         "ar": "النصر",
         "ayahCount": 3
     },
     "111": {
-        "en": "Al-Masad (The Palm Fiber)",
+        "en": "Al-Masad ( The Palm Fibre )",
         "ar": "المسد",
         "ayahCount": 5
     },
     "112": {
-        "en": "Al-Ikhlas (The Sincerity)",
+        "en": "Al-Ikhlas ( Sincerity )",
         "ar": "الإخلاص",
         "ayahCount": 4
     },
     "113": {
-        "en": "Al-Falaq (The Daybreak)",
+        "en": "Al-Falaq ( The Daybreak )",
         "ar": "الفلق",
         "ayahCount": 5
     },
     "114": {
-        "en": "An-Nas (The Mankind)",
+        "en": "An-Nas ( Mankind )",
         "ar": "الناس",
         "ayahCount": 6
     }
