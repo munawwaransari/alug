@@ -602,6 +602,9 @@ function encodeTafsirUrl(url){
 function getTafsirAudioOptions(index, chapterEn, chapterAr){
 	
 	var tafasir = {
+			"Tafseer Ibne-kaseer (Urdu)": 
+			"https://archive.org/download/Tafsir-ibne-kaseer-kathir-urdu-----audio-mp3-hq/@index@ - @chapter-en@ - @chapter-ar@.mp3",
+			
 			"Tafheem-ul-Quran (Syed Abul-Ala Moududi)": "https://archive.org/download/Tafheem-ul-Quran-by-Syed-Abul-Ala-Moududi-Audio-MP3-CD/@index@ - @chapter-en@ - @chapter-ar@.mp3",
 			
 			"Bayan-ul-Quran (Dr. Israr Ahmed)": 
@@ -618,6 +621,8 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr){
 			var ch = index > 99 ? index : index > 9 ? "0"+index : "00"+index;
 			var url = v;
 			switch(k){
+				
+				case "Tafseer Ibne-kaseer (Urdu)":
 				case "Bayan-ul-Quran (Dr. Israr Ahmed)":
 				case "Tafheem-ul-Quran (Syed Abul-Ala Moududi)":
 					url = url.replace('@index@', ch)

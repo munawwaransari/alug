@@ -380,9 +380,9 @@
         ],
         "features": {
             "فَاعَلَ - يُفَاعِلُ (Form III)": [
-				"",
-				"",
-				""
+				"<p style=\"direction: ltr\";padding:0;margin:0;>Indicates a reciprocal or associative action (suggesting a mutual or competitive performance). e.g. to face, to fight, to struggle etc.</p>",
+                "<p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Reciprocal</u><br/><div>قَاتَلَ - يُقَاتِلُ => to fight</div><div>(قَتَلَ - يَقتُلُ => to kill)</div><br/><div>حَافَظَ - يُحافِظُ => to guard</div><div>(حَفِظَ - يَحفَظُ => to remember)</div><br/></p><p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Associative</u><div>فَقِهَ - يَفقَهُون => to comprehend</div><div>نَفَق - يَنفِقُ => to run out</div><div>نَزَلَ - يَنزِلُ => to descend</div><br/>",
+				"وَلَا <b>تُقَٰتِلُوهُمۡ</b> عِندَ ٱلۡمَسۡجِدِ ٱلۡحَرَامِ حَتَّىٰ <b>يُقَٰتِلُوكُمۡ</b> فِيهِۖ [2:191]<br/><br/><br/>وَهُمۡ عَلَىٰ صَلَاتِهِمۡ <b>يُحَافِظُونَ</b> [6:92]<br/><br/>"
 			]
         }
     },
@@ -452,7 +452,7 @@
         ],
         "features": {
             "تَفَاعَلَ - يَتَفَاعِلَ (Form VI)": [
-				"",
+				"<p style=\"direction: ltr\";padding:0;margin:0;>Indicates a reflexive reciprocal or mutual/associative action. e.g. to learn (from someone), to handle (someone), etc.</p>",
 				"",
 				""
 			]
