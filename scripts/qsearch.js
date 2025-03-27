@@ -732,21 +732,6 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr){
 	}
 	
 	return getPlayControlsHtml(id, options, '\u060F');
-
-	/*
-	return '<span class="dropdown">'+
-			  '<button id="'+id+'" '+
-					   'class="dropbtn" '+
-					   'style="background-color:#EEEEEE;color:black;">\u060F</button>'+ //play
-			   '<div class="dropdown-content" style="">'+options+'</div>'+
-			   '<button id="'+id+'-pause" class="dropbtn" '+
-					   'onclick="pauseOrplayQuranChapter(\''+id+'\')" '+
-					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23F8</button>'+ //pause
-			   '<button id="'+id+'-stop" class="dropbtn" '+
-					   'onclick="stopQuranChapter(\''+id+'\')" '+
-					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23F9</button>'+ //stop
-		   '</span>';
-	*/
 }
 
 //https://www.truemuslims.net
@@ -764,21 +749,6 @@ function getQuranAudioOptions(chapter){
 	});
 	
 	return getPlayControlsHtml(id, options, '&#9835');
-
-	/*
-	return '<span class="dropdown">'+
-			  '<button id="'+id+'" '+
-					   'class="dropbtn" '+
-					   'style="background-color:#EEEEEE;color:black;">&#9835</button>'+ //play
-			   '<div class="dropdown-content" style="">'+options+'</div>'+
-			   '<button id="'+id+'-pause" class="dropbtn" '+
-					   'onclick="pauseOrplayQuranChapter(\''+id+'\')" '+
-					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23F8</button>'+ //pause
-			   '<button id="'+id+'-stop" class="dropbtn" '+
-					   'onclick="stopQuranChapter(\''+id+'\')" '+
-					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23F9</button>'+ //stop
-		   '</span>';
-	*/
 }
 
 function getPlayControlsHtml(id, options, symbol){
@@ -788,16 +758,16 @@ function getPlayControlsHtml(id, options, symbol){
 					   'style="background-color:#EEEEEE;color:black;">'+symbol+'</button>'+
 			   '<div class="dropdown-content" style="">'+options+'</div>'+
 			   '<button id="'+id+'-fb" class="dropbtn" '+
-					   'onclick="fastplayQuranChapter(\''+id+'\', false); toggleDropdownContent($(this).parent().prev());" '+
+					   'onclick="fastplayQuranChapter(\''+id+'\', false); toggleDropdownContent($(this).parent().first().next());" '+
 					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23EA</button>'+ //FB
 			   '<button id="'+id+'-pause" class="dropbtn" '+
-					   'onclick="pauseOrplayQuranChapter(\''+id+'\'); toggleDropdownContent($(this).parent().prev());" '+
+					   'onclick="pauseOrplayQuranChapter(\''+id+'\'); toggleDropdownContent($(this).parent().first().next());" '+
 					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23F8</button>'+ //play/pause
 			   '<button id="'+id+'-stop" class="dropbtn" '+
-					   'onclick="stopQuranChapter(\''+id+'\'); toggleDropdownContent($(this).parent().prev());" '+
+					   'onclick="stopQuranChapter(\''+id+'\'); toggleDropdownContent($(this).parent().first().next());" '+
 					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23F9</button>'+ //stop
 			   '<button id="'+id+'-ff" class="dropbtn" '+
-					   'onclick="fastplayQuranChapter(\''+id+'\', true); toggleDropdownContent($(this).parent().prev());" '+
+					   'onclick="fastplayQuranChapter(\''+id+'\', true); toggleDropdownContent($(this).first().next().next());" '+
 					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23E9</button>'+ //FF
 		   '</span>';
 }
@@ -983,7 +953,7 @@ function listSurahs(){
 		div.empty();
 		var table = '<table style="max-width:512px;margin:auto;padding:0;" '+
 						   'class="surahIndex">'+
-						   '<th>Surah</th><th>Qirat</th><th>Tafsir</th><th>Research</th>';
+						   '<th>Surah</th><th>&nbsp;Qirat&nbsp;</th><th>Tafsir</th><th>Res.</th>';
 		for (const [index, surah] of Object.entries(data)) {
 			var tanzilLink = '<a style="cursor:pointer;font-size:18px" href="https://tanzil.net/#'+index+'" '+
 				 'onclick="var w = parent ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+index+'</a>';

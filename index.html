@@ -22,6 +22,7 @@
 			var autoplay_cache = [];
 			var states = {};
 			var arSupported = false, urSupported = false;
+			var qPlayerObj;
 	
 			window.topics = alug_chapters;
 			window.updateStates = function (s){ $.extend(states, s); };
@@ -98,7 +99,7 @@
 				}
 			}
 			
-			var audio_last_time;
+			var audio_last_time; //, audio_duration;
 			window.pauseAudio = function(){
 				if(audio){
 				
@@ -116,6 +117,15 @@
 				}
 			}
 			
+			window.changeAudioTime = function(ff){
+				if(audio){
+					var ct = Math.round(audio.duration * 0.01);
+					if(ct < 5) ct = 5;
+					audio.currentTime += ct*(ff ? +1:-1);
+					audio_last_time = audio.currentTime;
+				}
+			}
+			
 			window.playAudio = function(mpegUrl, cb){
 				
 				stopAudio();
@@ -126,11 +136,15 @@
 				
 				audio = new Audio(mpegUrl);
 				
+				//show play controls
+				//updateToolDescription('qsearch', { play: audio});
+				
 				audio.addEventListener("pause", () => {
-				  cb("pause");
+				  if(cb) cb("pause");
 				});
 				audio.addEventListener("ended", () => {
-				  cb("ended");
+				  ///updateToolDescription('qsearch');
+				  if(cb) cb("ended");
 				});
 
 				var promise = audio.play();
@@ -178,9 +192,10 @@
 		<script src="scripts/speak-tts/demo.bundle.js"></script>
 		<script src="scripts/data-util.js"></script>
 		<script src="scripts/autocomplete.js"></script>
+		<!-- <script src="scripts/qplayer.js"></script> -->
 		<script src="scripts/onload.js"></script>
 		<div class="containerHead" onclick="toggleHead()">
-			<img id="imgHead" src="images/dn.png"">
+			<img id="imgHead" src="images/up.png"">
 		</div>
 		<div class="toolDiv">
 			<span class="toolSpan"><b style="font-size:12px;"><a target="_blank" href="LICENSE.md">Arabic Language Learning Guide</a></b></span>
