@@ -621,6 +621,9 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr){
 			"Bayan-ul-Quran (Dr. Israr Ahmed)": 
 			"https://ia600202.us.archive.org/4/items/BayanUlQuranInUrduByDr.IsrarAhmedAudioMP3-HQ/@index@ - @chapter-en@ - @chapter-ar@.mp3",
 			
+			"Asan Tarjuma-e-Quran (Mufti Taqi Usmani)":
+			"https://www.jamiat.org.in/media/media/audio/tu_mr_s_@index@.mp3",
+			
 			"English Tafsir (Mohsin Khan)": "https://ia902907.us.archive.org/5/items/complete-quran-english-tafsir-audio-muhsin-khan/@index@-@chapter-en@.mp3"
 			
 	};
@@ -645,6 +648,13 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr){
 														 .replace(' ( Noah )', '')
 														 .replace(' ( Quraish )', ''))
 					   .replace('@chapter-ar@', 'سورة '+chapterAr);
+				break;
+				
+				case "Asan Tarjuma-e-Quran (Mufti Taqi Usmani)":{
+					url = url.replace('@index@', ch === '001' ? '001_dTacVzr' : ch);
+					if(ch === '002')
+						url = url.replace(/mp3$/g, 'mpeg');
+				}
 				break;
 				
 				case "English Tafsir (Mohsin Khan)": {
