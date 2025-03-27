@@ -965,9 +965,8 @@ function listSurahs(){
 				enName = enName.split(' ')[0];
 			}
 			table += '<tr>'+
-						 //'<td>'+tanzilLink+'</td>'+
 						 '<td onclick="searchText(\''+enName+'\')" '+
-							 'class="qword" style="max-width:80px;font-szie:14px;padding:0;">'+index+'<br/>'+
+							 'class="qword" style="max-width:80px;font-szie:14px;padding:0;padding-bottom:6px;">'+index+'<br/>'+
 							 '<b>'+surah.ar+'</b><br/>'+
 								'<span style="font-size:12px;">'+
 									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
