@@ -356,9 +356,9 @@
         ],
         "features": {
             "فَعَّلَ - يُفَعِّلُ (Form II)": [
-				"",
-				"",
-				""
+				"<p style=\"direction: ltr\";padding:0;margin:0;>Indicates basic sense a causative (genrally consistent) or intensive action.e.g. to teach, to bestow, to estimate, etc.</p>",
+                "<p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Causative</u><br/><div>عَلّمَ - يُعَلِّمُ => to teach</div><div>(عَلِمَ - يَعلَمُ => to know)</div><br/><div>قَدَّرَ - يَقَدِّرُ => to estimate/judge</div><div>(قَدِرَ - يَقدِرُ => to have avility/power)</div><br/><u>Intensive</u></p><div>كَذََبَ - يُكَذِّبُ => to accuse of lying</div><div>(كَذَبَ - يَكذِبُ => to lie)</div><br/>",
+				"ٱلَّذِي <b>عَلَّمَ</b> بِٱلۡقَلَمِ ٤ [96:4]<br/><br/>فَإِن <b>كَذَّبُوكَ</b> فَقَدۡ <b>كُذِّبَ</b> رُسُلٞ مِّن قَبۡلِكَ [3:184]<br/><br/>ثُمَّ قُتِلَ كَيۡفَ <b>قَدَّرَ</b> ٢٠ [74:20]<br/><br/>يَوۡمَئِذٖ <b>تُحَدِّثُ</b> أَخۡبَارَهَا ٤ [99:4]<br/><br/>"
 			]
         }
     },
@@ -382,7 +382,7 @@
             "فَاعَلَ - يُفَاعِلُ (Form III)": [
 				"<p style=\"direction: ltr\";padding:0;margin:0;>Indicates a reciprocal or associative action (suggesting a mutual or competitive performance). e.g. to face, to fight, to struggle etc.</p>",
                 "<p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Reciprocal</u><br/><div>قَاتَلَ - يُقَاتِلُ => to fight</div><div>(قَتَلَ - يَقتُلُ => to kill)</div><br/><div>حَافَظَ - يُحافِظُ => to guard</div><div>(حَفِظَ - يَحفَظُ => to remember)</div><br/></p><p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Associative</u><div>فَقِهَ - يَفقَهُون => to comprehend</div><div>نَفَق - يَنفِقُ => to run out</div><div>نَزَلَ - يَنزِلُ => to descend</div><br/>",
-				"وَلَا <b>تُقَٰتِلُوهُمۡ</b> عِندَ ٱلۡمَسۡجِدِ ٱلۡحَرَامِ حَتَّىٰ <b>يُقَٰتِلُوكُمۡ</b> فِيهِۖ [2:191]<br/><br/><br/>وَهُمۡ عَلَىٰ صَلَاتِهِمۡ <b>يُحَافِظُونَ</b> [6:92]<br/><br/>"
+				"وَلَا <b>تُقَٰتِلُوهُمۡ</b> عِندَ ٱلۡمَسۡجِدِ ٱلۡحَرَامِ حَتَّىٰ <b>يُقَٰتِلُوكُمۡ</b> فِيهِۖ [2:191]<br/><br/>وَهُمۡ عَلَىٰ صَلَاتِهِمۡ <b>يُحَافِظُونَ</b> [6:92]<br/><br/>وَمَن <b>جَٰهَدَ</b> فَإِنَّمَا <b>يُجَٰهِدُ</b> لِنَفۡسِهِۦٓۚ [29:6]<br/><br/>"
 			]
         }
     },
@@ -413,7 +413,7 @@
 	{
         "isVerbComparison": true,
         "topics": [
-            "تَفَعَّلَ - يَتَفَعِّلُ (Form V)"
+            "تَفَعَّلَ - يَتَفَعَّلُ (Form V)"
         ],
         "notes": "",
         "ar": [
@@ -427,10 +427,10 @@
             "Examples"
         ],
         "features": {
-            "تَفَعَّلَ - يَتَفَعِّلُ (Form V)": [
-				"",
-				"",
-				""
+            "تَفَعَّلَ - يَتَفَعَّلُ (Form V)": [
+				"<p style=\"direction: ltr\";padding:0;margin:0;>Makes the Form II Reflexive. Indicates a reflexive or passive action. e.g. to learn (from someone), to ponder (get thoughts), etc.</p>",
+				"<p st  yle=\"direction: ltr; margin-top:0;padding:0;\"><u>Reflexive/Passive</u><br/><div>تَدَبَّرَ - يَتَدَبَرُ => to ponder</div><div>تَذَكَّرَ - يَتَذَكَّرُ =>to remeber</div><br/><div>تَقَبَّلَ - يَتَقَبِّلُ => to accept</div><div>(كَثَرَ - يَكثَرُ => to increase)</div><br/><div>تَقَبَّلَ - يَتَقَبَّلُ => to accept</div><div>تَذَكَّرَ - يّتَذَكَّرُ => to remember</div><br/>",
+				"أَفَلَا <b>يَتَدَبَّرُونَ</b> ٱلۡقُرۡءَانَ [47:24]<br/><br/>رَبَّنَا <b>تَقَبَّلۡ</b> مِنَّآۖ [2:127]<br/><br/>وَ<b>يَتَفَكَّرُونَ</b> فِي خَلۡقِ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضِ [3:191]<br/><br/>أَفَلَا <b>تَذَكَّرُونَ</b> ٣٠ [11:30]<br/><br/>"
 			]
         }
     },
@@ -452,9 +452,9 @@
         ],
         "features": {
             "تَفَاعَلَ - يَتَفَاعِلَ (Form VI)": [
-				"<p style=\"direction: ltr\";padding:0;margin:0;>Indicates a reflexive reciprocal or mutual/associative action. e.g. to learn (from someone), to handle (someone), etc.</p>",
-				"",
-				""
+				"<p style=\"direction: ltr\";padding:0;margin:0;>Makes the Form III Reflexive. Indicates a reflexive reciprocal or mutual/associative action. e.g. to quarrel, to resemble, etc.</p>",
+				"<p st  yle=\"direction: ltr; margin-top:0;padding:0;\"><u>Reflexive/Reciprocal</u><br/><div> تَنَازَعَ - يَتَنَازَعُ => to dispute (with one another)</div><div>(نَزَعَ = يَنزَعُ => to eradicate )</div><br/><div>تَكَاثَرَ - يَتَكَاثِرُ => to proliferate</div><div>(كَثَرَ - يَكثَرُ => to increase)</div><br/></p><p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Reflexive/Associative</u><div>تَقَابَلَ - يَتَقَابِلُ => to meet/face someone</div><div>تَمَاثَلَ - يَتَمَاثِلُ => to resemble</div><div>نَزَلَ - يَنزِلُ => to descend</div><br/>",
+				"وَأَطِيعُواْ ٱللَّهَ وَرَسُولَهُۥ وَلَا <b>تَنَٰزَعُواْ</b> [8:46]<br/><br/>ٱعۡلَمُوٓاْ أَنَّمَا ٱلۡحَيَوٰةُ ٱلدُّنۡيَا لَعِبٞ وَلَهۡوٞ وَزِينَةٞ وَ<b>تَفَاخُرُۢ</b> بَيۡنَكُمۡ وَ<b>تَكَاثُرٞ</b> فِي ٱلۡأَمۡوَٰلِ وَٱلۡأَوۡلَٰدِۖ [57:20]<br/><br/>"
 			]
         }
 	},
