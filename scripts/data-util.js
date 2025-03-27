@@ -286,3 +286,13 @@ function loadAllVoices(sel, voicesAll ){
 		sel.append($(o));
 	}
 }
+
+function toggleDropdownContent(elem, state){
+	if(state){
+		$(elem).next().addClass("dropdown-content");
+		$(elem).next().show();
+	}else{
+		$(elem).next().toggleClass("dropdown-content");
+		$(elem).next().toggle();
+	}
+}

@@ -9,6 +9,7 @@ var q_summary = {};
 var loadStatus;
 var isAutoPlayQirat, changeQari;
 
+
 window.onload = function(){
 	
 	$("#searchText").keyup(function(event) {
@@ -553,6 +554,8 @@ function playQuranChapterUrl(url, id){
 		var pauseBtn = $("#"+id+"-pause");
 		pauseBtn.show();
 		$("#"+id+"-stop").show();
+		$("#"+id+"-fb").show();
+		$("#"+id+"-ff").show();
 		$("#"+id).hide();
 		
 		parent.playAudio(url, function(action){		
@@ -565,6 +568,12 @@ function playQuranChapterUrl(url, id){
 			}
 		});
 	}	
+}
+
+function fastplayQuranChapter(id, fbOrff){
+	if(parent && parent.changeAudioTime){
+		parent.changeAudioTime(fbOrff);
+	}
 }
 
 function pauseOrplayQuranChapter(id){
@@ -588,6 +597,8 @@ function stopQuranChapter(id){
 
 		$("#"+id+"-pause").hide();
 		$("#"+id+"-stop").hide();
+		$("#"+id+"-fb").hide();
+		$("#"+id+"-ff").hide();
 	}
 	$("#"+id).show();
 }
@@ -720,6 +731,9 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr){
 			options += '<p onclick="playQuranChapterUrl(\''+encodeTafsirUrl(url)+'\',\''+id+'\')">'+k+'</p>';
 	}
 	
+	return getPlayControlsHtml(id, options, '\u060F');
+
+	/*
 	return '<span class="dropdown">'+
 			  '<button id="'+id+'" '+
 					   'class="dropbtn" '+
@@ -732,6 +746,7 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr){
 					   'onclick="stopQuranChapter(\''+id+'\')" '+
 					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23F9</button>'+ //stop
 		   '</span>';
+	*/
 }
 
 //https://www.truemuslims.net
@@ -748,6 +763,9 @@ function getQuranAudioOptions(chapter){
 		return true;
 	});
 	
+	return getPlayControlsHtml(id, options, '&#9835');
+
+	/*
 	return '<span class="dropdown">'+
 			  '<button id="'+id+'" '+
 					   'class="dropbtn" '+
@@ -759,6 +777,28 @@ function getQuranAudioOptions(chapter){
 			   '<button id="'+id+'-stop" class="dropbtn" '+
 					   'onclick="stopQuranChapter(\''+id+'\')" '+
 					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23F9</button>'+ //stop
+		   '</span>';
+	*/
+}
+
+function getPlayControlsHtml(id, options, symbol){
+	return '<span class="dropdown">'+
+			  '<button id="'+id+'" '+
+					   'class="dropbtn" onclick="toggleDropdownContent(this, true)" '+
+					   'style="background-color:#EEEEEE;color:black;">'+symbol+'</button>'+
+			   '<div class="dropdown-content" style="">'+options+'</div>'+
+			   '<button id="'+id+'-fb" class="dropbtn" '+
+					   'onclick="fastplayQuranChapter(\''+id+'\', false); toggleDropdownContent($(this).parent().prev());" '+
+					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23EA</button>'+ //FB
+			   '<button id="'+id+'-pause" class="dropbtn" '+
+					   'onclick="pauseOrplayQuranChapter(\''+id+'\'); toggleDropdownContent($(this).parent().prev());" '+
+					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23F8</button>'+ //play/pause
+			   '<button id="'+id+'-stop" class="dropbtn" '+
+					   'onclick="stopQuranChapter(\''+id+'\'); toggleDropdownContent($(this).parent().prev());" '+
+					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23F9</button>'+ //stop
+			   '<button id="'+id+'-ff" class="dropbtn" '+
+					   'onclick="fastplayQuranChapter(\''+id+'\', true); toggleDropdownContent($(this).parent().prev());" '+
+					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23E9</button>'+ //FF
 		   '</span>';
 }
 
@@ -941,9 +981,9 @@ function listSurahs(){
 		surah_list = data;
 		var div = $("#searchResult");
 		div.empty();
-		var table = '<table style="max-width:512px;margin:auto;" '+
+		var table = '<table style="max-width:512px;margin:auto;padding:0;" '+
 						   'class="surahIndex">'+
-						   '<th>#</th><th>Surah</th><th>Qirat</th><th>Tafsir</th><th>Research</th>';
+						   '<th>Surah</th><th>Qirat</th><th>Tafsir</th><th>Research</th>';
 		for (const [index, surah] of Object.entries(data)) {
 			var tanzilLink = '<a style="cursor:pointer;font-size:18px" href="https://tanzil.net/#'+index+'" '+
 				 'onclick="var w = parent ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+index+'</a>';
@@ -955,21 +995,21 @@ function listSurahs(){
 				enName = enName.split(' ')[0];
 			}
 			table += '<tr>'+
-						 '<td>'+tanzilLink+'</td>'+
+						 //'<td>'+tanzilLink+'</td>'+
 						 '<td onclick="searchText(\''+enName+'\')" '+
-							 'class="qword" style="max-width:80px;font-szie:14px;"><b>' +
-							 surah.ar+'</b><br/>'+
+							 'class="qword" style="max-width:80px;font-szie:14px;padding:0;">'+index+'<br/>'+
+							 '<b>'+surah.ar+'</b><br/>'+
 								'<span style="font-size:12px;">'+
 									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
 								'</span>'+
 						 '</td>'+
-						 '<td style="font-size:14px;cursor:pointer;">'+
+						 '<td style="font-size:14px;cursor:pointer;padding:0;">'+
 							 '<span>'+getQuranAudioOptions(index)+'</span>'+
 						 '</td>'+
-						 '<td style="font-size:14px;cursor:pointer;">'+
+						 '<td style="font-size:14px;cursor:pointer;padding:0;">'+
 							 '<span>'+getTafsirAudioOptions(index, surah.en, surah.ar)+'</span>'+
 						 '</td>'+
-						 '<td style="font-size:14px;cursor:pointer;"> '+
+						 '<td style="font-size:14px;cursor:pointer;padding:0;"> '+
 							 '<span class="dropbtn" '+
 							   'title="Research" '+
 							   'style="background-color:#EEEEEE;color:black;" '+
