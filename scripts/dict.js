@@ -355,16 +355,6 @@ function updateState(key, value){
 	}
 }
 
-function toggleDropdownContent(elem, state){
-	if(state){
-		$(elem).next().addClass("dropdown-content");
-		$(elem).next().show();
-	}else{
-		$(elem).next().toggleClass("dropdown-content");
-		$(elem).next().toggle();
-	}
-}
-
 function showNounTable(k, v1, v2){
 	updateState(k, {ar: v1, en: v2});
 	var nTable = posAPIObj.getNounInfo();
