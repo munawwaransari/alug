@@ -753,15 +753,45 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr){
 }
 
 //https://www.truemuslims.net
-function getQuranAudioOptions(chapter){
+function getQuranAudioOptions(chapter, enName, ayahCount){
 	
-	var languages = ["Arabic", "Bangla", "English", "Gujarati", "Hindi", "Kashmiri", "Malayalam", "Persian", "Tamil", "Telugu", "Urdu"];
+	var languages = ["Arabic", "Bangla", "English", "Gujarati", "Hindi", "Kashmiri", "Marathi", "Malayalam", "Persian", "Tamil", "Telugu", "Urdu"];
 	var options = '';
 	var id = 'q-ch'+chapter;
 	
 	languages.forEach(function(lang){
 		var ch = chapter > 99 ? chapter : chapter > 9 ? "0"+chapter : "00"+chapter; 
-		if(lang === "Telugu"){
+		
+		if(lang === "Marathi"){
+			if(chapter > 77){
+				var url = "https://dn720303.ca.archive.org/0/items/marathiqurantranslation/"+ch+"-Sura @chapter-en@ [Ayahs 1-"+ayahCount+"].mp3";
+				url = url.replace("@chapter-en@", enName.split("(")[0].trim())
+						 .replace('An-Naba\'', 'An-Nabaa')
+						 .replace('Abasa', '\'Abasa')
+						 .replace('Al-Mutaffifin', 'Al-Mutaffifeen')
+						 .replace('Sura Al-Burooj', ' Sura Al-Buruj')
+						 .replace('Al-Ghashiya', 'Al-Gashiya')
+						 .replace('Al-Layl', 'Al-Lail')
+						 .replace('As-Sharh', 'Al-Sharh')
+						 .replace('Al-\'alaq', 'Al-\'Alaq')
+						 .replace('Al-Bayyinah', 'Al-Baiyina')
+						 .replace('Az-Zalzalah', 'Al-Zalzalah')
+						 .replace('Al-\'adiyat', 'Al-\'Adiyat')
+						 .replace('Al-Qari\'ah', 'Al-Qari\'a')
+						 .replace('Al-Asr', 'Al-\'Asr')
+						 .replace('Al-Humazah', 'Al-Humaza')
+						 .replace('Al-Kauthor', 'Al-Kauthar')
+						 .replace('Al-Kafiroon', 'Al-Kafirun');
+						 
+				if(enName.startsWith("Al-\'adiyat")){
+					url = url.replace("1-11", "1-8");
+				}
+						 
+				var url = encodeURI(url).replace(/'/g, "%27");
+				options += '<p onclick="playQuranChapterUrl(\''+url+'\',\''+id+'\')">'+lang+'</p>';	
+			}					
+		}
+		else if(lang === "Telugu"){
 			if(chapter < 101){
 				var url = encodeURI("https://ia800703.us.archive.org/21/items/OnlyTeluguAudioQuranTranslationMp3/Telugu_Audio_Quran_Translation_Mp3_Quran/"+ch+"_Only_Telugu_Audio_Quran_Translation_Mp3_Quran_VideoQuran.Net.mp3");
 				options += '<p onclick="playQuranChapterUrl(\''+url+'\',\''+id+'\')">'+lang+'</p>';				
@@ -1002,7 +1032,7 @@ function listSurahs(){
 								'</span>'+
 						 '</td>'+
 						 '<td style="font-size:14px;cursor:pointer;padding:0;">'+
-							 '<span>'+getQuranAudioOptions(index)+'</span>'+
+							 '<span>'+getQuranAudioOptions(index, surah.en, surah.ayahCount)+'</span>'+
 						 '</td>'+
 						 '<td style="font-size:14px;cursor:pointer;padding:0;">'+
 							 '<span>'+getTafsirAudioOptions(index, surah.en, surah.ar)+'</span>'+
