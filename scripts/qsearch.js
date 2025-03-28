@@ -979,9 +979,9 @@ function listSurahs(){
 		surah_list = data;
 		var div = $("#searchResult");
 		div.empty();
-		var table = '<table style="max-width:512px;margin:auto;padding:0;" '+
+		var table = '<table style="direction:rtl;max-width:512px;margin:auto;padding:0;" '+
 						   'class="surahIndex">'+
-						   '<th>Surah</th><th>&nbsp;Qirat&nbsp;</th><th>Tafsir</th><th>Res.</th>';
+						   '<th>Surah</th><th>&nbsp;Qirat&nbsp;</th><th>Tafsir</th><th>.Res</th>';
 		for (const [index, surah] of Object.entries(data)) {
 			var tanzilLink = '<a style="cursor:pointer;font-size:18px" href="https://tanzil.net/#'+index+'" '+
 				 'onclick="var w = parent ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+index+'</a>';
@@ -995,7 +995,8 @@ function listSurahs(){
 			table += '<tr>'+
 						 '<td onclick="searchText(\''+enName+'\')" '+
 							 'class="qword" style="max-width:80px;font-szie:14px;padding:0;padding-bottom:6px;">'+index+'<br/>'+
-							 '<b>'+surah.ar+'</b><br/>'+
+							 //'<b>'+surah.ar+'</b><br/>'+
+							 '<img src="https://raw.githubusercontent.com/gyenabubakar/surah-name-glyphs/3498a6dcde6b7cb3b0ac4c7d7c0754d385ab31fe/svg/'+index+'.svg"></img><br/>'+
 								'<span style="font-size:12px;">'+
 									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
 								'</span>'+
