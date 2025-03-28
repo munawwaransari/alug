@@ -1,0 +1,516 @@
+<!--
+	Author: munawwar_ali@yahoo.com
+//-->
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes" />
+    <link rel="shortcut icon" href="#" />
+	<link rel="stylesheet" type="text/css" href="styles/tree.css" media="screen">
+	<head>
+		<title>Inheritance Calculator</title>
+		<link rel="shortcut icon" href="#" />
+		<style>
+		body {
+			font-size: 14px;
+		}
+		
+		.v-message {
+			background-color: #F8FF9C;
+			padding: 2px;
+			margin-top: 4px;
+		}
+		
+		.z-title {
+			color:#08233C;
+			font-size: 14px;
+			font-weight: bold;
+			text-decoration-line: underline;
+			padding: 4px;
+			padding-top:10px;
+		}
+		
+		.caret, table {
+			font-size: 14px;
+		}
+		
+		.i-section {
+			padding: 4px;
+			margin-top: 10px;
+		}
+		
+		.z-section, .i-section {
+			list-style-type: none;
+			padding: 4px;
+			margin: 0;
+		}
+		
+		.nested {
+			background-color: white;
+		}
+		
+		.z-section > li {
+			background-color:#D8EECE;
+		}
+		
+		.z-section > li, .caret::before {
+			background-color: #D8EECE;
+			color:#092A49;
+			font-weight: bold;
+		}
+		
+		.estimated {
+			style="border-style: solid;
+			border-width:1px;
+			background-color:#EEEEEE;
+		}
+		
+		td > input {
+			max-width: 100px;
+		}
+		
+		table {
+		  border: none;
+		}
+	    th, td {
+			border: 1px solid black;
+			left-padding: 8px;
+			right-padding: 8px;
+		  }
+
+		</style>
+		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+		<script src="scripts/data-util.js"></script>
+		<script>
+		var calc = {}, calcCounter = 0;
+		window.addEventListener('load', function () {
+			toggleMessage(false);
+			//Load data
+			loadJsonData(getLocationPath() + 'data/inh.json', function(data){
+				if(data){
+					loadInheritorsData(data);
+					loadInheritanceTables(data["InheritanceHeads"]);
+					enableTreeview();
+					resetSections(true);
+					collapseSections();
+				}
+			});
+		});
+		
+		function enableTreeview(){
+			var toggler = document.getElementsByClassName("caret");
+			for (var i = 0; i < toggler.length; i++) {
+				toggler[i].addEventListener("click", function() {
+					this.parentElement.querySelector(".nested").classList.toggle("active");
+					this.classList.toggle("caret-down");
+				});
+			}
+		}
+		
+		function loadInheritanceTables(sections){
+			var secCount = 0;
+			sections.every(function(s){
+				secCount++;
+				var style = s.section.includes('(Deductions)') ? ' style="color:red" ' : '';
+				var sec = '<secton>'+
+						  '<div class="z-title">'+
+							'<span>'+s.section+'</span>'+
+							(style==='' ? '<span id="sec'+secCount+'" style="margin-left:20px;text-decoration:none!important;"></span>' : '')+
+						  '</div>'+
+						  getSectionElements(s.values, secCount, style)+
+						  '</secton>';
+				$("body").append($(sec));
+				return true;
+			});
+		}
+		
+		function getSectionElements(values, scount, st){
+			var subSections = '';
+			var subSectionCount = 0;
+			values.every(function(val){
+				subSectionCount++;
+				subSections += '<ul class="z-section"><li>'+
+							   '<span class="caret" '+st+'>'+val.name+'</span>'+
+							   (st == '' ? '<span id="subSec'+subSectionCount+'" style="margin-left:20px;"></span>':'')+
+							   getSubSectionElements(val, scount, subSectionCount, st)+
+							   '</li></ul>';
+				return true;
+			});
+			return subSections;
+		}
+		
+		function getSubSectionElements(values, scount, subSecCount, st){
+			var table = '<table class="nested">';
+
+			//Add headers
+			table += '<tr><td></td>';
+			if(values.input && values.input.length > 0){
+				values.input.every(function(inp){
+					table += '<td>'+inp+'</td>';
+					return true;
+				});
+				table += st === '' ? '<td>Estimated Zakat</td>' : '<td>Estimated</td>';;
+			}
+			table += '</tr>';
+
+			if(values.entries && values.entries.length > 0){
+				var eIndex = 0;
+				values.entries.every(function(ent){
+					
+					calc[ent] = {  
+						"parent": values.name, 
+						"op": values.output, 
+						"inputs": [], 
+						"factors": [], 
+						"rate": eIndex < values.rates.length ? values.rates[eIndex] : values.rates[0], 
+						"output": 0 
+					};
+					eIndex++;
+					
+					table += '<tr style="align:center;">';
+					var isNegative = ent.startsWith('LESS: ');
+					var style1 = isNegative ? 'max-width:250px;color:red;': 'max-width:250px;';
+					table += '<td style="'+style1+'">'+ent+'</td>';
+					
+					calcCounter++;
+					if(values.input && values.input.length > 0){
+						var icount= 0;
+						var style2 = isNegative ? ' style="color:red;" ': '';
+						values.input.every(function(inp){
+							table += '<td><input class="inp'+calcCounter+'" '+ style2 +
+										'value="0" '+
+										'onchange="recalculateChange(\''+ent+'\', '+calcCounter+','+subSecCount+','+scount+')" />'+
+									 '</td>';
+							// add default value
+							calc[ent].inputs.push(0);
+							calc[ent].factors.push(isNegative ? -1 : 1);
+							return true;
+						});
+						table += '<td '+style2+' class="estimated sec'+scount+' subSec'+subSecCount+'" id="calc'+calcCounter+'">0</td>';
+					}
+					table += '</tr>';
+					return true;
+				});
+			}
+			table += '</table>';
+			return table;
+		}
+		
+		function recalculateChange(key, num, subSecCount, secCount){
+		
+			if(calc[key] && calc[key].op){
+				// update calc
+				var inputs = $(".inp"+num);
+				if(inputs.length > 0){
+					var icount = 0;
+					for(var icount =0; icount < inputs.length; icount++){
+						calc[key].inputs[icount] = parseFloat($(inputs[icount]).val());
+					}
+				
+					var icounter = 0;
+					var op = calc[key].op;
+					const aggregation = calc[key].inputs.reduce(
+						function(accumulator, currentValue, index){
+							var factors = currentValue * calc[key].factors[index];
+							return (op === "*") ? 
+								accumulator *  factors: 
+								accumulator + factors;
+						},
+						op === "*" ? 1 : 0,
+					);
+					
+					var payable = aggregation * calc[key].rate / 100.0;
+					calc[key].output = payable;
+					$("#calc"+num).text(payable.toFixed(2));
+					var wealth = parseFloat($("#wealth").val()) + payable;
+					
+					$("#applicableWealth").text(wealth > 0 ? wealth.toFixed(2) : 0);
+					
+					summariseSubSections(secCount, subSecCount);
+					summariseSubSections(secCount);
+					summariseSubSections();
+				}
+			}
+		}
+		
+		function updateApplicableWealth(){
+		}
+		
+		function summariseSubSections(secCount, subSecCount){
+			var idClasses = ".estimated";
+			if(secCount)
+				idClasses+= ".sec"+secCount;
+			if(subSecCount)
+				idClasses+= ".subSec"+subSecCount;
+				
+			var count = 0, sum = 0;
+			var subSections = $(idClasses);
+			if(subSections.length > 0){
+				for(var count =0; count < subSections.length; count++){
+					sum += parseFloat($(subSections[count]).text());
+				}
+			}		
+			
+			if(secCount || subSecCount){
+				var s = "";
+				if(isNaN(sum)){
+					toggleMessage(true, "Error: Please check the input fields for error!");
+					if(secCount)
+						$("#sec"+secCount).text("-");
+					if(subSecCount)
+						$("#subSec"+ subSecCount).text("-");
+				}
+				else{
+					toggleMessage(false);
+					var s = "  Payable = "+(sum > 0 ? sum.toFixed(2) : 0);
+					if(secCount)
+						$("#sec"+secCount).text(s);
+					if(subSecCount)
+						$("#subSec"+ subSecCount).text(s);
+				}
+			}
+			else{
+				if(isNaN(sum)){
+					toggleMessage(true, "Error: Please check the input fields for error!");
+					$("#payableZakat").text(" - ");
+				}
+				else{
+					$("#payableZakat").text("  = "+(sum > 0 ? sum.toFixed(2) : '0.00'));
+					toggleMessage(false);
+				}
+			}
+		}
+		
+		function resetSections(force){
+			if(force || confirm("Are you sure ? ")){
+				var fields = $("td input");
+				if(fields.length > 0){
+					for(var count =0; count < fields.length; count++){
+						$(fields[count]).val(0);
+						$(fields[count]).trigger("change");
+					}
+				}
+			}
+		}
+		
+		function toggleMessage(state, message=''){
+			$("#v-msg").html(message);
+			state ? $(".v-message").show() : $(".v-message").hide();
+		}
+		function collapseSections(){
+			$(".caret").removeClass("caret-down");
+			$(".nested").removeClass("active");
+		}
+		
+		function expandSections(){
+			$(".caret").addClass("caret-down");
+			$(".nested").addClass("active");
+		}
+		//--------------------------------------
+		function loadInheritorsData(data){
+			var opt = '', inh=data["Inheritors"];
+			var  keys = Object.keys(inh);
+			for(const key in keys){
+				var k = keys[key];
+				var obj = inh[k];
+				obj.every(function(v){
+					opt += '<option value="'+k+'_'+v.replaceAll(' ', '_')+'">'+v+'</option>';
+					return true;
+				});
+			}
+			$("#inheritors").append($(opt));
+		}
+		
+		var allInheritors = [];		
+		function addInheritor(c, cc, cval){
+			
+			if(c === undefined)
+			{
+				toggleMessage(false, "");
+				
+				var icount = cc ?? parseInt($("#iCount").val());
+				if(icount < 0 || icount > 10){
+					toggleMessage(true, "Error: Please check the count for error; max 10 allowed.");
+					return;
+				}
+				
+				// validate husband / wife, father / grand father
+				var optVal = cval ?? $("#inheritors").val();
+				var txt_val = optVal.split('_');
+				txt_val = txt_val[txt_val.length-1];
+				
+				if(txt_val === "Father" || txt_val === "Husband" || txt_val === "Wife"){
+					if(icount > 1 || allInheritors.indexOf(optVal) > -1){
+						toggleMessage(true, "Error: Cannot add more than one husband/father or grand father.");
+						return;
+					}
+					
+					if( (txt_val === "Husband" && allInheritors.indexOf("F_Wife") > -1) ||
+						(txt_val === "Wife" && allInheritors.indexOf("M_Husband") > -1)){
+							toggleMessage(true, "Error: Cannot add both husband and wife as survivors.");
+							return;
+					}
+				}
+
+				var iTypes = getInheritorTypes(optVal);
+				iTypes.every(function(iType){
+					for(var count=1; count < icount+1; count++){
+						if(allInheritors.indexOf(icount > 1 ? iType+optVal+count: iType+optVal) === -1){
+							allInheritors.push(icount > 1 ? iType+"_"+optVal+count: iType+"_"+optVal);
+						}
+					}
+				});
+				
+				//allInheritors.sort();
+				addInheritor("");
+				
+				if(cc === undefined && cval === undefined){
+					var readdList = [];
+					if(optVal.endsWith("M_Son") || optVal.endsWith("M_Grand_Son") ||
+					   optVal.endsWith("M_Daughter") || optVal.endsWith("M_Grand_Daughter")){
+					   
+						var fData = allInheritors.filter(f => f.endsWith("M_Father"));
+						if(fData && fData.length > 0){
+							readdList.push(fData[0]);
+							allInheritors = allInheritors.filter(f => !f.endsWith("M_Father"));
+						}
+					}				
+					readdList.every(function(name){
+						var n = name.split("_").splice(1).join("_");
+						addInheritor(undefined, 1, n);
+						return true;
+					});
+				}
+				return;
+			}
+			
+			//var iTypes = [], iTypeId;
+			var rows = {};
+			for(const key in allInheritors){
+				var tokens = allInheritors[key].split("_");
+				var iTypeId = tokens[0];
+				var mf = tokens[1] === "M" ? "Male" : "Female";
+				var val = tokens[2] + ((tokens.length > 3) ? " "+tokens[3] : "");
+											
+				if(rows[iTypeId] === undefined){
+					rows[iTypeId] = ['',''];
+					rows[iTypeId][0] = '<td rowspan="2" style="background-color:white;color:black;">'+iMap[iTypeId].replace('-', '<br/>')+'</td>';
+				}
+				rows[iTypeId][0] += '<td data="'+mf+':'+iTypeId+'">'+val+'</td>';
+				rows[iTypeId][1] += '<td>&nbsp;</td>'
+			
+				//return true;
+			}
+			
+			for(const [k,v] of Object.entries(rows)){
+				clearInheritors(k);
+				$('#inhTable'+k+' tbody tr:first()').append($(v[0]));
+				$('#inhTable'+k+' tbody tr:last()').append($(v[1]));
+			}
+		}
+		
+		function clearInheritors(iTypeId){
+			if(iTypeId){
+				$('#inhTable'+iTypeId+' tbody tr:first()').empty();
+				$('#inhTable'+iTypeId+' tbody tr:last()').empty();
+				delete allInheritors[iTypeId];
+			}else{
+				$('.i-section table tbody tr').empty();
+				allInheritors = [];
+			}
+		}
+		
+		const iMap = {
+			"Obligatory": "Obligatory-(ذوالفروض)",
+			"Agnatic": "Agnatic-(ذوالعصبة)",
+			"Others": "Others-(ذوالارحام)"
+		};
+		
+		function getInheritorTypes(value){
+			var t = [];
+			if (isObligatory(value))
+				t.push("Obligatory");
+			if (isAgnatic(value))
+				t.push("Agnatic");
+			if(t.length == 0)
+				t.push("Others");
+			return t;
+		}
+		
+		function isObligatory(str){
+			var value = str.includes("_") ? str.split("_").splice(1).join(" ") : str;
+			return value === "Husband" || value === "Wife" || 
+				   value === "Son" || value === "Daughter" || 
+				   value === "Father" || value === "Mother";
+		}
+		
+		function isAgnatic(str){
+			var res = false;
+			var value = str.includes("_") ? str.split("_").splice(1).join(" ") : str;
+			if(value === "Father"){
+				var fData = allInheritors.filter(f => f.endsWith("M_Son") || f.endsWith("M_Grand_Son") || 
+													  f.endsWith("M_Daughter") || f.endsWith("M_Grand_Daughter"));
+				if(fData && fData.length === 0 && allInheritors.length > 0)
+					res = true;
+			}
+
+			return res ||
+				   value === "Brother" || value === "Sister" || 
+				   value === "Uncle" || value === "Aunt" || 
+				   value === "Grand Son" || value === "Grand Daughter"  ||
+				   value === "Grand Father" || value === "Grand Mother";
+		}
+		
+		function calculateInheritance(){
+			var appWealth = parseFloat($("#applicableWealth").val());
+		}
+		
+		</script>
+	</head>
+	<body>
+		<div style="margin-left:4px;float:right;">
+			<button style="cursor:pointer;background-color:#568F65;color:#F8FFD4;" onclick="resetSections()">Reset</button>
+			<button style="cursor:pointer;background-color:#568F65;color:#F8FFD4;" onclick="expandSections()">Expand</button>
+			<button style="cursor:pointer;background-color:#568F65;color:#F8FFD4;" onclick="collapseSections()">Collapse</button>
+			<span style="font-size:12px;margin-left:40px;">Inheritance Calculator</span>
+		</div>
+		<div id="container" style="display:flex;justify-content: center;flex-direction: column;width:100%;">
+			<div class="v-message">
+				<span id="v-msg"></span>
+				<span style="float:right;font-size:8px;cursor:pointer;padding:0;" onclick="$(this).parent().toggle()">❌</span>
+			</div>
+		</div>
+		<div class="z-title">Select inheritors of deseased:</div>
+		<div class="i-section">
+			<span>
+				<select id="inheritors"></select>
+				<input id="iCount" type="number" value="1" min="1" max="10" style="width:44px;"/>
+				<button onclick="addInheritor()">+</button>
+				<button onclick="clearInheritors()">x</button>
+			</span>
+			<table id="inhTableObligatory">
+				<tbody>
+					<tr style="text-align: center; background-color:#134F5C; color:#D9E7EA;"/><tr/>
+				</tbody>
+			</table>
+			<table id="inhTableAgnatic">
+				<tbody>
+					<tr style="text-align: center; background-color:#4A3C74; color:#DFDAEC;"/><tr/>
+				</tbody>
+			</table>
+			<table id="inhTableOthers">
+			<tbody>
+					<tr style="text-align: center; background-color:#632A48; color:#ECDAE4;"/><tr/>
+				</tbody>
+			</table>
+		</div>
+		<div class="z-title">Enter actual value of deceased's wealth:</div>
+		<div>
+			<input id="wealth" type="number" value="1" min="0" 
+					style="width:150px;padding:8px;margin-left:4px;"
+				    onchange="recalculateChange('LESS: Loans/Debt/Funeral Expenses', 1, 1, 1)"/>
+			<span>Applicable amount:</span>
+			<B><span id="applicableWealth"></span></B>
+		</div>
+		<div style="padding:4px;"><button onclick="calculateInheritance()">Calculate</button></div>
+	</body>
+</html>

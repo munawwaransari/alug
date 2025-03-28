@@ -546,19 +546,25 @@ function playQuranChapterUrl(url, id){
   	if (last_ch_play_id)
 		stopQuranChapter(last_ch_play_id);
 	$("#"+id+"+.dropdown-content").hide();
+	$("#"+id+"-progress").show();
 	
 	if(parent && parent.playAudio){
 		
 		last_ch_play_id = id;
 		
 		var pauseBtn = $("#"+id+"-pause");
-		pauseBtn.show();
-		$("#"+id+"-stop").show();
-		$("#"+id+"-fb").show();
-		$("#"+id+"-ff").show();
-		$("#"+id).hide();
-		
 		parent.playAudio(url, function(action){		
+			if(action == "loadstart"){
+				$("#"+id+"-progress").show();
+			}
+			if(action == "loadeddata"){
+				$("#"+id+"-progress").hide();
+				pauseBtn.show();
+				$("#"+id+"-stop").show();
+				$("#"+id+"-fb").show();
+				$("#"+id+"-ff").show();
+				$("#"+id).hide();
+			}
 			if(action == "pause"){
 				pauseBtn.html(pauseBtn.html() === '\u23F8' ? '\u23EF' : '\u23F8');
 			}
@@ -747,14 +753,22 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr){
 //https://www.truemuslims.net
 function getQuranAudioOptions(chapter){
 	
-	var languages = ["Arabic", "Bangla", "English", "Gujarati", "Hindi", "Kashmiri", "Malayalam", "Persian", "Tamil", "Urdu"];
+	var languages = ["Arabic", "Bangla", "English", "Gujarati", "Hindi", "Kashmiri", "Malayalam", "Persian", "Tamil", "Telugu", "Urdu"];
 	var options = '';
 	var id = 'q-ch'+chapter;
 	
 	languages.forEach(function(lang){
 		var ch = chapter > 99 ? chapter : chapter > 9 ? "0"+chapter : "00"+chapter; 
-		var url = encodeURI('https://www.truemuslims.net/Quran/'+lang+'/'+ch+'.mp3');
-		options += '<p onclick="playQuranChapterUrl(\''+url+'\',\''+id+'\')">'+lang+'</p>';
+		if(lang === "Telugu"){
+			if(chapter < 101){
+				var url = encodeURI("https://ia800703.us.archive.org/21/items/OnlyTeluguAudioQuranTranslationMp3/Telugu_Audio_Quran_Translation_Mp3_Quran/"+ch+"_Only_Telugu_Audio_Quran_Translation_Mp3_Quran_VideoQuran.Net.mp3");
+				options += '<p onclick="playQuranChapterUrl(\''+url+'\',\''+id+'\')">'+lang+'</p>';				
+			}
+		}
+		else{
+			var url = encodeURI('https://www.truemuslims.net/Quran/'+lang+'/'+ch+'.mp3');
+			options += '<p onclick="playQuranChapterUrl(\''+url+'\',\''+id+'\')">'+lang+'</p>';
+		}
 		return true;
 	});
 	
@@ -767,6 +781,8 @@ function getPlayControlsHtml(id, options, symbol){
 					   'class="dropbtn" onclick="toggleDropdownContent(this, true)" '+
 					   'style="background-color:#EEEEEE;color:black;">'+symbol+'</button>'+
 			   '<div class="dropdown-content" style="">'+options+'</div>'+
+			   '<img id="'+id+'-progress" src="images/loading.gif" '+ 	
+						'style="left:2px;top:6px;display:none;width:16px;position:absolute"></img>'+
 			   '<button id="'+id+'-fb" class="dropbtn" '+
 					   'onclick="fastplayQuranChapter(\''+id+'\', false); toggleDropdownContent($(this).parent().first().next());" '+
 					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23EA</button>'+ //FB

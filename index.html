@@ -136,14 +136,16 @@
 				
 				audio = new Audio(mpegUrl);
 				
-				//show play controls
-				//updateToolDescription('qsearch', { play: audio});
-				
+				audio.addEventListener("loadstart", () => {
+					if(cb) cb("progress");
+				});
+				audio.addEventListener("loadeddata", () => {
+					if(cb) cb("loadeddata");
+				});
 				audio.addEventListener("pause", () => {
 				  if(cb) cb("pause");
 				});
 				audio.addEventListener("ended", () => {
-				  ///updateToolDescription('qsearch');
 				  if(cb) cb("ended");
 				});
 

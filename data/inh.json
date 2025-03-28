@@ -1,0 +1,35 @@
+{
+	 "Factors": {
+        "1/2": 0.5,
+        "1/4": 0.25,
+        "1/8": 0.125,
+        "2/3": 0.6666666666666667,
+        "1/3": 0.3333333333333333,
+        "1/6": 0.1666666666666667
+    },
+	"Inheritors": {
+		"M": ["Grand Father", "Father", "Son", "Brother", "Husband", "Grand Son", "Unclue", "Cousin Brother", "Son of Nephew", "Relative (Male)"],
+		"F": ["Grand Mother", "Mother", "Daughter", "Sister", "Wife", "Grand Duaghter", "Aunt", "Cousin Sister", "Daughter of Nephew", "Relative (Female)"]
+	},
+    "InheritanceHeads": [
+        {
+            "section": "Genral Liabilities (Deductions)",
+            "values": [
+                {
+                    "name": "Direct Payables/Liabilities",
+                    "entries": [
+                        "LESS: Loans/Debt/Funeral Expenses",
+                        "LESS: Will / Bequest"
+                    ],
+                    "rates": [
+                        100.0
+                    ],
+                    "input": [
+                        "Actual Amount"
+                    ],
+                    "output": "+"
+                }
+            ]
+        }
+    ]
+}
