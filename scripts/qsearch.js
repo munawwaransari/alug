@@ -546,6 +546,7 @@ function playQuranChapterUrl(url, id){
   	if (last_ch_play_id)
 		stopQuranChapter(last_ch_play_id);
 	$("#"+id+"+.dropdown-content").hide();
+	$("#"+id).hide();
 	$("#"+id+"-progress").show();
 	
 	if(parent && parent.playAudio){
@@ -555,6 +556,7 @@ function playQuranChapterUrl(url, id){
 		var pauseBtn = $("#"+id+"-pause");
 		parent.playAudio(url, function(action){		
 			if(action == "loadstart"){
+				$("#"+id).hide();
 				$("#"+id+"-progress").show();
 			}
 			if(action == "loadeddata"){
@@ -782,7 +784,7 @@ function getPlayControlsHtml(id, options, symbol){
 					   'style="background-color:#EEEEEE;color:black;">'+symbol+'</button>'+
 			   '<div class="dropdown-content" style="">'+options+'</div>'+
 			   '<img id="'+id+'-progress" src="images/loading.gif" '+ 	
-						'style="left:2px;top:6px;display:none;width:16px;position:absolute"></img>'+
+						'style="display:none;width:16px;"></img>'+
 			   '<button id="'+id+'-fb" class="dropbtn" '+
 					   'onclick="fastplayQuranChapter(\''+id+'\', false); toggleDropdownContent($(this).parent().first().next());" '+
 					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23EA</button>'+ //FB
