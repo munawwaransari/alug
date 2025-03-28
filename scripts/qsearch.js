@@ -778,7 +778,7 @@ function getQuranAudioOptions(chapter){
 }
 
 function getPlayControlsHtml(id, options, symbol){
-	return '<span class="dropdown">'+
+	return '<span class="dropdown" style="direction:ltr;">'+
 			  '<button id="'+id+'" '+
 					   'class="dropbtn" onclick="toggleDropdownContent(this, true)" '+
 					   'style="background-color:#EEEEEE;color:black;">'+symbol+'</button>'+
