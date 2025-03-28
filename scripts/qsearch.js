@@ -566,6 +566,7 @@ function playQuranChapterUrl(url, id){
 				$("#"+id+"-fb").show();
 				$("#"+id+"-ff").show();
 				$("#"+id).hide();
+				selectSurahCell($("#"+id).parent().parent().parent(), true);
 			}
 			if(action == "pause"){
 				pauseBtn.html(pauseBtn.html() === '\u23F8' ? '\u23EF' : '\u23F8');
@@ -573,6 +574,7 @@ function playQuranChapterUrl(url, id){
 			else if(action == "ended"){
 				stopQuranChapter(id);
 				last_ch_play_id = undefined;
+				
 			}
 		});
 	}	
@@ -607,6 +609,8 @@ function stopQuranChapter(id){
 		$("#"+id+"-stop").hide();
 		$("#"+id+"-fb").hide();
 		$("#"+id+"-ff").hide();
+		
+		selectSurahCell($("#"+id).parent().parent().parent(), false);
 	}
 	$("#"+id).show();
 }
@@ -819,7 +823,7 @@ function getPlayControlsHtml(id, options, symbol){
 					   'onclick="fastplayQuranChapter(\''+id+'\', false); toggleDropdownContent($(this).parent().first().next());" '+
 					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23EA</button>'+ //FB
 			   '<button id="'+id+'-pause" class="dropbtn" '+
-					   'onclick="pauseOrplayQuranChapter(\''+id+'\'); toggleDropdownContent($(this).parent().first().next());" '+
+					   'onclick="pauseOrplayQuranChapter(\''+id+'\');toggleDropdownContent($(this).parent().first().next());" '+
 					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23F8</button>'+ //play/pause
 			   '<button id="'+id+'-stop" class="dropbtn" '+
 					   'onclick="stopQuranChapter(\''+id+'\'); toggleDropdownContent($(this).parent().first().next());" '+
@@ -1223,5 +1227,15 @@ function playVerse(url, verseKey, cb){
 function stopPlayVerse(){	
 	if(parent && parent.stopAudio){
 		parent.stopAudio();
+	}
+}
+
+function selectSurahCell(tdElem, state){
+	var elem = tdElem.parent().find('td:first');
+	if(elem.length > 0){
+		if(state)
+			elem.addClass('qword-selected');
+		else
+			elem.removeClass('qword-selected');
 	}
 }
