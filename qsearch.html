@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="#" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="#" />
 	<link rel="stylesheet" type="text/css" href="styles/autoc-styles.css" media="screen">
 	<title>Search Quran</title>
 	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
@@ -12,219 +13,257 @@
 	<script src="scripts/data-util.js"></script>
 	<script src="scripts/qsearch.js"></script>
 	<style>
-	
-	em {
-		color: red;
-		background-color: yellow;
-	}
+		em {
+			color: red;
+			background-color: yellow;
+		}
 
-	a{
-		text-decoration: none;
-	}
- 
-	.verse span:hover {
-		background-color: yellow;
-		direction: rtl;
-	}
-	
-	.sel-word, .sel-word-en, .sel-word-ur, .sel-word-hi {
-		background-color:#EEEE63;
-	}
-	.word-ar, .word-en, .word-ur, .word-hi {
-		white-space: nowrap;
-	}
+		a {
+			text-decoration: none;
+		}
 
-	.word-ar:hover, .word-en:hover, .word-ar:hover, .word-hi:hover{
-		background-color:#EEEE63;
-	}
-	
-	.word {
-		color: indigo;
-		direction: rtl;
-		margin-left: 6px;
-	}
-	
-	.verse{
-		width: 96%;
-		display: flex;
-		flex-wrap: wrap; 
-		direction: rtl;
-		justify-content: center;
-		text-align: center;
-		font-size: 20px;
-		padding-left: 20px;
-		padding-right: 20px;
-	}
-	
-	label{
-		font-size: 10px;
-	}
-	
-	div,table {
-		width: 100%;
-		text-align: center;
-		margin: 0;
-	}
-	
-	table .surahIndex {
-		text-align: center;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	
-	table .surahIndex th,td {
-		font-size: 18px;
-		padding: 10px;
-	}
-	
-	table .wordindex+td,th {
-		padding: 10px;
-		text-align: center;
-		font-size: 20px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	
-	table .wordIndex {
-		width: 40%;
-	}
-	
-	table .qword {
-		text-align: center;
-		font-size: 18px;
-		cursor: pointer;
-	}
-	
-	table .qword a:hover {
-		color: indigo;
-		background-color: orange;
-	}
-	
-	table .qword:hover {
-		color: red;
-		background-color: #FFF81E; //yellow
-	}
-	
-	.qword-selected{
-		color: red;
-		background-color: yellow;
-	}
-	
-	.credit{
-		font-size: 14px;
-		text-align: center;
-	}
-	
-	#searchText {
-		width:88px;
-		font-size:28px!important;
-	}
-	
-	/* Dropdown Button */
-.dropbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 6px;
-  font-size: 14px;
-  border: none;
-  border-radius: 4px;
-}
+		.verse span:hover {
+			background-color: yellow;
+			direction: rtl;
+		}
 
-@keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
-}
+		.sel-word,
+		.sel-word-en,
+		.sel-word-ur,
+		.sel-word-hi {
+			background-color: #EEEE63;
+		}
 
-.blink {
-  animation: blink 1s infinite;
-}
+		.word-ar,
+		.word-en,
+		.word-ur,
+		.word-hi {
+			white-space: nowrap;
+		}
 
-input[type="reset"] + input[type="text"]:empty{
-     display: none;
-}
+		.word-ar:hover,
+		.word-en:hover,
+		.word-ar:hover,
+		.word-hi:hover {
+			background-color: #EEEE63;
+		}
 
-input[type="reset"]
-{
-  background-image: url( images/cleartxt.png );
-  background-position: center center;
-  background-repeat: no-repeat;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  position: relative;
-  top: -20px;
-  left: -26px;
-} 
+		.word {
+			color: indigo;
+			direction: rtl;
+			margin-left: 6px;
+		}
+
+		.verse {
+			width: 96%;
+			display: flex;
+			flex-wrap: wrap;
+			direction: rtl;
+			justify-content: center;
+			text-align: center;
+			font-size: 20px;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+
+		label {
+			font-size: 10px;
+		}
+
+		div,
+		table {
+			width: 100%;
+			text-align: center;
+			margin: 0;
+		}
+
+		table .surahIndex {
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		table .surahIndex th,
+		td {
+			font-size: 18px;
+			padding: 10px;
+		}
+
+		table .wordindex+td,
+		th {
+			padding: 10px;
+			text-align: center;
+			font-size: 20px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		table .wordIndex {
+			width: 40%;
+		}
+
+		table .qword {
+			text-align: center;
+			font-size: 18px;
+			cursor: pointer;
+		}
+
+		table .qword a:hover {
+			color: indigo;
+			background-color: orange;
+		}
+
+		table .qword:hover {
+			color: red;
+			background-color: #FFF81E; //yellow
+		}
+
+		.qword-selected {
+			color: red;
+			background-color: yellow;
+		}
+
+		.credit {
+			font-size: 14px;
+			text-align: center;
+		}
+
+		#searchText {
+			width: 88px;
+			font-size: 28px !important;
+		}
+
+		/* Dropdown Button */
+		.dropbtn {
+			background-color: #04AA6D;
+			color: white;
+			padding: 6px;
+			font-size: 14px;
+			border: none;
+			border-radius: 4px;
+		}
+
+		@keyframes blink {
+			0% {
+				opacity: 1;
+			}
+
+			50% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 1;
+			}
+		}
+
+		.blink {
+			animation: blink 1s infinite;
+		}
+
+		input[type="reset"]+input[type="text"]:empty {
+			display: none;
+		}
+
+		input[type="reset"] {
+			background-image: url(images/cleartxt.png );
+			background-position: center center;
+			background-repeat: no-repeat;
+			border: none;
+			background-color: transparent;
+			cursor: pointer;
+			position: relative;
+			top: -20px;
+			left: -26px;
+		}
 	</style>
 </head>
 
 <body>
-	<div style="text-align: center;display:inline-block">
-		<div  class="autocomplete">
-			<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:-24px" onclick="showArabicKeyboard('arabic')"/>
-			<input type="reset" value="" alt="clear" title="Clear" onclick="$('#searchText').val('');"/>
-			<input id="searchText">
-			<button class="dropbtn" id="SearchQ" onclick="search()">الـقُـرآن</button>
-			<span class="dropdown" style="display:inline-block">
-			  <button class="dropdown dropbtn" title="Raed Quran">۞</button>
-			  <div id="qPDF" class="dropdown-content"></div>
-			</span>
-			<button class="dropbtn" onclick="listSurahs()">Surahs</button>
-			<button class="dropbtn" id="filterWord" onclick="filterWords()">Words</button>
-			<button class="dropbtn" id="SearchH" title="Search sunnah.com" onclick="searchHadith()">الحديث</button>
+	<div class="containerHead" onclick="toggleQHead()">
+		<img id="imgQHead" style="float:right;height:10px;" src="images/up.png">
+	</div>
+	<div id="divQHead">
+		<div style="text-align: center;display:inline-block">
+			<div class="autocomplete">
+				<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:-24px"
+					onclick="showArabicKeyboard('arabic')" />
+				<input type="reset" value="" alt="clear" title="Clear" onclick="$('#searchText').val('');" />
+				<input id="searchText">
+				<button class="dropbtn" id="SearchQ" onclick="search()">الـقُـرآن</button>
+				<span class="dropdown" style="display:inline-block">
+					<button class="dropdown dropbtn" title="Raed Quran">۞</button>
+					<div id="qPDF" class="dropdown-content"></div>
+				</span>
+				<button class="dropbtn" onclick="listSurahs()">Surahs</button>
+				<button class="dropbtn" id="filterWord" onclick="filterWords()">Words</button>
+				<button class="dropbtn" id="SearchH" title="Search sunnah.com" onclick="searchHadith()">الحديث</button>
+			</div>
+		</div>
+		<div>
+			<p style="font-size: 9px;">Powered by <a href='https://quranjs.com/'
+					onclick="window.open(this.href, '_blank'); return false;">QuranJS API,</a>&nbsp;&nbsp;
+				<a href='https://www.truemuslims.net'
+					onclick="window.open(this.href, '_blank'); return false;">www.truemuslims.net,</a>&nbsp;&nbsp;
+				<a href='https://everyayah.com/'
+					onclick="window.open(this.href, '_blank'); return false;">everyayah.com,</a>&nbsp;&nbsp;
+				<a href='https://github.com/spa5k/tafsir_api/'
+					onclick="window.open(this.href, '_blank'); return false;">spa5k/tafsir_api</a>
+			</p>
+		</div>
+		<div id="qari" style="text-align:center;padding:0px;padding-bottom:10px;display:none;margin:auto;">
+			<label>Qari:</label>
+			<select id="qari-options" style="width:100px;">
+				<option value="AbdulSamad_64kbps_QuranExplorer.Com" select>Abdul Basit Abdul Samad</option>
+				<option value="Alafasy_128kbps">Alafasy</option>
+				<option value="Abdurrahmaan_As-Sudais_192kbps">Abdurrahman Al-Saudais</option>
+				<option value="Saood_ash-Shuraym_128kbps">Saood Ash-Shuraym</option>
+				<option value="translations/urdu_shamshad_ali_khan_46kbps">Shamshad Ali Khan (Urdu)</option>
+				<option value="translations/urdu_farhat_hashmi">Farhat Hashmi (Urdu)</option>
+				<option value="translations/Makarem_Kabiri_16Kbps">Makreem Kabiri (Farsi)</option>
+				<option value="English/Sahih_Intnl_Ibrahim_Walk_192kbps">Sahih Ibrahim (English)</option>
+			</select>
+			<label>Ayah:</label>
+			<select id="ayah-options" style="width:44px;" onchange="search()">
+				<option value="text" select>Text</option>
+				<option value="image">Image</option>
+			</select>
+			<label>Tafsir:</label>
+			<select style="width:100px;" id="tafsir-options" onchange="changeTafsir()">
+				<option value="ur-tafsir-bayan-ul-quran" select>Bayan ul Quran (ur)</option>
+				<option value="ur-tafsir-fe-zalul-quran-syed-qatab">Fi Zial ul Quran (ur)</option>
+				<!-- <option value="ur-tazkirul-quran">Tazkir ul Quran (ur)</option> -->
+				<option value="ur-tafseer-ibn-e-kaseer">Ibn e Kaseer (ur)</option>
+				<option value="en-tafisr-ibn-kathir">Ibn e Kaseer (en)</option>
+				<option value="en-tafsir-ibn-abbas">Ibn e Abbas (en)</option>
+				<option value="en-kashani-tafsir">Kashani (en)</option>
+				<option value="en-al-qushairi-tafsir">Al Quashairi (en)</option>
+				<option value="en-al-jalalayn">Jalalayn (en)</option>
+				<option value="en-tazkirul-quran">Tazkir ul Quran (en)</option>
+				<option value="en-tafsir-maarif-ul-quran">Maarif ul Quran (en)</option>
+				<option value="kashf-al-asrar-tafsir">Kashf al Asrar (en)</option>
+				<option value="ar-tafseer-al-qurtubi">Tafsir ul Qurtabi (ar)</option>
+				<option value="ar-tafsir-al-tabari">Tafsir al Tabari (ar)</option>
+			</select>
+		</div>
+		<div id="juz" style="width:100%;background-color:#9DBF6C;padding:0px;
+									 display:flex;flex-direction:row;justify-content: center;">
+			<span style="float:left;font-size:12px;padding-right:20px;margin-top:8px;">
+				<input type="checkbox" onchange="$('.chkR').toggle()" checked>Research</span>
+			<span style="float:left;font-size:12px;padding-right:20px;margin-top:8px;">
+				<input type="checkbox" onchange="$('.chkT').toggle()" checked>Tafseer</span>
+			<span style="float:left;font-size:12px;padding-right:20px;margin-top:8px;">
+				<input type="checkbox" onchange="$('.chkQ').toggle()" checked>Qirat</span>
+			<span style="padding:4px;cursor:pointer;color:transparent;font-size:24px;"
+				onclick="navigateJuz(false)">↞</span>&nbsp;
+			<select style="background-color:#b5d090;padding:0;width:100px;font-szie:12px;" id="juz-options"
+				onchange="filterSurahs(this)">
+				<option value="all" select>All Juz</option>
+			</select>
+			&nbsp;<span style="padding:4px;cursor:pointer;color:transparent;font-size:24px;"
+				onclick="navigateJuz(true)">↠</span>
 		</div>
 	</div>
-	<div>
-	<p style="font-size: 9px;">Powered by <a href='https://quranjs.com/' onclick="window.open(this.href, '_blank'); return false;">QuranJS API,</a>&nbsp;&nbsp;
-	<a href='https://www.truemuslims.net'onclick="window.open(this.href, '_blank'); return false;">www.truemuslims.net,</a>&nbsp;&nbsp;
-	<a href='https://everyayah.com/' onclick="window.open(this.href, '_blank'); return false;">everyayah.com,</a>&nbsp;&nbsp;
-	<a href='https://github.com/spa5k/tafsir_api/' onclick="window.open(this.href, '_blank'); return false;">spa5k/tafsir_api</a></p>
-	</div>
-	<div id="qari" style="text-align:center;padding:0px;padding-bottom:10px;display:none;margin:auto;">
-		<label>Qari:</label>
-		<select id="qari-options" style="width:100px;">
-			<option value="AbdulSamad_64kbps_QuranExplorer.Com" select>Abdul Basit Abdul Samad</option>
-			<option value="Alafasy_128kbps">Alafasy</option>
-			<option value="Abdurrahmaan_As-Sudais_192kbps">Abdurrahman Al-Saudais</option>
-			<option value="Saood_ash-Shuraym_128kbps">Saood Ash-Shuraym</option>
-			<option value="translations/urdu_shamshad_ali_khan_46kbps">Shamshad Ali Khan (Urdu)</option>
-			<option value="translations/urdu_farhat_hashmi">Farhat Hashmi (Urdu)</option>	
-			<option value="translations/Makarem_Kabiri_16Kbps">Makreem Kabiri (Farsi)</option>
-			<option value="English/Sahih_Intnl_Ibrahim_Walk_192kbps">Sahih Ibrahim (English)</option>					
-		</select>
-		<label>Ayah:</label>
-		<select id="ayah-options"  style="width:44px;"  onchange="search()">
-			<option value="text" select>Text</option>
-			<option value="image">Image</option>
-		</select>
-		<label>Tafsir:</label>
-		<select style="width:100px;" id="tafsir-options" onchange="changeTafsir()">
-			<option value="ur-tafsir-bayan-ul-quran" select>Bayan ul Quran (ur)</option>
-			<option value="ur-tafsir-fe-zalul-quran-syed-qatab">Fi Zial ul Quran (ur)</option>
-			<!-- <option value="ur-tazkirul-quran">Tazkir ul Quran (ur)</option> -->
-			<option value="ur-tafseer-ibn-e-kaseer">Ibn e Kaseer (ur)</option>
-			<option value="en-tafisr-ibn-kathir">Ibn e Kaseer (en)</option>
-			<option value="en-tafsir-ibn-abbas">Ibn e Abbas (en)</option>
-			<option value="en-kashani-tafsir">Kashani (en)</option>
-			<option value="en-al-qushairi-tafsir">Al Quashairi (en)</option>
-			<option value="en-al-jalalayn">Jalalayn (en)</option>
-			<option value="en-tazkirul-quran">Tazkir ul Quran (en)</option>		
-			<option value="en-tafsir-maarif-ul-quran">Maarif ul Quran (en)</option>
-			<option value="kashf-al-asrar-tafsir">Kashf al Asrar (en)</option>					
-			<option value="ar-tafseer-al-qurtubi">Tafsir ul Qurtabi (ar)</option>
-			<option value="ar-tafsir-al-tabari">Tafsir al Tabari (ar)</option>
-		</select>
-	</div>
-	<div id="juz" style="text-align:center;padding:0px;display:flex;flex-direction:row;justify-content: center;margin:auto;">
-		<span style="padding:4px;cursor:pointer;color:transparent;font-size:24px;" onclick="navigateJuz(false)">↞</span>&nbsp;
-		<select style="padding:0;width:100px;font-szie:12px;" id="juz-options" onchange="filterSurahs(this)">
-			<option value="all" select>All Juz</option>
-		</select>
-		&nbsp;<span style="padding:4px;cursor:pointer;color:transparent;font-size:24px;" onclick="navigateJuz(true)">↠</span>
-	</div>
-	</td></tr>
-	</table>
 	<div id="searchResult" style="width: 100%;text-align: center;">Loading Quran...</div>
 </body>
 </html>

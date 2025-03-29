@@ -1139,7 +1139,10 @@ function listSurahs(){
 		div.empty();
 		var table = '<table style="direction:rtl;max-width:512px;margin:auto;padding:0;" '+
 						   'class="surahIndex">'+
-						   '<th>Surah</th><th>&nbsp;Qirat&nbsp;</th><th>Tafsir</th><th>Search</th>';
+						   '<tr><th>Surah</th>'+
+						   '<th class="chkQ">&nbsp;Qirat&nbsp;</th>'+
+						   '<th class="chkT">Tafsir</th>'+
+						   '<th class="chkR">Search</th></tr>';
 		for (const [index, surah] of Object.entries(data)) {
 			
 			var juz	= surah.juz.map((j) => 'juz'+j).join(' ');
@@ -1158,14 +1161,14 @@ function listSurahs(){
 									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
 								'</span>'+
 						 '</td>'+
-						 '<td style="font-size:14px;cursor:pointer;padding:0;">'+
+						 '<td class="chkQ" style="font-size:14px;cursor:pointer;padding:0;">'+
 							 '<span>'+getQuranAudioOptions(index, surah.en, surah.ayahCount)+'</span>'+
 						 '</td>'+
-						 '<td style="font-size:14px;cursor:pointer;padding:0;">'+
+						 '<td class="chkT" style="font-size:14px;cursor:pointer;padding:0;">'+
 							 '<span>'+getTafsirAudioOptions(index, surah.en, surah.ar)+'</span>'+
 							 '<span>'+getTafsirPdfOptions(index, surah.en, surah.ar)+'</span>'+
 						 '</td>'+
-						 '<td style="font-size:14px;cursor:pointer;padding:0;"> '+
+						 '<td class="chkR" style="font-size:14px;cursor:pointer;padding:0;"> '+
 							 '<span class="dropbtn" '+
 							   'title="Research" '+
 							   'style="background-color:transparent;color:black;" '+
@@ -1362,5 +1365,16 @@ function selectSurahCell(tdElem, state){
 			elem.addClass('qword-selected');
 		else
 			elem.removeClass('qword-selected');
+	}
+}
+
+function toggleQHead(){
+	if($("#imgQHead").prop('src').endsWith("up.png")){
+		$("#imgQHead").prop('src', 'images/dn.png');
+		$("#divQHead").hide();
+	}
+	else{
+		$("#imgQHead").prop('src', 'images/up.png');
+		$("#divQHead").show();
 	}
 }
