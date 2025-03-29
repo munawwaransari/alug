@@ -366,7 +366,11 @@ function showComparisions(inp){
 }
 
 function showVerbComparisions(inp){
-	cmpAPIObj.addComparisionList($(".dictionary"), inp, true);
+	cmpAPIObj.addComparisionList($(".dictionary"), inp, true, "verb");
+}
+
+function showNounComparisions(inp){
+	cmpAPIObj.addComparisionList($(".dictionary"), inp, true, "noun");
 }
 
 function loadComparision(){

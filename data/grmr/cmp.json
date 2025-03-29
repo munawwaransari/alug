@@ -315,7 +315,7 @@
         }
     },
     {
-        "isVerbComparison": true,
+        "compareType": "verb",
         "topics": [
             "فَعلَ - يَفْعلُ (Form I)"
         ],
@@ -339,7 +339,7 @@
         }
     },
 	{
-        "isVerbComparison": true,
+        "compareType": "verb",
         "topics": [
             "فَعَّلَ - يُفَعِّلُ (Form II)"
         ],
@@ -363,7 +363,7 @@
         }
     },
 	{
-        "isVerbComparison": true,
+        "compareType": "verb",
         "topics": [
             "فَاعَلَ - يُفَاعِلُ (Form III)"
         ],
@@ -387,7 +387,7 @@
         }
     },
 	{
-        "isVerbComparison": true,
+        "compareType": "verb",
         "topics": [
             "اَفعَلَ - يُفعِلُ (Form IV)"
         ],
@@ -411,7 +411,7 @@
         }
     },
 	{
-        "isVerbComparison": true,
+        "compareType": "verb",
         "topics": [
             "تَفَعَّلَ - يَتَفَعَّلُ (Form V)"
         ],
@@ -435,7 +435,7 @@
         }
     },
 	{
-        "isVerbComparison": true,
+        "compareType": "verb",
         "topics": [
             "تَفَاعَلَ - يَتَفَاعِلَ (Form VI)"
         ],
@@ -459,7 +459,7 @@
         }
 	},
 	{
-        "isVerbComparison": true,
+        "compareType": "verb",
         "topics": [
             "اِنفَعَلَ - يَنفَعِلُ (Form VII)"
         ],
@@ -483,7 +483,7 @@
         }
     },
 	{
-        "isVerbComparison": true,
+        "compareType": "verb",
         "topics": [
             "اِفتَعَلَ - يَفتَعِلَ (Form VIII)"
         ],
@@ -507,7 +507,7 @@
         }
     },
 	{
-        "isVerbComparison": true,
+        "compareType": "verb",
         "topics": [
             "اِفعَلَّ - يَفعَلُّ (Form IX)"
         ],
@@ -531,7 +531,7 @@
         }
     },
 	{
-        "isVerbComparison": true,
+        "compareType": "verb",
         "topics": [
             "اِستَفعَلَ - يَستَفعِلُ (Form X)"
         ],
@@ -551,6 +551,48 @@
 				"<p style=\"direction: ltr;padding:0;margin:0;\">Indicates a consideration (seeking/desiring the action). e.g. to utilize, to wish; to request/intend for an action.<br/></p><br/>",
 				"<p style=\"direction: ltr; margin-top:0;padding:0;margin-top:0;\"><u>Considerative</u></p><div>اِستَوقَدَ - يَستَوقِدُ => to kindle</div><div>(وَقَدَ - يَوقِدُ => to burn/ignite)</div><br/><div>اِستَكبَرَ - يَستَكبِر => to be arrogant</div><div>(كَبُرَ - يَكبُرُ => to be big)</div></p><p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Requestive</u></p><div>اِستَعمَلَ - يَستَعمِلَ => to make use of</div><div>(عَمَلَ - يَعمَلُ => to work)</div><br/><div>اِستَسقَي - يَستَسقِي => to beg/pray for water</div><div>(سَقَي - يَسقِي => to water)</div></p>",
 				"إِلَّآ إِبۡلِيسَ أَبَىٰ وَ<b>ٱسۡتَكۡبَرَ</b> [2:34]<br/><br/>وَإِذِ <b>ٱسۡتَسۡقَىٰ</b> مُوسَىٰ لِقَوۡمِهِ [2:60]<br/><br/>فَقَدِ <b>ٱسۡتَمۡسَكَ</b> بِٱلۡعُرۡوَةِ ٱلۡوُثۡقَىٰ [2:256]<br/><br/><b>فَٱسۡتَغۡفَرُواْ</b> لِذُنُوبِهِمۡ [3:135]<br/>"
+			]
+        }
+    },
+	{
+        "compareType": "noun",
+        "topics": [
+            "اسمُ النَكِرَة (Indefinite Noun)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+			"تصريف"
+        ],
+        "en": [
+            "Definition",
+			"Inclension"
+        ],
+        "features": {
+            "اسمُ النَكِرَة (Indefinite Noun)": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">All nouns in Arabic considered indefinite except <br/><ul style=\"text-align:right;\"><li>اسم العلم (Names of people, places, celestial bodies) e.g. فاطمة, قمر, مصر</li><li>مُعرف بِاللام Used with (ال) e.g. القلم, الكِتاب, الورد</li><li>مُضاف في الإضافة Used with Izafat e.g. كِتابُ اللهِ, يَومُ العِيد</li></ul>",
+				"<p style=\"direction: ltr; margin-top:0;padding:0;margin-top:0;\"><u><p>Triptotes/Declinable (مُعرب مُنصرِف)</u><div>وَلَدُ / وَلَدًا / وَلَدٍ => a boy</div><div>سَمَاءٌ / سَمَاءً / سَمَاءٍ => sky</div><div>قَاضٍ => a judge</div></p><p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Diptotes/Declinable (مُعرب غيرُ مُنصرِف)</u><div>مَسَاجِدُ / مَسَاجِدَ => mosques</div><div>شُهَدَاءُ / شُهَدَاءَ   => martyrs</div><div>مَفَاتِيحُ / مَفَاتِيحَ => keys</div></p><p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Indeclinable (مبني)</u><div>دُنيَا => world</div><div>هُديٰ => guidance</div><div>هِيَ => she (pronoun)</div></p>"
+			]
+        }
+    },
+	{
+        "compareType": "noun",
+        "topics": [
+            "اسمُ المَعرِفة (Definite Noun)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+			"تصريف"
+        ],
+        "en": [
+            "Definition",
+			"Inclension"
+        ],
+        "features": {
+            "اسمُ المَعرِفة (Definite Noun)": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">Nouns are considered proper in following cases<br/><ul style=\"text-align:right;\"><li>اسم العلم (Names of people, places, celestial bodies) e.g. فاطمة, قمر, مصر</li><li>مُعرف بِاللام Used with (ال) e.g. القلم, الكِتاب, الورد</li><li>مُضاف في الإضافة Used with Izafat e.g. كِتابُ اللهِ, يَومُ العِيد</li></ul>",
+				"<p style=\"direction: ltr; margin-top:0;padding:0;margin-top:0;\"><u><p>Triptotes/Declinable (مُعرب مُنصرِف)</u><div>زَيدٌ / زَيدًا / زَيدٍ => Zaid (name)</div><div>السَّمَاءُ / السَمَاءَ / السَّمَاءِ => the sky</div><div>قَاضِي القُضاة  => cheif justice</div></p><p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Diptotes/Declinable (مُعرب غيرُ مُنصرِف)</u><div>يُوسُفُ / يُوسُفَ => Joseph (name)</div><div>زَينَبُ / زَينَبَ => Zainab (name)</div><div>فَاطِمَةُ / فَاطِمَةَ => Fatima (name)</div></p><p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Indeclinable (مبني)</u><div>عيسٰى => Jesus</div><div>مُوسٰي => Moses</div><div>الهُدٰي => the guidance</div></p>"
 			]
         }
     }

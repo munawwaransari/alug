@@ -17,14 +17,15 @@ class cmpAPI {
 		});	
 	}
 
-	addComparisionList(container, inp, verbCompare){
+	addComparisionList(container, inp, showComparison, compareType){
 		var api = this;
 		container.empty();
 		var sel = '<select class="nFilter" onchange="loadComparision()">';
 		var first = null, index = 0, indexValue = inp;
 		cmpAPI.cmpData.map(function(cEntry){
 			
-			if ((verbCompare && cEntry.isVerbComparison) || (!verbCompare && cEntry.isVerbComparison === undefined)){
+			if ((showComparison && cEntry.compareType === compareType) || 
+				(!showComparison && cEntry.compareType === undefined)){
 				var val = cEntry["topics"].join(' vs ');
 				var selected = index === indexValue ? ' selected ' : '';
 				sel += '<option value="'+val+'" '+selected+'><b>'+val+'</b></option>';
@@ -38,7 +39,7 @@ class cmpAPI {
 		}
 
 		container.prepend($(sel+'</select>'));
-		if(verbCompare){
+		if(showComparison){
 			container.prepend($('<p style="margin:auto;padding:0;"><br/>'+
 									'<label id="cmpLabel">Compare</label>'+
 									'<input type="Checkbox" onchange="handleCompareCheck()">'+
@@ -47,7 +48,7 @@ class cmpAPI {
 		api.addComparisionTable("."+container[0].className, first);
 	}
 	
-	addComparisionTable(containerClass, sel, verbCompare){
+	addComparisionTable(containerClass, sel, firstTopic){
 		var api = this;
 		
 		var compare = $(containerClass + " p:first");
@@ -59,7 +60,7 @@ class cmpAPI {
 		$(containerClass).append(nfilter);
 		$(containerClass).append('<div style="height:10px;"></div>');
 		
-		var selArray = (verbCompare && verbCompare !== sel) ? [sel, verbCompare] : [sel];
+		var selArray = (firstTopic && firstTopic !== sel) ? [sel, firstTopic] : [sel];
 				
 		var compTable = '', compTableCol1, compTableCol2;
 		if(selArray.length > 1){
