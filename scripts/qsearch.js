@@ -703,7 +703,7 @@ function getTafsirPdfOptions(index, chapterEn, chapterAr){
 	return '<span class="dropdown" style="direction:ltr;">'+
 				'<button id="'+id+'" '+
 					'class="dropbtn" onclick="toggleDropdownContent(this, true)" '+
-					'style="background-color:#EEEEEE;color:black;">📓</button>'+
+					'style="background-color:transparent;color:black;">📓</button>'+
 					'<div class="dropdown-content" style="">'+options+'</div>'+
 			'</span>';
 }
@@ -900,22 +900,22 @@ function getPlayControlsHtml(id, options, symbol){
 	return '<span class="dropdown" style="direction:ltr;">'+
 			  '<button id="'+id+'" '+
 					   'class="dropbtn" onclick="toggleDropdownContent(this, true)" '+
-					   'style="background-color:#EEEEEE;color:black;">'+symbol+'</button>'+
+					   'style="background-color:transparent;color:black;">'+symbol+'</button>'+
 			   '<div class="dropdown-content" style="">'+options+'</div>'+
 			   '<img id="'+id+'-progress" src="images/loading.gif" '+ 	
 						'style="display:none;width:16px;"></img>'+
 			   '<button id="'+id+'-fb" class="dropbtn" '+
 					   'onclick="fastplayQuranChapter(\''+id+'\', false); toggleDropdownContent($(this).parent().first().next());" '+
-					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23EA</button>'+ //FB
+					   'style="display:none;background-color:transparent;color:black;margin-left:1px;">\u23EA</button>'+ //FB
 			   '<button id="'+id+'-pause" class="dropbtn" '+
 					   'onclick="pauseOrplayQuranChapter(\''+id+'\');toggleDropdownContent($(this).parent().first().next());" '+
-					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23F8</button>'+ //play/pause
+					   'style="display:none;background-color:transparent;color:black;margin-left:1px;">\u23F8</button>'+ //play/pause
 			   '<button id="'+id+'-stop" class="dropbtn" '+
 					   'onclick="stopQuranChapter(\''+id+'\'); toggleDropdownContent($(this).parent().first().next());" '+
-					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23F9</button>'+ //stop
+					   'style="display:none;background-color:transparent;color:black;margin-left:1px;">\u23F9</button>'+ //stop
 			   '<button id="'+id+'-ff" class="dropbtn" '+
 					   'onclick="fastplayQuranChapter(\''+id+'\', true); toggleDropdownContent($(this).first().next().next());" '+
-					   'style="display:none;background-color:#EEEEEE;color:black;margin-left:1px;">\u23E9</button>'+ //FF
+					   'style="display:none;background-color:transparent;color:black;margin-left:1px;">\u23E9</button>'+ //FF
 		   '</span>';
 }
 
@@ -1130,9 +1130,10 @@ function listSurahs(){
 						 '<td style="font-size:14px;cursor:pointer;padding:0;"> '+
 							 '<span class="dropbtn" '+
 							   'title="Research" '+
-							   'style="background-color:#EEEEEE;color:black;" '+
+							   'style="background-color:transparent;color:black;" '+
 							   'onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">'+
-							   '1-'.concat(surah.ayahCount)+
+							   //'1‧‧‧'.concat(surah.ayahCount)+
+							   '<b>'+(surah.ayahCount)+'‧‧1</b>'+
 							'</span>'+
 						 '</td>'+
 					'</tr>';	
