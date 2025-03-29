@@ -18,6 +18,12 @@ window.onload = function(){
 		}
 	});
 
+	//Fill Juz select options
+	var jOptions = $("#juz-options");
+	for(var j=1; j <31; j++){
+		jOptions.append($('<option value="juz'+j+'">Juz '+j+'</option>'));
+	}
+	
 	window.addEventListener("contextmenu", e =>
 	{
 	  e.preventDefault();
@@ -1085,6 +1091,35 @@ function selectWordAndSearchInQuran(word){
 	search();
 }
 
+function navigateJuz(next){
+	var sel = $("#juz-options");
+	var opt = sel.val();
+	if(opt === "all") return;
+	var value = parseInt(opt.replace('juz',''))
+	value += next ? +1:-1;
+	if(value > 0 && value < 31){
+		sel.val('juz'+value);
+		filterSurahs(sel, 'juz'+value);
+	}
+}
+
+function filterSurahs(elem, cname){
+	var opt = cname ?? $("#juz-options").val();
+	if(opt === "all"){
+		$(".surahIndex [class^=\'juz\']").show();
+		if(elem){
+			$(elem).prev().css('color','gray');
+			$(elem).next().css('color','gray');
+		}
+	}else{
+		$(".surahIndex [class^=\'juz\']").hide();
+		$("."+opt).show();
+		if(elem){
+			$(elem).prev().css('color','black');
+			$(elem).next().css('color','black');
+		}
+	}
+}
 /*
 Loads Quran surah index
 */
@@ -1102,16 +1137,15 @@ function listSurahs(){
 						   'class="surahIndex">'+
 						   '<th>Surah</th><th>&nbsp;Qirat&nbsp;</th><th>Tafsir</th><th>Search</th>';
 		for (const [index, surah] of Object.entries(data)) {
-			var tanzilLink = '<a style="cursor:pointer;font-size:18px" href="https://tanzil.net/#'+index+'" '+
-				 'onclick="var w = parent ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+index+'</a>';
-				 
+			
+			var juz	= surah.juz.map((j) => 'juz'+j).join(' ');
 			var enName = surah.en.substring(surah.en.indexOf('(')+1, surah.en.length-1)
 								 .replace('The','')
 								 .trim();
 			if(enName.includes(' ')){
 				enName = enName.split(' ')[0];
 			}
-			table += '<tr>'+
+			table += '<tr class="'+juz+'">'+
 						 '<td onclick="searchText(\''+enName+'\')" '+
 							 'class="qword" style="max-width:80px;font-szie:14px;padding:0;padding-bottom:6px;">'+index+'<br/>'+
 							 //'<b>'+surah.ar+'</b><br/>'+

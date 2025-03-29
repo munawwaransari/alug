@@ -216,7 +216,13 @@ input[type="reset"]
 			<option value="ar-tafsir-al-tabari">Tafsir al Tabari (ar)</option>
 		</select>
 	</div>
-	<br/>
+	<div id="juz" style="text-align:center;padding:0px;display:flex;flex-direction:row;justify-content: center;margin:auto;">
+		<span style="padding:4px;cursor:pointer;color:gray;" onclick="navigateJuz(false)">⏴</span>&nbsp;
+		<select style="padding:0;width:100px;font-szie:12px;" id="juz-options" onchange="filterSurahs(this)">
+			<option value="all" select>All Juz</option>
+		</select>
+		&nbsp;<span style="padding:4px;cursor:pointer;color:gray;" onclick="navigateJuz(true)">⏵</span>
+	</div>
 	</td></tr>
 	</table>
 	<div id="searchResult" style="width: 100%;text-align: center;">Loading Quran...</div>
