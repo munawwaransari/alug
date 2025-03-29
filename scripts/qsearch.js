@@ -1108,15 +1108,15 @@ function filterSurahs(elem, cname){
 	if(opt === "all"){
 		$(".surahIndex [class^=\'juz\']").show();
 		if(elem){
-			$(elem).prev().css('color','gray');
-			$(elem).next().css('color','gray');
+			$(elem).prev().css('color','transparent');
+			$(elem).next().css('color','transparent');
 		}
 	}else{
 		$(".surahIndex [class^=\'juz\']").hide();
 		$("."+opt).show();
 		if(elem){
-			$(elem).prev().css('color','black');
-			$(elem).next().css('color','black');
+			$(elem).prev().css('color','crimson');
+			$(elem).next().css('color','crimson');
 		}
 	}
 }
