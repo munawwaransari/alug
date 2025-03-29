@@ -122,6 +122,7 @@ function loadWordsFrom(data){
 Search Quran using QuranJS API  
 */
 function search(pageNumber){
+	$("#juz").hide();
 	$("#qari").show();
 	stopPlayVerse();
 	const text = arRemovePunct(document.getElementById("searchText").value);
@@ -1047,6 +1048,7 @@ function SearchQuran(ctx, opt, text, callback){
 Loads all words from the Quran
 */
 function listWordInfo(filter){
+	$("#juz").hide();
 	$("#qari").hide();
 	if(qf_list && qf_list.length > 0){
 		var div = $("#searchResult");
@@ -1081,6 +1083,7 @@ function listWordInfo(filter){
 }
 
 function filterWords(){
+	$("#juz").hide();
 	$("#qari").hide();
 	var text = $("#searchText").val();
 	listWordInfo();
@@ -1126,6 +1129,7 @@ Loads Quran surah index
 var surah_list;
 function listSurahs(){
 	$("#qari").hide();
+	$("#juz").show();
 	var path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
 	var url = path + 'data/qrn/qsurah.json';
 	listSurahsAsync(url, function(data){
