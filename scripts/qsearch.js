@@ -627,6 +627,9 @@ function getTafsirPdfOptions(index, chapterEn, chapterAr){
 	var tafasir = {
 			"Tafseer Qurtubi (Urdu)": 
 			"https://archive.org/download/tafsir-al-qurtubi/surah-@index@_@chapter-en@.pdf"
+			
+			//"Tafseer Ibn-e-Kaseer (Urdu)":
+			//"https://archive.org/download/TafseerIbnKathirenglish114SurahsComplete/@index@@chapter-en@.pdf"
 	};
 	var options = '';
 	var id = 't-pdf'+index;
@@ -635,12 +638,28 @@ function getTafsirPdfOptions(index, chapterEn, chapterAr){
 		
 		var ch = index > 99 ? index : index > 9 ? "0"+index : "00"+index;
 		var url = v;
+		var cn = chapterEn.split(" ")[0];
 		switch(k){
 			
+			case "Tafseer Ibn-e-Kaseer (Urdu)":{
+				cn = cn.replace('\'', '');
+				if(cn.includes('-'))
+					cn = cn.split('-')[1];
+				
+				var chapter_map = {
+					'Fatihah': 'Fateh',
+					'Baqarah': 'BaqarahI'
+				};
+				url = url = url.replace('@index@', ch);
+				if(chapter_map[cn])
+					url = url.replace('@chapter-en@', chapter_map[cn]);
+				else
+					url = url.replace('@chapter-en@', cn);
+			}
+			break;
+			
 			case "Tafseer Qurtubi (Urdu)":{
-				var cn = chapterEn.split(" ")[0]
-								  .toLowerCase()
-								  .replace('\'', '');
+				cn = cn.toLowerCase().replace('\'', '');
 				var chapter_map = {
 						 'al-imran': 'ali-imran',
 						 'an-nahl': 'al-nahl',
