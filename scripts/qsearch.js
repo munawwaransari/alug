@@ -631,12 +631,12 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr){
 			"Tafheem-ul-Quran (Syed Abul-Ala Moududi)": "https://archive.org/download/Tafheem-ul-Quran-by-Syed-Abul-Ala-Moududi-Audio-MP3-CD/@index@ - @chapter-en@ - @chapter-ar@.mp3",
 			
 			"Bayan-ul-Quran (Dr. Israr Ahmed)": 
-			"https://ia600202.us.archive.org/4/items/BayanUlQuranInUrduByDr.IsrarAhmedAudioMP3-HQ/@index@ - @chapter-en@ - @chapter-ar@.mp3",
+			"https://archive.org/download/BayanUlQuranInUrduByDr.IsrarAhmedAudioMP3-HQ/@index@ - @chapter-en@ - @chapter-ar@.mp3",
 			
 			"Asan Tarjuma-e-Quran (Mufti Taqi Usmani)":
 			"https://www.jamiat.org.in/media/media/audio/tu_mr_s_@index@.mp3",
 			
-			"English Tafsir (Mohsin Khan)": "https://ia902907.us.archive.org/5/items/complete-quran-english-tafsir-audio-muhsin-khan/@index@-@chapter-en@.mp3"
+			"English Tafsir (Mohsin Khan)": "https://archive.org/download/complete-quran-english-tafsir-audio-muhsin-khan/@index@-@chapter-en@.mp3"
 			
 	};
 	var options = '';
@@ -756,7 +756,6 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr){
 	return getPlayControlsHtml(id, options, '\u060F');
 }
 
-//https://www.truemuslims.net
 function getQuranAudioOptions(chapter, enName, ayahCount){
 	
 	var languages = ["Arabic", "Bangla", "English", "Gujarati", "Hindi", "Kashmiri", "Marathi", "Malayalam", "Persian", "Tamil", "Telugu", "Urdu"];
@@ -768,7 +767,7 @@ function getQuranAudioOptions(chapter, enName, ayahCount){
 		
 		if(lang === "Marathi"){
 			if(chapter > 77){
-				var url = "https://dn720303.ca.archive.org/0/items/marathiqurantranslation/"+ch+"-Sura @chapter-en@ [Ayahs 1-"+ayahCount+"].mp3";
+				var url = "https://archive.org/download/marathiqurantranslation/"+ch+"-Sura @chapter-en@ [Ayahs 1-"+ayahCount+"].mp3";
 				url = url.replace("@chapter-en@", enName.split("(")[0].trim())
 						 .replace('An-Naba\'', 'An-Nabaa')
 						 .replace('Abasa', '\'Abasa')
@@ -797,7 +796,7 @@ function getQuranAudioOptions(chapter, enName, ayahCount){
 		}
 		else if(lang === "Telugu"){
 			if(chapter < 101){
-				var url = encodeURI("https://ia800703.us.archive.org/21/items/OnlyTeluguAudioQuranTranslationMp3/Telugu_Audio_Quran_Translation_Mp3_Quran/"+ch+"_Only_Telugu_Audio_Quran_Translation_Mp3_Quran_VideoQuran.Net.mp3");
+				var url = encodeURI("https://archive.org/download/OnlyTeluguAudioQuranTranslationMp3/Telugu_Audio_Quran_Translation_Mp3_Quran/"+ch+"_Only_Telugu_Audio_Quran_Translation_Mp3_Quran_VideoQuran.Net.mp3");
 				options += '<p onclick="playQuranChapterUrl(\''+url+'\',\''+id+'\')">'+lang+'</p>';				
 			}
 		}
