@@ -622,6 +622,73 @@ function encodeTafsirUrl(url){
 						 .replace(/%E2%80%8E/g, '');
 }
 
+function getTafsirPdfOptions(index, chapterEn, chapterAr){
+	
+	var tafasir = {
+			"Tafseer Qurtubi (Urdu)": 
+			"https://archive.org/download/tafsir-al-qurtubi/surah-@index@_@chapter-en@.pdf"
+	};
+	var options = '';
+	var id = 't-pdf'+index;
+	
+	for(const [k,v] of Object.entries(tafasir)){
+		
+		var ch = index > 99 ? index : index > 9 ? "0"+index : "00"+index;
+		var url = v;
+		switch(k){
+			
+			case "Tafseer Qurtubi (Urdu)":{
+				var cn = chapterEn.split(" ")[0]
+								  .toLowerCase()
+								  .replace('\'', '');
+				var chapter_map = {
+						 'al-imran': 'ali-imran',
+						 'an-nahl': 'al-nahl',
+						 'al-muminoon': 'al-muminun',
+						 'an-noor': 'an-nur',
+						 'al-ankaboot': 'al-ankabut',
+						 'ar-room': 'ar-rum',
+						 'ya-seen':'yasin',
+						 'as-saaffat': 'as-saffat',
+						 'sad': 'saad',
+						 'al-jathiya': 'al-jathiyah',
+						 'qaf': 'qaaf',
+						 'adh-dhariyat': 'az-zariyat',
+						 'at-tur': 'at-thur',
+						 'al-munafiqoon': 'al-munafiqun',
+						 'al-haaqqah': 'al-haqqah',
+						 'nooh': 'nuh',
+						 'al-jinn': 'al-jin',
+						 'al-muddaththir': 'al-muddatthir',
+						 'al-inshiqaq': 'al-insyiqaq',
+						 'al-burooj': 'al-buruj',
+						 'al-ghashiya': 'al-ghashiyah',
+						 'al-layl': 'al-lail',
+						 'as-sharh': 'al-inshirah',
+						 'quraish': 'al-quraish',
+						 'al-kauthor': 'al-kauthar',
+						 'al-kafiroon': 'al-kafirun'
+					};
+					
+					url = url = url.replace('@index@', ch);
+					if(chapter_map[cn])
+						url = url.replace('@chapter-en@', chapter_map[cn]);
+					else
+						url = url.replace('@chapter-en@', cn);
+			}
+			break;
+		}
+		var openlink = 'var w = parent.window ? parent.window : window; w.open(\''+encodeURI(url)+'\');'
+		options += '<p onclick="'+openlink+'">'+k+'</p>';
+	}
+	return '<span class="dropdown" style="direction:ltr;">'+
+				'<button id="'+id+'" '+
+					'class="dropbtn" onclick="toggleDropdownContent(this, true)" '+
+					'style="background-color:#EEEEEE;color:black;">📓</button>'+
+					'<div class="dropdown-content" style="">'+options+'</div>'+
+			'</span>';
+}
+
 function getTafsirAudioOptions(index, chapterEn, chapterAr){
 	
 	var tafasir = {
@@ -753,7 +820,7 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr){
 			options += '<p onclick="playQuranChapterUrl(\''+encodeTafsirUrl(url)+'\',\''+id+'\')">'+k+'</p>';
 	}
 	
-	return getPlayControlsHtml(id, options, '\u060F');
+	return getPlayControlsHtml(id, options, '▶');
 }
 
 function getQuranAudioOptions(chapter, enName, ayahCount){
@@ -807,7 +874,7 @@ function getQuranAudioOptions(chapter, enName, ayahCount){
 		return true;
 	});
 	
-	return getPlayControlsHtml(id, options, '&#9835');
+	return getPlayControlsHtml(id, options, '▶');
 }
 
 function getPlayControlsHtml(id, options, symbol){
@@ -1039,6 +1106,7 @@ function listSurahs(){
 						 '</td>'+
 						 '<td style="font-size:14px;cursor:pointer;padding:0;">'+
 							 '<span>'+getTafsirAudioOptions(index, surah.en, surah.ar)+'</span>'+
+							 '<span>'+getTafsirPdfOptions(index, surah.en, surah.ar)+'</span>'+
 						 '</td>'+
 						 '<td style="font-size:14px;cursor:pointer;padding:0;"> '+
 							 '<span class="dropbtn" '+
