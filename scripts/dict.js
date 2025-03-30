@@ -402,7 +402,7 @@ function showCauseAndEffects(inp){
 	};	
 	
 	var svgImg = $("#svgImg1");	
-	setTimeout(function(){
+	svgImg.on('load', function(){
 		var isAndroid = $(".toolDiv.mobile").length > 0;
 		if(isAndroid || svgImg.offset().left < 0){
 			var w1 = svgImg.prop("width");
@@ -416,7 +416,7 @@ function showCauseAndEffects(inp){
 			   }
 			}
 		}
-	}, 100);
+	});
 	
 	svgImg.on("click", function(e){
 		console.log("on:"+activeSvgArea);
