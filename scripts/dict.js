@@ -400,19 +400,23 @@ function showCauseAndEffects(inp){
 		"Circumstantial": [263.5,199,374.5,237],
 		"Disambiguitive": [101.5,95,212.5,131263.5,199,374.5,237]
 	};	
+	
 	var svgImg = $("#svgImg1");	
-	if(svgImg.offset().left < 0){
-		var w1 = svgImg.prop("width");
-		svgImg.css("width", "100%");
-		var w2 = svgImg.prop("width");
-		var factor = w2/w1;
-		//Adjust coordinates
-		for(const [k, v] of Object.entries(coords)){
-		   for(var j=0; j< v.length; j++){
-			   v[j] = v[j] * factor;
-		   }
+	setTimeout(function(){
+		var isAndroid = $(".toolDiv.mobile").length > 0;
+		if(isAndroid || svgImg.offset().left < 0){
+			var w1 = svgImg.prop("width");
+			svgImg.css("width", "100%");
+			var w2 = svgImg.prop("width");
+			var factor = w2/w1;
+			//Adjust coordinates
+			for(const [k, v] of Object.entries(coords)){
+			   for(var j=0; j< v.length; j++){
+				   v[j] = v[j] * factor;
+			   }
+			}
 		}
-	}
+	}, 100);
 	
 	svgImg.on("click", function(e){
 		console.log("on:"+activeSvgArea);
