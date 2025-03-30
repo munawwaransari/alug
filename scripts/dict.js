@@ -420,8 +420,8 @@ function showCauseAndEffects(inp){
 	
 	svgImg.on("click", function(e){
 		console.log("on:"+activeSvgArea);
-		var offset = $(this).offset();
-		console.log('offset:'+(e.clientX-offset.left)+','+(e.clientY-offset.top))
+		//var offset = $(this).offset();
+		//console.log('offset:'+(e.clientX-offset.left)+','+(e.clientY-offset.top))
 		
 		if(activeSvgArea){
 			var exDiv = $("#ceExamples");
