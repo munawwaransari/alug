@@ -373,6 +373,132 @@ function showNounComparisions(inp){
 	cmpAPIObj.addComparisionList($(".dictionary"), inp, true, "noun");
 }
 
+function showCauseAndEffects(inp){
+	$(".dictionary").empty();
+	
+	var html =  '<div style="font-size:12px;width:100%;background-color:yellow;text-align:center;">'+
+					'Click or tap on a block to see examples ( See: <a href="#" onclick="'+
+					   'showObjectEffects(\'ism\',\'المفاعيل\', \'Object\')">Object Effects</a> )'+
+				'</div>'+
+				'<div style="width:100%;display:flex;flex-diection:column;text-align:center;">'+
+					'<img id="svgImg1" style="margin:auto;current:arrow;" src="images/ce.svg"></img>'+
+				'</div>'+
+				'<div id="ceExamples" style="width:100%;text-align:center;"></div>';
+					
+	$(".dictionary").append($(html));
+	
+	var coords = {
+		"Causal Object": [29,30,134,76],
+		//"Subject": [206,25,262,73],
+		"Comitative Object": [353,28,458,74],
+		"Adverbial Object": [31,255,133,303],
+		"Direct Object": [201,255,264,302],
+		"Absolute Effect": [354,255,459,301],
+		//"Action": [204,144,266,185],
+		//"Cause":[52,140,107,188],
+		//"Effect": [375,140,430,188],
+		"Circumstantial": [263.5,199,374.5,237],
+		"Disambiguitive": [101.5,95,212.5,131263.5,199,374.5,237]
+	};	
+	var svgImg = $("#svgImg1");	
+	if(svgImg.offset().left < 0){
+		var w1 = svgImg.prop("width");
+		svgImg.css("width", "100%");
+		var w2 = svgImg.prop("width");
+		var factor = w2/w1;
+		//Adjust coordinates
+		for(const [k, v] of Object.entries(coords)){
+		   for(var j=0; j< v.length; j++){
+			   v[j] = v[j] * factor;
+		   }
+		}
+	}
+	
+	svgImg.on("click", function(e){
+		console.log("on:"+activeSvgArea);
+		var offset = $(this).offset();
+		console.log('offset:'+(e.clientX-offset.left)+','+(e.clientY-offset.top))
+		
+		if(activeSvgArea){
+			var exDiv = $("#ceExamples");
+			exDiv.empty();
+			var examples = ce_examples[activeSvgArea];
+			if(examples){
+				
+				var exHtml = '<div></div>';
+				for(var i=0; i < examples.length; i++){
+					exHtml += '<div style="margin:auto;">'+replaceQLink(examples[i])+'</div>';
+				}
+				exDiv.append($(exHtml));
+			}
+		}
+	});
+
+	var isWorking = false;
+	var activeSvgArea = undefined;
+	var ce_examples = {
+		"Causal Object": [
+			"قُل لَّوۡ أَنتُمۡ تَمۡلِكُونَ خَزَآئِنَ رَحۡمَةِ رَبِّيٓ إِذٗا لَّأَمۡسَكۡتُمۡ <b>خَشۡيَةَ</b> ٱلۡإِنفَاقِۚ [17:100]",
+			"وَعَلَّمۡنَٰهُ صَنۡعَةَ لَبُوسٖ لَّكُمۡ <b>لِتُحۡصِنَكُم</b> مِّنۢ بَأۡسِكُمۡۖ [21:80]",
+			"وَكَذَٰلِكَ بَعَثۡنَٰهُمۡ <b>لِيَتَسَآءَلُواْ</b> بَيۡنَهُمۡۚ [18:19]"
+		],
+		"Comitative Object": [
+			"فَأَجۡمِعُوٓاْ أَمۡرَكُمۡ وَ<b>شُرَكَآءَكُمۡ</b> [10:71]"
+		],
+		"Adverbial Object": [	
+			"خَٰلِدِينَ فِيهَآ <b>أَبَدًاۚ</b> [9:22]",
+			"وَٱذۡكُرِ ٱسۡمَ رَبِّكَ <b>بُكۡرَةٗ</b> وَ<b>أَصِيلٗا</b> ٢٥ [76:25]",
+			"وَأَقِمِ  ٱلصَّلَوٰةَ <b>طَرَفَيِ</b> ٱلنَّهَارِ وَ<b>زُلَفٗا</b> مِّنَ ٱلَّيۡلِۚ [11:114]"
+			
+		],
+		"Direct Object": [
+			"كَذَٰلِكَ يَضۡرِبُ ٱللَّهُ <b>ٱلۡأَمۡثَالَ</b> ١٧[13:17]",
+			"لَّقَدۡ أَنزَلۡنَآ <b>ءَايَٰتٖ مُّبَيِّنَٰتٖۚ</b> [24:46]",
+			"وَٱذۡكُرۡ <b>إِسۡمَٰعِيلَ وَٱلۡيَسَعَ وَذَاٱلۡكِفۡلِ</b>ۖ [38:48]"
+		],
+		"Absolute Effect":  [
+			"وَتُحِبُّونَ ٱلۡمَالَ <b>حُبّٗا جَمّٗا</b> ٢٠ [89:20]",
+			"كـَلَّآۖ إِذَا دُكَّتِ ٱلۡأَرۡضُ <b>دَكّٗا دَكّٗا</b> ٢١ [89:21]",
+			"وَجَآءَ رَبُّكَ وَٱلۡمَلَكُ <b>صَفّٗا صَفّٗا</b> ٢٢ [89:22]",
+			"وَسِعَ رَبِّي كُلَّ شَيۡءٍ <b>عِلۡمًاۚ</b> [6:80]"
+		],
+		"Circumstantial": [
+			"فَلَمَّا رَءَا ٱلۡقَمَرَ <b>بَازِغٗا</b> قَالَ هَٰذَا رَبِّيۖ  [6:77]",
+			"فَخَرَجَ مِنۡهَا <b>خَآئِفٗا</b> يَتَرَقَّبُۖ [28:21]",
+			"إِن جَعَلَ ٱللَّهُ عَلَيۡكُمُ ٱلَّيۡلَ <b>سَرۡمَدًا</b> إِلَىٰ يَوۡمِ ٱلۡقِيَٰمَةِ [28:71]"
+		],
+		"Disambiguitive": [
+			"فَسَوَّاهُنَّ سَبْعَ سَمَاوَاتٍ [2:29]",
+			"وَالَّذِينَ آمَنُوا أَشَدُّ حُبًّا لِّلَّهِ [2:165]",
+			"إِنِّي رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًا [12:4]"
+		]
+	};
+
+	svgImg.on("mousemove", function(e){
+		
+		if(!isWorking){
+			isWorking=true;
+			$("#svgImg1").css('cursor', 'crosshair');
+			var isSet = false;
+			
+			var offset = $(this).offset();
+			var x = e.clientX-offset.left;
+			var y = e.clientY-offset.top;
+			for(const [k, v] of Object.entries(coords)){
+				if(x > v[0] && x < v[2] && y > v[1] && y < v[3]){
+					   $("#svgImg1").css('cursor', 'pointer');
+					   activeSvgArea = k;
+					   isSet = true;
+					   //console.log('set:'+e.clientX+','+e.clientY)
+					   break;
+				   } 
+			}
+			activeSvgArea = isSet ? activeSvgArea : undefined;
+			isWorking=false;
+		}
+	});
+}
+
 function loadComparision(){
 	 var comppSel = $("select option[class='.cmpVerb']");
 	 var verbCompare = comppSel.length > 0 ? comppSel.val() : '';
