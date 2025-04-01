@@ -707,7 +707,7 @@ function getTafsirPdfOptions(index, chapterEn, chapterAr){
 		
 		var isAndroid = isOS("Android");				   
 		var openlink = 'var w = parent.window ? parent.window : window; w.'+
-					(isAndroid ? 'open(this.href, \'_blank\');':
+					(isAndroid ? 'open(\''+encodeURI(url)+'\', \'_blank\');':
 								 'openInline(this.href);');
 		options += '<a href="'+(isAndroid ? '#' : encodeURI(url))+'" onclick="'+openlink+'">'+k+'</a>';
 	}
