@@ -633,7 +633,10 @@ function getTafsirPdfOptions(index, chapterEn, chapterAr){
 	
 	var tafasir = {
 			"Tafseer Qurtubi (Urdu)": 
-			"https://archive.org/download/tafsir-al-qurtubi/surah-@index@_@chapter-en@.pdf"
+			"https://archive.org/download/tafsir-al-qurtubi/surah-@index@_@chapter-en@.pdf",
+			
+			"Fil Zial al-Quran (English)":
+			"https://archive.org/download/tafsir-fi-zilal-al-quran/surah-@index@_@chapter-en@.pdf"
 			
 			//"Tafseer Ibn-e-Kaseer (Urdu)":
 			//"https://archive.org/download/TafseerIbnKathirenglish114SurahsComplete/@index@@chapter-en@.pdf"
@@ -665,6 +668,7 @@ function getTafsirPdfOptions(index, chapterEn, chapterAr){
 			}
 			break;
 			
+			case "Fil Zial al-Quran (English)":
 			case "Tafseer Qurtubi (Urdu)":{
 				cn = cn.toLowerCase().replace('\'', '');
 				var chapter_map = {
