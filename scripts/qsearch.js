@@ -704,8 +704,12 @@ function getTafsirPdfOptions(index, chapterEn, chapterAr){
 			}
 			break;
 		}
-		var openlink = 'var w = parent.window ? parent.window : window; w.open(\''+encodeURI(url)+'\');'
-		options += '<p onclick="'+openlink+'">'+k+'</p>';
+		
+		var isAndroid = isOS("Android");				   
+		var openlink = 'var w = parent.window ? parent.window : window; w.'+
+					(isAndroid ? 'open(this.href, \'_blank\');':
+								 'openInline(this.href);');
+		options += '<a href="'+(isAndroid ? '#' : encodeURI(url))+'" onclick="'+openlink+'">'+k+'</a>';
 	}
 	return '<span class="dropdown" style="direction:ltr;">'+
 				'<button id="'+id+'" '+
@@ -939,7 +943,7 @@ function loadQuranPdfOptions(){
 			(isOS("Android") ?
 				'href="#" onclick="var w = parent.window ? parent.window : window; w.open(\''+url+'\');">'
 				:
-				'href="'+url+'" onclick="var w = parent.window ? parent.window : window; w.open(this.href, \"_blank\"); return false;">')
+				'href="'+url+'" onclick="var w = parent.window ? parent.window : window; w.openInline(this.href); return false;">')
 					+lang +
 				   '</a>';
 		return true;
