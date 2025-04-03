@@ -254,14 +254,37 @@
 				<input type="checkbox" onchange="$('.chkT').toggle()" checked>Tafseer</span>
 			<span style="float:left;font-size:12px;padding-right:20px;margin-top:8px;">
 				<input type="checkbox" onchange="$('.chkQ').toggle()" checked>Qirat</span>
+			
+			<select style="display:none;background-color:#b5d090;padding:0;width:100px;font-szie:12px;" 
+			id="surah-options"
+				onchange="updatePage(this)">
+			</select>
+			
 			<span style="padding:4px;cursor:pointer;color:transparent;font-size:24px;"
 				onclick="navigateJuz(false)">↞</span>&nbsp;
-			<select style="background-color:#b5d090;padding:0;width:100px;font-szie:12px;" id="juz-options"
+			<select style="background-color:#b5d090;padding:0;width:100px;font-szie:12px;" 
+			id="juz-options"
 				onchange="filterSurahs(this)">
 				<option value="all" select>All Juz</option>
 			</select>
+			<select style="display:none;background-color:#b5d090;padding:0;width:100px;font-szie:12px;" 
+			id="page-options"
+				onchange="displayQPage()">
+			</select>
 			&nbsp;<span style="padding:4px;cursor:pointer;color:transparent;font-size:24px;"
 				onclick="navigateJuz(true)">↠</span>
+
+			<button id="qv1" style="margin-left:10px;"
+				title="Mushaf view" 
+				onclick="toggleQuranView(true)">
+				<img style="width:16px;height:16px;" src="images/q.png"></img>
+			</Button>
+			<button id="qv2" style="display:none;margin-left:10px;"
+				title="Tabular view" 
+				onclick="toggleQuranView(false)">
+				<img style="width:16px;height:16px;;margin-top:8px;" src="images/q2.png"></img>
+			</button>
+
 		</div>
 	</div>
 	<div id="searchResult" style="width: 100%;text-align: center;">Loading Quran...</div>

@@ -24,6 +24,12 @@ window.onload = function(){
 		jOptions.append($('<option value="juz'+j+'">Juz '+j+'</option>'));
 	}
 	
+	//Fill Page select options
+	var pOptions = $("#page-options");
+	for(var j=1; j <605; j++){
+		pOptions.append($('<option value="page'+j+'">Page '+j+'</option>'));
+	}
+	
 	window.addEventListener("contextmenu", e =>
 	{
 	  e.preventDefault();
@@ -1102,15 +1108,37 @@ function selectWordAndSearchInQuran(word){
 	search();
 }
 
+function updatePage(){
+	var s = $("#surah-options").val().replace('s','');
+	var entry = surah_list[s];
+	var page = entry.pages.includes('-') ? entry.pages.split('-')[0] : entry.pages;
+	$("#page-options").val('page'+page);
+	displayQPage();
+}
+
 function navigateJuz(next){
+	
 	var sel = $("#juz-options");
-	var opt = sel.val();
-	if(opt === "all") return;
-	var value = parseInt(opt.replace('juz',''))
-	value += next ? +1:-1;
-	if(value > 0 && value < 31){
-		sel.val('juz'+value);
-		filterSurahs(sel, 'juz'+value);
+	if(sel.is(':visible')){
+		var opt = sel.val();
+		if(opt === "all") return;
+		var value = parseInt(opt.replace('juz',''))
+		value += next ? +1:-1;
+		if(value > 0 && value < 31){
+			sel.val('juz'+value);
+			filterSurahs(sel, 'juz'+value);
+		}
+	}
+	
+	sel = $("#page-options");
+	if(sel.is(':visible')){
+		var opt = sel.val();
+		var value = parseInt(opt.replace('page',''))
+		value += next ? +1:-1;
+		if(value > 0 && value < 605){
+			sel.val('page'+value);
+			displayQPage();
+		}
 	}
 }
 
@@ -1120,14 +1148,14 @@ function filterSurahs(elem, cname){
 		$(".surahIndex [class^=\'juz\']").show();
 		if(elem){
 			$(elem).prev().css('color','transparent');
-			$(elem).next().css('color','transparent');
+			$(elem).next().next().css('color','transparent');
 		}
 	}else{
 		$(".surahIndex [class^=\'juz\']").hide();
 		$("."+opt).show();
 		if(elem){
 			$(elem).prev().css('color','crimson');
-			$(elem).next().css('color','crimson');
+			$(elem).next().next().css('color','crimson');
 		}
 	}
 }
@@ -1142,10 +1170,12 @@ function listSurahs(){
 	var url = path + 'data/qrn/qsurah.json';
 	listSurahsAsync(url, function(data){
 	
+		var sOptions = $("#surah-options");
 		surah_list = data;
 		var div = $("#searchResult");
 		div.empty();
-		var table = '<table style="direction:rtl;max-width:512px;margin:auto;padding:0;" '+
+		var table = '<div id="tqv2" style="margin-top:10px;width:100%;display:none;"><img style="width:90%;" src=""></img></div>'+
+				'<table id="tqv1" style="direction:rtl;max-width:512px;margin:auto;padding:0;" '+
 						   'class="surahIndex">'+
 						   '<tr><th>Surah</th>'+
 						   '<th class="chkQ">&nbsp;Qirat&nbsp;</th>'+
@@ -1160,6 +1190,11 @@ function listSurahs(){
 			if(enName.includes(' ')){
 				enName = enName.split(' ')[0];
 			}
+			
+			sOptions.append(
+				$('<option value="'+index+'">'+index+' ' + surah.ar+'</option>')
+			);
+			
 			table += '<tr class="'+juz+'">'+
 						 '<td onclick="searchText(\''+enName+'\')" '+
 							 'class="qword" style="max-width:80px;font-szie:14px;padding:0;padding-bottom:6px;">'+index+'<br/>'+
@@ -1385,4 +1420,39 @@ function toggleQHead(){
 		$("#imgQHead").prop('src', 'images/up.png');
 		$("#divQHead").show();
 	}
+}
+
+function toggleQuranView(readView){
+	if(readView){
+		$("#qv1").hide();
+		$("#qv2").show();
+		$("#qv2").parent().find("input[type='checkbox']").parent().hide();
+		$("#juz-options").hide();
+		$("#surah-options").show();
+		$("#page-options").show();
+		$("#tqv1").hide();
+		$("#tqv2").show();
+		$("#juz-options").prev().css('color','crimson');
+		$("#juz-options").next().next().css('color','crimson');
+		displayQPage();
+	}else{
+		$("#qv2").hide();
+		$("#qv1").show();		
+		$("#qv2").parent().find("input[type='checkbox']").parent().show();
+		$("#juz-options").show();
+		$("#surah-options").hide();
+		$("#page-options").hide();
+		$("#tqv1").show();
+		$("#tqv2").hide();
+		$("#juz-options").prev().css('color','transparent');
+		$("#juz-options").next().next().css('color','transparent');
+	}
+}
+
+function displayQPage(){
+	var pg = $("#page-options").val().replace('page','');
+	if(pg.length < 2) pg = '0'+pg;
+	if(pg.length < 3) pg = '0'+pg;
+	var img = $("#tqv2 img");
+	img.attr('src', 'https://archive.org/download/ALQURANPERPAGEFORMATPNG/page'+pg+'.png');
 }
