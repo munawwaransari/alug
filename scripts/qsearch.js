@@ -1174,7 +1174,7 @@ function listSurahs(){
 		surah_list = data;
 		var div = $("#searchResult");
 		div.empty();
-		var table = '<div id="tqv2" style="margin-top:10px;width:100%;display:none;"><img style="width:90%;" src=""></img></div>'+
+		var table = '<div id="tqv2" style="margin-top:10px;width:100%;display:none;"><img style="width:100%;" src=""></img></div>'+
 				'<table id="tqv1" style="direction:rtl;max-width:512px;margin:auto;padding:0;" '+
 						   'class="surahIndex">'+
 						   '<tr><th>Surah</th>'+
@@ -1455,4 +1455,30 @@ function displayQPage(){
 	if(pg.length < 3) pg = '0'+pg;
 	var img = $("#tqv2 img");
 	img.attr('src', 'https://archive.org/download/ALQURANPERPAGEFORMATPNG/page'+pg+'.png');
+	
+	//update surah
+	var index;
+	Object.keys(surah_list).every(function(k){
+		var v = surah_list[k];
+		var p1 = v.pages;
+		var p2 = p1;
+		if(v.pages.includes('-')){
+			var pages = v.pages.split('-');
+			p1 = parseInt(pages[0]);
+			p2 = parseInt(pages[1]);
+		}else{
+			p1 = parseInt(v.pages);
+			p2 = p1;
+		}
+		
+		var val = parseInt(pg);
+		if(val >= p1 && val <= p2){
+			index = k;
+			return false;
+		}
+		return true;
+	});
+	if(index){
+		$("#surah-options").val(index);
+	}
 }
