@@ -1174,7 +1174,10 @@ function listSurahs(){
 		surah_list = data;
 		var div = $("#searchResult");
 		div.empty();
-		var table = '<div id="tqv2" style="margin-top:10px;width:100%;display:none;"><img style="width:100%;" src=""></img></div>'+
+		var table = '<div id="tqv2" style="margin-top:10px;width:100%;display:none;">'+
+						'<img style="position:relative;width:100%;" src=""></img>'+
+						'<img style="display:none;position:absolute;opacity:30%;left:35%;top:35%;width:30%;" src="images/loading.gif"></img>'+
+					'</div>'+
 				'<table id="tqv1" style="direction:rtl;max-width:512px;margin:auto;padding:0;" '+
 						   'class="surahIndex">'+
 						   '<tr><th>Surah</th>'+
@@ -1453,7 +1456,13 @@ function displayQPage(){
 	var pg = $("#page-options").val().replace('page','');
 	if(pg.length < 2) pg = '0'+pg;
 	if(pg.length < 3) pg = '0'+pg;
-	var img = $("#tqv2 img");
+	var img = $("#tqv2 img").first();
+	var imgLoading = $("#tqv2 img").last();
+	
+	imgLoading.show();
+	img.on('load', function(){
+		imgLoading.hide();
+	});
 	img.attr('src', 'https://archive.org/download/ALQURANPERPAGEFORMATPNG/page'+pg+'.png');
 	
 	//update surah
