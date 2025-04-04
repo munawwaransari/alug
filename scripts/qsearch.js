@@ -628,6 +628,30 @@ function stopQuranChapter(id){
 	$("#"+id).show();
 }
 
+function playOrStopCurrentPage(elem){
+	var page = $("#page-options").val().replace('page','');
+	if(page.length < 2) page = '0'+page;
+	if(page.length < 3) page = '0'+page;
+	var url = 'https://archive.org/download/QuranTransliterationMP3/pg'+page+'.mp3';
+	
+	var state = $(elem).html();
+	if(state === '▶'){ //play
+		$(elem).html('⏹');
+		if(parent && parent.playAudio){
+			parent.playAudio(url, function(action){
+				if(action == "ended"){
+					$(elem).html('▶');
+				}
+			});
+		}
+	}else{ // stop
+		if(parent && parent.stopAudio){
+			parent.stopAudio();
+			$(elem).html('▶');
+		}
+	}
+}
+
 function encodeTafsirUrl(url){
 	return encodeURI(url).replace(/'/g, "%27")
 						 .replace(/\(/, '%28')
@@ -1437,6 +1461,7 @@ function toggleQuranView(readView){
 		$("#tqv2").show();
 		$("#juz-options").prev().css('color','crimson');
 		$("#juz-options").next().next().css('color','crimson');
+		$("#juz").children().last().show();
 		displayQPage();
 	}else{
 		$("#qv2").hide();
@@ -1449,6 +1474,7 @@ function toggleQuranView(readView){
 		$("#tqv2").hide();
 		$("#juz-options").prev().css('color','transparent');
 		$("#juz-options").next().next().css('color','transparent');
+		$("#juz").children().last().hide();
 	}
 }
 
