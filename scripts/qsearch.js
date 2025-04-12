@@ -561,18 +561,35 @@ function playQuranChapterUrl(url, id){
 	$("#"+id+"+.dropdown-content").hide();
 	$("#"+id).hide();
 	$("#"+id+"-progress").show();
+	var durationBar = $("#"+id+"-duration");
 	
 	if(parent && parent.playAudio){
 		
 		last_ch_play_id = id;
+		if(id.startsWith('t-ch')){
+				$("#"+id.replace('t-ch','t-pdf')).hide(); //hide tafseer icon
+		}
 		
 		var pauseBtn = $("#"+id+"-pause");
-		parent.playAudio(url, function(action){		
+		parent.playAudio(url, function(action, data){		
 			if(action == "loadstart"){
 				$("#"+id).hide();
 				$("#"+id+"-progress").show();
+				durationBar.attr('value',0);
 			}
+			else
+			if(action == "progress"){
+				if(data && data.ct)
+					durationBar.attr('value', data.ct);
+			}
+			else
 			if(action == "loadeddata"){
+				if(data){
+					durationBar.attr('max', data.duration);
+					durationBar.attr('value', data.ct);
+					durationBar.css('display', 'block');
+				}
+
 				$("#"+id+"-progress").hide();
 				pauseBtn.show();
 				$("#"+id+"-stop").show();
@@ -581,13 +598,16 @@ function playQuranChapterUrl(url, id){
 				$("#"+id).hide();
 				selectSurahCell($("#"+id).parent().parent().parent(), true);
 			}
+			else
 			if(action == "pause"){
 				pauseBtn.html(pauseBtn.html() === '\u23F8' ? '\u23EF' : '\u23F8');
 			}
 			else if(action == "ended"){
 				stopQuranChapter(id);
+				if(last_ch_play_id)
+					stopQuranChapter(last_ch_play_id);
 				last_ch_play_id = undefined;
-				
+				durationBar.hide();
 			}
 		});
 	}	
@@ -618,12 +638,17 @@ function stopQuranChapter(id){
 	if(parent && parent.stopAudio){
 		parent.stopAudio();
 
-		$("#"+id+"-pause").hide();
-		$("#"+id+"-stop").hide();
-		$("#"+id+"-fb").hide();
-		$("#"+id+"-ff").hide();
-		
-		selectSurahCell($("#"+id).parent().parent().parent(), false);
+		setTimeout(function(){
+			$("#"+id+"-pause").hide();
+			$("#"+id+"-stop").hide();
+			$("#"+id+"-fb").hide();
+			$("#"+id+"-ff").hide();
+			$("#"+id+"-duration").hide();
+			selectSurahCell($("#"+id).parent().parent().parent(), false);
+			if(id.startsWith('t-ch')){
+				$("#"+id.replace('t-ch','t-pdf')).show();
+			}
+		},10);
 	}
 	$("#"+id).show();
 }
@@ -961,7 +986,9 @@ function getPlayControlsHtml(id, options, symbol){
 			   '<button id="'+id+'-ff" class="dropbtn" '+
 					   'onclick="fastplayQuranChapter(\''+id+'\', true); toggleDropdownContent($(this).first().next().next());" '+
 					   'style="display:none;background-color:transparent;color:black;margin-left:1px;">\u23E9</button>'+ //FF
-		   '</span>';
+		   '</span>'+
+		   '<progress id="'+id+'-duration" style="margin:auto;direction:ltr;display:none;" '+
+					  'onclick="onDurationClick(\''+id+'-duration\', event)"></progress>';
 }
 
 //https://www.truemuslims.net
@@ -1515,5 +1542,18 @@ function displayQPage(){
 	});
 	if(index){
 		$("#surah-options").val(index);
+	}
+}
+
+function onDurationClick(id, e){
+	var prog = $("#"+id);
+	var max = prog.width(); //Get width element
+    var pos = e.pageX - prog.offset().left; //Position cursor
+    var perc = pos / max;
+	if(perc > 1) perc = 1;
+	var value = Math.round(prog.attr('max') * perc)
+    //console.log('range at: ' + value);
+	if(parent && parent.changeAudioTime){
+		parent.changeAudioTime(null, value);
 	}
 }

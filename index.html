@@ -23,6 +23,8 @@
 			var states = {};
 			var arSupported = false, urSupported = false;
 			var qPlayerObj;
+			var audio_last_time;
+			var audio_last_duration;
 	
 			window.topics = alug_chapters;
 			window.updateStates = function (s){ $.extend(states, s); };
@@ -99,7 +101,6 @@
 				}
 			}
 			
-			var audio_last_time; //, audio_duration;
 			window.pauseAudio = function(){
 				if(audio){
 				
@@ -117,12 +118,27 @@
 				}
 			}
 			
-			window.changeAudioTime = function(ff){
+			window.changeAudioTime = function(ff, value){
 				if(audio){
-					var ct = Math.round(audio.duration * 0.01);
-					if(ct < 5) ct = 5;
-					audio.currentTime += ct*(ff ? +1:-1);
+					if(value === undefined){
+						var ct = Math.round(audio.duration * 0.01);
+						if(ct < 5) ct = 5;
+						audio.currentTime += ct*(ff ? +1:-1);
+					}else{
+						audio.currentTime = value;
+					}
 					audio_last_time = audio.currentTime;
+				}
+			}
+			
+			var updatePlayInterval;
+			function handlePlayInterval(flag, cb){
+				if(!flag && updatePlayInterval){
+					clearInterval(updatePlayInterval);
+				}else if(cb && audio){
+					updatePlayInterval = setInterval(function(){
+						cb("progress", { ct: audio.currentTime, duration: audio.duration });
+					}, 1000);
 				}
 			}
 			
@@ -132,21 +148,30 @@
 				if(audio){
 					delete audio;
 					audio = undefined;
+					handlePlayInterval(false);
 				}
 				
 				audio = new Audio(mpegUrl);
 				
 				audio.addEventListener("loadstart", () => {
-					if(cb) cb("progress");
+					if(cb) cb("loadstart", { ct: audio.currentTime });
 				});
+				//audio.addEventListener("progress", () => {
+				//	if(cb) cb("progress", audio.currentTime);
+				//});
 				audio.addEventListener("loadeddata", () => {
-					if(cb) cb("loadeddata");
+					if(cb) {
+						cb("loadeddata", { ct: audio.currentTime, duration: audio.duration });
+						handlePlayInterval(true, cb);
+					}
 				});
 				audio.addEventListener("pause", () => {
 				  if(cb) cb("pause");
 				});
 				audio.addEventListener("ended", () => {
+				  audio_last_duration = undefined;
 				  if(cb) cb("ended");
+				  handlePlayInterval(false);
 				});
 
 				var promise = audio.play();
