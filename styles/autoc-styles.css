@@ -65,7 +65,7 @@ input[type=submit] {
 }
 
 /* Dropdown Content (Hidden by Default) */
-.dropdown-content {
+.dropdown-content, .dropdown2, .dropdown-content2 {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
@@ -75,7 +75,7 @@ input[type=submit] {
 }
 
 /* Links inside the dropdown */
-.dropdown-content a {
+.dropdown-content a, .dropdown2 a, .dropdown-content2 a {
   color: black;
   padding: 12px 10px;
   text-decoration: none;
@@ -85,11 +85,16 @@ input[type=submit] {
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover,a:click,a:touchstart {background-color: #ddd;}
+.dropdown-content2 a:hover,a:click,a:touchstart {background-color: #ddd;}
+.dropdown2 a:hover,a:click,a:touchstart {background-color: #ddd;}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
+.dropdown-content > .dropdown2:hover+.dropdown-content2 {display: block; }
+.dropdown-content2:hover {display: block;  background-color: #f1f1f1;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 
 .dropdown-content > a:hover, p:hover {background-color: #ddd;}
+.dropdown-content2 > a:hover, p:hover {background-color: #ddd;}

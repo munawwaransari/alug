@@ -796,7 +796,7 @@ function getTafsirPdfOptions(index, chapterEn, chapterAr){
 			'</span>';
 }
 
-function getTafsirAudioOptions(index, chapterEn, chapterAr){
+function getTafsirAudioOptions(index, chapterEn, chapterAr, ayatCount){
 	
 	var tafasir = {
 			"Tafseer Ibne-kaseer (Urdu)": 
@@ -807,11 +807,11 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr){
 			"Bayan-ul-Quran (Dr. Israr Ahmed)": 
 			"https://archive.org/download/BayanUlQuranInUrduByDr.IsrarAhmedAudioMP3-HQ/@index@ - @chapter-en@ - @chapter-ar@.mp3",
 			
-			"Asan Tarjuma-e-Quran (Mufti Taqi Usmani)":
-			"https://www.jamiat.org.in/media/media/audio/tu_mr_s_@index@.mp3",
+			//"English Tafsir (Mohsin Khan)": 
+			//"https://archive.org/download/complete-quran-english-tafsir-audio-muhsin-khan/@index@-@chapter-en@.mp3",
 			
-			"English Tafsir (Mohsin Khan)": "https://archive.org/download/complete-quran-english-tafsir-audio-muhsin-khan/@index@-@chapter-en@.mp3"
-			
+			"Maarif-ul-Quran (Mufti Shafi Usmani)":
+			"https://archive.org/download/maarifulquran-urdu-audio/@index@Surah@chapter-en@@Part@-MaarifulquranByMuftiShafiUsmaniRah.mp3"
 	};
 	var options = '';
 	var id = 't-ch'+index;
@@ -836,10 +836,130 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr){
 					   .replace('@chapter-ar@', 'سورة '+chapterAr);
 				break;
 				
-				case "Asan Tarjuma-e-Quran (Mufti Taqi Usmani)":{
-					url = url.replace('@index@', ch === '001' ? '001_dTacVzr' : ch);
-					if(ch === '002')
-						url = url.replace(/mp3$/g, 'mpeg');
+				case "Maarif-ul-Quran (Mufti Shafi Usmani)":{
+					var cn = chapterEn.split(" ")[0].replace('\'', '')
+													.replace('An-','Al-')
+													.replace('At-','Al-')
+													.replace('Ar-', 'Al-')
+													.replace('Ash-', 'Al-')
+													.replace('Az-', 'Al-')
+													.replace('Ad-', 'Al-')
+													.replace('At-', 'Al-');
+					if(cn.startsWith('Al-') || cn.startsWith('As-'))
+						cn = cn.toLowerCase()
+							   .replace('al-', 'Al-')
+							   .replace('as-', 'As-');
+					
+					var chapter_map = {
+						'Al-fatihah': 'Al-fatiha',
+						'Al-imran': 'Al-e-imran',
+						'Hud': 'Hood',
+						'Al-isra': 'BaniIsrael',
+						'Al-muminoon': 'Al-muminun',
+						'Al-ankaboot': 'Al-ankabut',
+						'Ya-seen': 'Yaseen',
+						'As-saaffat': 'As-saffat',
+						'Sad': 'Saad',
+						'Ghafir': 'Al-momin',
+						'Fussilat': 'HameemAl-sajdah',
+						'Al-jathiya': 'Al-jasiyah',
+						'Al-fath': 'Al-fatah',
+						'Adh-Dhariyat': 'Al-zariyat',
+						'Al-tur': 'Al-toor',
+						'Al-rahman': 'Al-rehman',
+						'Al-hadid': 'Al-hadeed',
+						'Al-mujadilah': 'Al-mujadalah',
+						'Al-mumtahanah':'Al-mumtahinah',
+						'Al-jumuah':'Al-juma',
+						'Al-munafiqoon': 'Al-munafiqun',
+						'Al-talaq': 'At-talaq',
+						'Al-tahrim': 'At-tahrim',
+						'Al-qalam': 'Noon',
+						'Al-haaqqah': 'Al-haqqah',
+						'Al-muddaththir':'Al-muddassir',
+						'Al-insan':'Dahr',
+						'Al-naba':'An-naba',
+						'Al-naziat':'An-naziat',
+						'Al-layl': 'Al-lail',
+						'Al-dhuha': 'Al-zuha',
+						'As-sharh':'Al-inshirah',
+						'Al-tin': 'Al-teen',
+						'Al-qariah':'Al-qaria',
+						'Al-takathur':'Al-takasur',
+						'Al-fil': 'Al-feel',
+						'Quraish': 'Al-quraish',
+						'Al-kauthor':'Al-kausar',
+						'Al-masad': 'Al-lahab'
+					};
+					var ayat_map = {
+						'001': ['Part01', 'Part02'],
+						'002': ['AyatNo001To007', 'AyatNo008To020', 'AyatNo021To022', 'AyatNo025To033', 'AyatNo034To039','AyatNo040To046','AyatNo047To066',
+								'AyatNo067To095','AyatNo096To103', 'AyatNo104To113', 'AyatNo114To121','AyatNo122To125','AyatNo126To129','AyatNo130To141',
+								'AyatNo142To143','AyatNo144To153','AyatNo154To171','AyatNo172To173','AyatNo174To182','AyatNo183To187','AyatNo188To195',
+								'AyatNo196To203','AyatNo204To215','AyatNo216To219','AyatNo219To228','AyatNo229To230','AyatNo238To252','AyatNo253To260',
+								'AyatNo261To274','AyatNo275To281','AyatNo282To286'],
+						'003': ['AyatNo001To017','AyatNo018To030','AyatNo031To054','AyatNo055To071','AyatNo072To092','AyatNo093To102','AyatNo103To105',
+								'AyatNo106To120','AyatNo121To133','AyatNo134To145','AyatNo146To159','AyatNo160To178','AyatNo169To200'],
+						'004': ['AyatNo001To003','AyatNo004To010','AyatNo011To014','AyatNo015To021','AyatNo022To028','AyatNo029To033','AyatNo034To038',
+								'AyatNo039To052','AyatNo053To059','AyatNo060To070','AyatNo071To080','AyatNo081To091','AyatNo092To104','AyatNo105To126',
+								'AyatNo127To135','AyatNo136To158','AyatNo159To200'],
+						'005': ['AyatNo001To002','AyatNo003To004','AyatNo005To005','AyatNo006To014','AyatNo015To026','AyatNo027To034','AyatNo035To040',
+								'AyatNo041To043','AyatNo044To050','AyatNo051To061','AyatNo062To069','AyatNo070To088','AyatNo089To096','AyatNo097To105','AyatNo106To120'],
+						'006': ['AyatNo001To014','AyatNo015To032','AyatNo033To051','AyatNo052To062','AyatNo063To067','AyatNo068To081','AyatNo082To094',
+								'AyatNo095To107','AyatNo108To117','AyatNo118To125','AyatNo126To136','AyatNo137To150','AyatNo151To153','AyatNo154To165'],
+						'007': ['AyatNo001To025','AyatNo026To031','AyatNo032To043','AyatNo044To056','AyatNo057To072','AyatNo073To093','AyatNo094To122',
+								'AyatNo123To141','AyatNo142To157','AyatNo158To171','AyatNo172To179','AyatNo180To193','AyatNo194To206'],
+						'008': ['AyatNo001To010','AyatNo011To024','AyatNo025To038','AyatNo039To044','AyatNo045To058','AyatNo059To075'],
+						'009': ['AyatNo001To011','AyatNo012To024','AyatNo025To030','AyatNo031To052','AyatNo053To060','AyatNo061To083',
+								'AyatNo084To101','AyatNo102To114','AyatNo115To129'],
+						'010': ['AyatNo001To010','AyatNo011To032','AyatNo033To061','AyatNo062To091','AyatNo092To109'],
+						'011': ['AyatNo001To014','AyatNo015To035','AyatNo036To049','AyatNo050To083','AyatNo084To123'],
+						'012': ['AyatNo001To020','AyatNo021To029','AyatNo030To051','AyatNo052To066','AyatNo067To087','AyatNo088To111'],
+						'013': ['AyatNo001To015', 'AyatNo016To043'],
+						'014': ['AyatNo001To008','AyatNo009To029','AyatNo030To052'],
+						'016': ['AyatNo001To047','AyatNo048To070','AyatNo071To089','AyatNo090To113','AyatNo114To128'],
+						'017': ['AyatNo001To021','AyatNo022To038','AyatNo039To065','AyatNo066To084','AyatNo085To111'],
+						'018': ['AyatNo001To012','AyatNo013To044','AyatNo045To070','AyatNo071To091','AyatNo092To110'],
+						'019': ['AyatNo001To040','AyatNo041To072','AyatNo073To099'],
+						'020': ['AyatNo001To036','AyatNo037To044','AyatNo045To089', 'AyatNo090To135'],
+						'021': ['AyatNo001To073','AyatNo074To086','AyatNo087To112'],
+						'022': ['AyatNo001To024','AyatNo025To038','AyatNo039To072'],
+						'023': ['AyatNo001To041','AyatNo042To118'],
+						'024': ['AyatNo001To010','AyatNo011To026','AyatNo027To031','AyatNo032To040','AyatNo041To064'],
+						'025': ['AyatNo001To044','AyatNo045To077'],
+						'026': ['AyatNo001To122','AyatNo123To227'],
+						'027': ['AyatNo001To028','AyatNo029To059','AyatNo060To093'],
+						'028': ['AyatNo001To028','AyatNo029To060','AyatNo061To088'],
+						'029': ['AyatNo001To044','AyatNo046To069'],
+						'030': ['AyatNo001To041','AyatNo042To060'],
+						'033': ['AyatNo001To027','AyatNo028To035','AyatNo036To048','AyatNo049To055','AyatNo056To073']
+					};           
+					url = url.replace('@index@', ch)
+							 .replace('@chapter-en@', chapter_map[cn] ??  cn);
+					if(ayat_map[ch] === undefined){
+							var c = ayatCount+'';
+							if(cn === 'Al-hijr') 
+								c = '90';
+							else if(cn === 'As-saaffat')
+								c = '0182';
+							else if(cn === 'Al-jumuah')
+								c = '014';
+							if(c.length < 2) c = '0'+c;
+							if(c.length < 3) c = '0'+c;
+							url = url.replace('@Part@', '-AyatNo001To'+c);
+					}
+					else{
+						options += '<div class="dropdown-content dropdown2" style="position:relative">'+k+'</div>'+
+								   '<div class="dropdown-content2" style="margin-left:60px;">';
+								   
+						ayat_map[ch].every(function(part){		
+							var urlCopy = url.replace('@Part@', part.startsWith('A') ? '-'+part : part);
+							options += '<p onclick="playQuranChapterUrl(\''+encodeTafsirUrl(urlCopy)+'\',\''+id+'\')">'+part+'</p>';
+							return true;
+						});
+						options += '</div>';
+						continue;
+					}
 				}
 				break;
 				
@@ -1278,8 +1398,8 @@ function listSurahs(){
 							 '<span>'+getQuranAudioOptions(index, surah.en, surah.ayahCount)+'</span>'+
 						 '</td>'+
 						 '<td class="chkT" style="font-size:14px;cursor:pointer;padding:0;">'+
-							 '<span>'+getTafsirAudioOptions(index, surah.en, surah.ar)+'</span>'+
-							 '<span>'+getTafsirPdfOptions(index, surah.en, surah.ar)+'</span>'+
+							 '<span>'+getTafsirAudioOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>'+
+							 '<span>'+getTafsirPdfOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>'+
 						 '</td>'+
 						 '<td class="chkR" style="font-size:14px;cursor:pointer;padding:0;"> '+
 							 '<span class="dropbtn" '+
