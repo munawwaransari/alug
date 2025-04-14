@@ -1660,7 +1660,7 @@ function toggleQuranView(readView){
 		$("#tqv2").show();
 		$("#juz-options").prev().css('color','crimson');
 		$("#juz-options").next().next().css('color','crimson');
-		$("#juz").children().last().show();
+		$("#juz").children().last().prev().show();
 		displayQPage();
 	}else{
 		$("#qv2").hide();
@@ -1673,7 +1673,7 @@ function toggleQuranView(readView){
 		$("#tqv2").hide();
 		$("#juz-options").prev().css('color','transparent');
 		$("#juz-options").next().next().css('color','transparent');
-		$("#juz").children().last().hide();
+		$("#juz").children().last().prev().hide();
 	}
 }
 
