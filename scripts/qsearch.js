@@ -594,7 +594,7 @@ function playQuranChapterUrl(url, id){
 				if(data){
 					durationBar.attr('max', data.duration);
 					durationBar.attr('value', data.ct);
-					durationBar.parent().show();
+					durationBar.parent().css('display', 'inline-block');
 				}
 
 				$("#"+id+"-progress").hide();
@@ -688,7 +688,7 @@ function playOrStopCurrentPage(elem){
 					if(data){
 						durationBar.attr('max', data.duration);
 						durationBar.attr('value', data.ct);
-						durationBar.parent().show();
+						durationBar.parent().css('display', 'inline-block');
 					}
 				}else if(action == "ended"){
 					$(elem).html('▶');
@@ -1476,7 +1476,7 @@ function onVerseLoaded(chapter, verse){
 					if(data){
 						durationBar.attr('max', data.duration);
 						durationBar.attr('value', data.ct);
-						durationBar.parent().show();
+						durationBar.parent().css('display', 'inline-block');
 					}
 				}
 				else if(msg === "ended"){					
@@ -1600,7 +1600,7 @@ function playVerse(url, verseKey, cb){
 				if(data){
 					durationBar.attr('max', data.duration);
 					durationBar.attr('value', data.ct);
-					durationBar.parent().show();
+					durationBar.parent().css('display', 'inline-block');
 				}
 			}
 			else  if(action == "pause" || action == "ended"){

@@ -286,27 +286,36 @@
 				  onclick="playOrStopCurrentPage(this)">▶</span><!-- ⏹ -->
 		</div>
 	</div>
-	<div id="playbox" style="display:none;white-space:nowrap;width:unset;
+	<div>
+		<span style="width:15%">&nbsp;</span>
+		<div id="playbox" style="display:none;white-space:nowrap;width:unset;
 							 border-radius:10px;background-color:#ccffb3;
-							 padding-left:10px; padding-right:8px;
+							 padding-left:10px; padding-right:10px;
 							 margin-top: 5px; margin-bottom: 5px;">
-		<button id="qt-fb" class="dropbtn"
-			   onclick="fastplayQuranChapter('qt', false);"
-			   style="cursor:pointer;background-color:transparent;color:black;margin-left:1px;padding:0;">&#x23EA;</button>
-	    <button id="qt-ff" class="dropbtn"
-			   onclick="fastplayQuranChapter('qt', true);"
-			   style="cursor:pointer;background-color:transparent;color:black;margin-left:1px;padding:0;">&#x23E9;</button>
-		<progress id="qt-duration" 
-				  style="width:40%;margin:0;direction:ltr;cursor:pointer;
-					     display:flex-inline;justify-content:center;align-items:center;"
-				  onclick="onDurationClick(this, event)">
-		</progress>
-		<button id="qt-pause" class="dropbtn"
-			   onclick="pauseOrplayQuranChapter('qt');"
-			   style="cursor:pointer;background-color:transparent;color:black;margin-left:1px;padding:0;">&#x23F8;</button>
-	    <button id="qt-stop" class="dropbtn"
-			   onclick="stopQuranChapter('qt');"
-			   style="cursor:pointer;background-color:transparent;color:black;margin-left:1px;padding:0;">&#x23F9;</button>
+		
+			<button id="qt-fb" class="dropbtn"
+				   onclick="fastplayQuranChapter('qt', false);"
+				   style="cursor:pointer;background-color:transparent;
+						  color:black;font-size:20px;">&#x23EA;</button>
+			<button id="qt-ff" class="dropbtn"
+				   onclick="fastplayQuranChapter('qt', true);"
+				   style="cursor:pointer;background-color:transparent;
+						  color:black;font-size:20px;">&#x23E9;</button>
+			<progress id="qt-duration" 
+					  style="margin:0;direction:ltr;cursor:pointer;
+							 display:flex-inline;justify-content:center;align-items:center;font-size:20px;"
+					  onclick="onDurationClick(this, event)">
+			</progress>
+			<button id="qt-pause" class="dropbtn"
+				   onclick="pauseOrplayQuranChapter('qt');"
+				   style="cursor:pointer;background-color:transparent;
+						  color:black;font-size:20px;">&#x23F8;</button>
+			<button id="qt-stop" class="dropbtn"
+				   onclick="stopQuranChapter('qt');"
+				   style="cursor:pointer;background-color:transparent;
+						  color:black;font-size:20px;">&#x23F9;</button>
+		</div>
+		<span style="width:15%">&nbsp;</span>
 	</div>
 	<div id="searchResult" style="width: 100%;text-align: center;">Loading Quran...</div>
 </body>
