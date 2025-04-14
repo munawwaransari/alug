@@ -8,7 +8,7 @@ var qf_list = [];
 var q_summary = {};
 var loadStatus;
 var isAutoPlayQirat, changeQari;
-
+var q_app_mode = 'default';
 
 window.onload = function(){
 	
@@ -35,7 +35,12 @@ window.onload = function(){
 	  e.preventDefault();
 	  //console.log("selected text:", window.getSelection().toString());
 	});
-
+	
+	q_app_mode = getParamValue("mode");
+	if(q_app_mode === 'Quran'){
+		$("button[title]").hide();
+	}
+	
 	var langParam = decodeURI(getParamValue("lang"));
 	if(langParam && langParam != 'undefined' && ( langParam ==='ar' || langParam ==='ur' || langParam ==='en') ){
 		lang = langParam;
@@ -1185,7 +1190,8 @@ function getAnalysisOptions(verse, verseKeys){
 						'>معني</button>'+
 					  '<div class="dropdown-content">'
 					    +
-						'<a href="#" onclick="analyzeLocal()" >Analyze (تحليل)</a>'
+						(q_app_mode === 'Quran' ? '' :
+						'<a href="#" onclick="analyzeLocal()" >Analyze (تحليل)</a>')
 						+
 						'<a href="#" onclick="analyzeSelection('+verseKeys[0]+','+verseKeys[1]+')">Analyze (Almaany)</a>'
 						+
@@ -1399,7 +1405,8 @@ function listSurahs(){
 						 '</td>'+
 						 '<td class="chkT" style="font-size:14px;cursor:pointer;padding:0;">'+
 							 '<span>'+getTafsirAudioOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>'+
-							 '<span>'+getTafsirPdfOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>'+
+							 (q_app_mode === 'Quran' ? '' :
+							 '<span>'+getTafsirPdfOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>')+
 						 '</td>'+
 						 '<td class="chkR" style="font-size:14px;cursor:pointer;padding:0;"> '+
 							 '<span class="dropbtn" '+

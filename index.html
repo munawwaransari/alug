@@ -25,6 +25,7 @@
 			var qPlayerObj;
 			var audio_last_time;
 			var audio_last_duration;
+			var app_mode = 'default';
 	
 			window.topics = alug_chapters;
 			window.updateStates = function (s){ $.extend(states, s); };
@@ -219,7 +220,6 @@
 		<script src="scripts/speak-tts/demo.bundle.js"></script>
 		<script src="scripts/data-util.js"></script>
 		<script src="scripts/autocomplete.js"></script>
-		<!-- <script src="scripts/qplayer.js"></script> -->
 		<script src="scripts/onload.js"></script>
 		<div class="containerHead" onclick="toggleHead()">
 			<img id="imgHead" src="images/up.png">

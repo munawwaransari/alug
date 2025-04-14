@@ -2,43 +2,6 @@
 //	Author: munawwar_ali@yahoo.com
 //
 
-/*
-qPlayerObj = new qPlayerAPI(parent ?? window, function(c){
-	
-	var w = parent ?? window;
-	if(w.playAudio === undefined)
-		return;
-	
-	switch (c){
-		case qPlayerAPI.AUDIO_CTL_PLAY:
-			if(audio_last_time === 0)
-				w.playAudio();
-			else
-				w.resumeAudio();
-		break;
-		
-		case qPlayerAPI.AUDIO_CTL_PAUSE:
-			w.pauseAudio();
-		break;
-		
-		case qPlayerAPI.AUDIO_CTL_STOP:
-			w.stopAudio();
-			updateToolDescription('qsearch');
-		break;
-		
-		case qPlayerAPI.AUDIO_CTL_FF:
-			audio.currentTime += 20;
-			audio_last_time = audio.currentTime;
-		break;
-		
-		case qPlayerAPI.AUDIO_CTL_FB:
-			audio.currentTime -= 20;
-			audio_last_time = audio.currentTime;
-		break;
-	}
-});
-*/
-
 $(document).ready(function()
 {	
 	if(isOS("Android")){
@@ -97,7 +60,16 @@ $(document).ready(function()
 		$("#play").click();
 		
 		// Load initial page
-		var searchVal = decodeURI(getParamValue("search"));	
+		var mode = getParamValue("mode");
+		app_mode = mode ?? 'default';
+		
+		if(app_mode === 'Quran'){
+			toggleHead();
+			$("#imgHead").hide();
+			$("#toolDiv").hide();
+		}
+		
+		var searchVal = app_mode === 'Quran' ? 'surahs' : decodeURI(getParamValue("search"));	
 		if(searchVal && searchVal != 'undefined'){
 			loadQuranSearch(searchVal);
 		}else{
@@ -330,7 +302,7 @@ function loadQuranSearch(text){
 		var selectElement = document.getElementById('lang-options');
 		var lang = selectElement.value.substring(0,2);
 
-		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "qsearch.html?search="+text+"&lang="+lang));
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "qsearch.html?search="+text+"&lang="+lang+"&mode="+app_mode));
 		//$('#title-img').hide();
 	}, 5);
 }
