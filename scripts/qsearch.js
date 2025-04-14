@@ -128,7 +128,7 @@ function loadWordsFrom(data){
 Search Quran using QuranJS API  
 */
 function search(pageNumber){
-	$("#qt-duration").hide();
+	$("#playbox").hide();
 	$("#juz").hide();
 	$("#qari").show();
 	stopPlayVerse();
@@ -304,7 +304,7 @@ function search(pageNumber){
 }
 
 function searchVerseKey(page, ayahText, verseKey, callback){
-	$("#qt-duration").hide();
+	$("#playbox").hide();
 	SearchQuran(window.QuranJS.Search.search, { 
 		language: window.QuranJS.Language.ENGLISH, 
 		size: 50,
@@ -561,6 +561,7 @@ function playQuranChapterUrl(url, id){
 		stopQuranChapter(last_ch_play_id);
 	$("#"+id+"+.dropdown-content").hide();
 	$("#"+id).hide();
+	$("#"+id+"-play-progress").hide();
 	$("#"+id+"-progress").show();
 	var durationBar = $("#qt-duration");
 	
@@ -571,44 +572,55 @@ function playQuranChapterUrl(url, id){
 				$("#"+id.replace('t-ch','t-pdf')).hide(); //hide tafseer icon
 		}
 		
-		var pauseBtn = $("#"+id+"-pause");
+		var pauseBtn = $("#qt-pause");
 		parent.playAudio(url, function(action, data){		
 			if(action == "loadstart"){
 				$("#"+id).hide();
+				$("#"+id+"-play-progress").hide();
 				$("#"+id+"-progress").show();
 				durationBar.attr('value',0);
 			}
 			else
 			if(action == "progress"){
-				if(data && data.ct)
+				if(data && data.ct){
 					durationBar.attr('value', data.ct);
+					$("#"+id+"-play-progress").show();
+					$("#"+id+"-pause").hide();
+					$("#"+id).hide();
+				}
 			}
 			else
 			if(action == "loadeddata"){
 				if(data){
 					durationBar.attr('max', data.duration);
 					durationBar.attr('value', data.ct);
-					durationBar.css('display', 'block');
+					durationBar.parent().show();
 				}
 
 				$("#"+id+"-progress").hide();
-				pauseBtn.show();
-				$("#"+id+"-stop").show();
-				$("#"+id+"-fb").show();
-				$("#"+id+"-ff").show();
+				$("#"+id+"-play-progress").show();
+				$('#'+id+'-pause').show();
+				$("#qt-stop").show();
+				$("#qt-fb").show();
+				$("#qt-ff").show();
 				$("#"+id).hide();
 				selectSurahCell($("#"+id).parent().parent().parent(), true);
 			}
 			else
 			if(action == "pause"){
 				pauseBtn.html(pauseBtn.html() === '\u23F8' ? '\u23EF' : '\u23F8');
+				$("#"+id).html('⏸');
+				$("#"+id).show();
+				$('#'+id+'-pause').show();
+				$("#"+id+"-progress").hide();
+				$("#"+id+"-play-progress").hide();
 			}
 			else if(action == "ended"){
 				stopQuranChapter(id);
 				if(last_ch_play_id)
 					stopQuranChapter(last_ch_play_id);
 				last_ch_play_id = undefined;
-				durationBar.hide();
+				durationBar.parent().hide();
 			}
 		});
 	}	
@@ -624,7 +636,7 @@ function pauseOrplayQuranChapter(id){
 
 	if(parent && parent.pauseAudio && parent.resumeAudio){
 		
-		var pauseBtn = $("#"+id+"-pause");
+		var pauseBtn = $("#qt-pause");
 		if(pauseBtn.html() === "\u23EF"){ // resume
 			parent.resumeAudio();
 			pauseBtn.html('\u23F8'); //pause			
@@ -634,22 +646,20 @@ function pauseOrplayQuranChapter(id){
 	}
 }
 
-function stopQuranChapter(id){
-
+function stopQuranChapter(){
+	var id = last_ch_play_id;
 	if(parent && parent.stopAudio){
 		parent.stopAudio();
 
-		setTimeout(function(){
-			$("#"+id+"-pause").hide();
-			$("#"+id+"-stop").hide();
-			$("#"+id+"-fb").hide();
-			$("#"+id+"-ff").hide();
-			$("#qt-duration").hide();
-			selectSurahCell($("#"+id).parent().parent().parent(), false);
-			if(id.startsWith('t-ch')){
-				$("#"+id.replace('t-ch','t-pdf')).show();
-			}
-		},10);
+		$("#playbox").hide();
+		selectSurahCell($("#"+id).parent().parent().parent(), false);
+		if(id.startsWith('t-ch')){
+			$("#"+id.replace('t-ch','t-pdf')).show();
+		}
+		setTimeout(function(){ 
+			$("#qt-pause").html('⏸');
+			$("#"+id).html('▶');
+		},5);
 	}
 	$("#"+id).show();
 }
@@ -678,11 +688,11 @@ function playOrStopCurrentPage(elem){
 					if(data){
 						durationBar.attr('max', data.duration);
 						durationBar.attr('value', data.ct);
-						durationBar.css('display', 'block');
+						durationBar.parent().show();
 					}
 				}else if(action == "ended"){
 					$(elem).html('▶');
-					durationBar.hide();
+					durationBar.parent().hide();
 				}
 			});
 		}
@@ -690,7 +700,7 @@ function playOrStopCurrentPage(elem){
 		if(parent && parent.stopAudio){
 			parent.stopAudio();
 			$(elem).html('▶');
-			durationBar.hide();
+			durationBar.parent().hide();
 		}
 	}
 }
@@ -1112,18 +1122,8 @@ function getPlayControlsHtml(id, options, symbol){
 			   '<div class="dropdown-content" style="">'+options+'</div>'+
 			   '<img id="'+id+'-progress" src="images/loading.gif" '+ 	
 						'style="display:none;width:16px;"></img>'+
-			   '<button id="'+id+'-fb" class="dropbtn" '+
-					   'onclick="fastplayQuranChapter(\''+id+'\', false); toggleDropdownContent($(this).parent().first().next());" '+
-					   'style="display:none;background-color:transparent;color:black;margin-left:1px;">\u23EA</button>'+ //FB
-			   '<button id="'+id+'-pause" class="dropbtn" '+
-					   'onclick="pauseOrplayQuranChapter(\''+id+'\');toggleDropdownContent($(this).parent().first().next());" '+
-					   'style="display:none;background-color:transparent;color:black;margin-left:1px;">\u23F8</button>'+ //play/pause
-			   '<button id="'+id+'-stop" class="dropbtn" '+
-					   'onclick="stopQuranChapter(\''+id+'\'); toggleDropdownContent($(this).parent().first().next());" '+
-					   'style="display:none;background-color:transparent;color:black;margin-left:1px;">\u23F9</button>'+ //stop
-			   '<button id="'+id+'-ff" class="dropbtn" '+
-					   'onclick="fastplayQuranChapter(\''+id+'\', true); toggleDropdownContent($(this).first().next().next());" '+
-					   'style="display:none;background-color:transparent;color:black;margin-left:1px;">\u23E9</button>'+ //FF
+				'<img id="'+id+'-play-progress" src="images/playprog.gif" '+ 	
+					'style="display:none;width:16px;"></img>'+
 		   '</span>';
 }
 
@@ -1476,11 +1476,11 @@ function onVerseLoaded(chapter, verse){
 					if(data){
 						durationBar.attr('max', data.duration);
 						durationBar.attr('value', data.ct);
-						durationBar.css('display', 'block');
+						durationBar.parent().show();
 					}
 				}
 				else if(msg === "ended"){					
-					durationBar.hide();
+					durationBar.parent().hide();
 					var nextVerse = chapter + ":" + (verse+1);
 					setTimeout(function(){
 						searchText(nextVerse);
@@ -1600,12 +1600,17 @@ function playVerse(url, verseKey, cb){
 				if(data){
 					durationBar.attr('max', data.duration);
 					durationBar.attr('value', data.ct);
-					durationBar.css('display', 'block');
+					durationBar.parent().show();
 				}
 			}
 			else  if(action == "pause" || action == "ended"){
 				togglePlayButtons(verseKey, "visisble", "collapse");
-				durationBar.hide();
+				if(action === "ended"){
+					durationBar.parent().hide();
+				}else{
+					var v = $("#qt-pause").html(); 
+					$("#qt-pause").html(v === "⏯" ? "⏸" :"⏯");
+				}
 			}
 			
 			if (cb) cb(action, data);
@@ -1616,7 +1621,7 @@ function playVerse(url, verseKey, cb){
 }
 
 function stopPlayVerse(){	
-	$("#qt-duration").hide();
+	$("#playbox").hide();
 	if(parent && parent.stopAudio){
 		parent.stopAudio();
 	}

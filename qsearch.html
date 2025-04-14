@@ -286,10 +286,25 @@
 				  onclick="playOrStopCurrentPage(this)">▶</span><!-- ⏹ -->
 		</div>
 	</div>
-	<progress id="qt-duration" 
-			  style="width:40%;margin:auto;direction:ltr;cursor:pointer;display:none;"
-			  onclick="onDurationClick(this, event)">
-	</progress>
+	<div id="playbox" style="display:none;width:100%;">
+		<button id="qt-fb" class="dropbtn"
+			   onclick="fastplayQuranChapter('qt', false);"
+			   style="cursor:pointer;background-color:transparent;color:black;margin-left:1px;padding:0;">&#x23EA;</button>
+	    <button id="qt-ff" class="dropbtn"
+			   onclick="fastplayQuranChapter('qt', true);"
+			   style="cursor:pointer;background-color:transparent;color:black;margin-left:1px;padding:0;">&#x23E9;</button>
+		<progress id="qt-duration" 
+				  style="width:40%;margin:0;direction:ltr;cursor:pointer;
+					     display:flex-inline;justify-content:center;align-items:center;"
+				  onclick="onDurationClick(this, event)">
+		</progress>
+		<button id="qt-pause" class="dropbtn"
+			   onclick="pauseOrplayQuranChapter('qt');"
+			   style="cursor:pointer;background-color:transparent;color:black;margin-left:1px;padding:0;">&#x23F8;</button>
+	    <button id="qt-stop" class="dropbtn"
+			   onclick="stopQuranChapter('qt');"
+			   style="cursor:pointer;background-color:transparent;color:black;margin-left:1px;padding:0;">&#x23F9;</button>
+	</div>
 	<div id="searchResult" style="width: 100%;text-align: center;">Loading Quran...</div>
 </body>
 </html>
