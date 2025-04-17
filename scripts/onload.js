@@ -98,6 +98,8 @@ $(document).ready(function()
 			}
 			
 		}
+		
+		$("body img").first().hide();
 	});
 	
 	$("#text").text('');
