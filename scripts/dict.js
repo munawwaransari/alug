@@ -77,6 +77,10 @@ window.onload = function(){
 			$("#SearchD").click();
 		}
 	});
+	
+	if(isOS('Android')){
+		$("img[src='images/kybd.jpg']").hide();
+	}
 }
 
 function selectAndTrigger(data, filterClass){

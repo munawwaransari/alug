@@ -18,6 +18,10 @@ window.onload = function(){
 			$("#SearchQ").click();
 		}
 	});
+	
+	//if(isOS('Android')){
+		$("img[src='images/kybd.jpg']").hide();
+	//}
 
 	//Fill Juz select options
 	var jOptions = $("#juz-options");
