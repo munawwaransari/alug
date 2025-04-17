@@ -64,7 +64,7 @@ $(document).ready(function()
 		app_mode = mode ?? 'default';
 		
 		if(app_mode === 'Quran'){
-			toggleHead();
+			setTimeout(function(){ toggleHead();}, 1);
 			$("#imgHead").hide();
 			$("#toolDiv").hide();
 		}
