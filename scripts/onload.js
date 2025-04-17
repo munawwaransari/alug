@@ -339,7 +339,7 @@ function nodeInserted(elementQuerySelector){
     if ($(elementQuerySelector).length===0){
         setTimeout(function(){
             nodeInserted(elementQuerySelector);
-        },100);
+        },200);
     }else{
         $(document).trigger("nodeInserted",[elementQuerySelector]);
     }
