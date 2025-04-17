@@ -62,15 +62,37 @@ $(document).ready(function()
 		// Load initial page
 		var mode = getParamValue("mode");
 		app_mode = mode ?? 'default';
+
+		var ap = getParamValue("ap");
+		if(ap && ap=="0"){
+			$("#speech_1").hide();
+			$("#speech_2").hide();
+		}
+		
+		var hw = getParamValue("hw");
+		if(hw && hw=="0"){
+			$("#hw").hide();
+		}
+		
+		var alpha = getParamValue("alpha");
+		if(alpha && alpha=="0"){
+			$("#alpha").hide();
+		}
+		
+		var dict = getParamValue("dict");
+		if(dict && dict=="0"){
+			$("#dict").hide();
+		}
 		
 		if(app_mode === 'Quran'){
-			setTimeout(function(){ toggleHead();}, 1);
 			$("#imgHead").hide();
-			$("#toolDiv").hide();
+			$(".toolDiv").hide();
+		}else{
+			$(".toolDiv").show();
 		}
 		
 		var searchVal = app_mode === 'Quran' ? 'surahs' : decodeURI(getParamValue("search"));	
-		if(searchVal && searchVal != 'undefined'){
+		if(dict=="0" || (searchVal && searchVal != 'undefined')){
 			loadQuranSearch(searchVal);
 		}else{
 			loadGrammarView();
@@ -339,7 +361,7 @@ function nodeInserted(elementQuerySelector){
     if ($(elementQuerySelector).length===0){
         setTimeout(function(){
             nodeInserted(elementQuerySelector);
-        },200);
+        },300);
     }else{
         $(document).trigger("nodeInserted",[elementQuerySelector]);
     }
