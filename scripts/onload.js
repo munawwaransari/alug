@@ -70,10 +70,9 @@ $(document).ready(function()
 			$(".toolDiv").show();
 		}
 
-		var tools = getParamValue("no-tools");
-		if(tools && tools.length > 0){
-			showHideTools(tools);
-		}
+		var noTools = getParamValue("no-tools");
+		var tools = getParamValue("tools");
+		showHideTools(noTools, tools);
 		
 		var sval = getParamValue("search");
 		var searchVal = app_mode === 'Quran' ? (sval  ?? 'surahs') 
@@ -134,14 +133,31 @@ $(document).ready(function()
 	});
 });
 
-function showHideTools(tools){
-	tools.split(',').every(function(t){
+function showHideTools(noTools, tools){
+	if(noTools && noTools.length > 0){
+		noTools.split(',').every(function(t){
+			var tt = $(".toolSpan img[id^="+t+"]");
+			if(tt && tt.length > 0){
+				tt.hide();
+			}
+			return true;
+		});
+	}
+	
+	if(tools && tools.length > 0){
+		tools.split(',').every(function(t){
 		var tt = $(".toolSpan img[id^="+t+"]");
 		if(tt && tt.length > 0){
-			tt.hide();
+			if(t.startsWith('sp')){
+				$("#speech_2").show();
+				toggleAutoplay();
+			}else{
+				tt.show();
+			}
 		}
 		return true;
 	});
+	}
 }
 
 function updateVoiceSelection(){
@@ -228,7 +244,7 @@ function toggleAutoplay(){
 	
 	if(!speech_synthesis_supportd){
 		toggleIcon("#ss-support");
-		alert('Speech synthesis is not supported on your browser!');
+		//alert('Speech synthesis is not supported on your browser!');
 	}else{
 		toggleIcon("#speech");
 		autoplay = !autoplay;
@@ -590,7 +606,7 @@ function checkBrowserSupport(){
 	var support = document.getElementById("support").innerHTML;
 	if(support.startsWith("Hurray")){
 		speech_synthesis_supportd = true;
-		toggleAutoplay();
+		//toggleAutoplay();
 		updateInitialStates();
 		$("#ss-support_1").hide();
 		$("#ss-support_2").hide();
