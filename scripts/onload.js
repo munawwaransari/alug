@@ -6,9 +6,9 @@ $(document).ready(function()
 {	
 	if(isOS("Android")){
 		setTimeout(function(){
-			if(speechSynthesis.onvoiceschanged)
+			if(speechSynthesis && speechSynthesis.onvoiceschanged)
 				speechSynthesis.onvoiceschanged();
-		}, 10);
+		}, 200);
 	}
 	
 	$(".tool").on('click', function(){
