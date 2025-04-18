@@ -108,7 +108,7 @@ $(document).ready(function()
 			
 		}
 		
-		$("body img").first().hide();
+		$("#hd-loading").hide();
 	});
 	
 	$("#text").text('');

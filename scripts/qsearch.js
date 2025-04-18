@@ -12,7 +12,7 @@ var q_app_mode = 'default';
 
 window.onload = function(){
 
-	$("body img").first().show();
+	$("#hd-loading").show();
 	$("#searchText").keyup(function(event) {
 		if (event.keyCode === 13) {
 			$("#SearchQ").click();
@@ -82,17 +82,17 @@ Loads all words of Quran
 */
 var all_q_words = undefined;
 async function loadQList(){
-	$("body img").first().show();
+	$("#hd-loading").show();
 	if(all_q_words == undefined){
 		var fileUrl = getLocationPath() + "data/qrn/qf-list.json";
 		loadJsonData(fileUrl, function(data){
 			all_q_words = data;
 			loadWordsFrom(data);
-			$("body img").first().hide();
+			$("#hd-loading").hide();
 		});		
 	}else{
 		loadWordsFrom(all_q_words);
-		$("body img").first().hide();
+		$("#hd-loading").hide();
 	}
 }
 
