@@ -63,36 +63,20 @@ $(document).ready(function()
 		var mode = getParamValue("mode");
 		app_mode = mode ?? 'default';
 
-		var ap = getParamValue("ap");
-		if(ap && ap=="0"){
-			$("#speech_1").hide();
-			$("#speech_2").hide();
-		}
-		
-		var hw = getParamValue("hw");
-		if(hw && hw=="0"){
-			$("#hw").hide();
-		}
-		
-		var alpha = getParamValue("alpha");
-		if(alpha && alpha=="0"){
-			$("#alpha").hide();
-		}
-		
-		var dict = getParamValue("dict");
-		if(dict && dict=="0"){
-			$("#dict").hide();
-		}
-		
 		if(app_mode === 'Quran'){
 			$("#imgHead").hide();
 			$(".toolDiv").hide();
 		}else{
 			$(".toolDiv").show();
 		}
+
+		var tools = getParamValue("no-tools");
+		if(tools && tools.length > 0){
+			showHideTools(tools);
+		}
 		
 		var searchVal = app_mode === 'Quran' ? 'surahs' : decodeURI(getParamValue("search"));	
-		if(dict=="0" || (searchVal && searchVal != 'undefined')){
+		if((tools && tools.includes("dict")) || (searchVal && searchVal != 'undefined')){
 			loadQuranSearch(searchVal);
 		}else{
 			loadGrammarView();
@@ -146,6 +130,16 @@ $(document).ready(function()
 		}
 	});
 });
+
+function showHideTools(tools){
+	tools.split(',').every(function(t){
+		var tt = $(".toolSpan img[id^="+t+"]");
+		if(tt && tt.length > 0){
+			tt.hide();
+		}
+		return true;
+	});
+}
 
 function updateVoiceSelection(){
 	var lang = $("#lang-options").val();
