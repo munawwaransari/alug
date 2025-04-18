@@ -75,9 +75,12 @@ $(document).ready(function()
 			showHideTools(tools);
 		}
 		
-		var searchVal = app_mode === 'Quran' ? 'surahs' : decodeURI(getParamValue("search"));	
+		var sval = getParamValue("search");
+		var searchVal = app_mode === 'Quran' ? (sval  ?? 'surahs') 
+											 : decodeURI(getParamValue("search"));	
 		if((tools && tools.includes("dict")) || (searchVal && searchVal != 'undefined')){
-			loadQuranSearch(searchVal);
+			var sval = getParamValue("search");
+			loadQuranSearch(searchVal, sval);
 		}else{
 			loadGrammarView();
 			updateToolDescription('in-search');
@@ -310,7 +313,7 @@ function loadGrammarView(params){
 	}, 5);
 }
 
-function loadQuranSearch(text){
+function loadQuranSearch(text, sval = ''){
 	
 	console.log("loadQuranSearch");
 	$('.reading-pane').attr("src","");

@@ -19,9 +19,9 @@ window.onload = function(){
 		}
 	});
 	
-	//if(isOS('Android')){
+	if(isOS('Android')){
 		$("img[src='images/kybd.jpg']").hide();
-	//}
+	}
 
 	//Fill Juz select options
 	var jOptions = $("#juz-options");
@@ -53,9 +53,9 @@ window.onload = function(){
 	
 	var searchVal = decodeURI(getParamValue("search"));	
 	if(searchVal && searchVal != 'undefined'){
-		if(searchVal === 'surahs'){
+		if(searchVal === 'surahs' || searchVal === 'mushaf' ){
 			listSurahs();
-			loadStatus = "surahs";
+			loadStatus = searchVal; //"surahs";
 		}
 		else if(searchVal === 'words'){
 			loadStatus = "words";
@@ -1428,6 +1428,12 @@ function listSurahs(){
 		}
 		table = table+'</table>';
 		div.append($(table));
+		
+		//
+		if(loadStatus === 'mushaf'){
+			toggleQuranView(true);
+			loadStatus = "surahs";
+		}
 	});
 }
 
