@@ -1469,7 +1469,7 @@ function listSurahs(){
 									surah.juz.map((j) => '<a href="#" '+
 										'onclick="var o=$(\'#juz-options\');o.val(\'juz'+j+'\');filterSurahs(o,\'juz'+j+'\')"> '+j+' </a>').join(',')+
 							 '</sup></span><br/>'+
-							 '<span><sup>Pages:'+
+							 '<span><sup>Pages:&nbsp;'+
 								pgNums.map((p) => '<a href="#" onclick="toggleQuranView(true, \''+index+'\', \''+p+'\');">'+ p+'</a>').join(" - ")+
 							 '</sup></span><br/>'+
 							 '<span class="dropbtn" '+
