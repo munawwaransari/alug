@@ -296,3 +296,13 @@ function toggleDropdownContent(elem, state){
 		$(elem).next().toggle();
 	}
 }
+
+function getDurationString(given_seconds){
+	hours = Math.floor(given_seconds / 3600);
+	minutes = Math.floor((given_seconds - (hours * 3600)) / 60);
+	seconds = given_seconds - (hours * 3600) - (minutes * 60);
+	timeString = Math.floor(hours).toString().padStart(2, '0') + ':' + 
+				 Math.floor(minutes).toString().padStart(2, '0') + ':' + 
+				 Math.floor(seconds).toString().padStart(2, '0');
+	return timeString;
+}

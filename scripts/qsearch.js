@@ -576,6 +576,7 @@ function playQuranChapterUrl(url, id){
 	$("#"+id+"-play-progress").hide();
 	$("#"+id+"-progress").show();
 	var durationBar = $("#qt-duration");
+	var durationVal = $("#qt-value")
 	
 	if(parent && parent.playAudio){
 		
@@ -591,11 +592,13 @@ function playQuranChapterUrl(url, id){
 				$("#"+id+"-play-progress").hide();
 				$("#"+id+"-progress").show();
 				durationBar.attr('value',0);
+				durationVal.html('');
 			}
 			else
 			if(action == "progress"){
 				if(data && data.ct){
 					durationBar.attr('value', data.ct);
+					durationVal.html(getDurationString(data.ct));
 					$("#"+id+"-play-progress").show();
 					$("#"+id+"-pause").hide();
 					$("#"+id).hide();
@@ -606,6 +609,7 @@ function playQuranChapterUrl(url, id){
 				if(data){
 					durationBar.attr('max', data.duration);
 					durationBar.attr('value', data.ct);
+					durationVal.html(getDurationString(data.ct));
 					durationBar.parent().css('display', 'inline-block');
 				}
 
