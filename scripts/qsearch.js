@@ -1495,15 +1495,18 @@ function onVerseLoaded(chapter, verse){
 		
 		setTimeout(function(){
 			var durationBar = $("#qt-duration");
+			var durationVal = $("#qt-value")
 			playVerse(getQiratPlayUrl(verseKey), verseKey, function(msg, data){
 				if(msg == "progress"){
 					if(data && data.ct)
 						durationBar.attr('value', data.ct);
+						durationVal.html(getDurationString(data.ct));
 				}
 				else if(msg === "loadeddata"){
 					if(data){
 						durationBar.attr('max', data.duration);
 						durationBar.attr('value', data.ct);
+						durationVal.html(getDurationString(data.ct));
 						durationBar.parent().css('display', 'inline-block');
 					}
 				}
