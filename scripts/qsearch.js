@@ -1437,17 +1437,18 @@ function listSurahs(){
 						 '<td '+
 							 'class="qword" style="max-width:80px;font-szie:14px;padding:0;padding-bottom:6px;">'+
 								'<span>'+
-									'<img style="width:16px;padding:0;margin:0;" src="images/'+surah.nuzul+'.jpg"></img>'+
+									'<b class="navUp" '+
+									  'style="display:none;float:right;cursor:pointer;" '+
+									  'onclick="bringIntoView(\'#playbox\')">&nbsp;&nbsp;&#x2B06;&nbsp;&nbsp;</b>'+
+									'<img style="width:16px;padding:0;margin:0;float:right;" src="images/'+surah.nuzul+'.jpg"></img>'+
+									'<sup style="float:right">&nbsp;&nbsp;'+index+'</sup>'+
+									
 								'</span>'+
 								'<br/>'+
 							 '<img src="https://raw.githubusercontent.com/gyenabubakar/surah-name-glyphs/3498a6dcde6b7cb3b0ac4c7d7c0754d385ab31fe/svg/'+index+'.svg"></img><br/>'+
 								'<span style="font-size:12px;" onclick="searchText(\''+enName+'\')">'+
 									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
 								'</span>'+
-								'<span class="navUp" '+
-									  'style="display:none;width:5%;float:right;cursor:pointer;" '+
-									  'onclick="bringIntoView(\'#playbox\')" '+
-								'>&#x2B06;</span>'+
 						 '</td>'+
 						 '<td class="chkQ" style="font-size:14px;cursor:pointer;padding:0;">'+
 							 '<span>'+getQuranAudioOptions(index, surah.en, surah.ayahCount)+'</span>'+
@@ -1458,16 +1459,15 @@ function listSurahs(){
 							 '<span>'+getTafsirPdfOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>')+
 						 '</td>'+
 						 '<td class="chkR" style="font-size:14px;padding:0;"> '+
-							 '<sup>Surah #'+index+'</sup><br/>'+
 							 '<span><sup>Juz:'+
 									surah.juz.map((j) => '<a href="#" '+
-										'onclick="var o=$(\'#juz-options\');o.val(\'juz'+j+'\');filterSurahs(o,\'juz'+j+'\')">'+j+'</a>').join(',')+
+										'onclick="var o=$(\'#juz-options\');o.val(\'juz'+j+'\');filterSurahs(o,\'juz'+j+'\')"> '+j+' </a>').join(',')+
 							 '</sup></span><br/>'+
 							 '<span class="dropbtn" '+
 							   'title="Research" '+
 							   'style="background-color:transparent;color:black;cursor:pointer;" '+
 							   'onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">'+
-							   '<b>'+(surah.ayahCount)+'‧‧1</b>'+
+							   '<b>Ayah:'+(surah.ayahCount)+'</b>'+
 							'</span>'+
 						 '</td>'+
 					'</tr>';	
