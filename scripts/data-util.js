@@ -306,3 +306,12 @@ function getDurationString(given_seconds){
 				 Math.floor(seconds).toString().padStart(2, '0');
 	return timeString;
 }
+
+function bringIntoView(elem){
+	var el = $(elem);
+	if(el.length > 0){
+		$([document.documentElement, document.body]).animate({
+			scrollTop: $(elem).offset().top
+		}, 1600);
+	}
+}

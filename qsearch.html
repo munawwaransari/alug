@@ -176,6 +176,8 @@
 			top: -20px;
 			left: -26px;
 		}
+		
+		.navUp, .navDn {}
 	</style>
 </head>
 
@@ -320,7 +322,10 @@
 				   style="cursor:pointer;background-color:transparent;
 						  color:black;font-size:20px;padding:0;">&#x23F9;</button>
 		</div>
-		<span style="width:5%">&nbsp;</span>
+		<span class="navDn" 
+			  style="display:none;width:5%;float:right;cursor:pointer;margin-top:4px;color:crimson;"
+			  onclick="bringIntoView('.qword-selected')"
+		>&#x2B07;</span>
 	</div>
 	<div id="searchResult" style="width: 100%;text-align: center;">Loading Quran...</div>
 </body>

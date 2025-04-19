@@ -140,6 +140,8 @@ function loadWordsFrom(data){
 Search Quran using QuranJS API  
 */
 function search(pageNumber){
+	$(".navDn").hide();
+	$(".navUp").hide();
 	$("#playbox").hide();
 	$("#juz").hide();
 	$("#qari").show();
@@ -1407,13 +1409,17 @@ function listSurahs(){
 			);
 			
 			table += '<tr class="'+juz+'">'+
-						 '<td onclick="searchText(\''+enName+'\')" '+
+						 '<td '+
 							 'class="qword" style="max-width:80px;font-szie:14px;padding:0;padding-bottom:6px;">'+index+'<br/>'+
 							 //'<b>'+surah.ar+'</b><br/>'+
 							 '<img src="https://raw.githubusercontent.com/gyenabubakar/surah-name-glyphs/3498a6dcde6b7cb3b0ac4c7d7c0754d385ab31fe/svg/'+index+'.svg"></img><br/>'+
-								'<span style="font-size:12px;">'+
+								'<span style="font-size:12px;" onclick="searchText(\''+enName+'\')">'+
 									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
 								'</span>'+
+								'<span class="navUp" '+
+									  'style="display:none;width:5%;float:right;cursor:pointer;" '+
+									  'onclick="bringIntoView(\'#playbox\')" '+
+								'>&#x2B06;</span>'+
 						 '</td>'+
 						 '<td class="chkQ" style="font-size:14px;cursor:pointer;padding:0;">'+
 							 '<span>'+getQuranAudioOptions(index, surah.en, surah.ayahCount)+'</span>'+
@@ -1661,10 +1667,16 @@ function stopPlayVerse(){
 function selectSurahCell(tdElem, state){
 	var elem = tdElem.parent().find('td:first');
 	if(elem.length > 0){
-		if(state)
+		if(state){
 			elem.addClass('qword-selected');
-		else
+			elem.find('.navUp').show();
+			$(".navDn").show();
+		}
+		else {
 			elem.removeClass('qword-selected');
+			elem.find('.navUp').hide();
+			$(".navDn").hide();
+		}
 	}
 }
 
@@ -1681,6 +1693,8 @@ function toggleQHead(){
 
 function toggleQuranView(readView){
 	if(readView){
+		$(".navDn").hide();
+		$(".navUp").hide();
 		$("#qv1").hide();
 		$("#qv2").show();
 		$("#qv2").parent().find("input[type='checkbox']").parent().hide();
