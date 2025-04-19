@@ -140,6 +140,7 @@ function loadWordsFrom(data){
 Search Quran using QuranJS API  
 */
 function search(pageNumber){
+	$("#qMM").hide();
 	$(".navDn").hide();
 	$(".navUp").hide();
 	$("#playbox").hide();
@@ -1399,6 +1400,7 @@ Loads Quran surah index
 */
 var surah_list;
 function listSurahs(){
+	$("#qMM").show();
 	$("#qari").hide();
 	$("#juz").show();
 	var path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
@@ -1725,6 +1727,7 @@ function toggleQHead(){
 
 function toggleQuranView(readView){
 	if(readView){
+		$("#qMM").hide();
 		$(".navDn").hide();
 		$(".navUp").hide();
 		$("#qv1").hide();
@@ -1740,6 +1743,7 @@ function toggleQuranView(readView){
 		$("#juz").children().last().prev().show();
 		displayQPage();
 	}else{
+		$("#qMM").show();
 		$("#qv2").hide();
 		$("#qv1").show();		
 		$("#qv2").parent().find("input[type='checkbox']").parent().show();
