@@ -1324,12 +1324,15 @@ function selectWordAndSearchInQuran(word){
 	search();
 }
 
-function updatePage(){
-	var s = $("#surah-options").val().replace('s','');
+function updatePage(s, p){
+	if(s){
+		$("#surah-options").val(s);
+	}
+	var s = s ?? $("#surah-options").val().replace('s','');
 	var entry = surah_list[s];
-	var page = entry.pages.includes('-') ? entry.pages.split('-')[0] : entry.pages;
+	var page = p ?? (entry.pages.includes('-') ? entry.pages.split('-')[0] : entry.pages);
 	$("#page-options").val('page'+page);
-	displayQPage();
+	displayQPage(p);
 }
 
 function navigateJuz(next){
@@ -1431,6 +1434,7 @@ function listSurahs(){
 				enName = enName.split(' ')[0];
 			}
 			
+			var pgNums = surah.pages.includes("-") ? surah.pages.split("-") : [surah.pages];
 			sOptions.append(
 				$('<option value="'+index+'">'+index+' ' + surah.ar+'</option>')
 			);
@@ -1464,6 +1468,9 @@ function listSurahs(){
 							 '<span><sup>Juz:'+
 									surah.juz.map((j) => '<a href="#" '+
 										'onclick="var o=$(\'#juz-options\');o.val(\'juz'+j+'\');filterSurahs(o,\'juz'+j+'\')"> '+j+' </a>').join(',')+
+							 '</sup></span><br/>'+
+							 '<span><sup>Pages:'+
+								pgNums.map((p) => '<a href="#" onclick="toggleQuranView(true, \''+index+'\', \''+p+'\');">'+ p+'</a>').join(" - ")+
 							 '</sup></span><br/>'+
 							 '<span class="dropbtn" '+
 							   'title="Research" '+
@@ -1725,7 +1732,7 @@ function toggleQHead(){
 	}
 }
 
-function toggleQuranView(readView){
+function toggleQuranView(readView, index, page){
 	if(readView){
 		$("#qMM").hide();
 		$(".navDn").hide();
@@ -1741,7 +1748,11 @@ function toggleQuranView(readView){
 		$("#juz-options").prev().css('color','crimson');
 		$("#juz-options").next().next().css('color','crimson');
 		$("#juz").children().last().prev().show();
-		displayQPage();
+		
+		if(index && page)
+			updatePage(index, page);
+		else
+			displayQPage();
 	}else{
 		$("#qMM").show();
 		$("#qv2").hide();
@@ -1758,8 +1769,8 @@ function toggleQuranView(readView){
 	}
 }
 
-function displayQPage(){
-	var pg = $("#page-options").val().replace('page','');
+function displayQPage(p){
+	var pg = p ?? $("#page-options").val().replace('page','');
 	if(pg.length < 2) pg = '0'+pg;
 	if(pg.length < 3) pg = '0'+pg;
 	var img = $("#tqv2 img").first();
