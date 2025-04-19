@@ -687,6 +687,7 @@ function playOrStopCurrentPage(elem){
 	var url = 'https://archive.org/download/QuranTransliterationMP3/pg'+page+'.mp3';
 	
 	var durationBar = $("#qt-duration");
+	var durationVal = $("#qt-value")
 	var state = $(elem).html();
 	if(state === '▶'){ //play
 		$(elem).html('⏹');
@@ -695,15 +696,18 @@ function playOrStopCurrentPage(elem){
 				
 				if(action == "loadstart"){
 					durationBar.attr('value',0);
+					durationVal.html('');
 				}
 				else if(action == "progress"){
 					if(data && data.ct)
 						durationBar.attr('value', data.ct);
+						durationVal.html(getDurationString(data.ct));
 				}
 				else if(action == "loadeddata"){
 					if(data){
 						durationBar.attr('max', data.duration);
 						durationBar.attr('value', data.ct);
+						durationVal.html(getDurationString(data.ct));
 						durationBar.parent().css('display', 'inline-block');
 					}
 				}else if(action == "ended"){
