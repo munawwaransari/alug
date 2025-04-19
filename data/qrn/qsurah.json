@@ -3,799 +3,1157 @@
         "en": "Al-Fatihah ( The Opening )",
         "ar": "الفاتحة",
         "ayahCount": 7,
-		"juz": [1],
-		"pages": "1"
-		
+        "juz": [
+            1
+        ],
+        "pages": "1",
+        "nuzul": "makki"
     },
     "2": {
         "en": "Al-Baqarah ( The Cow )",
         "ar": "البقرة",
         "ayahCount": 286,
-		"juz": [1,2,3],
-		"pages": "2-49"
+        "juz": [
+            1,
+            2,
+            3
+        ],
+        "pages": "2-49",
+        "nuzul": "madni"
     },
     "3": {
         "en": "Al-Imran ( The Family of Imran )",
         "ar": "آل عمران",
         "ayahCount": 200,
-		"juz": [3,4],
-		"pages": "50-76"
+        "juz": [
+            3,
+            4
+        ],
+        "pages": "50-76",
+        "nuzul": "madni"
     },
     "4": {
         "en": "An-Nisa ( The Women )",
         "ar": "النساء",
         "ayahCount": 176,
-		"juz": [4,5,6],
-		"pages": "77-106"
+        "juz": [
+            4,
+            5,
+            6
+        ],
+        "pages": "77-106",
+        "nuzul": "madni"
     },
     "5": {
         "en": "Al-Maidah ( The Table spread with Food )",
         "ar": "المائدة",
         "ayahCount": 120,
-		"juz": [6,7],
-		"pages": "106-127"
+        "juz": [
+            6,
+            7
+        ],
+        "pages": "106-127",
+        "nuzul": "madni"
     },
     "6": {
         "en": "Al-An'am ( The Cattle )",
         "ar": "الأنعام",
         "ayahCount": 165,
-		"juz": [7,8],
-		"pages": "128-150"
+        "juz": [
+            7,
+            8
+        ],
+        "pages": "128-150",
+        "nuzul": "makki"
     },
     "7": {
         "en": "Al-A'raf (The Heights )",
         "ar": "الأعراف‎",
         "ayahCount": 206,
-		"juz": [8,9,10],
-		"pages": "151-176"
+        "juz": [
+            8,
+            9,
+            10
+        ],
+        "pages": "151-176",
+        "nuzul": "makki"
     },
     "8": {
         "en": "Al-Anfal ( The Spoils of War )",
         "ar": "الأنفال",
         "ayahCount": 75,
-		"juz": [10,11],
-		"pages": "177-186"
+        "juz": [
+            10,
+            11
+        ],
+        "pages": "177-186",
+        "nuzul": "madni"
     },
     "9": {
         "en": "At-Taubah ( The Repentance )",
         "ar": "التوبة",
         "ayahCount": 129,
-		"juz": [11],
-		"pages": "187-207"
+        "juz": [
+            11
+        ],
+        "pages": "187-207",
+        "nuzul": "madni"
     },
     "10": {
         "en": "Yunus ( Jonah )",
         "ar": "يونس",
         "ayahCount": 109,
-		"juz": [11],
-		"pages": "208-221"
+        "juz": [
+            11
+        ],
+        "pages": "208-221",
+        "nuzul": "makki"
     },
     "11": {
         "en": "Hud ( Hud )",
         "ar": "هود",
         "ayahCount": 123,
-		"juz": [12],
-		"pages": "221-235"
+        "juz": [
+            12
+        ],
+        "pages": "221-235",
+        "nuzul": "makki"
     },
     "12": {
         "en": "Yusuf (Joseph )",
         "ar": "يوسف",
         "ayahCount": 111,
-		"juz": [12],
-		"pages": "235-248"
+        "juz": [
+            12
+        ],
+        "pages": "235-248",
+        "nuzul": "makki"
     },
     "13": {
         "en": "Ar-Ra'd ( The Thunder )",
         "ar": "الرعد",
         "ayahCount": 43,
-		"juz": [13],
-		"pages": "249-255"
+        "juz": [
+            13
+        ],
+        "pages": "249-255",
+        "nuzul": "madni"
     },
     "14": {
         "en": "Ibrahim ( Abraham )",
         "ar": "إبراهيم",
         "ayahCount": 52,
-		"juz": [13],
-		"pages": "255-261"
+        "juz": [
+            13
+        ],
+        "pages": "255-261",
+        "nuzul": "makki"
     },
     "15": {
         "en": "Al-Hijr ( The Rocky Tract )",
         "ar": "الحجر",
         "ayahCount": 99,
-		"juz": [14],
-		"pages": "262-267"
+        "juz": [
+            14
+        ],
+        "pages": "262-267",
+        "nuzul": "makki"
     },
     "16": {
         "en": "An-Nahl ( The Bees )",
         "ar": "النحل",
         "ayahCount": 128,
-		"juz": [14],
-		"pages": "267-281"
+        "juz": [
+            14
+        ],
+        "pages": "267-281",
+        "nuzul": "makki"
     },
     "17": {
         "en": "Al-Isra ( The Night Journey )",
         "ar": "الإسراء",
         "ayahCount": 111,
-		"juz": [15],
-		"pages": "282-293"
+        "juz": [
+            15
+        ],
+        "pages": "282-293",
+        "nuzul": "makki"
     },
     "18": {
         "en": "Al-Kahf ( The Cave )",
         "ar": "الكهف",
         "ayahCount": 110,
-		"juz": [15,16],
-		"pages": "293-304"
+        "juz": [
+            15,
+            16
+        ],
+        "pages": "293-304",
+        "nuzul": "makki"
     },
     "19": {
         "en": "Maryam ( Mary )",
         "ar": "مريم",
         "ayahCount": 98,
-		"juz": [16],
-		"pages": "305-312"
+        "juz": [
+            16
+        ],
+        "pages": "305-312",
+        "nuzul": "makki"
     },
     "20": {
         "en": "Taha ( Ta-Ha )",
         "ar": "طه",
         "ayahCount": 135,
-		"juz": [16],
-		"pages": "312-321"
+        "juz": [
+            16
+        ],
+        "pages": "312-321",
+        "nuzul": "makki"
     },
     "21": {
         "en": "Al-Anbiya ( The Prophets )",
         "ar": "الأنبياء‎",
         "ayahCount": 112,
-		"juz": [17],
-		"pages": "322-331"
+        "juz": [
+            17
+        ],
+        "pages": "322-331",
+        "nuzul": "makki"
     },
     "22": {
         "en": "Al-Hajj ( The Pilgrimage )",
         "ar": "الحج",
         "ayahCount": 78,
-		"juz": [17],
-		"pages": "332-341"
+        "juz": [
+            17
+        ],
+        "pages": "332-341",
+        "nuzul": "madni"
     },
     "23": {
         "en": "Al-Mu'minoon ( The Believers )",
         "ar": "المؤمنون",
         "ayahCount": 118,
-		"juz": [18],
-		"pages": "342-349"
+        "juz": [
+            18
+        ],
+        "pages": "342-349",
+        "nuzul": "makki"
     },
     "24": {
         "en": "An-Noor ( The Light )",
         "ar": "النور",
         "ayahCount": 64,
-		"juz": [18],
-		"pages": "350-359"
+        "juz": [
+            18
+        ],
+        "pages": "350-359",
+        "nuzul": "madni"
     },
     "25": {
         "en": "Al-Furqan (The Criterion )",
         "ar": "الفرقان",
         "ayahCount": 77,
-		"juz": [18,19],
-		"pages": "359-366"
+        "juz": [
+            18,
+            19
+        ],
+        "pages": "359-366",
+        "nuzul": "makki"
     },
     "26": {
         "en": "Ash-Shuara ( The Poets )",
         "ar": "الشعراء",
         "ayahCount": 227,
-		"juz": [19],
-		"pages": "367-376"
+        "juz": [
+            19
+        ],
+        "pages": "367-376",
+        "nuzul": "makki"
     },
     "27": {
         "en": "An-Naml (The Ants )",
         "ar": "النمل",
         "ayahCount": 93,
-		"juz": [19,20],
-		"pages": "377-385"
+        "juz": [
+            19,
+            20
+        ],
+        "pages": "377-385",
+        "nuzul": "makki"
     },
     "28": {
         "en": "Al-Qasas ( The Stories )",
         "ar": "القصص",
         "ayahCount": 88,
-		"juz": [20],
-		"pages": "385-396"
+        "juz": [
+            20
+        ],
+        "pages": "385-396",
+        "nuzul": "makki"
     },
     "29": {
         "en": "Al-Ankaboot ( The Spider )",
         "ar": "العنكبوت",
         "ayahCount": 69,
-		"juz": [20,21],
-		"pages": "396-404"
+        "juz": [
+            20,
+            21
+        ],
+        "pages": "396-404",
+        "nuzul": "makki"
     },
     "30": {
         "en": "Ar-Room ( The Romans )",
         "ar": "الروم",
         "ayahCount": 60,
-		"juz": [21],
-		"pages": "404-410"
+        "juz": [
+            21
+        ],
+        "pages": "404-410",
+        "nuzul": "makki"
     },
     "31": {
         "en": "Luqman ( Luqman )",
         "ar": "لقمان",
         "ayahCount": 34,
-		"juz": [21],
-		"pages": "411-414"
+        "juz": [
+            21
+        ],
+        "pages": "411-414",
+        "nuzul": "makki"
     },
     "32": {
         "en": "As-Sajdah ( The Prostration )",
         "ar": "السجدة",
         "ayahCount": 30,
-		"juz": [21],
-		"pages": "415-417"
+        "juz": [
+            21
+        ],
+        "pages": "415-417",
+        "nuzul": "makki"
     },
     "33": {
         "en": "Al-Ahzab ( The Combined Forces )",
         "ar": "الأحزاب",
         "ayahCount": 73,
-		"juz": [21,22],
-		"pages": "418-427"
+        "juz": [
+            21,
+            22
+        ],
+        "pages": "418-427",
+        "nuzul": "madni"
     },
     "34": {
         "en": "Saba ( Sheba )",
         "ar": "سبأ",
         "ayahCount": 54,
-		"juz": [22],
-		"pages": "428-434"
+        "juz": [
+            22
+        ],
+        "pages": "428-434",
+        "nuzul": "makki"
     },
     "35": {
         "en": "Fatir ( The Orignator )",
         "ar": "فاطر",
         "ayahCount": 45,
-		"juz": [22],
-		"pages": "434-440"
+        "juz": [
+            22
+        ],
+        "pages": "434-440",
+        "nuzul": "makki"
     },
     "36": {
         "en": "Ya-seen ( Ya-seen )",
         "ar": "يس",
         "ayahCount": 83,
-		"juz": [23],
-		"pages": "440-445"
+        "juz": [
+            23
+        ],
+        "pages": "440-445",
+        "nuzul": "makki"
     },
     "37": {
         "en": "As-Saaffat ( Those Ranges in Ranks )",
         "ar": "الصافات",
         "ayahCount": 182,
-		"juz": [23],
-		"pages": "446-452"
+        "juz": [
+            23
+        ],
+        "pages": "446-452",
+        "nuzul": "makki"
     },
     "38": {
         "en": "Sad ( The Letter Sad )",
         "ar": "ص",
         "ayahCount": 88,
-		"juz": [23],
-		"pages": "453-458"
+        "juz": [
+            23
+        ],
+        "pages": "453-458",
+        "nuzul": "makki"
     },
     "39": {
         "en": "Az-Zumar ( The Groups )",
         "ar": "الزمر",
         "ayahCount": 75,
-		"juz": [23,24],
-		"pages": "458-467"
+        "juz": [
+            23,
+            24
+        ],
+        "pages": "458-467",
+        "nuzul": "makki"
     },
     "40": {
         "en": "Ghafir ( The Forgiver God )",
         "ar": "غافر",
         "ayahCount": 85,
-		"juz": [24],
-		"pages": "467-476"
+        "juz": [
+            24
+        ],
+        "pages": "467-476",
+        "nuzul": "makki"
     },
     "41": {
         "en": "Fussilat ( Explained in Detail )",
         "ar": "فصلت",
         "ayahCount": 54,
-		"juz": [24,25],
-		"pages": "477-482"
+        "juz": [
+            24,
+            25
+        ],
+        "pages": "477-482",
+        "nuzul": "makki"
     },
     "42": {
         "en": "Ash-Shura (Consultation )",
         "ar": "الشورى‎",
         "ayahCount": 53,
-		"juz": [25],
-		"pages": "483-489"
+        "juz": [
+            25
+        ],
+        "pages": "483-489",
+        "nuzul": "makki"
     },
     "43": {
         "en": "Az-Zukhruf ( The Gold Adornment )",
         "ar": "الزخرف",
         "ayahCount": 89,
-		"juz": [25],
-		"pages": "489-495"
+        "juz": [
+            25
+        ],
+        "pages": "489-495",
+        "nuzul": "makki"
     },
     "44": {
         "en": "Ad-Dukhan ( The Smoke )",
         "ar": "الدخان",
         "ayahCount": 59,
-		"juz": [25],
-		"pages": "496-498"
+        "juz": [
+            25
+        ],
+        "pages": "496-498",
+        "nuzul": "makki"
     },
     "45": {
         "en": "Al-Jathiya ( Crouching )",
         "ar": "الجاثية",
         "ayahCount": 37,
-		"juz": [25],
-		"pages": "499-502"
+        "juz": [
+            25
+        ],
+        "pages": "499-502",
+        "nuzul": "makki"
     },
     "46": {
         "en": "Al-Ahqaf ( The Curved Sand-hills )",
         "ar": "الأحقاف",
         "ayahCount": 35,
-		"juz": [26],
-		"pages": "502-506"
+        "juz": [
+            26
+        ],
+        "pages": "502-506",
+        "nuzul": "makki"
     },
     "47": {
         "en": "Muhammad ( Muhammad )",
         "ar": "محمد",
         "ayahCount": 38,
-		"juz": [26],
-		"pages": "507-510"
+        "juz": [
+            26
+        ],
+        "pages": "507-510",
+        "nuzul": "madni"
     },
     "48": {
         "en": "Al-Fath ( The Victory )",
         "ar": "الفتح",
         "ayahCount": 29,
-		"juz": [26],
-		"pages": "511-515"
+        "juz": [
+            26
+        ],
+        "pages": "511-515",
+        "nuzul": "madni"
     },
     "49": {
         "en": "Al-Hujurat ( The Dwellings )",
         "ar": "الحجرات",
         "ayahCount": 18,
-		"juz": [26],
-		"pages": "515-517"
+        "juz": [
+            26
+        ],
+        "pages": "515-517",
+        "nuzul": "madni"
     },
     "50": {
         "en": "Qaf ( The Letter Qaf )",
         "ar": "ق",
         "ayahCount": 45,
-		"juz": [26],
-		"pages": "518-520"
+        "juz": [
+            26
+        ],
+        "pages": "518-520",
+        "nuzul": "makki"
     },
     "51": {
         "en": "Adh-Dhariyat ( The Wind that Scatter )",
         "ar": "الذاريات",
         "ayahCount": 60,
-		"juz": [27],
-		"pages": "520-523"
+        "juz": [
+            27
+        ],
+        "pages": "520-523",
+        "nuzul": "makki"
     },
     "52": {
         "en": "At-Tur ( The Mount )",
         "ar": "الطور",
         "ayahCount": 49,
-		"juz": [27],
-		"pages": "523-525"
+        "juz": [
+            27
+        ],
+        "pages": "523-525",
+        "nuzul": "makki"
     },
     "53": {
         "en": "An-Najm ( The Star )",
         "ar": "النجم",
         "ayahCount": 62,
-		"juz": [27],
-		"pages": "526-528"
+        "juz": [
+            27
+        ],
+        "pages": "526-528",
+        "nuzul": "makki"
     },
     "54": {
         "en": "Al-Qamar ( The Moon )",
         "ar": "القمر‎",
         "ayahCount": 55,
-		"juz": [27],
-		"pages": "528-531"
+        "juz": [
+            27
+        ],
+        "pages": "528-531",
+        "nuzul": "makki"
     },
     "55": {
         "en": "Ar-Rahman ( The Most Graciouse )",
         "ar": "الرحمن",
         "ayahCount": 78,
-		"juz": [27],
-		"pages": "531-534"
+        "juz": [
+            27
+        ],
+        "pages": "531-534",
+        "nuzul": "madni"
     },
     "56": {
         "en": "Al-Waqi'ah ( The Event )",
         "ar": "الواقعة‎",
         "ayahCount": 96,
-		"juz": [27],
-		"pages": "534-537"
+        "juz": [
+            27
+        ],
+        "pages": "534-537",
+        "nuzul": "makki"
     },
     "57": {
         "en": "Al-Hadid ( The Iron )",
         "ar": "الحديد",
         "ayahCount": 29,
-		"juz": [27],
-		"pages": "537-541"
+        "juz": [
+            27
+        ],
+        "pages": "537-541",
+        "nuzul": "madni"
     },
     "58": {
         "en": "Al-Mujadilah ( She That Disputeth )",
         "ar": "المجادلة",
         "ayahCount": 22,
-		"juz": [28],
-		"pages": "542-545"
+        "juz": [
+            28
+        ],
+        "pages": "542-545",
+        "nuzul": "madni"
     },
     "59": {
         "en": "Al-Hashr ( The Gathering )",
         "ar": "الحشر",
         "ayahCount": 24,
-		"juz": [28],
-		"pages": "545-548"
+        "juz": [
+            28
+        ],
+        "pages": "545-548",
+        "nuzul": "madni"
     },
     "60": {
         "en": "Al-Mumtahanah ( The Woman to be examined )",
         "ar": "الممتحنة",
         "ayahCount": 13,
-		"juz": [28],
-		"pages": "549-551"
+        "juz": [
+            28
+        ],
+        "pages": "549-551",
+        "nuzul": "madni"
     },
     "61": {
         "en": "As-Saff ( The Row )",
         "ar": "الصف",
         "ayahCount": 14,
-		"juz": [28],
-		"pages": "551-552"
+        "juz": [
+            28
+        ],
+        "pages": "551-552",
+        "nuzul": "madni"
     },
     "62": {
         "en": "Al-Jumu'ah ( Friday )",
         "ar": "الجمعة",
         "ayahCount": 11,
-		"juz": [28],
-		"pages": "553-554"
+        "juz": [
+            28
+        ],
+        "pages": "553-554",
+        "nuzul": "madni"
     },
     "63": {
         "en": "Al-Munafiqoon ( The Hypocrites )",
         "ar": "المنافقون",
         "ayahCount": 11,
-		"juz": [28],
-		"pages": "554-555"
+        "juz": [
+            28
+        ],
+        "pages": "554-555",
+        "nuzul": "madni"
     },
     "64": {
         "en": "At-Taghabun ( Mutual Loss & Gain )",
         "ar": "التغابن",
         "ayahCount": 18,
-		"juz": [28],
-		"pages": "556-557"
+        "juz": [
+            28
+        ],
+        "pages": "556-557",
+        "nuzul": "madni"
     },
     "65": {
         "en": "At-Talaq ( The Divorce )",
         "ar": "الطلاق",
         "ayahCount": 12,
-		"juz": [28],
-		"pages": "558-559"
+        "juz": [
+            28
+        ],
+        "pages": "558-559",
+        "nuzul": "madni"
     },
     "66": {
         "en": "At-Tahrim ( The Prohibition )",
         "ar": "التحريم",
         "ayahCount": 12,
-		"juz": [28],
-		"pages": "560-561"
+        "juz": [
+            28
+        ],
+        "pages": "560-561",
+        "nuzul": "madni"
     },
     "67": {
         "en": "Al-Mulk ( Dominion )",
         "ar": "الملك",
         "ayahCount": 30,
-		"juz": [29],
-		"pages": "562-564"
+        "juz": [
+            29
+        ],
+        "pages": "562-564",
+        "nuzul": "makki"
     },
     "68": {
         "en": "Al-Qalam ( The Pen )",
         "ar": "القلم",
         "ayahCount": 52,
-		"juz": [29],
-		"pages": "564-566"
+        "juz": [
+            29
+        ],
+        "pages": "564-566",
+        "nuzul": "makki"
     },
     "69": {
         "en": "Al-Haaqqah ( The Inevitable )",
         "ar": "الحاقة",
         "ayahCount": 52,
-		"juz": [29],
-		"pages": "566-568"
+        "juz": [
+            29
+        ],
+        "pages": "566-568",
+        "nuzul": "makki"
     },
     "70": {
         "en": "Al-Ma'arij (The Ways of Ascent )",
         "ar": "المعارج",
         "ayahCount": 44,
-		"juz": [29],
-		"pages": "568-570"
+        "juz": [
+            29
+        ],
+        "pages": "568-570",
+        "nuzul": "makki"
     },
     "71": {
         "en": "Nooh ( Noah )",
         "ar": "نوح",
         "ayahCount": 28,
-		"juz": [29],
-		"pages": "570-571"
+        "juz": [
+            29
+        ],
+        "pages": "570-571",
+        "nuzul": "makki"
     },
     "72": {
         "en": "Al-Jinn ( The Jinn )",
         "ar": "الجن",
         "ayahCount": 28,
-		"juz": [29],
-		"pages": "572-573"
+        "juz": [
+            29
+        ],
+        "pages": "572-573",
+        "nuzul": "makki"
     },
     "73": {
         "en": "Al-Muzzammil (The One wrapped in Garments)",
         "ar": "المزمل",
         "ayahCount": 20,
-		"juz": [29],
-		"pages": "574-575"
+        "juz": [
+            29
+        ],
+        "pages": "574-575",
+        "nuzul": "makki"
     },
     "74": {
         "en": "Al-Muddaththir ( The One Enveloped )",
         "ar": "المدثر",
         "ayahCount": 56,
-		"juz": [29],
-		"pages": "575-577"
+        "juz": [
+            29
+        ],
+        "pages": "575-577",
+        "nuzul": "makki"
     },
     "75": {
         "en": "Al-Qiyamah ( The Resurrection )",
         "ar": "القيامة",
         "ayahCount": 40,
-		"juz": [29],
-		"pages": "577-578"
+        "juz": [
+            29
+        ],
+        "pages": "577-578",
+        "nuzul": "makki"
     },
     "76": {
         "en": "Al-Insan ( Man )",
         "ar": "الإنسان",
         "ayahCount": 31,
-		"juz": [29],
-		"pages": "578-580"
+        "juz": [
+            29
+        ],
+        "pages": "578-580",
+        "nuzul": "madni"
     },
     "77": {
         "en": "Al-Mursalat ( Those sent forth )",
         "ar": "المرسلات",
         "ayahCount": 50,
-		"juz": [29],
-		"pages": "580-581"
+        "juz": [
+            29
+        ],
+        "pages": "580-581",
+        "nuzul": "makki"
     },
     "78": {
         "en": "An-Naba' ( The Great News )",
         "ar": "النبأ",
         "ayahCount": 40,
-		"juz": [30],
-		"pages": "582-583"
+        "juz": [
+            30
+        ],
+        "pages": "582-583",
+        "nuzul": "makki"
     },
     "79": {
         "en": "An-Nazi'at ( Those who Pull Out )",
         "ar": "النازعات",
         "ayahCount": 46,
-		"juz": [30],
-		"pages": "583-584"
+        "juz": [
+            30
+        ],
+        "pages": "583-584",
+        "nuzul": "makki"
     },
     "80": {
         "en": "Abasa ( He frowned )",
         "ar": "عبس",
         "ayahCount": 42,
-		"juz": [30],
-		"pages": "585"
+        "juz": [
+            30
+        ],
+        "pages": "585",
+        "nuzul": "makki"
     },
     "81": {
         "en": "At-Takwir ( The Overthrowing )",
         "ar": "التكوير",
         "ayahCount": 29,
-		"juz": [30],
-		"pages": "586"
+        "juz": [
+            30
+        ],
+        "pages": "586",
+        "nuzul": "makki"
     },
     "82": {
         "en": "Al-Infitar ( The Cleaving )",
         "ar": "الانفطار",
         "ayahCount": 19,
-		"juz": [30],
-		"pages": "587"
+        "juz": [
+            30
+        ],
+        "pages": "587",
+        "nuzul": "makki"
     },
     "83": {
         "en": "Al-Mutaffifin (Those Who Deal in Fraud)",
         "ar": "المطففين",
         "ayahCount": 36,
-		"juz": [30],
-		"pages": "587-589"
+        "juz": [
+            30
+        ],
+        "pages": "587-589",
+        "nuzul": "makki"
     },
     "84": {
         "en": "Al-Inshiqaq (The Splitting Asunder)",
         "ar": "الانشقاق",
         "ayahCount": 25,
-		"juz": [30],
-		"pages": "589"
+        "juz": [
+            30
+        ],
+        "pages": "589",
+        "nuzul": "makki"
     },
     "85": {
         "en": "Al-Burooj ( The Big Stars )",
         "ar": "البروج",
         "ayahCount": 22,
-		"juz": [30],
-		"pages": "590"
+        "juz": [
+            30
+        ],
+        "pages": "590",
+        "nuzul": "makki"
     },
     "86": {
         "en": "At-Tariq ( The Night-Comer )",
         "ar": "الطارق",
         "ayahCount": 17,
-		"juz": [30],
-		"pages": "591"
+        "juz": [
+            30
+        ],
+        "pages": "591",
+        "nuzul": "makki"
     },
     "87": {
         "en": "Al-A'la ( The Most High )",
         "ar": "الأعلى",
         "ayahCount": 19,
-		"juz": [30],
-		"pages": "591-592"
+        "juz": [
+            30
+        ],
+        "pages": "591-592",
+        "nuzul": "makki"
     },
     "88": {
         "en": "Al-Ghashiya ( The Overwhelming )",
         "ar": "الغاشية",
         "ayahCount": 26,
-		"juz": [30],
-		"pages": "592"
+        "juz": [
+            30
+        ],
+        "pages": "592",
+        "nuzul": "makki"
     },
     "89": {
         "en": "Al-Fajr ( The Dawn )",
         "ar": "الفجر",
         "ayahCount": 30,
-		"juz": [30],
-		"pages": "593-594"
+        "juz": [
+            30
+        ],
+        "pages": "593-594",
+        "nuzul": "makki"
     },
     "90": {
         "en": "Al-Balad ( The City )",
         "ar": "البلد",
         "ayahCount": 20,
-		"juz": [30],
-		"pages": "594"
+        "juz": [
+            30
+        ],
+        "pages": "594",
+        "nuzul": "makki"
     },
     "91": {
         "en": "Ash-Shams ( The Sun )",
         "ar": "الشمس",
         "ayahCount": 15,
-		"juz": [30],
-		"pages": "595"
+        "juz": [
+            30
+        ],
+        "pages": "595",
+        "nuzul": "makki"
     },
     "92": {
         "en": "Al-Layl ( The Night )",
         "ar": "الليل",
         "ayahCount": 21,
-		"juz": [30],
-		"pages": "595-596"
+        "juz": [
+            30
+        ],
+        "pages": "595-596",
+        "nuzul": "makki"
     },
     "93": {
         "en": "Ad-Dhuha ( The Forenoon )",
         "ar": "الضحى",
         "ayahCount": 11,
-		"juz": [30],
-		"pages": "596"
+        "juz": [
+            30
+        ],
+        "pages": "596",
+        "nuzul": "makki"
     },
     "94": {
         "en": "As-Sharh ( The Opening Forth)",
         "ar": "الشرح",
         "ayahCount": 8,
-		"juz": [30],
-		"pages": "596"
+        "juz": [
+            30
+        ],
+        "pages": "596",
+        "nuzul": "makki"
     },
     "95": {
         "en": "At-Tin ( The Fig )",
         "ar": "التين",
         "ayahCount": 8,
-		"juz": [30],
-		"pages": "597"
+        "juz": [
+            30
+        ],
+        "pages": "597",
+        "nuzul": "makki"
     },
     "96": {
         "en": "Al-'alaq ( The Clot )",
         "ar": "العلق",
         "ayahCount": 19,
-		"juz": [30],
-		"pages": "597"
+        "juz": [
+            30
+        ],
+        "pages": "597",
+        "nuzul": "makki"
     },
     "97": {
         "en": "Al-Qadr ( The Night of Decree )",
         "ar": "القدر",
         "ayahCount": 5,
-		"juz": [30],
-		"pages": "598"
+        "juz": [
+            30
+        ],
+        "pages": "598",
+        "nuzul": "makki"
     },
     "98": {
         "en": "Al-Bayyinah ( The Clear Evidence )",
         "ar": "البينة",
         "ayahCount": 8,
-		"juz": [30],
-		"pages": "598-599"
+        "juz": [
+            30
+        ],
+        "pages": "598-599",
+        "nuzul": "madni"
     },
     "99": {
         "en": "Az-Zalzalah ( The Earthquake )",
         "ar": "الزلزلة",
         "ayahCount": 8,
-		"juz": [30],
-		"pages": "599"
+        "juz": [
+            30
+        ],
+        "pages": "599",
+        "nuzul": "madni"
     },
     "100": {
         "en": "Al-'adiyat ( Those That Run )",
         "ar": "العاديات",
         "ayahCount": 11,
-		"juz": [30],
-		"pages": "599-600"
+        "juz": [
+            30
+        ],
+        "pages": "599-600",
+        "nuzul": "makki"
     },
     "101": {
         "en": "Al-Qari'ah ( The Striking Hour )",
         "ar": "القارعة",
         "ayahCount": 11,
-		"juz": [30],
-		"pages": "600"
+        "juz": [
+            30
+        ],
+        "pages": "600",
+        "nuzul": "makki"
     },
     "102": {
         "en": "At-Takathur ( The piling Up )",
         "ar": "التكاثر",
         "ayahCount": 8,
-		"juz": [30],
-		"pages": "600"
+        "juz": [
+            30
+        ],
+        "pages": "600",
+        "nuzul": "makki"
     },
     "103": {
         "en": "Al-Asr ( The Time )",
         "ar": "العصر",
         "ayahCount": 3,
-		"juz": [30],
-		"pages": "601"
+        "juz": [
+            30
+        ],
+        "pages": "601",
+        "nuzul": "makki"
     },
     "104": {
         "en": "Al-Humazah ( The Slanderer )",
         "ar": "الهمزة",
         "ayahCount": 9,
-		"juz": [30],
-		"pages": "601"
+        "juz": [
+            30
+        ],
+        "pages": "601",
+        "nuzul": "makki"
     },
     "105": {
         "en": "Al-Fil ( The Elephant )",
         "ar": "الفيل",
         "ayahCount": 5,
-		"juz": [30],
-		"pages": "601"
+        "juz": [
+            30
+        ],
+        "pages": "601",
+        "nuzul": "makki"
     },
     "106": {
         "en": "Quraish ( Quraish )",
         "ar": "قريش",
         "ayahCount": 4,
-		"juz": [30],
-		"pages": "602"
+        "juz": [
+            30
+        ],
+        "pages": "602",
+        "nuzul": "makki"
     },
     "107": {
         "en": "Al-Ma'un ( Small Kindnesses )",
         "ar": "الماعون",
         "ayahCount": 7,
-		"juz": [30],
-		"pages": "602"
+        "juz": [
+            30
+        ],
+        "pages": "602",
+        "nuzul": "makki"
     },
     "108": {
         "en": "Al-Kauthor ( A River in Paradise)",
         "ar": "الكوثر",
         "ayahCount": 3,
-		"juz": [30],
-		"pages": "602"
+        "juz": [
+            30
+        ],
+        "pages": "602",
+        "nuzul": "makki"
     },
     "109": {
         "en": "Al-Kafiroon ( The Disbelievers )",
         "ar": "الكافرون",
         "ayahCount": 6,
-		"juz": [30],
-		"pages": "603"
+        "juz": [
+            30
+        ],
+        "pages": "603",
+        "nuzul": "makki"
     },
     "110": {
         "en": "An-Nasr ( The Help )",
         "ar": "النصر",
         "ayahCount": 3,
-		"juz": [30],
-		"pages": "603"
+        "juz": [
+            30
+        ],
+        "pages": "603",
+        "nuzul": "madni"
     },
     "111": {
         "en": "Al-Masad ( The Palm Fibre )",
         "ar": "المسد",
         "ayahCount": 5,
-		"juz": [30],
-		"pages": "603"
+        "juz": [
+            30
+        ],
+        "pages": "603",
+        "nuzul": "makki"
     },
     "112": {
         "en": "Al-Ikhlas ( Sincerity )",
         "ar": "الإخلاص",
         "ayahCount": 4,
-		"juz": [30],
-		"pages": "604"
+        "juz": [
+            30
+        ],
+        "pages": "604",
+        "nuzul": "makki"
     },
     "113": {
         "en": "Al-Falaq ( The Daybreak )",
         "ar": "الفلق",
         "ayahCount": 5,
-		"juz": [30],
-		"pages": "604"
+        "juz": [
+            30
+        ],
+        "pages": "604",
+        "nuzul": "makki"
     },
     "114": {
         "en": "An-Nas ( Mankind )",
         "ar": "الناس",
         "ayahCount": 6,
-		"juz": [30],
-		"pages": "604"
+        "juz": [
+            30
+        ],
+        "pages": "604",
+        "nuzul": "makki"
     }
 }

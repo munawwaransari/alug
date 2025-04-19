@@ -677,6 +677,11 @@ function stopQuranChapter(){
 		setTimeout(function(){ 
 			$("#qt-pause").html('⏸');
 			$("#"+id).html('▶');
+			
+			var sel = $("#juz-options").val();
+			if(sel !== 'all'){
+				filterSurahs(last_ch_play_id);
+			}
 		},5);
 	}
 	$("#"+id).show();
@@ -1360,15 +1365,35 @@ function filterSurahs(elem, cname){
 			$(elem).prev().css('color','transparent');
 			$(elem).next().next().css('color','transparent');
 		}
+		filterMakkiMadni();
 	}else{
 		$(".surahIndex [class^=\'juz\']").hide();
+		$(".qword-selected").parent().show();
 		$("."+opt).show();
 		if(elem){
 			$(elem).prev().css('color','crimson');
 			$(elem).next().next().css('color','crimson');
 		}
+		filterMakkiMadni(opt);
 	}
 }
+
+function filterMakkiMadni(juz){
+	var mm = $("#qMM").attr('data-value');
+	if(mm !== 'makki.madni'){
+		if(mm === "makki"){
+			$((juz ? '.'+juz: '') + ".makki").show();
+			$((juz ? '.'+juz: '') + ".madni").hide();
+		}else{
+			$((juz ? '.'+juz: '') + ".makki").hide();
+			$((juz ? '.'+juz: '') + ".madni").show();
+		}
+	}else{
+		$((juz ? '.'+juz: '') + ".makki").show();
+		$((juz ? '.'+juz: '') + ".madni").show();
+	}
+}
+
 /*
 Loads Quran surah index
 */
@@ -1408,10 +1433,13 @@ function listSurahs(){
 				$('<option value="'+index+'">'+index+' ' + surah.ar+'</option>')
 			);
 			
-			table += '<tr class="'+juz+'">'+
+			table += '<tr class="'+juz+' '+surah.nuzul+'">'+
 						 '<td '+
-							 'class="qword" style="max-width:80px;font-szie:14px;padding:0;padding-bottom:6px;">'+index+'<br/>'+
-							 //'<b>'+surah.ar+'</b><br/>'+
+							 'class="qword" style="max-width:80px;font-szie:14px;padding:0;padding-bottom:6px;">'+
+								'<span>'+
+									'<img style="width:16px;padding:0;margin:0;" src="images/'+surah.nuzul+'.jpg"></img>'+
+								'</span>'+
+								'<br/>'+
 							 '<img src="https://raw.githubusercontent.com/gyenabubakar/surah-name-glyphs/3498a6dcde6b7cb3b0ac4c7d7c0754d385ab31fe/svg/'+index+'.svg"></img><br/>'+
 								'<span style="font-size:12px;" onclick="searchText(\''+enName+'\')">'+
 									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
@@ -1429,12 +1457,16 @@ function listSurahs(){
 							 (q_app_mode === 'Quran' ? '' :
 							 '<span>'+getTafsirPdfOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>')+
 						 '</td>'+
-						 '<td class="chkR" style="font-size:14px;cursor:pointer;padding:0;"> '+
+						 '<td class="chkR" style="font-size:14px;padding:0;"> '+
+							 '<sup>Surah #'+index+'</sup><br/>'+
+							 '<span><sup>Juz:'+
+									surah.juz.map((j) => '<a href="#" '+
+										'onclick="var o=$(\'#juz-options\');o.val(\'juz'+j+'\');filterSurahs(o,\'juz'+j+'\')">'+j+'</a>').join(',')+
+							 '</sup></span><br/>'+
 							 '<span class="dropbtn" '+
 							   'title="Research" '+
-							   'style="background-color:transparent;color:black;" '+
+							   'style="background-color:transparent;color:black;cursor:pointer;" '+
 							   'onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">'+
-							   //'1‧‧‧'.concat(surah.ayahCount)+
 							   '<b>'+(surah.ayahCount)+'‧‧1</b>'+
 							'</span>'+
 						 '</td>'+
@@ -1773,4 +1805,22 @@ function onDurationClick(id, e){
 	if(parent && parent.changeAudioTime){
 		parent.changeAudioTime(null, value);
 	}
+}
+
+function toggleMakkiMadni(){
+	var dv = $("#qMM").attr('data-value');
+	if(dv === 'makki.madni'){
+		$("#qMM").attr('src','images/makki.jpg');
+		$("#qMM").attr('data-value', 'makki');
+	}
+	else if(dv === 'makki'){
+		$("#qMM").attr('src','images/madni.jpg');
+		$("#qMM").attr('data-value', 'madni');
+	}
+	if(dv === 'madni'){
+		$("#qMM").attr('src','images/makki.madni.jpg');
+		$("#qMM").attr('data-value', 'makki.madni');
+	}
+	
+	filterSurahs($('juz-options'));
 }
