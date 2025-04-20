@@ -2,6 +2,9 @@
 //	Author: munawwar_ali@yahoo.com
 //
 
+var loadRetryCount = 5; 
+const RETRY_DELAY = 400;
+
 $(document).ready(function()
 {	
 	if(isOS("Android")){
@@ -29,6 +32,8 @@ $(document).ready(function()
 	
 	nodeInserted("#languages");
 	$(document).on("nodeInserted",function(e,q){
+		isLangLoaded = true;
+		console.log('lang node inserted.')
 		if (q === "#languages"){
 			$("#languages").parent().hide();
 			loadVoiceOptions(true, false);
@@ -372,9 +377,15 @@ function showChart(sel){
 //ref: https://stackoverflow.com/questions/7434685/how-can-i-be-notified-when-an-element-is-added-to-the-page
 function nodeInserted(elementQuerySelector){
     if ($(elementQuerySelector).length===0){
-        setTimeout(function(){
+		loadRetryCount--;
+		if(loadRetryCount == 0){
+			location.reload();
+			return false;
+		}
+		console.log('Retrying: remaing attempts:'+loadRetryCount);
+		setTimeout(function(){
             nodeInserted(elementQuerySelector);
-        },300);
+        },RETRY_DELAY);
     }else{
         $(document).trigger("nodeInserted",[elementQuerySelector]);
     }
