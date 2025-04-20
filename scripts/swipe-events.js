@@ -26,6 +26,8 @@ function handleTouch(elem, startX, endX, onSwipeLeft, onSwipeRight) {
 				console.log('swipe right');
 			}
         }
+		swipeElem.addEventListener('touchstart', handleTouchStart);
+		swipeElem.addEventListener('touchend', handleTouchEnd);
     }
 }
 
