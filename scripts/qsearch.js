@@ -1439,6 +1439,8 @@ function listSurahs(){
 				$('<option value="'+index+'">'+index+' ' + surah.ar+'</option>')
 			);
 			
+			//var loc = getLocationPath();
+			var huruf = surah.huruf === undefined ? '': '<img style="float:right;height:20px;margin-left:3px;background-color:transparent;" src="data/qrn/'+surah.huruf+'.jpg"></img>';
 			table += '<tr class="'+juz+' '+surah.nuzul+'">'+
 						 '<td '+
 							 'class="qword" style="max-width:80px;font-szie:14px;padding:0;padding-bottom:6px;">'+
@@ -1446,12 +1448,13 @@ function listSurahs(){
 									'<b class="navUp" '+
 									  'style="display:none;float:right;cursor:pointer;" '+
 									  'onclick="bringIntoView(\'#playbox\')">&nbsp;&nbsp;&#x2B06;&nbsp;&nbsp;</b>'+
-									'<img style="width:16px;padding:0;margin:0;float:right;" src="images/'+surah.nuzul+'.jpg"></img>'+
+									huruf+
+									'<img style="width:16px;margin:0;float:right;" src="images/'+surah.nuzul+'.jpg"></img>'+
 									'<sup style="float:right">&nbsp;&nbsp;'+index+'</sup>'+
-									
 								'</span>'+
 								'<br/>'+
-							 '<img src="https://raw.githubusercontent.com/gyenabubakar/surah-name-glyphs/3498a6dcde6b7cb3b0ac4c7d7c0754d385ab31fe/svg/'+index+'.svg"></img><br/>'+
+							 '<img src="https://raw.githubusercontent.com/gyenabubakar/surah-name-glyphs/3498a6dcde6b7cb3b0ac4c7d7c0754d385ab31fe/svg/'+index+'.svg" '+
+								'style=""></img><br/>'+
 								'<span style="font-size:12px;" onclick="searchText(\''+enName+'\')">'+
 									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
 								'</span>'+
@@ -1711,16 +1714,16 @@ function stopPlayVerse(){
 }
 
 function selectSurahCell(tdElem, state){
-	var elem = tdElem.parent().find('td:first');
+	var elem = tdElem.parent().find('td');//.find('td:first');
 	if(elem.length > 0){
 		if(state){
 			elem.addClass('qword-selected');
-			elem.find('.navUp').show();
+			elem.first().find('.navUp').show();
 			$(".navDn").show();
 		}
 		else {
 			elem.removeClass('qword-selected');
-			elem.find('.navUp').hide();
+			elem.first().find('.navUp').hide();
 			$(".navDn").hide();
 		}
 	}

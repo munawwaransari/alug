@@ -19,7 +19,8 @@
             3
         ],
         "pages": "2-49",
-        "nuzul": "madni"
+        "nuzul": "madni",
+		"huruf": "alm"
     },
     "3": {
         "en": "Al-Imran ( The Family of Imran )",
@@ -30,7 +31,8 @@
             4
         ],
         "pages": "50-76",
-        "nuzul": "madni"
+        "nuzul": "madni",
+		"huruf": "alm"
     },
     "4": {
         "en": "An-Nisa ( The Women )",
@@ -76,7 +78,8 @@
             10
         ],
         "pages": "151-176",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "alms"
     },
     "8": {
         "en": "Al-Anfal ( The Spoils of War )",
@@ -107,7 +110,8 @@
             11
         ],
         "pages": "208-221",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "alr"
     },
     "11": {
         "en": "Hud ( Hud )",
@@ -117,7 +121,8 @@
             12
         ],
         "pages": "221-235",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "alr"
     },
     "12": {
         "en": "Yusuf (Joseph )",
@@ -127,7 +132,8 @@
             12
         ],
         "pages": "235-248",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "alr"
     },
     "13": {
         "en": "Ar-Ra'd ( The Thunder )",
@@ -137,7 +143,8 @@
             13
         ],
         "pages": "249-255",
-        "nuzul": "madni"
+        "nuzul": "madni",
+		"huruf": "alr"
     },
     "14": {
         "en": "Ibrahim ( Abraham )",
@@ -147,7 +154,8 @@
             13
         ],
         "pages": "255-261",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "alr"
     },
     "15": {
         "en": "Al-Hijr ( The Rocky Tract )",
@@ -198,7 +206,8 @@
             16
         ],
         "pages": "305-312",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "khyas"
     },
     "20": {
         "en": "Taha ( Ta-Ha )",
@@ -208,7 +217,8 @@
             16
         ],
         "pages": "312-321",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "th"
     },
     "21": {
         "en": "Al-Anbiya ( The Prophets )",
@@ -228,7 +238,8 @@
             17
         ],
         "pages": "332-341",
-        "nuzul": "madni"
+        "nuzul": "madni",
+		"huruf": "alr"
     },
     "23": {
         "en": "Al-Mu'minoon ( The Believers )",
@@ -269,7 +280,8 @@
             19
         ],
         "pages": "367-376",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "tsm"
     },
     "27": {
         "en": "An-Naml (The Ants )",
@@ -280,7 +292,8 @@
             20
         ],
         "pages": "377-385",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "ts"
     },
     "28": {
         "en": "Al-Qasas ( The Stories )",
@@ -290,7 +303,8 @@
             20
         ],
         "pages": "385-396",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "tsm"
     },
     "29": {
         "en": "Al-Ankaboot ( The Spider )",
@@ -301,7 +315,8 @@
             21
         ],
         "pages": "396-404",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "alm"
     },
     "30": {
         "en": "Ar-Room ( The Romans )",
@@ -311,7 +326,8 @@
             21
         ],
         "pages": "404-410",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "alm"
     },
     "31": {
         "en": "Luqman ( Luqman )",
@@ -321,7 +337,8 @@
             21
         ],
         "pages": "411-414",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "alm"
     },
     "32": {
         "en": "As-Sajdah ( The Prostration )",
@@ -331,7 +348,8 @@
             21
         ],
         "pages": "415-417",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "alm"
     },
     "33": {
         "en": "Al-Ahzab ( The Combined Forces )",
@@ -372,7 +390,8 @@
             23
         ],
         "pages": "440-445",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "ys"
     },
     "37": {
         "en": "As-Saaffat ( Those Ranges in Ranks )",
@@ -392,7 +411,8 @@
             23
         ],
         "pages": "453-458",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "s"
     },
     "39": {
         "en": "Az-Zumar ( The Groups )",
@@ -413,7 +433,8 @@
             24
         ],
         "pages": "467-476",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "hm"
     },
     "41": {
         "en": "Fussilat ( Explained in Detail )",
@@ -424,7 +445,8 @@
             25
         ],
         "pages": "477-482",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "hm"
     },
     "42": {
         "en": "Ash-Shura (Consultation )",
@@ -434,7 +456,8 @@
             25
         ],
         "pages": "483-489",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "hm-asq"
     },
     "43": {
         "en": "Az-Zukhruf ( The Gold Adornment )",
@@ -444,7 +467,8 @@
             25
         ],
         "pages": "489-495",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "hm"
     },
     "44": {
         "en": "Ad-Dukhan ( The Smoke )",
@@ -454,7 +478,8 @@
             25
         ],
         "pages": "496-498",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "hm"
     },
     "45": {
         "en": "Al-Jathiya ( Crouching )",
@@ -464,7 +489,8 @@
             25
         ],
         "pages": "499-502",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "hm"
     },
     "46": {
         "en": "Al-Ahqaf ( The Curved Sand-hills )",
@@ -474,7 +500,8 @@
             26
         ],
         "pages": "502-506",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "hm"
     },
     "47": {
         "en": "Muhammad ( Muhammad )",
@@ -514,7 +541,8 @@
             26
         ],
         "pages": "518-520",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "q"
     },
     "51": {
         "en": "Adh-Dhariyat ( The Wind that Scatter )",
@@ -694,7 +722,8 @@
             29
         ],
         "pages": "564-566",
-        "nuzul": "makki"
+        "nuzul": "makki",
+		"huruf": "n"
     },
     "69": {
         "en": "Al-Haaqqah ( The Inevitable )",
