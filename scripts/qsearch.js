@@ -1776,6 +1776,12 @@ function displayQPage(p){
 	var img = $("#tqv2 img").first();
 	var imgLoading = $("#tqv2 img").last();
 	
+	configureSwipeEvents(img[0], function(){
+		navigateJuz(false);
+	}, function(){
+		navigateJuz(true);
+	});
+	
 	imgLoading.show();
 	img.on('load', function(){
 		imgLoading.hide();
