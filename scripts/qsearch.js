@@ -1465,18 +1465,18 @@ function listSurahs(){
 							 '<span>'+getTafsirPdfOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>')+
 						 '</td>'+
 						 '<td class="chkR" style="font-size:14px;padding:0;"> '+
-							 '<span><sup>Juz:'+
-									surah.juz.map((j) => '<a href="#" '+
-										'onclick="var o=$(\'#juz-options\');o.val(\'juz'+j+'\');filterSurahs(o,\'juz'+j+'\')"> '+j+' </a>').join(',')+
-							 '</sup></span><br/>'+
-							 '<span><sup>Pages:&nbsp;'+
-								pgNums.map((p) => '<a href="#" onclick="toggleQuranView(true, \''+index+'\', \''+p+'\');">'+ p+'</a>').join(" - ")+
-							 '</sup></span><br/>'+
+							 '<span>Juz:'+
+									surah.juz.map((j) => '<b><a href="#" '+
+										'onclick="var o=$(\'#juz-options\');o.val(\'juz'+j+'\');filterSurahs(o,\'juz'+j+'\')"> '+j+' </a></b>').join(',')+
+							 '</span><br/>'+
+							 '<span>Pages:&nbsp;'+
+								pgNums.map((p) => '<b><a href="#" onclick="toggleQuranView(true, \''+index+'\', \''+p+'\');">'+ p+'</a></b>').join(" - ")+
+							 '</span><br/>'+
 							 '<span class="dropbtn" '+
 							   'title="Research" '+
 							   'style="background-color:transparent;color:black;cursor:pointer;" '+
 							   'onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">'+
-							   '<b>Ayah:'+(surah.ayahCount)+'</b>'+
+							   'Ayah:<b>'+(surah.ayahCount)+'</b>'+
 							'</span>'+
 						 '</td>'+
 					'</tr>';	
