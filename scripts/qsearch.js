@@ -1665,19 +1665,24 @@ function playVerse(url, verseKey, cb){
 
 	if(parent){
 		var durationBar = $("#qt-duration");
+		var durationVal = $("#qt-value")
 		parent.playAudio(url2, function(action, data){
 			
 			if(action == "loadstart"){
 				durationBar.attr('value',0);
+				durationVal.html('');
 			}
 			else if(action == "progress"){
-				if(data && data.ct)
+				if(data && data.ct){
 					durationBar.attr('value', data.ct);
+					durationVal.html(getDurationString(data.ct));
+				}
 			}
 			else if(action == "loadeddata"){
 				if(data){
 					durationBar.attr('max', data.duration);
 					durationBar.attr('value', data.ct);
+					durationVal.html(getDurationString(data.ct));
 					durationBar.parent().css('display', 'inline-block');
 				}
 			}
