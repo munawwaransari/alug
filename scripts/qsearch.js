@@ -1442,7 +1442,7 @@ function listSurahs(){
 			);
 			
 			var manzilImg = mCount === surah.manzil ? '': 
-										'<img style="margin:0;float:left;height:14px;" '+
+										'<img style="margin:0;float:left;height:14px;" title="manzil '+surah.manzil+'" '+
 											  'src="data/qrn/mz'+(surah.manzil)+'.jpg">'+
 										'</img>';
 										
