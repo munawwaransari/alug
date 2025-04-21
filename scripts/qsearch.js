@@ -1418,12 +1418,14 @@ function listSurahs(){
 						'<img style="position:relative;width:100%;" src=""></img>'+
 						'<img style="display:none;position:absolute;opacity:30%;left:35%;top:35%;width:30%;" src="images/loading.gif"></img>'+
 					'</div>'+
-				'<table id="tqv1" style="direction:rtl;max-width:512px;margin:auto;padding:0;" '+
+					'<table id="tqv1" style="direction:rtl;max-width:512px;margin:auto;padding:0;" '+
 						   'class="surahIndex">'+
 						   '<tr><th>Surah</th>'+
 						   '<th class="chkQ">&nbsp;Qirat&nbsp;</th>'+
 						   '<th class="chkT">Tafsir</th>'+
 						   '<th class="chkR">Search</th></tr>';
+		
+		var mCount = 0;
 		for (const [index, surah] of Object.entries(data)) {
 			
 			var juz	= surah.juz.map((j) => 'juz'+j).join(' ');
@@ -1439,7 +1441,11 @@ function listSurahs(){
 				$('<option value="'+index+'">'+index+' ' + surah.ar+'</option>')
 			);
 			
-			//var loc = getLocationPath();
+			var manzilImg = mCount === surah.manzil ? '': 
+										'<img style="margin:0;float:left;height:14px;" '+
+											  'src="data/qrn/mz'+(surah.manzil)+'.jpg">'+
+										'</img>';
+										
 			var huruf = surah.huruf === undefined ? '': '<img style="float:right;height:20px;margin-left:3px;background-color:transparent;" src="data/qrn/'+surah.huruf+'.jpg"></img>';
 			table += '<tr class="'+juz+' '+surah.nuzul+'">'+
 						 '<td '+
@@ -1451,6 +1457,7 @@ function listSurahs(){
 									huruf+
 									'<img style="width:16px;margin:0;float:right;" src="images/'+surah.nuzul+'.jpg"></img>'+
 									'<sup style="float:right">&nbsp;&nbsp;'+index+'</sup>'+
+									manzilImg +
 								'</span>'+
 								'<br/>'+
 							 '<img src="https://raw.githubusercontent.com/gyenabubakar/surah-name-glyphs/3498a6dcde6b7cb3b0ac4c7d7c0754d385ab31fe/svg/'+index+'.svg" '+
@@ -1484,6 +1491,7 @@ function listSurahs(){
 							'</span>'+
 						 '</td>'+
 					'</tr>';	
+			mCount = surah.manzil;
 		}
 		table = table+'</table>';
 		div.append($(table));
