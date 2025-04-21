@@ -7,7 +7,9 @@
             1
         ],
         "pages": "1",
-        "nuzul": "makki"
+        "ruku": 1,
+        "nuzul": "makki",
+        "manzil": 1
     },
     "2": {
         "en": "Al-Baqarah ( The Cow )",
@@ -19,8 +21,10 @@
             3
         ],
         "pages": "2-49",
+        "ruku": 40,
         "nuzul": "madni",
-		"huruf": "alm"
+        "huruf": "alm",
+        "manzil": 1
     },
     "3": {
         "en": "Al-Imran ( The Family of Imran )",
@@ -31,8 +35,10 @@
             4
         ],
         "pages": "50-76",
+        "ruku": 20,
         "nuzul": "madni",
-		"huruf": "alm"
+        "huruf": "alm",
+        "manzil": 1
     },
     "4": {
         "en": "An-Nisa ( The Women )",
@@ -44,7 +50,9 @@
             6
         ],
         "pages": "77-106",
-        "nuzul": "madni"
+        "ruku": 24,
+        "nuzul": "madni",
+        "manzil": 1
     },
     "5": {
         "en": "Al-Maidah ( The Table spread with Food )",
@@ -55,7 +63,9 @@
             7
         ],
         "pages": "106-127",
-        "nuzul": "madni"
+        "ruku": 16,
+        "nuzul": "madni",
+        "manzil": 2
     },
     "6": {
         "en": "Al-An'am ( The Cattle )",
@@ -66,7 +76,9 @@
             8
         ],
         "pages": "128-150",
-        "nuzul": "makki"
+        "ruku": 20,
+        "nuzul": "makki",
+        "manzil": 2
     },
     "7": {
         "en": "Al-A'raf (The Heights )",
@@ -78,8 +90,10 @@
             10
         ],
         "pages": "151-176",
+        "ruku": 24,
         "nuzul": "makki",
-		"huruf": "alms"
+        "huruf": "alms",
+        "manzil": 2
     },
     "8": {
         "en": "Al-Anfal ( The Spoils of War )",
@@ -90,7 +104,9 @@
             11
         ],
         "pages": "177-186",
-        "nuzul": "madni"
+        "ruku": 10,
+        "nuzul": "madni",
+        "manzil": 2
     },
     "9": {
         "en": "At-Taubah ( The Repentance )",
@@ -100,7 +116,9 @@
             11
         ],
         "pages": "187-207",
-        "nuzul": "madni"
+        "ruku": 16,
+        "nuzul": "madni",
+        "manzil": 2
     },
     "10": {
         "en": "Yunus ( Jonah )",
@@ -110,8 +128,10 @@
             11
         ],
         "pages": "208-221",
+        "ruku": 11,
         "nuzul": "makki",
-		"huruf": "alr"
+        "huruf": "alr",
+        "manzil": 3
     },
     "11": {
         "en": "Hud ( Hud )",
@@ -121,8 +141,10 @@
             12
         ],
         "pages": "221-235",
+        "ruku": 10,
         "nuzul": "makki",
-		"huruf": "alr"
+        "huruf": "alr",
+        "manzil": 3
     },
     "12": {
         "en": "Yusuf (Joseph )",
@@ -132,8 +154,10 @@
             12
         ],
         "pages": "235-248",
+        "ruku": 12,
         "nuzul": "makki",
-		"huruf": "alr"
+        "huruf": "alr",
+        "manzil": 3
     },
     "13": {
         "en": "Ar-Ra'd ( The Thunder )",
@@ -143,8 +167,10 @@
             13
         ],
         "pages": "249-255",
+        "ruku": 6,
         "nuzul": "madni",
-		"huruf": "alr"
+        "huruf": "alr",
+        "manzil": 3
     },
     "14": {
         "en": "Ibrahim ( Abraham )",
@@ -154,8 +180,10 @@
             13
         ],
         "pages": "255-261",
+        "ruku": 7,
         "nuzul": "makki",
-		"huruf": "alr"
+        "huruf": "alr",
+        "manzil": 3
     },
     "15": {
         "en": "Al-Hijr ( The Rocky Tract )",
@@ -165,7 +193,9 @@
             14
         ],
         "pages": "262-267",
-        "nuzul": "makki"
+        "ruku": 6,
+        "nuzul": "makki",
+        "manzil": 3
     },
     "16": {
         "en": "An-Nahl ( The Bees )",
@@ -175,7 +205,9 @@
             14
         ],
         "pages": "267-281",
-        "nuzul": "makki"
+        "ruku": 16,
+        "nuzul": "makki",
+        "manzil": 3
     },
     "17": {
         "en": "Al-Isra ( The Night Journey )",
@@ -185,7 +217,9 @@
             15
         ],
         "pages": "282-293",
-        "nuzul": "makki"
+        "ruku": 12,
+        "nuzul": "makki",
+        "manzil": 4
     },
     "18": {
         "en": "Al-Kahf ( The Cave )",
@@ -196,7 +230,9 @@
             16
         ],
         "pages": "293-304",
-        "nuzul": "makki"
+        "ruku": 12,
+        "nuzul": "makki",
+        "manzil": 4
     },
     "19": {
         "en": "Maryam ( Mary )",
@@ -206,8 +242,10 @@
             16
         ],
         "pages": "305-312",
+        "ruku": 6,
         "nuzul": "makki",
-		"huruf": "khyas"
+        "huruf": "khyas",
+        "manzil": 4
     },
     "20": {
         "en": "Taha ( Ta-Ha )",
@@ -217,8 +255,10 @@
             16
         ],
         "pages": "312-321",
+        "ruku": 8,
         "nuzul": "makki",
-		"huruf": "th"
+        "huruf": "th",
+        "manzil": 4
     },
     "21": {
         "en": "Al-Anbiya ( The Prophets )",
@@ -228,7 +268,9 @@
             17
         ],
         "pages": "322-331",
-        "nuzul": "makki"
+        "ruku": 7,
+        "nuzul": "makki",
+        "manzil": 4
     },
     "22": {
         "en": "Al-Hajj ( The Pilgrimage )",
@@ -238,8 +280,10 @@
             17
         ],
         "pages": "332-341",
+        "ruku": 10,
         "nuzul": "madni",
-		"huruf": "alr"
+        "huruf": "alr",
+        "manzil": 4
     },
     "23": {
         "en": "Al-Mu'minoon ( The Believers )",
@@ -249,7 +293,9 @@
             18
         ],
         "pages": "342-349",
-        "nuzul": "makki"
+        "ruku": 6,
+        "nuzul": "makki",
+        "manzil": 4
     },
     "24": {
         "en": "An-Noor ( The Light )",
@@ -259,7 +305,9 @@
             18
         ],
         "pages": "350-359",
-        "nuzul": "madni"
+        "ruku": 9,
+        "nuzul": "madni",
+        "manzil": 4
     },
     "25": {
         "en": "Al-Furqan (The Criterion )",
@@ -270,7 +318,9 @@
             19
         ],
         "pages": "359-366",
-        "nuzul": "makki"
+        "ruku": 6,
+        "nuzul": "makki",
+        "manzil": 4
     },
     "26": {
         "en": "Ash-Shuara ( The Poets )",
@@ -280,8 +330,10 @@
             19
         ],
         "pages": "367-376",
+        "ruku": 11,
         "nuzul": "makki",
-		"huruf": "tsm"
+        "huruf": "tsm",
+        "manzil": 5
     },
     "27": {
         "en": "An-Naml (The Ants )",
@@ -292,8 +344,10 @@
             20
         ],
         "pages": "377-385",
+        "ruku": 7,
         "nuzul": "makki",
-		"huruf": "ts"
+        "huruf": "ts",
+        "manzil": 5
     },
     "28": {
         "en": "Al-Qasas ( The Stories )",
@@ -303,8 +357,10 @@
             20
         ],
         "pages": "385-396",
+        "ruku": 9,
         "nuzul": "makki",
-		"huruf": "tsm"
+        "huruf": "tsm",
+        "manzil": 5
     },
     "29": {
         "en": "Al-Ankaboot ( The Spider )",
@@ -315,8 +371,10 @@
             21
         ],
         "pages": "396-404",
+        "ruku": 7,
         "nuzul": "makki",
-		"huruf": "alm"
+        "huruf": "alm",
+        "manzil": 5
     },
     "30": {
         "en": "Ar-Room ( The Romans )",
@@ -326,8 +384,10 @@
             21
         ],
         "pages": "404-410",
+        "ruku": 6,
         "nuzul": "makki",
-		"huruf": "alm"
+        "huruf": "alm",
+        "manzil": 5
     },
     "31": {
         "en": "Luqman ( Luqman )",
@@ -337,8 +397,10 @@
             21
         ],
         "pages": "411-414",
+        "ruku": 4,
         "nuzul": "makki",
-		"huruf": "alm"
+        "huruf": "alm",
+        "manzil": 5
     },
     "32": {
         "en": "As-Sajdah ( The Prostration )",
@@ -348,8 +410,10 @@
             21
         ],
         "pages": "415-417",
+        "ruku": 3,
         "nuzul": "makki",
-		"huruf": "alm"
+        "huruf": "alm",
+        "manzil": 5
     },
     "33": {
         "en": "Al-Ahzab ( The Combined Forces )",
@@ -360,7 +424,9 @@
             22
         ],
         "pages": "418-427",
-        "nuzul": "madni"
+        "ruku": 9,
+        "nuzul": "madni",
+        "manzil": 5
     },
     "34": {
         "en": "Saba ( Sheba )",
@@ -370,7 +436,9 @@
             22
         ],
         "pages": "428-434",
-        "nuzul": "makki"
+        "ruku": 6,
+        "nuzul": "makki",
+        "manzil": 5
     },
     "35": {
         "en": "Fatir ( The Orignator )",
@@ -380,7 +448,9 @@
             22
         ],
         "pages": "434-440",
-        "nuzul": "makki"
+        "ruku": 5,
+        "nuzul": "makki",
+        "manzil": 5
     },
     "36": {
         "en": "Ya-seen ( Ya-seen )",
@@ -390,8 +460,10 @@
             23
         ],
         "pages": "440-445",
+        "ruku": 5,
         "nuzul": "makki",
-		"huruf": "ys"
+        "huruf": "ys",
+        "manzil": 5
     },
     "37": {
         "en": "As-Saaffat ( Those Ranges in Ranks )",
@@ -401,7 +473,9 @@
             23
         ],
         "pages": "446-452",
-        "nuzul": "makki"
+        "ruku": 5,
+        "nuzul": "makki",
+        "manzil": 6
     },
     "38": {
         "en": "Sad ( The Letter Sad )",
@@ -411,8 +485,10 @@
             23
         ],
         "pages": "453-458",
+        "ruku": 5,
         "nuzul": "makki",
-		"huruf": "s"
+        "huruf": "s",
+        "manzil": 6
     },
     "39": {
         "en": "Az-Zumar ( The Groups )",
@@ -423,7 +499,9 @@
             24
         ],
         "pages": "458-467",
-        "nuzul": "makki"
+        "ruku": 8,
+        "nuzul": "makki",
+        "manzil": 6
     },
     "40": {
         "en": "Ghafir ( The Forgiver God )",
@@ -433,8 +511,10 @@
             24
         ],
         "pages": "467-476",
+        "ruku": 9,
         "nuzul": "makki",
-		"huruf": "hm"
+        "huruf": "hm",
+        "manzil": 6
     },
     "41": {
         "en": "Fussilat ( Explained in Detail )",
@@ -445,8 +525,10 @@
             25
         ],
         "pages": "477-482",
+        "ruku": 6,
         "nuzul": "makki",
-		"huruf": "hm"
+        "huruf": "hm",
+        "manzil": 6
     },
     "42": {
         "en": "Ash-Shura (Consultation )",
@@ -456,8 +538,10 @@
             25
         ],
         "pages": "483-489",
+        "ruku": 5,
         "nuzul": "makki",
-		"huruf": "hm-asq"
+        "huruf": "hm-asq",
+        "manzil": 6
     },
     "43": {
         "en": "Az-Zukhruf ( The Gold Adornment )",
@@ -467,8 +551,10 @@
             25
         ],
         "pages": "489-495",
+        "ruku": 7,
         "nuzul": "makki",
-		"huruf": "hm"
+        "huruf": "hm",
+        "manzil": 6
     },
     "44": {
         "en": "Ad-Dukhan ( The Smoke )",
@@ -478,8 +564,10 @@
             25
         ],
         "pages": "496-498",
+        "ruku": 3,
         "nuzul": "makki",
-		"huruf": "hm"
+        "huruf": "hm",
+        "manzil": 6
     },
     "45": {
         "en": "Al-Jathiya ( Crouching )",
@@ -489,8 +577,10 @@
             25
         ],
         "pages": "499-502",
+        "ruku": 4,
         "nuzul": "makki",
-		"huruf": "hm"
+        "huruf": "hm",
+        "manzil": 6
     },
     "46": {
         "en": "Al-Ahqaf ( The Curved Sand-hills )",
@@ -500,8 +590,10 @@
             26
         ],
         "pages": "502-506",
+        "ruku": 4,
         "nuzul": "makki",
-		"huruf": "hm"
+        "huruf": "hm",
+        "manzil": 6
     },
     "47": {
         "en": "Muhammad ( Muhammad )",
@@ -511,7 +603,9 @@
             26
         ],
         "pages": "507-510",
-        "nuzul": "madni"
+        "ruku": 4,
+        "nuzul": "madni",
+        "manzil": 6
     },
     "48": {
         "en": "Al-Fath ( The Victory )",
@@ -521,7 +615,9 @@
             26
         ],
         "pages": "511-515",
-        "nuzul": "madni"
+        "ruku": 4,
+        "nuzul": "madni",
+        "manzil": 6
     },
     "49": {
         "en": "Al-Hujurat ( The Dwellings )",
@@ -531,7 +627,9 @@
             26
         ],
         "pages": "515-517",
-        "nuzul": "madni"
+        "ruku": 2,
+        "nuzul": "madni",
+        "manzil": 6
     },
     "50": {
         "en": "Qaf ( The Letter Qaf )",
@@ -541,8 +639,10 @@
             26
         ],
         "pages": "518-520",
+        "ruku": 3,
         "nuzul": "makki",
-		"huruf": "q"
+        "huruf": "q",
+        "manzil": 7
     },
     "51": {
         "en": "Adh-Dhariyat ( The Wind that Scatter )",
@@ -552,7 +652,9 @@
             27
         ],
         "pages": "520-523",
-        "nuzul": "makki"
+        "ruku": 3,
+        "nuzul": "makki",
+        "manzil": 7
     },
     "52": {
         "en": "At-Tur ( The Mount )",
@@ -562,7 +664,9 @@
             27
         ],
         "pages": "523-525",
-        "nuzul": "makki"
+        "ruku": 2,
+        "nuzul": "makki",
+        "manzil": 7
     },
     "53": {
         "en": "An-Najm ( The Star )",
@@ -572,7 +676,9 @@
             27
         ],
         "pages": "526-528",
-        "nuzul": "makki"
+        "ruku": 3,
+        "nuzul": "makki",
+        "manzil": 7
     },
     "54": {
         "en": "Al-Qamar ( The Moon )",
@@ -582,7 +688,9 @@
             27
         ],
         "pages": "528-531",
-        "nuzul": "makki"
+        "ruku": 3,
+        "nuzul": "makki",
+        "manzil": 7
     },
     "55": {
         "en": "Ar-Rahman ( The Most Graciouse )",
@@ -592,7 +700,9 @@
             27
         ],
         "pages": "531-534",
-        "nuzul": "madni"
+        "ruku": 3,
+        "nuzul": "madni",
+        "manzil": 7
     },
     "56": {
         "en": "Al-Waqi'ah ( The Event )",
@@ -602,7 +712,9 @@
             27
         ],
         "pages": "534-537",
-        "nuzul": "makki"
+        "ruku": 3,
+        "nuzul": "makki",
+        "manzil": 7
     },
     "57": {
         "en": "Al-Hadid ( The Iron )",
@@ -612,7 +724,9 @@
             27
         ],
         "pages": "537-541",
-        "nuzul": "madni"
+        "ruku": 4,
+        "nuzul": "madni",
+        "manzil": 7
     },
     "58": {
         "en": "Al-Mujadilah ( She That Disputeth )",
@@ -622,7 +736,9 @@
             28
         ],
         "pages": "542-545",
-        "nuzul": "madni"
+        "ruku": 3,
+        "nuzul": "madni",
+        "manzil": 7
     },
     "59": {
         "en": "Al-Hashr ( The Gathering )",
@@ -632,7 +748,9 @@
             28
         ],
         "pages": "545-548",
-        "nuzul": "madni"
+        "ruku": 3,
+        "nuzul": "madni",
+        "manzil": 7
     },
     "60": {
         "en": "Al-Mumtahanah ( The Woman to be examined )",
@@ -642,7 +760,9 @@
             28
         ],
         "pages": "549-551",
-        "nuzul": "madni"
+        "ruku": 2,
+        "nuzul": "madni",
+        "manzil": 7
     },
     "61": {
         "en": "As-Saff ( The Row )",
@@ -652,7 +772,9 @@
             28
         ],
         "pages": "551-552",
-        "nuzul": "madni"
+        "ruku": 2,
+        "nuzul": "madni",
+        "manzil": 7
     },
     "62": {
         "en": "Al-Jumu'ah ( Friday )",
@@ -662,7 +784,9 @@
             28
         ],
         "pages": "553-554",
-        "nuzul": "madni"
+        "ruku": 2,
+        "nuzul": "madni",
+        "manzil": 7
     },
     "63": {
         "en": "Al-Munafiqoon ( The Hypocrites )",
@@ -672,7 +796,9 @@
             28
         ],
         "pages": "554-555",
-        "nuzul": "madni"
+        "ruku": 2,
+        "nuzul": "madni",
+        "manzil": 7
     },
     "64": {
         "en": "At-Taghabun ( Mutual Loss & Gain )",
@@ -682,7 +808,9 @@
             28
         ],
         "pages": "556-557",
-        "nuzul": "madni"
+        "ruku": 2,
+        "nuzul": "madni",
+        "manzil": 7
     },
     "65": {
         "en": "At-Talaq ( The Divorce )",
@@ -692,7 +820,9 @@
             28
         ],
         "pages": "558-559",
-        "nuzul": "madni"
+        "ruku": 2,
+        "nuzul": "madni",
+        "manzil": 7
     },
     "66": {
         "en": "At-Tahrim ( The Prohibition )",
@@ -702,7 +832,9 @@
             28
         ],
         "pages": "560-561",
-        "nuzul": "madni"
+        "ruku": 2,
+        "nuzul": "madni",
+        "manzil": 7
     },
     "67": {
         "en": "Al-Mulk ( Dominion )",
@@ -712,7 +844,9 @@
             29
         ],
         "pages": "562-564",
-        "nuzul": "makki"
+        "ruku": 2,
+        "nuzul": "makki",
+        "manzil": 7
     },
     "68": {
         "en": "Al-Qalam ( The Pen )",
@@ -722,8 +856,10 @@
             29
         ],
         "pages": "564-566",
+        "ruku": 2,
         "nuzul": "makki",
-		"huruf": "n"
+        "huruf": "n",
+        "manzil": 7
     },
     "69": {
         "en": "Al-Haaqqah ( The Inevitable )",
@@ -733,7 +869,9 @@
             29
         ],
         "pages": "566-568",
-        "nuzul": "makki"
+        "ruku": 2,
+        "nuzul": "makki",
+        "manzil": 7
     },
     "70": {
         "en": "Al-Ma'arij (The Ways of Ascent )",
@@ -743,7 +881,9 @@
             29
         ],
         "pages": "568-570",
-        "nuzul": "makki"
+        "ruku": 2,
+        "nuzul": "makki",
+        "manzil": 7
     },
     "71": {
         "en": "Nooh ( Noah )",
@@ -753,7 +893,9 @@
             29
         ],
         "pages": "570-571",
-        "nuzul": "makki"
+        "ruku": 2,
+        "nuzul": "makki",
+        "manzil": 7
     },
     "72": {
         "en": "Al-Jinn ( The Jinn )",
@@ -763,7 +905,9 @@
             29
         ],
         "pages": "572-573",
-        "nuzul": "makki"
+        "ruku": 2,
+        "nuzul": "makki",
+        "manzil": 7
     },
     "73": {
         "en": "Al-Muzzammil (The One wrapped in Garments)",
@@ -773,7 +917,9 @@
             29
         ],
         "pages": "574-575",
-        "nuzul": "makki"
+        "ruku": 2,
+        "nuzul": "makki",
+        "manzil": 7
     },
     "74": {
         "en": "Al-Muddaththir ( The One Enveloped )",
@@ -783,7 +929,9 @@
             29
         ],
         "pages": "575-577",
-        "nuzul": "makki"
+        "ruku": 2,
+        "nuzul": "makki",
+        "manzil": 7
     },
     "75": {
         "en": "Al-Qiyamah ( The Resurrection )",
@@ -793,7 +941,9 @@
             29
         ],
         "pages": "577-578",
-        "nuzul": "makki"
+        "ruku": 2,
+        "nuzul": "makki",
+        "manzil": 7
     },
     "76": {
         "en": "Al-Insan ( Man )",
@@ -803,7 +953,9 @@
             29
         ],
         "pages": "578-580",
-        "nuzul": "madni"
+        "ruku": 2,
+        "nuzul": "madni",
+        "manzil": 7
     },
     "77": {
         "en": "Al-Mursalat ( Those sent forth )",
@@ -813,7 +965,9 @@
             29
         ],
         "pages": "580-581",
-        "nuzul": "makki"
+        "ruku": 2,
+        "nuzul": "makki",
+        "manzil": 7
     },
     "78": {
         "en": "An-Naba' ( The Great News )",
@@ -823,7 +977,9 @@
             30
         ],
         "pages": "582-583",
-        "nuzul": "makki"
+        "ruku": 2,
+        "nuzul": "makki",
+        "manzil": 7
     },
     "79": {
         "en": "An-Nazi'at ( Those who Pull Out )",
@@ -833,7 +989,9 @@
             30
         ],
         "pages": "583-584",
-        "nuzul": "makki"
+        "ruku": 2,
+        "nuzul": "makki",
+        "manzil": 7
     },
     "80": {
         "en": "Abasa ( He frowned )",
@@ -843,7 +1001,8 @@
             30
         ],
         "pages": "585",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "81": {
         "en": "At-Takwir ( The Overthrowing )",
@@ -853,7 +1012,8 @@
             30
         ],
         "pages": "586",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "82": {
         "en": "Al-Infitar ( The Cleaving )",
@@ -863,7 +1023,8 @@
             30
         ],
         "pages": "587",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "83": {
         "en": "Al-Mutaffifin (Those Who Deal in Fraud)",
@@ -873,7 +1034,8 @@
             30
         ],
         "pages": "587-589",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "84": {
         "en": "Al-Inshiqaq (The Splitting Asunder)",
@@ -883,7 +1045,8 @@
             30
         ],
         "pages": "589",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "85": {
         "en": "Al-Burooj ( The Big Stars )",
@@ -893,7 +1056,8 @@
             30
         ],
         "pages": "590",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "86": {
         "en": "At-Tariq ( The Night-Comer )",
@@ -903,7 +1067,8 @@
             30
         ],
         "pages": "591",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "87": {
         "en": "Al-A'la ( The Most High )",
@@ -913,7 +1078,8 @@
             30
         ],
         "pages": "591-592",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "88": {
         "en": "Al-Ghashiya ( The Overwhelming )",
@@ -923,7 +1089,8 @@
             30
         ],
         "pages": "592",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "89": {
         "en": "Al-Fajr ( The Dawn )",
@@ -933,7 +1100,8 @@
             30
         ],
         "pages": "593-594",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "90": {
         "en": "Al-Balad ( The City )",
@@ -943,7 +1111,8 @@
             30
         ],
         "pages": "594",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "91": {
         "en": "Ash-Shams ( The Sun )",
@@ -953,7 +1122,8 @@
             30
         ],
         "pages": "595",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "92": {
         "en": "Al-Layl ( The Night )",
@@ -963,7 +1133,8 @@
             30
         ],
         "pages": "595-596",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "93": {
         "en": "Ad-Dhuha ( The Forenoon )",
@@ -973,7 +1144,8 @@
             30
         ],
         "pages": "596",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "94": {
         "en": "As-Sharh ( The Opening Forth)",
@@ -983,7 +1155,8 @@
             30
         ],
         "pages": "596",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "95": {
         "en": "At-Tin ( The Fig )",
@@ -993,7 +1166,8 @@
             30
         ],
         "pages": "597",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "96": {
         "en": "Al-'alaq ( The Clot )",
@@ -1003,7 +1177,8 @@
             30
         ],
         "pages": "597",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "97": {
         "en": "Al-Qadr ( The Night of Decree )",
@@ -1013,7 +1188,8 @@
             30
         ],
         "pages": "598",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "98": {
         "en": "Al-Bayyinah ( The Clear Evidence )",
@@ -1023,7 +1199,8 @@
             30
         ],
         "pages": "598-599",
-        "nuzul": "madni"
+        "nuzul": "madni",
+        "manzil": 7
     },
     "99": {
         "en": "Az-Zalzalah ( The Earthquake )",
@@ -1033,7 +1210,8 @@
             30
         ],
         "pages": "599",
-        "nuzul": "madni"
+        "nuzul": "madni",
+        "manzil": 7
     },
     "100": {
         "en": "Al-'adiyat ( Those That Run )",
@@ -1043,7 +1221,8 @@
             30
         ],
         "pages": "599-600",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "101": {
         "en": "Al-Qari'ah ( The Striking Hour )",
@@ -1053,7 +1232,8 @@
             30
         ],
         "pages": "600",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "102": {
         "en": "At-Takathur ( The piling Up )",
@@ -1063,7 +1243,8 @@
             30
         ],
         "pages": "600",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "103": {
         "en": "Al-Asr ( The Time )",
@@ -1073,7 +1254,8 @@
             30
         ],
         "pages": "601",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "104": {
         "en": "Al-Humazah ( The Slanderer )",
@@ -1083,7 +1265,8 @@
             30
         ],
         "pages": "601",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "105": {
         "en": "Al-Fil ( The Elephant )",
@@ -1093,7 +1276,8 @@
             30
         ],
         "pages": "601",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "106": {
         "en": "Quraish ( Quraish )",
@@ -1103,7 +1287,8 @@
             30
         ],
         "pages": "602",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "107": {
         "en": "Al-Ma'un ( Small Kindnesses )",
@@ -1113,7 +1298,8 @@
             30
         ],
         "pages": "602",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "108": {
         "en": "Al-Kauthor ( A River in Paradise)",
@@ -1123,7 +1309,8 @@
             30
         ],
         "pages": "602",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "109": {
         "en": "Al-Kafiroon ( The Disbelievers )",
@@ -1133,7 +1320,8 @@
             30
         ],
         "pages": "603",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "110": {
         "en": "An-Nasr ( The Help )",
@@ -1143,7 +1331,8 @@
             30
         ],
         "pages": "603",
-        "nuzul": "madni"
+        "nuzul": "madni",
+        "manzil": 7
     },
     "111": {
         "en": "Al-Masad ( The Palm Fibre )",
@@ -1153,7 +1342,8 @@
             30
         ],
         "pages": "603",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "112": {
         "en": "Al-Ikhlas ( Sincerity )",
@@ -1163,7 +1353,8 @@
             30
         ],
         "pages": "604",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "113": {
         "en": "Al-Falaq ( The Daybreak )",
@@ -1173,7 +1364,8 @@
             30
         ],
         "pages": "604",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     },
     "114": {
         "en": "An-Nas ( Mankind )",
@@ -1183,6 +1375,7 @@
             30
         ],
         "pages": "604",
-        "nuzul": "makki"
+        "nuzul": "makki",
+        "manzil": 7
     }
 }

@@ -1475,11 +1475,12 @@ function listSurahs(){
 							 '<span>Pages:&nbsp;'+
 								pgNums.map((p) => '<b><a href="#" onclick="toggleQuranView(true, \''+index+'\', \''+p+'\');">'+ p+'</a></b>').join(" - ")+
 							 '</span><br/>'+
+							 //'<span>Rukus:&nbsp;'+(surah.ruku === undefined ? 1 : surah.ruku)+'</span><br/>'+
 							 '<span class="dropbtn" '+
 							   'title="Research" '+
 							   'style="background-color:transparent;color:black;cursor:pointer;" '+
 							   'onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">'+
-							   'Ayah:<b>'+(surah.ayahCount)+'</b>'+
+							   'Ayah:<b>1-'+(surah.ayahCount)+'</b>'+
 							'</span>'+
 						 '</td>'+
 					'</tr>';	
