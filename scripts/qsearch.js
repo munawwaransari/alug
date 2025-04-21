@@ -829,7 +829,7 @@ function getTafsirPdfOptions(index, chapterEn, chapterAr){
 	return '<span class="dropdown" style="direction:ltr;">'+
 				'<button id="'+id+'" '+
 					'class="dropbtn" onclick="toggleDropdownContent(this, true)" '+
-					'style="background-color:transparent;color:black;">📓</button>'+
+					'style="background-color:transparent;color:black;font-size:22px;">📓</button>'+
 					'<div class="dropdown-content" style="">'+options+'</div>'+
 			'</span>';
 }
@@ -1146,7 +1146,7 @@ function getPlayControlsHtml(id, options, symbol){
 	return '<span class="dropdown" style="direction:ltr;">'+
 			  '<button id="'+id+'" '+
 					   'class="dropbtn" onclick="toggleDropdownContent(this, true)" '+
-					   'style="background-color:transparent;color:black;">'+symbol+'</button>'+
+					   'style="background-color:transparent;color:black;font-size:22px;">'+symbol+'</button>'+
 			   '<div class="dropdown-content" style="">'+options+'</div>'+
 			   '<img id="'+id+'-progress" src="images/loading.gif" '+ 	
 						'style="display:none;width:16px;"></img>'+
