@@ -141,6 +141,7 @@ Search Quran using QuranJS API
 */
 function search(pageNumber){
 	$("#qMM").hide();
+	$("#manzil").hide();
 	$(".navDn").hide();
 	$(".navUp").hide();
 	$("#playbox").hide();
@@ -1362,6 +1363,7 @@ function navigateJuz(next){
 }
 
 function filterSurahs(elem, cname){
+	var manzil = $("#manzil").attr('data-value');
 	var opt = cname ?? $("#juz-options").val();
 	if(opt === "all"){
 		$(".surahIndex [class^=\'juz\']").show();
@@ -1369,7 +1371,6 @@ function filterSurahs(elem, cname){
 			$(elem).prev().css('color','transparent');
 			$(elem).next().next().css('color','transparent');
 		}
-		filterMakkiMadni();
 	}else{
 		$(".surahIndex [class^=\'juz\']").hide();
 		$(".qword-selected").parent().show();
@@ -1378,10 +1379,14 @@ function filterSurahs(elem, cname){
 			$(elem).prev().css('color','crimson');
 			$(elem).next().next().css('color','crimson');
 		}
-		filterMakkiMadni(opt);
 	}
+	//setTimeout(function(){
+		filterManzil($("#manzil").attr('data-value'));
+	//},5);
+	//},5);
 }
 
+/*
 function filterMakkiMadni(juz){
 	var mm = $("#qMM").attr('data-value');
 	if(mm !== 'makki.madni'){
@@ -1397,6 +1402,25 @@ function filterMakkiMadni(juz){
 		$((juz ? '.'+juz: '') + ".madni").show();
 	}
 }
+*/
+
+function filterManzil(val){
+	$("#manzil").attr('src','data/qrn/'+val+'.jpg');
+	$("#manzil").attr('data-value', val);
+	$("#manzil").next().hide();
+	
+	var mm = $("#qMM").attr('data-value');
+	var juz = $('juz-options').val();
+	juz = (juz === undefined || juz === "all") ? " [class^='juz']": "."+juz;
+	var elems = $('.surahIndex'+juz);
+	for(var i=0; i < elems.length; i++){
+		var elem = $(elems[i]);
+		if( (val === "manzil" || elem.hasClass(val)) && (mm === "makki.madni" || elem.hasClass(mm)))
+			elem.show();
+		else
+			elem.hide();
+	}
+}
 
 /*
 Loads Quran surah index
@@ -1404,6 +1428,7 @@ Loads Quran surah index
 var surah_list;
 function listSurahs(){
 	$("#qMM").show();
+	$("#manzil").show();
 	$("#qari").hide();
 	$("#juz").show();
 	var path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
@@ -1447,7 +1472,7 @@ function listSurahs(){
 										'</img>';
 										
 			var huruf = surah.huruf === undefined ? '': '<img style="float:right;height:20px;margin-left:3px;background-color:transparent;" src="data/qrn/'+surah.huruf+'.jpg"></img>';
-			table += '<tr class="'+juz+' '+surah.nuzul+'">'+
+			table += '<tr class="'+juz+' '+surah.nuzul+' mz'+surah.manzil+'">'+
 						 '<td '+
 							 'class="qword" style="max-width:80px;font-szie:14px;padding:0;padding-bottom:6px;">'+
 								'<span>'+
@@ -1752,6 +1777,7 @@ function toggleQHead(){
 function toggleQuranView(readView, index, page){
 	if(readView){
 		$("#qMM").hide();
+		$("#manzil").hide();
 		$(".navDn").hide();
 		$(".navUp").hide();
 		$("#qv1").hide();
@@ -1772,6 +1798,7 @@ function toggleQuranView(readView, index, page){
 			displayQPage();
 	}else{
 		$("#qMM").show();
+		$("#manzil").show();
 		$("#qv2").hide();
 		$("#qv1").show();		
 		$("#qv2").parent().find("input[type='checkbox']").parent().show();
