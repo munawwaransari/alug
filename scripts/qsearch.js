@@ -1152,7 +1152,7 @@ function getPlayControlsHtml(id, options, symbol){
 			   '<img id="'+id+'-progress" src="images/loading.gif" '+ 	
 						'style="display:none;width:16px;"></img>'+
 				'<img id="'+id+'-play-progress" src="images/playprog.gif" '+ 	
-					'style="display:none;width:16px;"></img>'+
+					'style="display:none;width:26px;"></img>'+
 		   '</span>';
 }
 
@@ -1467,7 +1467,7 @@ function listSurahs(){
 			);
 			
 			var manzilImg = mCount === surah.manzil ? '': 
-										'<img style="margin:0;float:left;height:14px;" title="manzil '+surah.manzil+'" '+
+										'<img style="margin:0;margin-right:4px;float:right;height:14px;" title="manzil '+surah.manzil+'" '+
 											  'src="data/qrn/mz'+(surah.manzil)+'.jpg">'+
 										'</img>';
 										
@@ -1477,12 +1477,12 @@ function listSurahs(){
 							 'class="qword" style="max-width:80px;font-szie:14px;padding:0;padding-bottom:6px;">'+
 								'<span>'+
 									'<b class="navUp" '+
-									  'style="display:none;float:right;cursor:pointer;" '+
+									  'style="display:none;float:left;cursor:pointer;" '+
 									  'onclick="bringIntoView(\'#playbox\')">&nbsp;&nbsp;&#x2B06;&nbsp;&nbsp;</b>'+
 									huruf+
 									'<img style="width:16px;margin:0;float:right;" src="images/'+surah.nuzul+'.jpg"></img>'+
-									'<sup style="float:right">&nbsp;&nbsp;'+index+'</sup>'+
 									manzilImg +
+									'<sup style="float:right">&nbsp;&nbsp;'+index+'</sup>'+
 								'</span>'+
 								'<br/>'+
 							 '<img src="https://raw.githubusercontent.com/gyenabubakar/surah-name-glyphs/3498a6dcde6b7cb3b0ac4c7d7c0754d385ab31fe/svg/'+index+'.svg" '+
@@ -1491,7 +1491,7 @@ function listSurahs(){
 									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
 								'</span>'+
 						 '</td>'+
-						 '<td class="chkQ" style="font-size:14px;cursor:pointer;padding:0;">'+
+						 '<td class="chkQ" style="width:30px;font-size:14px;cursor:pointer;padding:0;">'+
 							 '<span>'+getQuranAudioOptions(index, surah.en, surah.ayahCount)+'</span>'+
 						 '</td>'+
 						 '<td class="chkT" style="font-size:14px;cursor:pointer;padding:0;">'+
