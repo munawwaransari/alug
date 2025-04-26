@@ -257,11 +257,11 @@
 		</div>
 		<div id="juz" style="width:100%;background-color:#9DBF6C;padding:0px;
 									 display:flex;flex-direction:row;justify-content: center;">
-			<span style="float:left;font-size:12px;padding-right:20px;margin-top:8px;">
+			<span style="float:left;font-size:12px;padding-right:8px;margin-top:8px;">
 				<input type="checkbox" onchange="$('.chkR').toggle()" checked>Explore</span>
-			<span style="float:left;font-size:12px;padding-right:20px;margin-top:8px;">
+			<span style="float:left;font-size:12px;padding-right:8px;margin-top:8px;">
 				<input type="checkbox" onchange="$('.chkT').toggle()" checked>Tafseer</span>
-			<span style="float:left;font-size:12px;padding-right:20px;margin-top:8px;">
+			<span style="float:left;font-size:12px;padding-right:4px;margin-top:8px;">
 				<input type="checkbox" onchange="$('.chkQ').toggle()" checked>Qirat</span>
 			
 			<select style="display:none;background-color:#b5d090;padding:0;width:100px;font-szie:12px;" 
@@ -284,7 +284,7 @@
 				onclick="navigateJuz(true)">↠</span>
 			<span class="dropdown" style="margin:auto;padding:0;" >
 				<img id="manzil" data-value="manzil" 
-					 style="display:none;cursor:pointer;width:20px;height:20px;margin:auto;margin-top:4px;margin-right:-8px;border:1px solid #555;margin-right:8px;" 
+					 style="display:none;cursor:pointer;width:28px;height:28px;margin:auto;margin-top:4px;margin-right:-8px;border:1px solid #555;margin-right:8px;" 
 					 src="data/qrn/manzil.jpg" onclick="$(this).next().show()">
 				</img>
 				<div class="dropdown-content" style="font-size:14px;">
@@ -301,15 +301,18 @@
 			<img id="qMM"
 				data-value="makki.madni"
 				onclick="toggleMakkiMadni()"
-				style="display:none;cursor:pointer;width:20px;height:20px;margin:auto;border:1px solid #555;" 
+				style="display:none;cursor:pointer;width:28px;height:28px;margin:auto;border:1px solid #555;" 
 				src="images/makki.madni.jpg">
 			</img>
 			<button id="qv1" style="font-size:10px;margin-left:10px;cursor:pointer;"
 				onclick="toggleQuranView(true)">
 				<img style="width:16px;height:16px;" src="images/q2.png"></img><br/>Tabular
 			</button>
-			<button style="height:100;width:40px;display:none;cursor:pointer;margin-left:1px;
-						   background-color:transparent; border:none; margin-top:-6px;"
+			<button style="height:100;display:none;cursor:pointer;margin-left:1px;
+						   background-color:transparent; border-color:lightsteelblue;"
+				  onclick="changeQari=true;isAutoPlayQirat=false; searchText($('#surah-options').val()+':1')"><b>؏</b></button>
+			<button style="height:100;display:none;cursor:pointer;margin-left:1px;
+						   background-color:transparent; border-color:lightsteelblue;"
 				  onclick="playOrStopCurrentPage(this)">▶</button>
 			<button id="qv2" style="font-size:10px;display:none;margin-left:4px;cursor:pointer;"
 				onclick="toggleQuranView(false)">

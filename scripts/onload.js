@@ -248,9 +248,12 @@ function toggleHead(){
 function toggleAutoplay(){
 	
 	if(!speech_synthesis_supportd){
-		toggleIcon("#ss-support");
+		$("#ss-support_2").show();
+		//toggleIcon("#ss-support");
 		//alert('Speech synthesis is not supported on your browser!');
 	}else{
+		$("#ss-support_1").hide();
+		$("#ss-support_2").hide();
 		toggleIcon("#speech");
 		autoplay = !autoplay;
 		

@@ -1427,6 +1427,8 @@ Loads Quran surah index
 */
 var surah_list;
 function listSurahs(){
+	$("#juz").children().last().prev().prev().hide();
+	$("#juz").children().last().prev().hide();
 	$("#qMM").show();
 	$("#manzil").show();
 	$("#qari").hide();
@@ -1790,6 +1792,7 @@ function toggleQuranView(readView, index, page){
 		$("#tqv2").show();
 		$("#juz-options").prev().css('color','crimson');
 		$("#juz-options").next().next().css('color','crimson');
+		$("#juz").children().last().prev().prev().show();
 		$("#juz").children().last().prev().show();
 		
 		if(index && page)
@@ -1809,6 +1812,7 @@ function toggleQuranView(readView, index, page){
 		$("#tqv2").hide();
 		$("#juz-options").prev().css('color','transparent');
 		$("#juz-options").next().next().css('color','transparent');
+		$("#juz").children().last().prev().prev().hide();
 		$("#juz").children().last().prev().hide();
 	}
 }
