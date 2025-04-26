@@ -206,19 +206,21 @@
 				</span>
 				<button class="dropbtn" onclick="listSurahs()">Surahs</button>
 				<button class="dropbtn" id="filterWord" onclick="filterWords()">Words</button>
+				<span class="dropdown" style="display:inline-block">
+				<Button class="dropdown dropbtn" title="Powered by">ꗝ️</button>
+					<div class="dropdown-content" style="font-size:10px;left:0">
+						<a href='https://quranjs.com/'
+							onclick="window.open(this.href, '_blank'); return false;">QuranJS API</a>
+						<a href='https://www.truemuslims.net'
+							onclick="window.open(this.href, '_blank'); return false;">www.truemuslims.net</a>
+						<a href='https://everyayah.com/'
+							onclick="window.open(this.href, '_blank'); return false;">everyayah.com</a>
+						<a href='https://github.com/spa5k/tafsir_api/'
+							onclick="window.open(this.href, '_blank'); return false;">spa5k/tafsir_api</a>
+					</div>
+				</span>
 				<!-- <button class="dropbtn" id="SearchH" title="Search sunnah.com" onclick="searchHadith()">الحديث</button> -->
 			</div>
-		</div>
-		<div>
-			<p style="font-size: 9px;">Powered by <a href='https://quranjs.com/'
-					onclick="window.open(this.href, '_blank'); return false;">QuranJS API,</a>&nbsp;&nbsp;
-				<a href='https://www.truemuslims.net'
-					onclick="window.open(this.href, '_blank'); return false;">www.truemuslims.net,</a>&nbsp;&nbsp;
-				<a href='https://everyayah.com/'
-					onclick="window.open(this.href, '_blank'); return false;">everyayah.com,</a>&nbsp;&nbsp;
-				<a href='https://github.com/spa5k/tafsir_api/'
-					onclick="window.open(this.href, '_blank'); return false;">spa5k/tafsir_api</a>
-			</p>
 		</div>
 		<div id="qari" style="text-align:center;padding:0px;padding-bottom:10px;display:none;margin:auto;">
 			<label>Qari:</label>
