@@ -1782,9 +1782,7 @@ function toggleQuranView(readView, index, page){
 		$("#manzil").hide();
 		$(".navDn").hide();
 		$(".navUp").hide();
-		$("#qv1").hide();
-		$("#qv2").show();
-		$("#qv2").parent().find("input[type='checkbox']").parent().hide();
+		$("#qMM").parent().find("input[type='checkbox']").parent().hide();
 		$("#juz-options").hide();
 		$("#surah-options").show();
 		$("#page-options").show();
@@ -1801,10 +1799,8 @@ function toggleQuranView(readView, index, page){
 			displayQPage();
 	}else{
 		$("#qMM").show();
-		$("#manzil").show();
-		$("#qv2").hide();
-		$("#qv1").show();		
-		$("#qv2").parent().find("input[type='checkbox']").parent().show();
+		$("#manzil").show();	
+		$("#qMM").parent().find("input[type='checkbox']").parent().show();
 		$("#juz-options").show();
 		$("#surah-options").hide();
 		$("#page-options").hide();

@@ -306,20 +306,32 @@
 				style="display:none;cursor:pointer;width:28px;height:28px;margin:auto;border:1px solid #555;" 
 				src="images/makki.madni.jpg">
 			</img>
-			<button id="qv1" style="font-size:10px;margin-left:10px;cursor:pointer;"
-				onclick="toggleQuranView(true)">
-				<img style="width:16px;height:16px;" src="images/q2.png"></img><br/>Tabular
-			</button>
 			<button style="height:100;display:none;cursor:pointer;margin-left:1px;
 						   background-color:transparent; border-color:lightsteelblue;"
 				  onclick="changeQari=true;isAutoPlayQirat=false; searchText($('#surah-options').val()+':1')"><b>؏</b></button>
 			<button style="height:100;display:none;cursor:pointer;margin-left:1px;
 						   background-color:transparent; border-color:lightsteelblue;"
 				  onclick="playOrStopCurrentPage(this)">▶</button>
-			<button id="qv2" style="font-size:10px;display:none;margin-left:4px;cursor:pointer;"
-				onclick="toggleQuranView(false)">
-				<img style="width:16px;height:16px;;margin-top:8px;" src="images/q.png"></img><br/>Mushaf
-			</button>
+			<span>
+				<button class="dropdown" id="qMode" style="height:100;font-size:10px;margin-left:10px;cursor:pointer;"
+						onclick="$(this).next().toggle()">
+					<img style="width:28px;height:28px;margin-top:6px;" src="images/q.png"></img>
+				</button>
+				<div class="dropdown-content" style="display:felx;flex-direction:row;width:80px;right:0">
+					<button id="qv1" style="font-size:10px;cursor:pointer;margin:auto;border:1px"
+					onclick="var p=$(this).parent();p.toggle();toggleQuranView(false);$('#qMode img').attr('src','images/q.png');">
+						<img style="width:16px;height:16px;margin:auto;" src="images/q.png"></img><br/>Tabular
+					</button>
+					<button id="qv2" style="font-size:10px;margin-left:4px;cursor:pointer;border:1px"
+						onclick="var p=$(this).parent();p.toggle();toggleQuranView(true);$('#qMode img').attr('src','images/q2.png');">
+						<img style="width:16px;height:16px;;margin-top:8px;" src="images/q2.png"></img><br/>Mushaf
+					</button>
+					<button id="qv3" style="font-size:10px;margin-left:4px;cursor:pointer;border:1px"
+						onclick="var p=$(this).parent();p.toggle();changeQari=true;isAutoPlayQirat=false;searchText($('#surah-options').val()+':1')">
+						<img style="width:16px;height:16px;;margin-top:8px;" src="images/qsearch.jpg"></img><br/>Research
+					</button>
+				</div>
+			</span>
 		</div>
 	</div>
 	<div>
