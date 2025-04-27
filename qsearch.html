@@ -207,11 +207,11 @@
 					</img>
 					<div class="dropdown-content" style="left:120px;width:50px;align-items:center;">
 						<button id="qv1" style="font-size:10px;cursor:pointer;margin:auto;border:1px"
-						onclick="var p=$(this).parent();p.toggle();p.prev().attr('src','images/q.png');listSurahs();">
+						onclick="var p=$(this).parent();p.toggle();p.prev().attr('src','images/q.png');toggleQuranView(false);listSurahs();">
 							<img style="width:20px;margin:auto;" src="images/q.png"></img><br/>Listen
 						</button>
 						<button id="qv2" style="font-size:10px;margin-left:4px;cursor:pointer;border:1px"
-							onclick="var p=$(this).parent();p.toggle();p.prev().attr('src','images/q2.png');listSurahs(true);">
+							onclick="var p=$(this).parent();p.toggle();p.prev().attr('src','images/q2.png');toggleQuranView(true);listSurahs(true);">
 							<img style="width:20px;;margin-top:8px;" src="images/q2.png"></img><br/>Mushaf
 						</button>
 						<button id="qv3" style="font-size:10px;margin-left:4px;cursor:pointer;border:1px"
