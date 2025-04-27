@@ -1426,11 +1426,11 @@ function filterManzil(val){
 Loads Quran surah index
 */
 var surah_list;
-function listSurahs(){
+function listSurahs(loadMushaf){
 	$("#juz").children().last().prev().prev().hide();
 	$("#juz").children().last().prev().hide();
 	$("#qMM").show();
-	$("#manzil").show();
+	$("#manzil").parent().show();
 	$("#qari").hide();
 	$("#juz").show();
 	var path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
@@ -1524,9 +1524,11 @@ function listSurahs(){
 		div.append($(table));
 		
 		//
-		if(loadStatus === 'mushaf'){
+		if(loadMushaf !== undefined || loadStatus === 'mushaf'){
 			toggleQuranView(true);
 			loadStatus = "surahs";
+		}else{
+			toggleQuranView(false);
 		}
 	});
 }
@@ -1779,7 +1781,7 @@ function toggleQHead(){
 function toggleQuranView(readView, index, page){
 	if(readView){
 		$("#qMM").hide();
-		$("#manzil").hide();
+		$("#manzil").parent().hide();
 		$(".navDn").hide();
 		$(".navUp").hide();
 		$("#qMM").parent().find("input[type='checkbox']").parent().hide();
@@ -1790,15 +1792,16 @@ function toggleQuranView(readView, index, page){
 		$("#tqv2").show();
 		$("#juz-options").prev().css('color','crimson');
 		$("#juz-options").next().next().css('color','crimson');
-		$("#juz").children().last().prev().prev().show();
-		$("#juz").children().last().prev().show();
+		$("#juz").children().last().prev().prev().hide();
+		$("#juz").children().last().prev().hide();
+		$("#juz").children().last().show();
 		
 		if(index && page)
 			updatePage(index, page);
 		else
 			displayQPage();
 	}else{
-		$("#qMM").show();
+		$("#qMM").parent().show();
 		$("#manzil").show();	
 		$("#qMM").parent().find("input[type='checkbox']").parent().show();
 		$("#juz-options").show();
@@ -1808,8 +1811,9 @@ function toggleQuranView(readView, index, page){
 		$("#tqv2").hide();
 		$("#juz-options").prev().css('color','transparent');
 		$("#juz-options").next().next().css('color','transparent');
-		$("#juz").children().last().prev().prev().hide();
-		$("#juz").children().last().prev().hide();
+		$("#juz").children().last().prev().prev().show();
+		$("#juz").children().last().prev().show();
+		$("#juz").children().last().hide();
 	}
 }
 

@@ -199,15 +199,37 @@
 					onclick="showArabicKeyboard('arabic')" />
 				<input type="reset" value="" alt="clear" title="Clear" onclick="$('#searchText').val('');" />
 				<input id="searchText">
-				<button class="dropbtn" id="SearchQ" onclick="search()">الـقُـرآن</button>
-				<span class="dropdown" style="display:inline-block">
-					<button class="dropdown dropbtn" title="Raed Quran">۞</button>
+				<button class="dropbtn" id="SearchQ" onclick="search()" style="padding:12px;">Search</button>
+				<span>
+					<img onclick="$(this).next().toggle()" 
+						 class="dropbtn" 
+						 style="height:22px;margin-bottom:-15px;padding:9px;" src="images/q.png">
+					</img>
+					<div class="dropdown-content" style="left:120px;width:50px;align-items:center;">
+						<button id="qv1" style="font-size:10px;cursor:pointer;margin:auto;border:1px"
+						onclick="var p=$(this).parent();p.toggle();p.prev().attr('src','images/q.png');listSurahs();">
+							<img style="width:20px;margin:auto;" src="images/q.png"></img><br/>Listen
+						</button>
+						<button id="qv2" style="font-size:10px;margin-left:4px;cursor:pointer;border:1px"
+							onclick="var p=$(this).parent();p.toggle();p.prev().attr('src','images/q2.png');listSurahs(true);">
+							<img style="width:20px;;margin-top:8px;" src="images/q2.png"></img><br/>Mushaf
+						</button>
+						<button id="qv3" style="font-size:10px;margin-left:4px;cursor:pointer;border:1px"
+							onclick="var p=$(this).parent();p.toggle();p.prev().attr('src','images/lookup.jpg');changeQari=true;isAutoPlayQirat=false;searchText($('#surah-options').val()+':1')">
+							<img style="width:20px;margin-top:8px;" src="images/lookup.jpg"></img><br/>Research
+						</button>
+						<button id="filterWord" onclick="var p=$(this).parent();p.toggle();filterWords();p.prev().attr('src','images/alpha.jpg');" 
+								style="font-size:10px;margin-left:4px;cursor:pointer;border:1px">
+								<img style="width:20px;margin-top:8px;" src="images/alpha.jpg"></img><br/>Words
+						</button>
+					</div>
+				</span>
+				<span class="dropdown" style="display:inline-block;">
+					<button class="dropbtn" title="Raed Quran" style="padding:12px;">۞</button>
 					<div id="qPDF" class="dropdown-content"></div>
 				</span>
-				<button class="dropbtn" onclick="listSurahs()">Surahs</button>
-				<button class="dropbtn" id="filterWord" onclick="filterWords()">Words</button>
 				<span class="dropdown" style="display:inline-block">
-				<Button class="dropdown dropbtn" title="Powered by">ꗝ️</button>
+				<button class="dropbtn" data-value="Powered by" style="padding:10px;">ꗝ️</button>
 					<div class="dropdown-content" style="font-size:10px;left:0">
 						<a href='https://quranjs.com/'
 							onclick="window.open(this.href, '_blank'); return false;">QuranJS API</a>
@@ -270,7 +292,6 @@
 					id="surah-options" 
 					onchange="updatePage()">
 			</select>
-			
 			<span style="padding:4px;cursor:pointer;color:transparent;font-size:24px;"
 				onclick="navigateJuz(false)">↞</span>&nbsp;
 			<select style="background-color:#b5d090;padding:0;width:100px;font-szie:12px;" 
@@ -308,38 +329,14 @@
 			</img>
 			<button style="height:100;display:none;cursor:pointer;margin-left:1px;
 						   background-color:transparent; border-color:lightsteelblue;"
-				  onclick="changeQari=true;isAutoPlayQirat=false; searchText($('#surah-options').val()+':1')"><b>؏</b></button>
-			<button style="height:100;display:none;cursor:pointer;margin-left:1px;
-						   background-color:transparent; border-color:lightsteelblue;"
 				  onclick="playOrStopCurrentPage(this)">▶</button>
-			<span>
-				<button class="dropdown" id="qMode" style="height:100;font-size:10px;margin-left:10px;cursor:pointer;"
-						onclick="$(this).next().toggle()">
-					<img style="width:28px;height:28px;margin-top:6px;" src="images/q.png"></img>
-				</button>
-				<div class="dropdown-content" style="display:felx;flex-direction:row;width:80px;right:0">
-					<button id="qv1" style="font-size:10px;cursor:pointer;margin:auto;border:1px"
-					onclick="var p=$(this).parent();p.toggle();toggleQuranView(false);$('#qMode img').attr('src','images/q.png');">
-						<img style="width:16px;height:16px;margin:auto;" src="images/q.png"></img><br/>Tabular
-					</button>
-					<button id="qv2" style="font-size:10px;margin-left:4px;cursor:pointer;border:1px"
-						onclick="var p=$(this).parent();p.toggle();toggleQuranView(true);$('#qMode img').attr('src','images/q2.png');">
-						<img style="width:16px;height:16px;;margin-top:8px;" src="images/q2.png"></img><br/>Mushaf
-					</button>
-					<button id="qv3" style="font-size:10px;margin-left:4px;cursor:pointer;border:1px"
-						onclick="var p=$(this).parent();p.toggle();changeQari=true;isAutoPlayQirat=false;searchText($('#surah-options').val()+':1')">
-						<img style="width:16px;height:16px;;margin-top:8px;" src="images/qsearch.jpg"></img><br/>Research
-					</button>
-				</div>
-			</span>
 		</div>
 	</div>
 	<div>
 		<span style="width:5%">&nbsp;</span>
 		<div id="playbox" style="display:none;white-space:nowrap;width:unset;
 							 border-radius:10px;background-color:#ccffb3;
-							 padding-left:2px; padding-right:2px;
-							 margin-top: 5px; margin-bottom: 5px;">
+							 padding: 4px; margin-top: 5px; margin-bottom: 5px;">
 		
 			<button id="qt-fb" class="dropbtn"
 				   onclick="fastplayQuranChapter('qt', false);"
