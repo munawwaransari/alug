@@ -43,9 +43,11 @@ function handleTouchEnd(event) {
 }
 
 function configureSwipeEvents(elem, cbLeft, cbRight) {
-	swipeElem = elem;
-	swipeCallbackLeft = cbLeft;
-	swipeCallbackRight = cbRight;
-	elem.addEventListener ('touchstart', handleTouchStart);
-    elem.addEventListener('touchend', handleTouchEnd);
+	if(elem !== undefined && elem.addEventListener){
+		swipeElem = elem;
+		swipeCallbackLeft = cbLeft;
+		swipeCallbackRight = cbRight;
+		elem.addEventListener ('touchstart', handleTouchStart, getPassiveOption());
+		elem.addEventListener('touchend', handleTouchEnd, getPassiveOption());
+	}
 };

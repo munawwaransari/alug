@@ -315,3 +315,37 @@ function bringIntoView(elem){
 		}, 1600);
 	}
 }
+
+var supportsPassive;
+function getPassiveOption(){
+	if(supportsPassive === undefined){
+		try {
+		  return Object.defineProperty({}, 'passive', {
+			get: function() {
+			  supportsPassive = true;
+			}
+		  });
+		} catch (e) {
+			supportsPassive = false;
+			console.log("Passive support: "+ supportsPassive);
+		}	
+	}
+	return supportsPassive ? { passive: true } : { passive: false };
+}
+
+function toDataURL(url, callback){
+    var xhr = new XMLHttpRequest();
+    xhr.open('get', url);
+    xhr.responseType = 'blob';
+    xhr.onload = function(){
+      var fr = new FileReader();
+    
+      fr.onload = function(){
+        callback(this.result);
+      };
+    
+      fr.readAsDataURL(xhr.response); // async call
+    };
+    
+    xhr.send();
+}

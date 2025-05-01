@@ -1487,8 +1487,8 @@ function listSurahs(loadMushaf){
 									'<sup style="float:right">&nbsp;&nbsp;'+index+'</sup>'+
 								'</span>'+
 								'<br/>'+
-							 '<img src="https://raw.githubusercontent.com/gyenabubakar/surah-name-glyphs/3498a6dcde6b7cb3b0ac4c7d7c0754d385ab31fe/svg/'+index+'.svg" '+
-								'style=""></img><br/>'+
+							 //'<img src="https://raw.githubusercontent.com/gyenabubakar/surah-name-glyphs/3498a6dcde6b7cb3b0ac4c7d7c0754d385ab31fe/svg/'+index+'.svg" '+
+							 '<img src="'+surah.imageDataUrl+'"></img><br/>'+
 								'<span style="font-size:12px;" onclick="searchText(\''+enName+'\')">'+
 									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
 								'</span>'+
@@ -1619,15 +1619,34 @@ function searchText(txt){
 	search();
 }
 
+var surah_list_cache;
 async function listSurahsAsync(url, callback)
 {
 	try {
+		if(surah_list_cache !== undefined){
+			callback(surah_list_cache);
+			return;
+		}
+		
 		const response = await fetch(url);
 		if (!response.ok) {
 			throw new Error(`HTTP error! Status: ${response.status}`);
 		}
 		const data = await response.json();
-		callback(data);
+		
+		// Load Surah names
+		surah_list_cache = data;
+		for (const [index, surah] of Object.entries(data)){
+			if(surah.imageDataUrl === undefined){
+				surah.imageDataUrl = toDataURL('https://raw.githubusercontent.com/gyenabubakar/surah-name-glyphs/3498a6dcde6b7cb3b0ac4c7d7c0754d385ab31fe/svg/'+index+'.svg',
+				function(dataUrl){
+					surah.imageDataUrl = dataUrl;
+					if(index === "114"){
+						callback(data);
+					}
+				});
+			}
+		}
 	} 
 	catch (error) {
 		console.error("Fetch error:", error);

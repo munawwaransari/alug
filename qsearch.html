@@ -201,22 +201,18 @@
 				<input id="searchText">
 				<button class="dropbtn" id="SearchQ" onclick="search()" style="padding:12px;">Search</button>
 				<span>
-					<img onclick="$(this).next().toggle()" 
+					<img onclick="$(this).next().toggle();$(this).next().css('left', $(this).offset().left)" 
 						 class="dropbtn" 
 						 style="height:22px;margin-bottom:-15px;padding:9px;" src="images/q.png">
 					</img>
-					<div class="dropdown-content" style="left:120px;width:50px;align-items:center;">
+					<div class="dropdown-content" style="width:160px;align-items:center;">
 						<button id="qv1" style="font-size:10px;cursor:pointer;margin:auto;border:1px"
 						onclick="var p=$(this).parent();p.toggle();p.prev().attr('src','images/q.png');toggleQuranView(false);listSurahs();">
 							<img style="width:20px;margin:auto;" src="images/q.png"></img><br/>Listen
 						</button>
 						<button id="qv2" style="font-size:10px;margin-left:4px;cursor:pointer;border:1px"
-							onclick="var p=$(this).parent();p.toggle();p.prev().attr('src','images/q2.png');toggleQuranView(true);listSurahs(true);">
+							onclick="var p=$(this).parent();p.toggle();p.prev().attr('src','images/q2.png');listSurahs(true);">
 							<img style="width:20px;;margin-top:8px;" src="images/q2.png"></img><br/>Mushaf
-						</button>
-						<button id="qv3" style="font-size:10px;margin-left:4px;cursor:pointer;border:1px"
-							onclick="var p=$(this).parent();p.toggle();p.prev().attr('src','images/lookup.jpg');changeQari=true;isAutoPlayQirat=false;searchText($('#surah-options').val()+':1')">
-							<img style="width:20px;margin-top:8px;" src="images/lookup.jpg"></img><br/>Research
 						</button>
 						<button id="filterWord" onclick="var p=$(this).parent();p.toggle();filterWords();p.prev().attr('src','images/alpha.jpg');" 
 								style="font-size:10px;margin-left:4px;cursor:pointer;border:1px">
