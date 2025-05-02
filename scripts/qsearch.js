@@ -1086,7 +1086,7 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr, ayatCount){
 			options += '<p onclick="playQuranChapterUrl(\''+encodeTafsirUrl(url)+'\',\''+id+'\')">'+k+'</p>';
 	}
 	
-	return getPlayControlsHtml(id, options, '▶');
+	return getPlayControlsHtml(id, options, '⏵'); //'▶');
 }
 
 function getQuranAudioOptions(chapter, enName, ayahCount){
@@ -1140,7 +1140,7 @@ function getQuranAudioOptions(chapter, enName, ayahCount){
 		return true;
 	});
 	
-	return getPlayControlsHtml(id, options, '▶');
+	return getPlayControlsHtml(id, options, '⏵'); //'▶');
 }
 
 function getPlayControlsHtml(id, options, symbol){
@@ -1502,7 +1502,7 @@ function listSurahs(loadMushaf){
 							 '<span>'+getTafsirPdfOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>')+
 						 '</td>'+
 						 '<td class="chkR" style="font-size:14px;padding:0;">'+
-							'<div class="dropdown"><span style="font-size:20px;margin-top:8px;">⠛</span>'+
+							'<div class="dropdown"><span style="font-size:20px;"><b>⸬</b></span>'+
 							'<span class="dropdown-content">'+
 							'<a href="#" onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">Research <b>1-'+(surah.ayahCount)+'</b></a>'+
 							surah.juz.map((j) => '<a href="#" '+
