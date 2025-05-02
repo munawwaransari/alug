@@ -1490,7 +1490,6 @@ function listSurahs(loadMushaf){
 									'<sup style="float:right">&nbsp;&nbsp;'+index+'</sup>'+
 								'</span>'+
 								'<br/>'+
-							 //'<img src="https://raw.githubusercontent.com/gyenabubakar/surah-name-glyphs/3498a6dcde6b7cb3b0ac4c7d7c0754d385ab31fe/svg/'+index+'.svg" '+
 							 '<img src="'+surah.imageDataUrl+'" alt="..."></img><br/>'+
 								'<span style="font-size:12px;" onclick="searchText(\''+enName+'\')">'+
 									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
