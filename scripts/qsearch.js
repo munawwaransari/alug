@@ -1501,21 +1501,15 @@ function listSurahs(loadMushaf){
 							 (q_app_mode === 'Quran' ? '' :
 							 '<span>'+getTafsirPdfOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>')+
 						 '</td>'+
-						 '<td class="chkR" style="font-size:14px;padding:0;"> '+
-							 '<span>Juz:'+
-									surah.juz.map((j) => '<b><a href="#" '+
-										'onclick="var o=$(\'#juz-options\');o.val(\'juz'+j+'\');filterSurahs(o,\'juz'+j+'\')"> '+j+' </a></b>').join(',')+
-							 '</span><br/>'+
-							 '<span>Pages:&nbsp;'+
-								pgNums.map((p) => '<b><a href="#" onclick="toggleQuranView(true, \''+index+'\', \''+p+'\');">'+ p+'</a></b>').join(" - ")+
-							 '</span><br/>'+
-							 //'<span>Rukus:&nbsp;'+(surah.ruku === undefined ? 1 : surah.ruku)+'</span><br/>'+
-							 '<span class="dropbtn" '+
-							   'title="Research" '+
-							   'style="background-color:transparent;color:black;cursor:pointer;" '+
-							   'onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">'+
-							   'Ayah:<b>1-'+(surah.ayahCount)+'</b>'+
-							'</span>'+
+						 '<td class="chkR" style="font-size:14px;padding:0;">'+
+							'<div class="dropdown"><span style="font-size:20px;margin-top:8px;">⠛</span>'+
+							'<span class="dropdown-content">'+
+							'<a href="#" onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">Research <b>1-'+(surah.ayahCount)+'</b></a>'+
+							surah.juz.map((j) => '<a href="#" '+
+										'onclick="var o=$(\'#juz-options\');o.val(\'juz'+j+'\');filterSurahs(o,\'juz'+j+'\')"> Juz '+j+' </a>').join('')+
+							pgNums.map((p, ind) => '<a href="#" onclick="toggleQuranView(true, \''+index+'\', \''+p+'\');"> '+
+									(pgNums.length ==1 ? "" : (ind == 0 ? "Start": "End"))+' Page '+ p+'</a>').join('')+
+							'</span></div>'+
 						 '</td>'+
 					'</tr>';	
 			mCount = surah.manzil;
@@ -1636,16 +1630,21 @@ async function listSurahsAsync(url, callback)
 		
 		// Load Surah names
 		surah_list_cache = data;
+		var dataUrlLoaded = false;
 		for (const [index, surah] of Object.entries(data)){
 			if(surah.imageDataUrl === undefined){
 				surah.imageDataUrl = toDataURL('https://raw.githubusercontent.com/gyenabubakar/surah-name-glyphs/3498a6dcde6b7cb3b0ac4c7d7c0754d385ab31fe/svg/'+index+'.svg',
 				function(dataUrl){
+					dataUrlLoaded = true;
 					surah.imageDataUrl = dataUrl;
 					if(index === "114"){
 						callback(data);
 					}
 				});
 			}
+		}
+		if(dataUrlLoaded === false){
+			callback(data);
 		}
 	} 
 	catch (error) {
