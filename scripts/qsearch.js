@@ -1479,7 +1479,7 @@ function listSurahs(loadMushaf){
 			var huruf = surah.huruf === undefined ? '': '<img style="float:right;height:20px;margin-left:3px;background-color:transparent;" src="data/qrn/'+surah.huruf+'.jpg"></img>';
 			table += '<tr class="'+juz+' '+surah.nuzul+' mz'+surah.manzil+'">'+
 						 '<td '+
-							 'class="qword" style="max-width:80px;font-szie:14px;padding:0;padding-bottom:6px;">'+
+							 'class="qword" style="max-width:100px;font-szie:14px;padding:0;padding-bottom:6px;">'+
 								'<span>'+
 									'<b class="navUp" '+
 									  'style="display:none;float:left;cursor:pointer;" '+
@@ -1496,7 +1496,7 @@ function listSurahs(loadMushaf){
 									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
 								'</span>'+
 						 '</td>'+
-						 '<td class="chkQ" style="width:30px;font-size:14px;cursor:pointer;padding:0;">'+
+						 '<td class="chkQ" style="font-size:14px;cursor:pointer;padding:0;">'+
 							 '<span>'+getQuranAudioOptions(index, surah.en, surah.ayahCount)+'</span>'+
 						 '</td>'+
 						 '<td class="chkT" style="font-size:14px;cursor:pointer;padding:0;">'+
