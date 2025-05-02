@@ -682,7 +682,7 @@ function stopQuranChapter(){
 			
 			var sel = $("#juz-options").val();
 			if(sel !== 'all'){
-				filterSurahs(last_ch_play_id);
+				filterSurahs(sel, last_ch_play_id);
 			}
 		},5);
 	}
@@ -1410,7 +1410,7 @@ function filterManzil(val){
 	$("#manzil").next().hide();
 	
 	var mm = $("#qMM").attr('data-value');
-	var juz = $('juz-options').val();
+	var juz = $('#juz-options').val();
 	juz = (juz === undefined || juz === "all") ? " [class^='juz']": "."+juz;
 	var elems = $('.surahIndex'+juz);
 	for(var i=0; i < elems.length; i++){
