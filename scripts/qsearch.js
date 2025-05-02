@@ -1086,7 +1086,7 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr, ayatCount){
 			options += '<p onclick="playQuranChapterUrl(\''+encodeTafsirUrl(url)+'\',\''+id+'\')">'+k+'</p>';
 	}
 	
-	return getPlayControlsHtml(id, options, '⏵'); //'▶');
+	return getPlayControlsHtml(id, options, '▶');
 }
 
 function getQuranAudioOptions(chapter, enName, ayahCount){
@@ -1140,7 +1140,7 @@ function getQuranAudioOptions(chapter, enName, ayahCount){
 		return true;
 	});
 	
-	return getPlayControlsHtml(id, options, '⏵'); //'▶');
+	return getPlayControlsHtml(id, options, '▶');
 }
 
 function getPlayControlsHtml(id, options, symbol){
