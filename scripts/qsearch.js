@@ -1504,7 +1504,7 @@ function listSurahs(loadMushaf){
 									'<sup style="float:right">&nbsp;&nbsp;'+index+'</sup>'+
 								'</span>'+
 								'<br/>'+
-							 '<img src="'+surah.imageDataUrl+'" alt="..."></img><br/>'+
+							 '<img src="data/qrn/svg/'+index+'.svg"></img><br/>'+
 								'<span style="font-size:12px;" onclick="searchText(\''+enName+'\')">'+
 									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
 								'</span>'+
@@ -1646,22 +1646,7 @@ async function listSurahsAsync(url, callback)
 		
 		// Load Surah names
 		surah_list_cache = data;
-		var dataUrlLoaded = false;
-		for (const [index, surah] of Object.entries(data)){
-			if(surah.imageDataUrl === undefined){
-				surah.imageDataUrl = toDataURL('https://raw.githubusercontent.com/gyenabubakar/surah-name-glyphs/3498a6dcde6b7cb3b0ac4c7d7c0754d385ab31fe/svg/'+index+'.svg',
-				function(dataUrl){
-					dataUrlLoaded = true;
-					surah.imageDataUrl = dataUrl;
-					if(index === "114"){
-						callback(data);
-					}
-				});
-			}
-		}
-		if(dataUrlLoaded === false){
-			callback(data);
-		}
+		callback(data);
 	} 
 	catch (error) {
 		console.error("Fetch error:", error);
