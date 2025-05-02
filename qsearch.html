@@ -188,8 +188,8 @@
 </head>
 
 <body>
-	<div class="containerHead" onclick="toggleQHead()" style="display:block">
-		<img id="imgQHead" style="float:right;height:10px;" 
+	<div class="containerHead" onclick="toggleQHead()" style="display:flex">
+		<img id="imgQHead" style="position:absolute;z-index:999;margin-bottom:6px;margin:auto;height:10px;" 
 			 src="images/up.png">
 	</div>
 	<div id="divQHead">
@@ -240,93 +240,93 @@
 				<!-- <button class="dropbtn" id="SearchH" title="Search sunnah.com" onclick="searchHadith()">الحديث</button> -->
 			</div>
 		</div>
-		<div id="qari" style="text-align:center;padding:0px;padding-bottom:10px;display:none;margin:auto;">
-			<label>Qari:</label>
-			<select id="qari-options" style="width:100px;">
-				<option value="AbdulSamad_64kbps_QuranExplorer.Com" select>Abdul Basit Abdul Samad</option>
-				<option value="Alafasy_128kbps">Alafasy</option>
-				<option value="Abdurrahmaan_As-Sudais_192kbps">Abdurrahman Al-Saudais</option>
-				<option value="Saood_ash-Shuraym_128kbps">Saood Ash-Shuraym</option>
-				<option value="translations/urdu_shamshad_ali_khan_46kbps">Shamshad Ali Khan (Urdu)</option>
-				<option value="translations/urdu_farhat_hashmi">Farhat Hashmi (Urdu)</option>
-				<option value="translations/Makarem_Kabiri_16Kbps">Makreem Kabiri (Farsi)</option>
-				<option value="English/Sahih_Intnl_Ibrahim_Walk_192kbps">Sahih Ibrahim (English)</option>
-			</select>
-			<label>Ayah:</label>
-			<select id="ayah-options" style="width:44px;" onchange="search()">
-				<option value="text" select>Text</option>
-				<option value="image">Image</option>
-			</select>
-			<label>Tafsir:</label>
-			<select style="width:100px;" id="tafsir-options" onchange="changeTafsir()">
-				<option value="ur-tafsir-bayan-ul-quran" select>Bayan ul Quran (ur)</option>
-				<option value="ur-tafsir-fe-zalul-quran-syed-qatab">Fi Zial ul Quran (ur)</option>
-				<!-- <option value="ur-tazkirul-quran">Tazkir ul Quran (ur)</option> -->
-				<option value="ur-tafseer-ibn-e-kaseer">Ibn e Kaseer (ur)</option>
-				<option value="en-tafisr-ibn-kathir">Ibn e Kaseer (en)</option>
-				<option value="en-tafsir-ibn-abbas">Ibn e Abbas (en)</option>
-				<option value="en-kashani-tafsir">Kashani (en)</option>
-				<option value="en-al-qushairi-tafsir">Al Quashairi (en)</option>
-				<option value="en-al-jalalayn">Jalalayn (en)</option>
-				<option value="en-tazkirul-quran">Tazkir ul Quran (en)</option>
-				<option value="en-tafsir-maarif-ul-quran">Maarif ul Quran (en)</option>
-				<option value="kashf-al-asrar-tafsir">Kashf al Asrar (en)</option>
-				<option value="ar-tafseer-al-qurtubi">Tafsir ul Qurtabi (ar)</option>
-				<option value="ar-tafsir-al-tabari">Tafsir al Tabari (ar)</option>
-			</select>
-		</div>
-		<div id="juz" style="width:100%;background-color:#9DBF6C;padding:0px;
-									 display:flex;flex-direction:row;justify-content: center;">
-			<span style="float:left;font-size:12px;padding-right:8px;margin-top:8px;">
-				<input type="checkbox" onchange="$('.chkR').toggle()" checked>Explore</span>
-			<span style="float:left;font-size:12px;padding-right:8px;margin-top:8px;">
-				<input type="checkbox" onchange="$('.chkT').toggle()" checked>Tafseer</span>
-			<span style="float:left;font-size:12px;padding-right:4px;margin-top:8px;">
-				<input type="checkbox" onchange="$('.chkQ').toggle()" checked>Qirat</span>
-			
-			<select style="display:none;background-color:#b5d090;padding:0;width:100px;font-szie:12px;" 
-					id="surah-options" 
-					onchange="updatePage()">
-			</select>
-			<span style="padding:4px;cursor:pointer;color:transparent;font-size:24px;"
-				onclick="navigateJuz(false)">↞</span>&nbsp;
-			<select style="background-color:#b5d090;padding:0;width:100px;font-szie:12px;" 
-			id="juz-options"
-				onchange="filterSurahs(this)">
-				<option value="all" select>All Juz</option>
-			</select>
-			<select style="display:none;background-color:#b5d090;padding:0;width:100px;font-szie:12px;" 
-			id="page-options"
-				onchange="displayQPage()">
-			</select>
-			&nbsp;<span style="padding:4px;cursor:pointer;color:transparent;font-size:24px;"
-				onclick="navigateJuz(true)">↠</span>
-			<span class="dropdown" style="margin:auto;padding:0;" >
-				<img id="manzil" data-value="manzil" 
-					 style="display:none;cursor:pointer;width:28px;height:28px;margin:auto;margin-top:4px;margin-right:-8px;border:1px solid #555;margin-right:8px;" 
-					 src="data/qrn/manzil.jpg" onclick="$(this).next().show()">
-				</img>
-				<div class="dropdown-content" style="margin-left:-20px;font-size:14px;">
-					<p style="cursor:pointer;" onclick="filterManzil('manzil')">All</p>
-					<p style="cursor:pointer;" onclick="filterManzil('mz1')">Manzil 1</p>
-					<p style="cursor:pointer;" onclick="filterManzil('mz2')">Manzil 2</p>
-					<p style="cursor:pointer;" onclick="filterManzil('mz3')">Manzil 3</p>
-					<p style="cursor:pointer;" onclick="filterManzil('mz4')">Manzil 4</p>
-					<p style="cursor:pointer;" onclick="filterManzil('mz5')">Manzil 5</p>
-					<p style="cursor:pointer;" onclick="filterManzil('mz6')">Manzil 6</p>
-					<p style="cursor:pointer;" onclick="filterManzil('mz7')">Manzil 7</p>
-				</div>
-			</span>
-			<img id="qMM"
-				data-value="makki.madni"
-				onclick="toggleMakkiMadni()"
-				style="display:none;cursor:pointer;width:28px;height:28px;margin:auto;margin-right:6px;border:1px solid #555;" 
-				src="images/makki.madni.jpg">
+	</div>
+	<div id="qari" style="text-align:center;padding:0px;padding-bottom:10px;display:none;margin:auto;">
+		<label>Qari:</label>
+		<select id="qari-options" style="width:100px;">
+			<option value="AbdulSamad_64kbps_QuranExplorer.Com" select>Abdul Basit Abdul Samad</option>
+			<option value="Alafasy_128kbps">Alafasy</option>
+			<option value="Abdurrahmaan_As-Sudais_192kbps">Abdurrahman Al-Saudais</option>
+			<option value="Saood_ash-Shuraym_128kbps">Saood Ash-Shuraym</option>
+			<option value="translations/urdu_shamshad_ali_khan_46kbps">Shamshad Ali Khan (Urdu)</option>
+			<option value="translations/urdu_farhat_hashmi">Farhat Hashmi (Urdu)</option>
+			<option value="translations/Makarem_Kabiri_16Kbps">Makreem Kabiri (Farsi)</option>
+			<option value="English/Sahih_Intnl_Ibrahim_Walk_192kbps">Sahih Ibrahim (English)</option>
+		</select>
+		<label>Ayah:</label>
+		<select id="ayah-options" style="width:44px;" onchange="search()">
+			<option value="text" select>Text</option>
+			<option value="image">Image</option>
+		</select>
+		<label>Tafsir:</label>
+		<select style="width:100px;" id="tafsir-options" onchange="changeTafsir()">
+			<option value="ur-tafsir-bayan-ul-quran" select>Bayan ul Quran (ur)</option>
+			<option value="ur-tafsir-fe-zalul-quran-syed-qatab">Fi Zial ul Quran (ur)</option>
+			<!-- <option value="ur-tazkirul-quran">Tazkir ul Quran (ur)</option> -->
+			<option value="ur-tafseer-ibn-e-kaseer">Ibn e Kaseer (ur)</option>
+			<option value="en-tafisr-ibn-kathir">Ibn e Kaseer (en)</option>
+			<option value="en-tafsir-ibn-abbas">Ibn e Abbas (en)</option>
+			<option value="en-kashani-tafsir">Kashani (en)</option>
+			<option value="en-al-qushairi-tafsir">Al Quashairi (en)</option>
+			<option value="en-al-jalalayn">Jalalayn (en)</option>
+			<option value="en-tazkirul-quran">Tazkir ul Quran (en)</option>
+			<option value="en-tafsir-maarif-ul-quran">Maarif ul Quran (en)</option>
+			<option value="kashf-al-asrar-tafsir">Kashf al Asrar (en)</option>
+			<option value="ar-tafseer-al-qurtubi">Tafsir ul Qurtabi (ar)</option>
+			<option value="ar-tafsir-al-tabari">Tafsir al Tabari (ar)</option>
+		</select>
+	</div>
+	<div id="juz" style="width:100%;background-color:#9DBF6C;padding:0px;
+								 display:flex;flex-direction:row;justify-content: center;">
+		<span style="float:left;font-size:12px;padding-right:8px;margin-top:4px;margin-left:15px;">
+			<input type="checkbox" onchange="$('.chkR').toggle()" checked><br/>Explore</span>
+		<span style="float:left;font-size:12px;padding-right:8px;margin-top:4px;">
+			<input type="checkbox" onchange="$('.chkT').toggle()" checked><br/>Tafseer</span>
+		<span style="float:left;font-size:12px;padding-right:4px;margin-top:4px;">
+			<input type="checkbox" onchange="$('.chkQ').toggle()" checked><br/>Qirat</span>
+		
+		<select style="display:none;background-color:#b5d090;padding:0;width:100px;font-szie:12px;" 
+				id="surah-options" 
+				onchange="updatePage()">
+		</select>
+		<span style="padding:4px;cursor:pointer;color:transparent;font-size:24px;"
+			onclick="navigateJuz(false)">↞</span>&nbsp;
+		<select style="background-color:#b5d090;padding:0;width:100px;font-szie:12px;" 
+		id="juz-options"
+			onchange="filterSurahs(this)">
+			<option value="all" select>All Juz</option>
+		</select>
+		<select style="display:none;background-color:#b5d090;padding:0;width:100px;font-szie:12px;" 
+		id="page-options"
+			onchange="displayQPage()">
+		</select>
+		&nbsp;<span style="padding:4px;cursor:pointer;color:transparent;font-size:24px;"
+			onclick="navigateJuz(true)">↠</span>
+		<span class="dropdown" style="margin:auto;padding:0;" >
+			<img id="manzil" data-value="manzil" 
+				 style="display:none;cursor:pointer;width:28px;height:28px;margin:auto;margin-top:4px;margin-right:-8px;border:1px solid #555;margin-right:8px;" 
+				 src="data/qrn/manzil.jpg" onclick="$(this).next().show()">
 			</img>
-			<button style="height:100;display:none;cursor:pointer;margin-left:1px;
-						   background-color:transparent; border-color:lightsteelblue;"
-				  onclick="playOrStopCurrentPage(this)">▶</button>
-		</div>
+			<div class="dropdown-content" style="margin-left:-20px;font-size:14px;">
+				<p style="cursor:pointer;" onclick="filterManzil('manzil')">All</p>
+				<p style="cursor:pointer;" onclick="filterManzil('mz1')">Manzil 1</p>
+				<p style="cursor:pointer;" onclick="filterManzil('mz2')">Manzil 2</p>
+				<p style="cursor:pointer;" onclick="filterManzil('mz3')">Manzil 3</p>
+				<p style="cursor:pointer;" onclick="filterManzil('mz4')">Manzil 4</p>
+				<p style="cursor:pointer;" onclick="filterManzil('mz5')">Manzil 5</p>
+				<p style="cursor:pointer;" onclick="filterManzil('mz6')">Manzil 6</p>
+				<p style="cursor:pointer;" onclick="filterManzil('mz7')">Manzil 7</p>
+			</div>
+		</span>
+		<img id="qMM"
+			data-value="makki.madni"
+			onclick="toggleMakkiMadni()"
+			style="display:none;cursor:pointer;width:28px;height:28px;margin:auto;margin-right:6px;border:1px solid #555;" 
+			src="images/makki.madni.jpg">
+		</img>
+		<button style="height:100;display:none;cursor:pointer;margin-left:1px;
+					   background-color:transparent; border-color:lightsteelblue;"
+			  onclick="playOrStopCurrentPage(this)">▶</button>
 	</div>
 	<div>
 		<span style="width:5%">&nbsp;</span>
