@@ -1405,13 +1405,16 @@ function filterMakkiMadni(juz){
 */
 
 function filterManzil(val){
-	$("#manzil").attr('src','data/qrn/'+val+'.jpg');
-	$("#manzil").attr('data-value', val);
+
+	var juz = $('#juz-options').val();
+    var mz = (juz === undefined || juz !== "all") ? "manzil" : val;
+	juz = (juz === undefined || juz === "all") ? " [class^='juz']": "."+juz;
+	
+	$("#manzil").attr('src','data/qrn/'+mz+'.jpg');
+	$("#manzil").attr('data-value', mz);
 	$("#manzil").next().hide();
 	
 	var mm = $("#qMM").attr('data-value');
-	var juz = $('#juz-options').val();
-	juz = (juz === undefined || juz === "all") ? " [class^='juz']": "."+juz;
 	var elems = $('.surahIndex'+juz);
 	for(var i=0; i < elems.length; i++){
 		var elem = $(elems[i]);
@@ -1488,7 +1491,7 @@ function listSurahs(loadMushaf){
 								'</span>'+
 								'<br/>'+
 							 //'<img src="https://raw.githubusercontent.com/gyenabubakar/surah-name-glyphs/3498a6dcde6b7cb3b0ac4c7d7c0754d385ab31fe/svg/'+index+'.svg" '+
-							 '<img src="'+surah.imageDataUrl+'"></img><br/>'+
+							 '<img src="'+surah.imageDataUrl+'" alt="..."></img><br/>'+
 								'<span style="font-size:12px;" onclick="searchText(\''+enName+'\')">'+
 									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
 								'</span>'+
