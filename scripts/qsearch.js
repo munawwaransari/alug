@@ -1407,7 +1407,21 @@ function filterMakkiMadni(juz){
 function filterManzil(val){
 
 	var juz = $('#juz-options').val();
-    var mz = (juz === undefined || juz !== "all") ? "manzil" : val;
+    var mz = val;
+	if (juz === undefined || juz !== "all") {
+		mz = "manzil";
+		if(surah_list){
+			var juzVal = parseInt(juz.replace("juz",""));
+			const filteredDictionary = Object.fromEntries(
+			  Object.entries(surah_list).filter(([id, surah]) =>  surah.juz.includes(juzVal))
+			);
+			if(filteredDictionary){
+				const firstKey = Object.keys(filteredDictionary)[0];
+				const firstValue = filteredDictionary[firstKey];
+				mz = "mz"+firstValue.manzil;
+			}
+		}
+	}
 	juz = (juz === undefined || juz === "all") ? " [class^='juz']": "."+juz;
 	
 	$("#manzil").attr('src','data/qrn/'+mz+'.jpg');
