@@ -609,8 +609,7 @@ function playQuranChapterUrl(url, id){
 					$("#"+id).hide();
 				}
 			}
-			else
-			if(action == "loadeddata"){
+			else if(action == "loadeddata"){
 				if(data){
 					durationBar.attr('max', data.duration);
 					durationBar.attr('value', data.ct);
@@ -674,20 +673,29 @@ function stopQuranChapter(){
 
 		$("#playbox").hide();
 		selectSurahCell($("#"+id).parent().parent().parent(), false);
-		if(id.startsWith('t-ch')){
+		if(id && id.startsWith('t-ch')){
 			$("#"+id.replace('t-ch','t-pdf')).show();
 		}
-		setTimeout(function(){ 
-			$("#qt-pause").html('⏸');
-			$("#"+id).html('▶');
-			
-			var sel = $("#juz-options").val();
-			if(sel !== 'all'){
-				filterSurahs(sel, last_ch_play_id);
-			}
-		},5);
+		
+		if(id){
+			setTimeout(function(){ 
+				$("#qt-pause").html('⏸');
+				//$("#"+id).html('▶');
+				$("#"+id).html($("#"+id).attr('data-value'));
+				
+				var sel = $("#juz-options").val();
+				if(sel !== 'all'){
+					filterSurahs(sel, last_ch_play_id);
+				}
+			},5);
+		}
+		else{ // mushaf mode
+			var stp = $("#juz button").last();
+			if(stp && stp.html() !== '▶')
+				stp.html('▶');
+		}
 	}
-	$("#"+id).show();
+	if(id) $("#"+id).show();
 }
 
 function playOrStopCurrentPage(elem){
@@ -701,6 +709,7 @@ function playOrStopCurrentPage(elem){
 	var state = $(elem).html();
 	if(state === '▶'){ //play
 		$(elem).html('⏹');
+		var pauseBtn = $("#qt-pause");
 		if(parent && parent.playAudio){
 			parent.playAudio(url, function(action, data){
 				
@@ -720,7 +729,11 @@ function playOrStopCurrentPage(elem){
 						durationVal.html(getDurationString(data.ct));
 						durationBar.parent().css('display', 'inline-block');
 					}
-				}else if(action == "ended"){
+				}
+				else if(action == "pause"){
+					pauseBtn.html(pauseBtn.html() === '\u23F8' ? '\u23EF' : '\u23F8');
+				}
+				else if(action == "ended"){
 					$(elem).html('▶');
 					durationBar.parent().hide();
 				}
@@ -1087,7 +1100,7 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr, ayatCount){
 			options += '<p onclick="playQuranChapterUrl(\''+encodeTafsirUrl(url)+'\',\''+id+'\')">'+k+'</p>';
 	}
 	
-	return getPlayControlsHtml(id, options, '▶');
+	return getPlayControlsHtml(id, options, '𐄍'); //'▶');
 }
 
 function getQuranAudioOptions(chapter, enName, ayahCount){
@@ -1141,12 +1154,13 @@ function getQuranAudioOptions(chapter, enName, ayahCount){
 		return true;
 	});
 	
-	return getPlayControlsHtml(id, options, '▶');
+	return getPlayControlsHtml(id, options, '𐄖'); //'▶');
 }
 
 function getPlayControlsHtml(id, options, symbol){
 	return '<span class="dropdown" style="direction:ltr;">'+
 			  '<button id="'+id+'" '+
+					   'data-value="'+symbol+'" '+
 					   'class="dropbtn" onclick="toggleDropdownContent(this, true)" '+
 					   'style="background-color:transparent;color:black;font-size:22px;">'+symbol+'</button>'+
 			   '<div class="dropdown-content" style="">'+options+'</div>'+
@@ -1532,7 +1546,7 @@ function listSurahs(loadMushaf){
 							 '<span>'+getTafsirPdfOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>')+
 						 '</td>'+
 						 '<td class="chkR" style="font-size:14px;padding:0;">'+
-							'<div class="dropdown"><span style="font-size:20px;"><b>⸬</b></span>'+
+							'<div class="dropdown"><span style="font-size:20px;"><b>𐄗</b></span>'+
 							'<span class="dropdown-content">'+
 							'<a href="#" onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">Research <b>1-'+(surah.ayahCount)+'</b></a>'+
 							surah.juz.map((j) => '<a href="#" '+
