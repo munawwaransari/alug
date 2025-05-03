@@ -1429,7 +1429,7 @@ function filterManzil(val, opt){
 	$("#manzil").attr('data-value', mz);
 	$("#manzil").next().hide();
 	
-	var huruf = (opt === true) ? $("#huruf").attr('data-value') : "all";
+	var huruf = (opt === undefined) ? "all" : opt;
 	$("#huruf").attr('data-value', huruf);
 	
 	var mm = $("#qMM").attr('data-value');
@@ -1449,7 +1449,7 @@ function filterManzil(val, opt){
 
 function filterHuruf(val){
 	$("#huruf").attr('data-value', val);
-	filterManzil($("#manzil").attr('data-value'), true);
+	filterManzil($("#manzil").attr('data-value'), val);
 }
 
 /*
