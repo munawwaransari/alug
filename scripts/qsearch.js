@@ -142,6 +142,7 @@ Search Quran using QuranJS API
 function search(pageNumber){
 	$("#qMM").hide();
 	$("#manzil").hide();
+	$("#huruf").hide();
 	$(".navDn").hide();
 	$(".navUp").hide();
 	$("#playbox").hide();
@@ -1404,7 +1405,7 @@ function filterMakkiMadni(juz){
 }
 */
 
-function filterManzil(val){
+function filterManzil(val, opt){
 
 	var juz = $('#juz-options').val();
     var mz = val;
@@ -1424,19 +1425,31 @@ function filterManzil(val){
 	}
 	juz = (juz === undefined || juz === "all") ? " [class^='juz']": "."+juz;
 	
-	$("#manzil").attr('src','data/qrn/'+mz+'.jpg');
+	$("#manzil").attr('src','data/qrn/mz/'+mz+'.jpg');
 	$("#manzil").attr('data-value', mz);
 	$("#manzil").next().hide();
+	
+	var huruf = (opt === true) ? $("#huruf").attr('data-value') : "all";
+	$("#huruf").attr('data-value', huruf);
 	
 	var mm = $("#qMM").attr('data-value');
 	var elems = $('.surahIndex'+juz);
 	for(var i=0; i < elems.length; i++){
 		var elem = $(elems[i]);
-		if( (val === "manzil" || elem.hasClass(val)) && (mm === "makki.madni" || elem.hasClass(mm)))
-			elem.show();
+		if( (val === "manzil" || elem.hasClass(val)) && (mm === "makki.madni" || elem.hasClass(mm))){
+			if(huruf === "all" || elem.hasClass(huruf))
+				elem.show();
+			else
+				elem.hide();
+		}
 		else
 			elem.hide();
 	}
+}
+
+function filterHuruf(val){
+	$("#huruf").attr('data-value', val);
+	filterManzil($("#manzil").attr('data-value'), true);
 }
 
 /*
@@ -1487,11 +1500,12 @@ function listSurahs(loadMushaf){
 			
 			var manzilImg = mCount === surah.manzil ? '': 
 										'<img style="margin:0;margin-right:4px;float:right;height:14px;" title="manzil '+surah.manzil+'" '+
-											  'src="data/qrn/mz'+(surah.manzil)+'.jpg">'+
+											  'src="data/qrn/mz/mz'+(surah.manzil)+'.jpg">'+
 										'</img>';
 										
-			var huruf = surah.huruf === undefined ? '': '<img style="float:right;height:20px;margin-left:3px;background-color:transparent;" src="data/qrn/'+surah.huruf+'.jpg"></img>';
-			table += '<tr class="'+juz+' '+surah.nuzul+' mz'+surah.manzil+'">'+
+			var huruf = surah.huruf === undefined ? '': '<img style="float:right;height:20px;margin-left:3px;background-color:transparent;" src="data/qrn/huruf/'+surah.huruf+'.jpg"></img>';
+			var hClass = surah.huruf === undefined ? "noh" : surah.huruf;
+			table += '<tr class="'+juz+' '+surah.nuzul+' mz'+surah.manzil+' '+hClass+'">'+
 						 '<td '+
 							 'class="qword" style="max-width:100px;font-szie:14px;padding:0;padding-bottom:6px;">'+
 								'<span>'+
@@ -1800,6 +1814,7 @@ function toggleQHead(){
 function toggleQuranView(readView, index, page){
 	if(readView){
 		$("#qMM").hide();
+		$("#eye").hide();
 		$("#manzil").parent().hide();
 		$(".navDn").hide();
 		$(".navUp").hide();
@@ -1821,7 +1836,9 @@ function toggleQuranView(readView, index, page){
 			displayQPage();
 	}else{
 		$("#qMM").parent().show();
+		$("#eye").show();
 		$("#manzil").show();	
+		$("#huruf").show();
 		$("#qMM").parent().find("input[type='checkbox']").parent().show();
 		$("#juz-options").show();
 		$("#surah-options").hide();
