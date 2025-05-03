@@ -280,17 +280,17 @@
 	</div>
 	<div id="juz" style="width:100%;background-color:#9DBF6C;padding:0px;
 								 display:flex;flex-direction:row;justify-content: center;">
-			<div id="eye" class="dropdown" style="width:30px;padding-left:30px;margin:auto">
-				<span>&#x1F441</span>
-				<div class="dropdown-content" style="width:170px;">
-					<span style="float:left;font-size:12px;padding-right:8px;margin-top:4px;margin-left:15px;">
-						<input type="checkbox" onchange="$('.chkR').toggle()" checked><br/>Explore</span>
-					<span style="float:left;font-size:12px;padding-right:8px;margin-top:4px;">
-						<input type="checkbox" onchange="$('.chkT').toggle()" checked><br/>Tafseer</span>
-					<span style="float:left;font-size:12px;padding-right:4px;margin-top:4px;">
-						<input type="checkbox" onchange="$('.chkQ').toggle()" checked><br/>Qirat</span>
-				</div>
+		<div id="eye" class="dropdown" style="width:30px;padding-left:30px;margin:auto">
+			<span>&#x1F441</span>
+			<div class="dropdown-content" style="width:170px;">
+				<span style="float:left;font-size:12px;padding-right:8px;margin-top:4px;margin-left:15px;">
+					<input type="checkbox" onchange="$('.chkR').toggle()" checked><br/>Explore</span>
+				<span style="float:left;font-size:12px;padding-right:8px;margin-top:4px;">
+					<input type="checkbox" onchange="$('.chkT').toggle()" checked><br/>Tafseer</span>
+				<span style="float:left;font-size:12px;padding-right:4px;margin-top:4px;">
+					<input type="checkbox" onchange="$('.chkQ').toggle()" checked><br/>Qirat</span>
 			</div>
+		</div>
 		<select style="display:none;background-color:#b5d090;padding:0;width:100px;font-szie:12px;" 
 				id="surah-options" 
 				onchange="updatePage()">
@@ -354,6 +354,9 @@
 			style="display:none;cursor:pointer;width:28px;height:28px;margin:auto;margin-right:6px;border:1px solid #555;" 
 			src="images/makki.madni.jpg">
 		</img>
+		<button style="height:100;display:none;cursor:pointer;margin-left:1px;
+					   background-color:transparent; border-color:lightsteelblue;"
+			  onclick="var p=$('#page-options').val().replace('page','');$('#searchText').val(p);search(p);">&#x21ba;</button>
 		<button style="height:100;display:none;cursor:pointer;margin-left:1px;
 					   background-color:transparent; border-color:lightsteelblue;"
 			  onclick="playOrStopCurrentPage(this)">▶</button>

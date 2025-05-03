@@ -162,11 +162,15 @@ function search(pageNumber){
 		ctx = window.QuranJS.Verses.findByKey;
 		opt = { words: 1};
 	}
+	else if(text.trim().match(/^\d{1,3}$/g)){
+		ctx = window.QuranJS.Verses.findByPage;
+		opt = { words: 1};
+	}
 	
 	div.html('Searching '+text+' in the Quran...');
-	SearchQuran(ctx, opt, text, function(data){
+	SearchQuran(ctx, opt, text, function(dataRes){
 		//console.log(data);
-		
+		var data = Array.isArray(dataRes) ? dataRes[0] : dataRes;
 		if(!data){
 			div.html('No results found for '+ text);
 			return;
@@ -183,7 +187,7 @@ function search(pageNumber){
 				return ayah;
 			});
 	
-			var verseKey = text.trim(); //"";	
+			var verseKey = text.includes(":") ?  text.trim() : data.verseKey;
 			var keys = verseKey.split(":");
 			var verseNumber = parseInt(keys[1]);
 			div.html('');
@@ -1840,8 +1844,9 @@ function toggleQuranView(readView, index, page){
 		$("#tqv2").show();
 		$("#juz-options").prev().css('color','crimson');
 		$("#juz-options").next().next().css('color','crimson');
+		$("#juz").children().last().prev().prev().prev().hide();
 		$("#juz").children().last().prev().prev().hide();
-		$("#juz").children().last().prev().hide();
+		$("#juz").children().last().prev().show();
 		$("#juz").children().last().show();
 		
 		if(index && page)
@@ -1861,8 +1866,9 @@ function toggleQuranView(readView, index, page){
 		$("#tqv2").hide();
 		$("#juz-options").prev().css('color','transparent');
 		$("#juz-options").next().next().css('color','transparent');
+		$("#juz").children().last().prev().prev().prev().show();
 		$("#juz").children().last().prev().prev().show();
-		$("#juz").children().last().prev().show();
+		$("#juz").children().last().prev().hide();
 		$("#juz").children().last().hide();
 	}
 }
