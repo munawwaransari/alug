@@ -24,7 +24,7 @@ window.onload = function(){
 		$("img[src='images/kybd.jpg']").hide();
 	}
 
-	loadJsonData("/data/qrn/similar-ayah.json", function(data){
+	loadJsonData(getLocationPath()+"data/qrn/similar-ayah.json", function(data){
 		similar_ayah = data;
 	});
 	
