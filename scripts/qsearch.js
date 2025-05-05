@@ -9,6 +9,7 @@ var q_summary = {};
 var loadStatus;
 var isAutoPlayQirat, changeQari;
 var q_app_mode = 'default';
+var similar_ayah;
 
 window.onload = function(){
 
@@ -23,6 +24,10 @@ window.onload = function(){
 		$("img[src='images/kybd.jpg']").hide();
 	}
 
+	loadJsonData("/data/qrn/similar-ayah.json", function(data){
+		similar_ayah = data;
+	});
+	
 	//Fill Juz select options
 	var jOptions = $("#juz-options");
 	for(var j=1; j <31; j++){
@@ -477,8 +482,6 @@ function displayVerse(div, verse, verseKey, options){
 	var surah_name = surah_list ? '<span style="margin:auto;font-size:14px;padding-right:6px;color:#49348D;"><b>'+surah_list[parseInt(verseKeys[0])].ar+'</b></span>' : '';
 		
 	divHtml += (options == undefined || options.controls) ?
-					   '<span style="margin-top:-4;padding-right:8px;cursor:pointer;">'+
-							'<a href="#" onclick="getReferences()">References</a></span>'+
 					   '<span style="padding-right:8px;">'+analysisOptions+'</span>'+
 					   '<span style="padding-right:8px;">'+playOptions+'</span>'+
 					   surah_name+
@@ -1197,9 +1200,35 @@ function loadQuranPdfOptions(){
 	$("#qPDF").html($(options));
 }
 
+function getSimilarAyahReferences(verseKey){
+	var ayah = [];
+	if(similar_ayah){
+		if(similar_ayah[verseKey]){
+			similar_ayah[verseKey].every(function(entry){
+				ayah.push(entry.matched_ayah_key);
+				return true;
+			});
+		}
+		else{
+			var searchDict = Object.entries(similar_ayah).filter(([id, entry]) =>  entry.some((v) => v.matched_ayah_key === verseKey));
+			if(searchDict){
+				Object.keys(searchDict).every(function(key){
+					ayah.push(searchDict[key][0]);
+					return true;
+				});
+			}	
+		}
+	}
+	else{
+		return "";
+	}
+	return ayah.map((a) => '<a href="#" title="See Also" onclick="reloadVerse(\''+a+'\')">See also '+a+'</a>').join('');
+
+}
 
 function getVerseLinkOptions(verseKey){
 	
+	var similarLinks = getSimilarAyahReferences(verseKey);
 	var localLink = '<a href="#" title="Reload verse" onclick="reloadVerse(\''+verseKey+'\')">Research</a>';
 	var tanzilLink = '<a title="Click to view in tanzil.com" '+
 						'href="https://tanzil.net/#'+verseKey+'" '+
@@ -1213,6 +1242,8 @@ function getVerseLinkOptions(verseKey){
 						'['+verseKey+']</button>'+
 					  '<div class="dropdown-content">'
 					    +
+						similarLinks
+						+
 						localLink
 						+
 						tanzilLink
@@ -1233,6 +1264,8 @@ function getAnalysisOptions(verse, verseKeys){
 						'>معني</button>'+
 					  '<div class="dropdown-content">'
 					    +
+						'<a href="#" onclick="getReferences()">References</a>'
+						+
 						(q_app_mode === 'Quran' ? '' :
 						'<a href="#" onclick="analyzeLocal()" >Analyze (تحليل)</a>')
 						+
