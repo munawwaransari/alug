@@ -145,6 +145,8 @@ function loadWordsFrom(data){
 Search Quran using QuranJS API  
 */
 function search(pageNumber){
+	$('#qv1').css('background-color','#04AA6D');
+	$('#qv2').css('background-color','#04AA6D');
 	$("#qMM").hide();
 	$("#manzil").hide();
 	$("#huruf").hide();
@@ -1678,7 +1680,8 @@ function onVerseLoaded(chapter, verse){
 }
 
 function searchText(txt){
-	
+	$('#qv1').css('background-color','#04AA6D');
+	$('#qv2').css('background-color','#04AA6D');
 	$("#searchText").val(txt);
 	search();
 }
