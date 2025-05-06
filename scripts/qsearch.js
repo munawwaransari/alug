@@ -445,7 +445,8 @@ function getTranslationLinks(transLinkId, verseKey){
 			'onclick="getVerseTafsir(\''+transLinkId+'\', \''+verseKey+'\');">Tafsir</a>';
 
 	return '<span class="dropdown">'+
-				'<span style="margin-left:4px;cursor:pointer;font-size:16px;" title="Click to see translation">&#x24c9;</span>'+
+				'<button style="padding:0; border-style:hidden;margin-left:8px;cursor:pointer;font-size:16px;" '+
+					'title="Click to see translation">&#x24c9;</button>'+
 				'<div class="dropdown-content">'+translationLink+'</div>'+
 			'</span>';
 }
@@ -470,15 +471,14 @@ function displayVerse(div, verse, verseKey, options){
 	}
 	divHtml += '</div>';
 	divHtml += '<div style="font-size:14px;padding-bottom:12px;" id="'+transLinkId+'">';
-	//divHtml += (options.translateLink) ? '<span style="padding-right:12px;">'+translationLink+'</span>':'';
-	var surah_name = surah_list ? '<span style="margin:auto;font-size:14px;padding-right:6px;color:#49348D;"><b>'+surah_list[parseInt(verseKeys[0])].ar+'</b></span>' : '';
+	var surah_name = surah_list ? '<span style="margin:auto;font-size:14px;margin-left:6px;color:#49348D;"><b>'+surah_list[parseInt(verseKeys[0])].ar+'</b></span>' : '';
 		
 	divHtml += (options == undefined || options.controls) ?
 					   '<span style="padding-right:8px;">'+analysisOptions+'</span>'+
 					   '<span style="padding-right:8px;">'+playOptions+'</span>'+
+					   '<span style="margin:auto;">'+verseLinkOptions+'</span>'+
 					   surah_name+
-					   ((options.translateLink) ? '<span style="padding-right:12px;">'+translationLink+'</span>':'')+
-					   '<span style="margin:auto;">'+verseLinkOptions+'</span>'
+					   ((options.translateLink) ? '<span>'+translationLink+'</span>':'')
 					   :'';
 	divHtml += '</div>';
 	div.append($(divHtml));
