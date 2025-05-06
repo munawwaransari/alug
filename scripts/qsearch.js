@@ -470,16 +470,15 @@ function displayVerse(div, verse, verseKey, options){
 		divHtml += getWordSpans(verse, options ? options.words: undefined, verseKeys[0]+verseKeys[1]);
 	}
 	divHtml += '</div>';
-	divHtml += '<div style="font-size:14px;padding-bottom:12px;" id="'+transLinkId+'">';
-	var surah_name = surah_list ? '<span style="margin:auto;font-size:14px;margin-left:6px;color:#49348D;"><b>'+surah_list[parseInt(verseKeys[0])].ar+'</b></span>' : '';
-		
+	
+	divHtml += '<div style="font-size:14px;padding-bottom:12px;" id="'+transLinkId+'">';		
 	divHtml += (options == undefined || options.controls) ?
-					   '<span style="padding-right:8px;">'+analysisOptions+'</span>'+
-					   '<span style="padding-right:8px;">'+playOptions+'</span>'+
-					   '<span style="margin:auto;">'+verseLinkOptions+'</span>'+
-					   surah_name+
-					   ((options.translateLink) ? '<span>'+translationLink+'</span>':'')
-					   :'';
+	   '<span style="padding-right:8px;">'+analysisOptions+'</span>'+
+	   '<span style="padding-right:8px;">'+playOptions+'</span>'+
+	   '<span style="margin:auto;">'+verseLinkOptions+'</span>'+
+	   (surah_list ? '<span style="margin:auto;font-size:14px;margin-left:6px;color:#49348D;"><b>'+surah_list[parseInt(verseKeys[0])].ar+'</b></span>' : '')+
+	   ((options.translateLink) ? '<span>'+translationLink+'</span>':'')
+	   :'';
 	divHtml += '</div>';
 	div.append($(divHtml));
 	
