@@ -432,22 +432,19 @@ function getVerseTranslation(id, verseKey, sfx = '_en', lang = window.QuranJS.La
 }
 
 function getTranslationLinks(transLinkId, verseKey){
-	var translationLink = '<a id="'+transLinkId+'_en" href="#" '+
-						  'onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\',\'_en\');">English</a>';
-	//'ur'
-		translationLink +=	'<a id="'+transLinkId+'_ur" href="#" '+
-			'onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\', \'_ur\',window.QuranJS.Language.URDU);">Urdu</a>';
-	//'hi'
-		translationLink += '<a id="'+transLinkId+'_hi" href="#" '+
-			'onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\', \'_hi\',window.QuranJS.Language.HINDI);">Hindi</a>';
-	//tafseer link
-		translationLink += '<a id="'+transLinkId+'_tafsir" href="#" '+
-			'onclick="getVerseTafsir(\''+transLinkId+'\', \''+verseKey+'\');">Tafsir</a>';
-
 	return '<span class="dropdown">'+
 				'<button style="padding:0; border-style:hidden;margin-left:8px;cursor:pointer;font-size:16px;" '+
 					'title="Click to see translation">&#x24c9;</button>'+
-				'<div class="dropdown-content">'+translationLink+'</div>'+
+				'<div class="dropdown-content">'+
+					'<a id="'+transLinkId+'_en" href="#" '+
+						'onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\',\'_en\');">English</a>'+
+					'<a id="'+transLinkId+'_ur" href="#" '+
+						'onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\', \'_ur\',window.QuranJS.Language.URDU);">Urdu</a>'+
+					'<a id="'+transLinkId+'_hi" href="#" '+
+						'onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\', \'_hi\',window.QuranJS.Language.HINDI);">Hindi</a>'+
+					'<a id="'+transLinkId+'_tafsir" href="#" '+
+						'onclick="getVerseTafsir(\''+transLinkId+'\', \''+verseKey+'\');">Tafsir</a>'+
+				'</div>'+
 			'</span>';
 }
 
