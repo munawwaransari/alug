@@ -431,6 +431,25 @@ function getVerseTranslation(id, verseKey, sfx = '_en', lang = window.QuranJS.La
 	});
 }
 
+function getTranslationLinks(transLinkId, verseKey){
+	var translationLink = '<a id="'+transLinkId+'_en" href="#" '+
+						  'onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\',\'_en\');">English</a>';
+	//'ur'
+		translationLink +=	'<a id="'+transLinkId+'_ur" href="#" '+
+			'onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\', \'_ur\',window.QuranJS.Language.URDU);">Urdu</a>';
+	//'hi'
+		translationLink += '<a id="'+transLinkId+'_hi" href="#" '+
+			'onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\', \'_hi\',window.QuranJS.Language.HINDI);">Hindi</a>';
+	//tafseer link
+		translationLink += '<a id="'+transLinkId+'_tafsir" href="#" '+
+			'onclick="getVerseTafsir(\''+transLinkId+'\', \''+verseKey+'\');">Tafsir</a>';
+
+	return '<span class="dropdown">'+
+				'<span style="margin-left:4px;cursor:pointer;font-size:16px;" title="Click to see translation">&#x24c9;</span>'+
+				'<div class="dropdown-content">'+translationLink+'</div>'+
+			'</span>';
+}
+
 function displayVerse(div, verse, verseKey, options){
 	var verseKeys = verseKey.split(":");
 	var playOptions = getPlayOptions(verseKey, verseKeys);
@@ -438,34 +457,8 @@ function displayVerse(div, verse, verseKey, options){
 	var verseLinkOptions = getVerseLinkOptions(verseKey);
 					 
 	var transLinkId = 'div'+verseKeys[0]+'_'+verseKeys[1];
-	var translationLink = '<a title="Click to see translation" id="'+transLinkId+'_en"'+
-	'style="position:absolute;margin-right:10px;margin-left:-18px;margin-top:6px;font-size:12px;" '+
-							 'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\',\'_en\');">'+
-					 '[en]</a>';
-	//'ur'
-		translationLink +=				 
-		'<a title="Click to see translation" id="'+transLinkId+'_ur"'+
-			'style="position:absolute;margin-right:10px;margin-left:-44px;margin-top:6px;font-size:12px;" '+
-			'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\', \'_ur\',window.QuranJS.Language.URDU);">'+
-		'[ur]</a>';
-	//
+	var translationLink = getTranslationLinks(transLinkId, verseKey);
 	
-	//'hi'
-		translationLink +=				 
-		'<a title="Click to see translation" id="'+transLinkId+'_hi"'+
-			'style="position:absolute;margin-right:10px;margin-left:-68px;margin-top:6px;font-size:12px;" '+
-			'href="#" onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\', \'_hi\',window.QuranJS.Language.HINDI);">'+
-		'[hi]</a>';
-	//
-					 
-	//tafseer link
-		translationLink +=				 
-		'<a title="Click to see tafseer" id="'+transLinkId+'_tafsir"'+
-			'style="position:absolute;margin-right:10px;margin-left:-108px;margin-top:6px;font-size:12px;" '+
-			'href="#" onclick="getVerseTafsir(\''+transLinkId+'\', \''+verseKey+'\');">'+
-		'[tafsir]</a>';
-	//
-
 	var bgColor = options.bgColor ? 'background-color:'+options.bgColor+';' : '';
 	var direction =  options.direction ? 'direction:'+options.direction+';' :
 						verse.match(/^[\x00-\x7F]+/g) ? '' : 'direction:rtl;';
@@ -475,16 +468,16 @@ function displayVerse(div, verse, verseKey, options){
 	}else{
 		divHtml += getWordSpans(verse, options ? options.words: undefined, verseKeys[0]+verseKeys[1]);
 	}
-	divHtml +=	'</div>'+
-				  '<div style="font-size:14px;padding-bottom:12px;" id="'+transLinkId+'">';
-	divHtml += (options.translateLink) ? '<span style="padding-right:12px;">'+
-						translationLink+'</span>':'';
+	divHtml += '</div>';
+	divHtml += '<div style="font-size:14px;padding-bottom:12px;" id="'+transLinkId+'">';
+	//divHtml += (options.translateLink) ? '<span style="padding-right:12px;">'+translationLink+'</span>':'';
 	var surah_name = surah_list ? '<span style="margin:auto;font-size:14px;padding-right:6px;color:#49348D;"><b>'+surah_list[parseInt(verseKeys[0])].ar+'</b></span>' : '';
 		
 	divHtml += (options == undefined || options.controls) ?
 					   '<span style="padding-right:8px;">'+analysisOptions+'</span>'+
 					   '<span style="padding-right:8px;">'+playOptions+'</span>'+
 					   surah_name+
+					   ((options.translateLink) ? '<span style="padding-right:12px;">'+translationLink+'</span>':'')+
 					   '<span style="margin:auto;">'+verseLinkOptions+'</span>'
 					   :'';
 	divHtml += '</div>';
@@ -1238,7 +1231,7 @@ function getVerseLinkOptions(verseKey){
 
 	return '<span>'+			  
 					'<span class="dropdown">'+
-					  '<button class="dropbtn" style="width:50px; background-color:#EEEEEE;color:black;">'+
+					  '<button class="dropbtn" style="background-color:#EEEEEE;color:black;">'+
 						'['+verseKey+']</button>'+
 					  '<div class="dropdown-content">'
 					    +
@@ -1256,15 +1249,15 @@ function getVerseLinkOptions(verseKey){
 function getAnalysisOptions(verse, verseKeys){
 	return '<span>'+			  
 					'<span class="dropdown">'+
-					  '<button class="dropbtn" '+
+					  '<button class="dropbtn" title="Select a word to analyze" '+
 						'style="width:20px;'+
 							   'background: url(images/analyze.jpg);' + 
 							   'background-repeat: no-repeat;'+
 							   'background-size: 20px 20px;"'+
 						'>معني</button>'+
 					  '<div class="dropdown-content">'
-					    +
-						'<a href="#" onclick="getReferences()">References</a>'
+						+
+						'<p><a href="#" onclick="getReferences()">References</a>'
 						+
 						(q_app_mode === 'Quran' ? '' :
 						'<a href="#" onclick="analyzeLocal()" >Analyze (تحليل)</a>')
@@ -1275,7 +1268,7 @@ function getAnalysisOptions(verse, verseKeys){
 						'>Meaning (Almaany)</a>'
 						+
 						'<a href="#" onclick="analyzeLookup(\'https://glosbe.com/ar/$/\')"' +
-						'>Meaning (Glosbe)</a>'
+						'>Meaning (Glosbe)</a></p>'
 						+
 					  '</div>'+
 					'</span>'+
@@ -1981,4 +1974,15 @@ function toggleMakkiMadni(){
 	}
 	
 	filterSurahs($('juz-options'));
+}
+
+function enableLookupMenuOptions(elem){
+	var el = $(elem);
+	if(el.is(":visible")){
+		if($(".sel-word").length == 0){
+			el.next().first().show();
+		}else{
+			el.next().first().hide();
+		}
+	}
 }
