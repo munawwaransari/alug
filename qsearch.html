@@ -272,8 +272,8 @@
 			<option value="ar-tafsir-al-tabari">Tafsir al Tabari (ar)</option>
 		</select>
 	</div>
-	<div id="juz" style="width:100%;background-color:#9DBF6C;padding:0px;
-								 display:flex;flex-direction:row;justify-content: center;">
+	<div id="juz" style="width:100%;background-color:#9DBF6C;padding:0px;margin-bottom:5px;
+						 display:flex;flex-direction:row;justify-content: center;">
 		<div id="eye" class="dropdown" style="width:30px;padding-left:30px;margin:auto">
 			<span>&#x1F441</span>
 			<div class="dropdown-content" style="width:170px;">
@@ -292,7 +292,7 @@
 		<span style="padding:4px;cursor:pointer;color:transparent;font-size:24px;"
 			onclick="navigateJuz(false)">↞</span>&nbsp;
 		<select style="background-color:#b5d090;padding:0;width:100px;font-szie:12px;" 
-		id="juz-options"
+			id="juz-options"
 			onchange="filterSurahs(this)">
 			<option value="all" select>All Juz</option>
 		</select>
@@ -355,11 +355,10 @@
 					   background-color:transparent; border-color:lightsteelblue;"
 			  onclick="playOrStopCurrentPage(this)">▶</button>
 	</div>
-	<div>
-		<span style="width:5%">&nbsp;</span>
-		<div id="playbox" style="display:none;white-space:nowrap;width:unset;
+	<div style="display:none;">
+		<div id="playbox" style="display:inline-block;white-space:nowrap;width:90%;
 							 border-radius:10px;background-color:#ccffb3;
-							 padding: 4px; margin-top: 5px; margin-bottom: 5px;">
+							 padding: 4px; margin-bottom: 5px;">
 		
 			<button id="qt-fb" class="dropbtn"
 				   onclick="fastplayQuranChapter('qt', false);"
@@ -380,7 +379,7 @@
 			<button id="qt-pause" class="dropbtn"
 				   onclick="pauseOrplayQuranChapter('qt');"
 				   style="cursor:pointer;background-color:transparent;
-						  color:black;font-size:20px;padding:0;">&#x23F8;</button>
+						  color:black;font-size:20px;">&#x23F8;</button>
 			<button id="qt-stop" class="dropbtn"
 				   onclick="stopQuranChapter('qt');"
 				   style="cursor:pointer;background-color:transparent;

@@ -152,7 +152,8 @@ function search(pageNumber){
 	$("#huruf").hide();
 	$(".navDn").hide();
 	$(".navUp").hide();
-	$("#playbox").hide();
+	//$("#playbox").hide();
+	togglePlayControls(false);
 	$("#juz").hide();
 	$("#qari").show();
 	stopPlayVerse();
@@ -332,7 +333,8 @@ function search(pageNumber){
 }
 
 function searchVerseKey(page, ayahText, verseKey, callback){
-	$("#playbox").hide();
+	//$("#playbox").hide();
+	togglePlayControls(false);
 	SearchQuran(window.QuranJS.Search.search, { 
 		language: window.QuranJS.Language.ENGLISH, 
 		size: 50,
@@ -612,7 +614,8 @@ function playQuranChapterUrl(url, id){
 					durationBar.attr('max', data.duration);
 					durationBar.attr('value', data.ct);
 					durationVal.html(getDurationString(data.ct));
-					durationBar.parent().css('display', 'inline-block');
+					//durationBar.parent().css('display', 'inline-block');
+					togglePlayControls(true);
 				}
 
 				$("#"+id+"-progress").hide();
@@ -638,7 +641,8 @@ function playQuranChapterUrl(url, id){
 				if(last_ch_play_id)
 					stopQuranChapter(last_ch_play_id);
 				last_ch_play_id = undefined;
-				durationBar.parent().hide();
+				//durationBar.parent().hide();
+				togglePlayControls(false);
 			}
 		});
 	}	
@@ -669,7 +673,8 @@ function stopQuranChapter(){
 	if(parent && parent.stopAudio){
 		parent.stopAudio();
 
-		$("#playbox").hide();
+		//$("#playbox").hide();
+		togglePlayControls(false);
 		selectSurahCell($("#"+id).parent().parent().parent(), false);
 		if(id && id.startsWith('t-ch')){
 			$("#"+id.replace('t-ch','t-pdf')).show();
@@ -725,7 +730,8 @@ function playOrStopCurrentPage(elem){
 						durationBar.attr('max', data.duration);
 						durationBar.attr('value', data.ct);
 						durationVal.html(getDurationString(data.ct));
-						durationBar.parent().css('display', 'inline-block');
+						//durationBar.parent().css('display', 'inline-block');
+						togglePlayControls(true);
 					}
 				}
 				else if(action == "pause"){
@@ -733,7 +739,8 @@ function playOrStopCurrentPage(elem){
 				}
 				else if(action == "ended"){
 					$(elem).html('▶');
-					durationBar.parent().hide();
+					//durationBar.parent().hide();
+					togglePlayControls(false);
 				}
 			});
 		}
@@ -741,7 +748,8 @@ function playOrStopCurrentPage(elem){
 		if(parent && parent.stopAudio){
 			parent.stopAudio();
 			$(elem).html('▶');
-			durationBar.parent().hide();
+			//durationBar.parent().hide();
+			togglePlayControls(false);
 		}
 	}
 }
@@ -1661,11 +1669,13 @@ function onVerseLoaded(chapter, verse){
 						durationBar.attr('max', data.duration);
 						durationBar.attr('value', data.ct);
 						durationVal.html(getDurationString(data.ct));
-						durationBar.parent().css('display', 'inline-block');
+						//durationBar.parent().css('display', 'inline-block');
+						togglePlayControls(true);
 					}
 				}
 				else if(msg === "ended"){					
-					durationBar.parent().hide();
+					//durationBar.parent().hide();
+					togglePlayControls(false);
 					var nextVerse = chapter + ":" + (verse+1);
 					setTimeout(function(){
 						searchText(nextVerse);
@@ -1800,13 +1810,15 @@ function playVerse(url, verseKey, cb){
 					durationBar.attr('max', data.duration);
 					durationBar.attr('value', data.ct);
 					durationVal.html(getDurationString(data.ct));
-					durationBar.parent().css('display', 'inline-block');
+					//durationBar.parent().css('display', 'inline-block');
+					togglePlayControls(true);
 				}
 			}
 			else  if(action == "pause" || action == "ended"){
 				togglePlayButtons(verseKey, "visisble", "collapse");
 				if(action === "ended"){
-					durationBar.parent().hide();
+					//durationBar.parent().hide();
+					togglePlayControls(false);
 				}else{
 					var v = $("#qt-pause").html(); 
 					$("#qt-pause").html(v === "⏯" ? "⏸" :"⏯");
@@ -1821,7 +1833,8 @@ function playVerse(url, verseKey, cb){
 }
 
 function stopPlayVerse(){	
-	$("#playbox").hide();
+	//$("#playbox").hide();
+	togglePlayControls(false);
 	if(parent && parent.stopAudio){
 		parent.stopAudio();
 	}
@@ -1984,4 +1997,8 @@ function enableLookupMenuOptions(elem){
 			el.next().first().hide();
 		}
 	}
+}
+
+function togglePlayControls(flag){
+	$("#playbox").parent().css('display', flag ? 'inline-block' : 'none');	
 }
