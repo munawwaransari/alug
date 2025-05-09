@@ -8,6 +8,12 @@ body{
 	flex-direction: column;
 }
 
+.dark-theme {
+	background-color: black;
+	filter: invert(1);
+	-webkit-filter: invert(1);
+}
+
 .play-controls {
 	
 }

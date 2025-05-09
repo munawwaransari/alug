@@ -65,6 +65,10 @@ $(document).ready(function()
 		$("#play").click();
 		
 		// Load initial page
+		var theme = getParamValue("theme");
+		if(theme === "dark"){
+			$("body").addClass("dark-theme");
+		}
 		var mode = getParamValue("mode");
 		app_mode = mode ?? 'default';
 
