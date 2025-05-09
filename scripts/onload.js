@@ -66,8 +66,9 @@ $(document).ready(function()
 		
 		// Load initial page
 		var theme = getParamValue("theme");
-		if(theme === "dark"){
-			$("body").addClass("dark-theme");
+		if(theme && theme !== ""){
+			app_theme = "theme-"+theme;
+			$("body").addClass(app_theme);
 		}
 		var mode = getParamValue("mode");
 		app_mode = mode ?? 'default';
@@ -422,6 +423,19 @@ function updateToolDescription(id, opt){
 	$("#psHolder").hide();
 	
 	switch(id){
+		case 'theme':
+			var sdiv = $('<div>'+
+			'Choose a theme: <select id="theme-options" onchange="changeTheme(this)">'+
+			'<option value="default" '+(app_theme === 'default' ?' selected ':'')+'>Default</option>'+
+			'<option value="theme-dark" '+(app_theme === 'dark-theme' ?' selected ':'')+'>Dark</option>'+
+			'<option value="theme-grayscale" '+(app_theme === 'grayscale-theme' ?' selected ':'')+'>Grayscale</option>'+
+			'<option value="theme-saturation" '+(app_theme === 'saturation-theme' ?' selected ':'')+'>Saturation</option>'+
+			'<option value="theme-sepia" '+(app_theme === 'sepia-theme' ?' selected ':'')+'>Sepia</option>'+
+			'</select>'+
+			'</div>');
+			toolMessage.html(sdiv);
+			break;
+			
 		case 'in-search':
 			var sdiv = $('<div>'+
 			'<input id="insearchtxt" class="isearch"/>'+
@@ -835,4 +849,12 @@ function getSitemapUrl(query){
       '<changefreq>monthly</changefreq>'+
       '<priority>'+priority+'</priority>'+
    '</url>';
+}
+
+function changeTheme(opt){
+	$('body[class^="theme-"]').removeClass();
+	var t=$(opt).val();
+	if(t !== 'default'){
+		$('body').addClass(t);
+	}
 }

@@ -8,10 +8,28 @@ body{
 	flex-direction: column;
 }
 
-.dark-theme {
+.theme-dark {
 	background-color: black;
 	filter: invert(1);
 	-webkit-filter: invert(1);
+}
+
+.theme-grayscale {
+	background-color: transparent;
+	filter: grayscale(1);
+	-webkit-filter: grayscale(1);
+}
+
+.theme-sepia {
+	background-color: transparent;
+	filter: sepia(1);
+	-webkit-filter: sepia(1);
+}
+
+.theme-saturation {
+	background-color: transparent;
+	filter: saturate(0.5);
+	-webkit-filter: saturate(0.5);
 }
 
 .play-controls {
