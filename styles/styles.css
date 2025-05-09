@@ -11,19 +11,19 @@ body{
 .theme-dark {
 	background-color: black;
 	filter: invert(1);
-	-webkit-filter: invert(1);
+	-webkit-filter: invert(0.85);
 }
 
 .theme-grayscale {
 	background-color: transparent;
-	filter: grayscale(1);
+	filter: grayscale(0.9);
 	-webkit-filter: grayscale(1);
 }
 
 .theme-sepia {
 	background-color: transparent;
 	filter: sepia(1);
-	-webkit-filter: sepia(1);
+	-webkit-filter: sepia(0.9);
 }
 
 .theme-saturation {
