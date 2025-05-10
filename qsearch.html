@@ -272,9 +272,9 @@
 			<option value="ar-tafsir-al-tabari">Tafsir al Tabari (ar)</option>
 		</select>
 	</div>
-	<div id="searchView" style="width:100%;background-color:#9DBF6C;padding:0px;margin-bottom:5px;
-						 display:flex;flex-direction:row;justify-content: center;">
-		<div id="eye" class="dropdown" style="width:30px;padding-left:30px;margin:auto">
+	<div id="searchView" style="width:100%;background-color:#9DBF6C;padding:0px;margin-bottom:5px;display:block;">
+		<span style="vertical-align:top;">
+		<div id="eye" class="dropdown" style="width:20px;padding-left:30px;margin:auto">
 			<span>&#x1F441</span>
 			<div class="dropdown-content" style="width:170px;">
 				<span style="float:left;font-size:12px;padding-right:8px;margin-top:4px;margin-left:15px;">
@@ -286,14 +286,15 @@
 			</div>
 		</div>
 		<span style="padding:4px;cursor:pointer;color:transparent;font-size:24px;" onclick="navigateJuz(false)">↞&nbsp;</span>
-		<select style="background-color:#b5d090;padding:0;width:100px;font-szie:12px;" 
+		<select style="background-color:#b5d090;padding:0;width:80px;height:28px;font-szie:12px;" 
 				id="juz-options" onchange="filterSurahs(this)">
 			<option value="all" select>All Juz</option>
 		</select>
 		<span style="padding:4px;cursor:pointer;color:transparent;font-size:24px;" onclick="navigateJuz(true)">&nbsp;↠</span>
+		</span>
 		<span class="dropdown" style="margin:auto;padding:0;" >
 			<img id="manzil" data-value="manzil" 
-				 style="cursor:pointer;width:28px;height:28px;margin:auto;margin-top:4px;margin-right:-8px;border:1px solid #555;margin-right:8px;" 
+				 style="cursor:pointer;height:24px;margin:auto;margin-top:4px;margin-right:-8px;border:1px solid #555;margin-right:8px;" 
 				 src="data/qrn/mz/manzil.jpg" onclick="$(this).next().show()">
 			</img>
 			<div class="dropdown-content" style="margin-left:-20px;font-size:14px;">
@@ -309,7 +310,7 @@
 		</span>
 		<span class="dropdown" style="margin:auto;padding:0;" >
 			<img id="huruf" data-value="all" 
-				 style="cursor:pointer;width:28px;height:28px;margin:auto;margin-top:4px;margin-right:-8px;border:1px solid #555;margin-right:8px;" 
+				 style="cursor:pointer;height:24px;margin:auto;margin-top:4px;margin-right:-8px;border:1px solid #555;margin-right:8px;" 
 				 src="data/qrn/huruf/h.jpg" onclick="$(this).next().show()">
 			</img>
 			<div class="dropdown-content" style="margin-left:-20px;font-size:14px;">
@@ -332,7 +333,7 @@
 			</div>
 		</span>
 		<img id="qMM" data-value="makki.madni" onclick="toggleMakkiMadni()"
-			style="cursor:pointer;width:28px;height:28px;margin:auto;margin-right:6px;border:1px solid #555;" 
+			style="cursor:pointer;height:24px;margin:auto;margin-right:6px;border:1px solid #555;" 
 			src="images/makki.madni.jpg">
 		</img>
 	</div>

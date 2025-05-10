@@ -39,17 +39,6 @@ $(document).ready(function()
 			loadVoiceOptions(true, false);
 			updateVoiceSelection();
 			
-			/*
-			var c = "";
-			var o = $("#languages option");
-			if(o && o.length > 0){
-				o.each(function(i, opt){
-					c = c + opt.value + ", ";
-				});
-			}
-			alert(c);
-			*/
-			
 			// set support options
 			var arVoices =  $("#languages option").filter(function(i, x){
 				return x.value === 'ar-SA' || x.value === 'ar_SA';
@@ -280,15 +269,7 @@ function toggleMenu(){
 	toggleIcon("#topics");
 	menuOption = !menuOption;
 	$(".menu-container").toggle();
-	/*
-	if(menuOption){
-		
-	}else{
-		$("#menu-container").css('display', 'none!important');
-		$("#menu-container").css('overflow', 'hidden!important');
-		$("#menu-container").hide();
-	}*/
-	console.log('menuOption :' + menuOption);
+	//console.log('menuOption :' + menuOption);
 }
 
 function toggleIcon(id){
@@ -564,13 +545,7 @@ function updateToolDescription(id, opt){
 		
 		case "qsearch":
 		{
-			/*
-			if(qPlayerObj && opt && opt.play){
-				qPlayerObj.loadPlayerControls(toolMessage, opt.play);
-			}
-			else
-			*/
-				toolMessage.html($('<p Style="padding:0;margin:0;"><b>Quran search</b></p>'));
+			toolMessage.html($('<p Style="padding:0;margin:0;"><b>Quran search</b></p>'));
 		}
 		break;
 		
