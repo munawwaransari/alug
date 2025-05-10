@@ -145,16 +145,21 @@ function loadWordsFrom(data){
 Search Quran using QuranJS API  
 */
 function search(pageNumber){
+	$("#searchView").hide();
+	$("#mushafView").hide();
 	$('#qv1').css('background-color','#04AA6D');
 	$('#qv2').css('background-color','#04AA6D');
+	
+	/*
 	$("#qMM").hide();
 	$("#manzil").hide();
 	$("#huruf").hide();
 	$(".navDn").hide();
 	$(".navUp").hide();
 	//$("#playbox").hide();
-	togglePlayControls(false);
 	$("#juz").hide();
+	*/
+	togglePlayControls(false);
 	$("#qari").show();
 	stopPlayVerse();
 	const text = arRemovePunct(document.getElementById("searchText").value);
@@ -1387,6 +1392,18 @@ function updatePage(s, p){
 	displayQPage(p);
 }
 
+function navigatePage(next){
+	sel = $("#page-options");
+	if(sel.is(':visible')){
+		var opt = sel.val();
+		var value = parseInt(opt.replace('page',''))
+		value += next ? +1:-1;
+		if(value > 0 && value < 605){
+			sel.val('page'+value);
+			displayQPage();
+		}
+	}
+}
 function navigateJuz(next){
 	
 	var sel = $("#juz-options");
@@ -1400,17 +1417,6 @@ function navigateJuz(next){
 			filterSurahs(sel, 'juz'+value);
 		}
 	}
-	
-	sel = $("#page-options");
-	if(sel.is(':visible')){
-		var opt = sel.val();
-		var value = parseInt(opt.replace('page',''))
-		value += next ? +1:-1;
-		if(value > 0 && value < 605){
-			sel.val('page'+value);
-			displayQPage();
-		}
-	}
 }
 
 function filterSurahs(elem, cname){
@@ -1420,7 +1426,7 @@ function filterSurahs(elem, cname){
 		$(".surahIndex [class^=\'juz\']").show();
 		if(elem){
 			$(elem).prev().css('color','transparent');
-			$(elem).next().next().css('color','transparent');
+			$(elem).next().css('color','transparent');
 		}
 	}else{
 		$(".surahIndex [class^=\'juz\']").hide();
@@ -1428,7 +1434,7 @@ function filterSurahs(elem, cname){
 		$("."+opt).show();
 		if(elem){
 			$(elem).prev().css('color','crimson');
-			$(elem).next().next().css('color','crimson');
+			$(elem).next().css('color','crimson');
 		}
 	}
 	//setTimeout(function(){
@@ -1507,16 +1513,19 @@ Loads Quran surah index
 */
 var surah_list;
 function listSurahs(loadMushaf){
+	
+	/*
 	$("#juz").children().last().prev().prev().hide();
 	$("#juz").children().last().prev().hide();
 	$("#qMM").show();
 	$("#manzil").parent().show();
 	$("#qari").hide();
 	$("#juz").show();
+	*/
+	$("#qari").hide();
 	var path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
 	var url = path + 'data/qrn/qsurah.json';
 	listSurahsAsync(url, function(data){
-	
 		var sOptions = $("#surah-options");
 		surah_list = data;
 		var div = $("#searchResult");
@@ -1871,7 +1880,11 @@ function toggleQuranView(readView, index, page){
 	if(readView){
 		$('#qv1').css('background-color','#04AA6D');
 		$('#qv2').css('background-color','darkolivegreen');
-		
+		$("#searchView").css('display', 'none');
+		$("#mushafView").css('display', 'flex');
+		$("#tqv1").hide();
+		$("#tqv2").show();
+		/*
 		$("#qMM").hide();
 		$("#eye").hide();
 		$("#manzil").parent().hide();
@@ -1881,14 +1894,13 @@ function toggleQuranView(readView, index, page){
 		$("#juz-options").hide();
 		$("#surah-options").show();
 		$("#page-options").show();
-		$("#tqv1").hide();
-		$("#tqv2").show();
 		$("#juz-options").prev().css('color','crimson');
 		$("#juz-options").next().next().css('color','crimson');
 		$("#juz").children().last().prev().prev().prev().hide();
 		$("#juz").children().last().prev().prev().hide();
 		$("#juz").children().last().prev().show();
 		$("#juz").children().last().show();
+		*/
 		
 		if(index && page)
 			updatePage(index, page);
@@ -1897,7 +1909,11 @@ function toggleQuranView(readView, index, page){
 	}else{
 		$('#qv1').css('background-color','darkolivegreen');
 		$('#qv2').css('background-color','#04AA6D');
-		
+		$("#searchView").css('display', 'flex');
+		$("#mushafView").css('display', 'none');
+		$("#tqv1").show();
+		$("#tqv2").hide();
+		/*
 		$("#qMM").parent().show();
 		$("#eye").show();
 		$("#manzil").show();	
@@ -1906,14 +1922,13 @@ function toggleQuranView(readView, index, page){
 		$("#juz-options").show();
 		$("#surah-options").hide();
 		$("#page-options").hide();
-		$("#tqv1").show();
-		$("#tqv2").hide();
 		$("#juz-options").prev().css('color','transparent');
 		$("#juz-options").next().next().css('color','transparent');
 		$("#juz").children().last().prev().prev().prev().show();
 		$("#juz").children().last().prev().prev().show();
 		$("#juz").children().last().prev().hide();
 		$("#juz").children().last().hide();
+		*/
 	}
 }
 
@@ -1925,9 +1940,9 @@ function displayQPage(p){
 	var imgLoading = $("#tqv2 img").last();
 	
 	configureSwipeEvents(img[0], function(){
-		navigateJuz(false);
+		navigatePage(false);
 	}, function(){
-		navigateJuz(true);
+		navigatePage(true);
 	});
 	
 	imgLoading.show();
@@ -1961,6 +1976,9 @@ function displayQPage(p){
 	if(index){
 		$("#surah-options").val(index);
 	}
+	
+	$("#page-options").prev().css('color', pg == "001" ? 'transparent': 'crimson');
+	$("#page-options").next().css('color', pg == "604" ? 'transparent': 'crimson');
 }
 
 function onDurationClick(id, e){

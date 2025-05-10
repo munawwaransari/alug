@@ -272,7 +272,7 @@
 			<option value="ar-tafsir-al-tabari">Tafsir al Tabari (ar)</option>
 		</select>
 	</div>
-	<div id="juz" style="width:100%;background-color:#9DBF6C;padding:0px;margin-bottom:5px;
+	<div id="searchView" style="width:100%;background-color:#9DBF6C;padding:0px;margin-bottom:5px;
 						 display:flex;flex-direction:row;justify-content: center;">
 		<div id="eye" class="dropdown" style="width:30px;padding-left:30px;margin:auto">
 			<span>&#x1F441</span>
@@ -285,26 +285,15 @@
 					<input type="checkbox" onchange="$('.chkQ').toggle()" checked><br/>Qirat</span>
 			</div>
 		</div>
-		<select style="display:none;background-color:#b5d090;padding:0;width:100px;font-szie:12px;" 
-				id="surah-options" 
-				onchange="updatePage()">
-		</select>
-		<span style="padding:4px;cursor:pointer;color:transparent;font-size:24px;"
-			onclick="navigateJuz(false)">↞</span>&nbsp;
+		<span style="padding:4px;cursor:pointer;color:transparent;font-size:24px;" onclick="navigateJuz(false)">↞&nbsp;</span>
 		<select style="background-color:#b5d090;padding:0;width:100px;font-szie:12px;" 
-			id="juz-options"
-			onchange="filterSurahs(this)">
+				id="juz-options" onchange="filterSurahs(this)">
 			<option value="all" select>All Juz</option>
 		</select>
-		<select style="display:none;background-color:#b5d090;padding:0;width:100px;font-szie:12px;" 
-		id="page-options"
-			onchange="displayQPage()">
-		</select>
-		&nbsp;<span style="padding:4px;cursor:pointer;color:transparent;font-size:24px;"
-			onclick="navigateJuz(true)">↠</span>
+		<span style="padding:4px;cursor:pointer;color:transparent;font-size:24px;" onclick="navigateJuz(true)">&nbsp;↠</span>
 		<span class="dropdown" style="margin:auto;padding:0;" >
 			<img id="manzil" data-value="manzil" 
-				 style="display:none;cursor:pointer;width:28px;height:28px;margin:auto;margin-top:4px;margin-right:-8px;border:1px solid #555;margin-right:8px;" 
+				 style="cursor:pointer;width:28px;height:28px;margin:auto;margin-top:4px;margin-right:-8px;border:1px solid #555;margin-right:8px;" 
 				 src="data/qrn/mz/manzil.jpg" onclick="$(this).next().show()">
 			</img>
 			<div class="dropdown-content" style="margin-left:-20px;font-size:14px;">
@@ -320,7 +309,7 @@
 		</span>
 		<span class="dropdown" style="margin:auto;padding:0;" >
 			<img id="huruf" data-value="all" 
-				 style="display:none;cursor:pointer;width:28px;height:28px;margin:auto;margin-top:4px;margin-right:-8px;border:1px solid #555;margin-right:8px;" 
+				 style="cursor:pointer;width:28px;height:28px;margin:auto;margin-top:4px;margin-right:-8px;border:1px solid #555;margin-right:8px;" 
 				 src="data/qrn/huruf/h.jpg" onclick="$(this).next().show()">
 			</img>
 			<div class="dropdown-content" style="margin-left:-20px;font-size:14px;">
@@ -342,16 +331,27 @@
 				<p style="cursor:pointer;" onclick="filterHuruf('ys')"><img src="data/qrn/huruf/ys.jpg" style="cursor:pointer;height:20px;" onclick="filterHuruf('ys')"></img></p>
 			</div>
 		</span>
-		<img id="qMM"
-			data-value="makki.madni"
-			onclick="toggleMakkiMadni()"
-			style="display:none;cursor:pointer;width:28px;height:28px;margin:auto;margin-right:6px;border:1px solid #555;" 
+		<img id="qMM" data-value="makki.madni" onclick="toggleMakkiMadni()"
+			style="cursor:pointer;width:28px;height:28px;margin:auto;margin-right:6px;border:1px solid #555;" 
 			src="images/makki.madni.jpg">
 		</img>
-		<button style="height:100;display:none;cursor:pointer;margin-left:1px;
+	</div>
+	<div id="mushafView" style="width:100%;background-color:#9DBF6C;padding:0px;margin-bottom:5px;
+						 display:none;flex-direction:row;justify-content: center;">
+		<select style="background-color:#b5d090;padding:0;width:100px;font-szie:12px;" 
+				id="surah-options" 
+				onchange="updatePage()">
+		</select>
+		<span 	style="padding:4px;cursor:pointer;color:crimson;font-size:24px;"
+				onclick="navigatePage(false)">↞&nbsp;</span>
+		<select style="background-color:#b5d090;padding:0;width:100px;font-szie:12px;" id="page-options" onchange="displayQPage()">
+		</select>
+		<span style="padding:4px;cursor:pointer;color:crimson;font-size:24px;"
+			onclick="navigatePage(true)">&nbsp;↠</span>
+		<button style="height:100;cursor:pointer;margin-left:1px;
 					   background-color:transparent; border-color:lightsteelblue;"
 			  onclick="var p=$('#page-options').val().replace('page','');$('#searchText').val(p);search(p);">&#x21ba;</button>
-		<button style="height:100;display:none;cursor:pointer;margin-left:1px;
+		<button style="height:100;cursor:pointer;margin-left:1px;
 					   background-color:transparent; border-color:lightsteelblue;"
 			  onclick="playOrStopCurrentPage(this)">▶</button>
 	</div>
