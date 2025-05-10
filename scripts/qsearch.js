@@ -1869,6 +1869,9 @@ function toggleQHead(){
 
 function toggleQuranView(readView, index, page){
 	if(readView){
+		$('#qv1').css('background-color','#04AA6D');
+		$('#qv2').css('background-color','darkolivegreen');
+		
 		$("#qMM").hide();
 		$("#eye").hide();
 		$("#manzil").parent().hide();
@@ -1892,6 +1895,9 @@ function toggleQuranView(readView, index, page){
 		else
 			displayQPage();
 	}else{
+		$('#qv1').css('background-color','darkolivegreen');
+		$('#qv2').css('background-color','#04AA6D');
+		
 		$("#qMM").parent().show();
 		$("#eye").show();
 		$("#manzil").show();	
