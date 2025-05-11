@@ -230,6 +230,8 @@
 								onclick="window.open(this.href, '_blank'); return false;">surah-name-glyphs</a>
 							<a href='https://qul.tarteel.ai/resources'
 								onclick="window.open(this.href, '_blank'); return false;">qul.tarteel.ai</a>
+							<a href='https://www.searchtruth.com/mushaf/quran.php'
+								onclick="window.open(this.href, '_blank'); return false;">www.searchtruth.com</a>
 						</div>
 					</span>
 				</span>
@@ -345,16 +347,30 @@
 		</select>
 		<span 	style="padding:4px;cursor:pointer;color:crimson;font-size:24px;"
 				onclick="navigatePage(false)">↞&nbsp;</span>
-		<select style="background-color:#b5d090;padding:0;width:100px;font-szie:12px;" id="page-options" onchange="displayQPage()">
+		<select style="background-color:#b5d090;padding:0;width:80px;font-szie:12px;" id="page-options" onchange="displayQPage()">
 		</select>
 		<span style="padding:4px;cursor:pointer;color:crimson;font-size:24px;"
 			onclick="navigatePage(true)">&nbsp;↠</span>
+		<span class="dropdown">
+			<button id="mushaf-layout" data-value="default" class="dropdown"
+					style="min-height:36px;;cursor:pointer;margin-left:1px;background-color:transparent; border-color:lights">&#x06dd;</button>
+			<div class="dropdown-content">
+				<a href="#" onclick="$('#mushaf-layout').attr('data-value','default');displayQPage();">Default</a>
+				<a href="#" onclick="$('#mushaf-layout').attr('data-value','uthmani');displayQPage();">Uthmani</a>
+			</div>
+		</span>
 		<button style="height:100;cursor:pointer;margin-left:1px;
 					   background-color:transparent; border-color:lightsteelblue;"
 			  onclick="var p=$('#page-options').val().replace('page','');$('#searchText').val(p);search(p);">&#x21ba;</button>
 		<button style="height:100;cursor:pointer;margin-left:1px;
 					   background-color:transparent; border-color:lightsteelblue;"
 			  onclick="playOrStopCurrentPage(this)">▶</button>
+		<!--
+		<select style="background-color:#b5d090;padding:0;width:50px;font-szie:12px;" id="mushaf-layout" onchange="displayQPage()">
+			<option value="default">Default</option>
+			<option value="uthmani">Uthmani</option>
+		</select>
+		//-->
 	</div>
 	<div style="display:none;">
 		<div id="playbox" style="display:inline-block;white-space:nowrap;width:90%;

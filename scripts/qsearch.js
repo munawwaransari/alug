@@ -1865,8 +1865,12 @@ function displayQPage(p){
 	img.on('load', function(){
 		imgLoading.hide();
 	});
-	img.attr('src', 'https://archive.org/download/ALQURANPERPAGEFORMATPNG/page'+pg+'.png');
 	
+	var layout = $("#mushaf-layout").attr('data-value');
+	if(layout === 'uthmani')
+		img.attr('src', 'https://www.searchtruth.com/quran/images/images2/large/page-'+pg+'.jpeg');	
+	else
+		img.attr('src', 'https://archive.org/download/ALQURANPERPAGEFORMATPNG/page'+pg+'.png');
 	//update surah
 	var index;
 	Object.keys(surah_list).every(function(k){
