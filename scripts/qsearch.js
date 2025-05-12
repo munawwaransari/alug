@@ -49,6 +49,7 @@ window.onload = function(){
 	q_app_mode = getParamValue("mode");
 	if(q_app_mode === 'Quran'){
 		$("button[title]").hide();
+		autoplay = true;
 	}
 	
 	var langParam = decodeURI(getParamValue("lang"));
