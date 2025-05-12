@@ -286,7 +286,10 @@ function search(pageNumber){
 											
 											//Add tafsir
 											getVerseTafsir(null, verseKey, function(t, s){
-												div.append($('<div id="tafsir" style="'+s+'">'+t.text+'</div>'));
+												if(t === undefined)
+													div.append($('<div id="tafsir" style="'+s+'"></div>'));
+												else
+													div.append($('<div id="tafsir" style="'+s+'">'+t.text+'</div>'));
 											});
 										});
 
@@ -365,7 +368,10 @@ function changeTafsir(){
 			$("#chkTafsir").prop('checked', '');
 			stopPlayVerse();
 			getVerseTafsir(null, text, function(t){
-				div.html(t.text);
+				if(t === undefined)
+					div.html('');
+				else
+					div.html(t.text);
 			});
 		}
 	}
@@ -380,6 +386,11 @@ function getVerseTafsir(id, verseKey, callback){
 	var scrollPosition = $(window).scrollTop();
 	
 	var tafsir = $("#tafsir-options").val();
+	
+	if(tafsir === "none"){
+		callback(undefined, style);
+		return;
+	}
 	var style = tafsir.startsWith("ur-") ? " font-size:18px;":" font-size:16px;";
 	var vKey = verseKey.split(":");
 	var url = "https://cdn.jsdelivr.net/gh/spa5k/tafsir_api@main/tafsir/"+tafsir+"/"+vKey[0]+"/"+vKey[1]+".json";
@@ -389,7 +400,6 @@ function getVerseTafsir(id, verseKey, callback){
 			callback(data, style);
 			return;
 		}
-		
 		
 		var childId = id+'_tafsir_123';
 		var elem = document.getElementById(childId); 
