@@ -10,7 +10,7 @@ var loadStatus;
 var isAutoPlayQirat, changeQari;
 var q_app_mode = 'default';
 var similar_ayah;
-
+var transliteration_data;
 window.onload = function(){
 
 	$("#hd-loading").show();
@@ -239,48 +239,58 @@ function search(pageNumber){
 						if(res2.verseKey == verseKey){
 							displayVerse(div, verse2, verseKey, { words: res2.words, controls: true, direction: 'rtl', ayahOption: $("#ayah-options").val() });
 							
-							// Try to add English translation
-							SearchQuran(window.QuranJS.Verses.findByKey, { 
-								words:1, 
-								language: window.QuranJS.Language.ENGLISH, 
-								size: 10
-							}, 
-							verseKey, 
-							function(data3){
-								displayVerse(div, data3.words[0].translation.text, verseKey, {
-									words: data3.words,
-									bgColor: '#F6F0F2',
+							// Try to get transliteration
+							getAyahTransliteration(verseKey, function(transData){
+								
+								displayVerse(div, transData.join(' '), verseKey, {
+									words: transData.map(function(d) {return {text: d} }),
+									bgColor: '#F6F0c2',
 									direction: 'ltr'
 								});
 								
-								// Try to add Urdu translation
-								SearchQuran(window.QuranJS.Verses.findByKey, 
-											{ words:1, language: window.QuranJS.Language.URDU, size: 10 }, 
-											verseKey, 
-								function(data4){
-									displayVerse(div, data4.words[0].translation.text, verseKey, {
-										words: data4.words,
-										bgColor: '#E8EEF4',
-										direction: 'rtl'
+								// Try to add English translation
+								SearchQuran(window.QuranJS.Verses.findByKey, { 
+									words:1, 
+									language: window.QuranJS.Language.ENGLISH, 
+									size: 10
+								}, 
+								verseKey, 
+								function(data3){
+									displayVerse(div, data3.words[0].translation.text, verseKey, {
+										words: data3.words,
+										bgColor: '#F6F0F2',
+										direction: 'ltr'
 									});
 									
-									// Try to add Hindi translation
+									// Try to add Urdu translation
 									SearchQuran(window.QuranJS.Verses.findByKey, 
-												{ words:1, language: window.QuranJS.Language.HINDI, size: 10 }, 
+												{ words:1, language: window.QuranJS.Language.URDU, size: 10 }, 
 												verseKey, 
-									function(data5){
-										displayVerse(div, data5.words[0].translation.text, verseKey, {
-											words: data5.words,
+									function(data4){
+										displayVerse(div, data4.words[0].translation.text, verseKey, {
+											words: data4.words,
 											bgColor: '#E8EEF4',
-											direction: 'ltr'
+											direction: 'rtl'
 										});
 										
-										//Add tafsir
-										getVerseTafsir(null, verseKey, function(t, s){
-											div.append($('<div id="tafsir" style="'+s+'">'+t.text+'</div>'));
+										// Try to add Hindi translation
+										SearchQuran(window.QuranJS.Verses.findByKey, 
+													{ words:1, language: window.QuranJS.Language.HINDI, size: 10 }, 
+													verseKey, 
+										function(data5){
+											displayVerse(div, data5.words[0].translation.text, verseKey, {
+												words: data5.words,
+												bgColor: '#E8EEF4',
+												direction: 'ltr'
+											});
+											
+											//Add tafsir
+											getVerseTafsir(null, verseKey, function(t, s){
+												div.append($('<div id="tafsir" style="'+s+'">'+t.text+'</div>'));
+											});
 										});
-									});
 
+									});
 								});
 							});
 							return true;
@@ -1945,4 +1955,22 @@ function enableLookupMenuOptions(elem){
 
 function togglePlayControls(flag){
 	$("#playbox").parent().css('display', flag ? 'inline-block' : 'none');	
+}
+
+function getAyahTransliteration(verseKey, cb){
+	
+	if(transliteration_data == undefined){
+		loadJsonData("data/qrn/en-wbw-ayah.json", function(data){
+			transliteration_data = data;
+			if(cb){
+				transliteration_data = data;
+				cb(transliteration_data[verseKey]);
+			}
+		});
+	}
+	else{
+		if(cb){
+			cb(transliteration_data[verseKey]);
+		}
+	}
 }
