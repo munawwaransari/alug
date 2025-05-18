@@ -1532,25 +1532,12 @@ function listSurahs(loadMushaf){
 											  'src="data/qrn/mz/mz'+(surah.manzil)+'.jpg">'+
 										'</img>';
 										
-			var info = '<span class="dropdown" style="float:right;">'+
+			var info = '<span class="dropdown" style="float:right;" onclick="">'+
 					   '<img style="float:right;width:16px;margin-left:3px;background-color:transparent;" src="images/info.png"></img>'+
 					   '<div class="dropdown-content" style="width:360px;right=0;">'+
-							'<a href="#" style="float:right" '+
-								'onclick="if($(this).html()===\'Urdu\'){'+
-											'$(this).html(\'English\');'+
-											'$(this).next().hide();'+
-											'$(this).next().next().attr(\'top\', $(this).offset().top);'+
-											'$(this).next().next().attr(\'left\', $(this).offset().left - 10);'+
-											'$(this).next().next().show();}'+
-										'else{'+
-											'$(this).html(\'Urdu\');'+
-											'$(this).next().attr(\'top\', $(this).offset().top);'+
-											'$(this).next().attr(\'left\', $(this).offset().left - 10);'+
-											'$(this).next().show();'+
-											'$(this).next().next().hide();'+
-										'}">Urdu</a>'+
+							'<a href="#" style="float:right" onclick="handleSurahInfoDisplay(this)">Urdu</a>'+
 							'<div>'+surah.en_text+'</div>'+
-							'<div style="display:none">'+surah.ur_text+'</div>'+
+							'<div style="display:none">'+(surah.ur_text ?? surah.en_text)+'</div>'+
 					   '</div></span>';
 			var huruf = surah.huruf === undefined ? '': '<img style="float:right;height:20px;margin-left:3px;background-color:transparent;" src="data/qrn/huruf/'+surah.huruf+'.jpg"></img>';
 			var hClass = surah.huruf === undefined ? "noh" : surah.huruf;
@@ -2002,4 +1989,21 @@ function getAyahTransliteration(verseKey, cb){
 			cb(transliteration_data[verseKey]);
 		}
 	}
+}
+
+function handleSurahInfoDisplay(elem){
+	var el = $(elem);
+	var off = el.offset(); 
+	if(el.html()==='Urdu'){
+		el.html('English');
+		el.next().hide();
+		el.next().next().show();
+	}
+	else
+	{
+		el.html('Urdu');
+		el.next().show();
+		el.next().next().hide();		
+	}
+	setTimeout(function(){el[0].scrollIntoView();},50);
 }
