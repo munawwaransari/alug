@@ -1537,9 +1537,18 @@ function listSurahs(loadMushaf){
 					   '<div class="dropdown-content" style="width:360px;right=0;">'+
 							'<a href="#" style="float:right" '+
 								'onclick="if($(this).html()===\'Urdu\'){'+
-											'$(this).html(\'English\');$(this).next().hide();$(this).next().next().show();}'+
+											'$(this).html(\'English\');'+
+											'$(this).next().hide();'+
+											'$(this).next().next().attr(\'top\', $(this).offset().top);'+
+											'$(this).next().next().attr(\'left\', $(this).offset().left - 10);'+
+											'$(this).next().next().show();}'+
 										'else{'+
-											'$(this).html(\'Urdu\');$(this).next().show();$(this).next().next().hide();}">Urdu</a>'+
+											'$(this).html(\'Urdu\');'+
+											'$(this).next().attr(\'top\', $(this).offset().top);'+
+											'$(this).next().attr(\'left\', $(this).offset().left - 10);'+
+											'$(this).next().show();'+
+											'$(this).next().next().hide();'+
+										'}">Urdu</a>'+
 							'<div>'+surah.en_text+'</div>'+
 							'<div style="display:none">'+surah.ur_text+'</div>'+
 					   '</div></span>';
