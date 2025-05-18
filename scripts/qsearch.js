@@ -1532,6 +1532,17 @@ function listSurahs(loadMushaf){
 											  'src="data/qrn/mz/mz'+(surah.manzil)+'.jpg">'+
 										'</img>';
 										
+			var info = '<span class="dropdown" style="float:right;">'+
+					   '<img style="float:right;width:16px;margin-left:3px;background-color:transparent;" src="images/info.png"></img>'+
+					   '<div class="dropdown-content" style="width:360px;right=0;">'+
+							'<a href="#" style="float:right" '+
+								'onclick="if($(this).html()===\'Urdu\'){'+
+											'$(this).html(\'English\');$(this).next().hide();$(this).next().next().show();}'+
+										'else{'+
+											'$(this).html(\'Urdu\');$(this).next().show();$(this).next().next().hide();}">Urdu</a>'+
+							'<div>'+surah.en_text+'</div>'+
+							'<div style="display:none">'+surah.ur_text+'</div>'+
+					   '</div></span>';
 			var huruf = surah.huruf === undefined ? '': '<img style="float:right;height:20px;margin-left:3px;background-color:transparent;" src="data/qrn/huruf/'+surah.huruf+'.jpg"></img>';
 			var hClass = surah.huruf === undefined ? "noh" : surah.huruf;
 			table += '<tr class="'+juz+' '+surah.nuzul+' mz'+surah.manzil+' '+hClass+'">'+
@@ -1540,7 +1551,9 @@ function listSurahs(loadMushaf){
 								'<span>'+
 									'<b class="navUp" '+
 									  'style="display:none;float:left;cursor:pointer;" '+
-									  'onclick="bringIntoView(\'#playbox\')">&nbsp;&nbsp;&#x2B06;&nbsp;&nbsp;</b>'+
+									  'onclick="bringIntoView(\'#playbox\')">&nbsp;&nbsp;&#x2B06;&nbsp;&nbsp;'+
+									'</b>'+
+									info+
 									huruf+
 									'<img style="width:16px;margin:0;float:right;" src="images/'+surah.nuzul+'.jpg"></img>'+
 									manzilImg +
