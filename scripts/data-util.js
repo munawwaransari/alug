@@ -59,6 +59,36 @@ async function loadHtmlData(url,  callback, opt)
 	}
 }
 
+async function loadZipData(url, file, callback, errorCallback)
+{
+	try {
+		console.log('Fetching zip: '+ url);
+		const response = await fetch(url);
+		if (!response.ok) {
+			throw new Error(`HTTP error! Status: ${response.status}`);
+		}
+		var jsZip = new JSZip();
+		jsZip.loadAsync(response.blob())
+		     .then(function (zip){
+				zip.file(file)
+				   .async("string")
+				   .then(function(data){
+						if(file.endsWith(".json")){
+							surah_list_cache = JSON.parse(data);
+							callback(surah_list_cache); 	
+						}						
+					})
+			 });
+	} 
+	catch (error) {
+
+		console.error("Fetch error:", error);
+		if (errorCallback){
+			errorCallback(error);
+		}
+	}
+}
+
 function showArabicKeyboard(keybd){
 	setTimeout(function(){
 		console.log("Opening keyboard: " + keybd);

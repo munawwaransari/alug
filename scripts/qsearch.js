@@ -1494,8 +1494,8 @@ function listSurahs(loadMushaf){
 
 	$("#qari").hide();
 	var path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
-	var url = path + 'data/qrn/qsurah.json';
-	listSurahsAsync(url, function(data){
+	var url = path + 'data/qrn/qsurah.zip';
+	listSurahsAsync(url, "qsurah.json", function(data){
 		var sOptions = $("#surah-options");
 		surah_list = data;
 		var div = $("#searchResult");
@@ -1698,7 +1698,7 @@ function searchText(txt){
 }
 
 var surah_list_cache;
-async function listSurahsAsync(url, callback)
+async function listSurahsAsync(zipUrl, file, callback)
 {
 	try {
 		if(surah_list_cache !== undefined){
@@ -1706,15 +1706,11 @@ async function listSurahsAsync(url, callback)
 			return;
 		}
 		
-		const response = await fetch(url);
-		if (!response.ok) {
-			throw new Error(`HTTP error! Status: ${response.status}`);
-		}
-		const data = await response.json();
-		
-		// Load Surah names
-		surah_list_cache = data;
-		callback(data);
+		loadZipData(zipUrl, file, function(data, jsZip){
+			// Load Surah names
+			surah_list_cache = data
+			callback(surah_list_cache);
+		});
 	} 
 	catch (error) {
 		console.error("Fetch error:", error);
