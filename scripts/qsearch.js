@@ -1536,8 +1536,8 @@ function listSurahs(loadMushaf){
 					   '<img style="float:right;width:16px;margin-left:3px;background-color:transparent;" src="images/info.png"></img>'+
 					   '<div class="dropdown-content" style="width:360px;right=0;">'+
 							'<a href="#" style="float:right" onclick="handleSurahInfoDisplay(this)">Urdu</a>'+
-							'<div>'+surah.en_text+'</div>'+
-							'<div style="display:none">'+(surah.ur_text ?? surah.en_text)+'</div>'+
+							'<div style="direction:ltr">'+replaceSurahIngoQLink(surah.en_text)+'</div>'+
+							'<div style="display:none">'+replaceSurahIngoQLink(surah.ur_text ?? surah.en_text)+'</div>'+
 					   '</div></span>';
 			var huruf = surah.huruf === undefined ? '': '<img style="float:right;height:20px;margin-left:3px;background-color:transparent;" src="data/qrn/huruf/'+surah.huruf+'.jpg"></img>';
 			var hClass = surah.huruf === undefined ? "noh" : surah.huruf;
@@ -1895,6 +1895,9 @@ function displayQPage(p){
 	var layout = $("#mushaf-layout").attr('data-value');
 	if(layout === 'uthmani')
 		img.attr('src', 'https://www.searchtruth.com/quran/images/images2/large/page-'+pg+'.jpeg');	
+	else
+	if(layout === 'madni')
+		img.attr('src', 'https://ia801807.us.archive.org/BookReader/BookReaderImages.php?zip=/19/items/quran-madinah/quran-madina_jp2.zip&file=quran-madina_jp2/quran-madina_0'+pg+'.jp2&id=quran-madinah&scale=1&rotate=0')
 	else
 		img.attr('src', 'https://archive.org/download/ALQURANPERPAGEFORMATPNG/page'+pg+'.png');
 	//update surah

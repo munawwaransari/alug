@@ -184,6 +184,16 @@ function replaceAnalysisLink(val, addBreak){
 	return '';
 }
 
+function replaceSurahIngoQLink(addressHtml) {
+	var qlinkExp = /^(<a\s+.*(\d+)\/(\d+)\-(\d+).*a>)/g;
+	if(addressHtml.match(qlinkExp)){
+		return addressHtml.replaceAll(qlinkExp, 
+			//'<a href="#" onclick="if(parent.inSearch) parent.inSearch(\'...QuranSearch $2:$3\');">$3-$4</a>');
+			'$2:$3-$4');
+	}
+	return addressHtml;
+}
+
 function replaceQLink(val, addBreak=true){
 
 	var analysisLink = replaceAnalysisLink(val, true);
