@@ -12,7 +12,7 @@ var q_app_mode = 'default';
 var similar_ayah;
 var transliteration_data;
 window.onload = function(){
-
+	
 	$("#hd-loading").show();
 	$("#searchText").keyup(function(event) {
 		if (event.keyCode === 13) {
@@ -1849,6 +1849,7 @@ function toggleQHead(){
 		$("#imgQHead").prop('src', 'images/up.png');
 		$("#divQHead").show();
 	}
+	changeDisplayLayout();
 }
 
 function toggleQuranView(readView, index, page){
@@ -1892,7 +1893,8 @@ function displayQPage(p){
 		imgLoading.hide();
 	});
 	
-	var layout = $("#mushaf-layout").attr('data-value');
+	var l = $("#mushaf-layout").attr('data-value').split(",");
+	var layout = l[0];
 	if(layout === 'uthmani')
 		img.attr('src', 'https://www.searchtruth.com/quran/images/images2/large/page-'+pg+'.jpeg');	
 	else
@@ -1928,6 +1930,33 @@ function displayQPage(p){
 	
 	$("#page-options").prev().css('color', pg == "001" ? 'transparent': 'crimson');
 	$("#page-options").next().css('color', pg == "604" ? 'transparent': 'crimson');
+}
+
+function updateLayoutData(l1, l2){
+	var el=$('#mushaf-layout'); 
+	var d = el.attr('data-value').split(',');
+	el.attr('data-value',(l1 ?? d[0])+','+(l2 ?? d[1]))
+}
+
+function changeDisplayLayout(layout){
+	var img = $("#searchResult img").first();
+	if(img.length == 0)
+		return;
+	var l = layout ?? $("#mushaf-layout").attr('data-value').split(",")[1];
+	var w = $(window);
+	if(img.length > 0){
+		if(l === 'h'){
+			img.css('object-fit', 'contain');
+			img.attr('width', 'auto');
+			img.attr('height', w.height() - img.offset().top);
+			updateLayoutData(undefined, 'h');
+		}else {
+			img.css('object-fit', 'contain');
+			img.attr('width', w.width() - img.offset().left);
+			img.attr('height', 'auto');
+			updateLayoutData(undefined, 'w');
+		}
+	}
 }
 
 function onDurationClick(id, e){

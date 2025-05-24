@@ -354,12 +354,16 @@
 		<span style="padding:4px;cursor:pointer;color:crimson;font-size:24px;"
 			onclick="navigatePage(true)">&nbsp;↠</span>
 		<span class="dropdown">
-			<button id="mushaf-layout" data-value="default" class="dropdown"
+			<button id="mushaf-layout" data-value="default,w" class="dropdown"
 					style="min-height:40px;;cursor:pointer;margin-left:1px;background-color:transparent; border-color:lightsteelblue">&#x06dd;</button>
 			<div class="dropdown-content">
-				<a href="#" onclick="$('#mushaf-layout').attr('data-value','default');displayQPage();">Default</a>
-				<a href="#" onclick="$('#mushaf-layout').attr('data-value','uthmani');displayQPage();">Uthmani</a>
-				<a href="#" onclick="$('#mushaf-layout').attr('data-value','madni');displayQPage();">Madni</a>
+				<p style="margin:0;paddin:0;"><u><b>Mushaf Layout</b></u></p>
+				<a href="#" onclick="updateLayoutData('default');displayQPage();">Default</a>
+				<a href="#" onclick="updateLayoutData('uthmani');displayQPage();">Uthmani</a>
+				<a href="#" onclick="updateLayoutData('madni');displayQPage();">Madni</a>
+				<p style="margin:0;paddin:0"><u><b>Display Layout</b></u></p>
+				<a href="#" onclick="changeDisplayLayout('w');">Fit Width</a>
+				<a href="#" onclick="changeDisplayLayout('h');">Fit Height</a>
 			</div>
 		</span>
 		<button style="height:100;cursor:pointer;margin-left:1px;
