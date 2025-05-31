@@ -11,6 +11,8 @@ var isAutoPlayQirat, changeQari;
 var q_app_mode = 'default';
 var similar_ayah;
 var transliteration_data;
+var page_layout_size=1;
+
 window.onload = function(){
 	
 	$("#hd-loading").show();
@@ -1502,6 +1504,7 @@ function listSurahs(loadMushaf){
 		div.empty();
 		var table = '<div id="tqv2" style="margin-top:10px;width:100%;display:none;">'+
 						'<img style="position:relative;width:100%;" src=""></img>'+
+						'<img style="position:relative;width:100%;" src=""></img>'+
 						'<img style="display:none;position:absolute;opacity:30%;left:35%;top:35%;width:30%;" src="images/loading.gif"></img>'+
 					'</div>'+
 					'<table id="tqv1" style="direction:rtl;max-width:512px;margin:auto;padding:0;" '+
@@ -1877,9 +1880,25 @@ function toggleQuranView(readView, index, page){
 
 function displayQPage(p){
 	var pg = p ?? $("#page-options").val().replace('page','');
+	var pg2 = pg;
+	if(page_layout_size > 1){
+		var pVal = parseInt(pg);
+		if( pVal % 2 === 0){ 
+			pg2 = (pVal - 1).toString();
+		}
+		else{
+			//pg2 = (pVal + 1).toString();
+			pg2 = pg;
+			pg = (pVal + 1).toString();
+		}
+	}
 	if(pg.length < 2) pg = '0'+pg;
 	if(pg.length < 3) pg = '0'+pg;
+	if(pg2.length < 2) pg2 = '0'+pg2;
+	if(pg2.length < 3) pg2 = '0'+pg2;
+
 	var img = $("#tqv2 img").first();
+	var img2 = img.next();
 	var imgLoading = $("#tqv2 img").last();
 	
 	configureSwipeEvents(img[0], function(){
@@ -1891,17 +1910,37 @@ function displayQPage(p){
 	imgLoading.show();
 	img.on('load', function(){
 		imgLoading.hide();
+		if(page_layout_size > 1){
+			img.css("width", "50%");
+			img2.css("width", "50%");
+			img2.show();
+		}
+		else{
+			img.css("width", "100%");
+			img2.hide();
+		}
 	});
 	
 	var l = $("#mushaf-layout").attr('data-value').split(",");
 	var layout = l[0];
-	if(layout === 'uthmani')
+	if(layout === 'uthmani'){
 		img.attr('src', 'https://www.searchtruth.com/quran/images/images2/large/page-'+pg+'.jpeg');	
-	else
-	if(layout === 'madni')
-		img.attr('src', 'https://ia801807.us.archive.org/BookReader/BookReaderImages.php?zip=/19/items/quran-madinah/quran-madina_jp2.zip&file=quran-madina_jp2/quran-madina_0'+pg+'.jp2&id=quran-madinah&scale=1&rotate=0')
-	else
+		if(page_layout_size > 1){
+			img2.attr('src', 'https://www.searchtruth.com/quran/images/images2/large/page-'+pg2+'.jpeg');
+		}
+	}
+	else if(layout === 'madni'){
+		img.attr('src', 'https://ia801807.us.archive.org/BookReader/BookReaderImages.php?zip=/19/items/quran-madinah/quran-madina_jp2.zip&file=quran-madina_jp2/quran-madina_0'+pg+'.jp2&id=quran-madinah&scale=1&rotate=0');
+		if(page_layout_size > 1){
+			img2.attr('src', 'https://ia801807.us.archive.org/BookReader/BookReaderImages.php?zip=/19/items/quran-madinah/quran-madina_jp2.zip&file=quran-madina_jp2/quran-madina_0'+pg2+'.jp2&id=quran-madinah&scale=1&rotate=0');
+		}
+	}
+	else{
 		img.attr('src', 'https://archive.org/download/ALQURANPERPAGEFORMATPNG/page'+pg+'.png');
+		if(page_layout_size > 1){
+			img2.attr('src', 'https://archive.org/download/ALQURANPERPAGEFORMATPNG/page'+pg2+'.png');
+		}
+	}
 	//update surah
 	var index;
 	Object.keys(surah_list).every(function(k){
@@ -1940,6 +1979,7 @@ function updateLayoutData(l1, l2){
 
 function changeDisplayLayout(layout){
 	var img = $("#searchResult img").first();
+	var img2 = img.next();
 	if(img.length == 0)
 		return;
 	var l = layout ?? $("#mushaf-layout").attr('data-value').split(",")[1];
@@ -1949,14 +1989,34 @@ function changeDisplayLayout(layout){
 			img.css('object-fit', 'contain');
 			img.attr('width', 'auto');
 			img.attr('height', w.height() - img.offset().top);
+			if(page_layout_size > 1){
+				img2.css('object-fit', 'contain');
+				img2.attr('width', 'auto');
+				img2.attr('height', w.height() - img2.offset().top);
+			}
 			updateLayoutData(undefined, 'h');
 		}else {
 			img.css('object-fit', 'contain');
-			img.attr('width', w.width() - img.offset().left);
+			img.attr('width', w.width() / page_layout_size - img.offset().left);
 			img.attr('height', 'auto');
+			if(page_layout_size > 1){
+				img2.css('object-fit', 'contain');
+				img2.attr('width', w.width() / page_layout_size - img.offset().left);
+				img2.attr('height', 'auto');
+			}
 			updateLayoutData(undefined, 'w');
 		}
 	}
+}
+
+function changePageLayout(number){
+	var img = $("#searchResult img").first();
+	if(img.length == 0)
+		return;
+	page_layout_size = number ;
+	if(page_layout_size < 0 || page_layout_size > 2)
+		page_layout_size = 1;
+	displayQPage();
 }
 
 function onDurationClick(id, e){
