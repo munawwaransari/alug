@@ -1393,12 +1393,14 @@ function updatePage(s, p){
 	displayQPage(p);
 }
 
+var page_nav;
 function navigatePage(next){
 	sel = $("#page-options");
 	if(sel.is(':visible')){
 		var opt = sel.val();
 		var value = parseInt(opt.replace('page',''))
 		value += next ? +1:-1;
+		page_nav = next ? +1:-1;
 		if(value > 0 && value < 605){
 			sel.val('page'+value);
 			displayQPage();
@@ -1503,8 +1505,8 @@ function listSurahs(loadMushaf){
 		var div = $("#searchResult");
 		div.empty();
 		var table = '<div id="tqv2" style="margin-top:10px;width:100%;display:none;">'+
-						'<img style="position:relative;width:100%;" src=""></img>'+
-						'<img style="position:relative;width:100%;" src=""></img>'+
+						'<img style="position:relative;width:100%;transform-origin:right;transition: rotateY(0deg)" src=""></img>'+
+						'<img style="position:relative;width:100%;transform-origin:left;transition: rotateY(0deg)" src=""></img>'+
 						'<img style="display:none;position:absolute;opacity:30%;left:35%;top:35%;width:30%;" src="images/loading.gif"></img>'+
 					'</div>'+
 					'<table id="tqv1" style="direction:rtl;max-width:512px;margin:auto;padding:0;" '+
@@ -1880,10 +1882,9 @@ function toggleQuranView(readView, index, page){
 
 function displayQPage(p){
 	var pg = p ?? $("#page-options").val().replace('page','');
-	var pg2 = pg;
+	var pg2 = pg, pVal = parseInt(pg), isPageEven = ( pVal % 2 === 0);
 	if(page_layout_size > 1){
-		var pVal = parseInt(pg);
-		if( pVal % 2 === 0){ 
+		if(isPageEven){ 
 			pg2 = (pVal - 1).toString();
 		}
 		else{
@@ -1910,65 +1911,87 @@ function displayQPage(p){
 	imgLoading.show();
 	img.on('load', function(){
 		imgLoading.hide();
-		if(page_layout_size > 1){
-			img.css("width", "50%");
-			img2.css("width", "50%");
-			img2.show();
-		}
-		else{
-			img.css("width", "100%");
-			img2.hide();
-		}
 	});
 	
-	var l = $("#mushaf-layout").attr('data-value').split(",");
-	var layout = l[0];
-	if(layout === 'uthmani'){
-		img.attr('src', 'https://www.searchtruth.com/quran/images/images2/large/page-'+pg+'.jpeg');	
-		if(page_layout_size > 1){
-			img2.attr('src', 'https://www.searchtruth.com/quran/images/images2/large/page-'+pg2+'.jpeg');
+	// Show Page Effect
+	if(page_layout_size > 1){
+		if(!isPageEven && page_nav > 0){
+			img.addClass("page-turn");
+			img2.removeClass("page-turn");
 		}
-	}
-	else if(layout === 'madni'){
-		img.attr('src', 'https://ia801807.us.archive.org/BookReader/BookReaderImages.php?zip=/19/items/quran-madinah/quran-madina_jp2.zip&file=quran-madina_jp2/quran-madina_0'+pg+'.jp2&id=quran-madinah&scale=1&rotate=0');
-		if(page_layout_size > 1){
-			img2.attr('src', 'https://ia801807.us.archive.org/BookReader/BookReaderImages.php?zip=/19/items/quran-madinah/quran-madina_jp2.zip&file=quran-madina_jp2/quran-madina_0'+pg2+'.jp2&id=quran-madinah&scale=1&rotate=0');
+		else if(isPageEven && page_nav < 0)
+		{
+			img2.addClass("page-turn");
+			img.removeClass("page-turn");
 		}
+		img.css("width", "50%");
+		img2.css("width", "50%");
+		img2.show();
+
+		setTimeout(function(){
+			imgLoading.hide();
+			loadPage();
+			img.removeClass("page-turn");
+			img2.removeClass("page-turn");
+		}, 300);
 	}
 	else{
-		img.attr('src', 'https://archive.org/download/ALQURANPERPAGEFORMATPNG/page'+pg+'.png');
-		if(page_layout_size > 1){
-			img2.attr('src', 'https://archive.org/download/ALQURANPERPAGEFORMATPNG/page'+pg2+'.png');
-		}
-	}
-	//update surah
-	var index;
-	Object.keys(surah_list).every(function(k){
-		var v = surah_list[k];
-		var p1 = v.pages;
-		var p2 = p1;
-		if(v.pages.includes('-')){
-			var pages = v.pages.split('-');
-			p1 = parseInt(pages[0]);
-			p2 = parseInt(pages[1]);
-		}else{
-			p1 = parseInt(v.pages);
-			p2 = p1;
-		}
-		
-		var val = parseInt(pg);
-		if(val >= p1 && val <= p2){
-			index = k;
-			return false;
-		}
-		return true;
-	});
-	if(index){
-		$("#surah-options").val(index);
+		img.css("width", "100%");
+		img2.hide();
+		imgLoading.hide();
+		loadPage();
 	}
 	
-	$("#page-options").prev().css('color', pg == "001" ? 'transparent': 'crimson');
-	$("#page-options").next().css('color', pg == "604" ? 'transparent': 'crimson');
+	function loadPage (){
+		var l = $("#mushaf-layout").attr('data-value').split(",");
+		var layout = l[0];
+		if(layout === 'uthmani'){
+			if(page_layout_size > 1){
+				img2.attr('src', 'https://www.searchtruth.com/quran/images/images2/large/page-'+pg2+'.jpeg');
+			}
+			img.attr('src', 'https://www.searchtruth.com/quran/images/images2/large/page-'+pg+'.jpeg');	
+		}
+		else if(layout === 'madni'){
+			if(page_layout_size > 1){
+				img2.attr('src', 'https://ia801807.us.archive.org/BookReader/BookReaderImages.php?zip=/19/items/quran-madinah/quran-madina_jp2.zip&file=quran-madina_jp2/quran-madina_0'+pg2+'.jp2&id=quran-madinah&scale=1&rotate=0');
+			}
+			img.attr('src', 'https://ia801807.us.archive.org/BookReader/BookReaderImages.php?zip=/19/items/quran-madinah/quran-madina_jp2.zip&file=quran-madina_jp2/quran-madina_0'+pg+'.jp2&id=quran-madinah&scale=1&rotate=0');
+		}
+		else{
+			if(page_layout_size > 1){
+				img2.attr('src', 'https://archive.org/download/ALQURANPERPAGEFORMATPNG/page'+pg2+'.png');
+			}
+			img.attr('src', 'https://archive.org/download/ALQURANPERPAGEFORMATPNG/page'+pg+'.png');
+		}
+		//update surah
+		var index;
+		Object.keys(surah_list).every(function(k){
+			var v = surah_list[k];
+			var p1 = v.pages;
+			var p2 = p1;
+			if(v.pages.includes('-')){
+				var pages = v.pages.split('-');
+				p1 = parseInt(pages[0]);
+				p2 = parseInt(pages[1]);
+			}else{
+				p1 = parseInt(v.pages);
+				p2 = p1;
+			}
+			
+			var val = parseInt(pg);
+			if(val >= p1 && val <= p2){
+				index = k;
+				return false;
+			}
+			return true;
+		});
+		if(index){
+			$("#surah-options").val(index);
+		}
+		
+		$("#page-options").prev().css('color', pg == "001" ? 'transparent': 'crimson');
+		$("#page-options").next().css('color', pg == "604" ? 'transparent': 'crimson');
+	}
 }
 
 function updateLayoutData(l1, l2){
