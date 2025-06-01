@@ -1400,7 +1400,7 @@ function navigatePage(next, gap=1){
 		var opt = sel.val();
 		var value = parseInt(opt.replace('page',''))
 		value += next ? +gap:-gap;
-		page_nav = next ? +1:-1;
+		page_nav = next ? +gap:-gap;
 		if(value > 0 && value < 605){
 			sel.val('page'+value);
 			displayQPage();
@@ -1922,11 +1922,11 @@ function displayQPage(p){
 	
 	// Show Page Effect
 	if(page_layout_size > 1){
-		if(!isPageEven && page_nav > 0){
+		if((page_nav > 1 || !isPageEven) && page_nav > 0){
 			img.addClass("page-turn");
 			img2.removeClass("page-turn");
 		}
-		else if(isPageEven && page_nav < 0)
+		else if((page_nav < -1 || isPageEven) && page_nav < 0)
 		{
 			img2.addClass("page-turn");
 			img.removeClass("page-turn");
