@@ -1907,6 +1907,13 @@ function displayQPage(p){
 	}, function(){
 		navigatePage(true);
 	});
+	if(page_layout_size > 1){
+		configureSwipeEvents(img[1], function(){
+			navigatePage(false);
+		}, function(){
+			navigatePage(true);
+		});
+	}
 	
 	imgLoading.show();
 	img.on('load', function(){
