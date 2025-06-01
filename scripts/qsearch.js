@@ -1394,12 +1394,12 @@ function updatePage(s, p){
 }
 
 var page_nav;
-function navigatePage(next){
+function navigatePage(next, gap=1){
 	sel = $("#page-options");
 	if(sel.is(':visible')){
 		var opt = sel.val();
 		var value = parseInt(opt.replace('page',''))
-		value += next ? +1:-1;
+		value += next ? +gap:-gap;
 		page_nav = next ? +1:-1;
 		if(value > 0 && value < 605){
 			sel.val('page'+value);
@@ -1903,15 +1903,15 @@ function displayQPage(p){
 	var imgLoading = $("#tqv2 img").last();
 	
 	configureSwipeEvents(img[0], function(){
-		navigatePage(false);
+		navigatePage(false, 2);
 	}, function(){
-		navigatePage(true);
+		navigatePage(true, 2);
 	});
 	if(page_layout_size > 1){
-		configureSwipeEvents(img[1], function(){
-			navigatePage(false);
+		configureSwipeEvents(img.next()[0], function(){
+			navigatePage(false, 2);
 		}, function(){
-			navigatePage(true);
+			navigatePage(true, 2);
 		});
 	}
 	
