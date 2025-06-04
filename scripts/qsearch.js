@@ -1394,6 +1394,22 @@ function updatePage(s, p){
 }
 
 var page_nav;
+function switchPage(position){
+	if(page_layout_size > 1){
+		sel = $("#page-options");
+		if(sel.is(':visible')){
+			var opt = sel.val();
+			var value = parseInt(opt.replace('page',''))
+			if(value % 2 !== position){
+				if(position == 0)
+					navigatePage(true);
+				else
+					navigatePage(false);
+			}
+		}
+	}
+}
+
 function navigatePage(next, gap=1){
 	sel = $("#page-options");
 	if(sel.is(':visible')){
@@ -1505,8 +1521,8 @@ function listSurahs(loadMushaf){
 		var div = $("#searchResult");
 		div.empty();
 		var table = '<div id="tqv2" style="margin-top:10px;width:100%;display:none;">'+
-						'<img style="position:relative;width:100%;transform-origin:right;transition: rotateY(0deg)" src=""></img>'+
-						'<img style="position:relative;width:100%;transform-origin:left;transition: rotateY(0deg)" src=""></img>'+
+						'<img onclick="switchPage(0);" style="position:relative;width:100%;transform-origin:right;transition: rotateY(0deg)" src=""></img>'+
+						'<img onclick="switchPage(1);"style="position:relative;width:100%;transform-origin:left;transition: rotateY(0deg)" src=""></img>'+
 						'<img style="display:none;position:absolute;opacity:30%;left:35%;top:35%;width:30%;" src="images/loading.gif"></img>'+
 					'</div>'+
 					'<table id="tqv1" style="direction:rtl;max-width:512px;margin:auto;padding:0;" '+
@@ -1931,10 +1947,18 @@ function displayQPage(p){
 			img2.addClass("page-turn");
 			img.removeClass("page-turn");
 		}
+		if(isPageEven){
+			img.css('border-top', '2px double darkmagenta');
+			img2.css('border-top', '');
+		}
+		else{
+			img.css('border-top', '');
+			img2.css('border-top', '2px double darkmagenta');
+		}
 		img.css("width", "50%");
 		img2.css("width", "50%");
 		img2.show();
-
+		
 		setTimeout(function(){
 			imgLoading.hide();
 			loadPage();
@@ -1943,6 +1967,7 @@ function displayQPage(p){
 		}, 300);
 	}
 	else{
+		img.css('border-top', '');
 		img.css("width", "100%");
 		img2.hide();
 		imgLoading.hide();
