@@ -1864,7 +1864,7 @@ function toggleQuranView(readView, index, page){
 		$("#searchView").css('display', 'none');
 		$("#mushafView").css('display', 'flex');
 		$("#tqv1").hide();
-		$("#tqv2").show();
+		$("#tqv2").css('display', 'flex');
 		
 		if(index && page)
 			updatePage(index, page);
@@ -2020,9 +2020,14 @@ function changeDisplayLayout(layout){
 			img.attr('width', 'auto');
 			img.attr('height', w.height() - img.offset().top);
 			if(page_layout_size > 1){
+				img.css('object-position', 'right top');
+				img2.css('object-position', 'left top');
 				img2.css('object-fit', 'contain');
 				img2.attr('width', 'auto');
 				img2.attr('height', w.height() - img2.offset().top);
+				img2.attr('top', 0);
+			}else{
+				img.css('object-position', 'top');
 			}
 			updateLayoutData(undefined, 'h');
 		}else {
@@ -2030,9 +2035,14 @@ function changeDisplayLayout(layout){
 			img.attr('width', w.width() / page_layout_size - img.offset().left);
 			img.attr('height', 'auto');
 			if(page_layout_size > 1){
+				img.css('object-position', 'right top');
+				img2.css('object-position', 'left top');
 				img2.css('object-fit', 'contain');
-				img2.attr('width', w.width() / page_layout_size - img.offset().left);
+				img2.attr('width', w.width() / page_layout_size - img2.offset().left);
 				img2.attr('height', 'auto');
+				img2.attr('top', 0);
+			}else{
+				img.css('object-position', 'top');
 			}
 			updateLayoutData(undefined, 'w');
 		}
