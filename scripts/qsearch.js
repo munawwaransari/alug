@@ -1895,6 +1895,7 @@ function toggleQuranView(readView, index, page){
 			updatePage(index, page);
 		else
 			displayQPage();
+		changeDisplayLayout();
 	}else{
 		$('#qv1').css('background-color','darkolivegreen');
 		$('#qv2').css('background-color','#04AA6D');
@@ -1969,17 +1970,16 @@ function displayQPage(p){
 		img2.show();
 		
 		setTimeout(function(){
-			//imgLoading.hide();
 			loadPage();
 			img.removeClass("page-turn");
 			img2.removeClass("page-turn");
 		}, 300);
 	}
 	else{
+		img.css('object-position', '');
 		img.css('border-top', '');
 		img.css("width", "100%");
 		img2.hide();
-		//imgLoading.hide();
 		loadPage();
 	}
 	
@@ -2061,7 +2061,8 @@ function changeDisplayLayout(layout){
 				img2.attr('height', w.height() - img2.offset().top);
 				img2.attr('top', 0);
 			}else{
-				img.css('object-position', 'center top');
+				img.css('object-position', '');
+				img2.css('object-position', '');
 			}
 			updateLayoutData(undefined, 'h');
 		}else {
@@ -2076,7 +2077,8 @@ function changeDisplayLayout(layout){
 				img2.attr('height', 'auto');
 				img2.attr('top', 0);
 			}else{
-				img.css('object-position', 'center top');
+				img.css('object-position', '');
+				img2.css('object-position', '');
 			}
 			updateLayoutData(undefined, 'w');
 		}
