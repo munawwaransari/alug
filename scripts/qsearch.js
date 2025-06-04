@@ -492,11 +492,15 @@ function displayVerse(div, verse, verseKey, options){
 	divHtml += '</div>';
 	
 	divHtml += '<div style="font-size:14px;padding-bottom:12px;" id="'+transLinkId+'">';		
+	var surah_index = parseInt(verseKeys[0]);
 	divHtml += (options == undefined || options.controls) ?
 	   '<span style="padding-right:8px;">'+analysisOptions+'</span>'+
 	   '<span style="padding-right:8px;">'+playOptions+'</span>'+
 	   '<span style="margin:auto;">'+verseLinkOptions+'</span>'+
-	   (surah_list ? '<span style="margin:auto;font-size:14px;margin-left:6px;color:#49348D;"><b>'+surah_list[parseInt(verseKeys[0])].ar+'</b></span>' : '')+
+	   (surah_list ? '<span onclick="loadSurahFromPage('+surah_index+',\''+surah_list[surah_index].pages+'\');" '+
+						   'style="margin:auto;font-size:14px;margin-left:6px;color:#49348D;cursor:pointer;">'+
+						'<b>'+surah_list[surah_index].ar+'</b>'+
+					 '</span>' : '')+
 	   ((options.translateLink) ? '<span>'+translationLink+'</span>':'')
 	   :'';
 	divHtml += '</div>';
@@ -1510,7 +1514,7 @@ function filterHuruf(val){
 Loads Quran surah index
 */
 var surah_list;
-function listSurahs(loadMushaf){
+function listSurahs(loadMushaf, index, page){
 
 	$("#qari").hide();
 	var path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
@@ -1608,10 +1612,10 @@ function listSurahs(loadMushaf){
 		
 		//
 		if(loadMushaf !== undefined || loadStatus === 'mushaf'){
-			toggleQuranView(true);
+			toggleQuranView(true, index, page);
 			loadStatus = "surahs";
 		}else{
-			toggleQuranView(false);
+			toggleQuranView(false, index, page);
 		}
 	});
 }
@@ -1871,6 +1875,11 @@ function toggleQHead(){
 		$("#divQHead").show();
 	}
 	changeDisplayLayout();
+}
+
+function loadSurahFromPage(surah, pageRange){
+	var pg = pageRange.split("-")[0];
+	listSurahs(true, surah, pg);
 }
 
 function toggleQuranView(readView, index, page){
