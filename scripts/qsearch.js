@@ -2027,7 +2027,7 @@ function changeDisplayLayout(layout){
 				img2.attr('height', w.height() - img2.offset().top);
 				img2.attr('top', 0);
 			}else{
-				img.css('object-position', 'top');
+				img.css('object-position', 'center top');
 			}
 			updateLayoutData(undefined, 'h');
 		}else {
@@ -2042,7 +2042,7 @@ function changeDisplayLayout(layout){
 				img2.attr('height', 'auto');
 				img2.attr('top', 0);
 			}else{
-				img.css('object-position', 'top');
+				img.css('object-position', 'center top');
 			}
 			updateLayoutData(undefined, 'w');
 		}
