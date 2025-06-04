@@ -362,7 +362,7 @@
 			onclick="navigatePage(true)">&nbsp;↠</span>
 		<span class="dropdown">
 			<button id="mushaf-layout" data-value="default,w" class="dropdown"
-					style="min-height:40px;;cursor:pointer;margin-left:1px;background-color:transparent; border-color:lightsteelblue">&#x06dd;</button>
+					style="min-height:40px;cursor:pointer;margin-left:1px;background-color:transparent; border-color:lightsteelblue">&#x06dd;</button>
 			<div class="dropdown-content">
 				<p/>
 				<p style="margin:0;paddin:0;"><u><b>Mushaf Layout</b></u></p>
@@ -388,9 +388,26 @@
 				<a href="#" onclick="changePageLayout(2);">Dual Page</a>
 			</div>
 		</span>
-		<button style="height:100;cursor:pointer;margin-left:1px;
-					   background-color:transparent; border-color:lightsteelblue;"
-			  onclick="var p=$('#page-options').val().replace('page','');$('#searchText').val(p);search(p);">&#x21ba;</button>
+		<span class="dropdown">
+			<button class="dropdown" 
+					style="min-height:40px;cursor:pointer;margin-left:1px;background-color:transparent; border-color:lightsteelblue;"
+				    onclick="var p=$('#page-options').val().replace('page','');$('#searchText').val(p);search(p);">&#x21ba;</button>
+			<div class="dropdown-content" style="margin:0;">
+				<p style="cursor:pointer" onclick="var p=$('#page-options').val().replace('page','');$('#searchText').val(p);search(p);">Search</p>
+				<p style="margin:0;">
+					<span style="cursor:pointer;" onclick="navigateJuz(false);">↞</span>&nbsp;
+					<span id="juzNumber">Juz</span>&nbsp;
+					<span style="cursor:pointer;" onclick="navigateJuz(true);">↠</span>
+				</p>
+				<br/>
+				<p style="margin:0;">
+					<span style="cursor:pointer;" onclick="navigateAyahSajda(false);">↞</span>&nbsp;
+					<span id="sajdaNumber">۩</span>&nbsp;
+					<span style="cursor:pointer;" onclick="navigateAyahSajda(true);">↠</span>
+				</p>
+				<br/>
+			</div>
+		</span>
 		<button style="height:100;cursor:pointer;margin-left:1px;
 					   background-color:transparent; border-color:lightsteelblue;"
 			  onclick="playOrStopCurrentPage(this)">▶</button>

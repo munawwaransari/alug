@@ -1414,11 +1414,10 @@ function switchPage(position){
 	}
 }
 
-function navigatePage(next, gap=1){
+function navigatePage(next, gap=1, page){
 	sel = $("#page-options");
 	if(sel.is(':visible')){
-		var opt = sel.val();
-		var value = parseInt(opt.replace('page',''))
+		var value = page ?? parseInt(sel.val().replace('page',''))
 		value += next ? +gap:-gap;
 		page_nav = next ? +gap:-gap;
 		if(value > 0 && value < 605){
@@ -1427,17 +1426,51 @@ function navigatePage(next, gap=1){
 		}
 	}
 }
-function navigateJuz(next){
-	
-	var sel = $("#juz-options");
+
+var sajda = [176, 251, 271, 293, 309, 334, 365, 379, 416, 454, 480, 528, 589, 597, 1000];
+var juzPages = [1,22,42,62,82,102,121,142,162,182,201,222,242,262,282,302,322,342,362,382,402,422,442,462,482,502,522,542,562,582,605];
+function updateJuzNumber(page){
+	var sel = $("#page-options");
+	var pg = page ?? parseInt(sel.val().replace('page',''));
+	var nextJuz = juzPages.filter(function(p){ if(pg < p) return p;})[0];
+	var juzNumber = juzPages.indexOf(nextJuz);
+	$("#juzNumber").html("Juz "+ juzNumber);
+	$("#juzNumber").attr("data-value", juzNumber);
+}
+
+function navigateAyahSajda(next){
+	sel = $("#page-options");
 	if(sel.is(':visible')){
-		var opt = sel.val();
-		if(opt === "all") return;
-		var value = parseInt(opt.replace('juz',''))
-		value += next ? +1:-1;
-		if(value > 0 && value < 31){
-			sel.val('juz'+value);
-			filterSurahs(sel, 'juz'+value);
+		var pg = parseInt(sel.val().replace('page',''));
+		var nextAyah = sajda.filter(function(p){ if(next) {if(pg < p) return p;} else if(pg <= p) return p;})[0];
+		var index = sajda.indexOf(nextAyah);
+		if(next && nextAyah < 1000)
+			navigatePage(next, 0, sajda[index]);
+		if(!next && index > 0)
+			navigatePage(next,  0, sajda[index-1]);
+	}
+}
+
+function navigateJuz(next){
+	sel = $("#page-options");
+	if(sel.is(':visible')){
+		var juz = parseInt($("#juzNumber").attr("data-value"));
+		if(next && juz < 30)
+			navigatePage(next, 0, juzPages[juz]);
+		else if(!next && juz > 1)
+			navigatePage(next,  0, juzPages[juz-2]);
+	}
+	else{
+		var sel = $("#juz-options");
+		if(sel.is(':visible')){
+			var opt = sel.val();
+			if(opt === "all") return;
+			var value = parseInt(opt.replace('juz',''))
+			value += next ? +1:-1;
+			if(value > 0 && value < 31){
+				sel.val('juz'+value);
+				filterSurahs(sel, 'juz'+value);
+			}
 		}
 	}
 }
@@ -1944,6 +1977,9 @@ function displayQPage(p){
 	imgLoading.show();
 	img.on('load', function(){
 		imgLoading.hide();
+		
+		//udate Juz Number
+		updateJuzNumber();
 	});
 	
 	// Show Page Effect
