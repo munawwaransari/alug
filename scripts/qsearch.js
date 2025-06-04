@@ -1960,7 +1960,7 @@ function displayQPage(p){
 		img2.show();
 		
 		setTimeout(function(){
-			imgLoading.hide();
+			//imgLoading.hide();
 			loadPage();
 			img.removeClass("page-turn");
 			img2.removeClass("page-turn");
@@ -1970,7 +1970,7 @@ function displayQPage(p){
 		img.css('border-top', '');
 		img.css("width", "100%");
 		img2.hide();
-		imgLoading.hide();
+		//imgLoading.hide();
 		loadPage();
 	}
 	
