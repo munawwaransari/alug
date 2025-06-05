@@ -1985,15 +1985,15 @@ function displayQPage(p){
 	var imgLoading = $("#tqv2 img").last();
 	
 	configureSwipeEvents(img[0], function(){
-		navigatePage(false, 2);
+		navigatePage(false, page_layout_size);
 	}, function(){
-		navigatePage(true, 2);
+		navigatePage(true, page_layout_size);
 	});
 	if(page_layout_size > 1){
 		configureSwipeEvents(img.next()[0], function(){
-			navigatePage(false, 2);
+			navigatePage(false, page_layout_size);
 		}, function(){
-			navigatePage(true, 2);
+			navigatePage(true, page_layout_size);
 		});
 	}
 	
