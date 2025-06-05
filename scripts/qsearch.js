@@ -1427,8 +1427,19 @@ function navigatePage(next, gap=1, page){
 	}
 }
 
-var sajda = [176, 251, 271, 293, 309, 334, 365, 379, 416, 454, 480, 528, 589, 597, 1000];
+var manzilPages = [1, 107, 208, 282, 367, 446, 518, 1000];
+var sajdaPages = [176, 251, 271, 293, 309, 334, 365, 379, 416, 454, 480, 528, 589, 597, 1000];
 var juzPages = [1,22,42,62,82,102,121,142,162,182,201,222,242,262,282,302,322,342,362,382,402,422,442,462,482,502,522,542,562,582,605];
+
+function updateManzilNumber(page){
+	var sel = $("#page-options");
+	var pg = page ?? parseInt(sel.val().replace('page',''));
+	var nextManzil = manzilPages.filter(function(p){ if(pg < p) return p;})[0];
+	var manzilNumber = manzilPages.indexOf(nextManzil);
+	$("#manzilNumber").html(manzilNumber + " منـزل ");
+	$("#manzilNumber").attr("data-value", manzilNumber);
+}
+
 function updateJuzNumber(page){
 	var sel = $("#page-options");
 	var pg = page ?? parseInt(sel.val().replace('page',''));
@@ -1438,16 +1449,29 @@ function updateJuzNumber(page){
 	$("#juzNumber").attr("data-value", juzNumber);
 }
 
+function navigateManzil(next){
+	sel = $("#page-options");
+	if(sel.is(':visible')){
+		var pg = parseInt(sel.val().replace('page',''));
+		var nextAyah = manzilPages.filter(function(p){ if(next) {if(pg < p) return p;} else if(pg <= p) return p;})[0];
+		var index = manzilPages.indexOf(nextAyah);
+		if(next && nextAyah < 1000)
+			navigatePage(next, 0, manzilPages[index]);
+		if(!next && index > 0)
+			navigatePage(next,  0, manzilPages[index-1]);
+	}
+}
+
 function navigateAyahSajda(next){
 	sel = $("#page-options");
 	if(sel.is(':visible')){
 		var pg = parseInt(sel.val().replace('page',''));
-		var nextAyah = sajda.filter(function(p){ if(next) {if(pg < p) return p;} else if(pg <= p) return p;})[0];
-		var index = sajda.indexOf(nextAyah);
+		var nextAyah = sajdaPages.filter(function(p){ if(next) {if(pg < p) return p;} else if(pg <= p) return p;})[0];
+		var index = sajdaPages.indexOf(nextAyah);
 		if(next && nextAyah < 1000)
-			navigatePage(next, 0, sajda[index]);
+			navigatePage(next, 0, sajdaPages[index]);
 		if(!next && index > 0)
-			navigatePage(next,  0, sajda[index-1]);
+			navigatePage(next,  0, sajdaPages[index-1]);
 	}
 }
 
@@ -1980,6 +2004,7 @@ function displayQPage(p){
 		
 		//udate Juz Number
 		updateJuzNumber();
+		updateManzilNumber();
 	});
 	
 	// Show Page Effect
