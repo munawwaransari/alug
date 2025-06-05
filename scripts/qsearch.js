@@ -1971,7 +1971,6 @@ function displayQPage(p){
 			pg2 = (pVal - 1).toString();
 		}
 		else{
-			//pg2 = (pVal + 1).toString();
 			pg2 = pg;
 			pg = (pVal + 1).toString();
 		}
@@ -2058,6 +2057,12 @@ function displayQPage(p){
 				img2.attr('src', 'https://ia801807.us.archive.org/BookReader/BookReaderImages.php?zip=/19/items/quran-madinah/quran-madina_jp2.zip&file=quran-madina_jp2/quran-madina_0'+pg2+'.jp2&id=quran-madinah&scale=1&rotate=0');
 			}
 			img.attr('src', 'https://ia801807.us.archive.org/BookReader/BookReaderImages.php?zip=/19/items/quran-madinah/quran-madina_jp2.zip&file=quran-madina_jp2/quran-madina_0'+pg+'.jp2&id=quran-madinah&scale=1&rotate=0');
+		}
+		else if(layout === "ksu"){
+			if(page_layout_size > 1){
+				img2.attr('src', 'https://quran.ksu.edu.sa/ayat/safahat1/'+pg2.replace(/^0+/g,'')+'.png');
+			}
+			img.attr('src', 'https://quran.ksu.edu.sa/ayat/safahat1/'+pg.replace(/^0+/g,'')+'.png');
 		}
 		else{
 			if(page_layout_size > 1){
