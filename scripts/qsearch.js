@@ -1581,7 +1581,8 @@ function listSurahs(loadMushaf, index, page){
 		surah_list = data;
 		var div = $("#searchResult");
 		div.empty();
-		var table = '<div id="tqv2" style="margin-top:10px;width:100%;display:none;">'+
+		var table = '<div id="tqMessage" style="margin-top:10px;width:100%;display:none;"></div>'+
+					'<div id="tqv2" style="margin-top:10px;width:100%;display:none;">'+
 						'<img onclick="switchPage(0);" style="position:relative;width:100%;transform-origin:right;transition: rotateY(0deg)" src=""></img>'+
 						'<img onclick="switchPage(1);"style="position:relative;width:100%;transform-origin:left;transition: rotateY(0deg)" src=""></img>'+
 						'<img style="display:none;position:absolute;opacity:30%;left:35%;top:35%;width:30%;" src="images/loading.gif"></img>'+
@@ -1998,6 +1999,8 @@ function displayQPage(p){
 	}
 	
 	imgLoading.show();
+	$("#tqMessage").hide();
+	$("#tqv2").show();
 	loadPage(function(){
 		showPageEffect();	
 		imgLoading.hide();
@@ -2005,6 +2008,31 @@ function displayQPage(p){
 		//udate Juz Number
 		updateJuzNumber();
 		updateManzilNumber();
+	}, function(){
+		$("#tqMessage").html('The mushaf <b>'+ $("#mushaf-layout").attr('data-value').split(",")[0]+'</b> images are currently not available.'+
+							 '<br/><br/>'+
+							 ' Try <b>Uthmani</b> or <b>KSU</b> layouts.'+
+							 '<br/><br/>'+
+							 '<table width="70%"><tr><th colspan="2">Available Layouts</th>'+
+							 '<tr><td>Default</td>'+
+								//'<td><a href="#" onclick="window.open(this.href, \'blank\')">https://archive.org/download/ALQURANPERPAGEFORMATPNG</a></td>'+
+								'<td><a href="#" onclick="updateLayoutData(\'default\');displayQPage();"><b>Apply</b></a></td>'+
+							 '</tr>'+
+							 '<tr><td>Uthmani</td>'+
+								//'<td><a href="#" onclick="window.open(this.href, \'blank\')">https://www.searchtruth.com</a></td>'+
+								'<td><a href="#" onclick="updateLayoutData(\'uthmani\');displayQPage();"><b>Apply</b></a></td>'+
+							 '</tr>'+
+							  '<tr><td>Madni</td>'+
+								//'<td><a href="#" onclick="window.open(this.href, \'blank\')">https://ia801807.us.archive.org/BookReader/BookReaderImages.php?zip=/19/items/quran-madinah/quran-madina_jp2.zip&file=quran-madina_jp2</a></td>'+
+								'<td><a href="#" onclick="updateLayoutData(\'madni\');displayQPage();"><b>Apply</b></a></td>'+
+							 '</tr>'+
+							  '<tr><td>KSU</td>'+
+								//'<td><a href="#" onclick="window.open(this.href, \'blank\')">https://quran.ksu.edu.sa/ayat/safahat1</a></td>'+
+								'<td><a href="#" onclick="updateLayoutData(\'ksu\');displayQPage();"><b>Apply</b></a></td>'+
+							 '</tr>'+
+							 '</table>');
+		$("#tqMessage").show();
+		$("#tqv2").hide();
 	});
 	
 	function showPageEffect(){
@@ -2043,8 +2071,10 @@ function displayQPage(p){
 		}
 	}
 	
-	function loadPage (cb){
+	function loadPage (cb, cb_Error){
 		img.on('load', cb);
+		img.on('error', cb_Error);
+		if(page_layout_size > 1) img2.on('error', cb_Error);
 		var l = $("#mushaf-layout").attr('data-value').split(",");
 		var layout = l[0];
 		if(layout === 'uthmani'){
