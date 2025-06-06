@@ -1998,7 +1998,8 @@ function displayQPage(p){
 	}
 	
 	imgLoading.show();
-	img.on('load', function(){
+	loadPage(function(){
+		showPageEffect();	
 		imgLoading.hide();
 		
 		//udate Juz Number
@@ -2006,44 +2007,44 @@ function displayQPage(p){
 		updateManzilNumber();
 	});
 	
-	// Show Page Effect
-	if(page_layout_size > 1){
-		if((page_nav > 1 || !isPageEven) && page_nav > 0){
-			img.addClass("page-turn");
-			img2.removeClass("page-turn");
-		}
-		else if((page_nav < -1 || isPageEven) && page_nav < 0)
-		{
-			img2.addClass("page-turn");
-			img.removeClass("page-turn");
-		}
-		if(isPageEven){
-			img.css('border-top', '2px double darkmagenta');
-			img2.css('border-top', '');
+	function showPageEffect(){
+		if(page_layout_size > 1){
+			if(page_nav > 1){
+				img.addClass("page-turn");
+				img2.removeClass("page-turn");
+			}
+			else if(page_nav < -1)
+			{
+				img2.addClass("page-turn");
+				img.removeClass("page-turn");
+			}
+			if(isPageEven){
+				img.css('border-top', '2px double darkmagenta');
+				img2.css('border-top', '');
+			}
+			else{
+				img.css('border-top', '');
+				img2.css('border-top', '2px double darkmagenta');
+			}
+			img.css("width", "50%");
+			img2.css("width", "50%");
+			img2.show();
+			
+			setTimeout(function(){
+				img.removeClass("page-turn");
+				img2.removeClass("page-turn");
+			}, 300);
 		}
 		else{
+			img.css('object-position', '');
 			img.css('border-top', '');
-			img2.css('border-top', '2px double darkmagenta');
+			img.css("width", "100%");
+			img2.hide();
 		}
-		img.css("width", "50%");
-		img2.css("width", "50%");
-		img2.show();
-		
-		setTimeout(function(){
-			loadPage();
-			img.removeClass("page-turn");
-			img2.removeClass("page-turn");
-		}, 300);
-	}
-	else{
-		img.css('object-position', '');
-		img.css('border-top', '');
-		img.css("width", "100%");
-		img2.hide();
-		loadPage();
 	}
 	
-	function loadPage (){
+	function loadPage (cb){
+		img.on('load', cb);
 		var l = $("#mushaf-layout").attr('data-value').split(",");
 		var layout = l[0];
 		if(layout === 'uthmani'){
