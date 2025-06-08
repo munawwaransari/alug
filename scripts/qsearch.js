@@ -2166,6 +2166,7 @@ function changePageLayout(number){
 	if(page_layout_size < 0 || page_layout_size > 2)
 		page_layout_size = 1;
 	displayQPage();
+	setTimeout(changeDisplayLayout, 1);
 }
 
 function onDurationClick(id, e){
