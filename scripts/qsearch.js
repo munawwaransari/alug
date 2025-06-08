@@ -892,6 +892,9 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr, ayatCount){
 			//"English Tafsir (Mohsin Khan)": 
 			//"https://archive.org/download/complete-quran-english-tafsir-audio-muhsin-khan/@index@-@chapter-en@.mp3",
 			
+			"Kanz-ul-Iman (Ahmed Raza Khan Barelvi)":
+			"https://siraatalmustaqim.com/wp-content/uploads/2020/11/@index@-@chapter-en@.mp3",
+			
 			"Maarif-ul-Quran (Mufti Shafi Usmani)":
 			"https://archive.org/download/maarifulquran-urdu-audio/@index@Surah@chapter-en@@Part@-MaarifulquranByMuftiShafiUsmaniRah.mp3"
 	};
@@ -916,6 +919,86 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr, ayatCount){
 														 .replace(' ( Noah )', '')
 														 .replace(' ( Quraish )', ''))
 					   .replace('@chapter-ar@', 'سورة '+chapterAr);
+				break;
+				
+				case "Kanz-ul-Iman (Ahmed Raza Khan Barelvi)":
+					var cn = chapterEn.split(" ")[0]
+									  .replace('\'','')
+									  .replace('At-','Al-')
+									  .replace('An-','Al-')
+									  .replace('Ar-','Al-')
+									  .replace('As-','Al-')
+									  .replace('Az-','Al-')
+									  .replace('Ad-','Al-')
+									  .replace('Adh-','Al-')
+									  .replace('Ash-','Al-');
+					url = url.replace('@index@', ch);
+					var chapter_map = {
+						'Al-Fatihah': 'Al-Fatiha',
+						'Al-Baqarah': 'Baqarah',
+						'Al-Imran': 'Imran',
+						'An-Nisa': 'Al-Nisa',
+						'Al-Maidah': 'Maida',
+						'Al-Anam': 'Al-Anaam',
+						'Al-Araf': 'Al-Araaf',
+						'Al-Anfal': 'Al-Anfaal',
+						'Al-Taubah': 'Al-Touba',
+						'Yunus': 'Younus',
+						'Hud': 'Hood',
+						'Yusuf': 'Yousuf',
+						'Ar-Rad': 'Al-Raad',
+						'Al-Isra': 'Bani-Israael',
+						'Maryam': 'Al-Maryam',
+						'Taha': 'Al-Taha',
+						'Al-Anbiya': 'Al-Anbia',
+						'Al-Muminoon': 'Al-Mominoon',
+						'Al-Naml': 'Al-Namal',
+						'Al-Ankaboot': 'Al-Ankabut',
+						'Al-Room': 'Al-Rum',
+						'Al-Sajdah': 'Al-Sajda',
+						'Ya-seen': 'Yaseen',
+						'Al-Saaffat': 'Al-Saffat',
+						'Sad': 'Al-Suad',
+						'Ghafir': 'Al-Momin',
+						'Fussilat': 'Ha-Mim-Sajdah',
+						'Al-Dukhan': 'Al-Dokhan',
+						'Al-Jathiya': 'Al-Jathiah',
+						'Al-Ahqaf': 'Al-Ahquaf',
+						'Muhammad': 'Mohammad',
+						'Al-Fath': 'Al-Fatah',
+						'Al-Hujurat': 'Al-Hujraat',
+						'Al-Dhariyat': 'Al-Zariat',
+						"Al-Hadid": "Al-Hadeed",
+						"Al-Mumtahanah": "Al-Mumtahinah",
+						"Al-Jumuah": "Al-Jumah",
+						"Al-Haaqqah": "Al-Haqqah",
+						"Nooh": "Nuh",
+						"Al-Muzzammil": "Al-Mozammil",
+						"Al-Muddaththir": "Al-Mudaththir",
+						"Al-Insan": "Al-Dahr",
+						"Al-Infitar": "Al-Inftitar",
+						"Al-Mutaffifin": "Al-Mutafifeen",
+						"Al-Burooj": "Al-Buruj",
+						"Al-Ghashiya": "Al-Ghasiyah",
+						"Al-Layl": "Al-Lail",
+						"Al-Dhuha": "Al-Duha",
+						"Al-Sharh": "Al-Inshirah",
+						"Al-Tin": "Al-Teen",
+						"Al-alaq": "Al-Alaq",
+						"Al-Zalzalah": "Al-Zilzal",
+						"Al-adiyat": "Al-Adiyat",
+						"Al-Takathur": "Al-Takatur",
+						"Quraish": "Al-Quraish",
+						"Al-Kauthor": "Al-Kausar",
+						"Al-Kafiroon": "Al-Kafirun",
+						"Al-Nasr": "Al-Nasar",
+						"Al-Masad": "Al-Lahab",
+						"Al-Nas": "Al-Naas"
+					};
+					if(chapter_map[cn])
+						url = url.replace('@chapter-en@', chapter_map[cn])
+					else
+						url = url.replace('@chapter-en@', cn);
 				break;
 				
 				case "Maarif-ul-Quran (Mufti Shafi Usmani)":{
@@ -2275,19 +2358,21 @@ function showMushafLayoutOptions(){
 }
 
 function showQuranicSymbols(){
+	var trStyle = 'style="vertical-align:top"';
+	var tdStyle = 'style="font-size:40px;padding-left:20px;"';
 	$("#tqMessage").html(
 		'<table style="width:60%;padding:10;margin:auto;text-align:left">'+
 		'<tr><th style="width:20%;text-align:left;">Symbol</th><th style="width:80%;text-align:left;">Indication</th></tr>'+
-		'<tr style="vertical-align:top"><td style="font-size:40px;padding-left:20px;">ۘ</td><td>must stop</td></tr>'+
-		'<tr style="vertical-align:top"><td style="font-size:40px;padding-left:20px;">ۙ</td><td>don\'t stop</td></tr>'+
-		'<tr style="vertical-align:top"><td style="font-size:40px;padding-left:20px;">ۚ</td><td>optional to stop</td></tr>'+
-		'<tr style="vertical-align:top"><td style="font-size:40px;padding-left:20px;">ۖ</td><td>better to not stop</td></tr>'+
-		'<tr style="vertical-align:top"><td style="font-size:40px;padding-left:20px;">ۗ</td><td>better to stop</td></tr>'+
-		'<tr style="vertical-align:top"><td style="font-size:40px;padding-left:20px;">ۜ</td><td>little pause</td></tr>'+
-		'<tr style="vertical-align:top"><td style="font-size:60px;padding-left:20px;">ۤ</td><td>prolong or extend</td></tr>'+
-		'<tr style="vertical-align:top"><td style="font-size:60px;padding-left:20px;">ۛۛ</td><td>must stop at either (but not both)</td></tr>'+
-		'<tr style="vertical-align:top"><td style="font-size:30px;">۩</td><td>ayah of sajdah (prostration)</td></tr>'+
-		'<tr style="vertical-align:top"><td style="font-size:20px;">۞</td><td>end of a juz</td></tr>'+
+		'<tr '+trStyle+'><td '+tdStyle+'>ۘ</td><td>must stop</td></tr>'+
+		'<tr '+trStyle+'><td '+tdStyle+'>ۙ</td><td>don\'t stop</td></tr>'+
+		'<tr '+trStyle+'><td '+tdStyle+'>ۚ</td><td>optional to stop</td></tr>'+
+		'<tr '+trStyle+'><td '+tdStyle+'>ۖ</td><td>better to not stop</td></tr>'+
+		'<tr '+trStyle+'><td '+tdStyle+'>ۗ</td><td>better to stop</td></tr>'+
+		'<tr '+trStyle+'><td '+tdStyle+'>ۜ</td><td>little pause</td></tr>'+
+		'<tr '+trStyle+'><td style="font-size:60px;padding-left:20px;">ۤ</td><td>prolong or extend</td></tr>'+
+		'<tr '+trStyle+'><td style="font-size:70px;padding-left:20px;"><i>ۛ</i>ۛ</td><td>must stop at either<br/>(but not both)</td></tr>'+
+		'<tr '+trStyle+'><td style="font-size:30px;">۩</td><td>ayah of sajdah(prostration)</td></tr>'+
+		'<tr '+trStyle+'><td style="font-size:20px;">۞</td><td>end of a juz</td></tr>'+
 		'</table>');
 	$("#tqMessage").show();
 	$("#tqv2").hide();
