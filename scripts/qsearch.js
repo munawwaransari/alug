@@ -1581,7 +1581,7 @@ function listSurahs(loadMushaf, index, page){
 		surah_list = data;
 		var div = $("#searchResult");
 		div.empty();
-		var table = '<div id="tqMessage" style="margin-top:10px;width:100%;display:none;"></div>'+
+		var table = '<div id="tqMessage" style="margin-top:10px;width:100%;display:none;align-items:center;"></div>'+
 					'<div id="tqv2" style="margin-top:10px;width:100%;display:none;">'+
 						'<img onclick="switchPage(0);" style="position:relative;width:100%;transform-origin:right;transition: rotateY(0deg)" src=""></img>'+
 						'<img onclick="switchPage(1);"style="position:relative;width:100%;transform-origin:left;transition: rotateY(0deg)" src=""></img>'+
@@ -2008,32 +2008,8 @@ function displayQPage(p){
 		//udate Juz Number
 		updateJuzNumber();
 		updateManzilNumber();
-	}, function(){
-		$("#tqMessage").html('The mushaf <b>'+ $("#mushaf-layout").attr('data-value').split(",")[0]+'</b> images are currently not available.'+
-							 '<br/><br/>'+
-							 ' Try <b>Uthmani</b> or <b>KSU</b> layouts.'+
-							 '<br/><br/>'+
-							 '<table width="70%"><tr><th colspan="2">Available Layouts</th>'+
-							 '<tr><td>Default</td>'+
-								//'<td><a href="#" onclick="window.open(this.href, \'blank\')">https://archive.org/download/ALQURANPERPAGEFORMATPNG</a></td>'+
-								'<td><a href="#" onclick="updateLayoutData(\'default\');displayQPage();"><b>Apply</b></a></td>'+
-							 '</tr>'+
-							 '<tr><td>Uthmani</td>'+
-								//'<td><a href="#" onclick="window.open(this.href, \'blank\')">https://www.searchtruth.com</a></td>'+
-								'<td><a href="#" onclick="updateLayoutData(\'uthmani\');displayQPage();"><b>Apply</b></a></td>'+
-							 '</tr>'+
-							  '<tr><td>Madni</td>'+
-								//'<td><a href="#" onclick="window.open(this.href, \'blank\')">https://ia801807.us.archive.org/BookReader/BookReaderImages.php?zip=/19/items/quran-madinah/quran-madina_jp2.zip&file=quran-madina_jp2</a></td>'+
-								'<td><a href="#" onclick="updateLayoutData(\'madni\');displayQPage();"><b>Apply</b></a></td>'+
-							 '</tr>'+
-							  '<tr><td>KSU</td>'+
-								//'<td><a href="#" onclick="window.open(this.href, \'blank\')">https://quran.ksu.edu.sa/ayat/safahat1</a></td>'+
-								'<td><a href="#" onclick="updateLayoutData(\'ksu\');displayQPage();"><b>Apply</b></a></td>'+
-							 '</tr>'+
-							 '</table>');
-		$("#tqMessage").show();
-		$("#tqv2").hide();
-	});
+	}, 
+	showMushafLayoutOptions);
 	
 	function showPageEffect(){
 		if(page_layout_size > 1){
@@ -2271,4 +2247,47 @@ function handleSurahInfoDisplay(elem){
 		el.next().next().hide();		
 	}
 	setTimeout(function(){el[0].scrollIntoView();},50);
+}
+
+function showMushafLayoutOptions(){
+	$("#tqMessage").html(
+		'The mushaf <b>'+ $("#mushaf-layout").attr('data-value').split(",")[0]+'</b> images are currently not available.'+
+		'<br/><br/>'+
+		' Try <b>Uthmani</b> or <b>KSU</b> layouts.'+
+		'<br/><br/>'+
+		'<table width="70%"><tr><th colspan="2">Available Layouts</th></tr>'+
+		'<tr><td>Default</td>'+
+			'<td><a href="#" onclick="updateLayoutData(\'default\');displayQPage();"><b>Apply</b></a></td>'+
+		'</tr>'+
+		'<tr><td>Uthmani</td>'+
+			'<td><a href="#" onclick="updateLayoutData(\'uthmani\');displayQPage();"><b>Apply</b></a></td>'+
+		'</tr>'+
+		 '<tr><td>Madni</td>'+
+			'<td><a href="#" onclick="updateLayoutData(\'madni\');displayQPage();"><b>Apply</b></a></td>'+
+		'</tr>'+
+		 '<tr><td>KSU</td>'+
+			'<td><a href="#" onclick="updateLayoutData(\'ksu\');displayQPage();"><b>Apply</b></a></td>'+
+		'</tr>'+
+		'</table>');
+	$("#tqMessage").show();
+	$("#tqv2").hide();
+}
+
+function showQuranicSymbols(){
+	$("#tqMessage").html(
+		'<table style="width:60%;padding:10;margin:auto;text-align:left">'+
+		'<tr><th style="width:20%;text-align:left;">Symbol</th><th style="width:80%;text-align:left;">Indication</th></tr>'+
+		'<tr style="vertical-align:top"><td style="font-size:40px;padding-left:20px;">ۘ</td><td>must stop</td></tr>'+
+		'<tr style="vertical-align:top"><td style="font-size:40px;padding-left:20px;">ۙ</td><td>don\'t stop</td></tr>'+
+		'<tr style="vertical-align:top"><td style="font-size:40px;padding-left:20px;">ۚ</td><td>optional to stop</td></tr>'+
+		'<tr style="vertical-align:top"><td style="font-size:40px;padding-left:20px;">ۖ</td><td>better to not stop</td></tr>'+
+		'<tr style="vertical-align:top"><td style="font-size:40px;padding-left:20px;">ۗ</td><td>better to stop</td></tr>'+
+		'<tr style="vertical-align:top"><td style="font-size:40px;padding-left:20px;">ۜ</td><td>little pause</td></tr>'+
+		'<tr style="vertical-align:top"><td style="font-size:60px;padding-left:20px;">ۤ</td><td>prolong or extend</td></tr>'+
+		'<tr style="vertical-align:top"><td style="font-size:60px;padding-left:20px;">ۛۛ</td><td>must stop at either (but not both)</td></tr>'+
+		'<tr style="vertical-align:top"><td style="font-size:30px;">۩</td><td>ayah of sajdah (prostration)</td></tr>'+
+		'<tr style="vertical-align:top"><td style="font-size:20px;">۞</td><td>end of a juz</td></tr>'+
+		'</table>');
+	$("#tqMessage").show();
+	$("#tqv2").hide();
 }
