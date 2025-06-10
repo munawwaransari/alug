@@ -1514,6 +1514,18 @@ var manzilPages = [1, 107, 208, 282, 367, 446, 518, 1000];
 var sajdaPages = [176, 251, 271, 293, 309, 334, 365, 379, 416, 454, 480, 528, 589, 597, 1000];
 var juzPages = [1,22,42,62,82,102,121,142,162,182,201,222,242,262,282,302,322,342,362,382,402,422,442,462,482,502,522,542,562,582,605];
 
+function updateRukuNumber(page){
+	var sel = $("#page-options");
+	var pg = page ?? parseInt(sel.val().replace('page',''));
+	loadJsonData("https://api.quranhub.com/v1/page/"+pg, function(res){
+		var rukuNumbers = res.data.ayahs.map(a => a.ruku);
+		var rukuNumber = rukuNumbers.filter((value, index) => {
+		  return rukuNumbers.indexOf(value) === index;
+		});
+		$("#rukuNumber").html("Ruku (" + rukuNumber.join() + ")");
+	});
+}
+
 function updateManzilNumber(page){
 	var sel = $("#page-options");
 	var pg = page ?? parseInt(sel.val().replace('page',''));
@@ -2089,6 +2101,7 @@ function displayQPage(p){
 		imgLoading.hide();
 		
 		//udate Juz Number
+		updateRukuNumber();
 		updateJuzNumber();
 		updateManzilNumber();
 	}, 
