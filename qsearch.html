@@ -370,7 +370,7 @@
 			<div class="dropdown-content" style="margin-left:-40px;">
 				<p/>
 				<p style="margin:0;paddin:0;"><u><b>Mushaf Layout</b></u></p>
-				<span style="display:inline-flex;padding: 4px; margin: 0;">
+				<span style="display:inline-flex;padding:8px;margin:0;">
 					<a style="padding:0;padding-right:4px;" href="#" onclick="updateLayoutData('default');displayQPage();">
 						<img src="images/ql_default.png" style="height:28px;" title="Default" onmouseover="$(this).css('box-shadow','2px 2px 2px gray')" onmouseout="$(this).css('box-shadow','')" /></a>
 					<a style="padding:0;padding-right:4px;" href="#" onclick="updateLayoutData('uthmani');displayQPage();">
@@ -381,17 +381,31 @@
 						<img src="images/ql_ksu.png" style="height:28px;" title="KSU" onmouseover="$(this).css('box-shadow','2px 2px 2px gray')" onmouseout="$(this).css('box-shadow','')"/></a>
 				</span>
 				<p style="margin:0;paddin:0"><u><b>Display Layout</b></u></p>
-				<span style="display:inline-flex;padding: 4px; margin: 0;">
+				<span style="display:inline-flex;padding:4px;margin:0;">
 					<a href="#" onclick="changeDisplayLayout('w');">
-						<img src="images/dl_width.png" style="height:28px;" title="Fit Width" onmouseover="$(this).css('box-shadow','2px 2px 2px gray')" onmouseout="$(this).css('box-shadow','')" />
+						<img src="images/dl_width.png" style="height:22px;" title="Fit Width" 
+							 onmouseover="$(this).css('box-shadow','2px 2px 2px gray')" 
+							 onmouseout="$(this).css('box-shadow','')" />
 					</a>
 					<a href="#" onclick="changeDisplayLayout('h');">
-						<img src="images/dl_height.png" style="height:28px;" title="Fit Height" onmouseover="$(this).css('box-shadow','2px 2px 2px gray')" onmouseout="$(this).css('box-shadow','')" />
+						<img src="images/dl_height.png" style="height:22px;" title="Fit Height" 
+							 onmouseover="$(this).css('box-shadow','2px 2px 2px gray')" 
+							 onmouseout="$(this).css('box-shadow','')" />
 					</a>
 				</span>
 				<p style="margin:0;paddin:0"><u><b>Pages Layout</b></u></p>
-				<a href="#" onclick="changePageLayout(1);">Single Page</a>
-				<a href="#" onclick="changePageLayout(2);">Dual Page</a>
+				<span style="display:inline-flex;padding:4px;margin:0;">
+					<a href="#" onclick="changePageLayout(1);">
+						<img src="images/sp.jpg" style="height:18px;" title="Single Page" 
+							 onmouseover="$(this).css('box-shadow','2px 2px 2px gray')" 
+							 onmouseout="$(this).css('box-shadow','')"/>
+					</a>
+					<a href="#" onclick="changePageLayout(2);">
+						<img src="images/dp.jpg" style="height:18px;" title="Dual Page" 
+							 onmouseover="$(this).css('box-shadow','2px 2px 2px gray')" 
+							 onmouseout="$(this).css('box-shadow','')"/>
+					</a>
+				</span>
 			</div>
 		</span>
 		<span class="dropdown">
