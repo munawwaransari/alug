@@ -148,6 +148,7 @@ function loadWordsFrom(data){
 Search Quran using QuranJS API  
 */
 function search(pageNumber){
+	$("#divOntology").hide();
 	$("#searchView").hide();
 	$("#mushafView").hide();
 	$('#qv1').css('background-color','#04AA6D');
@@ -1667,7 +1668,6 @@ Loads Quran surah index
 */
 var surah_list;
 function listSurahs(loadMushaf, index, page){
-
 	$("#qari").hide();
 	var path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
 	var url = path + 'data/qrn/qsurah.zip';
@@ -1750,6 +1750,7 @@ function listSurahs(loadMushaf, index, page){
 						 '<td class="chkR" style="font-size:14px;padding:0;">'+
 							'<div class="dropdown"><span style="font-size:20px;"><b>𐄗</b></span>'+
 							'<span class="dropdown-content">'+
+							'<a href="#" onclick="$(\'#divOntology iframe\').attr(\'src\',\'https://qurananalysis.com/analysis/graphing.iframe.php?s='+(index-1)+'&a='+encodeURIComponent(surah.ar)+'&lang=AR\'); $(\'#divOntology\').show();">Ontology</a>'+
 							'<a href="#" onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">Research <b>1-'+(surah.ayahCount)+'</b></a>'+
 							surah.juz.map((j) => '<a href="#" '+
 										'onclick="var o=$(\'#juz-options\');o.val(\'juz'+j+'\');filterSurahs(o,\'juz'+j+'\')"> Juz '+j+' </a>').join('')+
@@ -1856,6 +1857,7 @@ function onVerseLoaded(chapter, verse){
 }
 
 function searchText(txt){
+	$("#divOntology").hide();
 	$('#qv1').css('background-color','#04AA6D');
 	$('#qv2').css('background-color','#04AA6D');
 	$("#searchText").val(txt);
