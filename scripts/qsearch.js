@@ -2402,7 +2402,7 @@ function getSurahTopics(surah, topics){
 		return '';
 	var topicSpan = '<div class="dropdown-content dropdown2" '+ 			
 						 'style="position:relative;box-shadow:none;direction:ltr;padding:10px;width:50px;">Topics&nbsp;&gt;</div>'+
-					'<div class="dropdown-content2" style="left:70px;top:-5px;width:auto;">';
+					'<div class="dropdown-content2" style="left:100px;top:-5px;width:auto;">';
 					
 	for(var i=0; i < topics.length; i++){
 		var ayahs = topics[i].split("|")[1];
