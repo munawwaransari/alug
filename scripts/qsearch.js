@@ -1717,6 +1717,9 @@ function listSurahs(loadMushaf, index, page){
 							'<div style="direction:ltr">'+replaceSurahIngoQLink(surah.en_text)+'</div>'+
 							'<div style="display:none">'+replaceSurahIngoQLink(surah.ur_text ?? surah.en_text)+'</div>'+
 					   '</div></span>';
+			
+			var topicInfo = getSurahTopics(index, surah.topics);
+			
 			var huruf = surah.huruf === undefined ? '': '<img style="float:right;height:20px;margin-left:3px;background-color:transparent;" src="data/qrn/huruf/'+surah.huruf+'.jpg"></img>';
 			var hClass = surah.huruf === undefined ? "noh" : surah.huruf;
 			table += '<tr class="'+juz+' '+surah.nuzul+' mz'+surah.manzil+' '+hClass+'">'+
@@ -1750,6 +1753,7 @@ function listSurahs(loadMushaf, index, page){
 						 '<td class="chkR" style="font-size:14px;padding:0;">'+
 							'<div class="dropdown"><span style="font-size:20px;"><b>𐄗</b></span>'+
 							'<span class="dropdown-content">'+
+							topicInfo +
 							'<a href="#" onclick="$(\'#divOntology iframe\').attr(\'src\',\'https://qurananalysis.com/analysis/graphing.iframe.php?s='+(index-1)+'&a='+encodeURIComponent(surah.ar)+'&lang=AR\'); $(\'#divOntology\').show();">Ontology</a>'+
 							'<a href="#" onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">Research <b>1-'+(surah.ayahCount)+'</b></a>'+
 							surah.juz.map((j) => '<a href="#" '+
@@ -2391,4 +2395,27 @@ function showQuranicSymbols(){
 		'</table>');
 	$("#tqMessage").show();
 	$("#tqv2").hide();
+}
+
+function getSurahTopics(surah, topics){
+	if(topics === undefined)
+		return '';
+	var topicSpan = '<div class="dropdown-content dropdown2" '+ 			
+						 'style="position:relative;box-shadow:none;direction:ltr;padding:10px;width:50px;">Topics&nbsp;&gt;</div>'+
+					'<div class="dropdown-content2" style="left:70px;top:-5px;width:auto;">';
+					
+	for(var i=0; i < topics.length; i++){
+		var ayahs = topics[i].split("|")[1];
+		ayahs = ayahs.includes(",") ? ayahs.split(",") : [ayahs];
+		for(var j=0; j< ayahs.length; j++){
+			var verse = surah+':'+ayahs[j];
+			var toipcName = topics[i].split("|")[0];
+			toipcName += toipcName.includes("(") ? '' : (' ('+verse+')');
+			topicSpan += '<p style="white-space:nowrap;width:auto;cursor:pointer;"'+
+						     'onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+verse+'\')">'+
+						 toipcName+'</p>';
+		}
+	}
+	topicSpan += '</div>';
+	return topicSpan;
 }
