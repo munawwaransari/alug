@@ -2400,13 +2400,11 @@ function showQuranicSymbols(){
 function getSurahTopics(surah, topics){
 	if(topics === undefined)
 		return '';
-	var topicSpan = '<div class="dropdown-content" '+
-						 'onclick="$(this).toggleClass(\'dropdown2\')" '+
+	var topicSpan = '<div class="dropdown-content" onclick="$(this).toggleClass(\'dropdown2\')" '+
 						 'style="position:relative;box-shadow:none;direction:ltr;padding-top:10px;padding-bottom:6px;cursor:pointer;">'+	
 							'Topics&nbsp;&gt;'+
 					'</div>'+
-					'<div class="dropdown-content2" '+
-						'onvisibilitychange="$(this).prev().toggleClass(\'dropdown2\')" '+
+					'<div class="dropdown-content2" onvisibilitychange="$(this).prev().toggleClass(\'dropdown2\')" '+
 						'style="left:100px;top:-5px;width:auto;">';
 					
 	for(var i=0; i < topics.length; i++){
