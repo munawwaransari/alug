@@ -291,13 +291,17 @@
 		<span style="vertical-align:top;">
 		<div id="eye" class="dropdown" style="width:20px;padding-left:30px;margin:auto">
 			<span>&#x1F441</span>
-			<div class="dropdown-content" style="width:170px;">
+			<div class="dropdown-content" style="width:210px;">
 				<span style="float:left;font-size:12px;padding-right:8px;margin-top:4px;margin-left:15px;">
 					<input type="checkbox" onchange="$('.chkR').toggle()" checked><br/>Explore</span>
 				<span style="float:left;font-size:12px;padding-right:8px;margin-top:4px;">
 					<input type="checkbox" onchange="$('.chkT').toggle()" checked><br/>Tafseer</span>
 				<span style="float:left;font-size:12px;padding-right:4px;margin-top:4px;">
 					<input type="checkbox" onchange="$('.chkQ').toggle()" checked><br/>Qirat</span>
+				<div style="display:inline-table;direction:ltr;" class="autocomplete">
+					<input id="topicSearchText" 
+						   style="width:180px;direction:ltr;border:1px solid geen;" value="Search a topic">
+				</div>
 			</div>
 		</div>
 		<span style="padding:4px;cursor:pointer;color:transparent;font-size:24px;" onclick="navigateJuz(false)">↞&nbsp;</span>

@@ -1880,6 +1880,9 @@ async function listSurahsAsync(zipUrl, file, callback)
 		loadZipData(zipUrl, file, function(data, jsZip){
 			// Load Surah names
 			surah_list_cache = data
+			
+			//Load Topicsa
+			setTimeout(loadQuranTopics, 40);
 			callback(surah_list_cache);
 		});
 	} 
@@ -1891,6 +1894,36 @@ async function listSurahsAsync(zipUrl, file, callback)
 	}
 };
 
+function loadQuranTopics(){
+	
+	document.addEventListener("autosearch-click", function(e){
+		if($("#eye").is(':visible') && e.data && e.data.includes('|')){
+			var ayah = e.data.split("|")[1];
+			searchText(ayah);
+		}
+	});
+			  
+	autocomplete(document.getElementById("topicSearchText"), function(val, callback){
+		var condition = val.length > 1 && val !== lastSuggestionInput;
+		if(val.length > 1 && val !== lastSuggestionInput){
+			getTopicSuggesstions(val, callback);
+		}
+		return condition;
+	});
+}
+
+async function  getTopicSuggesstions(val, callback){
+	var suggesstions = [];
+	for(const [key, value] of Object.entries(surah_list_cache)){
+		if(value.topics !== undefined){
+			var topics = value.topics.map(function(t){
+				if(t.toLowerCase().includes(val.toLowerCase()))
+					suggesstions.push(t);
+			});
+		}
+	}
+	callback(suggesstions);
+}
 /*
  Redirects to Hadith list at sunnah.com
 */

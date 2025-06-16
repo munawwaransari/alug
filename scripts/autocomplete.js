@@ -39,6 +39,7 @@ function refreshAutoCompleteList(inp, val, arr){
 		  b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
 		  /*execute a function when someone clicks on the item value (DIV element):*/
 			  b.addEventListener("click", function(e) {
+			  
 			  /*insert the value for the autocomplete text field:*/
 			  inp.value = e.target.getElementsByTagName("input")[0].value;
 			  /*close the list of autocompleted values,
@@ -53,6 +54,12 @@ function refreshAutoCompleteList(inp, val, arr){
 				  }
 			  }
 			  //end: closeAllLists();
+			  
+			  ///trigger click event
+			  const event = new Event("autosearch-click");
+			  event.target = this;
+			  event.data = inp.value;
+			  document.dispatchEvent(event);
 		  });
 		  a.appendChild(b);
 		}
@@ -130,6 +137,6 @@ function autocomplete(inp, refreshCallback) {
 }
 /*execute a function when someone clicks in the document:*/
 document.addEventListener("click", function (e) {
-    closeAllLists(e.target);
+    closeAllLists(e.target);	
 });
 }
