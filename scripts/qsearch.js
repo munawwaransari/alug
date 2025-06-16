@@ -1900,6 +1900,7 @@ function loadQuranTopics(){
 		if($("#eye").is(':visible') && e.data && e.data.includes('|')){
 			var ayah = e.data.split("|")[1];
 			searchText(ayah);
+			$("#topicSearchText").blur();
 		}
 	});
 			  
@@ -1917,8 +1918,10 @@ async function  getTopicSuggesstions(val, callback){
 	for(const [key, value] of Object.entries(surah_list_cache)){
 		if(value.topics !== undefined){
 			var topics = value.topics.map(function(t){
-				if(t.toLowerCase().includes(val.toLowerCase()))
-					suggesstions.push(t);
+				if(t.toLowerCase().includes(val.toLowerCase())){
+					var l = t.replace(/\|(\d+)$/g, "|"+key+":$1");
+					suggesstions.push(l);
+				}
 			});
 		}
 	}

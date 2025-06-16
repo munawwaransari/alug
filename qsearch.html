@@ -300,7 +300,9 @@
 					<input type="checkbox" onchange="$('.chkQ').toggle()" checked><br/>Qirat</span>
 				<div style="display:inline-table;direction:ltr;" class="autocomplete">
 					<input id="topicSearchText" 
-						   style="width:180px;direction:ltr;border:1px solid geen;" value="Search a topic">
+						   onblur="$(this).val('Search a topic'); $(this).css('color', 'gray');"
+						   onfocus="if($(this).val() === 'Search a topic') $(this).val(''); $(this).css('color', 'black');"
+						   style="width:180px;direction:ltr;border:1px solid geen;color:gray;border-color:blue;" value="Search a topic">
 				</div>
 			</div>
 		</div>
