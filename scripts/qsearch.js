@@ -2445,7 +2445,7 @@ function getSurahTopics(surah, topics){
 							'Topics&nbsp;&gt;'+
 					'</div>'+
 					'<div class="dropdown-content2" onvisibilitychange="$(this).prev().toggleClass(\'dropdown2\')" '+
-						'style="width:auto;left:100px;top:-5px;padding-left:6px;text-align:left;background-color:aliceblue;">';
+						'style="z-index:999;width:auto;left:100px;top:-5px;padding-left:6px;text-align:left;background-color:aliceblue;">';
 					
 	for(var i=0; i < topics.length; i++){
 		var ayahs = topics[i].split("|")[1];
