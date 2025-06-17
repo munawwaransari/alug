@@ -347,12 +347,12 @@ function getDurationString(given_seconds){
 	return timeString;
 }
 
-function bringIntoView(elem){
+function bringIntoView(elem, delay=1600){
 	var el = $(elem);
 	if(el.length > 0){
 		$([document.documentElement, document.body]).animate({
 			scrollTop: $(elem).offset().top
-		}, 1600);
+		}, delay);
 	}
 }
 

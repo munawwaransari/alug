@@ -298,8 +298,15 @@
 					<input type="checkbox" onchange="$('.chkT').toggle()" checked><br/>Tafseer</span>
 				<span style="float:left;font-size:12px;padding-right:4px;margin-top:4px;">
 					<input type="checkbox" onchange="$('.chkQ').toggle()" checked><br/>Qirat</span>
+				<div style="display:inline-table; padding:10px;align-items:center;">
+					 <span style="color:gray">Select:&nbsp;</span>
+					 <span><select id="surahList" style="width:140px;margin-right:10px;" value=""
+							onchange="bringIntoView('img[src^=\'data/qrn/svg/'+$(this).val()+'.svg\']', 700);$(this).val('');">
+						<option value=""></option>
+					 </select></span>
+				</div>
 				<div style="display:inline-table;direction:ltr;" class="autocomplete">
-					<input id="topicSearchText" 
+					 <input id="topicSearchText" 
 						   onblur="$(this).val('Search a topic'); $(this).css('color', 'gray');"
 						   onfocus="if($(this).val() === 'Search a topic') $(this).val(''); $(this).css('color', 'black');"
 						   style="width:180px;direction:ltr;border:1px solid geen;color:gray;border-color:blue;" value="Search a topic">

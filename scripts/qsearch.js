@@ -1673,6 +1673,7 @@ function listSurahs(loadMushaf, index, page){
 	var url = path + 'data/qrn/qsurah.zip';
 	listSurahsAsync(url, "qsurah.json", function(data){
 		var sOptions = $("#surah-options");
+		var sOptions2 = $("#surahList");
 		surah_list = data;
 		var div = $("#searchResult");
 		div.empty();
@@ -1701,9 +1702,9 @@ function listSurahs(loadMushaf, index, page){
 			}
 			
 			var pgNums = surah.pages.includes("-") ? surah.pages.split("-") : [surah.pages];
-			sOptions.append(
-				$('<option value="'+index+'">'+index+' ' + surah.ar+'</option>')
-			);
+			var op = $('<option value="'+index+'">'+index+' ' + surah.ar+'</option>');
+			sOptions.append(op);
+			sOptions2.append(op);
 			
 			var manzilImg = mCount === surah.manzil ? '': 
 										'<img style="margin:0;margin-right:4px;float:right;height:14px;" title="manzil '+surah.manzil+'" '+
