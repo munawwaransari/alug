@@ -1704,7 +1704,7 @@ function listSurahs(loadMushaf, index, page){
 			var pgNums = surah.pages.includes("-") ? surah.pages.split("-") : [surah.pages];
 			var op = $('<option value="'+index+'">'+index+' ' + surah.ar+'</option>');
 			sOptions.append(op);
-			sOptions2.append(op);
+			sOptions2.append(op.clone());
 			
 			var manzilImg = mCount === surah.manzil ? '': 
 										'<img style="margin:0;margin-right:4px;float:right;height:14px;" title="manzil '+surah.manzil+'" '+
