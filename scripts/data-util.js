@@ -348,7 +348,7 @@ function getDurationString(given_seconds){
 }
 
 function bringIntoView(elem, delay=1600){
-	var el = $(elem);
+	var el = elem; //$(elem);
 	if(el.length > 0){
 		$([document.documentElement, document.body]).animate({
 			scrollTop: $(elem).offset().top

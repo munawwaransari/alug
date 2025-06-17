@@ -1729,7 +1729,7 @@ function listSurahs(loadMushaf, index, page){
 								'<span>'+
 									'<b class="navUp" '+
 									  'style="display:none;float:left;cursor:pointer;" '+
-									  'onclick="bringIntoView(\'#playbox\')">&nbsp;&nbsp;&#x2B06;&nbsp;&nbsp;'+
+									  'onclick="bringIntoView($(\'#playbox\'))">&nbsp;&nbsp;&#x2B06;&nbsp;&nbsp;'+
 									'</b>'+
 									info+
 									huruf+

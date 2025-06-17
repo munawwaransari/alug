@@ -301,7 +301,7 @@
 				<div style="display:inline-table; padding:10px;align-items:center;">
 					 <span style="color:gray">Select:&nbsp;</span>
 					 <span><select id="surahList" style="width:140px;margin-right:10px;" value=""
-							onchange="bringIntoView('img[src^=\'data/qrn/svg/'+$(this).val()+'.svg\']', 700);$(this).val('');">
+							onchange="bringIntoView($('img[src^=\'data/qrn/svg/'+$(this).val()+'.svg\']').parent(), 700);$(this).val('');">
 						<option value=""></option>
 					 </select></span>
 				</div>
@@ -489,7 +489,7 @@
 		</div>
 		<span class="navDn" 
 			  style="display:none;width:5%;float:right;cursor:pointer;margin-top:4px;color:crimson;"
-			  onclick="bringIntoView('.qword-selected')"
+			  onclick="bringIntoView($('.qword-selected'))"
 		>&#x2B07;</span>
 	</div>
 	<div id="divOntology" style="display:none;position: absolute;z-index:999;width:96%;height:90%;margin:auto;align-items:center;">
