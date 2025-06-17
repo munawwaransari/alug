@@ -1719,7 +1719,7 @@ function listSurahs(loadMushaf, index, page){
 					   '</div></span>';
 			
 			var topicInfo = getSurahTopics(index, surah.topics);
-			
+			var graphInfo = getGraphMenu(index, surah);
 			var huruf = surah.huruf === undefined ? '': '<img style="float:right;height:20px;margin-left:3px;background-color:transparent;" src="data/qrn/huruf/'+surah.huruf+'.jpg"></img>';
 			var hClass = surah.huruf === undefined ? "noh" : surah.huruf;
 			table += '<tr class="'+juz+' '+surah.nuzul+' mz'+surah.manzil+' '+hClass+'">'+
@@ -1752,9 +1752,12 @@ function listSurahs(loadMushaf, index, page){
 						 '</td>'+
 						 '<td class="chkR" style="font-size:14px;padding:0;">'+
 							'<div class="dropdown"><span style="font-size:20px;"><b>𐄗</b></span>'+
-							'<span class="dropdown-content">'+
-							topicInfo +
-							'<a href="#" onclick="$(\'#divOntology iframe\').attr(\'src\',\'https://qurananalysis.com/analysis/graphing.iframe.php?s='+(index-1)+'&a='+encodeURIComponent(surah.ar)+'&lang=AR\'); $(\'#divOntology\').show();">Ontology</a>'+
+							'<span class="dropdown-content">'
+							+
+							topicInfo 
+							+
+							graphInfo
+							+
 							'<a href="#" onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">Research <b>1-'+(surah.ayahCount)+'</b></a>'+
 							surah.juz.map((j) => '<a href="#" '+
 										'onclick="var o=$(\'#juz-options\');o.val(\'juz'+j+'\');filterSurahs(o,\'juz'+j+'\')"> Juz '+j+' </a>').join('')+
@@ -2457,4 +2460,62 @@ function getSurahTopics(surah, topics){
 	}
 	topicSpan += '</div>';
 	return topicSpan;
+}
+
+function getGraphMenu(index, surah){
+
+	var graphSpan = '<div class="dropdown-content" onclick="$(this).toggleClass(\'dropdown2\')" '+
+						 'style="position:relative;box-shadow:none;direction:ltr;padding-top:10px;padding-bottom:6px;cursor:pointer;">'+	
+							'Graphs&nbsp;&gt;'+
+					'</div>'+
+					'<div class="dropdown-content2" onvisibilitychange="$(this).prev().toggleClass(\'dropdown2\')" '+
+						'style="width:auto;left:100px;top:-5px;padding-left:6px;text-align:left;background-color:aliceblue;">';
+					
+	graphSpan+= '<a href="#" onclick="$(\'#divOntology iframe\').attr(\'src\',\'https://qurananalysis.com/analysis/graphing.iframe.php?s='+
+					(index-1)+'&a='+encodeURIComponent(surah.ar)+
+					'&lang=AR\'); $(\'#divOntology\').show();">Ontology</a>'
+				+
+				'<a href="#" onclick="$(\'#divOntology iframe\').attr(\'src\',\'https://quickchart.io/wordcloud?text='+
+								surah.topics.map(w=> encodeURI(w.toLowerCase()
+													  .replaceAll("\|","")
+													  .replaceAll("'s ","")
+													  .replaceAll("'","")
+													  .replaceAll("\:","")
+													  .replace("o ","")
+													  .replace(" pl ","")
+													  .replace(" his "," ")
+													  .replace(" her "," ")
+													  .replace(" their "," ")
+													  .replace("they "," ")
+													  .replaceAll(" of "," ")
+												      .replace(" the "," ")
+													  .replace("the "," ")
+													  .replace(" a "," ")
+													  .replace("a "," ")
+													  .replace(" an "," ")
+													  .replace("an "," ")
+													  .replace(" to "," ")
+													  .replace(" and "," ")
+													  .replace(" or "," ")
+													  .replace(" if "," ")
+													  .replace(" on "," ")
+													  .replace(" in "," ")
+													  .replace(" at "," ")
+													  .replace(" with "," ")
+													  .replace(" above "," ")
+													  .replace(" below "," ")
+													  .replace(" is "," ")
+													  .replace(" was "," ")
+													  .replace("between"," ")
+													  .replace("about"," ")
+													  .replace("upon"," ")
+													  .replace(" vs "," ")
+													  .replace("do "," ")
+													  .replace("not "," ")
+													  .replace("for "," ")))
+													  .join()+
+								'\'); $(\'#divOntology\').show();">Word Cloud</a>';
+								
+	graphSpan += '</div>';
+	return graphSpan;			
 }
