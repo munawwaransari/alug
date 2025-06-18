@@ -1012,7 +1012,10 @@ function listSurahs(loadMushaf, index, page){
 			var hClass = surah.huruf === undefined ? "noh" : surah.huruf;
 			table += '<tr class="'+juz+' '+surah.nuzul+' mz'+surah.manzil+' '+hClass+'">'+
 						 '<td '+
-							 'class="qword" style="max-width:100px;font-szie:14px;padding:0;padding-bottom:6px;">'+
+							 'onmouseover="$(this).find(\'.navUp\').show();" '+
+							 'onmouseout="$(this).find(\'.navUp\').hide();" '+
+							 'class="qword" '+
+							 'style="max-width:100px;font-szie:14px;padding:0;padding-bottom:6px;">'+
 								'<span>'+
 									'<b class="navUp" '+
 									  'style="display:none;float:left;cursor:pointer;" '+
@@ -1025,7 +1028,8 @@ function listSurahs(loadMushaf, index, page){
 									'<sup style="float:right">&nbsp;&nbsp;'+index+'</sup>'+
 								'</span>'+
 								'<br/>'+
-							 '<img src="data/qrn/svg/'+index+'.svg" onclick="toggleQuranView(true, \''+index+'\', \''+pgNums[0]+'\');"></img><br/>'+
+							 '<img src="data/qrn/svg/'+index+'.svg" '+
+									'onclick="toggleQuranView(true, \''+index+'\', \''+pgNums[0]+'\');"></img><br/>'+
 								'<span style="font-size:12px;" onclick="searchText(\''+enName+'\')">'+
 									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
 								'</span>'+
