@@ -291,25 +291,26 @@
 		<span style="vertical-align:top;">
 		<div id="eye" class="dropdown" style="width:20px;padding-left:30px;margin:auto">
 			<span>&#x1F441</span>
-			<div class="dropdown-content" style="width:210px;">
+			<div class="dropdown-content" style="width:220px;">
 				<span style="float:left;font-size:12px;padding-right:8px;margin-top:4px;margin-left:15px;">
 					<input type="checkbox" onchange="$('.chkR').toggle()" checked><br/>Explore</span>
 				<span style="float:left;font-size:12px;padding-right:8px;margin-top:4px;">
 					<input type="checkbox" onchange="$('.chkT').toggle()" checked><br/>Tafseer</span>
 				<span style="float:left;font-size:12px;padding-right:4px;margin-top:4px;">
 					<input type="checkbox" onchange="$('.chkQ').toggle()" checked><br/>Qirat</span>
-				<div style="display:inline-table; padding:10px;align-items:center;">
-					 <span style="color:gray">Select:&nbsp;</span>
-					 <span><select id="surahList" style="width:140px;margin-right:10px;" value=""
-							onchange="bringIntoView($('img[src^=\'data/qrn/svg/'+$(this).val()+'.svg\']').parent(), 700);$(this).val('');">
-						<option value=""></option>
-					 </select></span>
-				</div>
+				<span style="float:right;font-size:12px;padding-right:4px;margin-top:4px;">
+					<select id="surahList" 
+						style="width:80px;margin-top:14px;background-color:beige;color:darkblue" 
+						value="Go to"
+						onchange="bringIntoView($('img[src^=\'data/qrn/svg/'+$(this).val()+'.svg\']').parent(), 700);$(this).val('Go to');">
+						<option value="Go to">Go to</option>
+					</select>
+				</span>
 				<div style="display:inline-table;direction:ltr;" class="autocomplete">
 					 <input id="topicSearchText" 
 						   onblur="$(this).val('Search a topic'); $(this).css('color', 'gray');"
 						   onfocus="if($(this).val() === 'Search a topic') $(this).val(''); $(this).css('color', 'black');"
-						   style="width:180px;direction:ltr;border:1px solid geen;color:gray;border-color:blue;" value="Search a topic">
+						   style="width:190px;direction:ltr;border:1px solid geen;color:gray;border-color:blue;" value="Search a topic">
 				</div>
 			</div>
 		</div>
