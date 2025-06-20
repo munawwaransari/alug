@@ -953,7 +953,7 @@ function filterHuruf(val){
 /*
 Loads Quran surah index
 */
-var surah_list;
+var surah_list, surah_order = false;
 function listSurahs(loadMushaf, index, page){
 	$("#qari").hide();
 	var path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
@@ -978,8 +978,21 @@ function listSurahs(loadMushaf, index, page){
 						   '<th class="chkR">Search</th></tr>';
 		
 		var mCount = 0;
-		for (const [index, surah] of Object.entries(data)) {
+		for (const [order_index, surahVal] of Object.entries(data)) {
 			
+			var index = order_index;
+			var surah = surahVal;
+			// Find chronologic order
+			if(surah_order !== undefined && surah_order == true){
+				let filtered = Object.fromEntries(
+									Object.entries(surah_list).filter(([key, value]) => value.r_order == index)
+								);
+				var keys = Object.keys(filtered);
+				if(keys && keys.length > 0){
+					index = keys[0].toString();
+					surah = filtered[index];
+				}
+			}
 			var juz	= surah.juz.map((j) => 'juz'+j).join(' ');
 			var enName = surah.en.substring(surah.en.indexOf('(')+1, surah.en.length-1)
 								 .replace('The','')
@@ -1691,4 +1704,9 @@ function getGraphMenu(index, surah){
 								
 	graphSpan += '</div>';
 	return graphSpan;			
+}
+
+function orderSurahs(chkRev){
+	surah_order = chkRev.is(":checked");
+	listSurahs();
 }
