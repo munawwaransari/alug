@@ -1006,7 +1006,7 @@ function listSurahs(loadMushaf, index, page){
 			sOptions.append(op);
 			sOptions2.append(op.clone());
 			
-			var manzilImg = mCount === surah.manzil ? '': 
+			var manzilImg = //mCount === surah.manzil ? '': 
 										'<img style="margin:0;margin-right:4px;float:right;height:14px;" title="manzil '+surah.manzil+'" '+
 											  'src="data/qrn/mz/mz'+(surah.manzil)+'.jpg">'+
 										'</img>';
