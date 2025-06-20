@@ -979,18 +979,18 @@ function listSurahs(loadMushaf, index, page){
 		
 		var mCount = 0;
 		for (const [order_index, surahVal] of Object.entries(data)) {
-			
+			var rOrder = surah_order !== undefined && surah_order == true;
 			var index = order_index;
 			var surah = surahVal;
 			// Find chronologic order
-			if(surah_order !== undefined && surah_order == true){
+			if(rOrder === true){
 				let filtered = Object.fromEntries(
-									Object.entries(surah_list).filter(([key, value]) => value.r_order == index)
-								);
+					Object.entries(surah_list).filter(([key, value]) => value.r_order.toString() == order_index)
+				);
 				var keys = Object.keys(filtered);
 				if(keys && keys.length > 0){
 					index = keys[0].toString();
-					surah = filtered[index];
+					surah = filtered[keys[0]];
 				}
 			}
 			var juz	= surah.juz.map((j) => 'juz'+j).join(' ');
@@ -1039,6 +1039,7 @@ function listSurahs(loadMushaf, index, page){
 									'<img style="width:16px;margin:0;float:right;" src="images/'+surah.nuzul+'.jpg"></img>'+
 									manzilImg +
 									'<sup style="float:right">&nbsp;&nbsp;'+index+'</sup>'+
+									((rOrder == true) ? '<sup style="float:right">&nbsp;&nbsp;(R:'+(surah.r_order)+')</sup>':'') +
 								'</span>'+
 								'<br/>'+
 							 '<img src="data/qrn/svg/'+index+'.svg" '+
