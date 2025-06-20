@@ -1710,4 +1710,16 @@ function getGraphMenu(index, surah){
 function orderSurahs(chkRev){
 	surah_order = chkRev.is(":checked");
 	listSurahs();
+	
+	//toggle columns
+	var checkboxes = $("#eye input[type='checkbox']");
+	checkboxes.each(function(index, chk){
+		if($(chk).is(":checked") == false){
+			if(index == 0) $('.chkR').toggle();
+			else 
+			if(index == 1) $('.chkT').toggle();
+			else
+			if(index == 2) $('.chkQ').toggle()
+		}
+	});
 }
