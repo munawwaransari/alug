@@ -1029,7 +1029,7 @@ function listSurahs(loadMushaf, index, page){
 							 'onmouseout="$(this).find(\'.navUp\').hide();" '+
 							 'class="qword" '+
 							 'style="max-width:100px;font-szie:14px;padding:0;padding-bottom:6px;">'+
-								'<span>'+
+								'<span style="display:inline-flex">'+
 									'<b class="navUp" '+
 									  'style="display:none;float:left;cursor:pointer;" '+
 									  'onclick="bringIntoView($(\'#playbox\'))">&nbsp;&nbsp;&#x2B06;&nbsp;&nbsp;'+
