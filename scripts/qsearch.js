@@ -1044,7 +1044,7 @@ function listSurahs(loadMushaf, index, page){
 								'<br/>'+
 							 '<img src="data/qrn/svg/'+index+'.svg" '+
 									'onclick="toggleQuranView(true, \''+index+'\', \''+pgNums[0]+'\');"></img><br/>'+
-								'<span style="font-size:12px;" onclick="searchText(\''+enName+'\')">'+
+								'<span style="font-size:12px;display:ruby-text;" onclick="searchText(\''+enName+'\')">'+
 									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
 								'</span>'+
 						 '</td>'+
