@@ -1031,15 +1031,15 @@ function listSurahs(loadMushaf, index, page){
 							 'style="max-width:100px;font-szie:14px;padding:0;padding-bottom:6px;">'+
 								'<span style="display:inline-flex">'+
 									'<b class="navUp" '+
-									  'style="display:none;float:left;cursor:pointer;" '+
-									  'onclick="bringIntoView($(\'#playbox\'))">&nbsp;&nbsp;&#x2B06;&nbsp;&nbsp;'+
+									  'style="display:none;float:right;margin:0;margin-top:-6px;padding:0;cursor:pointer;" '+
+									  'onclick="bringIntoView($(\'#playbox\'))">&#x2B06;&nbsp;&nbsp;&nbsp;'+
 									'</b>'+
 									info+
 									huruf+
-									'<img style="width:16px;margin:0;float:right;" src="images/'+surah.nuzul+'.jpg"></img>'+
+									'<img style="height:16px;margin:0;float:right;" src="images/'+surah.nuzul+'.jpg"></img>'+
 									manzilImg +
 									'<sup style="float:right">&nbsp;&nbsp;'+index+'</sup>'+
-									((rOrder == true) ? '<sup style="float:right">&nbsp;&nbsp;(R:'+(surah.r_order)+')</sup>':'') +
+									((rOrder == true) ? '<sup style="float:right">&nbsp;(R:'+(surah.r_order)+')</sup>':'') +
 								'</span>'+
 								'<br/>'+
 							 '<img src="data/qrn/svg/'+index+'.svg" '+
