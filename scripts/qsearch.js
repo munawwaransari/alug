@@ -1019,6 +1019,7 @@ function listSurahs(loadMushaf, index, page){
 							'<div style="display:none">'+replaceSurahIngoQLink(surah.ur_text ?? surah.en_text)+'</div>'+
 					   '</div></span>';
 			
+			var nuzul_title = (surah.nuzul_note !== undefined) ? surah.nuzul_note : surah.nuzul;
 			var topicInfo = getSurahTopics(index, surah.topics);
 			var graphInfo = getGraphMenu(index, surah);
 			var huruf = surah.huruf === undefined ? '': '<img style="float:right;height:20px;margin-left:3px;background-color:transparent;" src="data/qrn/huruf/'+surah.huruf+'.jpg"></img>';
@@ -1036,7 +1037,9 @@ function listSurahs(loadMushaf, index, page){
 									'</b>'+
 									info+
 									huruf+
-									'<img style="height:16px;margin:0;float:right;" src="images/'+surah.nuzul+'.jpg"></img>'+
+									'<img style="height:16px;margin:0;float:right;" '+
+										' title="'+nuzul_title+'" '+
+										'src="images/'+surah.nuzul+'.jpg"></img>'+
 									manzilImg +
 									'<sup style="float:right">&nbsp;&nbsp;'+index+'</sup>'+
 									((rOrder == true) ? '<sup style="float:right">&nbsp;(R:'+(surah.r_order)+')</sup>':'') +
