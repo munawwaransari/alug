@@ -1011,11 +1011,13 @@ function listSurahs(loadMushaf, index, page){
 											  'src="data/qrn/mz/mz'+(surah.manzil)+'.jpg">'+
 										'</img>';
 										
-			var info = '<span class="dropdown" style="float:right;" onclick="">'+
-					   '<img style="float:right;width:16px;margin-left:3px;background-color:transparent;" src="images/info.png"></img>'+
-					   '<div class="dropdown-content" style="width:360px;right=0;">'+
-							'<a href="#" style="float:right" onclick="handleSurahInfoDisplay(this)">Urdu</a>'+
-							'<div style="direction:ltr">'+replaceSurahIngoQLink(surah.en_text)+'</div>'+
+			var info = '<span style="float:right;">'+
+					   '<img style="float:right;width:16px;margin-left:3px;background-color:transparent;" '+
+							'src="images/info.png" onclick="$(this).parent().toggleClass(\'dropdown\')"></img>'+
+					   '<div class="dropdown-content" '+
+							'style="width:360px;right:-26px;margin-top:16px;">'+
+							'<a href="#" style="float:left" onclick="handleSurahInfoDisplay(this)">Urdu</a>'+
+							'<div style="direction:ltr;">'+replaceSurahIngoQLink(surah.en_text)+'</div>'+
 							'<div style="display:none">'+replaceSurahIngoQLink(surah.ur_text ?? surah.en_text)+'</div>'+
 					   '</div></span>';
 			
@@ -1087,6 +1089,18 @@ function listSurahs(loadMushaf, index, page){
 		}else{
 			toggleQuranView(false, index, page);
 		}
+		
+		//toggle columns
+		var checkboxes = $("#eye input[type='checkbox']");
+		checkboxes.each(function(index, chk){
+		if($(chk).is(":checked") == false){
+			if(index == 0) $('.chkR').toggle();
+			else 
+			if(index == 1) $('.chkT').toggle();
+			else
+			if(index == 2) $('.chkQ').toggle()
+		}
+	});
 	});
 }
 
@@ -1713,16 +1727,4 @@ function getGraphMenu(index, surah){
 function orderSurahs(chkRev){
 	surah_order = chkRev.is(":checked");
 	listSurahs();
-	
-	//toggle columns
-	var checkboxes = $("#eye input[type='checkbox']");
-	checkboxes.each(function(index, chk){
-		if($(chk).is(":checked") == false){
-			if(index == 0) $('.chkR').toggle();
-			else 
-			if(index == 1) $('.chkT').toggle();
-			else
-			if(index == 2) $('.chkQ').toggle()
-		}
-	});
 }
