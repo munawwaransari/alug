@@ -959,130 +959,11 @@ function listSurahs(loadMushaf, index, page){
 	var path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
 	var url = path + 'data/qrn/qsurah.zip';
 	listSurahsAsync(url, "qsurah.json", function(data){
-		var sOptions = $("#surah-options");
-		var sOptions2 = $("#surahList");
 		surah_list = data;
 		var div = $("#searchResult");
-		div.empty();
-		var table = '<div id="tqMessage" style="margin-top:10px;width:100%;display:none;align-items:center;"></div>'+
-					'<div id="tqv2" style="margin-top:10px;width:100%;display:none;">'+
-						'<img onclick="switchPage(0);" style="position:relative;width:100%;transform-origin:right;transition: rotateY(0deg)" src=""></img>'+
-						'<img onclick="switchPage(1);"style="position:relative;width:100%;transform-origin:left;transition: rotateY(0deg)" src=""></img>'+
-						'<img style="display:none;position:absolute;opacity:30%;left:35%;top:35%;width:30%;" src="images/loading.gif"></img>'+
-					'</div>'+
-					'<table id="tqv1" style="direction:rtl;max-width:512px;margin:auto;padding:0;" '+
-						   'class="surahIndex">'+
-						   '<tr><th>Surah</th>'+
-						   '<th class="chkQ">&nbsp;Qirat&nbsp;</th>'+
-						   '<th class="chkT">Tafsir</th>'+
-						   '<th class="chkR">Search</th></tr>';
-		
-		var mCount = 0;
-		for (const [order_index, surahVal] of Object.entries(data)) {
-			var rOrder = surah_order !== undefined && surah_order == true;
-			var index = order_index;
-			var surah = surahVal;
-			// Find chronologic order
-			if(rOrder === true){
-				let filtered = Object.fromEntries(
-					Object.entries(surah_list).filter(([key, value]) => value.r_order.toString() == order_index)
-				);
-				var keys = Object.keys(filtered);
-				if(keys && keys.length > 0){
-					index = keys[0].toString();
-					surah = filtered[keys[0]];
-				}
-			}
-			var juz	= surah.juz.map((j) => 'juz'+j).join(' ');
-			var enName = surah.en.substring(surah.en.indexOf('(')+1, surah.en.length-1)
-								 .replace('The','')
-								 .trim();
-			if(enName.includes(' ')){
-				enName = enName.split(' ')[0];
-			}
-			
-			var pgNums = surah.pages.includes("-") ? surah.pages.split("-") : [surah.pages];
-			var op = $('<option value="'+index+'">'+index+' ' + surah.ar+'</option>');
-			sOptions.append(op);
-			sOptions2.append(op.clone());
-			
-			var manzilImg = //mCount === surah.manzil ? '': 
-										'<img style="margin:0;margin-right:4px;float:right;height:14px;" title="manzil '+surah.manzil+'" '+
-											  'src="data/qrn/mz/mz'+(surah.manzil)+'.jpg">'+
-										'</img>';
-										
-			var info = '<span style="float:right;">'+
-					   '<img style="float:right;width:16px;margin-left:3px;background-color:transparent;" '+
-							'src="images/info.png" onclick="$(this).parent().toggleClass(\'dropdown\')"></img>'+
-					   '<div class="dropdown-content" '+
-							'style="width:360px;right:-26px;margin-top:16px;">'+
-							'<a href="#" style="float:left" onclick="handleSurahInfoDisplay(this)">Urdu</a>'+
-							'<div style="direction:ltr;">'+replaceSurahIngoQLink(surah.en_text)+'</div>'+
-							'<div style="display:none">'+replaceSurahIngoQLink(surah.ur_text ?? surah.en_text)+'</div>'+
-					   '</div></span>';
-			
-			var nuzul_title = (surah.nuzul_note !== undefined) ? surah.nuzul_note : surah.nuzul;
-			var topicInfo = getSurahTopics(index, surah.topics);
-			var graphInfo = getGraphMenu(index, surah);
-			var huruf = surah.huruf === undefined ? '': '<img style="float:right;height:20px;margin-left:3px;background-color:transparent;" src="data/qrn/huruf/'+surah.huruf+'.jpg"></img>';
-			var hClass = surah.huruf === undefined ? "noh" : surah.huruf;
-			table += '<tr class="'+juz+' '+surah.nuzul+' mz'+surah.manzil+' '+hClass+'">'+
-						 '<td '+
-							 'onmouseover="$(this).find(\'.navUp\').show();" '+
-							 'onmouseout="$(this).find(\'.navUp\').hide();" '+
-							 'class="qword" '+
-							 'style="max-width:100px;font-szie:14px;padding:0;padding-bottom:6px;">'+
-								'<span style="display:inline-flex">'+
-									'<b class="navUp" '+
-									  'style="display:none;float:right;margin:0;margin-top:-6px;padding:0;cursor:pointer;" '+
-									  'onclick="bringIntoView($(\'#playbox\'))">&#x2B06;&nbsp;&nbsp;&nbsp;'+
-									'</b>'+
-									info+
-									huruf+
-									'<img style="height:16px;margin:0;float:right;" '+
-										' title="'+nuzul_title+'" '+
-										'src="images/'+surah.nuzul+'.jpg"></img>'+
-									manzilImg +
-									'<sup style="float:right">&nbsp;&nbsp;'+index+'</sup>'+
-									((rOrder == true) ? '<sup style="float:right">&nbsp;(R:'+(surah.r_order)+')</sup>':'') +
-								'</span>'+
-								'<br/>'+
-							 '<img src="data/qrn/svg/'+index+'.svg" '+
-									'onclick="toggleQuranView(true, \''+index+'\', \''+pgNums[0]+'\');"></img><br/>'+
-								'<span style="font-size:12px;display:ruby-text;" onclick="searchText(\''+enName+'\')">'+
-									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
-								'</span>'+
-						 '</td>'+
-						 '<td class="chkQ" style="font-size:14px;cursor:pointer;padding:0;">'+
-							 '<span>'+getQuranAudioOptions(index, surah.en, surah.ayahCount)+'</span>'+
-						 '</td>'+
-						 '<td class="chkT" style="font-size:14px;cursor:pointer;padding:0;">'+
-							 '<span>'+getTafsirAudioOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>'+
-							 (q_app_mode === 'Quran' ? '' :
-							 '<span>'+getTafsirPdfOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>')+
-						 '</td>'+
-						 '<td class="chkR" style="font-size:14px;padding:0;">'+
-							'<div class="dropdown"><span style="font-size:20px;"><b>𐄗</b></span>'+
-							'<span class="dropdown-content">'
-							+
-							topicInfo 
-							+
-							graphInfo
-							+
-							'<a href="#" onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">Research <b>1-'+(surah.ayahCount)+'</b></a>'+
-							surah.juz.map((j) => '<a href="#" '+
-										'onclick="var o=$(\'#juz-options\');o.val(\'juz'+j+'\');filterSurahs(o,\'juz'+j+'\')"> Juz '+j+' </a>').join('')+
-							pgNums.map((p, ind) => '<a href="#" onclick="toggleQuranView(true, \''+index+'\', \''+p+'\');"> '+
-									(pgNums.length ==1 ? "" : (ind == 0 ? "Start": "End"))+' Page '+ p+'</a>').join('')+
-							'</span></div>'+
-						 '</td>'+
-					'</tr>';	
-			mCount = surah.manzil;
-		}
-		table = table+'</table>';
-		div.append($(table));
-		
-		//
+		div.empty();		
+		createTableView(data, div);
+
 		if(loadMushaf !== undefined || loadStatus === 'mushaf'){
 			toggleQuranView(true, index, page);
 			loadStatus = "surahs";
@@ -1093,14 +974,14 @@ function listSurahs(loadMushaf, index, page){
 		//toggle columns
 		var checkboxes = $("#eye input[type='checkbox']");
 		checkboxes.each(function(index, chk){
-		if($(chk).is(":checked") == false){
-			if(index == 0) $('.chkR').toggle();
-			else 
-			if(index == 1) $('.chkT').toggle();
-			else
-			if(index == 2) $('.chkQ').toggle()
-		}
-	});
+			if($(chk).is(":checked") == false){
+				if(index == 0) $('.chkR').toggle();
+				else 
+				if(index == 1) $('.chkT').toggle();
+				else
+				if(index == 2) $('.chkQ').toggle()
+			}
+		});
 	});
 }
 
@@ -1727,4 +1608,127 @@ function getGraphMenu(index, surah){
 function orderSurahs(chkRev){
 	surah_order = chkRev.is(":checked");
 	listSurahs();
+}
+
+function createTableView(data, div){
+	var sOptions = $("#surah-options");
+	var sOptions2 = $("#surahList");
+
+	var table = '<div id="tqMessage" style="margin-top:10px;width:100%;display:none;align-items:center;"></div>'+
+					'<div id="tqv2" style="margin-top:10px;width:100%;display:none;">'+
+						'<img onclick="switchPage(0);" style="position:relative;width:100%;transform-origin:right;transition: rotateY(0deg)" src=""></img>'+
+						'<img onclick="switchPage(1);"style="position:relative;width:100%;transform-origin:left;transition: rotateY(0deg)" src=""></img>'+
+						'<img style="display:none;position:absolute;opacity:30%;left:35%;top:35%;width:30%;" src="images/loading.gif"></img>'+
+					'</div>'+
+					'<table id="tqv1" style="direction:rtl;max-width:512px;margin:auto;padding:0;" '+
+						   'class="surahIndex">'+
+						   '<tr><th>Surah</th>'+
+						   '<th class="chkQ">&nbsp;Qirat&nbsp;</th>'+
+						   '<th class="chkT">Tafsir</th>'+
+						   '<th class="chkR">Search</th></tr>';
+		
+		var mCount = 0;
+		for (const [order_index, surahVal] of Object.entries(data)) {
+			var rOrder = surah_order !== undefined && surah_order == true;
+			var index = order_index;
+			var surah = surahVal;
+			// Find chronologic order
+			if(rOrder === true){
+				let filtered = Object.fromEntries(
+					Object.entries(surah_list).filter(([key, value]) => value.r_order.toString() == order_index)
+				);
+				var keys = Object.keys(filtered);
+				if(keys && keys.length > 0){
+					index = keys[0].toString();
+					surah = filtered[keys[0]];
+				}
+			}
+			var juz	= surah.juz.map((j) => 'juz'+j).join(' ');
+			var enName = surah.en.substring(surah.en.indexOf('(')+1, surah.en.length-1)
+								 .replace('The','')
+								 .trim();
+			if(enName.includes(' ')){
+				enName = enName.split(' ')[0];
+			}
+			
+			var pgNums = surah.pages.includes("-") ? surah.pages.split("-") : [surah.pages];
+			var op = $('<option value="'+index+'">'+index+' ' + surah.ar+'</option>');
+			sOptions.append(op);
+			sOptions2.append(op.clone());
+			
+			var manzilImg = //mCount === surah.manzil ? '': 
+										'<img style="margin:0;margin-right:4px;float:right;height:14px;" title="manzil '+surah.manzil+'" '+
+											  'src="data/qrn/mz/mz'+(surah.manzil)+'.jpg">'+
+										'</img>';
+										
+			var info = '<span style="float:right;">'+
+					   '<img style="float:right;width:16px;margin-left:3px;background-color:transparent;" '+
+							'src="images/info.png" onclick="$(this).parent().toggleClass(\'dropdown\')"></img>'+
+					   '<div class="dropdown-content" '+
+							'style="width:360px;right:-26px;margin-top:16px;">'+
+							'<a href="#" style="float:left" onclick="handleSurahInfoDisplay(this)">Urdu</a>'+
+							'<div style="direction:ltr;">'+replaceSurahIngoQLink(surah.en_text)+'</div>'+
+							'<div style="display:none">'+replaceSurahIngoQLink(surah.ur_text ?? surah.en_text)+'</div>'+
+					   '</div></span>';
+			
+			var nuzul_title = (surah.nuzul_note !== undefined) ? surah.nuzul_note : surah.nuzul;
+			var topicInfo = getSurahTopics(index, surah.topics);
+			var graphInfo = getGraphMenu(index, surah);
+			var huruf = surah.huruf === undefined ? '': '<img style="float:right;height:20px;margin-left:3px;background-color:transparent;" src="data/qrn/huruf/'+surah.huruf+'.jpg"></img>';
+			var hClass = surah.huruf === undefined ? "noh" : surah.huruf;
+			table += '<tr class="'+juz+' '+surah.nuzul+' mz'+surah.manzil+' '+hClass+'">'+
+						 '<td '+
+							 'onmouseover="$(this).find(\'.navUp\').show();" '+
+							 'onmouseout="$(this).find(\'.navUp\').hide();" '+
+							 'class="qword" '+
+							 'style="max-width:100px;font-szie:14px;padding:0;padding-bottom:6px;">'+
+								'<span style="display:inline-flex">'+
+									'<b class="navUp" '+
+									  'style="display:none;float:right;margin:0;margin-top:-6px;padding:0;cursor:pointer;" '+
+									  'onclick="bringIntoView($(\'#playbox\'))">&#x2B06;&nbsp;&nbsp;&nbsp;'+
+									'</b>'+
+									info+
+									huruf+
+									'<img style="height:16px;margin:0;float:right;" '+
+										' title="'+nuzul_title+'" '+
+										'src="images/'+surah.nuzul+'.jpg"></img>'+
+									manzilImg +
+									'<sup style="float:right">&nbsp;&nbsp;'+index+'</sup>'+
+									((rOrder == true) ? '<sup style="float:right">&nbsp;(R:'+(surah.r_order)+')</sup>':'') +
+								'</span>'+
+								'<br/>'+
+							 '<img src="data/qrn/svg/'+index+'.svg" '+
+									'onclick="toggleQuranView(true, \''+index+'\', \''+pgNums[0]+'\');"></img><br/>'+
+								'<span style="font-size:12px;display:ruby-text;" onclick="searchText(\''+enName+'\')">'+
+									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
+								'</span>'+
+						 '</td>'+
+						 '<td class="chkQ" style="font-size:14px;cursor:pointer;padding:0;">'+
+							 '<span>'+getQuranAudioOptions(index, surah.en, surah.ayahCount)+'</span>'+
+						 '</td>'+
+						 '<td class="chkT" style="font-size:14px;cursor:pointer;padding:0;">'+
+							 '<span>'+getTafsirAudioOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>'+
+							 (q_app_mode === 'Quran' ? '' :
+							 '<span>'+getTafsirPdfOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>')+
+						 '</td>'+
+						 '<td class="chkR" style="font-size:14px;padding:0;">'+
+							'<div class="dropdown"><span style="font-size:20px;"><b>𐄗</b></span>'+
+							'<span class="dropdown-content">'
+							+
+							topicInfo 
+							+
+							graphInfo
+							+
+							'<a href="#" onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">Research <b>1-'+(surah.ayahCount)+'</b></a>'+
+							surah.juz.map((j) => '<a href="#" '+
+										'onclick="var o=$(\'#juz-options\');o.val(\'juz'+j+'\');filterSurahs(o,\'juz'+j+'\')"> Juz '+j+' </a>').join('')+
+							pgNums.map((p, ind) => '<a href="#" onclick="toggleQuranView(true, \''+index+'\', \''+p+'\');"> '+
+									(pgNums.length ==1 ? "" : (ind == 0 ? "Start": "End"))+' Page '+ p+'</a>').join('')+
+							'</span></div>'+
+						 '</td>'+
+					'</tr>';	
+			mCount = surah.manzil;
+		}
+		table = table+'</table>';
+		div.append($(table));
 }
