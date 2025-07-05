@@ -826,14 +826,18 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr, ayatCount){
 				case "Bayan-ul-Quran (Dr. Israr Ahmed)":
 				case "Tafheem-ul-Quran (Syed Abul-Ala Moududi)":
 					url = url.replace('@index@', ch)
-					   .replace('@chapter-en@', chapterEn.replace(' ( Hud )', '')
-														 .replace(' ( Ta-Ha )', '')
-														 .replace(' ( Luqman )', '')
-														 .replace(' ( Ya-seen )', '')
-														 .replace(' ( Muhammad )', '')
-														 .replace(' ( Noah )', '')
-														 .replace(' ( Quraish )', ''))
+					   .replace('@chapter-en@', chapterEn.replace(' (Hud)', '')
+														 .replace(' (Ta-Ha)', '')
+														 .replace(' (Luqman)', '')
+														 .replace(' (Ya-seen)', '')
+														 .replace(' (Muhammad)', '')
+														 .replace(' (Noah)', '')
+														 .replace(' (Quraish)', ''))
 					   .replace('@chapter-ar@', 'سورة '+chapterAr);
+					   
+					if(['7','12','25','27'].includes(index) == false){
+						url = url.replace('(','( ').replace(')',' )');
+					}
 				break;
 				
 				case "Kanz-ul-Iman (Ahmed Raza Khan Barelvi)":
