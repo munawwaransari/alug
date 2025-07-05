@@ -1851,7 +1851,7 @@ function createGridView(data, div){
 						//surah options menu
 							
 							'<div class="play-menu" '+
-								'style="display:none;padding:0;margin:0;margin-top:-40px;'+
+								'style="display:none;padding:0;margin:0;margin-top:-20px;'+
 									   'box-shadow:rgba(0, 0, 0, 0.24) 0px 3px 8px;">'+
 								'<span class="chkQ" style="display:inline;font-size:14px;cursor:pointer;padding:0;cursor:pointer;">'+
 									'<span>'+getQuranAudioOptions(index, surah.en, surah.ayahCount)+'</span>'+
