@@ -328,6 +328,7 @@ function loadAllVoices(sel, voicesAll ){
 }
 
 function toggleDropdownContent(elem, state){
+	$(elem).closest('div').find("[class^='chk']").find("[class=dropdown-content]").hide();
 	if(state){
 		$(elem).next().addClass("dropdown-content");
 		$(elem).next().show();
@@ -1189,11 +1190,11 @@ function getQuranAudioOptions(chapter, enName, ayahCount){
 }
 
 function getPlayControlsHtml(id, options, symbol){
-	return '<span class="dropdown" style="direction:ltr;">'+
+	return '<span class="dropdown" style="direction:ltr;padding:0;">'+
 			  '<button id="'+id+'" '+
 					   'data-value="'+symbol+'" '+
 					   'class="dropbtn" onclick="toggleDropdownContent(this, true)" '+
-					   'style="background-color:transparent;color:black;font-size:22px;">'+symbol+'</button>'+
+					   'style="padding:0;background-color:transparent;color:black;font-size:22px;">'+symbol+'</button>'+
 			   '<div class="dropdown-content" style="">'+options+'</div>'+
 			   '<img id="'+id+'-progress" src="images/loading.gif" '+ 	
 						'style="display:none;width:16px;"></img>'+
