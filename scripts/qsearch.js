@@ -1718,7 +1718,7 @@ function createTableView(data, div){
 							'<span class="dropdown" style="display:inline;padding:0;cursor:pointer;">'+
 								'<button class="dropbtn" style="padding:0;background-color:transparent;color:black;font-size:22px;" '+
 									'onclick="toggleDropdownContent(this, true)">𐄗</button>'+
-								'<span class="dropdown-content" style="padding-top:10px;">'
+								'<span class="dropdown-content" style="padding-top:10px;left:0;">'
 								+
 								topicInfo 
 								+
@@ -1839,8 +1839,8 @@ function createGridView(data, div){
 							'</span>'+									
 							'<br/>'+
 							
-							'<img src="data/qrn/svg/'+index+'.svg" >'+
-								//'onclick="toggleQuranView(true, \''+index+'\', \''+pgNums[0]+'\');">'+
+							'<img src="data/qrn/svg/'+index+'.svg" style="cursor:pointer;"'+
+								'onclick="toggleQuranView(true, \''+index+'\', \''+pgNums[0]+'\');">'+
 							'</img>'+ //<br/>'+
 							
 							'<div style="font-size:12px;display:ruby-text;text-align:center" >'+
@@ -1850,7 +1850,7 @@ function createGridView(data, div){
 							'</div>'+									
 						
 						//surah options menu
-							
+							/*
 							'<div class="play-menu" '+
 								'style="display:none;padding:0;margin:0;margin-top:-40px;'+
 									   'box-shadow:rgba(0, 0, 0, 0.24) 0px 3px 8px;">'+
@@ -1865,7 +1865,7 @@ function createGridView(data, div){
 								'<span class="chkR" style="display:inline;font-size:14px;padding:0;cursor:pointer;">'+
 									'<div class="dropdown" style="display:inline;padding:0;">'+
 										'<span style="font-size:20px;" onclick="toggleDropdownContent(this, true)"><b>𐄗</b></span>'+
-										'<span class="dropdown-content">'
+										'<span class="dropdown-content" style="left:0;">'
 										+
 										topicInfo 
 										+
@@ -1880,6 +1880,7 @@ function createGridView(data, div){
 									'</div>'+
 								'</span>'+
 							'</div>'+
+							*/
 						'</div>'+
 					'</div>';	
 			//mCount = surah.manzil;
