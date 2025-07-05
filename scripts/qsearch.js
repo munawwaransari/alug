@@ -1506,11 +1506,11 @@ function getSurahTopics(surah, topics){
 	if(topics === undefined)
 		return '';
 	var topicSpan = '<div class="dropdown-content" onclick="$(this).toggleClass(\'dropdown2\')" '+
-						 'style="position:relative;box-shadow:none;direction:ltr;padding:0;cursor:pointer;">'+	
+						 'style="position:relative;box-shadow:none;direction:ltr;padding-bottom:8px;padding-top:8px;cursor:pointer;">'+	
 							'Topics&nbsp;&gt;'+
 					'</div>'+
 					'<div class="dropdown-content2" onvisibilitychange="$(this).prev().toggleClass(\'dropdown2\')" '+
-						'style="z-index:999;width:auto;left:100px;top:-5px;padding-left:6px;text-align:left;background-color:aliceblue;">';
+						'style="z-index:999;width:auto;left:100px;top:5px;padding-left:6px;text-align:left;background-color:aliceblue;">';
 					
 	for(var i=0; i < topics.length; i++){
 		var ayahs = topics[i].split("|")[1];
@@ -1531,11 +1531,11 @@ function getSurahTopics(surah, topics){
 function getGraphMenu(index, surah){
 
 	var graphSpan = '<div class="dropdown-content" onclick="$(this).toggleClass(\'dropdown2\')" '+
-						 'style="position:relative;box-shadow:none;direction:ltr;padding:0;cursor:pointer;">'+	
+						 'style="position:relative;box-shadow:none;direction:ltr;padding-bottom:8px;padding-top:8px;cursor:pointer;">'+	
 							'Graphs&nbsp;&gt;'+
 					'</div>'+
 					'<div class="dropdown-content2" onvisibilitychange="$(this).prev().toggleClass(\'dropdown2\')" '+
-						'style="width:auto;left:100px;top:-5px;padding-left:6px;text-align:left;background-color:aliceblue;">';
+						'style="width:auto;left:100px;top:10px;padding-left:6px;text-align:left;background-color:aliceblue;">';
 					
 	graphSpan+= '<a href="#" onclick="$(\'#divOntology iframe\').attr(\'src\',\'https://qurananalysis.com/analysis/graphing.iframe.php?s='+
 					(index-1)+'&a='+encodeURIComponent(surah.ar)+
@@ -1706,18 +1706,19 @@ function createTableView(data, div){
 									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
 								'</span>'+
 						 '</td>'+
-						 '<td class="chkQ" style="font-size:14px;cursor:pointer;padding:0;cursor:pointer;">'+
+						 '<td class="chkQ" style="font-size:14px;cursor:pointer;padding:0;">'+
 							 '<span>'+getQuranAudioOptions(index, surah.en, surah.ayahCount)+'</span>'+
 						 '</td>'+
-						 '<td class="chkT" style="font-size:14px;cursor:pointer;padding:0;cursor:pointer;">'+
+						 '<td class="chkT" style="font-size:14px;cursor:pointer;padding:0;">'+
 							 '<span>'+getTafsirAudioOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>'+
 							 (q_app_mode === 'Quran' ? '' :
 							 '<span>'+getTafsirPdfOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>')+
 						 '</td>'+
-						 '<td class="chkR" style="font-size:14px;padding:0;">'+
-							'<div class="dropdown" style="display:inline;padding:0;cursor:pointer;">'+
-								'<span style="font-size:20px; onclick="toggleDropdownContent(this, true)"><b>𐄗</b></span>'+
-								'<span class="dropdown-content">'
+						 '<td class="chkR" style="font-size:14px;cursor:pointer;padding:0;">'+
+							'<span class="dropdown" style="display:inline;padding:0;cursor:pointer;">'+
+								'<button class="dropbtn" style="padding:0;background-color:transparent;color:black;font-size:22px;" '+
+									'onclick="toggleDropdownContent(this, true)">𐄗</button>'+
+								'<span class="dropdown-content" style="padding-top:10px;">'
 								+
 								topicInfo 
 								+
@@ -1729,7 +1730,7 @@ function createTableView(data, div){
 								pgNums.map((p, ind) => '<a href="#" onclick="toggleQuranView(true, \''+index+'\', \''+p+'\');"> '+
 										(pgNums.length ==1 ? "" : (ind == 0 ? "Start": "End"))+' Page '+ p+'</a>').join('')+
 								'</span>'+
-							'</div>'+
+							'</span>'+
 						 '</td>'+
 					'</tr>';	
 			mCount = surah.manzil;
@@ -1851,7 +1852,7 @@ function createGridView(data, div){
 						//surah options menu
 							
 							'<div class="play-menu" '+
-								'style="display:none;padding:0;margin:0;margin-top:-20px;'+
+								'style="display:none;padding:0;margin:0;margin-top:-40px;'+
 									   'box-shadow:rgba(0, 0, 0, 0.24) 0px 3px 8px;">'+
 								'<span class="chkQ" style="display:inline;font-size:14px;cursor:pointer;padding:0;cursor:pointer;">'+
 									'<span>'+getQuranAudioOptions(index, surah.en, surah.ayahCount)+'</span>'+

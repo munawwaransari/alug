@@ -328,7 +328,7 @@ function loadAllVoices(sel, voicesAll ){
 }
 
 function toggleDropdownContent(elem, state){
-	$(elem).closest('div').find("[class^='chk']").find("[class=dropdown-content]").hide();
+	//$(elem).closest('div').find("[class^='chk']").find("[class=dropdown-content]").hide();
 	if(state){
 		$(elem).next().addClass("dropdown-content");
 		$(elem).next().show();
