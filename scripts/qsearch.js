@@ -12,6 +12,7 @@ var q_app_mode = 'default';
 var similar_ayah;
 var transliteration_data;
 var page_layout_size=1;
+var tafsir_param;
 
 window.onload = function(){
 	
@@ -57,6 +58,11 @@ window.onload = function(){
 	var langParam = decodeURI(getParamValue("lang"));
 	if(langParam && langParam != 'undefined' && ( langParam ==='ar' || langParam ==='ur' || langParam ==='en') ){
 		lang = langParam;
+	}
+	
+	tafsir_param = decodeURI(getParamValue("tf"));
+	if(tafsir_param !== undefined && tafsir_param !== ''){
+		$("#tafsir-options").val(tafsir_param);
 	}
 	
 	var searchVal = decodeURI(getParamValue("search"));	
@@ -292,6 +298,11 @@ function search(pageNumber){
 													div.append($('<div id="tafsir" style="'+s+'"></div>'));
 												else
 													div.append($('<div id="tafsir" style="'+s+'">'+t.text+'</div>'));
+												
+												if(tafsir_param !== undefined && tafsir_param !== ''){
+													$("#chkTafsir").click();
+													tafsir_param = '';
+												}
 											});
 										});
 

@@ -73,12 +73,16 @@ $(document).ready(function()
 		var tools = getParamValue("tools");
 		showHideTools(noTools, tools);
 		
+		var tf = getParamValue("tf");
 		var sval = getParamValue("search");
 		var searchVal = app_mode === 'Quran' ? (sval  ?? 'surahs') 
 											 : decodeURI(getParamValue("search"));	
 		if((tools && tools.includes("dict")) || (searchVal && searchVal != 'undefined')){
 			var sval = getParamValue("search");
-			loadQuranSearch(searchVal, sval);
+			if(tf !== undefined && tf !== '')
+				loadQuranSearch(searchVal+"&tf="+tf, sval);
+			else
+				loadQuranSearch(searchVal, sval);
 		}else{
 			loadGrammarView();
 			updateToolDescription('in-search');
