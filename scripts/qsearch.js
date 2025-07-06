@@ -229,7 +229,19 @@ function search(pageNumber){
 			// add next
 			nav += '<span onclick="searchText(\''+(+keys[0])+':'+(verseNumber+1)+'\')" '+
 						 'style="cursor:pointer;margin-left:20px;">'+
-						 '<b>Next&nbsp;&gt;</b></span>';
+						 '<b>Next&nbsp;&gt;</b>'+
+					'</span>'+
+					
+					//Share external
+					'<img src="images/share.png" title="Share" '+
+						'style="cursor:pointer;float:right;margin-right:8px;height:20px;" '+
+						'onclick="const p=['+
+								    '\'mode=\'+q_app_mode,'+
+									'\'search=\'+$(\'#searchText\').val(),'+
+									'\'tf=\'+$(\'#tafsir-options\').val()];'+
+								  'shareExternal(p[1], p);" '+
+						'</img>';
+			
 			nav += '</div>';
 			div.append($(nav));
 			onVerseLoaded(keys[0], verseNumber);

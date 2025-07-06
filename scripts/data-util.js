@@ -1245,3 +1245,22 @@ function loadQuranPdfOptions(){
 	
 	$("#qPDF").html($(options));
 }
+
+function shareExternal(title, parameters){
+	if (navigator.share) {
+	  var url = getLocationPath()+"?"+parameters.join('&')
+	  const shareData = {
+		title: title,
+		text: 'Here is an interesting verse for you:',
+		url: url
+	  };
+
+	  // Trigger the share menu
+	  navigator.share(shareData)
+		.then(() => console.log('Shared!'))
+		.catch((error) => console.error('Error sharing content:', error));
+	} 
+	else {
+	  console.error('Web Share API is not supported on this browser.');
+	}
+}
