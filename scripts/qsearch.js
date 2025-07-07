@@ -1840,13 +1840,13 @@ function createGridView(data, div){
 			
 			table += '<div class="'+juz+' '+surah.nuzul+' mz'+surah.manzil+' '+hClass+'" '+
 							 'onmouseover="$(this).find(\'.play-menu\').show();'+
-							 '$(this).css(\'background-color\',\'yellow\');" '+
+							 '$(this).css(\'background-color\',\'#f6f6c3\');" '+
 							 '$(this).css(\'border-color\',\'groove\');" '+
 							 
 							 'onmouseout="$(this).find(\'.play-menu\').hide();'+
 							 '$(this).css(\'background-color\',\'transparent\');" '+
 							 '$(this).css(\'border\',\'groove\');" '+
-							 
+							 							 
 							 'style="max-height:80px;max-width:74px;float:right;font-szie:14px;padding:20px;'+
 									'border-color:gray;border:groove;">'+
 						
@@ -1859,7 +1859,7 @@ function createGridView(data, div){
 								info+
 								huruf+
 								'<img style="height:16px;margin:0;float:right;" '+
-									' title="'+nuzul_title+'" '+
+									'title="'+nuzul_title+'" '+
 									'src="images/'+surah.nuzul+'.jpg"></img>'+
 								//manzilImg +
 								((rOrder === false) ? 
@@ -1869,33 +1869,35 @@ function createGridView(data, div){
 							'</span>'+									
 							'<br/>'+
 							
-							'<img src="data/qrn/svg/'+index+'.svg" style="cursor:pointer;"'+
-								'onclick="toggleQuranView(true, \''+index+'\', \''+pgNums[0]+'\');">'+
-							'</img>'+ //<br/>'+
+							'<img src="data/qrn/svg/'+index+'.svg" style="cursor:pointer;" '+
+								'onclick="$(this).parent().find(\'.play-menu\').toggle(); " >'+
+							'</img>'+
 							
 							'<div style="font-size:12px;display:ruby-text;text-align:center" >'+
-								 //'onclick="searchText(\''+enName+'\')">'+
 								surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')
 										.replace('The ','').replace('A ','')+
 							'</div>'+									
 						
 						//surah options menu
-							/*
 							'<div class="play-menu" '+
-								'style="display:none;padding:0;margin:0;margin-top:-40px;'+
+								'style="display:none;padding:0;margin:0;margin-top:-30px;'+
 									   'box-shadow:rgba(0, 0, 0, 0.24) 0px 3px 8px;">'+
+								/*
 								'<span class="chkQ" style="display:inline;font-size:14px;cursor:pointer;padding:0;cursor:pointer;">'+
 									'<span>'+getQuranAudioOptions(index, surah.en, surah.ayahCount)+'</span>'+
 								'</span>'+
+								*/
+								/*
 								'<span class="chkT" style="display:inline;font-size:14px;cursor:pointer;padding:0;cursor:pointer;">'+
 									 '<span>'+getTafsirAudioOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>'+
 									 (q_app_mode === 'Quran' ? '' :
 									 '<span>'+getTafsirPdfOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>')+
 								'</span>'+
+								*/
 								'<span class="chkR" style="display:inline;font-size:14px;padding:0;cursor:pointer;">'+
 									'<div class="dropdown" style="display:inline;padding:0;">'+
 										'<span style="font-size:20px;" onclick="toggleDropdownContent(this, true)"><b>𐄗</b></span>'+
-										'<span class="dropdown-content" style="left:0;">'
+										'<span class="dropdown-content" style="left:-70px;top:-10px;">'
 										+
 										topicInfo 
 										+
@@ -1910,7 +1912,6 @@ function createGridView(data, div){
 									'</div>'+
 								'</span>'+
 							'</div>'+
-							*/
 						'</div>'+
 					'</div>';	
 			//mCount = surah.manzil;
