@@ -1857,8 +1857,10 @@ function createGridView(data, div){
 									' title="'+nuzul_title+'" '+
 									'src="images/'+surah.nuzul+'.jpg"></img>'+
 								//manzilImg +
-								'<sup style="float:right">&nbsp;&nbsp;'+index+'</sup>'+
-								((rOrder == true) ? '<sup style="float:right">&nbsp;(R:'+(surah.r_order)+')</sup>':'') +
+								((rOrder === false) ? 
+								'<sup style="float:right">&nbsp;&nbsp;'+index+'</sup>': '')+
+								((rOrder === true) ? 
+								'<sup style="float:right">&nbsp;(R:'+(surah.r_order)+')</sup>':'') +
 							'</span>'+									
 							'<br/>'+
 							
