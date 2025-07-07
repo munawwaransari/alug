@@ -1841,7 +1841,6 @@ function createGridView(data, div){
 			table += '<div class="'+juz+' '+surah.nuzul+' mz'+surah.manzil+' '+hClass+'" '+
 							 'onmouseover="$(this).find(\'.play-menu\').show();$(this).css(\'border-color\',\'groove\');" '+
 							 'onmouseout="$(this).find(\'.play-menu\').hide();$(this).css(\'border\',\'groove\');" '+
-							 'class="qword" '+
 							 'style="max-height:80px;max-width:74px;float:right;font-szie:14px;padding:20px;'+
 									'border-color:gray;border:groove;">'+
 						
