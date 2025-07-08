@@ -71,7 +71,8 @@
 				setPlayLang(lang, true);
 				stopAudio();
 				console.log("lang:" + $("#languages").val());
-			    console.log("playing..."+txt.substring(0, 20)+"...");
+			    var txtLog = txt ? (txt.length > 20 ? txt.substring(0, 20) : txt): '';
+				console.log("playing..."+txtLog+"...");
 			    $("#text").text(txt);
 			    $("#play").click();
 			}

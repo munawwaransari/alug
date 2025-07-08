@@ -412,7 +412,7 @@ function getVerseTafsir(id, verseKey, callback){
 	
 	var tafsir = $("#tafsir-options").val();
 	
-	if(tafsir === "none"){
+	if(tafsir === null || tafsir === "none"){
 		callback(undefined, style);
 		return;
 	}

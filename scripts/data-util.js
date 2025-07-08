@@ -497,10 +497,12 @@ function togglePlayButtons(verseKey, v, h){
 	var id = verseKey.replace(":","_");
 	var elem = document.getElementById(id);
 	
-	var vW = v[0] === 'v' ? 'width:20px' : 'width:0px';
-	var hW = h[0] === 'v' ? 'width:20px' : 'width:0px';
-	elem.children[0].style = 'visibility:'+v+';'+vW+';cursor:pointer;';
-	elem.children[1].style = 'visibility:'+h+';'+hW+';cursor:pointer;';
+	if(elem !== null && elem != undefined){
+		var vW = v[0] === 'v' ? 'width:20px' : 'width:0px';
+		var hW = h[0] === 'v' ? 'width:20px' : 'width:0px';
+		elem.children[0].style = 'visibility:'+v+';'+vW+';cursor:pointer;';
+		elem.children[1].style = 'visibility:'+h+';'+hW+';cursor:pointer;';
+	}
 }
 
 function updateLang(url){
@@ -1204,22 +1206,26 @@ function getPlayControlsHtml(id, options, symbol){
 }
 
 function playTafsir(verseKey){
-
 	var isPlayTafsir = $("#chkTafsir").prop('checked');
 	if(isPlayTafsir && parent.playText){
-		$("#chkQir").prop('checked', '');
-		var lang = $("#tafsir-options").val().substring(0,2);
-		//getVerseTafsir(null, verseKey, function(t){
-			//$("#tafsir").html(t.text); 	
-			//parent.playText(t.text, lang === 'ur' ? 'ur-PK':
-			//						lang === 'ar' ? 'ar-SA': 'en-US');
-		//});
-
-		var text = $("#tafsir").html(); 	
-		parent.playText(text, lang === 'ur' ? 'ur-PK':
-							  lang === 'ar' ? 'ar-SA': 'en-US');
 		
-	}else{
+		var opt = $("#tafsir-options").val();
+		if(opt !== null && opt !== "none"){
+			$("#chkQir").prop('checked', '');
+			var lang = opt.substring(0,2);
+			//getVerseTafsir(null, verseKey, function(t){
+				//$("#tafsir").html(t.text); 	
+				//parent.playText(t.text, lang === 'ur' ? 'ur-PK':
+				//						lang === 'ar' ? 'ar-SA': 'en-US');
+			//});
+
+			var text = $("#tafsir").html(); 	
+			parent.playText(text, lang === 'ur' ? 'ur-PK':
+								  lang === 'ar' ? 'ar-SA': 'en-US');
+		}		
+	}
+	else
+	{
 		stopPlayVerse();
 	}
 }
