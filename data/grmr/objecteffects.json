@@ -56,7 +56,7 @@
         ]
     },
 	{
-        "name_ar": "المفعول له / المفعول ألجله",
+        "name_ar": "المفعول له / المفعول لأجله",
         "name_en": "Causal Object",
 		"construct_sep": "+",
         "construct_ar": [
