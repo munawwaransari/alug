@@ -213,6 +213,11 @@ function showParticleTable(){
 	posAPIObj.addParticleInfoHtml($(".dictionary"), pTable);
 }
 
+function showPrepPhrasesTable(){
+	var pTable = posAPIObj.getPerpPhraseInfo();
+	posAPIObj.addPrepPhrasesInfoHtml($(".dictionary"), pTable);
+}
+
 function checkWord(w){
 	$("#wordSearchText").val(w);
 	//analyzeSelectedWord();

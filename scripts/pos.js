@@ -810,6 +810,66 @@ class posAPI {
 			container.prepend($(sel));
 		}
 	}
+
+	getPerpPhraseInfo(){
+		var res = [];
+		for (const keyVal of Object.entries(posAPI.posRules)){
+			if(keyVal[0] === "PrepPhrases"){
+				res = keyVal[1]["phrases"];
+			}
+		}
+		return res;
+	}
+
+	addPrepPhrasesInfoHtml(container, res){
+		var api = this;
+		container.empty();
+		var filters = [];
+		var nTable = $('<table id="pTable" class="pTable"><tr>'+
+						 '<th style="font-size: 22px;directoin:rtl;">Prepositional Phrases</th>'+
+					   '</table>');
+		container.append(nTable);
+		
+		var alink = '<a href="#" style=" text-decoration: none" '+
+						' onclick="checkWord(\'$\');">$</a>';
+		for (const keyVal of res){
+			var id = false;
+			var text = keyVal;
+			if(keyVal.startsWith("K|")){
+				id = true
+				text = keyVal.substring(2);
+			}
+			var keys =  text.split("|");	
+			var enText = keys[0];
+			var arText = keys[1];
+			if(text){							   
+				if(id == true){
+					if(filters.indexOf(text) === -1){
+						filters.push(text);
+					}
+				}
+				var row = "";;
+				row = row + '<tr>';
+				row = row + '<td>'+alink.replaceAll('\$',arText+'<br/>'+enText)+'</td>';
+				row = row +'</tr>';
+				$("#pTable tbody").append($(row));
+			}
+		}
+		
+		// Add filter drop down
+		if(filters.length > 0){
+			var sel = '<select class="nFilter" '+ 
+					  'onchange="filterTableRows(\'#pTable\', -1, $(\'.nFilter\').val(), \'all\', true)">'+
+					  '<option value="all">Show All</option>';
+			filters.every(function(n){
+				var keys =  n.split("|");	
+				sel += '<option value="'+keys[1]+'"><b>'+keys[1]+' - '+keys[0]+'</b></option>';
+				return true;
+			});	
+			sel += '</select>';
+			container.prepend($(sel));
+		}
+	}
 	
 	analyzeWord(word, addConjugates){
 		var apiInstance = this;

@@ -142,28 +142,36 @@ function removePunctuations(w){
 	return w.replaceAll(new RegExp("["+punctuation+"]+","g"), '');
 }
 
-function filterTableRows(table, column, searchText, allText){
+function filterTableRows(table, column, searchText, allText, useInlcude){
 	
 	var txt = searchText ?  removeAlPrefix(removePunctuations(searchText)) : searchText;
 	if(txt === allText){
 		$(table + " tr td").show();
-		//$(table + " tr th:nth-child("+column+")").show();
 		$(table + ' tr th:contains(\''+txt+'\')').show();
 		return;
 	}
+	console.log("Filtering table: "+ table +", column: "+ column +", searchText: "+ txt);
 	$(table + " tr td").hide();
-	//var tableRows = $(table + " tr td:nth-child("+column+")");
 	var tableRows = $(table + ' tr td:contains(\''+txt+'\')');
 	tableRows.filter((i, td) => {
-		if($(td).text().trim().startsWith(txt) === false){
-			$(td).parent().children().hide();
+		if(useInlcude == undefined){
+			if($(td).text().trim().startsWith(txt) === false){
+				$(td).parent().children().hide();
+			}else {
+				$(td).parent().children().show();
+			}
 		}else{
-			$(td).parent().children().show();
+			if($(td).text().trim().includes(txt) === false){
+				$(td).parent().children().hide();
+			}else {
+				$(td).parent().children().show();
+			}
 		}
 	});
-	$(table + ' tr td:contains(\''+txt+'\')').hide();
-	//$(table + " tr td:nth-child("+column+")").hide();
-	$(table + " tr th:nth-child("+column+")").hide();
+	if(column > 0){
+		$(table + ' tr td:contains(\''+txt+'\')').hide();
+		$(table + " tr th:nth-child("+column+")").hide();
+	}
 }
 
 function isOS(os){
