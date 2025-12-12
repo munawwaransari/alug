@@ -830,8 +830,6 @@ class posAPI {
 					   '</table>');
 		container.append(nTable);
 		
-		var alink = '<a href="#" style=" text-decoration: none" '+
-						' onclick="checkWord(\'$\');">$</a>';
 		for (const keyVal of res){
 			var id = false;
 			var text = keyVal;
@@ -850,7 +848,8 @@ class posAPI {
 				}
 				var row = "";;
 				row = row + '<tr>';
-				row = row + '<td>'+alink.replaceAll('\$',arText+'<br/>'+enText)+'</td>';
+				row = row + '<td>'+arText+'<br/>'+enText+'</td>';
+				//row = row + '<td>'+arText+'<br/>'+enText+'</td>';
 				row = row +'</tr>';
 				$("#pTable tbody").append($(row));
 			}

@@ -1,4 +1,35 @@
 [
+     {
+        "topics":[
+            "خط الإملائي",
+            "خط العروضي"
+        ],
+        "notes": "The Uthmani script (Rasm Uthmānī) integrates both orthographic and prosodic features within its unique writing system<br/><br/>The Quran's script was preserved through a dual system of intensive oral memorization by the Prophet's companions and written recording on various materials (bones, palm leaves, etc.) during his lifetime, followed by the first official compilation into a single book (mus-haf) under Caliph Abu Bakr and standardized copies distributed under Caliph Uthman, ensuring textual consistency alongside the living oral tradition",
+        "ar": [
+            "تعريف",
+            "استعمال",
+            "مِثال"
+        ],
+        "en": [
+            "Definition",
+            "Usage",
+            "Example"
+        ],
+        "features":{
+            "خط الإملائي": [
+                "Orthographic Script: This is the standard script and follows the rules of formal writing",
+                "What is written is drawn",
+                "هذا is written هذا<br/>كتابٌ is written كتابٌ<br/>ما اسمُك is written ما اسمُك<br/>"
+                
+            ],
+            "خط العروضي": [
+
+                "Prosodic Script: This is the phoentic script and used in poetry to maintain meter and rhyme",
+                "What is pronounced is written, what is not pronounced is deleted, and the doubled letter is separated",
+                "هذا is written هذا<br/>كتابٌ is written كتابُن<br/>ما اسمُك is written مسمُك<br/>"
+            ]
+        }
+    },
     {
         "topics": [
             "علاماتُ التَّشكِيل",
