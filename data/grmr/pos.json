@@ -2349,6 +2349,9 @@
             "K|about to/almost|علي وشك",
             "she almost died|انها علي وشك الموت",
             "I'm about to get it|أنـا علي وشك الحصول عليه",
+            "K|Even though/ despite|على الرغم من",
+            "Despite the heavy fog, we arrived on time|على الرغم من الضباب الكثيف، وصلنا في الموعد المحدد",
+            "They failed even though it was a simple task|لقد فشلوا على الرغم من أن المهمة كانت بسيطة",
             "K|must|يجب أن",
             "it must stop|يجب أن يتوقف",
             "it must not happen|لا يجب أن يحدث ذلك",
@@ -2416,6 +2419,13 @@
             "K|not applicable/does not belong|لا محل لها",
             "Those things have no place there|تلك الأشياء لا محل لها هناك",
             "It has no grammatical function|لا محل لها من الاعراب",
+            "K|especially|لا سيما",
+            "I love my friends, especially Zaid|أحب الأصدقاء لا سيما زيدٍ",
+            "Mangoes are sweet, especially the ripe ones|المانجو حلوة المذاق لا سيما الأنواع الناضجة منها",
+            "K|It must be|لا بد",
+            "He must come to the party|لا بد من أن يأتي إلى الحفل",
+            "Zaid must have taken it|لا بد أن زيد أخذته",
+            "You must be patient|لا بد ما تصبر",
             "K|On the principle|بمبدأ",
             "It operates on the principle of administrative work|يتعامل بمبدأ الشغل الإداري",
             "K|To ensure|لضمان",
@@ -2428,7 +2438,15 @@
             "The main difference between them lies in|يكمن الفرق الرئيسي بينهما في",
             "The main difference between them lies in the fact that|يكمن الفرق الرئيسي بينهما في كونهما",
             "What are the differences between|ما أوجه التفريق بين",
-            "What are the similarities between...ما أوجه التشابه بين"
+            "What are the similarities between...ما أوجه التشابه بين",
+            "K|leading to/ resulting in|مما ادي",
+            "The new product failed, causing financial losses|فشل المنتج الجديد، مما أدى إلى خسائر مالية",
+            "The report was written badly, resulting in a low grade|التقرير كان سيئاً، مما أدى إلى درجة منخفض",
+            "The hard work lead to success|العمل الجاد أدى إلى النجاح",
+            "K|Even if|حتى لو",
+            "Come even if you're late|تعال حتى لو تأخرت",
+            "Even if you don't understand, try to listen|حتى لو لم تفهم، حاول أن تستمع",
+            "I will help you even if I am busy|سأساعدك حتى لو كنتُ مشغولاً"
         ] 
     }
 }

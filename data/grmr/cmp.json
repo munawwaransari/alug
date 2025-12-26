@@ -24,9 +24,9 @@
             ],
             "خط العروضي": [
 
-                "Prosodic Script: This is the phoentic script and used in poetry to maintain meter and rhyme",
+                "Prosodic Script: This is the phonetic script and used in poetry to maintain meter and rhyme",
                 "What is pronounced is written, what is not pronounced is deleted, and the doubled letter is separated",
-                "هذا is written هذا<br/>كتابٌ is written كتابُن<br/>ما اسمُك is written مسمُك<br/>"
+                "هاذا is written هذا<br/>كتابٌ is written كتابُن<br/>ما اسمُك is written مسمُك<br/>"
             ]
         }
     },
