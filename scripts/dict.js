@@ -161,7 +161,16 @@ function handleParams(){
 			});
 			break;
 			
-		case 'obj-effect':
+		case 'prep-ph':
+		    //setTimeout(function(){
+				showPrepPhrasesTable();
+				//toggleDropdownContent($(this).parent().prev());
+				if(params["data"])
+					selectAndTrigger(params["data"], 'nFilter');
+			//});
+		break;
+
+        case 'obj-effect':
 			setTimeout(function(){
 				showObjectEffects('ism','المفاعيل', 'Object');
 				if(params["data"])

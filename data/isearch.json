@@ -94,6 +94,11 @@
         "action": "prep",
         "data": "all"
     },
+    "Phrases;العبارات": {
+        "path": "dict.html",
+        "action": "prep-ph",
+        "data": "@Key"
+    },
     "حرف الجر - Preposition;Jar;جر;": {
         "path": "dict.html",
         "action": "prep",
