@@ -732,6 +732,15 @@ function isearch(txt){
 				"data": data
 			}
 		}
+		else if(key.startsWith('...Phrase ')){
+			action = 'prep-ph';
+			data = key.replace('...Phrase ','');
+			obj = {
+				"path": "dict.html",
+				"action": action,
+				"data": data
+			}
+		}
 		
 		if(!action){
 			return;
@@ -779,6 +788,7 @@ function getDefaultActions(txt){
 			res.push('...Analyze '+arRemovePunct(txt));
 		}
 		res.push('...QuranSearch '+arRemovePunct(txt));
+		res.push('...Phrase '+arRemovePunct(txt)+ ' ');
 	}
 	return res;
 }

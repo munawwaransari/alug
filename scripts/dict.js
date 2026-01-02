@@ -162,12 +162,16 @@ function handleParams(){
 			break;
 			
 		case 'prep-ph':
-		    //setTimeout(function(){
-				showPrepPhrasesTable();
-				//toggleDropdownContent($(this).parent().prev());
-				if(params["data"])
-					selectAndTrigger(params["data"], 'nFilter');
-			//});
+			showPrepPhrasesTable();
+			if(params["data"]){
+				var table = $('#pTable:visible');
+				const exp = new RegExp("(?:^|[a-z\\s])"+params["data"]+"(?:$|[a-z\\s])", 'ig');
+				table.find('tr').filter(function(n, el) {
+					if(!exp.test($(el).text()))	
+						$(el).hide();
+				});
+				$(".nFilter").hide();
+			}
 		break;
 
         case 'obj-effect':
