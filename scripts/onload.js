@@ -784,11 +784,14 @@ function getDefaultActions(txt){
 	var res = [];
 	
 	if(txt){
+		var t = arRemovePunct(txt);
 		if(txt.match(/[\u0621-\u064A]+/g) && !txt.includes(' ')){
-			res.push('...Analyze '+arRemovePunct(txt));
+			res.push('...Analyze '+t);
 		}
-		res.push('...QuranSearch '+arRemovePunct(txt));
-		res.push('...Phrase '+arRemovePunct(txt)+ ' ');
+		res.push('...QuranSearch '+t);
+		//if (/[\\u0621-\\u064A]+/g.test(t)){
+			res.push('...Phrase '+t+ ' ');
+		//}
 	}
 	return res;
 }
