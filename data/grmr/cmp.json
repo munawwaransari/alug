@@ -55,7 +55,7 @@
             "إعراب": [
                 "<b>إعراب </b>are used as grammatical notions on nouns and verbs to identify cases and states. <br/><b>Noun --> رَفع ( ُ )، نَصب ( َ )،<br/> جر ( ِ )، تنوِين( ٌ/ ٍ/ ً)<br/>Verbs --> رَفع ( ُ )، نَصب ( َ )، جزم ( ْ )</b>",
                 "used on last letter of the noun, and for verbs it is fixed for each pattern",
-                "زَيدٌ --> letter د has تَنوِين as erab <br/>(indicating nominative case) <br/><br/>كِتَابُ اللهِ --> letter ب has ضَمَّة as erab <br/>(its tanween removed)<br/>and letter ه has كَسَرَة as erab <br/>(indicatin possesive noun)<br/>"
+                "زَيدٌ --> letter د has تَنوِين as erab <br/>(indicating nominative case) <br/><br/>كِتَابُ اللهِ --> letter ب has ضَمَّة as erab <br/>(its tanween removed)<br/>and letter ه has كَسَرَة as erab <br/>(indicating possesive noun)<br/>"
             ]
         }
     },
@@ -128,11 +128,12 @@
             ]
         }
     },
-       {
+    {
         "topics": [
             "واؤ الجمع",
             "واؤ الاشباع"
         ],
+        "notes": null,
         "ar": [
             "تعريف",
             "مثال"
@@ -149,6 +150,31 @@
             "واؤ الاشباع": [
                 "An additional wao used between a plural subject pronoun and <br/>an object pronoun",
                 "فَقَد <b>رَأَيۡتُمُوهُ</b> وَأَنتُمۡ تَنظُرُونَ [3:143]<br/><br/>رَأَيۡتُمُوهُ --> رَأَيۡتُمُ + (و) + هُ<br/><br/>فَإِنۡ <b>عَلِمۡتُمُوهُنَّ</b> مُؤۡمِنَٰتٖ [60:10]<br/>عَلِمۡتُمُوهُنَّ --> عَلِمۡتُمُ + (و) + هُنَّ<br/>&nbsp;"
+            ]
+        }
+    },
+    {
+        "topics": [
+            "ياء المخاطبة",
+            "ياء المتكلم"
+        ],
+        "notes": "نون المقاربة (نون الوِقاية) is used as a particle with ياء المتكلم<br/>Some verbs take particle (ب) or (ل) instead",
+        "ar": [
+            "تعريف",
+            "مثال"
+        ],
+        "en": [
+            "Meaning",
+            "Example"
+        ],
+        "features": {
+            "ياء المخاطبة": [
+                "Used for second person feminine singular <br/>in imperative verbs<br/>also called ياء الخطاب<br/><br/>ارحم  (Have mercy) - مذكر حاضر<br/>ارحمي  (Have mercy) - مونث حاضر<br/>ارحمي --> ارحم + ي (ياي المخاطبة)<br/><br/>ارحميني --> (Have mercy on me)<br/>ارحميني --> ارحمي <br/>+ ي (ياي المخاطبة)<br/> + ن (نون المقاربة) <br/>+ ي (ياي المتكلم)<br/><br/>&nbsp;",
+                "ٱرۡجِعِيٓ إِلَىٰ رَبِّكِ رَاضِيَةٗ مَّرۡضِيَّةٗ ٢٨ [89:28]<br/><br/>فَٱدۡخُلِي فِي عِبَٰدِي ٢٩ [89:29]<br/><br/>وَٱدۡخُلِي جَنَّتِي ٣٠ [89:30]<br/>"
+          ],
+            "ياء المتكلم": [
+                "The possessive pronoun used for the <br/>first person singular <br/>also called ياء الملكية<br/><br/>كِتابي (my book)<br/> كِتاب --> ي (ياي الملكية) <br/><br/>Also used with <b>نون المقاربة</b> <br/>to indicate accusative case for first person<br/><br/>ارحمنِي (Have mercy on me)<br/>اَرحم --> نِي (ياء المخاطبة + نون المقاربة)<br/><br/>Some verbs take particles ب or ل<br/> instead of نون المقاربة<br/>اغفِرلِي (Forgive me)",
+                "قَالَ رَبِّ ٱشۡرَحۡ لِي صَدۡرِي [20:25]<br/><br/> أُجِيبُ دَعۡوَةَ ٱلدَّاعِ إِذَا دَعَانِۖ [2:186]<br/><br/>اللّهُـمَّ اغْفِـرْ لي ، وَارْحَمْـني ، وَاهْدِنـي ،<br/> وَاجْبُرْنـي ، وَعافِنـي وَارْزُقْنـي<br/> وَارْفَعْـني (جامع الترمذي)<br/>"
             ]
         }
     },
