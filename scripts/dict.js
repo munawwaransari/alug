@@ -267,7 +267,16 @@ function listSearchIndex(){
   getiSearchList(function(data){
     $(".dictionary").empty();
     $(".dictionary").append('<div style="margin-top: 40px;"></div>');
-    $.each( data, function( key, value ) {
+    
+	//sort by key
+	const sortedData = Object.keys(data)
+		.sort()
+		.reduce((tempObj, key) => {
+			tempObj[key] = data[key];
+			return tempObj;
+		}, {})
+	
+	$.each( sortedData, function( key, value ) {
         var link = 'parent.redirect(\''+ value.path + '\',\''+ value.action + '\'';
         if(value.data)
             link += ', ' + ((value.data == "@Key") ? '\''+key+'\'' : '\''+value.data+'\');');
