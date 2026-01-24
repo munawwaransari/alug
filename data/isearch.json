@@ -1,5 +1,5 @@
 {
-	"All verbs;forms": {
+   "All verbs;forms": {
         "path": "dict.html",
         "action": "vtab-all"
     },
@@ -163,45 +163,60 @@
         "path": "dict.html",
         "action": "cmp"
     },
-	"Erab vs Tashkeel;علاماتُ التَّشكِيل;إعراب;": {
+    "Scripts;خط الإملائي;خط العروضي": {
         "path": "dict.html",
         "action": "cmp",
-		"data": "pos:0"
+	"data": "pos:0"
     },
-	"Hamza;همزة القطع;همزة الوصل;": {
+    "Erab vs Tashkeel;علاماتُ التَّشكِيل;إعراب;": {
         "path": "dict.html",
         "action": "cmp",
-		"data": "pos:1"
+	"data": "pos:1"
+    },
+    "Hamza;همزة القطع;همزة الوصل;": {
+        "path": "dict.html",
+        "action": "cmp",
+	"data": "pos:2"
     },
 	"واؤ;العطف;المعِيَّة;واؤ الحال": {
         "path": "dict.html",
         "action": "cmp",
-		"data": "pos:2"
+	"data": "pos:3"
     },
-	"Vocative;النِّداء;ترخِيم;": {
+    "Wao;Ishba;واؤ الجمع;واؤ الاشباع": {
         "path": "dict.html",
         "action": "cmp",
-		"data": "pos:3"
+	"data": "pos:4"
     },
-	"Sentence types;جملة خبرية;جملة إنشائية": {
+    "Ya;ياء المخاطبة;ياء المتكلم": {
         "path": "dict.html",
         "action": "cmp",
-		"data": "pos:8"
+	"data": "pos:5"
+    },
+    "Vocative;النِّداء;ترخِيم;": {
+        "path": "dict.html",
+        "action": "cmp",
+	"data": "pos:6"
+    },
+    "Sentence types;جملة خبرية;جملة إنشائية": {
+        "path": "dict.html",
+        "action": "cmp",
+	"data": "pos:11"
     },
     "Affirmative sentence;إيجابي;": {
         "path": "dict.html",
         "action": "cmp",
-        "data": "pos:9"
+        "data": "pos:12"
     },
 	"Negative sentence;نفي;": {
         "path": "dict.html",
         "action": "cmp",
-        "data": "pos:9"
+        "data": "pos:12"
     },
 	"Interrogative sentence;استفهامي;": {
         "path": "dict.html",
         "action": "cmp",
-        "data": "pos:9"
+        "data": "pos:12"
     },
 	"Direct Object;المفعُول بِهِ;": {
         "path": "dict.html",

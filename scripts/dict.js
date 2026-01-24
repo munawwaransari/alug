@@ -254,52 +254,30 @@ function analyzeSelectedWordOld(){
 	posAPIObj.addHtml($(".dictionary"), res, true);
 }
 
-/*
-function addIndex(letter){
-	var idiv = '<div class="letter" onclick="addIndex2(\''+letter+'\')">'+letter+'</div>';
-	$(".index").append($(idiv));
-}
+async function getiSearchList(callback){
 
-function addIndex2(letter){
-	$(".index2").empty();
-	var index2Letters = index2Suffixes.every(function(sfx){
-		var l = letter[0]+sfx;
-		$(".index2").append($('<div class="letter" '+ 
-							  'onclick="selectWord(\''+l+'\');">'+l+'</div>'));
-		return true;
+	var fileUrl = getLocationPath() + 'data/isearch.json';
+	console.log('getting isearch content: '+fileUrl);
+	loadJsonData(fileUrl, function(data){
+		callback(data);
 	});
-	$(".index2").append($('<div class="btnl" onclick="backToIndex()">Back</div>'));
-	$(".index2").append($('<div id="btnindex2" class="btnl" onclick="toggleIndex(\'index2\')">Collapse</div>'));
-	$(".index").hide();
 }
 
-function backToIndex(){
-	$(".index2").empty();
-	$(".index").show();
+function listSearchIndex(){
+  getiSearchList(function(data){
+    $(".dictionary").empty();
+    $(".dictionary").append('<div style="margin-top: 40px;"></div>');
+    $.each( data, function( key, value ) {
+        var link = 'parent.redirect(\''+ value.path + '\',\''+ value.action + '\'';
+        if(value.data)
+            link += ', ' + ((value.data == "@Key") ? '\''+key+'\'' : '\''+value.data+'\');');
+        else 
+            link += ');';
+		$(".dictionary").append('<div style="direction:ltr;margin-left:10px; padding:4px;">'+
+		                         '<a href="#" onclick="'+link+'">'+key.replaceAll(";"," / ").replace(/\/\s$/ig,'')+'</a></div>');
+    });
+  });
 }
-
-function toggleIndex(index){
-	$("."+index+">.letter").toggle();
-	var btn = document.getElementById("btn"+index);
-	if(btn.innerHTML === "Collapse")
-		btn.innerHTML = "Expand Index";
-	else
-		btn.innerHTML = "Collapse";
-}
-
-function toggleForm(f){
-	var checked = formFilters.filter(item => item === f);
-	if(checked.length == 0){ //unchecked
-		formFilters.push(f);
-		$("#"+f).addClass("formFilter");
-	}else{ // filter it
-		formFilters = formFilters.filter(item => item !== f);
-		$("#"+f).removeClass("formFilter");
-	}
-	//console.log(formFilters);
-	loadDictionary(lastIndex);
-}
-*/
 
 function selectWord(text){
 	$("#wordSearchText").val(text);				
