@@ -30,6 +30,9 @@
 	<script>
 		window.onload = function(){
 			var folder = decodeURI(getParamValue("folder"));
+			if(!folder || folder === "undefined"){ 
+				folder = decodeURI(getParamValue("data"));
+			}
 			if(folder){
 				var url = getLocationPath() + 'images/charts/'+folder+'/';
 				loadCharts(url, getMax(folder));

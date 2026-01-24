@@ -278,10 +278,10 @@ function listSearchIndex(){
 	
 	$.each( sortedData, function( key, value ) {
         var link = 'parent.redirect(\''+ value.path + '\',\''+ value.action + '\'';
-        if(value.data)
-            link += ', ' + ((value.data == "@Key") ? '\''+key+'\'' : '\''+value.data+'\');');
+        if(value.data && value.data == "@key")
+            link += ', \''+key+'\');';
         else 
-            link += ');';
+            link += ', ' + (value.data ? '\''+value.data+'\');' : ');');
 		$(".dictionary").append('<div style="direction:ltr;margin-left:10px; padding:4px;">'+
 		                         '<a href="#" onclick="'+link+'">'+key.replaceAll(";"," / ").replace(/\/\s$/ig,'')+'</a></div>');
     });
