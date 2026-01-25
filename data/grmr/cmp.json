@@ -155,6 +155,56 @@
     },
     {
         "topics": [
+            "فاء الإستئناف",
+            "فاء العاطفة"
+        ],
+        "notes": null,
+        "ar": [
+            "تعريف",
+            "مثال"
+        ],
+        "en": [
+            "Meaning",
+            "Example"
+        ],
+        "features": {
+            "فاء الإستئناف": [
+                "A particle used to constrast or contrdict a previous <br/>sentence indicating warning or prohibition",
+                "تِلۡكَ حُدُودُ ٱللَّهِ فَلَا تَعۡتَدُوهَاۚ [2:229]<br/><br/>وَمَآ أَرۡسَلۡنَا مِن رَّسُولٍ إِلَّا بِلِسَانِ قَوۡمِهِۦ لِيُبَيِّنَ لَهُمۡۖ  <br/>فَيُضِلُّ ٱللَّهُ مَن يَشَآءُ وَيَهۡدِي مَن يَشَآءُۚ [14:4]<br/><br/>قُلۡ يَٰٓأَيُّهَا ٱلنَّاسُ إِنَّمَآ أَنَا۠ لَكُمۡ نَذِيرٞ مُّبِينٞ ٤٩<br/>فَٱلَّذِينَ ءَامَنُواْ وَعَمِلُواْ ٱلصَّٰلِحَٰتِ<br/> لَهُم مَّغۡفِرَةٞ وَرِزۡقٞ كَرِيمٞ ٥٠ [22:50]<br/>&nbsp;"
+            ],
+            "فاء العاطفة": [
+                "An particle used as conjunction between <br/>two senetences indicating continuity",
+                "يَٰٓأَيُّهَا ٱلۡإِنسَٰنُ إِنَّكَ كَادِحٌ إِلَىٰ رَبِّكَ كَدۡحٗا<br/> فَمُلَٰقِيهِ ٦ [84:6]<br/><br/>فَأَقۡبَلَتِ ٱمۡرَأَتُهُۥ فِي صَرَّةٖ فَصَكَّتۡ وَجۡهَهَا [51:29]<br/><br/>وَنَادَىٰ نُوحٞ رَّبَّهُۥ <br/>فَقَالَ رَبِّ إِنَّ ٱبۡنِي مِنۡ أَهۡلِي [11:45]<br/>&nbsp;"
+            ]
+        }
+    },
+    {
+        "topics": [
+            "فاء الفصيحة",
+            "فاء الزائدة"
+        ],
+        "notes": null,
+        "ar": [
+            "تعريف",
+            "مثال"
+        ],
+        "en": [
+            "Meaning",
+            "Example"
+        ],
+        "features": {
+            "فاء الفصيحة": [
+                "Often used with a command or conditional sentence<br/>before an explanatory clause",
+                "وَثِيَابَكَ فَطَهِّرۡ ٤ [74:4]<br/><br/>فَقُلۡنَا ٱضۡرِب بِّعَصَاكَ ٱلۡحَجَرَۖ<br/>فَٱنفَجَرَتۡ مِنۡهُ ٱثۡنَتَا عَشۡرَةَ عَيۡنٗاۖ [2:60]<br/><br/>وَٱلَّذِينَ يُؤۡذُونَ ٱلۡمُؤۡمِنِينَ وَٱلۡمُؤۡمِنَٰتِ بِغَيۡرِ مَا ٱكۡتَسَبُواْ<br/> فَقَدِ ٱحۡتَمَلُواْ بُهۡتَٰنٗا وَإِثۡمٗا مُّبِينٗا ٥٨ [33:58]<br/>&nbsp;"
+            ],
+            "فاء الزائدة": [
+                "Often added before a command (not translated)",
+                "وَإِن يَمۡسَسۡكَ ٱللَّهُ بِضُرّٖ فَلَا كَاشِفَ لَهُۥٓ إِلَّا هُوَۖ<br/>وَإِن يَمۡسَسۡكَ بِخَيۡرٖ <br/>فَهُوَ عَلَىٰ كُلِّ شَيۡءٖ قَدِيرٞ ١٧ [6:17]<br/><br/>وَٱلَّذِينَ كَفَرُواْ وَكَذَّبُواْ بِـَٔايَٰتِنَا<br/> فَأُوْلَٰٓئِكَ لَهُمۡ عَذَابٞ مُّهِينٞ ٥٧ [22:57]<br/>&nbsp;"
+            ]
+        }
+    },
+    {
+        "topics": [
             "ياء المخاطبة",
             "ياء المتكلم",
             "ياء النسبة"
@@ -210,8 +260,8 @@
             "ترخِيم": [
                 "Letters of noun invoked<br/> are reduced <br/>out of affection",
                 "يَا عائِشَةُ -> يَا عائِشَ / يَا عائِشُ",
-                "-",
-                "-"
+                "يَا جعفرُ -> يَا جعفَ",
+                "يَا عَنترةُ -> يَا عَنترَ"
             ]
         }
     },
@@ -358,15 +408,15 @@
         ],
         "features": {
             "جملة خبرية": [
-                "Nominal senteces informing about something<br/> These can be command, negative, excalmative or vocative",
+                "Nominal senteces providing some news<br/> can be affirmative, negative",
                 "<b>مُبتدا + خبر</b><br/>(<b>مُبتدا</b>) Starts with a topic<br/>(<b>خبر</b>) followed by the information",
-                "<b>الحَمدُ لِلَّهِ </b><br/> (مُبتدا)(خبر)",
+                "<b>الحَمدُ لِلَّهِ </b><br/> (مُبتدا)(خبر)<br/><br/>إِنَّ مَعَ ٱلۡعُسۡرِ يُسۡرٗا ٦ [94:6]<br/><br/>وأيم الله إنك لا تقول الحقيقة<br/>&nbsp",
                 "When used as adverb (ظرف), erab is Fataha(َ ) "
             ],
             "جملة إنشائية": [
-                "Nominal senteces informing about some action<br/> These can be command, conditions, or interrogations",
+                "Nominal senteces informing about some action<br/> can be command or interrogative or vocative",
                 "<b>مُسنَد + مُسنَد إليهِ</b><br/>(<b>مُسنَد</b>) Starts with subject<br/>(<b>مُسنَد إليهِ</b>) followed by the predicate",
-                "<b>(هُوَ) خَلَقَ الإنسان </b><br/> (مُسنَد) (مُسنَد إليه)"
+                "<b>(هُوَ) خَلَقَ الإنسان </b><br/> (مُسنَد) (مُسنَد إليه)<br/><br/>أَلَّا تَعۡبُدُوٓاْ إِلَّا ٱللَّهَۚ [11:2]<br/><br/>قَالَ يَٰٓـَٔادَمُ أَنۢبِئۡهُم بِأَسۡمَآئِهِمۡۖ [2:33]<br/>&nbsp"
             ]
         }
     },
