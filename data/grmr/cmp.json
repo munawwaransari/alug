@@ -783,7 +783,7 @@
         "topics": [
             "الجمع التكسير (Broken Plural)"
         ],
-        "notes": "See Noun patterns",
+        "notes": "See <a href=\"#\" onclick=\"if (parent.redirect) parent.redirect('dict.html','noun-pat')\">Noun patterns</a>",
         "ar": [
             "تعريف",
 			"تصريف"
