@@ -756,5 +756,47 @@
 				"<p style=\"direction: ltr; margin-top:0;padding:0;margin-top:0;\"><u><p>Triptotes/Declinable (مُعرب مُنصرِف)</u><div>زَيدٌ / زَيدًا / زَيدٍ => Zaid</div><div>السَّمَاءُ / السَمَاءَ / السَّمَاءِ => the sky</div><div>قَاضِي القُضاة  => cheif justice</div></p><p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Diptotes/Declinable (مُعرب غيرُ مُنصرِف)</u><div>يُوسُفُ / يُوسُفَ => Joseph</div><div>زَينَبُ / زَينَبَ => Zainab</div><div>فَاطِمَةُ / فَاطِمَةَ => Fatima</div></p><p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Indeclinable (مبني)</u><div>عيسٰى => Jesus</div><div>مُوسٰي => Moses</div><div>الهُدٰي => the guidance</div></p>"
 			]
         }
+    },
+    {
+        "compareType": "noun",
+        "topics": [
+            "الجمع السالم (Sound Plural)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+			"تصريف"
+        ],
+        "en": [
+            "Definition",
+			"Inclension"
+        ],
+        "features": {
+            "الجمع السالم (Sound Plural)": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">Plurals are formed based on fixed rules<br/><ul style=\"text-align:right;\"><li>جمع المذكر (Forming masculin plural)<br/> by adding ون/ين e.g. <br/>عالمون --> عالِمُون / عالمِينَ<br/></li><br/><li>جمع المؤنث (Forming feminine plural)<br/> by adding ات <br/>and removing تاء التانيث <br/>e.g. عالمة --> عالمات</li></ul>",
+				"<p style=\"direction: ltr; margin-top:0;padding:0;margin-top:0;\"><u><p>Nominative Case (رفع)</u><div>مُسلمٌ => مُسلِمُونَ</div><div>مُسلِمَةٌ => مُسلِمَاتٌ</div></p><p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Objective case (نصب)</u><div>مُسلِمًا => مُسلِمِينَ</div><div>مُسلِمَةٍ => مُسلِمَاتٍ</div></p>"
+			]
+        }
+    },
+    {
+        "compareType": "noun",
+        "topics": [
+            "الجمع التكسير (Broken Plural)"
+        ],
+        "notes": "See Noun patterns",
+        "ar": [
+            "تعريف",
+			"تصريف"
+        ],
+        "en": [
+            "Definition",
+			"Inclension"
+        ],
+        "features": {
+            "الجمع التكسير (Broken Plural)": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">Plurals are formed based on varying rules<br/>;also called irregular plurals<br/><ul style=\"text-align:right;\"></ul>",
+				"<p style=\"direction: ltr; margin-top:0;padding:0;margin-top:0;\"><u><p>Examples</u><div>جَبَل => جِبَال</div><div>فَتِيٌ => فِتيَةٌ</div><div>شَهر => اَشهُر</div><div>قَلب => قُلُوب</div></p>"
+			]
+        }
     }
 ]
