@@ -205,6 +205,30 @@
     },
     {
         "topics": [
+            "نون التوكيد",
+            "نون النسوة"
+        ],
+        "ar": [
+            "تعريف",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Example"
+        ],
+        "features": {
+            "نون التوكيد": [
+                "نون التوكيد (نَّ المشددة/ نْ المخففة) is used to <br/>emphasize the certainty of the statement",
+                "أَلَمۡ تَعۡلَمۡ أَنَّ ٱللَّهَ يَعۡلَمُ مَا <br/>فِي ٱلسَّمَآءِ وَٱلۡأَرۡضِۚ [22:70]<br/><br/>إِنَّا نَحۡنُ نَزَّلۡنَا ٱلذِّكۡرَ وَإِنَّا لَهُۥ لَحَٰفِظُونَ ٩ [15:19]<br/>&nbsp;"
+            ],
+            "نون النسوة": [
+                "Used in verb conjugates for the femnine <br/>attached pronouns (for second and third person <br/>plurals) in verb conjugates",
+                "<br/>الفعل الماضي: يكتبْنَ<br/><br/>الفعل المضارع: يكتُبْنَ<br/><br/>فعل الأمر: اكتُبْنَ<br/>&nbsp;"
+            ]
+        }
+    },
+    {
+        "topics": [
             "ياء المخاطبة",
             "ياء المتكلم",
             "ياء النسبة"
@@ -299,6 +323,7 @@
             "إِنَّ / أَنَّ",
             "أَن"
         ],
+        "notes": "نون التوكيد (نَّ المشددة/ نْ المخففة) is used to emphasize the certainty of the statement",
         "ar": [
             "تعريف",
             "الاستخدام",
