@@ -240,7 +240,7 @@
 					<b>تحليل</b>
 				</button>
 				<div class="dropdown-content">
-				  <a href="#" onclick="listSearchIndex();toggleDropdownContent($(this).parent().prev());">Index</a>
+				    <!-- <a href="#" onclick="listSearchIndex();toggleDropdownContent($(this).parent().prev());">Index</a> -->
 					<a href="#" onclick="analyzeSelectedWord();toggleDropdownContent($(this).parent().prev());">Analyze</a>
 					<a href="#" onclick="analyzeSelectedWordOld();toggleDropdownContent($(this).parent().prev());">Conjugate</a>
 				</div>
@@ -290,8 +290,10 @@
 				<a href="#" onclick="lookupEx('https://glosbe.com/ar/$/');toggleDropdownContent($(this).parent().prev());">Glosbe</a>
 			  </div>
 			</div>
-			<!-- <button id="btnMeaning" style="top:-8px; height: 30px;" onclick="">Meaning</button> -->
-			<!-- <button id="SearchQ" style="top:-8px; height: 30px;" onclick="searchInQuran()">Quran</button> -->
+			<button class="dropbtn" style="height: 32px;" 
+				onclick="listSearchIndex();toggleDropdownContent($(this).parent().prev());">
+				Index
+			</button>
 		</div>
 		<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:-22px"
 			 onclick="showArabicKeyboard('arabic')"/>

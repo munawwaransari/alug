@@ -276,13 +276,30 @@ function listSearchIndex(){
 			return tempObj;
 		}, {})
 	
+	// Add Alphabetic index
+    var iDiv = "<div style='text-align:left;padding:4px;'>";
+	//$.each([" ABCDEFGHIJKLMNOPQRSTUVWXYZابتثجحخدذرزسشصضطظعغفقكلمنوهيء"], 
+	$.each([" ABCDEFGHIJKLMNOPQRSTUVWXYZ"], 
+	function(index, value) {
+		iDiv += '<select style="width:40;" '+
+				'onchange=" $(\'div [id*=id_]\').hide(); '
+				         +' $(this).val() == \'id_\' ? $(\'div [id*=id_]\').show() :'
+						 +' $(\'div [id=\'+$(this).val()+\']\').show(); "'
+						 +' >';
+		for(const charValue of value) {
+			iDiv += "<option value=id_"+charValue+">"+charValue+"</option>";
+		};
+		iDiv += "</select>";
+	});
+	$(".dictionary").append($(iDiv));
+
 	$.each( sortedData, function( key, value ) {
         var link = 'parent.redirect(\''+ value.path + '\',\''+ value.action + '\'';
         if(value.data && value.data == "@key")
             link += ', \''+key+'\');';
         else 
             link += ', ' + (value.data ? '\''+value.data+'\');' : ');');
-		$(".dictionary").append('<div style="direction:ltr;margin-left:10px; padding:4px;">'+
+		$(".dictionary").append('<div id="id_'+key[0]+'" style="direction:ltr;margin-left:10px; padding:4px;">'+
 		                         '<a href="#" onclick="'+link+'">'+key.replaceAll(";"," / ").replace(/\/\s$/ig,'')+'</a></div>');
     });
   });
