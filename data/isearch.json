@@ -208,45 +208,60 @@
         "action": "cmp",
 	"data": "pos:6"
     },
+    "Laam;لام التعليل": {
+        "path": "dict.html",
+        "action": "cmp",
+	"data": "pos:7"
+    },
+    "Laam;لام النفي": {
+        "path": "dict.html",
+        "action": "cmp",
+	"data": "pos:7"
+    },
+    "Laam;لام الحجود": {
+        "path": "dict.html",
+        "action": "cmp",
+	"data": "pos:7"
+    },
     "Nun;نون التوكيد": {
-        "path": "dict.html",
-        "action": "cmp",
-	"data": "pos:7"
-    },
-    "Faa;نون النسوة": {
-        "path": "dict.html",
-        "action": "cmp",
-	"data": "pos:7"
-    },
-    "Ya;ياء المخاطبة;ياء المتكلم": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:8"
     },
-    "Vocative;النِّداء;ترخِيم;": {
+    "Faa;نون النسوة": {
+        "path": "dict.html",
+        "action": "cmp",
+	"data": "pos:8"
+    },
+    "Ya;ياء المخاطبة;ياء المتكلم": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:9"
     },
+    "Vocative;النِّداء;ترخِيم;": {
+        "path": "dict.html",
+        "action": "cmp",
+	"data": "pos:10"
+    },
     "Sentence types;جملة خبرية;جملة إنشائية": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:14"
+	"data": "pos:15"
     },
     "Affirmative sentence;إيجابي;": {
         "path": "dict.html",
         "action": "cmp",
-        "data": "pos:15"
+        "data": "pos:16"
     },
 	"Negative sentence;نفي;": {
         "path": "dict.html",
         "action": "cmp",
-        "data": "pos:15"
+        "data": "pos:16"
     },
 	"Interrogative sentence;استفهامي;": {
         "path": "dict.html",
         "action": "cmp",
-        "data": "pos:15"
+        "data": "pos:16"
     },
 	"Direct Object;المفعُول بِهِ;": {
         "path": "dict.html",
