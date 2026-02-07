@@ -139,6 +139,11 @@
         "action": "prep",
         "data": "Conjunctions"
     },
+    "Infinitive letters;حروف المصدرية": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "Infinitive letters"
+    },
     "حروفُ مَشبة بِالفعل (إنَّ)": {
         "path": "dict.html",
         "action": "prep",
