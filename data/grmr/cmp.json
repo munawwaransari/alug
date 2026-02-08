@@ -864,8 +864,50 @@
         ],
         "features": {
             "نائب الفاعل (Passive Participle)": [
-				"<p style=\"direction: ltr;padding:0;margin:0;\">Passive Participles are in Nominative case (رفع)<br/>and represents the direct Object in a passive voice sentence<br/></li><br/><li>مفعول به (Used a direct object)<br/> e.g. كُتِبتِ الدّرسُ --> الدّرسُ (مرفوع)<br/><br/>e.g. كُسِرَتْ الزُّجَاجَةُ --> الزُّجَاجَةُ (مرفوع)<br/></li></ul>",
+				"<p style=\"direction: ltr;padding:0;margin:0;\">Passive Participles are in Nominative case (رفع)<br/>and represents the direct Object in a passive voice sentence<br/></li><br/><li>مفعول به (Used as direct object)<br/> e.g. كُتِبتِ الدّرسُ --> الدّرسُ (مرفوع)<br/><br/>e.g. كُسِرَتْ الزُّجَاجَةُ --> الزُّجَاجَةُ (مرفوع)<br/></li></ul>",
 				"Passive voice (فعل مبني للمجهول)"
+			]
+        }
+    },
+    {
+        "compareType": "noun",
+        "topics": [
+            "مسند (Predicate)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Example"
+        ],
+        "features": {
+            "مسند (Predicate)": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">It is the object (مفعول), action (فعل) or <br/>news (خبر) in a sentence<br/></li><br/><li>الجملة الاسمية --> زيدٌ عالِمٌ --> <b>عالِمٌ</b><br/>(مسند is mostly صفة)<br/>&nbsp;</li><li>الجملة الفعلية --> ضرب زيدٌ --> <b>ضرب</b></li></ul><br/>",
+				"ضَرَبَ ٱللَّهُ مَثَلٗا [39:29]<br/>(ضَرَبَ مَثَلٗا <-- Predicate/مسند)<br/><br/>"
+			]
+        }
+    },
+    {
+        "compareType": "noun",
+        "topics": [
+            "مسند اليه (Subject)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Example"
+        ],
+        "features": {
+            "مسند اليه (Subject)": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">It is the topic (مبتدا) or subject (الفاعل) in a sentence<br/></li><br/><li>الجملة الاسمية --> زيدٌ عالِمٌ --> <b>زيدٌ</b><br/>(مسند is mostly موصوف)<br/>&nbsp;</li><li>الجملة الفعلية --> ضرب زيدٌ --> <b>زيدٌ</b></li></ul><br/>",
+				"ضَرَبَ ٱللَّهُ مَثَلٗا [39:29]<br/>(ٱللَّهُ <-- Subject/مسند اليه)<br/><br/>"
 			]
         }
     }
