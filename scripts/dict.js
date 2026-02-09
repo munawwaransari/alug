@@ -291,7 +291,9 @@ function listSearchIndex(){
 		};
 		iDiv += "</select>";
 	});
-	$(".dictionary").append($(iDiv));
+
+	var div = $("<div style='direction:ltr;width:100%;height=100%;'></div>");
+	div.append($(iDiv));
 
 	$.each( sortedData, function( key, value ) {
         var link = 'parent.redirect(\''+ value.path + '\',\''+ value.action + '\'';
@@ -299,9 +301,13 @@ function listSearchIndex(){
             link += ', \''+key+'\');';
         else 
             link += ', ' + (value.data ? '\''+value.data+'\');' : ');');
-		$(".dictionary").append('<div id="id_'+key[0]+'" style="direction:ltr;margin-left:10px; padding:4px;">'+
-		                         '<a href="#" onclick="'+link+'">'+key.replaceAll(";"," / ").replace(/\/\s$/ig,'')+'</a></div>');
+		div.append('<div id="id_'+key[0]+'" '+
+				'style="margin:0;padding:10px;width:250px;display:inline-block;">'+
+		        '<a href="#" onclick="'+link+'">'+
+					key.replaceAll(";"," / ").replace(/\/\s$/ig,'')+
+				'</a></div>');
     });
+	$(".dictionary").append(div);
   });
 }
 
