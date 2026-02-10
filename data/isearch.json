@@ -397,5 +397,71 @@
         "path": "number.html",
         "action": "Misc",
         "data": "number"
+    },
+    "Indefinite Noun;اسم النكرة":
+    {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:"
+    },
+    "Definite Noun;اسم المعرفة":
+    {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:1"
+    },
+    "Sound Plural;الجمع السالم":
+    {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:2"
+    },
+    "Broken Plural;الجمع التكسير":
+    {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:3"
+    },
+    "Active Participle;الفاعل":
+    {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:4"
+    },
+    "Passive Participle;نائب الفاعل":
+    {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:5"
+    },
+    "Predicate;مسند":
+    {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:6"
+    },
+    "Subject;مسند اليه":
+    {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:7"
+    },
+    "Auditory Verbal Noun;مصدر سماعي":
+    {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:8"
+    },
+    "Standard Verbal Noun;مصدر قياسي":
+    {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:9"
+    },
+    "Verbal Noun - Meemi;المصدر الميمي":
+    {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:10"
     }
 }

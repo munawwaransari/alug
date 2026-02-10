@@ -213,6 +213,16 @@ function handleParams(){
 			}
 			else showComparisions(0);
 			break;
+		
+		case 'noun-cmp':
+			var data = params["data"];
+			if(data.startsWith("pos:")){
+				var index = parseInt(data.substring(4));
+				showNounComparisions(index);
+			}else{
+				showNounComparisions(0);
+			}
+			break; 
 	}
 }
 
