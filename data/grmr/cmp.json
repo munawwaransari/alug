@@ -952,5 +952,26 @@
 				"صلّي - يصلّي --> (رباعي) --> صَلاة (مصدر)<br/><br/>اَسلَمَ - يُسلِمُ --> (رباعي) --> اِسلام (مصدر)<br/><br/>تَقَبَّلَ - يَتَقَبَّلُ --> (خَماسي) --> تَقَبُّل (مصدر)<br/><br/>استَقبَلَ - يَستَقبِلُ --> (سُداسي) --> اِستِقبَال (مصدر)<br/><br/>"
 			]
         }
+    },
+    {
+        "compareType": "noun",
+        "topics": [
+            "المصدر الميمي (Verbal Noun - Meemi)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Example"
+        ],
+        "features": {
+            "المصدر الميمي (Verbal Noun - Meemi)": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">These are special type of verbal noun (مصدر). They can be derived from both triliteral and non-triliteral verbs (افعال ثلاثية وغير ثلاثية) and are characterized by an extra mīm (م) at the beginning of the verbal noun.<br/></li><br/><li>من الفعل الثلاثي: Mostly formed on the pattern مفعل or مفعلة<br/></li><br/><li>من الفعل غير الثلاثي: Mostly formed from صيغة المضارع (adding letter م at the beginning and faa kalima being مفتُوح<br/>&nbsp;</li></ul>",
+				"<br/>يَنطَلِقُ (فعل) --> مُنطَلَق (مصدر)<br/><br/>يَستَخرِجُ (فعل) --> مُستَخرَج (مصدر)<br/><br/>يُجَاهِدُ (فعل) --> مُجاهَدَة (مصدر)<br/><br/>"
+			]
+        }
     }
 ]
