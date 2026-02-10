@@ -910,5 +910,47 @@
 				"ضَرَبَ ٱللَّهُ مَثَلٗا [39:29]<br/>(ٱللَّهُ <-- Subject/مسند اليه)<br/><br/>"
 			]
         }
+    },
+    {
+        "compareType": "noun",
+        "topics": [
+            "مصدر سماعي (Auditory Verbal Noun)"
+        ],
+        "notes": "<div style=\"direction:ltr\">Both قياسي and سماعي are types of verbal noun (مصدر). There are some special types of verbal noun: e.g. Masdar Mimi (المصدر الميمي): A verbal noun starting with an extra mīm (م) that carries the same meaning as the standard form </div>",
+        "ar": [
+            "تعريف",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Example"
+        ],
+        "features": {
+            "مصدر سماعي (Auditory Verbal Noun)": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">These are the verbal nouns derived from the triliteral verbs (افعال الثلاثية). These are not based on any predictable rule<br/></li><br/><li>رَجَعَ --> رجُوعاً<br/></li><br/><li>كَتَبَ --> كَتابَة<br/>&nbsp;</li><li>أَخَذَ --> أَخذاً</li></ul><br/>",
+				"ذَهَبَ - يَذهَبُ --> ذِهَاب (مصدر)<br/><br/>قَتَلَ - يَقتُلُ --> قَتل (مصدر)<br/><br/>سَارَ - يَسِيرُ --> سَير (مصدر)<br/><br/>سَمِعَ - يَسمَعُ --> سماع (مصدر)<br/><br/>"
+			]
+        }
+    },
+    {
+        "compareType": "noun",
+        "topics": [
+            "مصدر قياسي (Standard Verbal Noun)"
+        ],
+        "notes": "<div style=\"direction:ltr\">Both قياسي and سماعي are types of verbal noun (مصدر). There are some special types of verbal noun: e.g. Masdar Mimi (المصدر الميمي): A verbal noun starting with an extra mīm (م) that carries the same meaning as the standard form </div>",
+        "ar": [
+            "تعريف",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Example"
+        ],
+        "features": {
+            "مصدر قياسي (Standard Verbal Noun)": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">These are the verbal nouns derived from the non-triliteral verbs (افعال غير ثلاثية). These are not based on predictable grammar word patterns (اوزان)<br/></li><br/><li>رباعي => قاتَلَ --> قِتال / مُقَاتِلَة ,&nbsp;&nbsp;اَخرَجَ --> اِخراج<br/></li><br/><li>خُماسي => اتّخَدَ --> اِتِّخاذ, &nbsp;تَوَكَّلَ --> تَوّكُّل<br/>&nbsp;</li><li>سُداسي =>اِستَخدَمَ --> اِستِخدام</li></ul><br/>",
+				"صلّي - يصلّي --> (رباعي) --> صَلاة (مصدر)<br/><br/>اَسلَمَ - يُسلِمُ --> (رباعي) --> اِسلام (مصدر)<br/><br/>تَقَبَّلَ - يَتَقَبَّلُ --> (خَماسي) --> تَقَبُّل (مصدر)<br/><br/>استَقبَلَ - يَستَقبِلُ --> (سُداسي) --> اِستِقبَال (مصدر)<br/><br/>"
+			]
+        }
     }
 ]
