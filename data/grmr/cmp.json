@@ -948,7 +948,7 @@
         ],
         "features": {
             "مصدر قياسي (Standard Verbal Noun)": [
-				"<p style=\"direction: ltr;padding:0;margin:0;\">These are the verbal nouns derived from the non-triliteral verbs (افعال غير ثلاثية). These are not based on predictable grammar word patterns (اوزان)<br/></li><br/><li>رباعي => قاتَلَ --> قِتال / مُقَاتِلَة ,&nbsp;&nbsp;اَخرَجَ --> اِخراج<br/></li><br/><li>خُماسي => اتّخَدَ --> اِتِّخاذ, &nbsp;تَوَكَّلَ --> تَوّكُّل<br/>&nbsp;</li><li>سُداسي =>اِستَخدَمَ --> اِستِخدام</li></ul><br/>",
+				"<p style=\"direction: ltr;padding:0;margin:0;\">These are the verbal nouns derived from the non-triliteral verbs (افعال غير ثلاثية). These are based on predictable grammar word patterns (اوزان)<br/></li><br/><li>رباعي => قاتَلَ --> قِتال / مُقَاتِلَة ,&nbsp;&nbsp;اَخرَجَ --> اِخراج<br/></li><br/><li>خُماسي => اتّخَدَ --> اِتِّخاذ, &nbsp;تَوَكَّلَ --> تَوّكُّل<br/>&nbsp;</li><li>سُداسي =>اِستَخدَمَ --> اِستِخدام</li></ul><br/>",
 				"صلّي - يصلّي --> (رباعي) --> صَلاة (مصدر)<br/><br/>اَسلَمَ - يُسلِمُ --> (رباعي) --> اِسلام (مصدر)<br/><br/>تَقَبَّلَ - يَتَقَبَّلُ --> (خماسي) --> تَقَبُّل (مصدر)<br/><br/>استَقبَلَ - يَستَقبِلُ --> (سُداسي) --> اِستِقبَال (مصدر)<br/><br/>"
 			]
         }
