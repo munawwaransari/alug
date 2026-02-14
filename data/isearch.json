@@ -183,75 +183,80 @@
         "action": "cmp",
 	"data": "pos:2"
     },
-	"واؤ;العطف;المعِيَّة;واؤ الحال": {
+    "Baa;باء القسم;باء التأكيد;باء السببية": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:3"
     },
-    "Wao;Ishba;واؤ الجمع;واؤ الاشباع": {
+	"واؤ;العطف;المعِيَّة;واؤ الحال": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:4"
     },
-    "Faa;فاء الإستئناف": {
+    "Wao;Ishba;واؤ الجمع;واؤ الاشباع": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:5"
+    },
+    "Faa;فاء الإستئناف": {
+        "path": "dict.html",
+        "action": "cmp",
+	"data": "pos:6"
     },
     "Faa;فاء العاطفة": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:5"
+	"data": "pos:6"
     },
     "Faa;فاء الفصيحة": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:6"
+	"data": "pos:7"
     },
     "Faa;فاء الزائدة": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:6"
+	"data": "pos:7"
     },
     "Laam;لام التعليل": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:7"
+	"data": "pos:8"
     },
     "Laam;لام النفي": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:7"
+	"data": "pos:8"
     },
     "Laam;لام الحجود": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:7"
+	"data": "pos:8"
     },
     "Nun;نون التوكيد": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:8"
+	"data": "pos:9"
     },
     "Faa;نون النسوة": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:8"
+	"data": "pos:9"
     },
     "Ya;ياء المخاطبة;ياء المتكلم": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:9"
+	"data": "pos:10"
     },
     "Vocative;النِّداء;ترخِيم;": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:10"
+	"data": "pos:11"
     },
     "Sentence types;جملة خبرية;جملة إنشائية": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:15"
+	"data": "pos:16"
     },
     "Affirmative sentence;إيجابي;": {
         "path": "dict.html",
@@ -261,12 +266,12 @@
 	"Negative sentence;نفي;": {
         "path": "dict.html",
         "action": "cmp",
-        "data": "pos:16"
+        "data": "pos:17"
     },
 	"Interrogative sentence;استفهامي;": {
         "path": "dict.html",
         "action": "cmp",
-        "data": "pos:16"
+        "data": "pos:17"
     },
 	"Direct Object;المفعُول بِهِ;": {
         "path": "dict.html",

@@ -101,6 +101,36 @@
     },
     {
         "topics": [
+            "باء القسم",
+            "باء التأكيد",
+            "باء السببية"
+        ],
+        "ar": [
+            "تعريف",
+            "مِثال"
+        ],
+        "en": [
+            "Definition",
+            "Example"
+        ],
+        "features": {
+            "باء القسم": [
+                "Used for taking an oath (similar to \"by\" in English)",
+                "وَأَقۡسَمُواْ بِٱللَّهِ [24:53]<br/><br/>قَالَ فَبِمَآ أَغۡوَيۡتَنِي [7:16]<br/>&nbsp;"
+            ],
+            "باء التأكيد": [
+                "Used to add emphasis to a sentence, often in negations",
+                "وَمَا اللَّهُ بِغَافِلٍ عَمَّا تَعْمَلُونَ ٧٤ [2:74]<br/><br/>أَلَيۡسَ ٱللَّهُ بِأَحۡكَمِ ٱلۡحَٰكِمِينَ ٨ [95:8]<br/>&nbsp;"
+            ],
+            "باء السببية":[
+                "Used to indicate the cause of an action (meaning \"because of\")",
+                "ذَٰلِكَ بِأَنَّهُمۡ شَآقُّواْ ٱللَّهَ وَرَسُولَهُۥۖ [59:4]<br/><br/>وَبِكُفۡرِهِمۡ وَقَوۡلِهِمۡ عَلَىٰ مَرۡيَمَ بُهۡتَٰنًا عَظِيمٗا ١٥٦ [4:156]<br/>&nbsp;"
+            ]
+        },
+        "notes": "<div style=\"direction:ltr;\">The letter ب (Baa) can function in many ways, primarily as a preposition (Harf Jarr) with varied meanings or as a prefix indicating specific grammatical functions </div><br/>Examples<br/>باء الاستعانة - For Seeking Help<br/> كتبتُ بِالقلمِ <br/>(I wrote with the pen)<br/><br/>باء الإلصاق - For Attachment<br/>أمسكتُ بِيدِه <br/>(I held his hand - attached to his hand)<br/><br/>باء المصاحبة - For Companionship)<br/> اِشْتَرِ السلعةَ بِمتاعِها <br/>(Buy the item with its accessories)"
+    },
+    {
+        "topics": [
             "واؤ العطف",
             "واؤ المعِيَّة",
             "واؤ الحال"
