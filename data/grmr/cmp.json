@@ -186,6 +186,30 @@
     },
     {
         "topics": [
+            "كاف التشبيه",
+            "كاف الخطاب"
+        ],
+        "ar": [
+            "تعريف",
+            "مِثال"
+        ],
+        "en": [
+            "Definition",
+            "Example"
+        ],
+        "features": {
+            "كاف التشبيه": [
+                "This is a grammatical prefix added to the beginning of the present tense verb (فعل مضارع) to indicate that the action will happen in the near future<br/>It is attached to the beginning of a noun and makes that noun genitive (Majrūr)",
+                "كَذٰلِك (likewise)<br/><br/>فَمَثَلُهُۥ كَمَثَلِ صَفۡوَانٍ [2:264]<br/>&nbsp;"
+            ],
+            "كاف الخطاب": [
+                "This is a suffix attached to the end of nouns, verbs, or prepositions to indicate the second-person pronoun (\"you\", \"your\")",
+                "كِتَابُكَ (Your [masculine] book)<br/><br/>كِتَابُكِ (Your [feminine] book)<br/>&nbsp;"
+            ]
+        }
+    },
+    {
+        "topics": [
             "واؤ العطف",
             "واؤ المعِيَّة",
             "واؤ الحال"
