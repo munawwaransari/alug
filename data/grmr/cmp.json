@@ -161,6 +161,31 @@
     },
     {
         "topics": [
+            "سينُ الاستقبال",
+            "سينُ الطلب"
+        ],
+        "ar": [
+            "تعريف",
+            "مِثال"
+        ],
+        "en": [
+            "Definition",
+            "Example"
+        ],
+        "features": {
+            "سينُ الاستقبال": [
+                "This is a grammatical prefix added to the beginning of the present tense verb (فعل مضارع) to indicate that the action will happen in the near future.",
+                "سَأَذْهَبُ/سَوفَ أَذْهَبُ (I will go)<br/><br/>سَنُرِيهِمۡ ءَايَٰتِنَا فِي ٱلۡأٓفَاقِ وَفِيٓ أَنفُسِهِمۡ [41:53]<br/><br/>ثُمَّ كـَلَّا سَوۡفَ تَعۡلَمُونَ ٤ [102:4]"
+            ],
+            "سينُ الطلب": [
+                "The letter is seen often within the combination ista استفعل<br/> It changes the meaning to \"seeking\", \"asking for\", or \"deeming\" something to be a certain way<br/>See <a href=\"#\" onclick=\"if (parent.redirect) parent.redirect('dict.html','vtab-all')\">Verbs</a>",
+                "مَثَلُهُمۡ كَمَثَلِ ٱلَّذِي ٱسۡتَوۡقَدَ نَارٗا [2:17]<br/><br/> وَإِذِ ٱسۡتَسۡقَىٰ مُوسَىٰ لِقَوۡمِهِۦ [2:60]<br/><br/>فَٱسۡتَغۡفَرُواْ ٱللَّهَ [4:64]"
+            ]
+        },
+        "notes": "<div style=\"direction:ltr\">سينُ الاستقبال is the short form of سوف. Sometimes both are differentiated in terms of time - س for near future, and سوف for far future</div>"
+    },
+    {
+        "topics": [
             "واؤ العطف",
             "واؤ المعِيَّة",
             "واؤ الحال"
