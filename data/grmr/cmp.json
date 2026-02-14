@@ -428,6 +428,34 @@
     },
     {
         "topics": [
+            "أن المخففة",
+            "أنّ الثقيلة"
+        ],
+        "ar": [
+            "تعريف",
+            "بناء",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Construct",
+            "Example"
+        ],
+        "features": {
+            "أن المخففة": [
+                "<div style=\"direction:ltr;\">Used in the sense of أنّ الثقيلة with future sentences</div>",
+                "<div style=\"direction:ltr;\">Case 1 => أن + فعل المضارع<br/>When used with فعل المضارع, the فعل is منصوب<br/><br/>Case 2 => أن + س/سوف + فعل المضارع<br/>When used with فعل المضارع المستقبل , the فعل is مرفوع</div>",
+                "فعل المضارع المستقبل <br/>عَلِمَ أَن سَيَكُونُ مِنكُم مَّرۡضَىٰ [73:20]<br/><br/>فعل المضارع<br/>وَيُمۡسِكُ ٱلسَّمَآءَ أَن تَقَعَ عَلَى ٱلۡأَرۡضِ إِلَّا بِإِذۡنِهِۦٓۚ [22:65]"
+            ],
+            "أنّ الثقيلة": [
+                "<div style=\"direction:ltr;\">Used for certainty and strong probablity in nominal sentences</div>",
+                "<div style=\"direction:ltr;\">جملة الاسمية<br/>Makes the مبتدا in accusative case (منصوب)",
+                "جملة الاسمية<br/>أَلَمۡ تَعۡلَمۡ أَنَّ ٱللَّهَ يَعۡلَمُ مَا فِي ٱلسَّمَآء وَٱلۡأَرۡضِۚ [22:70]<br/><br/>أَنَّ غَضَبَ ٱللَّهِ عَلَيۡهَآ [24:9]"
+            ]
+        }
+    },
+    {
+        "topics": [
             "إذ",
             "إذا"
         ],
