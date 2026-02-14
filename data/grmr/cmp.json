@@ -131,6 +131,36 @@
     },
     {
         "topics": [
+            "تاء المربوطة",
+            "تاء المفتوحة",
+            "تاء الفاعل"
+        ],
+        "ar": [
+            "تعريف",
+            "مِثال"
+        ],
+        "en": [
+            "Definition",
+            "Example"
+        ],
+        "features": {
+            "تاء المربوطة": [
+                "A round letter with two dots (ة) found only at the end of nouns or adjectives<br/>Primarily used to make a word feminine (e.g., معلمة - female teacher) or to indicate singularity in a collective noun",
+                "معلمة (Lady Teacher)<br/><br/>حادثة (An accident)<br/><br/>مجاهدة (struggle)"
+            ],
+            "تاء المفتوحة": [
+                "Found in both nouns and verbs<br/>Indicates the past tense for feminine subjects<br/>Often part of plural forms (sound feminine plural: مسلمات) or the end of root words (e.g., بنت - girl)",
+                "معلمات (lady teachers)<br/><br/>عَلِمَت (she knew)<br/><br/>غُلِبَتِ ٱلرُّومُ ٢ [30:2]"
+            ],
+            "تاء الفاعل":[
+                "Attached to the end of a verb, appearing as ـتُ (tū), ـتَ (ta), or ـتِ (ti)<br/>Indicates the subject of a past-tense verb (second person or first person)",
+                "كَتَبْتُ (I wrote)<br/><br/>كَتَبْتَ<br/>(You [masculine] wrote)<br/><br/>كَتَبْتِ<br/>(You [feminine] wrote)"
+            ]
+        },
+        "notes": "<div style=\"direction:ltr\">There are two taa’s that can be additional to the verb :<br/><br/>تاء الفاعل المتحركة Taa’ul Faa’il Al-Mutaharrika which is a pronoun that it added to the verb to mark the subject. For example : أكل akala (he ate), أكلت akaltu (I ate)<br/><br/>تاء التأنيث الساكنة  Taa'ut-Ta'neeth Ass-Saakinah it is not a pronoun, but it is a letter (حرف) added to the past tense of the verb to mark that the subject is feminine such as أكل akala (he ate); أكلت akalat (she ate)</div>"
+    },
+    {
+        "topics": [
             "واؤ العطف",
             "واؤ المعِيَّة",
             "واؤ الحال"
