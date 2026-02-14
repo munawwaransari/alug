@@ -895,7 +895,7 @@ class posAPI {
 				});
 			}
 			
-			if(!canSkip){
+			if(!canSkip && patternInfo.matches){
 				for (const mKeyVal of Object.entries(patternInfo.matches)){
 					var parseInfo = [];
 					var entryName = mKeyVal[0];
