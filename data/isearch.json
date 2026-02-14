@@ -268,30 +268,35 @@
         "action": "cmp",
 	"data": "pos:14"
     },
-    "That;أن المخففة;أنّ الثقيلة": {
+    "Until;حتي;": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:15"
     },
+    "That;أن المخففة;أنّ الثقيلة": {
+        "path": "dict.html",
+        "action": "cmp",
+	"data": "pos:16"
+    },
     "Sentence types;جملة خبرية;جملة إنشائية": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:20"
+	"data": "pos:21"
     },
     "Affirmative sentence;إيجابي;": {
         "path": "dict.html",
         "action": "cmp",
-        "data": "pos:20"
+        "data": "pos:21"
     },
 	"Negative sentence;نفي;": {
         "path": "dict.html",
         "action": "cmp",
-        "data": "pos:21"
+        "data": "pos:22"
     },
 	"Interrogative sentence;استفهامي;": {
         "path": "dict.html",
         "action": "cmp",
-        "data": "pos:21"
+        "data": "pos:22"
     },
 	"Direct Object;المفعُول بِهِ;": {
         "path": "dict.html",

@@ -428,6 +428,31 @@
     },
     {
         "topics": [
+            "حتي (مستقبل)",
+            "حتي (حال)"
+        ],
+        "ar": [
+            "بناء",
+            "مثال"
+        ],
+        "en": [
+            "Construct",
+            "Example"
+        ],
+        "features": {
+            "حتي (مستقبل)": [
+                "<div style=\"direction:ltr;\">When used with الفعل المضارع المستقبل<br/>the فعل is منصوب</div>",
+                "وَقَٰتِلُوهُمۡ حَتَّىٰ لَا تَكُونَ فِتۡنَةٞ [8:39]<br/><br/>وَٱعۡبُدۡ رَبَّكَ حَتَّىٰ يَأۡتِيَكَ ٱلۡيَقِينُ ٩٩ [15:99]"
+            ],
+            "حتي (حال)": [
+                "<div style=\"direction:ltr;\">When used with الفعل المضارع الحال<br/>the فعل is مرفوع</div>",
+                "<br/>سَأُسافِرُ حَتَّى أَعُودُ إلَى المَنزِل <br/>(I will travel until I get home)<br/><br/>اَعمِل حَتَّى تَتعَبُ<br/>(Work until you are tired)"
+            ]
+        },
+        "notes": "<div style=\"direction:ltr;\">When حَتَّىٰ is followed by إذا, it takes a فعل الماضي<br/>  حتّي + إذا + فعل الماضي <br/>e.g.حَتَّىٰٓ إِذَآ أَدۡرَكَهُ ٱلۡغَرَقُ [10:90]</div>&nbsp;"
+    },
+    {
+        "topics": [
             "أن المخففة",
             "أنّ الثقيلة"
         ],
