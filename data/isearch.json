@@ -119,6 +119,11 @@
         "action": "prep",
         "data": "@key"
     },
+    "مِن - Preposition;ابتدائية;تبعيضية;بيانية;": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "@key"
+    },
     "واؤ - Preposition;واؤ العطف;واؤ المَعِيَّة;واؤ الحال;": {
         "path": "dict.html",
         "action": "prep",

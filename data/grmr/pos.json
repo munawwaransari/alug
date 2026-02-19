@@ -2360,7 +2360,27 @@
 					"قَلِيلًا مَا أشرَبُ القَهوَى"
                 ]
             },
-			"H14": {
+            "H14": {
+                "pos": "particle",
+                "en": "preposition",
+                "ar": "مِن",
+                "words": [
+                    "(مِن) ابتدائية",
+					"(مِن) تبعيضية",
+					"(مِن) بيانية"
+                ],
+                "en-words": [
+                    "from (preposition)",
+					"of (preposition)",
+					"of (explanatory)"					
+                ],
+                "e.g.": [
+					"used for time and sapce<br/><br/>وَأَنزَلَ <b>مِنَ ٱلسَّمَآءِ</b> مَآءٗ [2:22]<br/>(from the sky)<br/>&nbsp;",
+					"part of or somthing from<br/><br/>أَهۡلُ ٱلۡبَيۡتِ<br/>(People of the House / Family)<br/>&nbsp;",
+					"used to describe something made of or part of somthing<br/><br/>وَإِن كَانَ مِثۡقَالَ حَبَّةٖ <b>مِّنۡ خَرۡدَلٍ</b> [21:47]<br/>(a grain of mustard)<br/>&nbsp;"
+                ]
+            },
+			"H15": {
                 "pos": "particle",
                 "en": "preposition",
                 "ar": "واؤ",
