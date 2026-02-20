@@ -666,6 +666,31 @@
         }
     },
     {
+        "topics": [
+            "توكيد اللفظي",
+            "توكيد اللمعنوي"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Example"
+        ],
+        "features": {
+            "توكيد اللفظي": [
+                "Repitition of the same word or phrase to emphasize the certainty of the statement",
+                "<u style=\"top:0\">(تكرار الاسم)</u><br/>كـَلَّآۖ إِذَا دُكَّتِ ٱلۡأَرۡضُ <b>دَكّٗا دَكّٗا</b> ٢١ [89:21]<br/><br/><u style=\"top:0\">تكرار الفعل / الجملة</u><br/>كـَلَّا سَوۡفَ تَعۡلَمُونَ ٣ ثُمَّ كـَلَّا سَوۡفَ تَعۡلَمُونَ ٤ [102:3]<br/>&nbsp;"
+            ],
+            "توكيد اللمعنوي": [
+                "Emphasizing the certainty of the statement by using specific words<br/>(نفس, عين, جميع, كِلا, كِلتا)",
+                "وَيُحَذِّرُكُمُ ٱللَّهُ نَفۡسَهُۥۗ [3:30]<br/><br/><br/>فَسَجَدَ ٱلۡمَلَٰٓئِكَةُ كُلُّهُمۡ أَجۡمَعُونَ ٣٠ [15:30]<br/><br/><br/>كِلۡتَا ٱلۡجَنَّتَيۡنِ ءَاتَتۡ أُكُلَهَا [18:33]<br/>&nbsp;"
+            ]
+        }
+    },
+    {
         "compareType": "verb",
         "topics": [
             "فَعلَ - يَفْعلُ (Form I)"

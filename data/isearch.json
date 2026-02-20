@@ -303,6 +303,11 @@
         "action": "cmp",
         "data": "pos:22"
     },
+    "Emphasis;توكيد اللفظي;توكيد اللمعنوي;": {
+        "path": "dict.html",
+        "action": "cmp",
+        "data": "pos:23"
+    },
 	"Direct Object;المفعُول بِهِ;": {
         "path": "dict.html",
         "action": "obj-effect",
