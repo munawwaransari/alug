@@ -938,19 +938,16 @@
         "notes": "",
         "ar": [
             "تعريف",
-			"اعراب",
             "مثال"
         ],
         "en": [
             "Definition",
-			"Grammar",
             "Example"
         ],
         "features": {
             "المعرب (Triptote)": [
-				"Arabic origin words ending with tanween",
-				"<p>(Nominative case)<br/> رفع =>  &nbsp;<span style=\"font-size:40\"> ٌ</span> (تنوين بالضم)</p><p/>(Accusative case)<br/>نصب =>&nbsp;    ً  (تنوين بالفتح)</p><p>(Genitive case)<br/>جر =>&nbsp;    ٍ  (تنوين بالكسر)</p>",
-                "<br/>عَبدًا (Slave)<br/><br/>قَاضٍ (Judge)<br/><br/>لَبنٌ (Milk)<br/>&nbsp;"
+				"Arabic origin words ending with tanween<p>لَبنٌ (Milk)<br/>(Nominative case)<br/> رفع =>  &nbsp;<span style=\"font-size:40\"> ٌ</span> (تنوين بالضم)</p><p/>(Accusative case)<br/>نصب =>&nbsp;    ً  (تنوين بالفتح)<br/>عَبدًا (Slave)</p><p>(Genitive case)<br/>جر =>&nbsp;    ٍ  (تنوين بالكسر)<br/>قَاضٍ (Judge)</p>",
+				"<div style=\"direction:ltr\"><p>All words that are not مبني or غير المنصرف</p><p>Proper names e.g. مَحَمَّد,زيد etc.</p><p>Common names e.g. كِتاب</p><p>Five nouns أب, أخ, ذُو, فَم, حَم</p></div>"
 			]
         }
     },
@@ -962,19 +959,16 @@
         "notes": "",
         "ar": [
             "تعريف",
-			"اعراب",
             "مثال"
         ],
         "en": [
             "Definition",
-			"Grammar",
             "Example"
         ],
         "features": {
             "غير المنصرف (Diptote)":[
-				"Arabized words ending without tanween",
-				"(Nominative case)<br/> رفع =>&nbsp;   ُ  (الضمة)<br/><br/>(Accusative case)<br/>نصب =>&nbsp;    َ  (الفتح)<br/><br/>(Genitive case)<br/>جر =>&nbsp;    َ  (الفتح)",
-                "<br/>يُوسُفَ (Joseph)<br/><br/>زَينَبُ (Zainab)<br/><br/>إبراهِيمُ (Abraham)<br/>&nbsp;"
+				"Arabized words ending without tanween<p/>زَينَبُ (Zainab)<br/>(Nominative case)<br/>رفع =>&nbsp;   ُ  </p><p>يُوسُفَ (Joseph)<br/>(Accusative case)<br/>نصب =>&nbsp;    َ  (الفتح)<br/><br/>(الضمة)إبراهِيمَ (Abraham)<br/>(Genitive case)<br/>جر =>&nbsp;    َ  (الفتح)</p>",
+				"<div style=\"direction:ltr\"><p>Nouns ending with اء e.g. صحراء</p><p>Nouns ending with ان e.g. عَدنَان</p><p>Nouns on pattern فُعَل e.g. عُمَر</p><p>Nouns on pattern مَفَاعِل or مَفَاعِيل e.g. مَسَاجِدُ</p><p>Nouns on pattern اَفعَل e.g. اَحمَد</p><p>Foreign words e.g. مِصر</p><p>Others اَساطِير, طَلحة etc.</p></div>"
 			]
         }
     },
@@ -986,19 +980,16 @@
         "notes": "",
         "ar": [
             "تعريف",
-			"اعراب",
             "مثال"
         ],
         "en": [
             "Definition",
-			"Grammar",
             "Example"
         ],
         "features": {
             "المبني (Indeclinable)":[
-				"Arabic words having fixed ending",
-				"<br/>The ending of the noun does not change regardless of its grammatical case <br/>nominative/رفع, <br/>accusative/نصب, <br/>or<br/>genitive/جر<br/>&nbsp;",
-                "<br/>هُدَيٰ (Guidance)<br/><br/>هُنَّ (They)<br/><br/>عِيسٰي (Jesus)<br/>&nbsp;"
+				"<p>Arabic words having fixed ending<br/><br/>The ending of the noun does not change <br/>regardless of its grammatical case <br/>nominative/رفع, accusative/نصب, genitive/جر<br/><p>هُدَيٰ (Guidance)</p><p>هُنَّ (They)</p><p>عِيسٰي (Jesus)</p>",
+                "<div style=\"direction:ltr\"><p>Nouns ending with ي e.g. موسَي</p><p>Pronouns (ضمائر) e.g. هُوَ هُنَّ</p><p>Demonstrative pronouns (اسماء الإشارة) e.g. تِلكَ</p><p>Interrogative pronouns (اسماء الإستفهام) e.g. مَتَي  مَن</p><p>Compound numbers e.g. اَحَدَ عَشَرَ</p><p>Past tense verb فعل الماضي e.g. ضَحَكَ</p></div>"
             ]
         }
     },
