@@ -930,6 +930,78 @@
 			]
         }
     },
+    {
+        "compareType": "noun",
+        "topics": [
+            "المعرب (Triptote)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+			"اعراب",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+			"Grammar",
+            "Example"
+        ],
+        "features": {
+            "المعرب (Triptote)": [
+				"Arabic origin words ending with tanween",
+				"<p>(Nominative case)<br/> رفع =>  &nbsp;<span style=\"font-size:40\"> ٌ</span> (تنوين بالضم)</p><p/>(Accusative case)<br/>نصب =>&nbsp;    ً  (تنوين بالفتح)</p><p>(Genitive case)<br/>جر =>&nbsp;    ٍ  (تنوين بالكسر)</p>",
+                "<br/>عَبدًا (Slave)<br/><br/>قَاضٍ (Judge)<br/><br/>لَبنٌ (Milk)<br/>&nbsp;"
+			]
+        }
+    },
+    {
+        "compareType": "noun",
+        "topics": [
+            "غير المنصرف (Diptote)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+			"اعراب",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+			"Grammar",
+            "Example"
+        ],
+        "features": {
+            "غير المنصرف (Diptote)":[
+				"Arabized words ending without tanween",
+				"(Nominative case)<br/> رفع =>&nbsp;   ُ  (الضمة)<br/><br/>(Accusative case)<br/>نصب =>&nbsp;    َ  (الفتح)<br/><br/>(Genitive case)<br/>جر =>&nbsp;    َ  (الفتح)",
+                "<br/>يُوسُفَ (Joseph)<br/><br/>زَينَبُ (Zainab)<br/><br/>إبراهِيمُ (Abraham)<br/>&nbsp;"
+			]
+        }
+    },
+    {
+        "compareType": "noun",
+        "topics": [
+            "المبني (Indeclinable)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+			"اعراب",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+			"Grammar",
+            "Example"
+        ],
+        "features": {
+            "المبني (Indeclinable)":[
+				"Arabic words having fixed ending",
+				"<br/>The ending of the noun does not change regardless of its grammatical case <br/>nominative/رفع, <br/>accusative/نصب, <br/>or<br/>genitive/جر<br/>&nbsp;",
+                "<br/>هُدَيٰ (Guidance)<br/><br/>هُنَّ (They)<br/><br/>عِيسٰي (Jesus)<br/>&nbsp;"
+            ]
+        }
+    },
 	{
         "compareType": "noun",
         "topics": [
