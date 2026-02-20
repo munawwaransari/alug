@@ -938,16 +938,19 @@
         "notes": "",
         "ar": [
             "تعريف",
-            "مثال"
+            "مثال",
+            "مثال الإعراب"
         ],
         "en": [
             "Definition",
-            "Example"
+            "Example",
+            "Example of Declension"
         ],
         "features": {
             "المعرب (Triptote)": [
 				"Arabic origin words ending with tanween<p>لَبنٌ (Milk)<br/>(Nominative case)<br/> رفع =>  &nbsp;<span style=\"font-size:40\"> ٌ</span> (تنوين بالضم)</p><p/>(Accusative case)<br/>نصب =>&nbsp;    ً  (تنوين بالفتح)<br/>عَبدًا (Slave)</p><p>(Genitive case)<br/>جر =>&nbsp;    ٍ  (تنوين بالكسر)<br/>قَاضٍ (Judge)</p>",
-				"<div style=\"direction:ltr\"><p>All words that are not مبني or غير المنصرف</p><p>Proper names e.g. مَحَمَّد,زيد etc.</p><p>Common names e.g. كِتاب</p><p>Five nouns أب, أخ, ذُو, فَم, حَم</p></div>"
+				"<div style=\"direction:ltr\"><p>All words that are not مبني or غير المنصرف</p><p>Proper names e.g. مَحَمَّد,زيد etc.</p><p>Common names e.g. كِتاب</p><p>Five nouns أب, أخ, ذُو, فَم, حَم</p></div>",
+                "<table style=\"align-content:center;margin:auto;\"><tr><th>و ل د</th><th>رفع</th><th>نصب</th><th>جر</th></tr><tr><td>(مُفرَد)</td><td>وَلَدٌ</td><td>وَلَدًا</td><td>وَلَدٍ</td></tr><tr><td>(مَثنَي)</td><td>وَلَدَانِ</td><td>وَلَدَينِ</td><td>وَلَدَينِ</td></tr><tr><td>(جمع)</td><td>وَلَدُونَ</td><td>وَلَدِينَ</td><td>وَلَدِينَ</td></tr></table>"
 			]
         }
     },
@@ -959,16 +962,19 @@
         "notes": "",
         "ar": [
             "تعريف",
-            "مثال"
+            "مثال",
+            "مثال الإعراب"
         ],
         "en": [
             "Definition",
-            "Example"
+            "Example",
+            "Example of Declension"
         ],
         "features": {
             "غير المنصرف (Diptote)":[
 				"Arabized words ending without tanween<p/>زَينَبُ (Zainab)<br/>(Nominative case)<br/>رفع =>&nbsp;   ُ  </p><p>يُوسُفَ (Joseph)<br/>(Accusative case)<br/>نصب =>&nbsp;    َ  (الفتح)<br/><br/>(الضمة)إبراهِيمَ (Abraham)<br/>(Genitive case)<br/>جر =>&nbsp;    َ  (الفتح)</p>",
-				"<div style=\"direction:ltr\"><p>Nouns ending with اء e.g. صحراء</p><p>Nouns ending with ان e.g. عَدنَان</p><p>Nouns on pattern فُعَل e.g. عُمَر</p><p>Nouns on pattern مَفَاعِل or مَفَاعِيل e.g. مَسَاجِدُ</p><p>Nouns on pattern اَفعَل e.g. اَحمَد</p><p>Foreign words e.g. مِصر</p><p>Others اَساطِير, طَلحة etc.</p></div>"
+				"<div style=\"direction:ltr\"><p>Nouns ending with اء e.g. صحراء</p><p>Nouns ending with ان e.g. عَدنَان</p><p>Nouns on pattern فُعَل e.g. عُمَر</p><p>Nouns on pattern مَفَاعِل or مَفَاعِيل e.g. مَسَاجِدُ</p><p>Nouns on pattern اَفعَل e.g. اَحمَد</p><p>Foreign words e.g. مِصر</p><p>Others اَساطِير, طَلحة etc.</p></div>",
+                "<table style=\"align-content:center;margin:auto;\"><tr><th>رفع</th><th>نصب/جر</th></tr><tr><td>زَينَبُ</td><td>زَينَبَ</td></tr><tr><td>مَبَاحِثُ</td><td>مَبَاحِثَ</td></tr></tr><tr><td>فَاطِمَةُ</td><td>فَاطِمَةَ</td></tr></table>"
 			]
         }
     },
@@ -980,16 +986,19 @@
         "notes": "",
         "ar": [
             "تعريف",
-            "مثال"
+            "مثال",
+            "مثال الإعراب"
         ],
         "en": [
             "Definition",
-            "Example"
+            "Example",
+            "Example of Declension"
         ],
         "features": {
             "المبني (Indeclinable)":[
 				"<p>Arabic words having fixed ending<br/><br/>The ending of the noun does not change <br/>regardless of its grammatical case <br/>nominative/رفع, accusative/نصب, genitive/جر<br/><p>هُدَيٰ (Guidance)</p><p>هُنَّ (They)</p><p>عِيسٰي (Jesus)</p>",
-                "<div style=\"direction:ltr\"><p>Nouns ending with ي e.g. موسَي</p><p>Pronouns (ضمائر) e.g. هُوَ هُنَّ</p><p>Demonstrative pronouns (اسماء الإشارة) e.g. تِلكَ</p><p>Interrogative pronouns (اسماء الإستفهام) e.g. مَتَي  مَن</p><p>Compound numbers e.g. اَحَدَ عَشَرَ</p><p>Past tense verb فعل الماضي e.g. ضَحَكَ</p></div>"
+                "<div style=\"direction:ltr\"><p>Nouns ending with ي e.g. موسَي</p><p>Pronouns (ضمائر) e.g. هُوَ هُنَّ</p><p>Demonstrative pronouns (اسماء الإشارة) e.g. تِلكَ</p><p>Interrogative pronouns (اسماء الإستفهام) e.g. مَتَي  مَن</p><p>Compound numbers e.g. اَحَدَ عَشَرَ</p><p>Past tense verb فعل الماضي e.g. ضَحَكَ</p></div>",
+                "<table style=\"align-content:center;margin:auto;\"><tr><th>رفع/نصب/جر</th></tr><tr><td>إثنا عَشَرَ</td></tr><tr><td>الَّذِي</td><tr><td>يَحيَي</td></tr></table>"
             ]
         }
     },
