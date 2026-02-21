@@ -1,35 +1,4 @@
 [
-     {
-        "topics":[
-            "خط الإملائي",
-            "خط العروضي"
-        ],
-        "notes": "The Uthmani script (Rasm Uthmānī) integrates both orthographic and prosodic features within its unique writing system<br/><br/>The Quran's script was preserved through a dual system of intensive oral memorization by the Prophet's companions and written recording on various materials (bones, palm leaves, etc.) during his lifetime, followed by the first official compilation into a single book (mus-haf) under Caliph Abu Bakr and standardized copies distributed under Caliph Uthman, ensuring textual consistency alongside the living oral tradition",
-        "ar": [
-            "تعريف",
-            "استعمال",
-            "مِثال"
-        ],
-        "en": [
-            "Definition",
-            "Usage",
-            "Example"
-        ],
-        "features":{
-            "خط الإملائي": [
-                "Orthographic Script: This is the standard script and follows the rules of formal writing",
-                "What is written is drawn",
-                "هذا is written هذا<br/>كتابٌ is written كتابٌ<br/>ما اسمُك is written ما اسمُك<br/>"
-                
-            ],
-            "خط العروضي": [
-
-                "Prosodic Script: This is the phonetic script and used in poetry to maintain meter and rhyme",
-                "What is pronounced is written, what is not pronounced is deleted, and the doubled letter is separated",
-                "هاذا is written هذا<br/>كتابٌ is written كتابُن<br/>ما اسمُك is written مسمُك<br/>"
-            ]
-        }
-    },
     {
         "topics": [
             "علاماتُ التَّشكِيل",
@@ -605,7 +574,40 @@
             ]
         }
     },
+         {
+        "compareType":"sentence",
+        "topics":[
+            "خط الإملائي",
+            "خط العروضي"
+        ],
+        "notes": "The Uthmani script (Rasm Uthmānī) integrates both orthographic and prosodic features within its unique writing system<br/><br/>The Quran's script was preserved through a dual system of intensive oral memorization by the Prophet's companions and written recording on various materials (bones, palm leaves, etc.) during his lifetime, followed by the first official compilation into a single book (mus-haf) under Caliph Abu Bakr and standardized copies distributed under Caliph Uthman, ensuring textual consistency alongside the living oral tradition",
+        "ar": [
+            "تعريف",
+            "استعمال",
+            "مِثال"
+        ],
+        "en": [
+            "Definition",
+            "Usage",
+            "Example"
+        ],
+        "features":{
+            "خط الإملائي": [
+                "Orthographic Script: This is the standard script and follows the rules of formal writing",
+                "What is written is drawn",
+                "هذا is written هذا<br/>كتابٌ is written كتابٌ<br/>ما اسمُك is written ما اسمُك<br/>"
+                
+            ],
+            "خط العروضي": [
+
+                "Prosodic Script: This is the phonetic script and used in poetry to maintain meter and rhyme",
+                "What is pronounced is written, what is not pronounced is deleted, and the doubled letter is separated",
+                "هاذا is written هذا<br/>كتابٌ is written كتابُن<br/>ما اسمُك is written مسمُك<br/>"
+            ]
+        }
+    },
     {
+        "compareType": "sentence",
         "topics": [
             "جملة خبرية",
             "جملة إنشائية"
@@ -636,6 +638,37 @@
         }
     },
     {
+        "compareType": "sentence",
+        "topics": [
+            "الجملة الإبتدائية",
+            "الجملة الاعتراضية"
+        ],
+        "notes": "<p style=\"direction:ltr\">Both الجملة الإبتدائية/ الاستئنافية and الجملة الاعتراضية have no grammatical position (لا محل لها من الإعراب)</p>",
+        "ar": [
+            "تعريف",
+            "بناء",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Construct",
+            "Example"
+        ],
+        "features": {
+            "الجملة الإبتدائية": [
+                "<p style=\"direction:ltr\">Initial Sentence is any sentence that opens a speech or a text, whether it is nominal or verbal.</p>",
+                "(جملة اسمية)في ابتداء الكلام:<br/>هَٰذَا بَلَٰغٞ لِّلنَّاسِ<br/><br/>(جملة فعلية)في ابتداء الكلام:<br/>اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ [96:1]<br/><br/>حرف استفتاح:<br/><b>أَلَآ</b> إِنَّهُمۡ هُمُ ٱلۡمُفۡسِدُونَ [2:12]<br/><br/>المقطعات:<br/>كهيعص [19:1]",
+                "<p>ٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَٰلَمِينَ ٢ [1:2]<br/><br/>ٱللَّهُ نُورُ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضِۚ [24:35]</p>"
+            ],
+            "الجملة الاعتراضية": [
+                "<p style=\"direction:ltr\">An interjection is a phrase inserted into the middle of a sentence<br/> between two related elements (such as مبتدأ وخبر، فعل وفاعل) to emphasize meaning or express a wish.</p>",
+                ":بين المبتدأ والخبر<br/>الشمسُ -أصلحك الله- طالعةٌ<br/><br/>:بين الفعل والفاعل<br/>جاء -أظن- محمدٌ<br/><br/>:بين الفعل والمفعول<br/>سمعت -والله- الحقَ<br/><br/>:للدعاء<br/>إنّ -حفظك الله- الحقَ منتصرٌ",
+                "<p>وَقَالُواْ ٱتَّخَذَ ٱلرَّحۡمَٰنُ وَلَدٗاۗ <b>سُبۡحَٰنَهُۥۚ</b> بَلۡ عِبَادٞ مُّكۡرَمُونَ ٢٦ [21:26]<br/><br/>وَإِنَّهُۥ لَقَسَمٞ <b>لَّوۡ تَعۡلَمُونَ</b> عَظِيمٌ ٧٦ [56:76]<br/><br/>ذَٰلِكَ ٱلۡكِتَٰبُ <b>لَا رَيۡبَۛ فِيهِۛ</b> هُدٗى لِّلۡمُتَّقِينَ ٢ [2:2]</p>"
+            ]
+        }
+    },
+    {
+        "compareType": "sentence",
         "topics": [
             "إيجابي",
             "نفي",
@@ -666,6 +699,7 @@
         }
     },
     {
+        "compareType": "sentence",
         "topics": [
             "توكيد اللفظي",
             "توكيد اللمعنوي"

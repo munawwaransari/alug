@@ -214,6 +214,16 @@ function handleParams(){
 			else showComparisions(0);
 			break;
 		
+		case 'sentence':
+			var data = params["data"];
+			if(data.startsWith("pos:")){
+				var index = parseInt(data.substring(4));
+				showSentenceComparisions(index);
+			}else{
+				showSentenceComparisions(0);
+			}
+			break; 
+
 		case 'noun-cmp':
 			var data = params["data"];
 			if(data.startsWith("pos:")){
@@ -405,6 +415,10 @@ function showNounTable(k, v1, v2){
 
 function showComparisions(inp){
 	cmpAPIObj.addComparisionList($(".dictionary"), inp, false);
+}
+
+function showSentenceComparisions(inp){
+	cmpAPIObj.addComparisionList($(".dictionary"), inp, true, "sentence");
 }
 
 function showVerbComparisions(inp){
