@@ -753,6 +753,24 @@
         }
     },
     {
+        "compareType": "sentence",
+        "topics": [
+            "المركب التوصيفي (Adjectival Construction)"
+        ],
+        "notes": "",
+        "ar": [
+            "المركب التوصيفي"
+        ],
+        "en": [
+            "Adjectival Compund"
+        ],
+        "features": {
+            "المركب التوصيفي (Adjectival Construction)":[
+                "<p style=\"direction:ltr;\">تركيب (structure):<br/><b>النعت (Adjective) + المنعوت (Noun)</b><br/><br/>اعراب:<br/>The المنعُوت follows the اعراب of the النعت<br/><br/>gender e.g. رَجُلٌ قَوِيٌ, إمرَاَةٌ جَمِيلَةٌ<br/>article e.g. الطَّبِيبُ المَاهِرُ<br/>number e.g. النِّساءُ الصّادِقَاتُ, رِجَالٌ عالِمُونَ<br/>noun case e.g. فِي بَيتٍ جَدِيدٍ<br/><br/><b>امثلة (Examples):</b><br/>إِنَّ ٱللَّهَ بِٱلنَّاسِ لَرَءُوفٞ رَّحِيمٞ ٦٥ [22:65]<br/>(ٱللَّهُ رَءُوفٞ رَّحِيمٞ)<br/>(المنعوت) => ٱللَّهُ<br/>(النعت) => رَءُوفٞ رَّحِيمٞ<br/><br/>مَلابسُ الصِّينِ الحَرِيرَةُ<br/>(Chinese's silk clothing)<br/>(المنعوت) => مَلابسُ الصِّينِ<br/>(النعت) => الحَرِيرَةُ</p>"
+            ]
+        }
+    },
+    {
         "compareType": "verb",
         "topics": [
             "فَعلَ - يَفْعلُ (Form I)"

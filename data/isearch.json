@@ -214,6 +214,11 @@
         "action": "sentence",
         "data": "pos:6"
     },
+    "Adjectival Construction;المركب التوصيفي;نعت;منعوت;": {
+        "path": "dict.html",
+        "action": "sentence",
+        "data": "pos:7"
+    },
     "Hamza;همزة القطع;همزة الوصل;": {
         "path": "dict.html",
         "action": "cmp",
