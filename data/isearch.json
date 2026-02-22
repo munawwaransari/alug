@@ -209,6 +209,11 @@
         "action": "sentence",
         "data": "pos:5"
     },
+    "Possesive Construction;إضافة;المركب الإضافي;مُضاف;مُضاف إليه": {
+        "path": "dict.html",
+        "action": "sentence",
+        "data": "pos:6"
+    },
     "Hamza;همزة القطع;همزة الوصل;": {
         "path": "dict.html",
         "action": "cmp",
