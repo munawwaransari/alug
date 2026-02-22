@@ -734,18 +734,21 @@
         "ar": [
             "المركب الإضافي",
             "مع الاسم التفضيل",
-            "تخصيص"
+            "تخصيص",
+            "مع سلسلة إضافية متعددة"
         ],
         "en": [
             "Possessive Compund",
             "With superlative",
-            "Appropriation"
+            "Appropriation",
+            "With multiple مُضاف chain"
         ],
         "features": {
             "إضافة (Possevive Construction)":[
                 "<p style=\"direction:ltr;\">تركيب (structure):<br/><b>مُضاف إليه (Owner) + مُضاف (Owned)</b><br/><br/>اعراب المُضاف:<br/>The مُضاف is characterized by omission of <br/>nunnation (التنوين), نون الإعراب and <br/>the definite article (ال)<br/><br/>e.g. كِتَابٌ -->  كِتَابٌن --> كِتَابُ <br/>كِتَابًا -->  كِتَابَن+ا --> كِتَابَا<br/>كِتَابٍ -->  كِتَابِن --> كِتَابِ<br/>كِتَابُونَ  --> كِتَابُو<br/>كِتَابَينِ --> كِتَابَي<br/>الكِتَابُ -->  كِتَابُ<br/><br/><br/>إعراب المُضاف إليه:<br/>المُضاف إليه is always in Genitive case (مجرور)<br/>e.g. كِتَابٌ --> كِتَابٍ<br/>الكِتَابُ --> الكِتَابِ<br/><br/><b>امثلة (Examples):</b><br/>(Arabic Language) لِسَانُ العرَبِي<br/>(A boy's book) كِتَابُ وَلَدٍ<br/>(Torment of the Fire) عَذَابُ النَّارِ</p>",
                 "<p style=\"direction:ltr;\">When مُضاف is superlative, then مُضاف إليه is in the plural form<br/><br/><b>امثلة (Examples):</b><br/>وَأَنتَ أَرۡحَمُ ٱلرَّٰحِمِينَ ٨٣ [21:83]<br/>وهُوَ خَيۡرُ ٱلرَّٰزِقِينَ ٧٢ [23:72]<br/>وَمَضَىٰ مَثَلُ ٱلۡأَوَّلِينَ ٨ [43:8]</p>",
-                "<p style=\"direction:ltr;\">تركيب (structure):<br/><b>Noun (whole)+ مِن + Noun (part)</b><br/><br/>Noun (whole) + مِن => forms the المركب الإضافي,<br/> while Noun (part) is generally in Nominative case (رفع)<br/><br/><b>امثلة (Examples):</b><br/>نَفۡحَةٞ مِّنۡ عَذَابِ رَبِّكَ [21:46]<br/>حَبَّةٖ مِّنۡ خَرۡدَلٍ [21:47]<br/>طَّآئِفَةٞ مِّنۡ أَهۡلِ ٱلۡكِتَٰبِ [3:69]</p>"
+                "<p style=\"direction:ltr;\">تركيب (structure):<br/><b>Noun (whole)+ مِن + Noun (part)</b><br/><br/>Noun (whole) + مِن => forms the المركب الإضافي,<br/> while Noun (part) is generally in Nominative case (رفع)<br/><br/><b>امثلة (Examples):</b><br/>نَفۡحَةٞ مِّنۡ عَذَابِ رَبِّكَ [21:46]<br/>حَبَّةٖ مِّنۡ خَرۡدَلٍ [21:47]<br/>طَّآئِفَةٞ مِّنۡ أَهۡلِ ٱلۡكِتَٰبِ [3:69]</p>",
+                "<p style=\"direction:ltr;\">تركيب (structure):<br/><b>مُضاف  + (مُضاف & مُضاف إليه) +  ...  + مُضاف إليه</b><br/>اعراب:<br/>All مُضاف after the first مُضاف are additionally in Genitive casae. <br/><br/><b>امثلة (Examples):</b><br/>سَيّارَةُ ابِي زَدٍ<br/>(Zaid's father's car)<br/>ابِي --> مُضاف ومُضاف إليه<br/>ابُو زيدٍ --> ابِي زيدٍ</p>"
             ]
         }
     },
