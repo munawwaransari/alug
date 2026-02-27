@@ -244,7 +244,7 @@ function showFiveNouns(k, v1, v2){
 	var arStyle = 'font-size:20px;margin:auto;text-align:center;width:90%;';
 	var enStyle = 'font-size:12px;margin:auto;text-align:center;width:90%;'
 	var examples = '<div style="margin-top:16px;font-size:14px;margin:auto;text-align:center;width:90%;"><b>Examples</b></div><br/>'+
-				   '<div style="'+arStyle+'">حَمُو أخِيهَ هُنا</div>'+
+				   '<div style="'+arStyle+'">حَمُو أخِيه هُنا</div>'+
 				   '<div style="'+enStyle+'">His brother\'s father-in-law is here<div><br/>'+
 				   '<div style="'+arStyle+'">رَاَيتُ أَخَاكَ</div>'+
 				   '<div style="'+enStyle+'">I saw your brother<div><br/>'+

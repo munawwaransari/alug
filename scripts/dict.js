@@ -233,6 +233,10 @@ function handleParams(){
 				showNounComparisions(0);
 			}
 			break; 
+		default:
+			listSearchIndex();
+			toggleDropdownContent($(this).parent().prev());
+			break;
 	}
 }
 
