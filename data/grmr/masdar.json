@@ -109,5 +109,32 @@
             "<b>فَعلَلَة</b><br/>تَرْجَمَ  -->  تَرْجَمَة<br/><sup>(Translation)</sup><br/>فَلْسَفَ  -->  فَلْسَفَة<br/><sup>(Philosophy)</sup><br/>زَلْزَلَ  -->  زَلْزَلَة<br/><sup>(Earthquake)</sup><br/>"
         ],
         "notes": "Represents the abstarct function of action (Quadliteral form)"
+    },
+    {
+        "name_ar": "مصادر الفعل الخماسي",
+        "name_en": "Pentatonic Verb Masdar - اِنفِعَال",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "<b>اِنفِعَال</b><br/>اِنكَسَرَ  -->  اِنكِسَار<br/><sup>(Fracture)</sup><br/>اِنفَجَرَ  -->  اِنفِجَار<br/><sup>(Explosion)</sup><br/>اِنصَرَفَ  -->  اِنصِرَافِ<br/><sup>(Departure)</sup><br/>"
+        ],
+        "notes": "Represents passive state of action (Form VII)"
+    },
+    {
+        "name_ar": "مصادر الفعل الخماسي",
+        "name_en": "Pentatonic Verb Masdar - تَفَعُّل",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "<b>تَفَعُّل</b><br/>تَعَلَّمَ  -->  تَعَلُّم<br/><sup>(Learning)</sup><br/>تَفَكَّرَ  -->  تَفَكُّر<br/><sup>(Contemplation)</sup><br/>تَجَمَّلَ  -->  تَجَمُّل<br/><sup>(Beautification)</sup><br/>"
+        ],
+        "notes": "signifies the abstract concept, action, or state of the verb (Form V)"
+    },
+    {
+        "name_ar": "مصادر الفعل السداسي",
+        "name_en": "Six-letter Verb Masdar - اِستِفعَال",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "<b>اِستِفعَال</b><br/>اِستَخرَجَ  -->  اِستِخْرَاج<br/><sup>(Extraction)</sup><br/>اِستَمَرَّ  -->  اِستِمرَار<br/><sup>(Continuation)</sup><br/>اِستَغفَرَ  -->  اِستِغفَار<br/><sup>(Repentance)</sup><br/>"
+        ],
+        "notes": "denotes seeking, requesting, or finding a certain quality in an action (Form X)"
     }
 ]
