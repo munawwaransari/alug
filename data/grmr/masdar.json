@@ -1,0 +1,65 @@
+[
+    {
+        "name_ar": "مصادر الفعل الثلاثي - فِعَالة",
+        "name_en": "Triliteral Verb Masdar - فِعَالة",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "<b>فِعَالة</b><br/>زَرَعَ  -->  زَراعَة<br/><sup>(Agriculture)</sup><br/>صَنَعَ  -->  صَنَاعَة<br/><sup>(Industry)</sup><br/>كَتَبَ  -->  كِتابَة<br/><sup>(Writing)</sup><br/>"
+        ],
+        "notes": "Verbal nouns derived from triliteral verbs"
+    },
+    {
+        "name_ar": "مصادر الفعل الثلاثي - فَعلان",
+        "name_en": "Triliteral Verb Masdar - فَعلان",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "<b>فَعلان</b><br/>حَفَقَ --> حَفَقَان<br/><sup>(Pulpitations)</sup><br/>طَار --> طَيران<br/><sup>(Flight)</sup><br/>غَفَرَ --> غَفران<br/><sup>(Forgiveness)</sup>"
+        ],
+        "notes": "Verbal nouns derived from triliteral verbs"
+    },
+    {
+        "name_ar": "مصادر الفعل الثلاثي - فُعال",
+        "name_en": "Triliteral Verb Masdar - فُعال",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "<b>فُعال</b><br/>صَدَعَ  -->  صُداع<br/><sup>(Headache)</sup><br/>قَتَلَ  -->  قُتول<br/><sup>(Killing)</sup><br/>زَكَمَ  --> زُكام<br/><sup>(Cold)</sup><br/>"
+        ],
+        "notes": "Often implies a craft, profession, or action."
+    },
+    {
+        "name_ar": "مصادر الفعل الثلاثي - فعيل",
+        "name_en": "Triliteral Verb Masdar - فعيل",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "<b>فعيل</b><br/>قَرِبَ  -->  قَرِيب<br/><sup>(Closeness)</sup><br/>رَحَلَ  -->  رَحيل<br/><sup>(Departure)</sup><br/>فَتِنَ  -->  فَتِين<br/><sup>(Temptation)</sup><br/>"
+        ],
+        "notes": "Verbal nouns derived from triliteral verbs"
+    },
+    {
+        "name_ar": "مصادر الفعل الثلاثي - فُعلة",
+        "name_en": "Triliteral Verb Masdar - فُعلة",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "<b>فُعلة</b><br/>حُمْرَة<br/><sup>(redness)</sup><br/>صُفْرَةٌ<br/><sup>(Yellowness)</sup><br/>زُرْقَة<br/><sup>(Blueness)</sup><br/>"
+        ],
+        "notes": "denotes a single instance of color appearing"
+    },
+    {
+        "name_ar": "مصادر الفعل الثلاثي - فَعَل",
+        "name_en": "Triliteral Verb Masdar - فَعَل",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "<b>فَعَل</b><br/>عَرَج<br/><sup>(Limpness)</sup><br/>عَمَى<br/><sup>(Blindness)</sup><br/>صَمَم<br/><sup>(Deafness)</sup><br/>"
+        ],
+        "notes": "Often indicates some deficiency in the meaning"
+    },
+    {
+        "name_ar": "مصادر الفعل الثلاثي - فُعُول",
+        "name_en": "Triliteral Verb Masdar - فُعُول",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "<b>فُعُول</b><br/>خَرَجَ  --> خُرُوج<br/><sup>(Exiting)</sup><br/>وَقَعَ  -->  وُقُوع<br/><sup>(Happening)</sup><br/>نَزَلَ  -->  نُزُول<br/><sup>(Descending)</sup><br/>"
+        ],
+        "notes": "It is generally used for verbs of movement"
+    }
+]

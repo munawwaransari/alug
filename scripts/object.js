@@ -66,7 +66,7 @@ function addObjectEffectTable(container, objData){
 		div = '<div class="engText">';
 		objData["construct_en"].every(function(val, index){
 			div += '<span>'+val+'</span>';
-			if(index < objData["construct_en"].length - 1)
+			if(objData["construct_en"] && (index < objData["construct_en"].length - 1))
 				div += '<span> '+objData["construct_sep"]+' </span>';
 			return true;
 		});
@@ -74,9 +74,11 @@ function addObjectEffectTable(container, objData){
 	}
 	
 	if(objData["examples"] && objData["construct_ar"]){	  
+		if(objData["examples"]){
 		pTable += '<tr><td class="engText" style="background-color:#CEF4C1;padding-top:2px;padding-bottom:8px;">'+
 				  ' Examples '
 				  '</td></tr>';
+		}
 		var div = '<div style="disaply:flex;flex-direction:column;align-content:center;width:100%;">';
 		objData["examples"].every(function(val, index){	  
 			var ex =  val;
