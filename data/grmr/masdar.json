@@ -1,6 +1,6 @@
 [
     {
-        "name_ar": "مصادر الفعل الثلاثي - فِعَالة",
+        "name_ar": "مصادر الفعل الثلاثي",
         "name_en": "Triliteral Verb Masdar - فِعَالة",
         "construct_sep": "<br/>",
 		"construct_ar": [
@@ -9,7 +9,7 @@
         "notes": "Verbal nouns derived from triliteral verbs"
     },
     {
-        "name_ar": "مصادر الفعل الثلاثي - فَعلان",
+        "name_ar": "مصادر الفعل الثلاثي",
         "name_en": "Triliteral Verb Masdar - فَعلان",
         "construct_sep": "<br/>",
 		"construct_ar": [
@@ -18,7 +18,7 @@
         "notes": "Verbal nouns derived from triliteral verbs"
     },
     {
-        "name_ar": "مصادر الفعل الثلاثي - فُعال",
+        "name_ar": "مصادر الفعل الثلاثي",
         "name_en": "Triliteral Verb Masdar - فُعال",
         "construct_sep": "<br/>",
 		"construct_ar": [
@@ -27,7 +27,7 @@
         "notes": "Often implies a craft, profession, or action."
     },
     {
-        "name_ar": "مصادر الفعل الثلاثي - فعيل",
+        "name_ar": "مصادر الفعل الثلاثي",
         "name_en": "Triliteral Verb Masdar - فعيل",
         "construct_sep": "<br/>",
 		"construct_ar": [
@@ -36,7 +36,7 @@
         "notes": "Verbal nouns derived from triliteral verbs"
     },
     {
-        "name_ar": "مصادر الفعل الثلاثي - فُعلة",
+        "name_ar": "مصادر الفعل الثلاثي",
         "name_en": "Triliteral Verb Masdar - فُعلة",
         "construct_sep": "<br/>",
 		"construct_ar": [
@@ -45,7 +45,7 @@
         "notes": "denotes a single instance of color appearing"
     },
     {
-        "name_ar": "مصادر الفعل الثلاثي - فَعَل",
+        "name_ar": "مصادر الفعل الثلاثي",
         "name_en": "Triliteral Verb Masdar - فَعَل",
         "construct_sep": "<br/>",
 		"construct_ar": [
@@ -54,12 +54,60 @@
         "notes": "Often indicates some deficiency in the meaning"
     },
     {
-        "name_ar": "مصادر الفعل الثلاثي - فُعُول",
+        "name_ar": "مصادر الفعل الثلاثي",
         "name_en": "Triliteral Verb Masdar - فُعُول",
         "construct_sep": "<br/>",
 		"construct_ar": [
             "<b>فُعُول</b><br/>خَرَجَ  --> خُرُوج<br/><sup>(Exiting)</sup><br/>وَقَعَ  -->  وُقُوع<br/><sup>(Happening)</sup><br/>نَزَلَ  -->  نُزُول<br/><sup>(Descending)</sup><br/>"
         ],
         "notes": "It is generally used for verbs of movement"
+    },
+    {
+        "name_ar": "مصادر الفعل الرباعي",
+        "name_en": "Quadriliteral Verb Masdar - إفعال",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "<b>إفعال</b><br/>أَكرَمَ  -->  إكرام<br/><sup>(Honour)</sup><br/>أَعَانَ  -->  إعانة<br/><sup>(Aid)</sup><br/>أَرْسَلَ  -->  إرسال<br/><sup>(Transmission)</sup><br/>"
+        ],
+        "notes": "Represents the abstarct function of action (See form IV)"
+    },
+    {
+        "name_ar": "مصادر الفعل الرباعي",
+        "name_en": "Quadriliteral Verb Masdar - تَفعِيل",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "<b>تَفعِيل</b><br/>عَلَّمَ  -->  تَعْلِيم<br/><sup>(Teaching)</sup><br/>كَلَّمَ  -->  تَكْلِيم<br/><sup>(Speech)</sup><br/>نَظَّمَ  -->  تَنْظِيم<br/><sup>(Organization)</sup><br/>"
+        ],
+        "notes": "Represents the abstarct function of action (See form II)"
+    },
+    {
+        "name_ar": "مصادر الفعل الرباعي",
+        "name_en": "Quadriliteral Verb Masdar - تَفعَلَة or تَفعِلَة",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "<b>تَفعَلَة</b><br/>جرّب  -->  تَجْرِبَة<br/><sup>(Experiment)</sup><br/>بَرَّأ  -->  تَبَرَّأ<br/><sup>(Denunciation)</sup><br/>",
+            "<b>تَفعِلَة</b><br/>وفّى  -->  تَوْفِيَة<br/><sup>(Fulfillment)</sup><br/>رَبََي  -->  تَربِيَة<br/><sup>(Nurture)</sup><br/>سوّى  -->  تَسْوِيَة<br/><sup>(Settlement)</sup><br/>"
+        ],
+        "notes": "When root has حرف العلت (See form II)"
+    },
+    {
+        "name_ar": "مصادر الفعل الرباعي",
+        "name_en": "Quadriliteral Verb Masdar - فِعال or مُفاعِلَة",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "<b>فِعال</b><br/>جَاهَدَ  -->  جِهَاد<br/><sup>(Struggle)</sup><br/>خَاصَمَ  -->  خِصَام<br/><sup>(Denunciation)</sup><br/>وَافَقَ  -->  وِفَاق<br/><sup>(Agreement)</sup><br/>",
+            "<b>مُفاعِلَة</b><br/>جَاهَدَ  -->  مُجَاهِدَة<br/><sup>(Struggle)</sup><br/>خَاصَمَ  -->  مُخَاصِمَة<br/><sup>(Nurture)</sup><br/>وَافَقَ  -->  مُوَافِقَة<br/><sup>(Agreement)</sup><br/>"
+        ],
+        "notes": "Represents the abstarct function of action (See form III)"
+    },
+    {
+        "name_ar": "مصادر الفعل الرباعي",
+        "name_en": "Quadriliteral Verb Masdar - فِعلَال or فَعلَلَة",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "<b>فِعلَال</b><br/>جَلْبَبَ  -->  جِلْبَاب<br/><sup>(Jilbab)</sup><br/>غَرقَقَ  -->  غرقَاقَ<br/><sup>(Drowning)</sup><br/>زَلْزَلَ  -->  زِلزال<br/><sup>(Earthquake)</sup><br/>",
+            "<b>فَعلَلَة</b><br/>تَرْجَمَ  -->  تَرْجَمَة<br/><sup>(Translation)</sup><br/>فَلْسَفَ  -->  فَلْسَفَة<br/><sup>(Philosophy)</sup><br/>زَلْزَلَ  -->  زَلْزَلَة<br/><sup>(Earthquake)</sup><br/>"
+        ],
+        "notes": "Represents the abstarct function of action (Quadliteral form)"
     }
 ]
