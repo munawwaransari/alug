@@ -174,6 +174,21 @@ function handleParams(){
 			}
 		break;
 
+		case 'masdar':
+		setTimeout(function(){
+				showObjectEffects('ism','المصادر', 'Verbal Nouns', 'data/grmr/masdar.json');
+				if(params["data"])
+					if(params["data"].startsWith("pos:")){
+						var index = parseInt(params["data"].substring(4));
+						setTimeout(function(){
+							selectIndexAndTrigger(index, 'pronounFilter');
+						}, 150);
+					}
+					else
+						selectAndTrigger(params["data"], 'pronounFilter');
+			});	
+		break;
+
         case 'obj-effect':
 			setTimeout(function(){
 				showObjectEffects('ism','المفاعيل', 'Object');

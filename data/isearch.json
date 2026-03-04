@@ -319,7 +319,27 @@
         "action": "cmp",
 	"data": "pos:14"
     },
-	"Direct Object;المفعُول بِهِ;": {
+	"Triliteral Masdar;مصادر;": {
+        "path": "dict.html",
+        "action": "masdar",
+        "data": "pos:1"
+    },
+    "Quadliteral Masdar;مصادر;": {
+        "path": "dict.html",
+        "action": "masdar",
+        "data": "pos:8"
+    },
+    "Five-Letter Masdar;مصادر;": {
+        "path": "dict.html",
+        "action": "masdar",
+        "data": "pos:13"
+    },
+    "Six-Letter Masdar;مصادر;": {
+        "path": "dict.html",
+        "action": "masdar",
+        "data": "pos:15"
+    },
+    "Direct Object;المفعُول بِهِ;": {
         "path": "dict.html",
         "action": "obj-effect",
         "data": "pos:1"
