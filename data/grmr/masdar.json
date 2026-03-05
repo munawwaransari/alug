@@ -129,6 +129,16 @@
         "notes": "signifies the abstract concept, action, or state of the verb (Form V)"
     },
     {
+        "name_ar": "مصادر الفعل الخماسي",
+        "name_en": "Pentatonic Verb Masdar - تِفْعالة or  تِفعال",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "<b>تِفعال</b><br/>لَقِيَ  -->  تِلْقاء<br/><sup>(Learning)</sup><br/>بان  -->  تِبيان<br/><sup>(Explanayion)</sup><br/>مَثَلَ  -->  تِمْثال<br/><sup>(Likeness)</sup><br/>",
+            "<b>تِفْعالة</b><br/>تِفْضالة<br/><sup>(Leftover)</sup><br/>"
+        ],
+        "notes": "used in sentences to denote the action itself (سماعي)"
+    },
+    {
         "name_ar": "مصادر الفعل السداسي",
         "name_en": "Six-letter Verb Masdar - اِستِفعَال",
         "construct_sep": "<br/>",

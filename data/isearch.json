@@ -319,25 +319,25 @@
         "action": "cmp",
 	"data": "pos:14"
     },
-	"Triliteral Masdar;مصادر;": {
+	"Masdar - Triliteral;مصادر;": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:1"
     },
-    "Quadliteral Masdar;مصادر;": {
+    "Masdar - Quadliteral;مصادر;": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:8"
     },
-    "Five-Letter Masdar;مصادر;": {
+    "Masdar - Five-Letter;مصادر;": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:13"
     },
-    "Six-Letter Masdar;مصادر;": {
+    "Masdar - Six-Letter;مصادر;": {
         "path": "dict.html",
         "action": "masdar",
-        "data": "pos:15"
+        "data": "pos:16"
     },
     "Direct Object;المفعُول بِهِ;": {
         "path": "dict.html",
