@@ -384,8 +384,9 @@ function loadExamplesFromObjectEffectData(dict, qselect){
 	}
 }
 
-function loadExamplesFromImperatives(dict, qselect){
-	var impExamples = showImperativeTable(1);
+function loadExamplesFromData(dict, qselect, data, prefix){
+	var impExamples = data; 
+	if(!prefix) prefix = '';
 	if(impExamples){
 		var examples = impExamples;
 		var html = '<div style="font-size:12px;width:100%;text-align:center;">';
@@ -396,10 +397,10 @@ function loadExamplesFromImperatives(dict, qselect){
 				div += '<p style="font-size:10px;">'+replaceQLink(value)+'</p>';
 			}
 			if(div !== ''){
-				var kval = arRemovePunct(key).replaceAll(' ', '_');
-				qselect.append('<option value="Imp_'+kval+'">Imperative - Form '+key+'</option>');
-				html += '<div id="qid_Imp_'+kval+'" style="margin:auto;padding:10px;width:100%;display:inline-block;">'+
-						'<p>Imperative - Form '+ key+'</p>' + div + '</div>';
+				var kval = arRemovePunct(prefix+key).replaceAll(' ', '_');
+				qselect.append('<option value="'+kval+'">'+prefix+' '+key+'</option>');
+				html += '<div id="qid_'+kval+'" style="margin:auto;padding:10px;width:100%;display:inline-block;">'+
+						'<p>'+prefix+' '+ key+'</p>' + div + '</div>';
 			}
 		});
 		html += '</div>';
@@ -422,7 +423,8 @@ function listExamplesFromQuran(){
 
 	loadExamplesFromCmpData(dict, qselect);
 	loadExamplesFromObjectEffectData(dict, qselect);
-	loadExamplesFromImperatives(dict, qselect);
+	loadExamplesFromData(dict, qselect, showImperativeTable(1), "Imperative - Form ");
+	loadExamplesFromData(dict, qselect, get_ce_examples());
 }
 
 function listSearchIndex(){
@@ -571,6 +573,45 @@ function showNounComparisions(inp){
 	cmpAPIObj.addComparisionList($(".dictionary"), inp, true, "noun");
 }
 
+function get_ce_examples(){
+	return {
+		"Causal Object": [
+			"قُل لَّوۡ أَنتُمۡ تَمۡلِكُونَ خَزَآئِنَ رَحۡمَةِ رَبِّيٓ إِذٗا لَّأَمۡسَكۡتُمۡ <b>خَشۡيَةَ</b> ٱلۡإِنفَاقِۚ [17:100]",
+			"وَعَلَّمۡنَٰهُ صَنۡعَةَ لَبُوسٖ لَّكُمۡ <b>لِتُحۡصِنَكُم</b> مِّنۢ بَأۡسِكُمۡۖ [21:80]",
+			"وَكَذَٰلِكَ بَعَثۡنَٰهُمۡ <b>لِيَتَسَآءَلُواْ</b> بَيۡنَهُمۡۚ [18:19]"
+		],
+		"Comitative Object": [
+			"فَأَجۡمِعُوٓاْ أَمۡرَكُمۡ وَ<b>شُرَكَآءَكُمۡ</b> [10:71]"
+		],
+		"Adverbial Object": [	
+			"خَٰلِدِينَ فِيهَآ <b>أَبَدًاۚ</b> [9:22]",
+			"وَٱذۡكُرِ ٱسۡمَ رَبِّكَ <b>بُكۡرَةٗ</b> وَ<b>أَصِيلٗا</b> ٢٥ [76:25]",
+			"وَأَقِمِ  ٱلصَّلَوٰةَ <b>طَرَفَيِ</b> ٱلنَّهَارِ وَ<b>زُلَفٗا</b> مِّنَ ٱلَّيۡلِۚ [11:114]"
+			
+		],
+		"Direct Object": [
+			"كَذَٰلِكَ يَضۡرِبُ ٱللَّهُ <b>ٱلۡأَمۡثَالَ</b> ١٧[13:17]",
+			"لَّقَدۡ أَنزَلۡنَآ <b>ءَايَٰتٖ مُّبَيِّنَٰتٖۚ</b> [24:46]",
+			"وَٱذۡكُرۡ <b>إِسۡمَٰعِيلَ وَٱلۡيَسَعَ وَذَاٱلۡكِفۡلِ</b>ۖ [38:48]"
+		],
+		"Absolute Effect":  [
+			"وَتُحِبُّونَ ٱلۡمَالَ <b>حُبّٗا جَمّٗا</b> ٢٠ [89:20]",
+			"كـَلَّآۖ إِذَا دُكَّتِ ٱلۡأَرۡضُ <b>دَكّٗا دَكّٗا</b> ٢١ [89:21]",
+			"وَجَآءَ رَبُّكَ وَٱلۡمَلَكُ <b>صَفّٗا صَفّٗا</b> ٢٢ [89:22]",
+			"وَسِعَ رَبِّي كُلَّ شَيۡءٍ <b>عِلۡمًاۚ</b> [6:80]"
+		],
+		"Circumstantial": [
+			"فَلَمَّا رَءَا ٱلۡقَمَرَ <b>بَازِغٗا</b> قَالَ هَٰذَا رَبِّيۖ  [6:77]",
+			"فَخَرَجَ مِنۡهَا <b>خَآئِفٗا</b> يَتَرَقَّبُۖ [28:21]",
+			"إِن جَعَلَ ٱللَّهُ عَلَيۡكُمُ ٱلَّيۡلَ <b>سَرۡمَدًا</b> إِلَىٰ يَوۡمِ ٱلۡقِيَٰمَةِ [28:71]"
+		],
+		"Disambiguitive": [
+			"فَسَوَّاهُنَّ سَبْعَ سَمَاوَاتٍ [2:29]",
+			"وَالَّذِينَ آمَنُوا أَشَدُّ حُبًّا لِّلَّهِ [2:165]",
+			"إِنِّي رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًا [12:4]"
+		]
+	};
+}
 function showCauseAndEffects(inp){
 	$(".dictionary").empty();
 	
@@ -638,43 +679,7 @@ function showCauseAndEffects(inp){
 
 	var isWorking = false;
 	var activeSvgArea = undefined;
-	var ce_examples = {
-		"Causal Object": [
-			"قُل لَّوۡ أَنتُمۡ تَمۡلِكُونَ خَزَآئِنَ رَحۡمَةِ رَبِّيٓ إِذٗا لَّأَمۡسَكۡتُمۡ <b>خَشۡيَةَ</b> ٱلۡإِنفَاقِۚ [17:100]",
-			"وَعَلَّمۡنَٰهُ صَنۡعَةَ لَبُوسٖ لَّكُمۡ <b>لِتُحۡصِنَكُم</b> مِّنۢ بَأۡسِكُمۡۖ [21:80]",
-			"وَكَذَٰلِكَ بَعَثۡنَٰهُمۡ <b>لِيَتَسَآءَلُواْ</b> بَيۡنَهُمۡۚ [18:19]"
-		],
-		"Comitative Object": [
-			"فَأَجۡمِعُوٓاْ أَمۡرَكُمۡ وَ<b>شُرَكَآءَكُمۡ</b> [10:71]"
-		],
-		"Adverbial Object": [	
-			"خَٰلِدِينَ فِيهَآ <b>أَبَدًاۚ</b> [9:22]",
-			"وَٱذۡكُرِ ٱسۡمَ رَبِّكَ <b>بُكۡرَةٗ</b> وَ<b>أَصِيلٗا</b> ٢٥ [76:25]",
-			"وَأَقِمِ  ٱلصَّلَوٰةَ <b>طَرَفَيِ</b> ٱلنَّهَارِ وَ<b>زُلَفٗا</b> مِّنَ ٱلَّيۡلِۚ [11:114]"
-			
-		],
-		"Direct Object": [
-			"كَذَٰلِكَ يَضۡرِبُ ٱللَّهُ <b>ٱلۡأَمۡثَالَ</b> ١٧[13:17]",
-			"لَّقَدۡ أَنزَلۡنَآ <b>ءَايَٰتٖ مُّبَيِّنَٰتٖۚ</b> [24:46]",
-			"وَٱذۡكُرۡ <b>إِسۡمَٰعِيلَ وَٱلۡيَسَعَ وَذَاٱلۡكِفۡلِ</b>ۖ [38:48]"
-		],
-		"Absolute Effect":  [
-			"وَتُحِبُّونَ ٱلۡمَالَ <b>حُبّٗا جَمّٗا</b> ٢٠ [89:20]",
-			"كـَلَّآۖ إِذَا دُكَّتِ ٱلۡأَرۡضُ <b>دَكّٗا دَكّٗا</b> ٢١ [89:21]",
-			"وَجَآءَ رَبُّكَ وَٱلۡمَلَكُ <b>صَفّٗا صَفّٗا</b> ٢٢ [89:22]",
-			"وَسِعَ رَبِّي كُلَّ شَيۡءٍ <b>عِلۡمًاۚ</b> [6:80]"
-		],
-		"Circumstantial": [
-			"فَلَمَّا رَءَا ٱلۡقَمَرَ <b>بَازِغٗا</b> قَالَ هَٰذَا رَبِّيۖ  [6:77]",
-			"فَخَرَجَ مِنۡهَا <b>خَآئِفٗا</b> يَتَرَقَّبُۖ [28:21]",
-			"إِن جَعَلَ ٱللَّهُ عَلَيۡكُمُ ٱلَّيۡلَ <b>سَرۡمَدًا</b> إِلَىٰ يَوۡمِ ٱلۡقِيَٰمَةِ [28:71]"
-		],
-		"Disambiguitive": [
-			"فَسَوَّاهُنَّ سَبْعَ سَمَاوَاتٍ [2:29]",
-			"وَالَّذِينَ آمَنُوا أَشَدُّ حُبًّا لِّلَّهِ [2:165]",
-			"إِنِّي رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًا [12:4]"
-		]
-	};
+	var ce_examples = get_ce_examples();
 
 	svgImg.on("mousemove", function(e){
 		
