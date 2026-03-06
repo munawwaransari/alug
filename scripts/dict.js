@@ -302,6 +302,54 @@ async function getiSearchList(callback){
 	});
 }
 
+function listExamplesFromQuran(){
+	if(cmpAPI.cmpData){
+		var examples = {};
+		var data = cmpAPI.cmpData
+			.map(function(item){return item.features})
+			.map(function(feature){
+				Object.fromEntries(
+					Object.entries(feature).filter(
+						function([key, value]) { 
+							value.filter(function(v) {
+								if(/\[\d+\:\d+\]/ig.test(v)){
+									if(examples[key])
+										examples[key] = examples[key] + "br/>" + v;
+									else
+										examples[key] = v;
+								}
+							})
+						}
+					)
+				)
+			});
+
+		//var jsonData  = JSON.stringify(examples);
+	    $(".dictionary").empty();
+    	//$(".dictionary").append(jsonData);
+		//console.log(jsonData);
+
+		var html = '<div style="font-size:12px;width:100%;text-align:center;">';
+		// Display examples
+		Object.entries(examples).filter(function([key, value]){
+			var div = '';
+			var keyExamples = examples[key].split('<br/>');
+			keyExamples.every(function(ex, i){
+				if(/\[\d+\:\d+\]/ig.test(ex)){; 
+					div += '<p style="font-size:10px;">'+replaceQLink(ex)+'</p>';
+				}
+				return true;
+			});	
+			if(div !== ''){
+				html += '<div style="margin:auto;padding:10px;width:100%;display:inline-block;">'+
+					'<p>'+key+'</p>' + div + '</div>';
+			}
+		});
+		html += '</div>';
+		$(".dictionary").append($(html));
+	}
+}
+
 function listSearchIndex(){
   getiSearchList(function(data){
     $(".dictionary").empty();

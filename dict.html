@@ -285,16 +285,14 @@
 			</div>
 			<!-- <button id="btnHarf" class="dropbtn" title="Particles" onclick="showParticleTable()">حرف</button> -->
 			<div class="dropdown">
-			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">معاني</button>
+			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">فِهرِس</button>
 			  <div class="dropdown-content">
-				<a href="#" onclick="lookupEx('https://www.almaany.com/ar/dict/ar-$/');toggleDropdownContent($(this).parent().prev());">Almaany</a>
-				<a href="#" onclick="lookupEx('https://glosbe.com/ar/$/');toggleDropdownContent($(this).parent().prev());">Glosbe</a>
+				<a href="#" onclick="listSearchIndex();toggleDropdownContent($(this).parent().prev());">Index</a>
+				<a href="#" onclick="listExamplesFromQuran();toggleDropdownContent($(this).parent().prev());">Examples (Quran)</a>
+				<a href="#" onclick="lookupEx('https://www.almaany.com/ar/dict/ar-$/');toggleDropdownContent($(this).parent().prev());"><sub>Almaany</sub></a>
+				<a href="#" onclick="lookupEx('https://glosbe.com/ar/$/');toggleDropdownContent($(this).parent().prev());"><sub>Glosbe</sub></a>
 			  </div>
 			</div>
-			<button class="dropbtn" style="height: 32px;" 
-				onclick="listSearchIndex();toggleDropdownContent($(this).parent().prev());">
-				Index
-			</button>
 		</div>
 		<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:-22px"
 			 onclick="showArabicKeyboard('arabic')"/>
