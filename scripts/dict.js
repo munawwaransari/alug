@@ -302,7 +302,7 @@ async function getiSearchList(callback){
 	});
 }
 
-function listExamplesFromQuran(){
+function loadExamplesFromCmpData(dict, qselect){
 	if(cmpAPI.cmpData){
 		var examples = {};
 		var data = cmpAPI.cmpData
@@ -324,11 +324,6 @@ function listExamplesFromQuran(){
 				)
 			});
 
-		//var jsonData  = JSON.stringify(examples);
-	    $(".dictionary").empty();
-    	//$(".dictionary").append(jsonData);
-		//console.log(jsonData);
-
 		var html = '<div style="font-size:12px;width:100%;text-align:center;">';
 		// Display examples
 		Object.entries(examples).filter(function([key, value]){
@@ -341,13 +336,61 @@ function listExamplesFromQuran(){
 				return true;
 			});	
 			if(div !== ''){
-				html += '<div style="margin:auto;padding:10px;width:100%;display:inline-block;">'+
+				qselect.append('<option value="'+key.replaceAll(' ', '_')+'">'+key+'</option>');
+				html += '<div id="qid_'+key.replaceAll(' ', '_')+'" style="margin:auto;padding:10px;width:100%;display:inline-block;">'+
 					'<p>'+key+'</p>' + div + '</div>';
 			}
 		});
 		html += '</div>';
-		$(".dictionary").append($(html));
+		dict.append($(html));
 	}
+}
+
+function loadExamplesFromObjectEffectData(dict, qselect){
+	if(objectEffectsData){
+		var examples = objectEffectsData;//.map((item) => item.examples);
+		var html = '<div style="font-size:12px;width:100%;text-align:center;">';
+		// Display examples
+		Object.entries(examples).filter(function([key, value]){
+			var div = '';
+			value.examples.every(function(ex, i){
+				if(/\[\d+\:\d+\]/ig.test(ex)){; 
+					div += '<p style="font-size:10px;">'+replaceQLink(ex)+'</p>';
+				}
+				return true;
+			});	
+			if(div !== ''){
+				qselect.append('<option value="'+value.name_ar.replaceAll(' ', '_')+'">'+value.name_ar+'</option>');
+				html += '<div id="qid_'+value.name_ar.replaceAll(' ', '_')+'" style="margin:auto;padding:10px;width:100%;display:inline-block;">'+
+						'<p>'+ value.name_ar+'</p>' + div + '</div>';
+			}
+		});
+		html += '</div>';
+		dict.append($(html));
+	}else{
+		var loc = getLocationPath() + "data/grmr/objecteffects.json";
+		loadJsonData(loc, function(data){
+			objectEffectsData = data;
+			loadExamplesFromObjectEffectData(dict);
+		});
+	}
+}
+
+function listExamplesFromQuran(){
+	var dict = $(".dictionary");
+	dict.empty();
+	// Add select
+	var qselect = $('<select id="qs1" style="text-align:center;margin-top:10px;" '+
+					'onchange= "$(\'div [id*=qid_]\').hide(); '
+				         +' $(this).val() == \'ALL\' ? $(\'div [id*=qid_]\').show() :'
+						 +' $(\'div [id=qid_\'+$(this).val().replaceAll(\' \',\'_\')+\']\').show(); '
+						 +'" >'
+					+'</select>"'); 
+	qselect.append('<option value="ALL">ALL</option>');
+	dict.append(qselect);
+
+	loadExamplesFromCmpData(dict, qselect);
+	loadExamplesFromObjectEffectData(dict, qselect);
 }
 
 function listSearchIndex(){
