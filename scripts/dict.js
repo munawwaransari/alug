@@ -314,7 +314,7 @@ function loadExamplesFromCmpData(dict, qselect){
 							value.filter(function(v) {
 								if(/\[\d+\:\d+\]/ig.test(v)){
 									if(examples[key])
-										examples[key] = examples[key] + "br/>" + v;
+										examples[key] = examples[key] + "<br/>" + v;
 									else
 										examples[key] = v;
 								}
@@ -331,7 +331,7 @@ function loadExamplesFromCmpData(dict, qselect){
 			var keyExamples = examples[key].split('<br/>');
 			keyExamples.every(function(ex, i){
 				if(/\[\d+\:\d+\]/ig.test(ex)){; 
-					div += '<p style="font-size:10px;">'+replaceQLink(ex)+'</p>';
+					div += '<p style="font-size:10px;">'+replaceQLink(ex.replaceAll('e.g.',''))+'</p>';
 				}
 				return true;
 			});	
@@ -339,7 +339,8 @@ function loadExamplesFromCmpData(dict, qselect){
 				var kval = arRemovePunct(key)
 					.replaceAll(' ', '_')
 					.replaceAll('(', '')
-					.replaceAll(')', '');
+					.replaceAll(')', '')
+					.replaceAll('/', '');
 				qselect.append('<option value="'+kval+'">'+key+'</option>');
 				html += '<div id="qid_'+kval+'" style="margin:auto;padding:10px;width:100%;display:inline-block;">'+
 					'<p>'+key+'</p>' + div + '</div>';
@@ -367,7 +368,8 @@ function loadExamplesFromObjectEffectData(dict, qselect){
 				arRemovePunct(value.name_ar)
 					.replaceAll(' ', '_')
 					.replaceAll('(', '')
-					.replaceAll(')', '');
+					.replaceAll(')', '')
+					.replaceAll('/', '');
 				qselect.append('<option value="'+kval+'">'+value.name_ar+'</option>');
 				html += '<div id="qid_'+kval+'" style="margin:auto;padding:10px;width:100%;display:inline-block;">'+
 						'<p>'+ value.name_ar+'</p>' + div + '</div>';
