@@ -32,6 +32,12 @@
 			window.topics = alug_chapters;
 			window.updateStates = function (s){ $.extend(states, s); };
 			
+			document.addEventListener("autosearch-click", function(e){
+				if($("#eye").is(':visible') == false && e.data && !e.data.includes('|')){
+					window.inSearch();
+				}
+			})
+			
 			window.isLangSupported = function(lang){
 				return lang === "en-US" || 
 					   lang === "ar-SA" || 

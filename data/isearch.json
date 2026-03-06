@@ -552,5 +552,11 @@
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:13"
+    },
+    "Quranic Examples;أمثلة من القرآن":
+    {
+        "path": "dict.html",
+        "action": "q-examples",
+        "data": ""
     }
 }

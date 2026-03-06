@@ -248,6 +248,12 @@ function handleParams(){
 				showNounComparisions(0);
 			}
 			break; 
+
+		case 'q-examples':
+			listExamplesFromQuran();
+			toggleDropdownContent($(this).parent().prev());
+			break;
+
 		default:
 			listSearchIndex();
 			toggleDropdownContent($(this).parent().prev());
