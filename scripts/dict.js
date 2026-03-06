@@ -384,6 +384,29 @@ function loadExamplesFromObjectEffectData(dict, qselect){
 	}
 }
 
+function loadExamplesFromImperatives(dict, qselect){
+	var impExamples = showImperativeTable(1);
+	if(impExamples){
+		var examples = impExamples;
+		var html = '<div style="font-size:12px;width:100%;text-align:center;">';
+		// Display examples
+		Object.entries(examples).filter(function([key, value]){
+			var div = '';
+			if(/\[\d+\:\d+\]/ig.test(value)){; 
+				div += '<p style="font-size:10px;">'+replaceQLink(value)+'</p>';
+			}
+			if(div !== ''){
+				var kval = arRemovePunct(key).replaceAll(' ', '_');
+				qselect.append('<option value="Imp_'+kval+'">Imperative - Form '+key+'</option>');
+				html += '<div id="qid_Imp_'+kval+'" style="margin:auto;padding:10px;width:100%;display:inline-block;">'+
+						'<p>Imperative - Form '+ key+'</p>' + div + '</div>';
+			}
+		});
+		html += '</div>';
+		dict.append($(html));
+	}
+}
+
 function listExamplesFromQuran(){
 	var dict = $(".dictionary");
 	dict.empty();
@@ -399,6 +422,7 @@ function listExamplesFromQuran(){
 
 	loadExamplesFromCmpData(dict, qselect);
 	loadExamplesFromObjectEffectData(dict, qselect);
+	loadExamplesFromImperatives(dict, qselect);
 }
 
 function listSearchIndex(){
@@ -824,19 +848,24 @@ function showWeakVerbTable(){
 	$(".dictionary").append($(table));
 }
 
-function showImperativeTable(){
+function showImperativeTable(d){
 	var examples = {
-		"I": "فَأَمَّا الْيَتِيمَ فَلَا تَقْهَرْ [93:9]",
-		"II": "وَأَطِيعُوا اللَّهَ وَأَطِيعُوا الرَّسُولَ [5:92]",
-		"III": "وَلَا تُقَاتِلُوهُمْ عِندَ الْمَسْجِدِ الْحَرَامِ [2:191]",
-		"IV": "وَلَا تُطِعْ كُلَّ حَلَّافٍ مَّهِينٍ [68:10]",
-		"V": "فَتُذَكِّرَ إِحْدَاهُمَا الْأُخْرَىٰ [2:282]",
-		"VI": "",
-		"VII": "",
-		"VIII": "وَلَا تَتَّبِعُوا خُطُوَاتِ الشَّيْطَانِ [2:168]",
-		"IX": "",
-		"X": "وَلَا تَمْنُن تَسْتَكْثِرُ [74:6]"
+		'I': 'فَأَمَّا الْيَتِيمَ فَلَا تَقْهَرْ [93:9]',
+		'II': 'وَأَطِيعُوا اللَّهَ وَأَطِيعُوا الرَّسُولَ [5:92]',
+		'III': 'وَلَا تُقَاتِلُوهُمْ عِندَ الْمَسْجِدِ الْحَرَامِ [2:191]',
+		'IV': 'وَلَا تُطِعْ كُلَّ حَلَّافٍ مَّهِينٍ [68:10]',
+		'V': 'فَتُذَكِّرَ إِحْدَاهُمَا الْأُخْرَىٰ [2:282]',
+		'VI': '',
+		'VII': '',
+		'VIII': 'وَلَا تَتَّبِعُوا خُطُوَاتِ الشَّيْطَانِ [2:168]',
+		'IX': '',
+		'X': 'وَلَا تَمْنُن تَسْتَكْثِرُ [74:6]'
 	};
+
+	if(d==1)
+	{
+		return examples;
+	}
 	var container = $(".dictionary");
 	var verbInfo = posAPIObj.getVerbInfo();
 	var api = this;
