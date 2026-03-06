@@ -336,8 +336,12 @@ function loadExamplesFromCmpData(dict, qselect){
 				return true;
 			});	
 			if(div !== ''){
-				qselect.append('<option value="'+key.replaceAll(' ', '_')+'">'+key+'</option>');
-				html += '<div id="qid_'+key.replaceAll(' ', '_')+'" style="margin:auto;padding:10px;width:100%;display:inline-block;">'+
+				var kval = arRemovePunct(key)
+					.replaceAll(' ', '_')
+					.replaceAll('(', '')
+					.replaceAll(')', '');
+				qselect.append('<option value="'+kval+'">'+key+'</option>');
+				html += '<div id="qid_'+kval+'" style="margin:auto;padding:10px;width:100%;display:inline-block;">'+
 					'<p>'+key+'</p>' + div + '</div>';
 			}
 		});
@@ -360,8 +364,12 @@ function loadExamplesFromObjectEffectData(dict, qselect){
 				return true;
 			});	
 			if(div !== ''){
-				qselect.append('<option value="'+value.name_ar.replaceAll(' ', '_')+'">'+value.name_ar+'</option>');
-				html += '<div id="qid_'+value.name_ar.replaceAll(' ', '_')+'" style="margin:auto;padding:10px;width:100%;display:inline-block;">'+
+				arRemovePunct(value.name_ar)
+					.replaceAll(' ', '_')
+					.replaceAll('(', '')
+					.replaceAll(')', '');
+				qselect.append('<option value="'+kval+'">'+value.name_ar+'</option>');
+				html += '<div id="qid_'+kval+'" style="margin:auto;padding:10px;width:100%;display:inline-block;">'+
 						'<p>'+ value.name_ar+'</p>' + div + '</div>';
 			}
 		});
@@ -383,7 +391,7 @@ function listExamplesFromQuran(){
 	var qselect = $('<select id="qs1" style="text-align:center;margin-top:10px;" '+
 					'onchange= "$(\'div [id*=qid_]\').hide(); '
 				         +' $(this).val() == \'ALL\' ? $(\'div [id*=qid_]\').show() :'
-						 +' $(\'div [id=qid_\'+$(this).val().replaceAll(\' \',\'_\')+\']\').show(); '
+						 +' $(\'div [id=qid_\'+arRemovePunct($(this).val()).replaceAll(\' \',\'_\')+\']\').show(); '
 						 +'" >'
 					+'</select>"'); 
 	qselect.append('<option value="ALL">ALL</option>');
