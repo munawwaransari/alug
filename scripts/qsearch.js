@@ -971,9 +971,9 @@ function listSurahs(loadMushaf, index, page){
 	$("#qari").hide();
 	//var path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
 	//var url = path + 'data/qrn/qsurah.zip';
-	ensureJsonData({name: 'qsurahData', file: 'qsurah.json'}, (data, isFromCache) => {
+	ensureJsonData({name: 'qsurahData', file: 'qsurah.json'}, (data) => {
 		
-		if(data && !isFromCache){
+		if(data){
 			//Load Topicsa
 			setTimeout(loadQuranTopics, 40);
 		}
@@ -1076,15 +1076,17 @@ function searchText(txt){
 	search();
 }
 
+function handler_AutoSearchClick(e) {
+	if ($("#eye").is(':visible') && e.data && e.data.includes('|')) {
+		var ayah = e.data.split("|")[1];
+		searchText(ayah);
+		$("#topicSearchText").blur();
+	}
+}
 function loadQuranTopics(){
 	
-	document.addEventListener("autosearch-click", function(e){
-		if($("#eye").is(':visible') && e.data && e.data.includes('|')){
-			var ayah = e.data.split("|")[1];
-			searchText(ayah);
-			$("#topicSearchText").blur();
-		}
-	});
+	document.removeEventListener("autosearch-click", handler_AutoSearchClick);
+	document.addEventListener("autosearch-click", handler_AutoSearchClick);
 			  
 	autocomplete(document.getElementById("topicSearchText"), function(val, callback){
 		var condition = val.length > 1 && val !== lastSuggestionInput;
@@ -1097,7 +1099,7 @@ function loadQuranTopics(){
 
 async function  getTopicSuggesstions(val, callback){
 	var suggesstions = [];
-	for(const [key, value] of Object.entries(surah_list_cache)){
+	for(const [key, value] of Object.entries(parent.dataCache["qsurahData"].data)){
 		if(value.topics !== undefined){
 			var topics = value.topics.map(function(t){
 				if(t.toLowerCase().includes(val.toLowerCase())){

@@ -106,8 +106,8 @@ async function loadZipData(url, file, callback, errorCallback)
 				   .async("string")
 				   .then(function(data){
 						if(file.endsWith(".json")){
-							surah_list_cache = JSON.parse(data);
-							callback(surah_list_cache); 	
+							var zdata = JSON.parse(data);
+							callback(zdata); 	
 						}						
 					})
 			 });
