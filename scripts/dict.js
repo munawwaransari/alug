@@ -328,7 +328,7 @@ function loadExamplesFromCmpData(dict, qselect){
 						}
 					)
 				)
-			});
+				});
 
 		var html = '<div style="font-size:12px;width:100%;text-align:center;">';
 		// Display examples
@@ -357,9 +357,9 @@ function loadExamplesFromCmpData(dict, qselect){
 	}
 }
 
-function loadExamplesFromObjectEffectData(dict, qselect){
-	if(objectEffectsData){
-		var examples = objectEffectsData;//.map((item) => item.examples);
+function loadExamplesFromObjectEffectData(dict, qselect, data){
+	if(data){
+		var examples = data;
 		var html = '<div style="font-size:12px;width:100%;text-align:center;">';
 		// Display examples
 		Object.entries(examples).filter(function([key, value]){
@@ -371,7 +371,7 @@ function loadExamplesFromObjectEffectData(dict, qselect){
 				return true;
 			});	
 			if(div !== ''){
-				arRemovePunct(value.name_ar)
+				var kval = arRemovePunct(value.name_ar)
 					.replaceAll(' ', '_')
 					.replaceAll('(', '')
 					.replaceAll(')', '')
@@ -383,12 +383,6 @@ function loadExamplesFromObjectEffectData(dict, qselect){
 		});
 		html += '</div>';
 		dict.append($(html));
-	}else{
-		var loc = getLocationPath() + "data/grmr/objecteffects.json";
-		loadJsonData(loc, function(data){
-			objectEffectsData = data;
-			loadExamplesFromObjectEffectData(dict);
-		});
 	}
 }
 
@@ -430,7 +424,24 @@ function listExamplesFromQuran(){
 	dict.append(qselect);
 
 	loadExamplesFromCmpData(dict, qselect);
-	loadExamplesFromObjectEffectData(dict, qselect);
+	if(objectEffectsData)
+		loadExamplesFromObjectEffectData(dict, qselect, objectEffectsData);
+	else{
+		var loc = getLocationPath() + "data/grmr/objecteffects.json";;
+		loadJsonData(loc, function(data){
+			objectEffectsData = data;
+			loadExamplesFromObjectEffectData(dict, qselect, objectEffectsData);
+		});
+	}
+	if(adverbData)
+		loadExamplesFromObjectEffectData(dict, qselect, adverbData);
+	else{
+		var loc = getLocationPath() + "data/grmr/adverb.json";
+		loadJsonData(loc, function(data){
+			adverbData = data;
+			loadExamplesFromObjectEffectData(dict, qselect, adverbData);
+		});
+	}
 	loadExamplesFromData(dict, qselect, showImperativeTable(1), "Imperative - Form ");
 	loadExamplesFromData(dict, qselect, get_ce_examples());
 }
