@@ -1336,6 +1336,12 @@ function init_data_cache(){
 		},
 		"transliterationData": {
 			path: "data/qrn/en-wbw-ayah.json"
+		},
+		"posRulesData": {
+			path: "data/grmr/pos.json"
+		},
+		"cmpData": {
+			path: "data/grmr/cmp.json"
 		}
 	};
 }

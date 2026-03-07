@@ -8,13 +8,15 @@ class posAPI {
 	constructor(path, callback)
 	{
 		var cb = callback;
-		var posUrl = path+'data/grmr/pos.json'
-		loadJsonData(posUrl, function(data){
-			posAPI.posRules = data;
-			if(cb) cb("loaded");
-		}, function(err){
-			if(cb) cb("error", err);
-		});	
+		ensureJsonData({name: "posRulesData"}, 
+			function(data, isFromCache) {
+				posAPI.posRules = data;
+				if(cb) cb("loaded", false, isFromCache);
+			},
+			function(err){
+				if(cb) cb("error", err);
+			}
+		);
 	} 
 	
 	#P2Root(w, pInfo, options = {})

@@ -8,13 +8,15 @@ class cmpAPI {
 	constructor(path, callback)
 	{
 		var cb = callback;
-		var cmpUrl = path+'data/grmr/cmp.json'
-		loadJsonData(cmpUrl, function(data){
-			cmpAPI.cmpData = data;
-			if(cb) cb("loaded");
-		}, function(err){
-			if(cb) cb("error", err);
-		});	
+		ensureJsonData({name: "cmpData"}, 
+			function(data, isFromCache) {
+				cmpAPI.cmpData = data;
+				if(cb) cb("loaded", false, isFromCache);
+			},
+			function(err){
+				if(cb) cb("error", err);
+			}
+		);
 	}
 
 	addComparisionList(container, inp, showComparison, compareType){
