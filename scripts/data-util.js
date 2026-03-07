@@ -21,76 +21,35 @@ function getParamValue(paramName){
 	}
 }
 
-async function ensureJsonData(name, callback, errorCallback)
+async function ensureJsonData(d, callback, errorCallback)
 {
-	switch(name){
-		case "objectEffectsData":
-			if (objectEffectsData){
-				if(callback) callback(objectEffectsData);
-			}
-			else {
-				var loc = getLocationPath() + "data/grmr/objecteffects.json";
-				loadJsonData(loc, function (data) {
-					objectEffectsData = data;
-					if(callback) {callback(data);}
-				},
-				errorCallback);
-			}
-			break;
-
-		case "adverbData":
-			if (adverbData){
-				if(callback) callback(adverbData);
-			}
-			else {
-				var loc = getLocationPath() + "data/grmr/adverb.json";
-				loadJsonData(loc, function (data) {
-					adverbData = data;
-					if(callback) {callback(data);}
-				},
-				errorCallback);
-			}
-			break;
-
-		case "masdarData":
-			if (masdarData) {
-				if (callback) callback(masdarData);
-			}
-			else {
-				var loc = getLocationPath() + "data/grmr/masdar.json";
-				loadJsonData(loc, function (data) {
-					masdarData = data;
-					if (callback) { callback(data); }
-				},
-					errorCallback);
-			}
-			break;
-
-		case 'isearchData':
-			if(parent.isearchData){
-				if(callback) callback(parent.isearchData);
-			}
-			else{
-				var loc = getLocationPath() + 'data/isearch.json';
-				loadJsonData(loc, function (data) {
-					parent.isearchData = data;
-					callback(data);
-				});
-			}	
-		break;
-
-		case 'mappings':
-			if (mappings){
-				if(callback) callback(mappings);
-			}
-			else {
-				var loc = getLocationPath() + 'data/ar.dic/mapping.json'
-				loadJsonData(loc, function (data) {
-					mappings = data;
-					if(callback) {callback(data);}
-				});
-			}
-			break;
+	if(parent.dataCache === undefined || parent.dataCache[d.name] === undefined){
+		console.log("Error: Invalid cache state for: "+ d.name);
+		return;
+	}
+	if (parent.dataCache[d.name].data){
+		if(callback) callback(parent.dataCache[d.name].data, true);
+	}
+	else {
+		var loc = getLocationPath() + parent.dataCache[d.name].path;
+		var extension = loc.split('.').pop().toLowerCase();
+		if( extension === "zip"){
+			loadZipData(loc, d.file, function(data){
+				// Load Surah names
+				parent.dataCache[d.name].data = data;
+				if(callback) {callback(data, false);}
+			});
+		}
+		else if( extension === "json"){
+			loadJsonData(loc, function (data) {
+				parent.dataCache[d.name].data = data;
+				if(callback) {callback(data, false);}
+			},
+			errorCallback);
+		}
+		else {
+			console.log("Error: Invalid data file extension for: "+ loc);
+		}
 	}
 }
 
@@ -1350,4 +1309,33 @@ function shareExternal(title, parameters){
 	else {
 	  console.error('Web Share API is not supported on this browser.');
 	}
+}
+
+function init_data_cache(){
+	return {
+		"adverbData": {
+			path: "data/grmr/adverb.json"
+		},
+		"isearchData": {
+			path: "data/isearch.json"
+		},
+		"mappingsData": {
+			path: "data/ar.dic/mapping.json"
+		},
+		"masdarData": {
+			path: "data/grmr/masdar.json"
+		},
+		"objectEffectsData": {
+			path: "data/grmr/objecteffects.json"
+		},
+		"qsurahData": {
+			path: "data/qrn/qsurah.zip"
+		},
+		"similarAyahData": {
+			path: "data/qrn/similar-ayah.json"
+		},
+		"transliterationData": {
+			path: "data/qrn/en-wbw-ayah.json"
+		}
+	};
 }

@@ -53,7 +53,7 @@ window.onload = function () {
 		return condition;
 	});
 
-	ensureJsonData("mappings");
+	ensureJsonData({name: "mappingsData"});
 
 	$("#wordSearchText").keyup(function (event) {
 		if (event.keyCode === 13) {
@@ -398,10 +398,10 @@ function listExamplesFromQuran() {
 	dict.append(qselect);
 
 	loadExamplesFromCmpData(dict, qselect);
-	ensureJsonData("objectEffectsData", (data) => {
+	ensureJsonData({name:"objectEffectsData"}, (data) => {
 		loadExamplesFromObjectEffectData(dict, qselect, data);
 	});
-	ensureJsonData("adverbData", (data) => {
+	ensureJsonData({name:"adverbData"}, (data) => {
 		loadExamplesFromObjectEffectData(dict, qselect, data);
 	});
 	loadExamplesFromData(dict, qselect, showImperativeTable(1), "Imperative - Form ");
@@ -409,7 +409,7 @@ function listExamplesFromQuran() {
 }
 
 function listSearchIndex() {
-	ensureJsonData('isearchData', function (data) {
+	ensureJsonData({name:'isearchData'}, function (data) {
 		$(".dictionary").empty();
 		$(".dictionary").append('<div style="margin-top: 40px;"></div>');
 

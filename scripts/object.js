@@ -2,13 +2,11 @@
 //	Author: munawwar_ali@yahoo.com
 //
 
-var objectEffectsData, adverbData, masdarData;
-
 function showObjectEffects(k, v1, v2, dataName){
 	updateState(k, {ar: v1, en: v2});
 	var container = $(".dictionary");
 	container.html("Loading...");
-	ensureJsonData(dataName, function(data){
+	ensureJsonData({name: dataName}, function(data){
 		container.empty();
 		createSelectionFilters(container, data);
 		data.every(function (objData) {

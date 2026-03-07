@@ -2,8 +2,10 @@
 //	Author: munawwar_ali@yahoo.com
 //
 
-var loadRetryCount = 5; 
 const RETRY_DELAY = 400;
+var loadRetryCount = 5; 
+var lastiSearchSuggestionInput;
+var dataCache = init_data_cache();
 
 $(document).ready(function()
 {	
@@ -666,12 +668,8 @@ function loadHandwriting(){
 	}, 5);	
 }
 
-// ---- i search 
-var lastiSearchSuggestionInput;
-var isearchData;
-
 async function getiSearchSuggesstions(txt, callback){
-	ensureJsonData('isearchData', function(data){
+	ensureJsonData({name:'isearchData'}, function(data){
 		var txt_lc = txt ? txt.toLowerCase().trim() : '';
 		handleiSearchData(txt_lc, callback);		
 	});
@@ -682,7 +680,7 @@ function handleiSearchData(txt, callback){
 	// update global var for suggestions
 	var txtInput = txt ? arRemovePunct(txt) : txt;
 	var res = getDefaultActions(txt);
-	for(const [k,v] of Object.entries(isearchData)){
+	for(const [k,v] of Object.entries(dataCache["isearchData"].data)){
 		var kVal=arRemovePunct(k);
 		if(kVal.toLowerCase().includes(txtInput)){
 			if(kVal.includes(";")){
@@ -741,14 +739,14 @@ function isearch(txt){
 	}
 	
 	if(!obj){
-		var res = Object.keys(isearchData).reduce(function (filtered, key) {
+		var res = Object.keys(dataCache["isearchData"].data).reduce(function (filtered, key) {
 			if (arRemovePunct(key).startsWith(data)){
 				objKey = key;
 				return key;
 			}
 		}, {});
 		if(objKey === undefined) return;
-		var obj = isearchData[objKey];
+		var obj = dataCache["isearchData"].data[objKey];
 		if(obj.data && obj.data !== '@key')
 			data = obj.data;
 	}
@@ -790,7 +788,7 @@ function getDefaultActions(txt){
 }
 
 function genAndDownloadSitemap(){
-	ensureJsonData('isearchData', function(data){
+	ensureJsonData({name:'isearchData'}, function(data){
 		var siteMap = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 		siteMap += getDefaultSiteMapUrls();
 		for(const [k,v] of Object.entries(data)){

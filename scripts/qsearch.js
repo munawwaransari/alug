@@ -9,10 +9,9 @@ var q_summary = {};
 var loadStatus;
 var isAutoPlayQirat, changeQari;
 var q_app_mode = 'default';
-var similar_ayah;
-var transliteration_data;
 var page_layout_size=1;
 var tafsir_param;
+var surah_list;
 
 window.onload = function(){
 	
@@ -27,9 +26,7 @@ window.onload = function(){
 		$("img[src='images/kybd.jpg']").hide();
 	}
 
-	loadJsonData(getLocationPath()+"data/qrn/similar-ayah.json", function(data){
-		similar_ayah = data;
-	});
+	ensureJsonData({name:"similarAyahData"});
 	
 	//Fill Juz select options
 	var jOptions = $("#juz-options");
@@ -618,6 +615,7 @@ function getReferences(){
 
 function getSimilarAyahReferences(verseKey){
 	var ayah = [];
+	var similar_ayah = parent.dataCache["similarAyahData"].data;
 	if(similar_ayah){
 		if(similar_ayah[verseKey]){
 			similar_ayah[verseKey].every(function(entry){
@@ -976,12 +974,18 @@ function filterHuruf(val){
 /*
 Loads Quran surah index
 */
-var surah_list, surah_order = false, surah_disp_mode='table';
+var surah_order = false, surah_disp_mode='table';
 function listSurahs(loadMushaf, index, page){
 	$("#qari").hide();
-	var path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
-	var url = path + 'data/qrn/qsurah.zip';
-	listSurahsAsync(url, "qsurah.json", function(data){
+	//var path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
+	//var url = path + 'data/qrn/qsurah.zip';
+	ensureJsonData({name: 'qsurahData', file: 'qsurah.json'}, (data, isFromCache) => {
+		
+		if(data && !isFromCache){
+			//Load Topicsa
+			setTimeout(loadQuranTopics, 40);
+		}
+
 		surah_list = data;
 		var div = $("#searchResult");
 		div.empty();		
@@ -1079,32 +1083,6 @@ function searchText(txt){
 	$("#searchText").val(txt);
 	search();
 }
-
-var surah_list_cache;
-async function listSurahsAsync(zipUrl, file, callback)
-{
-	try {
-		if(surah_list_cache !== undefined){
-			callback(surah_list_cache);
-			return;
-		}
-		
-		loadZipData(zipUrl, file, function(data, jsZip){
-			// Load Surah names
-			surah_list_cache = data
-			
-			//Load Topicsa
-			setTimeout(loadQuranTopics, 40);
-			callback(surah_list_cache);
-		});
-	} 
-	catch (error) {
-		console.error("Fetch error:", error);
-		if (errorCallback){
-			errorCallback(error);
-		}
-	}
-};
 
 function loadQuranTopics(){
 	
@@ -1445,22 +1423,10 @@ function toggleMakkiMadni(){
 	filterSurahs($('juz-options'));
 }
 
-function getAyahTransliteration(verseKey, cb){
-	
-	if(transliteration_data == undefined){
-		loadJsonData("data/qrn/en-wbw-ayah.json", function(data){
-			transliteration_data = data;
-			if(cb){
-				transliteration_data = data;
-				cb(transliteration_data[verseKey]);
-			}
-		});
-	}
-	else{
-		if(cb){
-			cb(transliteration_data[verseKey]);
-		}
-	}
+function getAyahTransliteration(verseKey, cb){	
+	ensureJsonData({name:"transliterationData"}, (data) => {
+		if(cb) cb(data[verseKey]);
+	});
 }
 
 function handleSurahInfoDisplay(elem){
