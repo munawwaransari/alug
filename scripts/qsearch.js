@@ -90,20 +90,12 @@ window.onload = function(){
 /* 
 Loads all words of Quran 
 */
-var all_q_words = undefined;
 async function loadQList(){
 	$("#hd-loading").show();
-	if(all_q_words == undefined){
-		var fileUrl = getLocationPath() + "data/qrn/qf-list.json";
-		loadJsonData(fileUrl, function(data){
-			all_q_words = data;
-			loadWordsFrom(data);
-			$("#hd-loading").hide();
-		});		
-	}else{
-		loadWordsFrom(all_q_words);
+	ensureJsonData({ name: "qfllistData" }, function (data) {
+		loadWordsFrom(data);
 		$("#hd-loading").hide();
-	}
+	});		
 }
 
 function loadWordsFrom(data){

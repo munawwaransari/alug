@@ -1342,6 +1342,9 @@ function init_data_cache(){
 		},
 		"cmpData": {
 			path: "data/grmr/cmp.json"
+		},
+		"qfllistData":{
+			path: "data/qrn/qf-list.json"
 		}
 	};
 }
