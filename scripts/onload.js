@@ -669,19 +669,12 @@ function loadHandwriting(){
 // ---- i search 
 var lastiSearchSuggestionInput;
 var isearchData;
-async function getiSearchSuggesstions(txt, callback){
 
-	var fileUrl = getLocationPath() + 'data/isearch.json';
-	console.log('getting suggestions: '+fileUrl);
-	var txt_lc = txt ? txt.toLowerCase().trim() : '';
-	
-	if(isearchData === undefined)
-		loadJsonData(fileUrl, function(data){
-			isearchData = data;
-			handleiSearchData(txt_lc, callback);
-		});
-	else
-		handleiSearchData(txt_lc, callback);
+async function getiSearchSuggesstions(txt, callback){
+	ensureJsonData('isearchData', function(data){
+		var txt_lc = txt ? txt.toLowerCase().trim() : '';
+		handleiSearchData(txt_lc, callback);		
+	});
 }
 
 function handleiSearchData(txt, callback){
@@ -797,8 +790,7 @@ function getDefaultActions(txt){
 }
 
 function genAndDownloadSitemap(){
-	var dataFile =  getLocationPath() + 'data/isearch.json'; 
-	loadJsonData(dataFile, function(data){
+	ensureJsonData('isearchData', function(data){
 		var siteMap = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 		siteMap += getDefaultSiteMapUrls();
 		for(const [k,v] of Object.entries(data)){

@@ -2,42 +2,19 @@
 //	Author: munawwar_ali@yahoo.com
 //
 
-var objectEffectsData, adverbData;
+var objectEffectsData, adverbData, masdarData;
 
-function showObjectEffects(k, v1, v2, dataPath){
+function showObjectEffects(k, v1, v2, dataName){
 	updateState(k, {ar: v1, en: v2});
 	var container = $(".dictionary");
 	container.html("Loading...");
-	var daraSrc = dataPath ?  adverbData: objectEffectsData;
-	if(daraSrc === undefined){
-		var loc = getLocationPath() + (dataPath ?? "data/grmr/objecteffects.json");
-		loadJsonData(loc, function(data){
-			if(dataPath){
-				adverbData = data;
-			}
-			else{
-				objectEffectsData = data;
-			}
-			showObjectEffectTable(dataPath ? 'a':'o');
+	ensureJsonData(dataName, function(data){
+		container.empty();
+		createSelectionFilters(container, data);
+		data.every(function (objData) {
+			addObjectEffectTable(container, objData);
+			return true;
 		});
-	}else{
-		showObjectEffectTable(dataPath ? 'a':'o');
-	}
-}
-
-function showObjectEffectTable(opt){
-	var container = $(".dictionary");
-	container.empty();
-	
-	var daraSrc = opt == 'o' ? objectEffectsData : adverbData;
-	if(!daraSrc || daraSrc.length == 0)
-		return;
-	
-	createSelectionFilters(container, daraSrc);
-	
-	daraSrc.every(function(objData){
-		addObjectEffectTable(container, objData);
-		return true;
 	});
 }
 

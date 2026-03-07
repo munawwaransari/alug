@@ -21,6 +21,79 @@ function getParamValue(paramName){
 	}
 }
 
+async function ensureJsonData(name, callback, errorCallback)
+{
+	switch(name){
+		case "objectEffectsData":
+			if (objectEffectsData){
+				if(callback) callback(objectEffectsData);
+			}
+			else {
+				var loc = getLocationPath() + "data/grmr/objecteffects.json";
+				loadJsonData(loc, function (data) {
+					objectEffectsData = data;
+					if(callback) {callback(data);}
+				},
+				errorCallback);
+			}
+			break;
+
+		case "adverbData":
+			if (adverbData){
+				if(callback) callback(adverbData);
+			}
+			else {
+				var loc = getLocationPath() + "data/grmr/adverb.json";
+				loadJsonData(loc, function (data) {
+					adverbData = data;
+					if(callback) {callback(data);}
+				},
+				errorCallback);
+			}
+			break;
+
+		case "masdarData":
+			if (masdarData) {
+				if (callback) callback(masdarData);
+			}
+			else {
+				var loc = getLocationPath() + "data/grmr/masdar.json";
+				loadJsonData(loc, function (data) {
+					masdarData = data;
+					if (callback) { callback(data); }
+				},
+					errorCallback);
+			}
+			break;
+
+		case 'isearchData':
+			if(parent.isearchData){
+				if(callback) callback(parent.isearchData);
+			}
+			else{
+				var loc = getLocationPath() + 'data/isearch.json';
+				loadJsonData(loc, function (data) {
+					parent.isearchData = data;
+					callback(data);
+				});
+			}	
+		break;
+
+		case 'mappings':
+			if (mappings){
+				if(callback) callback(mappings);
+			}
+			else {
+				var loc = getLocationPath() + 'data/ar.dic/mapping.json'
+				loadJsonData(loc, function (data) {
+					mappings = data;
+					if(callback) {callback(data);}
+				});
+			}
+			break;
+	}
+}
+
 async function loadJsonData(url, callback, errorCallback)
 {
 
@@ -182,7 +255,7 @@ function isOS(os){
 function replaceAnalysisLink(val, addBreak){
 	var analysisExp = /([\u0600-\u06ff]+)\s+\-\s+([\u0600-\u06ff]+)/g;
 	var ex = val;
-	if(ex.match(analysisExp)){
+	if(ex.match && ex.match(analysisExp)){
 		ex = ex.replaceAll(analysisExp, 
 					'<a href="#" style="text-decoration: none;" '+
 					'onclick="$(\'#wordSearchText\').val(\'$1\');analyzeSelectedWord();">'+
@@ -194,7 +267,7 @@ function replaceAnalysisLink(val, addBreak){
 
 function replaceSurahIngoQLink(addressHtml) {
 	var qlinkExp = /^(<a\s+.*(\d+)\/(\d+)\-(\d+).*a>)/g;
-	if(addressHtml.match(qlinkExp)){
+	if(addressHtml.match && addressHtml.match(qlinkExp)){
 		return addressHtml.replaceAll(qlinkExp, 
 			//'<a href="#" onclick="if(parent.inSearch) parent.inSearch(\'...QuranSearch $2:$3\');">$3-$4</a>');
 			'$2:$3-$4');
@@ -211,7 +284,7 @@ function replaceQLink(val, addBreak=true){
 	
 	var qlinkExp = /(\[(\d+)\:(\d+)\])/g;
 	var ex = val;
-	if(ex.match(qlinkExp)){
+	if(ex.match && ex.match(qlinkExp)){
 		var qLink = getLocationPath()+"?q="+val;
 		ex = ex.replace(qlinkExp, '<a href="#" '+
 					'onclick="if(parent.inSearch) parent.inSearch(\'...QuranSearch $2:$3\');">$1</a>');

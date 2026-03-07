@@ -53,10 +53,7 @@ window.onload = function () {
 		return condition;
 	});
 
-	var mappingUrl = getLocationPath() + 'data/ar.dic/mapping.json'
-	loadJsonData(mappingUrl, function (data) {
-		mappings = data;
-	});
+	ensureJsonData("mappings");
 
 	$("#wordSearchText").keyup(function (event) {
 		if (event.keyCode === 13) {
@@ -160,7 +157,7 @@ function handleParams() {
 
 		case 'masdar':
 			setTimeout(function () {
-				showObjectEffects('ism', 'المصادر', 'Verbal Nouns', 'data/grmr/masdar.json');
+				showObjectEffects('ism', 'المصادر', 'Verbal Nouns', 'masdarData');
 				if (params["data"])
 					if (params["data"].startsWith("pos:")) {
 						var index = parseInt(params["data"].substring(4));
@@ -175,7 +172,7 @@ function handleParams() {
 
 		case 'obj-effect':
 			setTimeout(function () {
-				showObjectEffects('ism', 'المفاعيل', 'Object');
+				showObjectEffects('ism', 'المفاعيل', 'Object', 'objectEffectsData');
 				if (params["data"])
 					if (params["data"].startsWith("pos:")) {
 						var index = parseInt(params["data"].substring(4));
@@ -190,7 +187,7 @@ function handleParams() {
 
 		case 'adv':
 			setTimeout(function () {
-				showObjectEffects('ism', 'ظُرُوف', 'Adverbs', 'data/grmr/adverb.json');
+				showObjectEffects('ism', 'ظُرُوف', 'Adverbs', 'adverbData');
 				if (params["data"])
 					if (params["data"].startsWith("pos:")) {
 						var index = parseInt(params["data"].substring(4));
@@ -277,15 +274,6 @@ function analyzeSelectedWordOld() {
 
 	var res = posAPIObj.analyzeWord(word, true);
 	posAPIObj.addHtml($(".dictionary"), res, true);
-}
-
-async function getiSearchList(callback) {
-
-	var fileUrl = getLocationPath() + 'data/isearch.json';
-	console.log('getting isearch content: ' + fileUrl);
-	loadJsonData(fileUrl, function (data) {
-		callback(data);
-	});
 }
 
 function loadExamplesFromCmpData(dict, qselect) {
@@ -377,10 +365,13 @@ function loadExamplesFromData(dict, qselect, data, prefix) {
 		// Display examples
 		Object.entries(examples).filter(function ([key, value]) {
 			var div = '';
-			if (/\[\d+\:\d+\]/ig.test(value)) {
-				;
-				div += '<p style="font-size:10px;">' + replaceQLink(value) + '</p>';
-			}
+			var values = value.match ? [value] : value;
+			values.every(function (ex, i) {
+				if (/\[\d+\:\d+\]/ig.test(ex)) {
+					div += '<p style="font-size:10px;">' + replaceQLink(value) + '</p>';
+				}
+			});
+			
 			if (div !== '') {
 				var kval = arRemovePunct(prefix + key).replaceAll(' ', '_');
 				qselect.append('<option value="' + kval + '">' + prefix + ' ' + key + '</option>');
@@ -407,30 +398,18 @@ function listExamplesFromQuran() {
 	dict.append(qselect);
 
 	loadExamplesFromCmpData(dict, qselect);
-	if (objectEffectsData)
-		loadExamplesFromObjectEffectData(dict, qselect, objectEffectsData);
-	else {
-		var loc = getLocationPath() + "data/grmr/objecteffects.json";;
-		loadJsonData(loc, function (data) {
-			objectEffectsData = data;
-			loadExamplesFromObjectEffectData(dict, qselect, objectEffectsData);
-		});
-	}
-	if (adverbData)
-		loadExamplesFromObjectEffectData(dict, qselect, adverbData);
-	else {
-		var loc = getLocationPath() + "data/grmr/adverb.json";
-		loadJsonData(loc, function (data) {
-			adverbData = data;
-			loadExamplesFromObjectEffectData(dict, qselect, adverbData);
-		});
-	}
+	ensureJsonData("objectEffectsData", (data) => {
+		loadExamplesFromObjectEffectData(dict, qselect, data);
+	});
+	ensureJsonData("adverbData", (data) => {
+		loadExamplesFromObjectEffectData(dict, qselect, data);
+	});
 	loadExamplesFromData(dict, qselect, showImperativeTable(1), "Imperative - Form ");
 	loadExamplesFromData(dict, qselect, get_ce_examples());
 }
 
 function listSearchIndex() {
-	getiSearchList(function (data) {
+	ensureJsonData('isearchData', function (data) {
 		$(".dictionary").empty();
 		$(".dictionary").append('<div style="margin-top: 40px;"></div>');
 
@@ -617,7 +596,7 @@ function showCauseAndEffects(inp) {
 
 	var html = '<div style="font-size:12px;width:100%;background-color:yellow;text-align:center;">' +
 		'Click or tap on a block to see examples ( See: <a href="#" onclick="' +
-		'showObjectEffects(\'ism\',\'المفاعيل\', \'Object\')">Object Effects</a> )' +
+		'showObjectEffects(\'ism\',\'المفاعيل\', \'Object\', \'objectEffectsData\')">Object Effects</a> )' +
 		'</div>' +
 		'<div style="width:100%;display:flex;flex-diection:column;text-align:center;">' +
 		'<img id="svgImg1" style="margin:auto;current:arrow;" src="images/ce.svg"></img>' +
