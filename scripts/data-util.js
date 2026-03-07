@@ -1335,7 +1335,7 @@ function init_data_cache(){
 			path: "data/qrn/similar-ayah.json"
 		},
 		"transliterationData": {
-			path: "data/qrn/en-wbw-ayah.json"
+			path: "data/qrn/enwbwayah.zip"
 		},
 		"posRulesData": {
 			path: "data/grmr/pos.json"

@@ -1424,7 +1424,7 @@ function toggleMakkiMadni(){
 }
 
 function getAyahTransliteration(verseKey, cb){	
-	ensureJsonData({name:"transliterationData"}, (data) => {
+	ensureJsonData({name:"transliterationData", file: 'enwbwayah.json'}, (data) => {
 		if(cb) cb(data[verseKey]);
 	});
 }
