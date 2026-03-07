@@ -4,9 +4,7 @@
 
 
 var lastSuggestionInput = undefined;
-var mappings = {};
 var dict = {};
-
 var posAPIObj, cmpAPIObj, posSearchObj;
 var dState = {};
 var params = { "action": undefined, data: undefined };
@@ -468,7 +466,8 @@ function searchWord() {
 
 async function getSuggesstions(txt, callback) {
 
-	var file = Object.entries(mappings).filter(function ([key, value]) {
+	var file = Object.entries(parent.dataCache["mappingsData"].data)
+					 .filter(function ([key, value]) {
 		return txt.startsWith(key);
 	});
 	if (file.length > 0) {
