@@ -807,8 +807,10 @@ function navigatePage(next, gap=1, page){
 		if(value > 0 && value < 605){
 			sel.val('page'+value);
 			displayQPage();
+			return true;
 		}
 	}
+	return false
 }
 
 var manzilPages = [1, 107, 208, 282, 367, 446, 518, 1000];

@@ -379,14 +379,14 @@
 						 display:none;flex-direction:row;justify-content: center;">
 		<select style="background-color:#b5d090;padding:0;width:100px;font-szie:12px;" 
 				id="surah-options" 
-				onchange="updatePage()">
+				onchange="updatePage(); resetPlayboxIfVisible();">
 		</select>
 		<span 	style="padding:4px;cursor:pointer;color:crimson;font-size:24px;"
-				onclick="navigatePage(false, page_layout_size)">↞&nbsp;</span>
-		<select style="background-color:#b5d090;padding:0;width:80px;font-szie:12px;" id="page-options" onchange="displayQPage()">
+				onclick="navigatePage(false, page_layout_size); resetPlayboxIfVisible();">↞&nbsp;</span>
+		<select style="background-color:#b5d090;padding:0;width:80px;font-szie:12px;" id="page-options" onchange="displayQPage();resetPlayboxIfVisible();">
 		</select>
 		<span style="padding:4px;cursor:pointer;color:crimson;font-size:24px;"
-			onclick="navigatePage(true, page_layout_size)">&nbsp;↠</span>
+			onclick="navigatePage(true, page_layout_size); resetPlayboxIfVisible();">&nbsp;↠</span>
 		<span class="dropdown">
 			<button id="mushaf-layout" data-value="uthmani,w" class="dropdown"
 					style="min-height:40px;cursor:pointer;margin-left:1px;background-color:transparent; border-color:lightsteelblue">&#x06dd;</button>

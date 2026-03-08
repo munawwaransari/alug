@@ -722,6 +722,13 @@ function playOrStopCurrentPage(elem){
 					$(elem).html('▶');
 					//durationBar.parent().hide();
 					togglePlayControls(false);
+
+					// trigger nav
+					if(navigatePage(true, page_layout_size) == true){
+						setTimeout(function(){
+							playOrStopCurrentPage(elem)
+						}, 500);
+					}
 				}
 			});
 		}
@@ -731,6 +738,19 @@ function playOrStopCurrentPage(elem){
 			$(elem).html('▶');
 			//durationBar.parent().hide();
 			togglePlayControls(false);
+		}
+	}
+}
+
+function resetPlayboxIfVisible(){
+	var elem = $('#playbox'); 
+	if(elem.is(':visible')) {
+		if(parent && parent.stopAudio){
+			//setTimeout(function(){
+				parent.stopAudio();
+				$("button:contains('⏹')").html('▶');
+				togglePlayControls(false);
+			//}, 100);
 		}
 	}
 }
