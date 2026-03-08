@@ -206,18 +206,15 @@
 			}
 			
 			function setPlayLang(lang, force){
-			
-				var voice = force ? lang : states[lang] ?? lang;
-				$("#languages").val(voice);
-				if($("#languages").val() !== voice){
-					voice = voice.replace("-","_");
-					$("#languages").val(voice);
-					
-					if($("#languages").val() !== voice){
-						return false;
-					}
+				var currLang = $("#lang-options").val();
+				var voiceIndex = force ? 
+						(states[lang] ? states[lang].dataIndex : undefined):
+						(states[currLang] ? states[currLang].dataIndex : undefined);
+				if(voiceIndex != undefined){
+					$("#languages").prop("selectedIndex", parseInt(voiceIndex));
+					//$("#languages").index(voiceIndex);
+					return true;
 				}
-				return true;
 			}
 		</script>
 		</script>

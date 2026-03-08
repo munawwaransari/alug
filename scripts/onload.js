@@ -167,9 +167,14 @@ function showHideTools(noTools, tools){
 
 function updateVoiceSelection(){
 	var lang = $("#lang-options").val();
-	var val = $('#voice-options option:selected').val();
-	if(val){
-		states[lang] = val;
+	if(lang){
+		
+		states[lang] = {
+			lang: $('#voice-options option:selected').attr('data-lang'), 
+			dataIndex: $('#voice-options option:selected').val(), 
+			selIndex: $('#voice-options').prop('selectedIndex'),
+			options: states[lang].options
+		};
 		loadVoiceOptions(true, true);
 		
 		const event = new Event('onvoiceloaded');
@@ -179,31 +184,32 @@ function updateVoiceSelection(){
 
 function loadVoiceOptions(fill, clean){
 	var l = $("#lang-options").val();
-	var voices = $('#languages option[value^="'+l.substring(0,2)+'"]');
-	//if(voices.length === 0){
-	//	voices = $('#languages option:contains("'+l.replace('-','_')+'")');
-	//}
-	$("#voice-options").empty();
-	if(voices.length > 0 && fill){
-		var filter = {};
-		var o = '';
-		for(var i = 0; i < voices.length; i++){
-			var val = voices[i].value;
-			if(filter[voices[i].value] === undefined) 
-			{
-				var selected = (states[l] === val) ? " selected " : "";
-				//var value = (i === 0) ? ' value="'+l+'" ' : ' value="'+l+i+'" ';
-				var value = ' value="'+val+'" ';
-				o += '<option '+value+selected+'>'+voices[i].text+'</option>';
-				filter[voices[i].value] = true;
-			}
-		}
-		$("#voice-options").append($(o));
+	if(states[l] == undefined){
+		states[l] = {lang: l, dataIndex: 0, selIndex: 0, options: undefined};
 	}
-	
-	//const langSelectionEvent = new Event("lang-changed");
-	//document.dispatchEvent(langSelectionEvent);
-	
+	if(states[l].options === undefined){
+		var voices = $('#languages option[value^="'+l.substring(0,2)+'"]');
+		if(voices.length > 0 && fill){
+			var o = '';
+			for(var i = 0; i < voices.length; i++){
+				var val = voices[i].value + voices[i].index;
+				var selected = states[voices[i].value] != undefined ? 
+						(states[voices[i].value].selIndex === i ? " selected " : "") : "";
+				o += '<option value="'+voices[i].index+'"'
+						+selected
+						+' data-lang="'+voices[i].value+'">'+voices[i].text+'</option>';
+			}
+			states[l].options = o;
+		}
+	}
+	$("#voice-options").empty();
+	$("#voice-options").append($(states[l].options));
+	//select last index
+	if(states[l].selIndex > -1){
+		$("#voice-options").prop("selectedIndex", states[l].selIndex);
+	}else{
+		states[l].selIndex = $("#voice-options").prop("selectedIndex");
+	}
 	return voices;
 }
 
