@@ -724,9 +724,19 @@ function playOrStopCurrentPage(elem){
 					togglePlayControls(false);
 
 					// trigger nav
-					if(navigatePage(true, page_layout_size) == true){
+					var isPageEven = ( parseInt(page) % 2 === 0);
+					if(page_layout_size > 1 && isPageEven === false){
+						switchPage(0);
 						setTimeout(function(){
-							playOrStopCurrentPage(elem)
+							playOrStopCurrentPage(elem);
+						}, 500);
+					}
+					else if(navigatePage(true, page_layout_size) == true){
+						if(isPageEven){
+							switchPage(1);
+						}
+						setTimeout(function(){
+							playOrStopCurrentPage(elem);
 						}, 500);
 					}
 				}
