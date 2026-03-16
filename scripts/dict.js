@@ -406,6 +406,21 @@ function listExamplesFromQuran() {
 	loadExamplesFromData(dict, qselect, get_ce_examples());
 }
 
+function handleFilterIndex(val){
+	if (val == 'id_ع'){
+		$("div [id*=id_]").hide();
+		$("div [id*=data_]").show();
+	}
+	else{
+		$("div [id*=data_]").hide();
+		$("div [id*=id_]").hide();
+		if(val == "id_") 
+			$("div [id*=id_]").show();
+		else
+			$("div [id="+val+"]").show();
+	}
+}
+
 function listSearchIndex() {
 	ensureJsonData({name:'isearchData'}, function (data) {
 		$(".dictionary").empty();
@@ -421,13 +436,9 @@ function listSearchIndex() {
 
 		// Add Alphabetic index
 		var iDiv = "<div style='text-align:left;padding:4px;'>";
-		$.each([" ABCDEFGHIJKLMNOPQRSTUVWXYZ"],
+		$.each([" عABCDEFGHIJKLMNOPQRSTUVWXYZ"],
 			function (index, value) {
-				iDiv += '<select style="width:40;" ' +
-					'onchange=" $(\'div [id*=id_]\').hide(); '
-					+ ' $(this).val() == \'id_\' ? $(\'div [id*=id_]\').show() :'
-					+ ' $(\'div [id=\'+$(this).val()+\']\').show(); "'
-					+ ' >';
+				iDiv += '<select style="width:40;" onchange="handleFilterIndex($(this).val())" >';
 				for (const charValue of value) {
 					iDiv += "<option value=id_" + charValue + ">" + charValue + "</option>";
 				};
@@ -443,13 +454,24 @@ function listSearchIndex() {
 				link += ', \'' + key + '\');';
 			else
 				link += ', ' + (value.data ? '\'' + value.data + '\');' : ');');
+			var amatch = arRemovePunct(key).match(/([\u0621-\u064A]+\s?)+/);
+			if(amatch){
+				div.append('<div id="data_' + key[0] + '" ' +
+					'style="margin:0;padding:10px;width:250px;display:inline-block;float:right">' +
+					'<a href="#" onclick="' + link + '">' +
+					amatch[0] + 
+					'</a></div>'
+				);
+			}
 			div.append('<div id="id_' + key[0] + '" ' +
 				'style="margin:0;padding:10px;width:250px;display:inline-block;">' +
 				'<a href="#" onclick="' + link + '">' +
 				key.replaceAll(";", " / ").replace(/\/\s$/ig, '') +
-				'</a></div>');
+				'</a></div>'
+			);
 		});
 		$(".dictionary").append(div);
+		handleFilterIndex('id_')
 	});
 }
 
