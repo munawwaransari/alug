@@ -427,12 +427,27 @@ function listSearchIndex() {
 		$(".dictionary").append('<div style="margin-top: 40px;"></div>');
 
 		//sort by key
-		const sortedData = Object.keys(data)
+		var arSortedData = {};
+		const enSortedData = Object.keys(data)
 			.sort()
 			.reduce((tempObj, key) => {
-				tempObj[key] = data[key];
+				//  Arabic text
+				var amatch = arRemovePunct(key).match(/([\u0621-\u064A]+\s?)+/)+'';
+				if(amatch.includes(','))
+					amatch = amatch.split(',')[0];
+				if(amatch !== "null"){
+					arSortedData[amatch] = data[key];
+				}
+
+				// English text
+				var ematch = key.match(/([a-zA-Z0-9]+\s?)+/)+'';
+				if(ematch.includes(','))
+					ematch = ematch.split(',')[0];
+				if(ematch !== "null"){
+					tempObj[ematch] = data[key];
+				}
 				return tempObj;
-			}, {})
+			}, {});
 
 		// Add Alphabetic index
 		var iDiv = "<div style='text-align:left;padding:4px;'>";
@@ -448,26 +463,26 @@ function listSearchIndex() {
 		var div = $("<div style='direction:ltr;width:100%;height=100%;'></div>");
 		div.append($(iDiv));
 
-		$.each(sortedData, function (key, value) {
+		$.each(enSortedData, function (key, value) {
 			var link = 'parent.redirect(\'' + value.path + '\',\'' + value.action + '\'';
 			if (value.data && value.data == "@key")
 				link += ', \'' + key + '\');';
 			else
 				link += ', ' + (value.data ? '\'' + value.data + '\');' : ');');
-			var amatch = arRemovePunct(key).match(/([\u0621-\u064A]+\s?)+/);
-			if(amatch){
-				div.append('<div id="data_' + key[0] + '" ' +
-					'style="margin:0;padding:10px;width:250px;display:inline-block;float:right">' +
-					'<a href="#" onclick="' + link + '">' +
-					amatch[0] + 
-					'</a></div>'
-				);
-			}
-			div.append('<div id="id_' + key[0] + '" ' +
-				'style="margin:0;padding:10px;width:250px;display:inline-block;">' +
-				'<a href="#" onclick="' + link + '">' +
-				key.replaceAll(";", " / ").replace(/\/\s$/ig, '') +
-				'</a></div>'
+			div.append('<div id="id_'+key[0] + '" ' +
+				'style="margin:0;padding:10px;width:250px;display:inline-block;float:left;">' +
+				'<a href="#" onclick="' + link + '">' + key + '</a></div>'
+			);
+		});
+		$.each(arSortedData, function (key, value) {
+			var link = 'parent.redirect(\'' + value.path + '\',\'' + value.action + '\'';
+			if (value.data && value.data == "@key")
+				link += ', \'' + key + '\');';
+			else
+				link += ', ' + (value.data ? '\'' + value.data + '\');' : ');');
+			div.append('<div id="data_'+key[0] + '" ' +
+				'style="margin:0;padding:10px;width:250px;display:inline-block;float:right;">' +
+				'<a href="#" onclick="' + link + '">' + key + '</a></div>'
 			);
 		});
 		$(".dictionary").append(div);
