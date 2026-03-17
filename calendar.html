@@ -305,14 +305,15 @@
 			document.getElementById("calendarDays").innerHTML = "";
 
 			var tmpDate, gregDate = new Date(year, month, 0);
+			var dayofweek = gregDate.getDay();       // find where to start calendar day of week
 			if(calendarType === 'hijri'){
 				tmpDate = gregorianToHijri(gregDate);
+				dayofweek = toHijriStartWeekDay(tmpDate.Day, new Date().getDay());
 			}else{
 				tmpDate = gregorianDate(gregDate);
 			}
 			
 			var num = daysInMonth(month, year);
-			var dayofweek = gregDate.getDay();       // find where to start calendar day of week
 
 			//add week day selection
 			if(dayofweek < 6){
@@ -426,10 +427,15 @@
 			return { 
 				Year: date.getFullYear(), 
 				Month: date.getMonth(), 
-				Day: date.getDate()
+				Day: date.getDate(),
+				WDay: date.getDay()
 			};
 		}
 		
+		function toHijriStartWeekDay(hijriDay, gregDay){
+			return Math.abs(hijriDay - gregDay) % 7;
+		}
+
 		function gregorianToHijri(gDate) {	
 			const day = gDate.getDate();
 			const month = gDate.getMonth();
@@ -450,7 +456,7 @@
 			const d = l2 - Math.floor((709 * m) / 24);
 			const y = 30 * n + j - 30;
 
-			return { Year: y, Month: m, Day: d };
+			return { Year: y, Month: m, Day: d, WDay: gDate.getDay() };
 		}
 		
 		window.addEventListener('load', function () {
