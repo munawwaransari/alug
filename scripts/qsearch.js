@@ -229,7 +229,23 @@ function search(pageNumber){
 									'\'search=\'+$(\'#searchText\').val(),'+
 									'\'tf=\'+$(\'#tafsir-options\').val()];'+
 								  'shareExternal(p[1], p);" '+
-						'</img>';
+						'</img>' +
+
+					// Copy
+					'<span class="dropdown" style="cursor:pointer;float:right;margin-right:8px;">'+
+					    '<img src="images/copy.png" title="Copy" ' +
+							'style="height:20px;" '+
+							'onclick="" />'+
+				
+						'<div class="dropdown-content" style="margin-left:-60px;width:10px;">'+
+							'<a href="#" onclick="copyAyahText(\'word-ar\');">Copy AR</a>'+
+							'<a href="#" onclick="copyAyahText(\'word-en\');">Copy EN</a>'+
+							'<a href="#" onclick="copyAyahText(\'word-ur\');">Copy UR</a>'+
+							'<a href="#" onclick="copyAyahText(\'word-hi\');">Copy HI</a>'+
+							'<a href="#" onclick="copyTafsirText();">Copy تفسير</a>'+
+							'<a href="#" onclick="copyAyahMp3Path();">MP3 Path</a>'+
+						'</div>'+
+					'</span>';
 			
 			nav += '</div>';
 			div.append($(nav));
@@ -1885,4 +1901,39 @@ function createGridView(data, div){
 function changeSurahDisplayMode(elem){
 	surah_disp_mode = elem.is(':checked') ? 'grid':'table';
 	listSurahs();
+}
+
+function copyAyahText(className){
+	var spans = $("div[id*=vdiv]").find("span[class="+className+"]");
+	var text = '';
+	spans.each(function(i, v){
+		if(text != '') text+= ' ';
+		text += $(v).text();
+	});
+	if(text != ''){
+		copyTextToClipboard(text);
+	}
+}
+
+function copyTafsirText(){
+	var txt = $("#tafsir").text();
+	if(txt){
+		copyTextToClipboard(txt);
+	}
+}
+
+function copyAyahMp3Path(){
+	var url = ($("img[title='Play Qirat']")[0].onclick+'')
+				.match(/'([^']*)'/g)[0];
+	if(url !== null){
+		url = url.replaceAll('\'', '');
+		
+		// Update Qari
+		var selected_qari = document.getElementById('qari-options').value;
+		var current_url = decodeURI(url);
+		var current_qari = current_url.replace("https://everyayah.com/data/",'')
+									.split("/")[0];
+		var url2  = encodeURI(current_url.replace(current_qari, selected_qari));
+		copyTextToClipboard(url2);
+	}
 }
