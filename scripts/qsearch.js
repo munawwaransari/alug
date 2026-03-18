@@ -510,7 +510,7 @@ function displayVerse(div, verse, verseKey, options){
 	var bgColor = options.bgColor ? 'background-color:'+options.bgColor+';' : '';
 	var direction =  options.direction ? 'direction:'+options.direction+';' :
 						verse.match(/^[\x00-\x7F]+/g) ? '' : 'direction:rtl;';
-	var divHtml = '<div id="vdiv'+verseKeys[0]+verseKeys[1]+'"  style="padding-bottom:4px;font-size:22px;display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;'+direction+bgColor+'">';
+	var divHtml = '<div id="vdiv-'+verseKeys[0]+'-'+verseKeys[1]+'"  style="padding-bottom:4px;font-size:22px;display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;'+direction+bgColor+'">';
 	if(options.ayahOption === "image"){
 		divHtml += '<img style="padding:4px;max-width:96%" src="https://everyayah.com/data/images_png/'+verseKeys[0]+'_'+verseKeys[1]+'.png" />';
 	}else{
@@ -535,7 +535,7 @@ function displayVerse(div, verse, verseKey, options){
 	
 	if(options.keepFocus){
 		//setTimeout(function(){
-			var elem = $("#vdiv"+verseKeys[0]+verseKeys[1]);
+			var elem = $("#vdiv-"+verseKeys[0]+'-'+verseKeys[1]);
 			if(elem.length > 0){
 				elem[0].scrollIntoView({
 					behavior: 'smooth', 
@@ -1906,18 +1906,34 @@ function changeSurahDisplayMode(elem){
 function copyAyahText(className){
 	var spans = $("div[id*=vdiv]").find("span[class="+className+"]");
 	var text = '';
+	var ayahNumber = '';
 	spans.each(function(i, v){
 		if(text != '') text+= ' ';
 		text += $(v).text();
+
+		if(ayahNumber == ''){
+			var id = $(v).parent().prop('id');
+			var tk = id.replace('vdiv-','').split('-');
+			if(tk){
+				ayahNumber = ' [Quran '+tk[0]+':'+tk[1]+']';
+			}
+		}
 	});
 	if(text != ''){
-		copyTextToClipboard(text);
+		copyTextToClipboard(text + ayahNumber);
 	}
 }
 
 function copyTafsirText(){
 	var txt = $("#tafsir").text();
-	if(txt){
+	
+	if(txt && txt.length > 0){
+		var id = $("#tafsir").prev('div').prop('id');
+		var tk = id.replace('div','').split('_');
+		if(tk){
+			var ayahNumber = ' [Quran '+tk[0]+':'+tk[1]+']';
+			txt += ayahNumber;
+		}
 		copyTextToClipboard(txt);
 	}
 }
