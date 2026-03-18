@@ -185,6 +185,8 @@
 		<script src="scripts/data-util.js"></script>
 		<script src="scripts/ptimings.js"></script>
 		<script>
+		var g_date = gregorianDate(new Date());
+		var h_date = null;
 		var calendarType = 'gregorian';
 		var month_days = ['', 'الأوَّل', 'الثاني', 'الثالث', 'الرابع', 'الخامس', 'السادس', 'السابع',
 						  'الثامن', 'التاسع', 'العاشر', 'الحادي عشر', 'الثاني عشر', 'الثالث عشر', 'الرابع عشر',
@@ -227,15 +229,7 @@
 							 '<span>('+ translateNumber(date.Day) +') </span>' + 
 							 '<span>'+ months_islamic[date.Month] + ' </span>' + 
 							 '<span>'+ translateNumber(date.Year) + ' </span>' + 
-						 '</div>';
-						 
-				/*
-				playCalendarText(
-					translateNumber(date.Day) + ' '+ 
-					months_islamic[date.Month] + ' ' + 
-					translateNumber(date.Year)
-				);
-				*/
+						 '</div>';						 
 			}
 			$(".calenderDisplay").html(html);
 		}
@@ -304,13 +298,12 @@
 		function loadCalendarDays() {
 			document.getElementById("calendarDays").innerHTML = "";
 
-			var tmpDate, gregDate = new Date(year, month, 0);
-			var dayofweek = gregDate.getDay();       // find where to start calendar day of week
+			var dayofweek = 0;
 			if(calendarType === 'hijri'){
-				tmpDate = gregorianToHijri(gregDate);
-				dayofweek = toHijriStartWeekDay(tmpDate.Day, new Date().getDay());
+				dayofweek = toHijriStartWeekDay(h_date.Day, g_date.Day) - 1;
+				if(dayofweek < 0) dayofweek = 6;
 			}else{
-				tmpDate = gregorianDate(gregDate);
+				dayofweek = gregorianDate(new Date(g_date.Year, g_date.Month, 0)).WDay;
 			}
 			
 			var num = daysInMonth(month, year);
@@ -383,16 +376,15 @@
 			
 			calendarType = $('#cal').val();
 			
-			var gregDate = new Date();
 			var date;
 			toggleDireection();
 			if(calendarType === 'gregorian'){
-				date = gregorianDate(gregDate)
+				date = g_date;
 				month = date.Month;
 				year = date.Year;
 			}
 			else{
-				date = gregorianToHijri(gregDate);
+				date = h_date;
 				month_hijri = date.Month;
 				year_hijri = date.Year;
 			}
@@ -435,33 +427,30 @@
 		function toHijriStartWeekDay(hijriDay, gregDay){
 			return Math.abs(hijriDay - gregDay) % 7;
 		}
-
-		function gregorianToHijri(gDate) {	
-			const day = gDate.getDate();
-			const month = gDate.getMonth();
-			const year = gDate.getFullYear();
-
-			const jd = Math.floor((1461 * (year + 4800 + Math.floor((month - 14) / 12))) / 4) +
-					   Math.floor((367 * (month - 2 - 12 * (Math.floor((month - 14) / 12)))) / 12) -
-					   Math.floor((3 * (Math.floor((year + 4900 + Math.floor((month - 14) / 12)) / 100))) / 4) +
-					   day - 32075;
-
-			const l = jd - 1948440 + 10632;
-			const n = Math.floor((l - 1) / 10631);
-			const l1 = l - 10631 * n + 354;
-			const j = (Math.floor((10985 - l1) / 5316)) * (Math.floor((50 * l1) / 17719)) + (Math.floor(l1 / 5670)) * (Math.floor((43 * l1) / 15238));
-			const l2 = l1 - (Math.floor((30 - j) / 15)) * (Math.floor((17719 * j) / 50)) - (Math.floor(j / 16)) * (Math.floor((15238 * j) / 43)) + 29;
-
-			const m = Math.floor((24 * l2) / 709);
-			const d = l2 - Math.floor((709 * m) / 24);
-			const y = 30 * n + j - 30;
-
-			return { Year: y, Month: m, Day: d, WDay: gDate.getDay() };
-		}
 		
+		//api: https://api.aladhan.com/v1/gToH/DD-MM-YYYY
+		function convertGregorianToHijri(date, callback){
+			var api = "https://api.aladhan.com/v1/gToH/"+date.Day+"-"+(date.Month+1)+"-"+date.Year;
+			loadJsonData(api, 
+				function (data) {
+					if(callback){
+						callback({
+							"Year": data.data.hijri.year, 
+							"Month": data.data.hijri.month.number, 
+							"Day": data.data.hijri.day, 
+							"WDay": date.WDay
+						});
+					}
+				}
+			);
+		}
+
 		window.addEventListener('load', function () {
 			$("#cal").val(calendarType);
-			loadCalendar();
+			convertGregorianToHijri(g_date, (hdate) => {
+				h_date = hdate;
+				loadCalendar();
+			});
 		});
 		
 		function playCalendarText(txt){
