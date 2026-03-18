@@ -207,9 +207,9 @@
 			return '<b>'+retStr+'</b>';
 		}
 		
-		var last_Date = new Date();
+		var last_Date;
 		function displayDate(date){		
-			last_Date = date;
+			last_Date = h_date;
 			var html = "";
 			if(calendarType === 'gregorian'){
 				html = '<div>'+ 
@@ -385,7 +385,7 @@
 			}
 			else{
 				date = h_date;
-				month_hijri = date.Month;
+				month_hijri = date.Month - 1;
 				year_hijri = date.Year;
 			}
 			sel_day = date.Day - 1;
