@@ -30,7 +30,7 @@ class cmpAPI {
 				(!showComparison && cEntry.compareType === undefined)){
 				var val = cEntry["topics"].join(' vs ');
 				var selected = index === indexValue ? ' selected ' : '';
-				sel += '<option value="'+val+'" '+selected+'><b>'+val+'</b></option>';
+				sel += `<option value="${val}" ${selected}>${val}</option>`;
 				if(index === indexValue)
 					first = val;
 				index=index+1;
@@ -42,10 +42,10 @@ class cmpAPI {
 
 		container.prepend($(sel+'</select>'));
 		if(showComparison){
-			container.prepend($('<p style="margin:auto;padding:0;"><br/>'+
-									'<label id="cmpLabel">Compare</label>'+
-									'<input type="Checkbox" onchange="handleCompareCheck()">'+
-								'</p>'));
+			container.prepend($(`<p style="margin:auto;padding:0;"><br/>
+									<label id="cmpLabel">Compare</label>
+									<input type="Checkbox" onchange="handleCompareCheck()">
+								 </p>`));
 		}
 		api.addComparisionTable("."+container[0].className, first);
 	}
@@ -66,25 +66,27 @@ class cmpAPI {
 				
 		var compTable = '', compTableCol1, compTableCol2;
 		if(selArray.length > 1){
-			compTable = '<table id="cmpTable" style="display:flex;padding:0;margin:0;border-collapse:collapse;align:top;"><tr>'+
-							'<td style="width:50%;align-content:flex-start;padding:0;margin:0;border-color: transparent;border-bottom-style: hidden;border-right-style: hidden;border-left-style: hidden;"></td>'+
-							'<td style="width:50%;align-content:flex-start;padding:0;margin:0;border-color: transparent;border-bottom-style: hidden;border-right-style: hidden;border-left-style: hidden;"></td>'+
-						'</tr></table>';
+			compTable = `
+			<table id="cmpTable" style="display:flex;padding:0;margin:0;border-collapse:collapse;align:top;">
+				<tr>
+					<td style="width:50%;align-content:flex-start;padding:0;margin:0;border-color: transparent;border-bottom-style: hidden;border-right-style: hidden;border-left-style: hidden;"></td>
+					<td style="width:50%;align-content:flex-start;padding:0;margin:0;border-color: transparent;border-bottom-style: hidden;border-right-style: hidden;border-left-style: hidden;"></td>
+				</tr>
+			</table>`;
 			$(containerClass).append($(compTable));
 			compTableCol1 = $("#cmpTable tr td:first()");
 			compTableCol2 = $("#cmpTable tr td:last()");
 		}	
-		
 		
 		selArray.every(function(sel1, index){
 			var id = selArray.length > 1 ? index+1 : '';
 			sel = sel1;
 			
 			var topics = sel.split(" vs ");
-			var tableHtml = '<table id="xTable'+id+'" class="pTable"><tr>';
+			var tableHtml = `<table id="xTable${id}" class="pTable"><tr>`;
 			var tableHeaders = "";
 			for(var i=0; i < topics.length; i++)				 
-				tableHeaders += '<th style="font-size: 22px;">'+topics[i]+'</th>';
+				tableHeaders += `<th style="font-size: 22px;">${topics[i]}</th>`;
 			tableHtml += tableHeaders+'</table>';
 			
 			if(id === '')
@@ -96,30 +98,30 @@ class cmpAPI {
 					compTableCol2.append($(tableHtml));
 			}
 			
-			//table = $(containerClass+ " #Table");
 			var cmp = cmpAPI.cmpData.filter(x=>x["topics"].join(' vs ') === sel)[0];
-			
+
 			if(cmp["notes"]){
-				var r = $('<tr><td style="font-size:14px;background-color:#F6F6BA;" colspan="'+topics.length+'">'+replaceQLink(cmp["notes"])+'</td></tr>');
+				var r = $(`<tr><td style="font-size:14px;background-color:#F6F6BA;" colspan="${topics.length}">${replaceQLink(cmp["notes"])}</td></tr>`);
 				$("#xTable tbody").append(r);
 			}
-			var alink = '<a href="#" style=" text-decoration: none" '+
-							' onclick="checkWord(\'$\');">$</a>';
+			var alink = '<a href="#" style=" text-decoration: none" onclick="checkWord(\'$\');">$</a>';
 							
 			var featureCount = cmp["ar"].length;
 			var rows = "";
 			for(var f=0; f < featureCount; f++){
-				rows += '<tr><td style="font-weight:bold;font-size:14px;background-color:#D2ECAD;" colspan="'+topics.length+'">'+'(' + cmp["ar"][f]+') '+cmp["en"][f]+'</td></tr>'+
-						'<tr>';
-				for(var i=0; i < topics.length; i++){
-					var topic = topics[i];
-					rows += '<td>'+replaceQLink(cmp["features"][topic][f])+'</td>';	
-				}
-				rows += '</tr>';
+				rows += `<tr><td style="font-weight:bold;font-size:14px;background-color:#D2ECAD;" colspan="${topics.length}">
+							( ${cmp["ar"][f]} ) ${cmp["en"][f]}
+						</td></tr>
+						<tr>
+						${
+							topics.map((topic) => {
+								return `<td>${replaceQLink(cmp["features"][topic][f])}</td>`
+							})
+						}
+						</tr>`;
 			}
 			
-			$('#xTable'+id+' tbody').append($(rows));
-		
+			$('#xTable'+id+' tbody').append($(rows));		
 			return true;
 		});
 	}
