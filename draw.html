@@ -1,7 +1,11 @@
+<!--
+	Author: munawwar_ali@yahoo.com	
+
+	ref: https://stackoverflow.com/questions/44934221/html5-canvas-with-freehand-line-drawing
+//-->
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- https://stackoverflow.com/questions/44934221/html5-canvas-with-freehand-line-drawing -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="#" />
@@ -141,15 +145,6 @@
 		mouse = createMouse().start(canvas, true);
 		ctx = canvas.getContext("2d");
 		
-		//*** Add Save Button
-		/*
-		addButton('Save',  function() {
-			canvas.toBlob(function(blob){
-				saveCanvas(blob);
-			});
-		});
-		*/
-		
 		//*** Add Image Button
 		addButton('Img', function() {
 			let imgUrl = prompt("Enter image url:");
@@ -237,7 +232,6 @@
 	}
 	// resize main display canvas and set global size vars
 	function resizeCanvas() {
-	  //ch = ((h = canvas.height = innerHeight - 32) / 2) | 0;
 	  ch = ((h = canvas.height = maxHeight - 32) / 2) | 0;
 	  cw = ((w = canvas.width = innerWidth) / 2) | 0;
 	  updateDisplay = true;
@@ -384,8 +378,7 @@
 			}
 		else
 			ctx.drawImage(img, imgX+20, imgY+20);
-	  }
-	  
+	  }	  
 	}
 	
 	//************************************************************

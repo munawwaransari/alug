@@ -255,8 +255,6 @@ function toggleAutoplay(){
 	
 	if(!speech_synthesis_supportd){
 		$("#ss-support_2").show();
-		//toggleIcon("#ss-support");
-		//alert('Speech synthesis is not supported on your browser!');
 	}else{
 		$("#ss-support_1").hide();
 		$("#ss-support_2").hide();
@@ -281,12 +279,10 @@ function toggleMenu(){
 	toggleIcon("#topics");
 	menuOption = !menuOption;
 	$(".menu-container").toggle();
-	//console.log('menuOption :' + menuOption);
 }
 
 function toggleIcon(id){
 	[id+'_1', id+'_2'].forEach(function(id){
-		//console.log('toggleIcon: ' + id); 
 		$(id).toggle();	
 	});
 	
@@ -314,7 +310,6 @@ function loadDictionarySearch(text){
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
 		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "dsearch.html?search="+text));
-		//$('#title-img').hide();
 	}, 5);
 }
 
@@ -331,7 +326,6 @@ function loadGrammarView(params){
 				path += "&data="+params["data"];
 		}
 		$('.reading-pane').attr('src', encodeURI(getLocationPath() + path));
-		//$('#title-img').hide();
 	}, 5);
 }
 
@@ -346,7 +340,6 @@ function loadQuranSearch(text, sval = ''){
 		var lang = selectElement.value.substring(0,2);
 
 		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "qsearch.html?search="+text+"&lang="+lang+"&mode="+app_mode));
-		//$('#title-img').hide();
 	}, 5);
 }
 
@@ -650,7 +643,6 @@ function autoplayAudio(chapter, page){
 		$('#playSections').find('option').remove().end();
 		if(sections){
 			sections.forEach(function(sect){
-				//console.log(sect.play);
 				$('#playSections').append('<option value="'+ sect.play +'">'+sect.topic+'</option>');					
 			});
 			
@@ -786,9 +778,7 @@ function getDefaultActions(txt){
 			res.push('...Analyze '+t);
 		}
 		res.push('...QuranSearch '+t);
-		//if (/[\\u0621-\\u064A]+/g.test(t)){
-			res.push('...Phrase '+t+ ' ');
-		//}
+		res.push('...Phrase '+t+ ' ');
 	}
 	return res;
 }

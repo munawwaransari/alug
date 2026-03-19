@@ -1,3 +1,6 @@
+<!--
+	Author: munawwar_ali@yahoo.com	
+//-->
 <html>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <head>
@@ -5,7 +8,6 @@
   </head>
   <body>
 	 <button onclick="loadVoices()">Load</button>
-	 <!-- <button onclick="openUrl()">Open</button> -->
   </body>
   <script>
 	window.onload = function(){
@@ -83,7 +85,7 @@
 	}
 	function loadHiddenHtml(url, callback){
 		console.log('Opening...:'+ url);
-		let handle = window.open(url, '_blank'); //,'width=600,height=300,left=0,top=0');
+		let handle = window.open(url, '_blank');
 		if(handle){
 			handle.addEventListener('load', function() {
 				if(callback)

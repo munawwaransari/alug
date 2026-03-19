@@ -2,7 +2,6 @@
 //	Author: munawwar_ali@yahoo.com
 //
 
-
 var lastSuggestionInput = undefined;
 var dict = {};
 var posAPIObj, cmpAPIObj, posSearchObj;

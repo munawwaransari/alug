@@ -403,16 +403,14 @@
 		
 		function toggleDireection(){
 			var className = ".days";
-			//cls.every(function(className){
-				if(calendarType === 'gregorian'){
-					$(className).removeClass('rightToLeft');
-					$(className).addClass('leftToRight');
-				}
-				else{
-					$(className).removeClass('leftToRight');
-					$(className).addClass('rightToLeft');
-				}
-			//});
+			if(calendarType === 'gregorian'){
+				$(className).removeClass('rightToLeft');
+				$(className).addClass('leftToRight');
+			}
+			else{
+				$(className).removeClass('leftToRight');
+				$(className).addClass('rightToLeft');
+			}
 		}
 		
 		function gregorianDate(date){

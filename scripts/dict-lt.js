@@ -119,15 +119,3 @@ function addAsHtmlTable(container, table, columns){
 function filterTable(wordColumn){
 	filterTableRows('.csvTable', wordColumn, $("#txtFilter").val());
 }
-
-/*
-function getRowData(columns, row){
-	var rowData = {};
-	columns.every(function(val, index){
-		var data =  row[index];
-		rowData[columns[index]] = val.trim();
-		return true;
-	});
-	return rowData;
-}
-*/

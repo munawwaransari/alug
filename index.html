@@ -1,3 +1,6 @@
+<!--
+	Author: munawwar_ali@yahoo.com	
+//-->
 <html>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, user-scalable=yes" />
@@ -166,9 +169,6 @@
 				audio.addEventListener("loadstart", () => {
 					if(cb) cb("loadstart", { ct: audio.currentTime });
 				});
-				//audio.addEventListener("progress", () => {
-				//	if(cb) cb("progress", audio.currentTime);
-				//});
 				audio.addEventListener("loadeddata", () => {
 					if(cb) {
 						cb("loadeddata", { ct: audio.currentTime, duration: audio.duration });
@@ -218,7 +218,6 @@
 			}
 		</script>
 		</script>
-		<!-- <script src="scripts/chapters.js"></script> -->
 	</head>
 	<body>
 		<img id="hd-loading"

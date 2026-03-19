@@ -1,3 +1,7 @@
+//
+//	Author: munawwar_ali@yahoo.com
+//
+
 /*
  This function loads the question data from question json file;
  prepares the data as per quizlib requirements;
@@ -91,9 +95,6 @@ function showResults(quizID) {
 
         // Show the result element and add result values.
         quizResultElement.style.display = 'block';
-        //document.getElementById('quiz-score').innerHTML = activeQuiz.result.score.toString();
-        //document.getElementById('quiz-max-score').innerHTML = activeQuiz.result.totalQuestions.toString();
-        //document.getElementById('quiz-percent').innerHTML = quizScorePercent.toString();
 		document.getElementById('quiz-result-'+quizID).innerHTML = '<div style="color:white;text-align: center;width:100%">You scored '+
 								quizScorePercent.toString()+'% - '+ 
 								activeQuiz.result.score.toString()+' /'+

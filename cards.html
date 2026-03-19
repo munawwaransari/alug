@@ -1,3 +1,6 @@
+<!--
+	Author: munawwar_ali@yahoo.com	
+//-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -166,7 +169,6 @@
 				var url = getLocationPath() + 'data/grmr/'+dataParam+'.json';
 				loadJsonData(url, function(data){
 					const firstKey = Object.keys(data)[0];
-					//console.log(data[firstKey]);
 					var div = $("#cardContainer");
 					
 					data[firstKey].forEach(function(cdata){
