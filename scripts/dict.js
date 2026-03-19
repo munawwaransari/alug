@@ -256,7 +256,6 @@ function showPrepPhrasesTable() {
 
 function checkWord(w) {
 	$("#wordSearchText").val(w);
-	//analyzeSelectedWord();
 }
 
 function analyzeSelectedWord() {
@@ -303,7 +302,10 @@ function loadExamplesFromCmpData(dict, qselect) {
 			keyExamples.every(function (ex, i) {
 				if (/\[\d+\:\d+\]/ig.test(ex)) {
 					;
-					div += '<p style="font-size:10px;">' + replaceQLink(ex.replaceAll('e.g.', '')) + '</p>';
+					div += `
+					<p style="font-size:10px;">
+						${replaceQLink(ex.replaceAll('e.g.', ''))}
+					</p>`;
 				}
 				return true;
 			});
@@ -313,9 +315,13 @@ function loadExamplesFromCmpData(dict, qselect) {
 					.replaceAll('(', '')
 					.replaceAll(')', '')
 					.replaceAll('/', '');
-				qselect.append('<option value="' + kval + '">' + key + '</option>');
-				html += '<div id="qid_' + kval + '" style="margin:auto;padding:10px;width:100%;display:inline-block;">' +
-					'<p>' + key + '</p>' + div + '</div>';
+				qselect.append(`<option value="${kval}">${key}</option>`);
+				html += `
+				<div id="qid_${kval}" 
+					style="margin:auto;padding:10px;width:100%;display:inline-block;">
+					<p>${key}</p>
+				${div}
+				</div>`;
 			}
 		});
 		html += '</div>';
@@ -332,8 +338,7 @@ function loadExamplesFromObjectEffectData(dict, qselect, data) {
 			var div = '';
 			value.examples.every(function (ex, i) {
 				if (/\[\d+\:\d+\]/ig.test(ex)) {
-					;
-					div += '<p style="font-size:10px;">' + replaceQLink(ex) + '</p>';
+					div += `<p style="font-size:10px;">${replaceQLink(ex)}</p>`;
 				}
 				return true;
 			});
@@ -343,9 +348,13 @@ function loadExamplesFromObjectEffectData(dict, qselect, data) {
 					.replaceAll('(', '')
 					.replaceAll(')', '')
 					.replaceAll('/', '');
-				qselect.append('<option value="' + kval + '">' + value.name_ar + '</option>');
-				html += '<div id="qid_' + kval + '" style="margin:auto;padding:10px;width:100%;display:inline-block;">' +
-					'<p>' + value.name_ar + '</p>' + div + '</div>';
+				qselect.append(`<option value="${kval}">${value.name_ar}</option>`);
+				html += `
+				<div id="qid_${kval}" 
+					style="margin:auto;padding:10px;width:100%;display:inline-block;">
+					<p>${value.name_ar}</p>
+					${div}
+				</div>`;
 			}
 		});
 		html += '</div>';
@@ -365,15 +374,19 @@ function loadExamplesFromData(dict, qselect, data, prefix) {
 			var values = value.match ? [value] : value;
 			values.every(function (ex, i) {
 				if (/\[\d+\:\d+\]/ig.test(ex)) {
-					div += '<p style="font-size:10px;">' + replaceQLink(value) + '</p>';
+					div += `<p style="font-size:10px;">${replaceQLink(value)}</p>`;
 				}
 			});
 			
 			if (div !== '') {
 				var kval = arRemovePunct(prefix + key).replaceAll(' ', '_');
-				qselect.append('<option value="' + kval + '">' + prefix + ' ' + key + '</option>');
-				html += '<div id="qid_' + kval + '" style="margin:auto;padding:10px;width:100%;display:inline-block;">' +
-					'<p>' + prefix + ' ' + key + '</p>' + div + '</div>';
+				qselect.append(`<option value="${kval}">${prefix} ${key}</option>`);
+				html += `
+				<div id="qid_${kval}" 
+					style="margin:auto;padding:10px;width:100%;display:inline-block;">
+					<p>${prefix} ${key}</p>
+				${div}
+				</div>`;
 			}
 		});
 		html += '</div>';
@@ -385,12 +398,18 @@ function listExamplesFromQuran() {
 	var dict = $(".dictionary");
 	dict.empty();
 	// Add select
-	var qselect = $('<select id="qs1" style="text-align:center;margin-top:10px;" ' +
-		'onchange= "$(\'div [id*=qid_]\').hide(); '
-		+ ' $(this).val() == \'ALL\' ? $(\'div [id*=qid_]\').show() :'
-		+ ' $(\'div [id=qid_\'+arRemovePunct($(this).val()).replaceAll(\' \',\'_\')+\']\').show(); '
-		+ '" >'
-		+ '</select>"');
+	var qselect = $(`
+		<select id="qs1" style="text-align:center;margin-top:10px;"
+			onchange=" 
+			$('div [id*=qid_]').hide();
+			if($(this).val() == 'ALL'){ 
+				$('div [id*=qid_]').show()
+			}else{
+				var id = arRemovePunct($(this).val()).replaceAll(' ','_');
+				$('div [id=qid_'+id+']').show();
+			}
+			">
+		</select>`);
 	qselect.append('<option value="ALL">ALL</option>');
 	dict.append(qselect);
 
@@ -468,9 +487,11 @@ function listSearchIndex() {
 				link += ', \'' + key + '\');';
 			else
 				link += ', ' + (value.data ? '\'' + value.data + '\');' : ');');
-			div.append('<div id="id_'+key[0] + '" ' +
-				'style="margin:0;padding:10px;width:250px;display:inline-block;float:left;">' +
-				'<a href="#" onclick="' + link + '">' + key + '</a></div>'
+			div.append(`
+				<div id="id_${key[0]}"
+					style="margin:0;padding:10px;width:250px;display:inline-block;float:left;">
+					<a href="#" onclick="${link}">${key}</a>
+				</div>`
 			);
 		});
 		$.each(arSortedData, function (key, value) {
@@ -479,9 +500,11 @@ function listSearchIndex() {
 				link += ', \'' + key + '\');';
 			else
 				link += ', ' + (value.data ? '\'' + value.data + '\');' : ');');
-			div.append('<div id="data_'+key[0] + '" ' +
-				'style="margin:0;padding:10px;width:250px;display:inline-block;float:right;">' +
-				'<a href="#" onclick="' + link + '">' + key + '</a></div>'
+			div.append(`
+				<div id="data_${key[0]}"
+					style="margin:0;padding:10px;width:250px;display:inline-block;float:right;">
+					<a href="#" onclick="${link}">${key}</a>
+				</div>`
 			);
 		});
 		$(".dictionary").append(div);
@@ -629,14 +652,16 @@ function get_ce_examples() {
 function showCauseAndEffects(inp) {
 	$(".dictionary").empty();
 
-	var html = '<div style="font-size:12px;width:100%;background-color:yellow;text-align:center;">' +
-		'Click or tap on a block to see examples ( See: <a href="#" onclick="' +
-		'showObjectEffects(\'ism\',\'المفاعيل\', \'Object\', \'objectEffectsData\')">Object Effects</a> )' +
-		'</div>' +
-		'<div style="width:100%;display:flex;flex-diection:column;text-align:center;">' +
-		'<img id="svgImg1" style="margin:auto;current:arrow;" src="images/ce.svg"></img>' +
-		'</div>' +
-		'<div id="ceExamples" style="width:100%;text-align:center;"></div>';
+	var html = `
+	<div style="font-size:12px;width:100%;background-color:yellow;text-align:center;">
+		Click or tap on a block to see examples ( See: 
+		<a href="#" onclick="showObjectEffects('ism','المفاعيل', 'Object', 'objectEffectsData')">Object Effects</a> )
+	</div>
+	<div style="width:100%;display:flex;flex-diection:column;text-align:center;">
+		<img id="svgImg1" style="margin:auto;current:arrow;" src="images/ce.svg"></img>
+	</div>
+	<div id="ceExamples" style="width:100%;text-align:center;">
+	</div>`;
 
 	$(".dictionary").append($(html));
 
@@ -740,50 +765,83 @@ function showTriliteralVerbTable() {
 
 	var alink = '<a href="#" style=" text-decoration: none" onclick="checkWord(\'$\');">$</a>';
 	$(".dictionary").empty()
-	var table = '<table class="pTable">' +
-		'<tr style="background-color:#B6D7A8;font-size:16px;">' +
-		'<th>الماضي المعلُوم</th>' +
-		'<th>المُضارع المعلوم<br/>(مُرفُوع)</th>' +
-		'<th>الماضي المجهُول</th>' +
-		'<th>المُضارع المجهُول<br/>(مُرفُوع)</th>' +
-		'</tr>' +
-		'<tr>' +
-		'<td>فَعَلَ</td><td>يَفْعَلُ</td>' +
-		'<td>فُعِلَ</td><td>يُفْعَلَ</td></tr>' +
-		'<tr style="background-color:#E8E885"><td>(' + alink.replaceAll('$', 'فَتَحَ') + ')</td><td>(' + alink.replaceAll('$', 'يَفْتَحُ') + ')</td>' +
-		'<td>(' + alink.replaceAll('$', 'فُتِحَ') + ')</td><td>(' + alink.replaceAll('$', 'يُفْتَحُ') + ')</td>' +
-		'</tr>' +
-		'<tr>' +
-		'<td>فَعَلَ</td><td>يَفْعِلُ</td>' +
-		'<td>فُعِلَ</td><td>يُفْعَلَ</td></tr>' +
-		'<tr style="background-color:#E8E885"><td>(' + alink.replaceAll('$', 'ضَرَبَ') + ')</td><td>(' + alink.replaceAll('$', 'يَضْرِبُ') + ')</td>' +
-		'<td>(ضُرِبَ)</td><td>(يُضرَبُ)</td>' +
-		'</tr>' +
-		'<tr>' +
-		'<td>فَعَلَ</td><td>يَفْعُلُ</td><td>يَفْعُلَ</td>' +
-		'<td>يُفْعَلَ</td></tr>' +
-		'<tr style="background-color:#E8E885"><td>(' + alink.replaceAll('$', 'نَصَرَ') + ')</td><td>(' + alink.replaceAll('$', 'يَنْصُرُ') + ')</td>' +
-		'<td>(' + alink.replaceAll('$', 'نُصِرَ') + ')</td><td>(' + alink.replaceAll('$', 'يُنْصَرُ') + ')</td>' +
-		'</tr>' +
-		'<tr>' +
-		'<td>فَعِلَ</td><td>يَفْعَلُ</td>' +
-		'<td>فُعِلَ</td><td>يُفْعَلَ</td></tr>' +
-		'<tr style="background-color:#CFE2F3"><td>(' + alink.replaceAll('$', 'سَمِعَ') + ')</td><td>(' + alink.replaceAll('$', 'يَسْمَعُ') + ')</td>' +
-		'<td>(' + alink.replaceAll('$', 'سُمِعَ') + ')</td><td>(' + alink.replaceAll('$', 'يُسْمَعُ') + ')</td>' +
-		'</tr>' +
-		'<tr>' +
-		'<td>فَعِلَ</td><td>يَفْعِلُ</td>' +
-		'<td>فُعِلَ</td><td>يُفْعَلَ</td></tr>' +
-		'<tr style="background-color:#CFE2F3"><td>(' + alink.replaceAll('$', 'حَسِبَ') + ')</td><td>(' + alink.replaceAll('$', 'يَحسِبُ') + ')</td>' +
-		'<td>(' + alink.replaceAll('$', 'حُسِبَ') + ')</td><td>(' + alink.replaceAll('$', 'يُحْسَبُ') + ')</td>' +
-		'</tr>' +
-		'<tr>' +
-		'<td>فَعُلَ</td><td>يَفْعُلَ</td>' +
-		'<td>فُعِلَ</td><td>يُفْعَلَ</td></tr>' +
-		'<tr style="background-color:#DFB4C9"><td>(' + alink.replaceAll('$', 'كَرُمَ') + ')</td><td>(' + alink.replaceAll('$', 'يَكْرُمُ') + ')</td>' +
-		'<td>(' + alink.replaceAll('$', 'كُرِمَ') + ')</td><td>(' + alink.replaceAll('$', 'يُكْرَمُ') + ')</td>' +
-		'</tr>' +
-		'<table>';
+	var table = `
+	<table class="pTable">
+		<tr style="background-color:#B6D7A8;font-size:16px;">
+			<th>الماضي المعلُوم</th>
+			<th>المُضارع المعلوم<br/>(مُرفُوع)</th>
+			<th>الماضي المجهُول</th>
+			<th>المُضارع المجهُول<br/>(مُرفُوع)</th>
+		</tr>
+		<tr>
+			<td>فَعَلَ</td><td>يَفْعَلُ</td>
+			<td>فُعِلَ</td><td>يُفْعَلَ</td>
+		</tr>
+		<tr style="background-color:#E8E885">
+			<td>(${alink.replaceAll('$', 'فَتَحَ')})</td>
+			<td>(${alink.replaceAll('$', 'يَفْتَحُ')})</td>
+			'<td>(${alink.replaceAll('$', 'فُتِحَ')})</td>
+			<td>(${alink.replaceAll('$', 'يُفْتَحُ')})</td>
+		</tr>
+		<tr>
+			<td>فَعَلَ</td><td>يَفْعِلُ</td>
+			<td>فُعِلَ</td><td>يُفْعَلَ</td>
+		</tr>
+		<tr style="background-color:#E8E885">
+			<td>(${alink.replaceAll('$', 'ضَرَبَ')})</td>
+			<td>(${alink.replaceAll('$', 'يَضْرِبُ')})</td>
+			<td>(ضُرِبَ)</td>
+			<td>(يُضرَبُ)</td>
+		</tr>
+		<tr>
+			<td>فَعَلَ</td>
+			<td>يَفْعُلُ</td>
+			<td>يَفْعُلَ</td>
+			<td>يُفْعَلَ</td>
+		</tr>
+		<tr style="background-color:#E8E885">
+			<td>(${alink.replaceAll('$', 'نَصَرَ')})</td>
+			<td>(${alink.replaceAll('$', 'يَنْصُرُ')})</td>
+			<td>(${alink.replaceAll('$', 'نُصِرَ')})</td>
+			<td>(${alink.replaceAll('$', 'يُنْصَرُ')})</td>
+		</tr>
+		<tr>
+			<td>فَعِلَ</td>
+			<td>يَفْعَلُ</td>
+			<td>فُعِلَ</td>
+			<td>يُفْعَلَ</td>
+		</tr>
+		<tr style="background-color:#CFE2F3">
+			<td>(${alink.replaceAll('$', 'سَمِعَ')})</td>
+			<td>(${alink.replaceAll('$', 'يَسْمَعُ')})</td>
+			<td>(${alink.replaceAll('$', 'سُمِعَ')})</td>
+			<td>(${alink.replaceAll('$', 'يُسْمَعُ')})</td>
+		</tr>
+		<tr>
+			<td>فَعِلَ</td>
+			<td>يَفْعِلُ</td>
+			<td>فُعِلَ</td>
+			<td>يُفْعَلَ</td>
+		</tr>
+		<tr style="background-color:#CFE2F3">
+			<td>(${alink.replaceAll('$', 'حَسِبَ')})</td>
+			<td>(${alink.replaceAll('$', 'يَحسِبُ')})</td>
+			<td>(${alink.replaceAll('$', 'حُسِبَ')})</td>
+			<td>(${alink.replaceAll('$', 'يُحْسَبُ')})</td>
+		</tr>
+		<tr>
+			<td>فَعُلَ</td>
+			<td>يَفْعُلَ</td>
+			<td>فُعِلَ</td>
+			<td>يُفْعَلَ</td>
+		</tr>
+		<tr style="background-color:#DFB4C9">
+			<td>(${alink.replaceAll('$', 'كَرُمَ')})</td>
+			<td>(${alink.replaceAll('$', 'يَكْرُمُ')})</td>
+			<td>(${alink.replaceAll('$', 'كُرِمَ')})</td>
+			<td>(${alink.replaceAll('$', 'يُكْرَمُ')})</td>
+		</tr>
+	<table>`;
 	$(".dictionary").append('<div style="height:10px;"></div>');
 	$(".dictionary").append($(table));
 }
@@ -792,29 +850,62 @@ function showInadequateVerbTable() {
 
 	var alink = '<a href="#" style=" text-decoration: none" onclick="checkWord(\'$\');">$</a>';
 	$(".dictionary").empty();
-	var table = '<table class="pTable">' +
-		'<tr style="background-color:#E8E885;"><td><b>توقيت (Timing)</b></td></tr>' +
-		'<tr style="background-color:#E8E885;"><td>to become / to change<br/>' +
-		alink.replaceAll('$', 'أصبَح') + ' / ' +
-		alink.replaceAll('$', 'أَمسَ') + ' / ' +
-		alink.replaceAll('$', 'ظَلّ') + ' / ' +
-		alink.replaceAll('$', 'بَاتَ') + '</td></tr>' +
-		'<tr><td>اصبَحَ الطَّقَسُ جَمِيلَةً<br/>The weather has become beautiful<br/>بَاتَ المَريضُ جَادًا<br/>The patient became (in night) seriosly ill</td></tr>' +
-		'</tr>' +
-		'<tr style="background-color:#E8E885;"><td><b>تحويل (Transition)</b></td></tr>' +
-		'<tr style="background-color:#E8E885;"><td>to tansition / become<br/>' +
-		alink.replaceAll('$', 'صَارَ') + ' / صَارَ إِلَي</td></tr>' +
-		'<tr><td>صَارَ الماءُ جَليِدًا<br/>The water became ice<br/>صارَ إلَي لِصٍّ<br/>He beame a thief</td></tr>' +
-		'</tr>' +
-		'<tr style="background-color:#E8E885;"><td><b>نفي (Negation)</b></td></tr>' +
-		'<tr style="background-color:#E8E885;"><td>لَيسَ</td></tr>' +
-		'<tr><td>أَلَيْسَ الصُّبْحُ بِقَرِيبٍ [11:81]<br/>Is not the morning approaching?<br/>لَيسَ المُعَلِّمُ حاضِرًا<br/>The teacher is not present</td></tr>' +
-		'</tr>' +
-		'<tr style="background-color:#E8E885;"><td><b>استمرار (Continuation)</b></td></tr>' +
-		'<tr style="background-color:#E8E885;"><td>to remain / continue<br/>مَازالَ / مابَرِحَ / ماأنفَكَّ</td></tr>' +
-		'<tr><td>مابرح الجوء لَطيفًا<br/>Weather is still nice<br/>مازال الطِّفلُ نَائمًا<br/>The baby is still asleep</td></tr>' +
-		'</tr>' +
-		'<table>';
+	var table = `
+	<table class="pTable">
+		<tr style="background-color:#E8E885;">
+			<td><b>توقيت (Timing)</b></td>
+		</tr>
+		<tr style="background-color:#E8E885;">
+			<td>to become / to change<br/>
+			${
+				alink.replaceAll('$', 'أصبَح') + ' / ' +
+				alink.replaceAll('$', 'أَمسَ') + ' / ' +
+				alink.replaceAll('$', 'ظَلّ') + ' / ' +
+				alink.replaceAll('$', 'بَاتَ') 
+			}
+			</td>
+		</tr>
+		<tr>
+			<td>اصبَحَ الطَّقَسُ جَمِيلَةً<br/>The weather has become beautiful<br/>بَاتَ المَريضُ جَادًا<br/>The patient became (in night) seriosly ill
+			</td>
+		</tr>
+		<tr style="background-color:#E8E885;">
+			<td><b>تحويل (Transition)</b></td>
+		</tr>
+		<tr style="background-color:#E8E885;">
+			<td>to tansition / become<br/>
+			${alink.replaceAll('$', 'صَارَ')} / صَارَ إِلَي
+			</td>
+		</tr>
+		<tr>
+			<td>صَارَ الماءُ جَليِدًا<br/>The water became ice<br/>صارَ إلَي لِصٍّ<br/>He beame a thief
+			</td>
+		</tr>
+		</tr>
+		<tr style="background-color:#E8E885;">
+			<td><b>نفي (Negation)</b>
+			</td>
+		</tr>
+		<tr style="background-color:#E8E885;">
+			<td>لَيسَ</td>
+		</tr>
+		<tr>
+			<td>أَلَيْسَ الصُّبْحُ بِقَرِيبٍ [11:81]<br/>Is not the morning approaching?<br/>لَيسَ المُعَلِّمُ حاضِرًا<br/>The teacher is not present
+			</td>
+		</tr>
+		<tr style="background-color:#E8E885;">
+			<td><b>استمرار (Continuation)</b>
+			</td>
+		</tr>
+		<tr style="background-color:#E8E885;">
+			<td>to remain / continue<br/>مَازالَ / مابَرِحَ / ماأنفَكَّ
+			</td>
+		</tr>
+		<tr>
+			<td>مابرح الجوء لَطيفًا<br/>Weather is still nice<br/>مازال الطِّفلُ نَائمًا<br/>The baby is still asleep
+			</td>
+		</tr>
+		<table>`;
 	$(".dictionary").append('<div style="height:10px;"></div>');
 	$(".dictionary").append($(table));
 }
@@ -823,42 +914,75 @@ function showWeakVerbTable() {
 
 	var alink = '<a href="#" style=" text-decoration: none" onclick="checkWord(\'$\');">$</a>';
 	$(".dictionary").empty();
-	var table = '<table class="pTable">' +
-		'<tr><td style="background-color:#E8E885;"><b>مِثال</b></td>' +
-		'<td rowspan="3">(يَفعَلُ) يَوجِدُ => ' + alink.replaceAll('$', 'يَجِدُ') + '<br/><br/>(يَفعِلُونَ) يَوذِرُونَ => يَذِرُونَ</td></tr>' +
-		'<tr style="background-color:#E8E885;"><td>ف كلمة => ا و ي</td></tr>' +
-		'<tr><td>(و ج د)</td></tr>' +
-		'</tr>' +
-		'<tr><td colspan="2">' + replaceQLink('وَمَن يَلْعَنِ اللَّهُ فَلَن تَجِدَ لَهُ نَصِيرًا [4:52]', false) + '</td></tr>'
-		+
-		'<tr><td style="background-color:#E8E885;"><b>أَجوَف</b></td>' +
-		'<td rowspan="3">(فَعَلَ) قَوَلَ => ' + alink.replaceAll('$', 'قَالَ') + '<br/><br/>(فُعِلَ) قُوِلَ => قِيلَ</td></tr>' +
-		'<tr><td style="background-color:#E8E885;">ع كلمة => ا و ي</td></tr>' +
-		'<tr><td>(ق و ل)</td></tr>' +
-		'</tr>' +
-		'<tr><td colspan="2">' + replaceQLink('وَأَن تَصُومُوا خَيْرٌ لَّكُمْ [2:184]', false) + '</td></tr>'
-		+
-		'<tr><td style="background-color:#E8E885;"><b>نَاقِص</b></td>' +
-		'<td rowspan="3">(فَعَلُوا) رَضَيُوا=> ' + alink.replaceAll('$', 'رَضُوا') + '<br/></td></tr>' +
-		'<tr><td style="background-color:#E8E885;">ل كلمة => ا و ي</td></tr>' +
-		'<tr><td>(ر ض ي)</td></tr>' +
-		'</tr>' +
-		'<tr><td colspan="2">' + replaceQLink('رَّضِيَ اللَّهُ عَنْهُمْ وَرَضُوا عَنْهُ [5:119]', false) + '</td></tr>'
-		+
-		'<tr><td style="background-color:#E8E885;"><b>لَفِيف</b></td>' +
-		'<td rowspan="3">(اِفتَعَلَ) إوتَقَيَ => إتْتَقَي => ' + alink.replaceAll('$', 'إتَّقَي') + '<br/><br/>(فَعِلنَا) وَقِينَا=> وَقِنَا</td></tr>' +
-		'<tr><td style="background-color:#E8E885;">و/ي root has</td></tr>' +
-		'<tr><td>(و ق ي)</td></tr>' +
-		'</tr>' +
-		'<tr><td colspan="2">' + replaceQLink('وَقِنَا عَذَابَ النَّارِ [3:16]', false) + '</td></tr>'
-		+
-		'<tr><td style="background-color:#E8E885;"><b>مَهمُوز</b></td>' +
-		'<td rowspan="3">(فَعَلُوا) رَأَيُو => ' + alink.replaceAll('$', 'رَأَو') + '<br/><br/>(يَفعَلُ) يَاكُلُ [Exception]</td></tr>' +
-		'<tr><td style="background-color:#E8E885;">root has hamza</td></tr>' +
-		'<tr><td>(أ ك ل)</td></tr>' +
-		'</tr>' +
-		'<tr><td colspan="2">' + replaceQLink('وَلَئِنْ أَرْسَلْنَا رِيحًا فَرَأَوْهُ مُصْفَرًّا [30:51]', false) + '</td></tr>' +
-		'<table>';
+	var table = `
+	<table class="pTable">
+		<tr>
+			<td style="background-color:#E8E885;"><b>مِثال</b></td>
+			<td rowspan="3">(يَفعَلُ) يَوجِدُ => ${alink.replaceAll('$', 'يَجِدُ')}
+			<br/><br/>(يَفعِلُونَ) يَوذِرُونَ => يَذِرُونَ</td>
+		</tr>
+		<tr style="background-color:#E8E885;">
+			<td>ف كلمة => ا و ي</td>
+		</tr>
+		<tr>
+			<td>(و ج د)</td>
+		</tr>
+		<tr>
+			<td colspan="2">${replaceQLink('وَمَن يَلْعَنِ اللَّهُ فَلَن تَجِدَ لَهُ نَصِيرًا [4:52]', false)}</td>
+		</tr>
+		<tr>
+			<td style="background-color:#E8E885;"><b>أَجوَف</b></td>
+			<td rowspan="3">(فَعَلَ) قَوَلَ => ${alink.replaceAll('$', 'قَالَ')}
+			<br/><br/>(فُعِلَ) قُوِلَ => قِيلَ</td>
+		</tr>
+		<tr>
+			<td style="background-color:#E8E885;">ع كلمة => ا و ي</td>
+		</tr>
+		<tr>
+			<td>(ق و ل)</td>
+		</tr>
+		<tr>
+			<td colspan="2">${replaceQLink('وَأَن تَصُومُوا خَيْرٌ لَّكُمْ [2:184]', false)}</td>
+		</tr>
+		<tr>
+			<td style="background-color:#E8E885;"><b>نَاقِص</b></td>
+			<td rowspan="3">(فَعَلُوا) رَضَيُوا=> ${alink.replaceAll('$', 'رَضُوا')}<br/></td>
+		</tr>
+		<tr>
+			<td style="background-color:#E8E885;">ل كلمة => ا و ي</td>
+		</tr>
+		<tr>
+			<td>(ر ض ي)</td>
+		</tr>
+		<tr>
+			<td colspan="2">${replaceQLink('رَّضِيَ اللَّهُ عَنْهُمْ وَرَضُوا عَنْهُ [5:119]', false)}</td>
+		</tr>
+		<tr>
+			<td style="background-color:#E8E885;"><b>لَفِيف</b></td>
+			<td rowspan="3">(اِفتَعَلَ) إوتَقَيَ => إتْتَقَي => ${alink.replaceAll('$', 'إتَّقَي')}
+			<br/><br/>(فَعِلنَا) وَقِينَا=> وَقِنَا</td>
+		</tr>
+		<tr>
+			<td style="background-color:#E8E885;">و/ي root has</td>
+		</tr>
+		<tr><td>(و ق ي)</td></tr>
+		</tr>
+		<tr>
+			<td colspan="2">${replaceQLink('وَقِنَا عَذَابَ النَّارِ [3:16]', false)}</td>
+		</tr>
+		<tr>
+			<td style="background-color:#E8E885;"><b>مَهمُوز</b></td>
+			<td rowspan="3">(فَعَلُوا) رَأَيُو => ${alink.replaceAll('$', 'رَأَو')}
+			<br/><br/>(يَفعَلُ) يَاكُلُ [Exception]</td>
+		</tr>
+		<tr>
+			<td style="background-color:#E8E885;">root has hamza</td>
+		</tr>
+		<tr><td>(أ ك ل)</td></tr>
+		<tr>
+			<td colspan="2">${replaceQLink('وَلَئِنْ أَرْسَلْنَا رِيحًا فَرَأَوْهُ مُصْفَرًّا [30:51]', false)}</td>
+		</tr>
+	<table>`;
 	$(".dictionary").append('<div style="height:10px;"></div><div style="width:100%; text-align:center">حرف العِلَّت When root of a word has one or more </div>');
 	$(".dictionary").append($(table));
 }
@@ -884,14 +1008,16 @@ function showImperativeTable(d) {
 	var verbInfo = posAPIObj.getVerbInfo();
 	var api = this;
 	container.empty();
-	var alink = '<a href="#" style=" text-decoration: none" ' +
-		' onclick="checkWord(\'$\');">$</a>';
-	var vTable = $('<table id="vTable" class="vTable"><tr>' +
-		'<th class="engText" style="font-size: 14px;">Form</th>' +
-		'<th class="engText">Gender<br/>M/F</th>' +
-		'<th class="engText">2nd Person<br/>مضارع</th>' +
-		'<th colspan="2" class="engText">Imperative<br/>الأمر/النهي</th>' +
-		'</table>');
+	var alink = `<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
+	var vTable = $(`
+	<table id="vTable" class="vTable">
+		<tr>
+			<th class="engText" style="font-size: 14px;">Form</th>
+			<th class="engText">Gender<br/>M/F</th>
+			<th class="engText">2nd Person<br/>مضارع</th>
+			<th colspan="2" class="engText">Imperative<br/>الأمر/النهي</th>
+		</tr>
+	</table>`);
 	container.append(vTable);
 
 	for (const keyVal of Object.entries(verbInfo)) {
@@ -907,22 +1033,24 @@ function showImperativeTable(d) {
 			var impF1 = makeImperative(pa[0], 'f');
 			var impF2 = impF1.replace(new RegExp("^(ا|([ء-ي]))", "g"), "لا ت$2");
 			var formNumber = entryName.split(' ')[1];
-			var row = '<tr>' +
-				'<td rowspan="2" class="engText">' + formNumber + '</td>' +
-				'<td class="engText">M</td>' +
-				'<td class="engText" style="color:#DD6188">(' + make2ndPerson(pa[0], 'm') + ')</td>' +
-				'<td style="color:#7575BB">' + impM1 + '</td>' +
-				'<td style="color:#7575BB">' + impM2 + '</td>' +
-				'</tr>' +
-				'<td class="engText">F</td>' +
-				'<td class="engText" style="color:#DD6188">(' + make2ndPerson(pa[0], 'f') + ')</td>' +
-				'<td style="color:#7575BB">' + impF1 + '</td>' +
-				'<td style="color:#7575BB">' + impF2 + '</td>' +
-				'</tr/>' +
-				'<tr>' +
-				'<td style="background-color:#F6F6BA;font-size:18px;" colspan="5">' + replaceQLink(examples[formNumber], false) + '</td>' +
-				'</tr>';
-			$("#vTable tbody").append($(row));
+			var rows = `
+			<tr>
+				<td rowspan="2" class="engText">${formNumber}</td>
+				<td class="engText">M</td>
+				<td class="engText" style="color:#DD6188">(${make2ndPerson(pa[0], 'm')})</td>
+				<td style="color:#7575BB">${impM1}</td>
+				<td style="color:#7575BB">${impM2}</td>
+			</tr>
+			<tr>
+				<td class="engText">F</td>
+				<td class="engText" style="color:#DD6188">(${make2ndPerson(pa[0], 'f')})</td>
+				<td style="color:#7575BB">${impF1}</td>
+				<td style="color:#7575BB">${impF2}</td>
+			</tr/>
+			<tr>
+				<td style="background-color:#F6F6BA;font-size:18px;" colspan="5">${replaceQLink(examples[formNumber], false)}</td>
+			</tr>`;
+			$("#vTable tbody").append($(rows));
 		}
 	}
 }
