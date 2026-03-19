@@ -111,13 +111,18 @@
 			sections.every(function(s){
 				secCount++;
 				var style = s.section.includes('(Deductions)') ? ' style="color:red" ' : '';
-				var sec = '<secton>'+
-						  '<div class="z-title">'+
-							'<span>'+s.section+'</span>'+
-							(style==='' ? '<span id="sec'+secCount+'" style="margin-left:20px;text-decoration:none!important;"></span>' : '')+
-						  '</div>'+
-						  getSectionElements(s.values, secCount, style)+
-						  '</secton>';
+				var sec = `<secton>
+						    <div class="z-title">
+							<span>${s.section}</span>
+							${
+								style === '' ? 
+								`<span 	id="sec'${secCount}'" 
+										style="margin-left:20px;text-decoration:none!important;"></span>` 
+								: ''
+							}
+						  	</div>
+						  	${getSectionElements(s.values, secCount, style)}
+						   </secton>`;
 				$("body").append($(sec));
 				return true;
 			});
@@ -128,71 +133,61 @@
 			var subSectionCount = 0;
 			values.every(function(val){
 				subSectionCount++;
-				subSections += '<ul class="z-section"><li>'+
-							   '<span class="caret" '+st+'>'+val.name+'</span>'+
-							   (st == '' ? '<span id="subSec'+subSectionCount+'" style="margin-left:20px;"></span>':'')+
-							   getSubSectionElements(val, scount, subSectionCount, st)+
-							   '</li></ul>';
+				subSections += `<ul class="z-section"><li>
+							   		<span class="caret" '${st}'>${val.name}</span>
+							   		${
+										st == '' ? 
+										`<span 	id="subSec${subSectionCount}" style="margin-left:20px;">
+										 </span>`
+										:''
+									}
+							   		${getSubSectionElements(val, scount, subSectionCount, st)}
+							   </li></ul>`;
 				return true;
 			});
 			return subSections;
 		}
 		
 		function getSubSectionElements(values, scount, subSecCount, st){
-			var table = '<table class="nested">';
+			return `
+				<table class="nested">
+				<tr>
+					<td></td>
+					${values.input?.map(inp => `<td>${inp}</td>`).join('') || ''}
+					<td>${st === '' ? 'Estimated Zakat' : 'Estimated'}</td>
+				</tr>
+				${values.entries?.map((ent, eIndex) => {
+					// Logic: Initialize calc object and counters
+					const isNegative = ent.startsWith('LESS: ');
+					const rowStyle = isNegative ? 'color:red;' : '';
 
-			//Add headers
-			table += '<tr><td></td>';
-			if(values.input && values.input.length > 0){
-				values.input.every(function(inp){
-					table += '<td>'+inp+'</td>';
-					return true;
-				});
-				table += st === '' ? '<td>Estimated Zakat</td>' : '<td>Estimated</td>';;
-			}
-			table += '</tr>';
-
-			if(values.entries && values.entries.length > 0){
-				var eIndex = 0;
-				values.entries.every(function(ent){
-					
-					calc[ent] = {  
-						"parent": values.name, 
-						"op": values.output, 
-						"inputs": [], 
-						"factors": [], 
-						"rate": eIndex < values.rates.length ? values.rates[eIndex] : values.rates[0], 
-						"output": 0 
+					calc[ent] = {
+						parent: values.name,
+						op: values.output,
+						inputs: values.input?.map(() => 0) || [],
+						factors: values.input?.map(() => (isNegative ? -1 : 1)) || [],
+						rate: eIndex < values.rates.length ? values.rates[eIndex] : values.rates[0],
+						output: 0
 					};
-					eIndex++;
-					
-					table += '<tr style="align:center;">';
-					var isNegative = ent.startsWith('LESS: ');
-					var style1 = isNegative ? 'max-width:250px;color:red;': 'max-width:250px;';
-					table += '<td style="'+style1+'">'+ent+'</td>';
-					
+
 					calcCounter++;
-					if(values.input && values.input.length > 0){
-						var icount= 0;
-						var style2 = isNegative ? ' style="color:red;" ': '';
-						values.input.every(function(inp){
-							table += '<td><input class="inp'+calcCounter+'" '+ style2 +
-										'value="0" '+
-										'onchange="recalculateChange(\''+ent+'\', '+calcCounter+','+subSecCount+','+scount+')" />'+
-									 '</td>';
-							// add default value
-							calc[ent].inputs.push(0);
-							calc[ent].factors.push(isNegative ? -1 : 1);
-							return true;
-						});
-						table += '<td '+style2+' class="estimated sec'+scount+' subSec'+subSecCount+'" id="calc'+calcCounter+'">0</td>';
-					}
-					table += '</tr>';
-					return true;
-				});
+
+					return `
+						<tr style="align:center; ${rowStyle}">
+							<td style="max-width:250px;">${ent}</td>
+							${values.input?.map(inp => `
+							<td>
+								<input class="inp${calcCounter}" 
+									style="${rowStyle}" 
+									value="0" 
+									onchange="recalculateChange('${ent}', ${calcCounter}, ${subSecCount}, ${scount})" />
+							</td>
+							`).join('') || ''}
+							<td class="estimated sec${scount} subSec${subSecCount}" id="calc${calcCounter}">0</td>
+						</tr>`;
+				}).join('') || ''
 			}
-			table += '</table>';
-			return table;
+			</table>`;
 		}
 		
 		function recalculateChange(key, num, subSecCount, secCount){
@@ -360,7 +355,6 @@
 					}
 				});
 				
-				//allInheritors.sort();
 				addInheritor("");
 				
 				if(cc === undefined && cval === undefined){
@@ -383,7 +377,6 @@
 				return;
 			}
 			
-			//var iTypes = [], iTypeId;
 			var rows = {};
 			for(const key in allInheritors){
 				var tokens = allInheritors[key].split("_");
@@ -393,12 +386,12 @@
 											
 				if(rows[iTypeId] === undefined){
 					rows[iTypeId] = ['',''];
-					rows[iTypeId][0] = '<td rowspan="2" style="background-color:white;color:black;">'+iMap[iTypeId].replace('-', '<br/>')+'</td>';
+					rows[iTypeId][0] = `<td rowspan="2" style="background-color:white;color:black;">
+											${iMap[iTypeId].replace('-', '<br/>')}
+										</td>`;
 				}
-				rows[iTypeId][0] += '<td data="'+mf+':'+iTypeId+'">'+val+'</td>';
+				rows[iTypeId][0] += `<td data="'${mf}':'${iTypeId}'">${val}</td>`;
 				rows[iTypeId][1] += '<td>&nbsp;</td>'
-			
-				//return true;
 			}
 			
 			for(const [k,v] of Object.entries(rows)){

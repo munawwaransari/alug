@@ -212,24 +212,24 @@
 			last_Date = h_date;
 			var html = "";
 			if(calendarType === 'gregorian'){
-				html = '<div>'+ 
-							'<span>'+ date.Day +' </span>' + 
-							'<span>'+ months_en[date.Month] + ' </span>' + 
-							'<span>'+ date.Year + ' </span>' +
-						'</div>'+
-						'<div>'+ 
-							'<span>'+ translateNumber(date.Day) +' </span>' + 
-							'<span>'+ months_ar[date.Month] + ' </span>' + 
-							'<span>'+ translateNumber(date.Year) + ' </span>' +
-						'</div>';
+				html = `<div>
+							<span>${date.Day}</span>
+							<span>${months_en[date.Month]}</span>
+							<span>${date.Year}</span>
+						</div>
+						<div>
+							<span>${translateNumber(date.Day)}</span>
+							<span>${months_ar[date.Month]}</span>
+							<span>${translateNumber(date.Year)}</span>
+						</div>`;
 			}
 			else{
-				html = '<div>'+
-							 '<span>' + month_days[date.Day] + ' </span>'+
-							 '<span>('+ translateNumber(date.Day) +') </span>' + 
-							 '<span>'+ months_islamic[date.Month] + ' </span>' + 
-							 '<span>'+ translateNumber(date.Year) + ' </span>' + 
-						 '</div>';						 
+				html = `<div>
+							 <span>${month_days[date.Day]}</span>
+							 <span>(${translateNumber(date.Day)})</span>
+							 <span>${months_islamic[date.Month]}</span>
+							 <span>${translateNumber(date.Year)}</span>
+						</div>`; 
 			}
 			$(".calenderDisplay").html(html);
 		}

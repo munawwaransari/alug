@@ -27,7 +27,7 @@ class posAPI {
 		return null;
 	}
 
-	#P2Word(w, pInfo, options = {}) // options:{pattern:"", nounExp:""}
+	#P2Word(w, pInfo, options = {})
 	{
 		var p = options.pattern ?? pInfo.form;
 		if(pInfo.rootExp){
@@ -117,7 +117,6 @@ class posAPI {
 						}
 						
 						if(pattern.match(p)){
-						 //console.log(rule.ar +" @ :"+index);
 						 flag = true;
 						 w = w.replace(new RegExp(p,"g"), rexp);
 						}else{
@@ -204,8 +203,6 @@ class posAPI {
 	{
 		if(pInfo.type === undefined || pInfo.type === 1)
 			return this.#changeWord(this.#P2Word(w, pInfo, options), pInfo, 'َ','اً');
-		//else if(pInfo.type === 2)
-		//	return this.#changeWord(this.#P2Word(w, pInfo, options), pInfo, 'ُِ','َ');
 		return w;
 	}
 
@@ -213,8 +210,6 @@ class posAPI {
 	{
 		if(pInfo.type === undefined || pInfo.type === 1)
 			return this.#changeWord(this.#P2Word(w, pInfo, options), pInfo, 'ِ','ٍ');
-		//else if(pInfo.type === 2)
-		//	return this.#changeWord(this.#P2Word(w, pInfo, options), pInfo, 'ُِ','َ');
 		return w;
 	}
 
@@ -283,31 +278,31 @@ class posAPI {
 	{
 		var alink = '<a href="#" style=" text-decoration: none" '+
 						' onclick="checkWord(\'$\');">$</a>';
-		return '<tr><td>غائب (مذكّر)</td><td>'+
-						alink.replaceAll('$',conjugations[0])+'</td><td>'+
-						alink.replaceAll('$',conjugations[1])+'</td><td>'+
-						alink.replaceAll('$',conjugations[2])+'</td>'+
-				'</tr>' + 
-				'<tr><td>غائب (مؤنّث)</td><td>'+
-						alink.replaceAll('$',conjugations[3])+'</td><td>'+
-						alink.replaceAll('$',conjugations[4])+'</td><td>'+
-						alink.replaceAll('$',conjugations[5])+'</td>'+
-				'</tr>' + 
-				'<tr><td>حاضر (مذكّر)</td><td>'+
-						alink.replaceAll('$',conjugations[6])+'</td><td>'+
-						alink.replaceAll('$',conjugations[7])+'</td><td>'+
-						alink.replaceAll('$',conjugations[8])+'</td>'+
-				'</tr>' + 
-				'<tr><td>حاضر (مؤنّث)</td><td>'+
-						alink.replaceAll('$',conjugations[9])+'</td><td>'+
-						alink.replaceAll('$',conjugations[10])+'</td><td>'+
-						alink.replaceAll('$',conjugations[11])+'</td>'+
-				'</tr>' + 
-				'<tr><td>مُتكلّم</td><td>'+
-						alink.replaceAll('$',conjugations[12])+'</td><td>'+
-						alink.replaceAll('$',conjugations[13])+'</td><td>'+
-						alink.replaceAll('$',conjugations[14])+'</td>'+
-				'</tr>';
+		return `<tr><td>غائب (مذكّر)</td>
+					<td>${alink.replaceAll('$',conjugations[0])}</td>
+					<td>${alink.replaceAll('$',conjugations[1])}</td>
+					<td>${alink.replaceAll('$',conjugations[2])}</td>
+				</tr>
+				<tr><td>غائب (مؤنّث)</td>
+					<td>${alink.replaceAll('$',conjugations[3])}</td>
+					<td>${alink.replaceAll('$',conjugations[4])}</td>
+					<td>${alink.replaceAll('$',conjugations[5])}</td>
+				</tr>
+				<tr><td>حاضر (مذكّر)</td>
+					<td>${alink.replaceAll('$',conjugations[6])}</td>
+					<td>${alink.replaceAll('$',conjugations[7])}</td>
+					<td>${alink.replaceAll('$',conjugations[8])}</td>
+				</tr>
+				<tr><td>حاضر (مؤنّث)</td>
+					<td>${alink.replaceAll('$',conjugations[9])}</td>
+					<td>${alink.replaceAll('$',conjugations[10])}</td>
+					<td>${alink.replaceAll('$',conjugations[11])}</td>
+				</tr>
+				<tr><td>مُتكلّم</td>
+					<td>${alink.replaceAll('$',conjugations[12])}</td>
+					<td>${alink.replaceAll('$',conjugations[13])}</td>
+					<td>${alink.replaceAll('$',conjugations[14])}</td>
+				</tr>`;
 	}
 	
 	#prepareConjNounRows(conjugations, xform)
@@ -315,23 +310,23 @@ class posAPI {
 		var alink = '<a href="#" style=" text-decoration: none" '+
 						' onclick="checkWord(\'$\');">$</a>';
 		if(xform.gender === undefined){
-			return '<tr><td>مذكّر</td><td>'+
-							alink.replaceAll('$',conjugations[0])+'</td><td>'+
-							alink.replaceAll('$',conjugations[1])+'</td><td>'+
-							alink.replaceAll('$',conjugations[2])+'</td>'+
-					'</tr>' + 
-					'<tr><td>مؤنّث</td><td>'+
-							alink.replaceAll('$',conjugations[3])+'</td><td>'+
-							alink.replaceAll('$',conjugations[4])+'</td><td>'+
-							alink.replaceAll('$',conjugations[5])+'</td>'+
-					'</tr>';
+			return `<tr><td>مذكّر</td>
+						<td>${alink.replaceAll('$',conjugations[0])}</td>
+						<td>${alink.replaceAll('$',conjugations[1])}</td>
+						<td>${alink.replaceAll('$',conjugations[2])}</td>
+					</tr>
+					<tr><td>مؤنّث</td>
+						<td>${alink.replaceAll('$',conjugations[3])}</td>
+						<td>${alink.replaceAll('$',conjugations[4])}</td>
+						<td>${alink.replaceAll('$',conjugations[5])}</td>
+					</tr>`;
 		}else{
 			var g = xform.gender == "m" ? "مذكّر" :"مؤنّث";
-			return '<tr><td>'+g+'</td><td>'+
-							alink.replaceAll('$',conjugations[0])+'</td><td>'+
-							alink.replaceAll('$',conjugations[1])+'</td><td>'+
-							alink.replaceAll('$',conjugations[2])+'</td>'+
-					'</tr>';
+			return `<tr><td>${g}</td>
+						<td>${alink.replaceAll('$',conjugations[0])}</td>
+						<td>${alink.replaceAll('$',conjugations[1])}</td>
+						<td>${alink.replaceAll('$',conjugations[2])}</td>
+					</tr>`;
 		}
 	}
 	
@@ -346,14 +341,16 @@ class posAPI {
 		var heading  = (xform.pos === "verb") ? (xform.en+'<br/>'+xform.ar):
 												 xform.ar+'<br/>('+xform.form+')';
 		if(table !== ""){
-			var cnjTable = '<table id="'+id+'" class="cnjTable"><tr>'+
-								 '<th rowspan="6">'+heading+'</th>'+
-								 '<th style="font-size: 14px;">Person</th>'+
-								 '<th style="width: 50px;">واحد</th>'+
-								 '<th style="width: 50px;">مثنى</th>'+
-								 '<th style="width: 50px;">جمع</th></tr>'+
-								 table+
-							'</table>';
+			var cnjTable = `<table id="'${id}'" class="cnjTable">
+							<tr>
+								<th rowspan="6">${heading}</th>
+								<th style="font-size: 14px;">Person</th>
+								<th style="width: 50px;">واحد</th>
+								<th style="width: 50px;">مثنى</th>
+								<th style="width: 50px;">جمع</th>
+							</tr>
+								${table}
+							</table>`;
 			container.append($(cnjTable));
 		}
 		return id;
@@ -363,8 +360,14 @@ class posAPI {
 	{
 		//add headers
 		var hDiv = $("#conj-"+currentTable);
-		hDiv.append($('<span style="padding:4px;"><a style="font-size:14px;margin:auto; padding-left:10px;" href="#1" '+
-		   'onclick="toggleConjugationTable(\'#conj-'+currentTable+'\','+index+');">Hide ('+xform.en+')</a></span>'
+		hDiv.append($(`
+				<span style="padding:4px;">
+					<a style="font-size:14px;margin:auto; padding-left:10px;" href="#1" '+
+		   			   onclick="toggleConjugationTable(
+					   	'#conj-#{currentTable}',
+						'${index}');">Hide ('${xform.en}')
+					</a>
+				</span>`
 		));
 		
 		var container = $("#grp-"+currentTable);
@@ -407,20 +410,21 @@ class posAPI {
 	
 	#newTable(tableCount, container){
 		var id = 'wt'+tableCount;
-		
-		var alink = '<div id="grp-'+id+'" style="display:flex;flex-direction:column;flex-wrap:wrap;justify-content:center;">'+
-					   '<div id="div-'+id+'" style="margin-top: 8px;background-color:#A9C581;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;"></div>'+
-					   '<table id="'+id+'" class="wTable"><tr>'+
-								 '<th style="font-size: 14px;">Pattern</th>'+
-								 '<th style="width: 50px;">رفع</th>'+
-								 '<th style="width: 50px;">نصب</th>'+
-								 '<th style="width: 50px;">جر</th>'+
-								 '<th style="width: 50px;">جزم</th>'+
-								 '<th>صيغة</th>'+
-								 '<th style="font-size: 14px;">PoS</th>'+
-								 '</tr></table>'+
-					'<div id="conj-'+id+'" style="margin-bottom: 8px;background-color:#ffc133;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;"></div>'+
-					'</div>';
+		var alink = `<div id="grp-${id}" style="display:flex;flex-direction:column;flex-wrap:wrap;justify-content:center;">
+					   <div id="div-${id}" style="margin-top: 8px;background-color:#A9C581;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;"></div>
+					   <table id="${id}" class="wTable">
+					   	<tr>
+							<th style="font-size: 14px;">Pattern</th>
+							<th style="width: 50px;">رفع</th>
+							<th style="width: 50px;">نصب</th>
+							<th style="width: 50px;">جر</th>
+							<th style="width: 50px;">جزم</th>
+							<th>صيغة</th>
+							<th style="font-size: 14px;">PoS</th>
+						</tr>
+					</table>
+					<div id="conj-${id}" style="margin-bottom: 8px;background-color:#ffc133;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;"></div>
+					</div>`;
 		container.append($(alink));
 		return id;
 	}
@@ -428,39 +432,62 @@ class posAPI {
 	#addHeaders(list)
 	{
 		var div = $("#div-"+list.table);
-		div.prepend($('<span style="padding:4px;">'+list.word+'</span>'));
-		div.prepend($('<span style="padding:4px;">('+list.pos+')</span>'));
-		div.prepend($('<span style="padding:4px;">('+list.form+')</span>'));
+		div.prepend($(`<span style="padding:4px;">${list.word}</span>`));
+		div.prepend($(`<span style="padding:4px;">(${list.pos})</span>`));
+		div.prepend($(`<span style="padding:4px;">(${list.form})</span>`));
 		if(list.meta["key"].startsWith("Form "))
-			div.prepend($('<span style="padding:4px;"> '+list.meta["key"]+' </span>'));
-		div.prepend($('<span style="padding:4px;"><a style="font-size:14px;margin:auto; padding-left:10px;" href="#1" '+
-		   'onclick="toggleConjugations(\''+list.table+'\');">Conjugations</a></span>'));
-		div.prepend($('<span style="padding:4px;"><a style="font-size:14px;margin:auto; padding-left:10px;" href="#2" '+
-		   'onclick="toggleTableDiv(\''+list.table+'\');">Hide</a></span>'));
+			div.prepend($(`<span style="padding:4px;">${list.meta["key"]}</span>`));
+		div.prepend($(`
+					<span style="padding:4px;">
+						<a  style="font-size:14px;margin:auto; padding-left:10px;" href="#1"
+							onclick="toggleConjugations('${list.table}');">
+							Conjugations
+						</a>
+					</span>`
+					));
+		div.prepend($(`
+				<span style="padding:4px;">
+					<a  style="font-size:14px;margin:auto; padding-left:10px;" href="#2"
+		   				onclick="toggleTableDiv('${list.table}');">
+						Hide
+					</a>
+				</span>`));
 	}
 	
 	#addParsedWords(currentTable, curPos, parseInfo)
 	{
 		var alink = '<a href="#" style=" text-decoration: none" '+
 						' onclick="checkWord(\'$\');">$</a>';
-		var row = '<tr><td>'+parseInfo.xform.form+'</td>';
+		var row = `<tr><td>${parseInfo.xform.form}</td>`;
 		if(parseInfo.xform.pos === "verb"){
-			row = row+ '<td>'+alink.replaceAll('$',parseInfo.parse[0])+'</td>'+ 
-					   '<td>'+(parseInfo.parse[1] ? alink.replaceAll('$',parseInfo.parse[1]) : alink.replaceAll('$',parseInfo.parse[0]))+'</td>'+
-					   '<td></td>'+
-					   '<td>'+(parseInfo.parse[2] ? alink.replaceAll('$',parseInfo.parse[2]) : alink.replaceAll('$',parseInfo.parse[0]))+'</td>';
+			row = `${row}
+				   <td>${alink.replaceAll('$', parseInfo.parse[0])}</td> 
+				   <td>
+						${(parseInfo.parse[1] ?
+							alink.replaceAll('$', parseInfo.parse[1]) :
+							alink.replaceAll('$', parseInfo.parse[0]))}
+				   </td>
+				   <td></td>
+				   <td>
+				   		${(parseInfo.parse[2] ?
+							alink.replaceAll('$', parseInfo.parse[2]) :
+							alink.replaceAll('$', parseInfo.parse[0]))}
+				   </td>`;
 		}else if(parseInfo.xform.pos === "noun"){
-			row = row+ '<td>'+alink.replaceAll('$',parseInfo.parse[0])+'</td>'+ 
-					   '<td>'+alink.replaceAll('$',parseInfo.parse[1])+'</td>'+
-					   '<td>'+alink.replaceAll('$',parseInfo.parse[2])+'</td>'+
-					   '<td></td>';
-		}else{
-			//todo
+			row = `${row}
+					<td>${alink.replaceAll('$',parseInfo.parse[0])}</td> 
+					<td>${alink.replaceAll('$',parseInfo.parse[1])}</td>
+					<td>${alink.replaceAll('$',parseInfo.parse[2])}</td>
+					<td></td>`;
 		}
 		
-		row = row+ '<td><span style="font-size: 16px;">'+parseInfo.xform.ar+'</span></td>'+
-				   '<td><span style="font-size: 12px;">'+parseInfo.xform.en+'</span></td>'+
-				   '</tr>';
+		row = `${row}
+					<td>
+						<span style="font-size: 16px;">${parseInfo.xform.ar}</span>
+					</td>
+					<td><span style="font-size: 12px;">${parseInfo.xform.en}</span>
+					</td>
+				</tr>`;
 		$("#"+currentTable+" tbody").append($(row));
 	}
 	
@@ -581,16 +608,16 @@ class posAPI {
 		var api = this;
 		container.empty();
 		var filters = [];
-		var nTable = $('<table id="nTable" class="nTable"><tr>'+
-						 '<th style="font-size: 22px;">اسم (واحد)</th>'+
-						 '<th style="font-size: 22px;">جمع (مكسّر)</th>'+
-						 '<th style="font-size: 14px;">Example</th>'+
-						 '<th style="font-size: 14px;">Type</th>'+
-					   '</table>');
+		var nTable = $(`<table id="nTable" class="nTable">
+						<tr>
+						 <th style="font-size: 22px;">اسم (واحد)</th>
+						 <th style="font-size: 22px;">جمع (مكسّر)</th>
+						 <th style="font-size: 14px;">Example</th>
+						 <th style="font-size: 14px;">Type</th>
+					   </table>`);
 		container.append(nTable);
 		
-		var alink = '<a href="#" style=" text-decoration: none" '+
-						' onclick="checkWord(\'$\');">$</a>';
+		var alink = '<a href="#" style=" text-decoration: none" onclick="checkWord(\'$\');">$</a>';
 		for (const keyVal of Object.entries(res)){
 			var entryName = keyVal[0];
 			var values = keyVal[1];
@@ -600,32 +627,21 @@ class posAPI {
 				var rowSpan = values.xforms.length;
 				values.xforms.every(function(xform){
 					row = row + '<tr>';
-					row = row + '<td>'+alink.replaceAll('\$',xform.form)+'</td>';
+					row = row + `<td>${alink.replaceAll('\$',xform.form)}</td>`;
 					if(xform.plurals && xform.plurals.length > 0){
 						var plurals = xform.plurals.map(x=>alink.replaceAll('$', x.form)).join('<br/>');
-						//row = row + '<td>'+alink.replaceAll('$',xform.plurals[0].form)+'</td>';
-						row = row + '<td>'+plurals+'</td>';
+						row = row + `<td>${plurals}</td>`;
 					}
 					else
 						row = row + '<td>-</td>';
 					
 					if(xform["e.g."]){
 						var example = replaceQLink(xform["e.g."].join('<br/>'));
-						/*
-						var qlinkExp = new RegExp("(\[(\d+)\:(\d+)\])$","g");
-						if(example.match(qlinkExp)){
-							example = example.replace(qlinkExp, '<a href="https://tanzil.net/#$2:$3">$1</a>');
-						}
-						*/
-						row = row +'<td>'+example+'</td>';	
+						row = row +`<td>${example}</td>`;	
 					}else{
 						row = row +'<td></td>';	
-					}
-					
-					//if(rowSpan < 1 || counter == 0)
-					//	row = row +'<td rowspan='+rowSpan+'>'+values.ar+'<br/>'+ values.en +'</td>';
-					row = row +'<td>'+values.ar+'<br/>'+ values.en +'</td>';
-					
+					}					
+					row = row +`<td>${values.ar}<br/>${values.en}</td>`;
 					row = row +'</tr>';
 					
 					var oval = values.ar+' - '+values.en;
@@ -640,16 +656,13 @@ class posAPI {
 		}
 		
 		// Add filter drop down
-		if(filters.length > 0){
-			var sel = '<select class="nFilter" '+ 
-					  'onchange="filterTableRows(\'#nTable\', 4, $(\'.nFilter\').val().replace(\' - \',\'\'), \'all\')">'+
-					  '<option value="all">Show All</option>';
-			filters.every(function(n){
-				sel += '<option value="'+n+'"><b>'+n+'</b></option>';
-				return true;
-			});	
-			sel += '</select>';
-			container.prepend($(sel));
+		if (filters.length > 0) {
+			container.prepend($(`
+				<select class="nFilter" onchange="filterTableRows('#nTable', 4, $('.nFilter').val().replace(' - ',''), 'all')">
+  				<option value="all">Show All</option>
+  				${filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
+				}
+				</select>`));
 		}
 	}
 
@@ -703,27 +716,24 @@ class posAPI {
 				if(pst.length === 0) pst = ["?", "?"];
 				var prt = xform.filter(x=>x.en.startsWith("present "))
 									   .map(x=>x.form);								   
-				var row = '<tr>'+
-						  '<td>'+cmpLink.replaceAll('\$', entryName.split(' ')[1]).replaceAll('@', index)+'</td>'+
-						  //'<td>'+alink.replaceAll('\$',vn[0])+'</td>'+
-						  '<td>'+cmpLink.replaceAll('\$',pst[0]+' - '+ prt[0]).replaceAll('@', index)+'</td>';
-				if(pst.length > 1){
-					row = row + '<td>'+alink.replaceAll('\$',pst[1])+' - '+alink.replaceAll('\$',prt[1])+'</td>';
-				}else{
-					row = row + '<td>-</td>';
-				}
-				row = row + '<td>'+alink.replaceAll('\$',vn[0])+'</td>';
-				if(ap.length > 0)
-					row += '<td>'+alink.replaceAll('\$',ap[0])+'</td>';
-				else
-					row += '<td>-</td>';
-				
-				if(pp.length > 0)
-					row += '<td>'+alink.replaceAll('\$',pp[0])+'</td>';
-				else
-					row += '<td>-</td>';
-				row = row +'</tr>';
-				
+				var row = `
+					<tr>
+						<td>${cmpLink.replaceAll('\$', entryName.split(' ')[1]).replaceAll('@', index)}</td>
+						<td>${cmpLink.replaceAll('\$',pst[0]+' - '+ prt[0]).replaceAll('@', index)}</td>
+						${(pst.length > 1) ?
+							`<td>${alink.replaceAll('\$',pst[1])+' - '+alink.replaceAll('\$',prt[1])}</td>`
+							:'<td>-</td>'
+						}
+						<td>${alink.replaceAll('\$',vn[0])}</td>
+						${(ap.length > 0) ?
+							`<td>${alink.replaceAll('\$',ap[0])}</td>`:
+							'<td>-</td>'
+						}
+						${(pp.length > 0) ?
+							`<td>'+alink.replaceAll('\$',pp[0])+'</td>`:
+							'<td>-</td>'
+						}
+					</tr>`;
 				$("#vTable tbody").append($(row));
 				index++;
 			}
@@ -751,15 +761,15 @@ class posAPI {
 		var api = this;
 		container.empty();
 		var filters = [];
-		var nTable = $('<table id="pTable" class="pTable"><tr>'+
-						 '<th style="font-size: 22px;">حرف</th>'+
-						 '<th style="font-size: 22px;">Meaning</th>'+
-						 '<th style="font-size: 14px;">Type</th>'+
-					   '</table>');
+		var nTable = $(`<table id="pTable" class="pTable">
+						<tr>
+						 	<th style="font-size: 22px;">حرف</th>
+						 	<th style="font-size: 22px;">Meaning</th>
+						 	<th style="font-size: 14px;">Type</th>
+					   </table>`);
 		container.append(nTable);
 		
-		var alink = '<a href="#" style=" text-decoration: none" '+
-						' onclick="checkWord(\'$\');">$</a>';
+		var alink = '<a href="#" style=" text-decoration: none" onclick="checkWord(\'$\');">$</a>';
 		for (const keyVal of Object.entries(res)){
 			var entryName = keyVal[0];
 			var values = keyVal[1];
@@ -770,22 +780,25 @@ class posAPI {
 				
 				//Add notes
 				if(values.notes){
-					row = row + '<tr style="font-size:18px;"><td style="background-color:#F6F6BA;" colspan="2">'+
-								values.notes+'</td>'+
-								'<td>'+values.ar+'<br/>'+ values.en+'</td>';
-								+'</td></tr>';
+					row = `
+						<tr style="font-size:18px;">
+							<td style="background-color:#F6F6BA;" colspan="2">
+								${values.notes}
+							</td>
+							<td>${values.ar}<br/>${values.en}</td>
+							</td>
+						</tr>`;
 				}
 				values.words.every(function(w){
 					row = row + '<tr>';
-					row = row + '<td>'+alink.replaceAll('\$',w)+'</td>';
+					row = row + `<td>${alink.replaceAll('\$',w)}</td>`;
 					
 					var ex = "";
 					if (values["e.g."] && values["e.g."][counter]){
 						ex = replaceQLink(values["e.g."][counter]);
 					}
-					row = row + '<td>'+alink.replaceAll('\$',values["en-words"][counter])+ex+'</td>';
-					row = row + '<td>'+values.ar+'<br/>'+ values.en+'</td>';
-					
+					row = row + `<td>${alink.replaceAll('\$',values["en-words"][counter])+ex}</td>`;
+					row = row + `<td>${values.ar}<br/>${values.en}</td>`;
 					row = row +'</tr>';
 					
 					var oval = values.ar+' - '+values.en;
@@ -801,14 +814,16 @@ class posAPI {
 		
 		// Add filter drop down
 		if(filters.length > 0){
-			var sel = '<select class="nFilter" '+ 
-					  'onchange="filterTableRows(\'#pTable\', 3, $(\'.nFilter\').val().replace(\' - \',\'\'), \'all\')">'+
-					  '<option value="all">Show All</option>';
-			filters.every(function(n){
-				sel += '<option value="'+n+'"><b>'+n+'</b></option>';
-				return true;
-			});	
-			sel += '</select>';
+			var sel = `<select class="nFilter"
+					  	 	onchange="filterTableRows('#pTable', 3, $('.nFilter').val().replace(' - ',''), 'all')">
+					  	<option value="all">Show All</option>
+						${
+							filters.every(function (n) {
+								sel += `<option value="'${n}'"><b>${n}</b></option>`;
+								return true;
+							})
+						}
+						</select>`;
 			container.prepend($(sel));
 		}
 	}
@@ -827,9 +842,14 @@ class posAPI {
 		var api = this;
 		container.empty();
 		var filters = [];
-		var nTable = $('<table id="pTable" class="pTable"><tr>'+
-						 '<th style="font-size: 22px;directoin:rtl;">Prepositional Phrases</th>'+
-					   '</table>');
+		var nTable = $(`
+			<table id="pTable" class="pTable">
+				<tr>
+					<th style="font-size: 22px;directoin:rtl;">
+						Prepositional Phrases
+					</th>
+				</tr>
+			</table>`);
 		container.append(nTable);
 		
 		for (const keyVal of res){
@@ -859,15 +879,17 @@ class posAPI {
 		
 		// Add filter drop down
 		if(filters.length > 0){
-			var sel = '<select class="nFilter" '+ 
-					  'onchange="filterTableRows(\'#pTable\', -1, $(\'.nFilter\').val(), \'all\', true)">'+
-					  '<option value="all">Show All</option>';
-			filters.every(function(n){
-				var keys =  n.split("|");	
-				sel += '<option value="'+keys[1]+'"><b>'+keys[1]+' - '+keys[0]+'</b></option>';
-				return true;
-			});	
-			sel += '</select>';
+			var sel = `<select class="nFilter" 
+					  	onchange="filterTableRows('#pTable', -1, $('.nFilter').val(), 'all', true)">
+					  	<option value="all">Show All</option>
+						${
+							filters.every(function(n){
+								var keys =  n.split("|");	
+								sel += `<option value="'${keys[1]}'"><b>'${keys[1]}' - '${keys[0]}'</b></option>`;
+								return true;
+							})
+						}
+						</select>`;
 			container.prepend($(sel));
 		}
 	}
@@ -1018,8 +1040,6 @@ class posAPI {
 					first = undefined;
 					conjugationCount = 0;
 				}
-				//curPos = newPos;
-				//curEn = newEn;
 				curXForm = kv[1].xform;
 				
 				if(first == undefined)
@@ -1100,8 +1120,7 @@ function toggleTableDiv(tableId){
 function makeImperative(pattern, gender){
 	
 	//remove 2nd person letters; ad dhamza al wasl
-	var p = pattern.replace(/^[يت][َُِ]?/g, '');
-	
+	var p = pattern.replace(/^[يت][َُِ]?/g, '');	
 	var p = p.replace(/^([ء-ي])(?:(ْ|[ء-ي]))/g, 'ا$1$2');
 	//remove erab
 	return update2ndGender(p, gender);
