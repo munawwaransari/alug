@@ -31,9 +31,13 @@ function showPrayerTimings(container, cType, city){
 							'<tr><th/><th style="'+dir+';width:150px;">'+transTimeText(cType, 'Event')+'</th>'+
 							'<th style="'+dir+';width:150px;">'+transTimeText(cType, 'Time')+'</th></tr>';
 			
-			var timings = (calendarType === 'hijri') ? 
-				  data.data.filter(t=> t.date.hijri.date === getLastDateStr())[0].timings
-				: data.data.timings;
+			var timings = data.data.timings ?? data.data[0].timings;
+			if(calendarType === 'hijri'){
+				var t = data.data.filter(t=> t.date.hijri.date === getLastDateStr());
+				if(t.length > 0 && t[0].timings){
+					timings = t[0].timings;
+				}
+			}
 				
 			var flag = 0, cblink = "", pastFlag = 0, rows = '';
 			Object.keys(timings).forEach(function(key){

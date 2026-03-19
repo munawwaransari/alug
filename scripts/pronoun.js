@@ -7,13 +7,13 @@ function showPronounInfo(k, v1, v2){
 	container.empty();
 	updateState(k, {ar: v1, en: v2});
 	
-	container.append($('<select class="pronounFilter" onchange="filterPronounView()">'+
-					'<option value="all">Show All</option>'+
-					'<option value="Subjective Pronouns">Subjective Pronouns</option>'+
-					'<option value="Objective Pronouns">Objective Pronouns</option>'+
-					'<option value="Demonstrative Pronouns">Demonstrative Pronouns</option>'+
-					'<option value="Relative Pronouns">Relative Pronouns</option>'+
-					+'</select>'));
+	container.append($(`<select class="pronounFilter" onchange="filterPronounView()">
+			<option value="all">Show All</option>
+			<option value="Subjective Pronouns">Subjective Pronouns</option>
+			<option value="Objective Pronouns">Objective Pronouns</option>
+			<option value="Demonstrative Pronouns">Demonstrative Pronouns</option>
+			<option value="Relative Pronouns">Relative Pronouns</option>
+		</select>`));
 					
 	addPronounConjugation(container, "images/pronouns/subject/", "Subjective Pronouns", "ضمائرُ المُنفَصِلَة",{
 		"3": ["he","they(m2)","they(m)","she","they(f2)","they(f)"],
@@ -49,11 +49,16 @@ function addRelativePronouns(container){
 	var rel = ["الّذِي","الَّذَانِ/الَّذَينِ","الَّذِينَ","الَّتِي","الَّتَانِ/الَّتَينِ","اللاتِي/اللائِي"];	
 	var rel_comm = ["ما<br/>what", "مَن<br/>who", ""];
 	
-	var pTable = '<table id="pTable_R" class="pTable"><tr>'+
-					'<th colspan="3" class="engText" style="font-size: 18px;">Relative Pronouns (اسمَاءُ الموصول)</th>';		
-	pTable += getRows('RN1', null, rel, 'اسماء الموصولة الخاصَّة (that/which)');
-	pTable += getRows('RN2', null, rel_comm, 'اسماء الموصولة العامَّة');
-	pTable += '</table>';
+	var pTable = `
+		<table id="pTable_R" class="pTable">
+			<tr>
+				<th colspan="3" class="engText" style="font-size: 18px;">
+					Relative Pronouns (اسمَاءُ الموصول)
+				</th>
+			</tr>
+			${getRows('RN1', null, rel, 'اسماء الموصولة الخاصَّة (that/which)')}
+			${getRows('RN2', null, rel_comm, 'اسماء الموصولة العامَّة')}
+		</table>`;
 	container.append($(pTable));
 }
 
@@ -67,45 +72,57 @@ function addDemonstrativePronouns(container){
 	var near_arr = near.map(function(x, i){ return x + '<br/><span style="font-size:14px;">'+ near_en[i]+'</span>'});
 	var far_arr = far.map(function(x, i){ return x + '<br/><span style="font-size:14px;">'+ far_en[i]+'</span>'});
 	
-	var pTable = '<table id="pTable_D" class="pTable"><tr>'+
-					'<th colspan="3" class="engText" style="font-size: 18px;">Demonstrative Pronouns (اسماءُالإشارة)</th>';		
-	pTable += getRows('DN', null, near_arr, 'اسماءُالإشارةِ القريب');	
-	pTable += getRows('DF', null, far_arr, 'اسماءُالإشارةِ البَعِيد');	
-	pTable += '</table>';
+	var pTable = `
+		<table id="pTable_D" class="pTable">
+			<tr>
+				<th colspan="3" class="engText" style="font-size: 18px;">
+					Demonstrative Pronouns (اسماءُالإشارة)
+				</th>
+			</tr>
+			${getRows('DN', null, near_arr, 'اسماءُالإشارةِ القريب')}
+			${getRows('DF', null, far_arr, 'اسماءُالإشارةِ البَعِيد')}
+		</table>`;
 	container.append($(pTable));
 }
 
 function addPronounConjugation(container, path, en, ar, pronounMap){
-	var pTable = '<table id="pTable_'+en[0]+'" class="pTable"><tr>'+
-					'<th colspan="3" class="engText" style="font-size: 18px;">'+en+' ('+ar+')</th>';		
-	pTable += getRows(en[0]+'3', path, pronounMap["3"], 'Third person (غائب)');	
-	pTable += getRows(en[0]+'2', path, pronounMap["2"], 'Second person (حاضر)');
-	pTable += getRows(en[0]+'1', path, pronounMap["1"], 'First person (مُتكلِّم)');
-	pTable += '</table>';
+	var pTable = `
+		<table id="pTable_${en[0]}" class="pTable">
+			<tr>
+				<th colspan="3" class="engText" style="font-size: 18px;">
+					${en} (${ar})
+				</th>
+			</tr>
+			${getRows(en[0]+'3', path, pronounMap["3"], 'Third person (غائب)')}
+			${getRows(en[0]+'2', path, pronounMap["2"], 'Second person (حاضر)')}
+			${getRows(en[0]+'1', path, pronounMap["1"], 'First person (مُتكلِّم)')}
+		</table>`;
 	container.append($(pTable));
 	showExampleRow(null);
 }
 
 function getRows(id, path, arr, title){
-	var rows = '<tr><td colspan="3" style="background-color:#E8E885; font-size:16px;">'+title+'</td></tr>';
+	var rows = `
+	<tr>
+		<td colspan="3" style="background-color:#E8E885; font-size:16px;">
+			${title}
+		</td>
+	</tr>`;
 	for(var i=0; i < arr.length; i++){
 		if(i == 0){
 			rows += '<tr>';
 		}
 		if(i == 3 || i == 6){
 			if(path){
-				rows +='</tr><tr><td id="'+id+'" colspan="3" class="exp">example</td></tr>';
+				rows +=`</tr><tr><td id="${id}" colspan="3" class="exp">example</td></tr>`;
 			}
 			rows += '<tr>';
 		}
 		if(path != null)
-			rows += '<td><img onclick="showExampleRow(\''+id+'\',\''+arr[i]+'\')" width="100px;" src="'+path+arr[i]+'.png" /></td>';
+			rows += `<td><img onclick="showExampleRow('${id}','${arr[i]}')" width="100px;" src="${path+arr[i]}.png" /></td>`;
 		else
-			rows += '<td><span style="font-weight: 30px;" >'+arr[i]+'</span></td>';
+			rows += `<td><span style="font-weight: 30px;" >${arr[i]}</span></td>`;
 	}
-	//if(arr.length < 3){		
-	//	rows +='</tr><tr><td id="'+id+'" colspan="2" class="exp">example</td></tr>';
-	//}
 	rows += '</tr>';
 	return rows;
 }
@@ -226,32 +243,41 @@ function showFiveNouns(k, v1, v2){
 	
 	var fiveNouns = ['اَب', 'اَخ', 'حَم', 'فَم', 'ذُو'];
 	var fiveNouns_opposite = ['اُم', 'اُخت', 'حماة', 'فَمة', 'ذات'];
-	var pTable = '<table id="n5Table" class="pTable" style="margin-top:20px;font-size:18px;">'+
-				 '<tr style="background-color:#CFE2F3">'+
-				 '<th>&nbsp;اسم&nbsp;</th><th>&nbsp;مؤنث&nbsp;</th><th>&nbsp;مرفوع&nbsp;</th><th>&nbsp;منصوب&nbsp;</th><th>&nbsp;مجزوم&nbsp;</th></tr>';
+	var pTable = `
+	<table id="n5Table" class="pTable" style="margin-top:20px;font-size:18px;">
+		<tr style="background-color:#CFE2F3">
+			<th>&nbsp;اسم&nbsp;</th>
+			<th>&nbsp;مؤنث&nbsp;</th>
+			<th>&nbsp;مرفوع&nbsp;</th>
+			<th>&nbsp;منصوب&nbsp;</th>
+			<th>&nbsp;مجزوم&nbsp;</th>
+		</tr>`;
 	for(var i=0; i < fiveNouns.length; i++){
 		var n = fiveNouns[i].replace(/ُو$/g,'');
-		pTable += '<tr><td><b>'+fiveNouns[i]+'</b></td>'+
-				  '<td>'+fiveNouns_opposite[i]+'</td>'+
-				  '<td style="background-color:#C4DBBB">'+n+'ُو'+'</td>'+
-				  '<td style="background-color:#EAD1DC">'+n+'َا'+'</td>'+
-				  '<td style="background-color:#C8C3D6">'+n+'ِي'+'</td>'+
-				  '</tr>';
+		pTable += `
+		<tr>
+			<td><b>${fiveNouns[i]}</b></td>
+			<td>${fiveNouns_opposite[i]}</td>
+			<td style="background-color:#C4DBBB">${n+'ُو'}</td>
+			<td style="background-color:#EAD1DC">${n+'َا'}</td>
+			<td style="background-color:#C8C3D6">${n+'ِي'}</td>
+		</tr>`;
 	}
 	pTable += '</table>';
 	container.append($(pTable));
 	
 	var arStyle = 'font-size:20px;margin:auto;text-align:center;width:90%;';
 	var enStyle = 'font-size:12px;margin:auto;text-align:center;width:90%;'
-	var examples = '<div style="margin-top:16px;font-size:14px;margin:auto;text-align:center;width:90%;"><b>Examples</b></div><br/>'+
-				   '<div style="'+arStyle+'">حَمُو أخِيه هُنا</div>'+
-				   '<div style="'+enStyle+'">His brother\'s father-in-law is here<div><br/>'+
-				   '<div style="'+arStyle+'">رَاَيتُ أَخَاكَ</div>'+
-				   '<div style="'+enStyle+'">I saw your brother<div><br/>'+
-				   '<div style="'+arStyle+'">فَمُو الأسَدِ مَفتُوحٌ</div>'+
-				   '<div style="'+enStyle+'">The lion\'s mouth is open<div><br/>'+
-				   '<div style="'+arStyle+'">اِسمُ أَخِي هَارُون</div>'+
-				   '<div style="'+enStyle+'">My brother\'s name is Aaron<div>';
-					
+	var examples = `
+		<div style="margin-top:16px;font-size:14px;margin:auto;text-align:center;width:90%;"><b>Examples</b></div><br/>
+		<div style="${arStyle}">حَمُو أخِيه هُنا</div>
+		<div style="${enStyle}">His brother\'s father-in-law is here<div><br/>
+		<div style="${arStyle}">رَاَيتُ أَخَاكَ</div>
+		<div style="${enStyle}">I saw your brother<div><br/>
+		<div style="${arStyle}">فَمُو الأسَدِ مَفتُوحٌ</div>
+		<div style="${enStyle}">The lion\'s mouth is open<div><br/>
+		<div style="${arStyle}">اِسمُ أَخِي هَارُون</div>
+		<div style="${enStyle}">My brother\'s name is Aaron<div>
+	`;
 	container.append($(examples));
 }

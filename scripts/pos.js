@@ -691,7 +691,6 @@ class posAPI {
 		
 		var vTable = $('<table id="vTable" class="vTable"><tr>'+
 						 '<th style="font-size: 14px;">Form</th>'+
-						 //'<th>مصدر</th>'+
 						 '<th>الماضي</th>'+
 						 '<th>المضارع</th>'+
 						 '<th>مصدر</th>'+
@@ -730,7 +729,7 @@ class posAPI {
 							'<td>-</td>'
 						}
 						${(pp.length > 0) ?
-							`<td>'+alink.replaceAll('\$',pp[0])+'</td>`:
+							`<td>${alink.replaceAll('\$',pp[0])}</td>`:
 							'<td>-</td>'
 						}
 					</tr>`;
@@ -818,9 +817,8 @@ class posAPI {
 					  	 	onchange="filterTableRows('#pTable', 3, $('.nFilter').val().replace(' - ',''), 'all')">
 					  	<option value="all">Show All</option>
 						${
-							filters.every(function (n) {
-								sel += `<option value="'${n}'"><b>${n}</b></option>`;
-								return true;
+							filters.map((n) => {
+								return `<option value="'${n}'"><b>${n}</b></option>`
 							})
 						}
 						</select>`;
@@ -883,10 +881,9 @@ class posAPI {
 					  	onchange="filterTableRows('#pTable', -1, $('.nFilter').val(), 'all', true)">
 					  	<option value="all">Show All</option>
 						${
-							filters.every(function(n){
+							filters.map((n) => {
 								var keys =  n.split("|");	
-								sel += `<option value="'${keys[1]}'"><b>'${keys[1]}' - '${keys[0]}'</b></option>`;
-								return true;
+								return `<option value="${keys[1]}"><b>${keys[1]} - ${keys[0]}</b></option>`
 							})
 						}
 						</select>`;
