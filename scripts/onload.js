@@ -410,26 +410,30 @@ function updateToolDescription(id, opt){
 	
 	switch(id){
 		case 'theme':
-			var sdiv = $('<div>'+
-			'Choose a theme: <select id="theme-options" onchange="changeTheme(this)">'+
-			'<option value="default" '+(app_theme === 'default' ?' selected ':'')+'>Default</option>'+
-			'<option value="theme-dark" '+(app_theme === 'dark-theme' ?' selected ':'')+'>Dark</option>'+
-			'<option value="theme-grayscale" '+(app_theme === 'grayscale-theme' ?' selected ':'')+'>Grayscale</option>'+
-			'<option value="theme-saturation" '+(app_theme === 'saturation-theme' ?' selected ':'')+'>Saturation</option>'+
-			'<option value="theme-sepia" '+(app_theme === 'sepia-theme' ?' selected ':'')+'>Sepia</option>'+
-			'</select>'+
-			'</div>');
+			var sdiv = $(`
+			<div>Choose a theme: 
+				<select id="theme-options" onchange="changeTheme(this)">
+					<option value="default" ${(app_theme === 'default' ?' selected ':'')}>Default</option>
+					<option value="theme-dark" ${(app_theme === 'dark-theme' ?' selected ':'')}>Dark</option>
+					<option value="theme-grayscale" ${(app_theme === 'grayscale-theme' ?' selected ':'')}+'>Grayscale</option>
+					<option value="theme-saturation" ${(app_theme === 'saturation-theme' ?' selected ':'')}>Saturation</option>
+					<option value="theme-sepia" ${(app_theme === 'sepia-theme' ?' selected ':'')}>Sepia</option>
+				</select>
+			</div>`);
 			toolMessage.html(sdiv);
 			break;
 			
 		case 'in-search':
-			var sdiv = $('<div>'+
-			'<input id="insearchtxt" class="isearch"/>'+
-			'<input type="reset" value="" alt="clear" title="Clear" onclick="$(\'#insearchtxt\').val(\'\');"/>'+
-			'<button id="isearchD" class="dropbtn" '+
-				'style="background-color:#6AA84F;top:-8px; height: 30px;margin-left:-18px;" '+
-				'onclick="isearch()"><b>Go!</b></button>'+
-			'</div>');
+			var sdiv = $(`
+			<div>
+				<input id="insearchtxt" class="isearch"/>
+				<input type="reset" value="" alt="clear" title="Clear" onclick="$('#insearchtxt').val('');"/>
+				<button id="isearchD" class="dropbtn"
+					style="background-color:#6AA84F;top:-8px; height: 30px;margin-left:-18px;"
+					onclick="isearch()">
+				<b>Go!</b>
+				</button>
+			</div>`);
 			toolMessage.html(sdiv);
 			
 			autocomplete(document.getElementById('insearchtxt'), function(val, callback){
@@ -521,14 +525,17 @@ function updateToolDescription(id, opt){
 				for (const [key, value] of Object.entries(menuItems)){
 					var type = Object.prototype.toString.call(value);
 					if(type === "[object String]")
-						menu = menu + '<span class="menuitem" onclick="'+value+';">'+key+'</span>';
+						menu +=
+						`<span class="menuitem" onclick="${value}">${key}</span>`;
 					else{
 						var onAction = 'showChart(\''+key+'\')';
-						menu += '<span class="menuitem" onclick="toggleMenu([\'Vocab\',\'Chart\',\'Misc\',\'TTS\'],\'sel'+key+'\')">'+
-							key+':<select id="sel'+key+'" ' +
-									' onchange="'+onAction+'">';
+						menu += 
+						`<span class="menuitem" 
+							onclick="toggleMenu(['Vocab','Chart','Misc','TTS'],'sel${key}')">
+							${key}:
+							<select id="sel${key}" onchange="${onAction}">`;
 						for(const [k,v]of Object.entries(value))
-							menu += '<option value="'+v+'">'+k+'</option>';
+							menu += `<option value="${v}">${k}</option>`;
 						menu += '</select></span>';
 					}
 					
