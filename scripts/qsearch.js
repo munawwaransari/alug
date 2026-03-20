@@ -196,65 +196,64 @@ function search(pageNumber){
 			// Add Next & Prev navigation for single verse
 			var nav = '<div style="font-size:12px;margin-bottom:10px;padding:10px;background-color:#9DBF6C;">';
 			if(verseNumber > 1){
-				nav +=  '<span onclick="searchText(\''+(keys[0])+':'+(verseNumber-1)+'\')" '+
-						'style="cursor:pointer;margin-right:20px;">'+
-						'<b>&lt;&nbsp;Prev</b></span>' +
-						'<span>&nbsp;&nbsp;</span>';
+				nav +=  `<span onclick="searchText('${keys[0]}:${verseNumber-1})}')"
+							style="cursor:pointer;margin-right:20px;">
+							<b>&lt;&nbsp;Prev</b>
+						</span>
+						<span>&nbsp;&nbsp;</span>`;
 			}
 			
 			//add play surah option
 			var checked = isAutoPlayQirat ? 'checked': '';
-			var chk = '<span>'+
-						'<input id="chkTafsir" style="border: 4px solid #8585D4;" type="Checkbox" '+
-						' onclick="playTafsir(\''+verseKey+'\')">'+
-						'&nbsp;Tafsir&nbsp;'+
-						'<input id="chkQir" style="border: 4px solid #8585D4;" type="Checkbox" '+
-						checked+
-						' onclick="onVerseLoaded(\''+(+keys[0])+'\','+ verseNumber +');">'+
-						'&nbsp;Qirat&nbsp;'+
-					  '</span>';
+			var chk = `<span>
+						<input id="chkTafsir" style="border: 4px solid #8585D4;" type="Checkbox"
+							onclick="playTafsir('${verseKey}')">
+							&nbsp;Tafsir&nbsp;
+						<input id="chkQir" style="border: 4px solid #8585D4;" type="Checkbox"
+						${checked}
+						onclick="onVerseLoaded('${keys[0]}','${verseNumber}');">
+						&nbsp;Qirat&nbsp;
+					  </span>`;
 			nav += chk;
 			
 			// add next
-			nav += '<span onclick="searchText(\''+(+keys[0])+':'+(verseNumber+1)+'\')" '+
-						 'style="cursor:pointer;margin-left:20px;">'+
-						 '<b>Next&nbsp;&gt;</b>'+
-					'</span>'+
+			nav += `<span onclick="searchText('(${keys[0]}:${verseNumber+1}')"
+						style="cursor:pointer;margin-left:20px;">
+						<b>Next&nbsp;&gt;</b>
+					</span>
 					
-					//Share external
-					'<img src="images/share.png" title="Share" '+
-						'style="cursor:pointer;float:right;margin-right:8px;height:20px;" '+
-						'onclick="const p=['+
-								    '\'mode=\'+q_app_mode,'+
-									'\'search=\'+$(\'#searchText\').val(),'+
-									'\'tf=\'+$(\'#tafsir-options\').val()];'+
-								  'shareExternal(p[1], p);" '+
-						'</img>' +
+					<!-- >Share external -->
+					<img src="images/share.png" title="Share"
+						style="cursor:pointer;float:right;margin-right:8px;height:20px;"
+						onclick="const p=['
+								    mode='${q_app_mode}',
+									search=$('#searchText').val(),
+									tf=$('#tafsir-options').val()
+								];
+								shareExternal(p[1], p);"
+					</img>
 
-					// Copy
-					'<span class="dropdown" style="cursor:pointer;float:right;margin-right:8px;">'+
-					    '<img src="images/copy.png" title="Copy" ' +
-							'style="height:20px;" '+
-							'onclick="" />'+
+					<!-- Copy -->
+					<span class="dropdown" style="cursor:pointer;float:right;margin-right:8px;">
+					    <img src="images/copy.png" title="Copy"
+							style="height:20px;" onclick="" />
 				
-						'<div class="dropdown-content" style="margin-left:-60px;width:10px;">'+
-							'<a href="#" onclick="copyAyahText(\'word-ar\');">Copy AR</a>'+
-							'<a href="#" onclick="copyAyahText(\'word-en\');">Copy EN</a>'+
-							'<a href="#" onclick="copyAyahText(\'word-ur\');">Copy UR</a>'+
-							'<a href="#" onclick="copyAyahText(\'word-hi\');">Copy HI</a>'+
-							'<a href="#" onclick="copyTafsirText();">Copy تفسير</a>'+
-							'<a href="#" onclick="copyAyahMp3Path();">MP3 Path</a>'+
-						'</div>'+
-					'</span>';
+						<div class="dropdown-content" style="margin-left:-60px;width:10px;">
+							<a href="#" onclick="copyAyahText(\'word-ar\');">Copy AR</a>
+							<a href="#" onclick="copyAyahText(\'word-en\');">Copy EN</a>
+							<a href="#" onclick="copyAyahText(\'word-ur\');">Copy UR</a>
+							<a href="#" onclick="copyAyahText(\'word-hi\');">Copy HI</a>
+							<a href="#" onclick="copyTafsirText();">Copy تفسير</a>
+							<a href="#" onclick="copyAyahMp3Path();">MP3 Path</a>
+							<a href="#" onclick="copyAyahImagePath();">Image path</a>
+						</div>
+					</span>`;
 			
 			nav += '</div>';
 			div.append($(nav));
 			onVerseLoaded(keys[0], verseNumber);
 			
-			// Try to search the key and get exact vesre
-			//SearchQuran(window.QuranJS.Search.search, 
-			//		    { language: window.QuranJS.Language.ENGLISH, size: 50 }, 
-			//			ayahText, 
+			// Search the key and get exact verse
 			searchVerseKey(1, ayahText, verseKey,
 			function(data2){
 				data2.results.forEach(function(res2){
@@ -1903,38 +1902,48 @@ function changeSurahDisplayMode(elem){
 	listSurahs();
 }
 
+function getVerseKeyFromElement(id, prefix){
+	var tk = id.replace(prefix,'').split('_');
+	if(tk){
+		return tk[0]+':'+tk[1];
+	}
+	return '';
+}
+
 function copyAyahText(className){
 	var spans = $("div[id*=vdiv]").find("span[class="+className+"]");
 	var text = '';
-	var ayahNumber = '';
 	spans.each(function(i, v){
 		if(text != '') text+= ' ';
 		text += $(v).text();
-
-		if(ayahNumber == ''){
-			var id = $(v).parent().prop('id');
-			var tk = id.replace('vdiv-','').split('-');
-			if(tk){
-				ayahNumber = ' [Quran '+tk[0]+':'+tk[1]+']';
-			}
+		var verseKey = getVerseKeyFromElement($(v).parent().prop('id'), 'vdiv')
+		if(verseKey !== ''){
+			text += ' [Quran '+verseKey+']';
 		}
 	});
 	if(text != ''){
-		copyTextToClipboard(text + ayahNumber);
+		copyTextToClipboard(text);
 	}
 }
 
 function copyTafsirText(){
 	var txt = $("#tafsir").text();
-	
 	if(txt && txt.length > 0){
 		var id = $("#tafsir").prev('div').prop('id');
-		var tk = id.replace('div','').split('_');
-		if(tk){
-			var ayahNumber = ' [Quran '+tk[0]+':'+tk[1]+']';
-			txt += ayahNumber;
+		var verseKey = getVerseKeyFromElement(id, 'div')
+		if(verseKey != ''){
+			txt += ' [Quran '+verseKey+']';
 		}
 		copyTextToClipboard(txt);
+	}
+}
+
+function copyAyahImagePath(){
+	var id = $("#tafsir").prev('div').prop('id');
+	var verseKey = getVerseKeyFromElement(id, 'div');
+	if(verseKey != ''){
+		verseKey = verseKey.replace(':', '_');
+		copyTextToClipboard(`https://everyayah.com/data/images_png/${verseKey}.png`);
 	}
 }
 
