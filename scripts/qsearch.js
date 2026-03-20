@@ -169,8 +169,8 @@ function search(pageNumber){
 	}
 	
 	div.html('Searching '+text+' in the Quran...');
-	SearchQuran(ctx, opt, text, function(dataRes){
-		//console.log(data);
+	SearchQuran(ctx, opt, text)
+	.then((dataRes) => {
 		var data = Array.isArray(dataRes) ? dataRes[0] : dataRes;
 		if(!data){
 			div.html('No results found for '+ text);
@@ -248,7 +248,8 @@ function search(pageNumber){
 			onVerseLoaded(keys[0], verseNumber);
 			
 			// Search the key and get exact verse
-			searchVerseKey(1, ayahText, verseKey, (data2) => {
+			searchVerseKey(1, ayahText, verseKey)
+			.then((data2) => {
 				data2.results.forEach((res2) => {
 					var resulText = res2.highlighted ?? res2.text;
 					if(resulText){
@@ -281,13 +282,16 @@ function search(pageNumber){
 								);
 								
 								// Try to add English translation
-								SearchQuran(window.QuranJS.Verses.findByKey, { 
-									words:1, 
-									language: window.QuranJS.Language.ENGLISH, 
-									size: 10
-								}, 
-								verseKey, 
-								(data3) => {
+								SearchQuran(
+									window.QuranJS.Verses.findByKey, 
+									{ 
+										words:1, 
+										language: window.QuranJS.Language.ENGLISH, 
+										size: 10
+									}, 
+									verseKey
+								)
+								.then((data3) => {
 									displayVerse(
 										div, 
 										data3.words[0].translation.text, 
@@ -300,10 +304,15 @@ function search(pageNumber){
 									);
 									
 									// Try to add Urdu translation
-									SearchQuran(window.QuranJS.Verses.findByKey, 
-									{ words:1, language: window.QuranJS.Language.URDU, size: 10 }, 
-									verseKey, 
-									(data4) => {
+									SearchQuran(
+										window.QuranJS.Verses.findByKey, 
+										{
+											words:1, 
+											language: window.QuranJS.Language.URDU, 
+											size: 10 
+										}, 
+										verseKey
+									).then((data4) => {
 										displayVerse(
 											div, 
 											data4.words[0].translation.text, 
@@ -316,10 +325,16 @@ function search(pageNumber){
 										);
 										
 										// Try to add Hindi translation
-										SearchQuran(window.QuranJS.Verses.findByKey, 
-										{ words:1, language: window.QuranJS.Language.HINDI, size: 10 }, 
-										verseKey, 
-										(data5) => {
+										SearchQuran(
+											window.QuranJS.Verses.findByKey, 
+											{ 
+												words:1, 
+												language: window.QuranJS.Language.HINDI, 
+												size: 10 
+											}, 
+											verseKey
+										)
+										.then((data5) => {
 											displayVerse(div, data5.words[0].translation.text, verseKey, {
 												words: data5.words,
 												bgColor: '#E8EEF4',
@@ -387,26 +402,45 @@ function search(pageNumber){
 	});
 }
 
-function searchVerseKey(page, ayahText, verseKey, callback){
-	//$("#playbox").hide();
+function SearchQuran(ctx, opt, text){
+	 return ctx(text, opt)
+        .catch(error => {
+            console.error("Quran search error:", error);
+            throw error; // Re-throw to allow the caller to handle it
+        });
+}
+
+function searchVerseKey(page, ayahText, verseKey){
 	togglePlayControls(false);
-	SearchQuran(
-		window.QuranJS.Search.search,
-		{
-			language: window.QuranJS.Language.ENGLISH,
-			size: 50,
-			page: page
-		},
-		ayahText,
-		(data) => {
-			var res = data.results.filter(x => x.verseKey === verseKey);
-			if (res.length > 0) {
-				callback(data);
+	return new Promise((resolve, reject) => {
+		SearchQuran(
+			window.QuranJS.Search.search, 
+			{ 
+				language: window.QuranJS.Language.ENGLISH, 
+				size: 50,
+				page: page		
+			}, 	
+			ayahText
+		)
+		.then( async (data) => {
+				var res = data.results.filter(x => x.verseKey === verseKey);
+				if(res.length > 0){
+					resolve(data);
+				}
+				else if(data.currentPage < data.totalPages){
+					try{
+						const nextData = searchVerseKey(data.currentPage+1, ayahText, verseKey);
+						resolve(nextData);
+					}catch(err){
+						reject(err)
+					}
+				}
+				else{
+          			reject(new Error("Verse key not found."));
+				}
 			}
-			else if (data.currentPage < data.totalPages) {
-				searchVerseKey(data.currentPage + 1, ayahText, verseKey, callback);
-			}
-		});
+		);
+	});
 }
 
 function changeTafsir(){
@@ -470,8 +504,9 @@ function getVerseTranslation(id, verseKey, sfx = '_en', lang = window.QuranJS.La
 				words: 1, 
 				language:  lang
 			}, 
-			verseKey, 
-	  function(data){	
+			verseKey
+	)
+	.then((data) => {	
 		if(!data){
 			return;
 		}
@@ -750,19 +785,6 @@ function showWordAnalysis(word, surah, verse, pos){
 		window.open(url, '_blank');
 	}
 }
-
-function SearchQuran(ctx, opt, text, callback){
-	const response = ctx(text, opt)
-					.then((data, ext)=>{								   
-						if(callback)
-							callback(data, ext);
-					},
-					(error) => {
-						console.error("Quran search error:", error);
-						if(callback)
-							callback(null, error);
-					});
-};
 
 /*
 Loads all words from the Quran
