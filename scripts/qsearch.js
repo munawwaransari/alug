@@ -194,83 +194,91 @@ function search(pageNumber){
 			div.html('');
 			
 			// Add Next & Prev navigation for single verse
-			var nav = '<div style="font-size:12px;margin-bottom:10px;padding:10px;background-color:#9DBF6C;">';
-			if(verseNumber > 1){
-				nav +=  `<span onclick="searchText('${keys[0]}:${verseNumber-1})}')"
-							style="cursor:pointer;margin-right:20px;">
-							<b>&lt;&nbsp;Prev</b>
-						</span>
-						<span>&nbsp;&nbsp;</span>`;
-			}
-			
-			//add play surah option
-			var checked = isAutoPlayQirat ? 'checked': '';
-			var chk = `<span>
-						<input id="chkTafsir" style="border: 4px solid #8585D4;" type="Checkbox"
-							onclick="playTafsir('${verseKey}')">
-							&nbsp;Tafsir&nbsp;
-						<input id="chkQir" style="border: 4px solid #8585D4;" type="Checkbox"
-						${checked}
-						onclick="onVerseLoaded('${keys[0]}','${verseNumber}');">
-						&nbsp;Qirat&nbsp;
-					  </span>`;
-			nav += chk;
-			
-			// add next
-			nav += `<span onclick="searchText('(${keys[0]}:${verseNumber+1}')"
-						style="cursor:pointer;margin-left:20px;">
-						<b>Next&nbsp;&gt;</b>
+			var nav = `
+			<div style="font-size:12px;margin-bottom:10px;padding:10px;background-color:#9DBF6C;">
+				${ (verseNumber > 1) ?
+					`<span onclick="searchText('${keys[0]}:${verseNumber-1})}')"
+								style="cursor:pointer;margin-right:20px;">
+								<b>&lt;&nbsp;Prev</b>
 					</span>
-					
-					<!-- >Share external -->
-					<img src="images/share.png" title="Share"
-						style="cursor:pointer;float:right;margin-right:8px;height:20px;"
-						onclick="const p=['
-								    mode='${q_app_mode}',
-									search=$('#searchText').val(),
-									tf=$('#tafsir-options').val()
-								];
-								shareExternal(p[1], p);"
-					</img>
+					<span>&nbsp;&nbsp;</span>`:''
+				}
+				<span>
+					<input id="chkTafsir" style="border: 4px solid #8585D4;" type="Checkbox"
+						onclick="playTafsir('${verseKey}')">
+						&nbsp;Tafsir&nbsp;
+					<input id="chkQir" style="border: 4px solid #8585D4;" type="Checkbox"
+					${isAutoPlayQirat ? 'checked': ''}
+					onclick="onVerseLoaded('${keys[0]}','${verseNumber}');">
+					&nbsp;Qirat&nbsp;
+				</span>
+				<span onclick="searchText('(${keys[0]}:${verseNumber + 1}')"
+					style="cursor:pointer;margin-left:20px;">
+					<b>Next&nbsp;&gt;</b>
+				</span>
+						
+				<!-- >Share external -->
+				<img src="images/share.png" title="Share"
+					style="cursor:pointer;float:right;margin-right:8px;height:20px;"
+					onclick="const p=['
+								mode='${q_app_mode}',
+								search=$('#searchText').val(),
+								tf=$('#tafsir-options').val()
+							];
+							shareExternal(p[1], p);"
+				</img>
 
-					<!-- Copy -->
-					<span class="dropdown" style="cursor:pointer;float:right;margin-right:8px;">
-					    <img src="images/copy.png" title="Copy"
-							style="height:20px;margin-top:1px;" onclick="" />
-				
-						<div class="dropdown-content" style="margin-left:-60px;width:10px;">
-							<a href="#" onclick="copyAyahText(\'word-ar\');">Copy AR</a>
-							<a href="#" onclick="copyAyahText(\'word-en\');">Copy EN</a>
-							<a href="#" onclick="copyAyahText(\'word-ur\');">Copy UR</a>
-							<a href="#" onclick="copyAyahText(\'word-hi\');">Copy HI</a>
-							<a href="#" onclick="copyTafsirText();">Copy تفسير</a>
-							<a href="#" onclick="copyAyahMp3Path();">MP3 Path</a>
-							<a href="#" onclick="copyAyahImagePath();">Image path</a>
-						</div>
-					</span>`;
+				<!-- Copy -->
+				<span class="dropdown" style="cursor:pointer;float:right;margin-right:8px;">
+					<img src="images/copy.png" title="Copy"
+						style="height:20px;margin-top:1px;" onclick="" />
 			
-			nav += '</div>';
+					<div class="dropdown-content" style="margin-left:-60px;width:10px;">
+						<a href="#" onclick="copyAyahText(\'word-ar\');">Copy AR</a>
+						<a href="#" onclick="copyAyahText(\'word-en\');">Copy EN</a>
+						<a href="#" onclick="copyAyahText(\'word-ur\');">Copy UR</a>
+						<a href="#" onclick="copyAyahText(\'word-hi\');">Copy HI</a>
+						<a href="#" onclick="copyTafsirText();">Copy تفسير</a>
+						<a href="#" onclick="copyAyahMp3Path();">MP3 Path</a>
+						<a href="#" onclick="copyAyahImagePath();">Image path</a>
+					</div>
+				</span>
+			</div>`;
 			div.append($(nav));
 			onVerseLoaded(keys[0], verseNumber);
 			
 			// Search the key and get exact verse
-			searchVerseKey(1, ayahText, verseKey,
-			function(data2){
-				data2.results.forEach(function(res2){
+			searchVerseKey(1, ayahText, verseKey, (data2) => {
+				data2.results.forEach((res2) => {
 					var resulText = res2.highlighted ?? res2.text;
 					if(resulText){
 						var verse2 = resulText.replace(/[<>\/a-zA-Z]+/ig, '');
 						if(res2.verseKey == verseKey){
-							displayVerse(div, verse2, verseKey, { words: res2.words, controls: true, direction: 'rtl', ayahOption: $("#ayah-options").val() });
-							
+							displayVerse(
+								div, 
+								verse2, 
+								verseKey, 
+								{ 
+									words: res2.words, 
+									controls: true, 
+									direction: 'rtl', 
+									ayahOption: $("#ayah-options").val() 
+								}
+							);
+
 							// Try to get transliteration
-							getAyahTransliteration(verseKey, function(transData){
+							getAyahTransliteration(verseKey, (transData) => {
 								
-								displayVerse(div, transData.join(' '), verseKey, {
-									words: transData.map(function(d) {return {text: d} }),
-									bgColor: '#F6F0c2',
-									direction: 'ltr'
-								});
+								displayVerse(
+									div, 
+									transData.join(' '), 
+									verseKey, 
+									{
+										words: transData.map(function(d) {return {text: d} }),
+										bgColor: '#F6F0c2',
+										direction: 'ltr'
+									}
+								);
 								
 								// Try to add English translation
 								SearchQuran(window.QuranJS.Verses.findByKey, { 
@@ -279,29 +287,39 @@ function search(pageNumber){
 									size: 10
 								}, 
 								verseKey, 
-								function(data3){
-									displayVerse(div, data3.words[0].translation.text, verseKey, {
-										words: data3.words,
-										bgColor: '#F6F0F2',
-										direction: 'ltr'
-									});
+								(data3) => {
+									displayVerse(
+										div, 
+										data3.words[0].translation.text, 
+										verseKey, 
+										{
+											words: data3.words,
+											bgColor: '#F6F0F2',
+											direction: 'ltr'
+										}
+									);
 									
 									// Try to add Urdu translation
 									SearchQuran(window.QuranJS.Verses.findByKey, 
-												{ words:1, language: window.QuranJS.Language.URDU, size: 10 }, 
-												verseKey, 
-									function(data4){
-										displayVerse(div, data4.words[0].translation.text, verseKey, {
-											words: data4.words,
-											bgColor: '#E8EEF4',
-											direction: 'rtl'
-										});
+									{ words:1, language: window.QuranJS.Language.URDU, size: 10 }, 
+									verseKey, 
+									(data4) => {
+										displayVerse(
+											div, 
+											data4.words[0].translation.text, 
+											verseKey, 
+											{
+												words: data4.words,
+												bgColor: '#E8EEF4',
+												direction: 'rtl'
+											}
+										);
 										
 										// Try to add Hindi translation
 										SearchQuran(window.QuranJS.Verses.findByKey, 
-													{ words:1, language: window.QuranJS.Language.HINDI, size: 10 }, 
-													verseKey, 
-										function(data5){
+										{ words:1, language: window.QuranJS.Language.HINDI, size: 10 }, 
+										verseKey, 
+										(data5) => {
 											displayVerse(div, data5.words[0].translation.text, verseKey, {
 												words: data5.words,
 												bgColor: '#E8EEF4',
@@ -321,7 +339,6 @@ function search(pageNumber){
 												}
 											});
 										});
-
 									});
 								});
 							});
@@ -373,20 +390,23 @@ function search(pageNumber){
 function searchVerseKey(page, ayahText, verseKey, callback){
 	//$("#playbox").hide();
 	togglePlayControls(false);
-	SearchQuran(window.QuranJS.Search.search, { 
-		language: window.QuranJS.Language.ENGLISH, 
-		size: 50,
-		page: page		
-	}, 	
-	ayahText, function(data){
-		var res = data.results.filter(x => x.verseKey === verseKey);
-		if(res.length > 0){
-			callback(data);
-		}
-		else if(data.currentPage < data.totalPages){
-			searchVerseKey(data.currentPage+1, ayahText, verseKey, callback);
-		}
-	});
+	SearchQuran(
+		window.QuranJS.Search.search,
+		{
+			language: window.QuranJS.Language.ENGLISH,
+			size: 50,
+			page: page
+		},
+		ayahText,
+		(data) => {
+			var res = data.results.filter(x => x.verseKey === verseKey);
+			if (res.length > 0) {
+				callback(data);
+			}
+			else if (data.currentPage < data.totalPages) {
+				searchVerseKey(data.currentPage + 1, ayahText, verseKey, callback);
+			}
+		});
 }
 
 function changeTafsir(){
