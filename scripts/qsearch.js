@@ -236,7 +236,7 @@ function search(pageNumber){
 					<!-- Copy -->
 					<span class="dropdown" style="cursor:pointer;float:right;margin-right:8px;">
 					    <img src="images/copy.png" title="Copy"
-							style="height:20px;" onclick="" />
+							style="height:20px;margin-top:1px;" onclick="" />
 				
 						<div class="dropdown-content" style="margin-left:-60px;width:10px;">
 							<a href="#" onclick="copyAyahText(\'word-ar\');">Copy AR</a>
