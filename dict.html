@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="styles/autoc-styles.css" media="screen">
 	<title>Arabic Grammar & Word Analysis</title>
 	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+	<script src="scripts/require.js"></script>
 	<script src="scripts/data-util.js"></script>
 	<script src="scripts/autocomplete.js"></script>
 	<script src="scripts/dict-lt.js"></script>
@@ -280,6 +281,7 @@
 			  <div class="dropdown-content">
 				<a href="#" onclick="listSearchIndex();toggleDropdownContent($(this).parent().prev());">Index</a>
 				<a href="#" onclick="listExamplesFromQuran();toggleDropdownContent($(this).parent().prev());">Examples (Quran)</a>
+				<a href="#" onclick="convertHTMLtoPDF('.dictionary', 'exported.pdf');"><sub>Export to PDF</sub></a>
 				<a href="#" onclick="lookupEx('https://www.almaany.com/ar/dict/ar-$/');toggleDropdownContent($(this).parent().prev());"><sub>Almaany</sub></a>
 				<a href="#" onclick="lookupEx('https://glosbe.com/ar/$/');toggleDropdownContent($(this).parent().prev());"><sub>Glosbe</sub></a>
 			  </div>
