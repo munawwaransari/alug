@@ -1388,6 +1388,11 @@ function convertHTMLtoPDF(selector, filter, pdfFileName) {
 		doc.addFileToVFS('NotoSansArabic.ttf', get_NotoSansArabic_Base64());
 		doc.addFont('NotoSansArabic.ttf', 'NotoSans', 'normal');
 		doc.setFont('NotoSans');
+		doc.setFontSize(8);
+		doc.text(doc.internal.pageSize.getWidth() - 60,
+				5, 
+				'https://munawwaransari.github.io/alug/');
+
 		//doc.setFontSize('22px');
 
 		const elementHTML = document.querySelector(selector);
@@ -1395,14 +1400,14 @@ function convertHTMLtoPDF(selector, filter, pdfFileName) {
 		elementHTML.style.fontFamily = 'NotoSans';
 
 		const elementFilter = document.querySelector(filter);
-		elementFilter.style.fontFamily = 'NotoSans';
-		
+		if(elementFilter){
+			elementFilter.style.fontFamily = 'NotoSans';
+		}
 		// Use the html() method to render the HTML element
 		doc.html(elementHTML, {
 			callback: function(doc) {
 				// Save the PDF with a specific filename
 				doc.save(pdfFileName);
-				elementHTML.style.fontFamily = oldFamily;
 			},
 			margin: [10, 10, 10, 10], // Optional: add margins [top, right, bottom, left]
 			autoPaging: 'text', // Handles multi-page content automatically
@@ -1411,23 +1416,48 @@ function convertHTMLtoPDF(selector, filter, pdfFileName) {
 			width: 190, // Target width in the PDF document
 			windowWidth: 675 // Window width in CSS pixels for accurate rendering
 		});
-
-	/*
-	convertElementToImage(elementHTML, function(img){
-		require(["scripts/jsPDF/jspdf.umd.js"], function(ns){
-        	const doc = new ns.jsPDF();
-			doc.addImage(img, 
-						 "PNG", 
-						 10,
-						 10,
-						 200, // Target width in the PDF document
-						 400 // Window width in CSS pixels for accurate rendering
-			);
-			doc.save(pdfFileName);
-		});
 	});
-	*/
+}
 
+function convertHTMLtoImage(selector, filter, imgFileName){
+	require(["scripts/jsPDF/polyfills.umd.js","scripts/jsPDF/jspdf.umd.js"], 
+	function(pf, ns){
+        const doc = new ns.jsPDF();
+		doc.addFileToVFS('NotoSansArabic.ttf', get_NotoSansArabic_Base64());
+		doc.addFont('NotoSansArabic.ttf', 'NotoSans', 'normal');
+		doc.setFont('NotoSans');
+		//doc.setFontSize('22px');
+
+		const elementHTML = document.querySelector(selector);
+		const oldFamily =  elementHTML.style.fontFamily;
+		elementHTML.style.fontFamily = 'NotoSans';
+
+		//const elementFilter = document.querySelector(filter);
+		//elementFilter.style.fontFamily = 'NotoSans';
+		
+		convertElementToImage(elementHTML, function(img){
+			require(["scripts/jsPDF/jspdf.umd.js"], function(ns){
+				const doc = new ns.jsPDF();
+				const imgProps = doc.getImageProperties(img);
+
+				// Calculate best fit
+				const ratio = Math.min((doc.internal.pageSize.getWidth() - 10) / imgProps.width, 
+									(doc.internal.pageSize.getHeight() - 10) / imgProps.height);
+
+				doc.setFontSize(8);
+				doc.text(doc.internal.pageSize.getWidth() - 60,
+						 5, 
+						 'https://munawwaransari.github.io/alug/');
+				doc.addImage(img, 
+							"PNG", 
+							10,
+							10,
+							imgProps.width * ratio, 
+							imgProps.height * ratio
+				);
+				doc.save(imgFileName);
+			});
+		});
 	});
 }
 
@@ -1436,8 +1466,7 @@ function convertElementToImage(element, cb) {
 		html2canvas(element).then(canvas => {
 			// The image data is available as a data URL (base64 encoded string)
 			const imageDataUrl = canvas.toDataURL("image/png"); 
-
-			console.log("Image Data URL:", imageDataUrl);
+			//console.log("Image Data URL:", imageDataUrl);
 
 			// Optional: Display the image on the page
 			const img = new Image();
