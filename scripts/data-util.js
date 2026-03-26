@@ -183,6 +183,7 @@ function filterTableRows(table, column, searchText, allText, useInlcude){
 		return;
 	}
 	console.log("Filtering table: "+ table +", column: "+ column +", searchText: "+ txt);
+	txt = txt.replace(/^'/, '').replace(/'$/, '');
 	$(table + " tr td").hide();
 	var tableRows = $(table + ' tr td:contains(\''+txt+'\')');
 	tableRows.filter((i, td) => {
@@ -1379,25 +1380,29 @@ function init_data_cache(){
 	};
 }
 
-function convertHTMLtoPDF(selector, pdfFileName) {
-	// Get the HTML element you want to print using a query selector
-	const elementHTML = document.querySelector(selector);
- 	elementHTML.style.fontFamily = 'NotoSans';
+function convertHTMLtoPDF(selector, filter, pdfFileName) {
 
-	require(["scripts/jsPDF/jspdf.umd.js"], function(ns){
+	require(["scripts/jsPDF/polyfills.umd.js","scripts/jsPDF/jspdf.umd.js"], 
+	function(pf, ns){
         const doc = new ns.jsPDF();
- 
 		doc.addFileToVFS('NotoSansArabic.ttf', get_NotoSansArabic_Base64());
 		doc.addFont('NotoSansArabic.ttf', 'NotoSans', 'normal');
 		doc.setFont('NotoSans');
+		//doc.setFontSize('22px');
 
-		//doc.setFontSize(10); // Set desired font size
+		const elementHTML = document.querySelector(selector);
+		const oldFamily =  elementHTML.style.fontFamily;
+		elementHTML.style.fontFamily = 'NotoSans';
 
+		const elementFilter = document.querySelector(filter);
+		elementFilter.style.fontFamily = 'NotoSans';
+		
 		// Use the html() method to render the HTML element
 		doc.html(elementHTML, {
 			callback: function(doc) {
 				// Save the PDF with a specific filename
 				doc.save(pdfFileName);
+				elementHTML.style.fontFamily = oldFamily;
 			},
 			margin: [10, 10, 10, 10], // Optional: add margins [top, right, bottom, left]
 			autoPaging: 'text', // Handles multi-page content automatically
