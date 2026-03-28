@@ -1384,7 +1384,11 @@ function convertHTMLtoPDF(selector, filter, pdfFileName) {
 
 	require(["scripts/jsPDF/polyfills.umd.js","scripts/jsPDF/jspdf.umd.js"], 
 	function(pf, ns){
-        const doc = new ns.jsPDF();
+        const doc = new ns.jsPDF({ 
+			orientation: "portrait", 
+			unit: 'px',
+			format: 'a4'
+		});
 		doc.addFileToVFS('NotoSansArabic.ttf', get_NotoSansArabic_Base64());
 		doc.addFont('NotoSansArabic.ttf', 'NotoSans', 'normal');
 		doc.setFont('NotoSans');
@@ -1422,7 +1426,11 @@ function convertHTMLtoPDF(selector, filter, pdfFileName) {
 function convertHTMLtoImage(selector, filter, imgFileName){
 	require(["scripts/jsPDF/polyfills.umd.js","scripts/jsPDF/jspdf.umd.js"], 
 	function(pf, ns){
-        const doc = new ns.jsPDF();
+        const doc = new ns.jsPDF({
+			 orientation: "portrait", 
+			 unit: 'px',
+			 format: 'a4'
+		});
 		doc.addFileToVFS('NotoSansArabic.ttf', get_NotoSansArabic_Base64());
 		doc.addFont('NotoSansArabic.ttf', 'NotoSans', 'normal');
 		doc.setFont('NotoSans');
@@ -1437,24 +1445,92 @@ function convertHTMLtoImage(selector, filter, imgFileName){
 		
 		convertElementToImage(elementHTML, function(img){
 			require(["scripts/jsPDF/jspdf.umd.js"], function(ns){
-				const doc = new ns.jsPDF();
-				const imgProps = doc.getImageProperties(img);
-
-				// Calculate best fit
-				const ratio = Math.min((doc.internal.pageSize.getWidth() - 10) / imgProps.width, 
-									(doc.internal.pageSize.getHeight() - 10) / imgProps.height);
-
+				const doc = new ns.jsPDF({
+					orientation: "portrait", 
+					unit: 'px',
+					format: 'a4'
+				});
+				const imgProps = doc.getImageProperties(img); 
+			
+				// log page sizes
+				console.log(`convertElementToImage: page Size = ${doc.internal.pageSize.getWidth()} x ${doc.internal.pageSize.getHeight()}`);
+				console.log(`convertElementToImage: image size = ${imgProps.width} x ${imgProps.height}`);
+				
 				doc.setFontSize(8);
-				doc.text(doc.internal.pageSize.getWidth() - 60,
+				doc.text(doc.internal.pageSize.getWidth() - 120,
 						 5, 
 						 'https://munawwaransari.github.io/alug/');
-				doc.addImage(img, 
-							"PNG", 
-							10,
-							10,
-							imgProps.width * ratio, 
-							imgProps.height * ratio
-				);
+
+				// Calculate best fit
+				var xMargin = 10, yMargin = 10;
+				var pageWidth = doc.internal.pageSize.getWidth() - xMargin*2;
+				var pageHeight = doc.internal.pageSize.getHeight() - yMargin*2;
+				var pageRatio =  pageWidth / pageHeight;
+				var imgWidth = imgProps.width * pageRatio;
+				var imgHeight = imgProps.height * pageRatio;
+				var posX = 0;
+				(pageWidth - imgWidth) / 2;
+				if(posX < 0){
+					posX = 0;
+				}
+
+				if(imgHeight < pageHeight){ 
+					var imageToPageRatio = pageWidth / imgWidth;
+					var imgW = imgWidth * imageToPageRatio;
+					var imgH = imgHeight * imageToPageRatio;
+					if ( (pageWidth - imgW) > 0){
+						posX = (pageWidth - imgW)/2;
+					}
+					doc.addImage(img, 
+								"PNG", 
+								xMargin+posX,
+								yMargin,
+								imgW, 
+								imgH
+					);
+				}else{
+					var imageToPageRatio = pageHeight / imgHeight;
+					var imgW = imgWidth * imageToPageRatio;
+					var imgH = imgHeight * imageToPageRatio;
+					if ( (pageWidth - imgW) > 0){
+						posX = (pageWidth - imgW)/2;
+					}
+					doc.addImage(img, 
+								"PNG", 
+								xMargin+posX,
+								yMargin,
+								imgW, 
+								imgH
+					);
+					/*
+					var position = 0;
+					var heightRemaning = imgHeight;
+					while(heightRemaning > 0){
+						var dImg = cropImage(img,
+							0,
+							position,
+							imgProps.width,
+							imgProps.height
+						);
+						const dImgProps = doc.getImageProperties(dImg);
+						imageToPageRatio = pageWidth / dImgProps.width;
+						position += pageHeight;
+						heightRemaning -= pageHeight;
+						
+						console.log(`convertElementToImage: image size = ${dImgProps.width} x ${dImgProps.height}`);
+						console.log(`convertElementToImage: heigh remaining = ${heightRemaning}`);
+						
+						doc.addImage(dImg, 
+									"PNG", 
+									xMargin+posX,
+									yMargin,
+									pageWidth,   //imgProps.width * imageToPageRatio, 
+									pageHeight //imgProps.height * imageToPageRatio
+						);
+						doc.addPage();	
+					}
+					*/
+				}
 				doc.save(imgFileName);
 			});
 		});
@@ -1476,6 +1552,22 @@ function convertElementToImage(element, cb) {
 			}
 		});
 	});
+}
+
+function cropImage(img, cropX, cropY, cropWidth, cropHeight){
+  
+	const canvas = document.createElement('canvas');
+	const ctx = canvas.getContext('2d');
+
+	// Set canvas size to the desired crop dimensions
+	canvas.width = cropWidth;
+	canvas.height = cropHeight;
+
+	// Draw the specific portion of the image onto the canvas
+	ctx.drawImage(img, cropX, cropY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
+  
+	// Export as a Data URL or Blob
+	return canvas.toDataURL('image/png');
 }
 
 function get_NotoSansArabic_Base64(){
