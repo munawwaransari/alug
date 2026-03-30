@@ -2175,7 +2175,16 @@ function  expandSurahInfoInto(elem, targetElem){
 	console.log(elem.html());
 	var direction = $(elem).find('a').text() == 'Urdu' ? 'ltr':'rtl';
 	var elemContent = $(elem.html());
-	var content = `<body dir='${direction}'>${
+	var content = `<body dir='${direction}'>
+	<button onclick="
+		var p = parent.parent;
+		if(p && p.playTextAll){
+			var div = document.getElementsByTagName('body')[0];
+			//console.log(div.innerText);
+			p.playTextAll(div.innerText, ${direction=='ltr' ? `'en-US'`:`'ur-PK'`});
+		}
+	">Read</button>	
+	${
 		(direction == 'ltr')? 
 			elemContent[2].innerHTML :
 			elemContent[4].innerHTML
