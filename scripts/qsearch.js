@@ -43,7 +43,6 @@ window.onload = function(){
 	window.addEventListener("contextmenu", e =>
 	{
 	  e.preventDefault();
-	  //console.log("selected text:", window.getSelection().toString());
 	});
 	
 	q_app_mode = getParamValue("mode");
@@ -552,20 +551,28 @@ function getVerseTranslation(id, verseKey, sfx = '_en', lang = window.QuranJS.La
 }
 
 function getTranslationLinks(transLinkId, verseKey){
-	return '<span class="dropdown">'+
-				'<button style="padding:0; border-style:hidden;margin-left:8px;cursor:pointer;font-size:16px;" '+
-					'title="Click to see translation">&#x24c9;</button>'+
-				'<div class="dropdown-content">'+
-					'<a id="'+transLinkId+'_en" href="#" '+
-						'onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\',\'_en\');">English</a>'+
-					'<a id="'+transLinkId+'_ur" href="#" '+
-						'onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\', \'_ur\',window.QuranJS.Language.URDU);">Urdu</a>'+
-					'<a id="'+transLinkId+'_hi" href="#" '+
-						'onclick="getVerseTranslation(\''+transLinkId+'\', \''+verseKey+'\', \'_hi\',window.QuranJS.Language.HINDI);">Hindi</a>'+
-					'<a id="'+transLinkId+'_tafsir" href="#" '+
-						'onclick="getVerseTafsir(\''+transLinkId+'\', \''+verseKey+'\');">Tafsir</a>'+
-				'</div>'+
-			'</span>';
+	return `<span class="dropdown">
+				<button style="padding:0; border-style:hidden;margin-left:8px;cursor:pointer;font-size:16px;"
+					title="Click to see translation">&#x24c9;</button>
+				<div class="dropdown-content">
+					<a 	id="${transLinkId}_en" href="#" 
+						onclick="getVerseTranslation('${transLinkId}', '${verseKey}','_en');">
+						English
+					</a>
+					<a id="${transLinkId}_ur" href="#"
+						onclick="getVerseTranslation('${transLinkId}', '${verseKey}', '_ur', window.QuranJS.Language.URDU);">
+						Urdu
+					</a>
+					<a id="${transLinkId}_hi" href="#"
+						onclick="getVerseTranslation('${transLinkId}', '${verseKey}', '_hi', window.QuranJS.Language.HINDI);">
+						Hindi
+					</a>
+					<a 	id="${transLinkId}_tafsir" href="#"
+						onclick="getVerseTafsir('${transLinkId}', '${verseKey}');">
+						Tafsir
+					</a>
+				</div>
+			</span>`;
 }
 
 function displayVerse(div, verse, verseKey, options){
@@ -580,40 +587,49 @@ function displayVerse(div, verse, verseKey, options){
 	var bgColor = options.bgColor ? 'background-color:'+options.bgColor+';' : '';
 	var direction =  options.direction ? 'direction:'+options.direction+';' :
 						verse.match(/^[\x00-\x7F]+/g) ? '' : 'direction:rtl;';
-	var divHtml = '<div id="vdiv-'+verseKeys[0]+'-'+verseKeys[1]+'"  style="padding-bottom:4px;font-size:22px;display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;'+direction+bgColor+'">';
-	if(options.ayahOption === "image"){
-		divHtml += '<img style="padding:4px;max-width:96%" src="https://everyayah.com/data/images_png/'+verseKeys[0]+'_'+verseKeys[1]+'.png" />';
-	}else{
-		divHtml += getWordSpans(verse, options ? options.words: undefined, verseKeys[0]+verseKeys[1]);
-	}
-	divHtml += '</div>';
+	var divHtml = `
+		<div 
+			id="vdiv-${verseKeys[0]}-${verseKeys[1]}"  
+			style="padding-bottom:4px;font-size:22px;display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;${direction+bgColor}">
+			${
+				(options.ayahOption === "image") ?
+					`<img style="padding:4px;max-width:96%" 
+						src="https://everyayah.com/data/images_png/${verseKeys[0]}_${verseKeys[1]}.png" />`
+				:
+				getWordSpans(verse, options ? options.words: undefined, verseKeys[0]+verseKeys[1])
+			}
+		</div>`;
 	
-	divHtml += '<div style="font-size:14px;padding-bottom:12px;" id="'+transLinkId+'">';		
+	divHtml += `<div style="font-size:14px;padding-bottom:12px;" id="${transLinkId}">`;
 	var surah_index = parseInt(verseKeys[0]);
 	divHtml += (options == undefined || options.controls) ?
-	   '<span style="padding-right:8px;">'+analysisOptions+'</span>'+
-	   '<span style="padding-right:8px;">'+playOptions+'</span>'+
-	   '<span style="margin:auto;">'+verseLinkOptions+'</span>'+
-	   (surah_list ? '<span onclick="loadSurahFromPage('+surah_index+',\''+surah_list[surah_index].pages+'\');" '+
-						   'style="margin:auto;font-size:14px;margin-left:6px;color:#49348D;cursor:pointer;">'+
-						'<b>'+surah_list[surah_index].ar+'</b>'+
-					 '</span>' : '')+
-	   ((options.translateLink) ? '<span>'+translationLink+'</span>':'')
-	   :'';
+	`
+	    <span style="padding-right:8px;">${analysisOptions}</span>
+	    <span style="padding-right:8px;">${playOptions}</span>
+	    <span style="margin:auto;">${verseLinkOptions}</span>
+	    ${
+			(surah_list ? 
+			`<span 	onclick="loadSurahFromPage(${surah_index},'${surah_list[surah_index].pages}');"
+					style="margin:auto;font-size:14px;margin-left:6px;color:#49348D;cursor:pointer;">
+				'<b>${surah_list[surah_index].ar}</b>
+			</span>` : '')
+		}
+		${
+			((options.translateLink) ? `<span>${translationLink}</span>`:'')
+		}
+	`:'';
 	divHtml += '</div>';
 	div.append($(divHtml));
 	
 	if(options.keepFocus){
-		//setTimeout(function(){
-			var elem = $("#vdiv-"+verseKeys[0]+'-'+verseKeys[1]);
-			if(elem.length > 0){
-				elem[0].scrollIntoView({
-					behavior: 'smooth', 
-					block: 'start', 
-					inline: 'nearest'
-				});
-			}
-		//}, 1);
+		var elem = $("#vdiv-"+verseKeys[0]+'-'+verseKeys[1]);
+		if(elem.length > 0){
+			elem[0].scrollIntoView({
+				behavior: 'smooth', 
+				block: 'start', 
+				inline: 'nearest'
+			});
+		}
 	}
 }
 
@@ -656,9 +672,10 @@ function getWordSpans(verse, words, vId){
 			
 			var wClass = language !== "" ? 'word'+language : 'word-ar';
 			var id = language !== "" ? vId+'-'+i+'-word'+language : vId+'-'+i+'-word';
-			vSpans += '<span id="'+id+'" class="'+wClass+'" onclick="selectWordInAyah(this.id)">'+
-						word+
-						'</span>&nbsp;';
+			vSpans += `
+			<span 	id="${id}" class="${wClass}" onclick="selectWordInAyah(this.id)">
+			${word}
+			</span>&nbsp;`;
 		});
 		return vSpans;
 	}
@@ -666,15 +683,18 @@ function getWordSpans(verse, words, vId){
 }
 
 function getPlayOptions(verseKey, verseKeys){
-	var spanId = verseKeys[0]+"_"+verseKeys[1]; //res.verseKey.replace(":","_");
-	var play = parent.playAudio ? '<span id="'+spanId+'">'+
-								  
-								  '<img title="Play Qirat" src="images/speech-enabled.png" style="visibility:visible;width:20px;cursor: pointer;" '+
-								  'onclick="playVerse(\''+getQiratPlayUrl(verseKey)+'\',\''+verseKey+'\')"/>'+
-								  
-								  '<img title="Stop" src="images/stop.png" style="visibility:hidden;width:0px;cursor: pointer;" '+
-								  'onclick="stopPlayVerse()"/>'+
-								  '</span>':'';
+	var spanId = verseKeys[0]+"_"+verseKeys[1];
+	var play = parent.playAudio ? `
+		<span id="${spanId}">
+			<img 	title="Play Qirat" 
+					src="images/speech-enabled.png" 
+					style="visibility:visible;width:20px;cursor: pointer;"
+					onclick="playVerse('${getQiratPlayUrl(verseKey)}','${verseKey}')"/>
+			<img 	title="Stop" 
+					src="images/stop.png" 
+					style="visibility:hidden;width:0px;cursor: pointer;"
+					onclick="stopPlayVerse()"/>
+		</span>`:'';
   return play;
 }
 
@@ -714,35 +734,37 @@ function getSimilarAyahReferences(verseKey){
 	else{
 		return "";
 	}
-	return ayah.map((a) => '<a href="#" title="See Also" onclick="reloadVerse(\''+a+'\')">See also '+a+'</a>').join('');
-
+	return ayah.map((a) => `
+		<a 	href="#" title="See Also" 
+			onclick="reloadVerse('${a}')">See also ${a}</a>`)
+		.join('');
 }
 
 function getVerseLinkOptions(verseKey){
 	
-	var similarLinks = getSimilarAyahReferences(verseKey);
-	var localLink = '<a href="#" title="Reload verse" onclick="reloadVerse(\''+verseKey+'\')">Research</a>';
-	var tanzilLink = '<a title="Click to view in tanzil.com" '+
-						'href="https://tanzil.net/#'+verseKey+'" '+
-						'onclick="var w = parent.window ? parent.window : window; w.open(this.href, \'_blank\'); return false;">'+
-					 'tanzil.net'+
-					 '</a>';
-
-	return '<span>'+			  
-					'<span class="dropdown">'+
-					  '<button class="dropbtn" style="background-color:#EEEEEE;color:black;">'+
-						'['+verseKey+']</button>'+
-					  '<div class="dropdown-content">'
-					    +
-						similarLinks
-						+
-						localLink
-						+
-						tanzilLink
-						+
-					  '</div>'+
-					'</span>'+
-		'</span>';
+	return `
+		<span>
+			<span class="dropdown">
+				<button class="dropbtn" style="background-color:#EEEEEE;color:black;">
+					[${verseKey}]
+				</button>
+				<div class="dropdown-content">
+					${getSimilarAyahReferences(verseKey)}
+					<a 	href="#" 
+						title="Reload verse" 
+						onclick="reloadVerse('${verseKey}')">Research</a>
+					<a 	title="Click to view in tanzil.com"
+						href="https://tanzil.net/#${verseKey}"
+						onclick="
+							var w = parent.window ? parent.window : window; 
+							w.open(this.href, '_blank'); 
+							return false;">
+						tanzil.net
+					</a>
+				</div>
+			</span>
+		</span>
+	`;
 }
 
 function getAnalysisOptions(verse, verseKeys){
@@ -1713,84 +1735,113 @@ function createTableView(data, div){
 			}
 			
 			var pgNums = surah.pages.includes("-") ? surah.pages.split("-") : [surah.pages];
-			var op = $('<option value="'+index+'">'+index+' ' + surah.ar+'</option>');
+			var op = $(`<option value="${index}">${index} ${surah.ar}</option>`);
 			sOptions.append(op);
 			sOptions2.append(op.clone());
 			
-			var manzilImg = //mCount === surah.manzil ? '': 
-										'<img style="margin:0;margin-right:4px;float:right;height:14px;" title="manzil '+surah.manzil+'" '+
-											  'src="data/qrn/mz/mz'+(surah.manzil)+'.jpg">'+
-										'</img>';
+			var manzilImg = `<img style="margin:0;margin-right:4px;float:right;height:14px;" 
+								title="manzil ${surah.manzil}"
+								src="data/qrn/mz/mz${surah.manzil}.jpg">
+							</img>`;
 										
-			var info = '<span style="float:right;">'+
-					   '<img style="float:right;width:16px;margin-left:3px;background-color:transparent;" '+
-							'src="images/info.png" onclick="$(this).parent().toggleClass(\'dropdown\')"></img>'+
-					   '<div class="dropdown-content" '+
-							'style="width:360px;right:-26px;margin-top:16px;">'+
-							'<a href="#" style="float:left" onclick="handleSurahInfoDisplay(this)">Urdu</a>'+
-							'<div style="direction:ltr;">'+replaceSurahIngoQLink(surah.en_text)+'</div>'+
-							'<div style="display:none">'+replaceSurahIngoQLink(surah.ur_text ?? surah.en_text)+'</div>'+
-					   '</div></span>';
+			var info = `<span style="float:right;">
+							<img style="float:right;width:16px;margin-left:3px;background-color:transparent;"
+								src="images/info.png" 
+								onclick="$(this).parent().toggleClass('dropdown')">
+							</img>
+							<div class="dropdown-content"
+								style="width:360px;right:-26px;margin-top:16px;">
+								<a href="#" style="float:left" onclick="handleSurahInfoDisplay(this)">Urdu</a>
+								<div style="direction:ltr;">${replaceSurahIngoQLink(surah.en_text)}</div>
+								<div style="display:none">${replaceSurahIngoQLink(surah.ur_text ?? surah.en_text)}</div>
+							</div>
+					    </span>`;
 			
 			var nuzul_title = (surah.nuzul_note !== undefined) ? surah.nuzul_note : surah.nuzul;
 			var topicInfo = getSurahTopics(index, surah.topics);
 			var graphInfo = getGraphMenu(index, surah);
-			var huruf = surah.huruf === undefined ? '': '<img style="float:right;height:20px;margin-left:3px;background-color:transparent;" src="data/qrn/huruf/'+surah.huruf+'.jpg"></img>';
+			var huruf = surah.huruf === undefined ? '': 
+				`<img style="float:right;height:20px;margin-left:3px;background-color:transparent;" 
+					  src="data/qrn/huruf/${surah.huruf}.jpg">
+				 </img>`;
 			var hClass = surah.huruf === undefined ? "noh" : surah.huruf;
-			table += '<tr class="'+juz+' '+surah.nuzul+' mz'+surah.manzil+' '+hClass+'">'+
-						 '<td '+
-							 'onmouseover="$(this).find(\'.navUp\').show();" '+
-							 'onmouseout="$(this).find(\'.navUp\').hide();" '+
-							 'class="qword" '+
-							 'style="max-width:100px;font-szie:14px;padding:0;padding-bottom:6px;">'+
-								'<span style="display:inline-flex">'+
-									'<b class="navUp" '+
-									  'style="display:none;float:right;margin:0;margin-top:-6px;padding:0;cursor:pointer;" '+
-									  'onclick="bringIntoView($(\'#playbox\'))">&#x2B06;&nbsp;&nbsp;&nbsp;'+
-									'</b>'+
-									info+
-									huruf+
-									'<img style="height:16px;margin:0;float:right;" '+
-										' title="'+nuzul_title+'" '+
-										'src="images/'+surah.nuzul+'.jpg"></img>'+
-									manzilImg +
-									'<sup style="float:right">&nbsp;&nbsp;'+index+'</sup>'+
-									((rOrder == true) ? '<sup style="float:right">&nbsp;(R:'+(surah.r_order)+')</sup>':'') +
-								'</span>'+
-								'<br/>'+
-							 '<img src="data/qrn/svg/'+index+'.svg" '+
-									'onclick="toggleQuranView(true, \''+index+'\', \''+pgNums[0]+'\');"></img><br/>'+
-								'<span style="font-size:12px;display:ruby-text;" onclick="searchText(\''+enName+'\')">'+
-									surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')+
-								'</span>'+
-						 '</td>'+
-						 '<td class="chkQ" style="font-size:14px;cursor:pointer;padding:0;">'+
-							 '<span>'+getQuranAudioOptions(index, surah.en, surah.ayahCount)+'</span>'+
-						 '</td>'+
-						 '<td class="chkT" style="font-size:14px;cursor:pointer;padding:0;">'+
-							 '<span>'+getTafsirAudioOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>'+
-							 (q_app_mode === 'Quran' ? '' :
-							 '<span>'+getTafsirPdfOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>')+
-						 '</td>'+
-						 '<td class="chkR" style="font-size:14px;cursor:pointer;padding:0;">'+
-							'<span class="dropdown" style="display:inline;padding:0;cursor:pointer;">'+
-								'<button class="dropbtn" style="padding:0;background-color:transparent;color:black;font-size:22px;" '+
-									'onclick="toggleDropdownContent(this, true)">𐄗</button>'+
-								'<span class="dropdown-content" style="padding-top:10px;left:0;">'
-								+
-								topicInfo 
-								+
-								graphInfo
-								+
-								'<a href="#" onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">Research <b>1-'+(surah.ayahCount)+'</b></a>'+
-								surah.juz.map((j) => '<a href="#" '+
-											'onclick="var o=$(\'#juz-options\');o.val(\'juz'+j+'\');filterSurahs(o,\'juz'+j+'\')"> Juz '+j+' </a>').join('')+
-								pgNums.map((p, ind) => '<a href="#" onclick="toggleQuranView(true, \''+index+'\', \''+p+'\');"> '+
-										(pgNums.length ==1 ? "" : (ind == 0 ? "Start": "End"))+' Page '+ p+'</a>').join('')+
-								'</span>'+
-							'</span>'+
-						 '</td>'+
-					'</tr>';	
+			table += `<tr class="${juz} ${surah.nuzul} mz${surah.manzil} ${hClass}">
+						<td
+							onmouseover="$(this).find('.navUp').show();"
+							onmouseout="$(this).find('.navUp').hide();"
+							class="qword" 
+							style="max-width:100px;font-szie:14px;padding:0;padding-bottom:6px;">
+							<span style="display:inline-flex">
+							<b  class="navUp"
+								style="display:none;float:right;margin:0;margin-top:-6px;padding:0;cursor:pointer;" 
+								onclick="bringIntoView($('#playbox'))">&#x2B06;&nbsp;&nbsp;&nbsp;
+							</b>
+							${info}${huruf}
+							<img 
+								style="height:16px;margin:0;float:right;"
+								title="${nuzul_title}"
+								src="images/${surah.nuzul}.jpg">
+							</img>
+							${manzilImg}
+							<sup style="float:right">&nbsp;&nbsp;${index}</sup>
+							${
+								(rOrder == true) ? 
+									`<sup style="float:right">&nbsp;(R:${(surah.r_order)})</sup>`:''
+							}
+							</span><br/>
+							<img 
+								src="data/qrn/svg/${index}.svg"
+								onclick="toggleQuranView(true, '${index}', '${pgNums[0]}');">
+							</img><br/>
+							<span style="font-size:12px;display:ruby-text;" onclick="searchText('${enName}')">
+								${surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')}
+							</span>
+						</td>
+						<td class="chkQ" style="font-size:14px;cursor:pointer;padding:0;">
+							<span>${getQuranAudioOptions(index, surah.en, surah.ayahCount)}</span>
+						</td>
+						<td class="chkT" style="font-size:14px;cursor:pointer;padding:0;">
+							<span>${getTafsirAudioOptions(index, surah.en, surah.ar, surah.ayahCount)}</span>
+							${
+								q_app_mode === 'Quran' ? 
+								'' :
+							 	`<span>${getTafsirPdfOptions(index, surah.en, surah.ar, surah.ayahCount)}</span>`
+							}
+						</td>
+						<td class="chkR" style="font-size:14px;cursor:pointer;padding:0;">
+							<span class="dropdown" style="display:inline;padding:0;cursor:pointer;">
+								<button class="dropbtn" 
+										style="padding:0;background-color:transparent;color:black;font-size:22px;"
+										onclick="toggleDropdownContent(this, true)">
+								𐄗
+								</button>
+								<span class="dropdown-content" style="padding-top:10px;left:0;">
+								${topicInfo}${graphInfo}
+								<a 	href="#" 
+									onclick="changeQari=true;isAutoPlayQirat=false; searchText('${index}:1')">
+									Research <b>1-${surah.ayahCount}</b>
+								</a>
+								${
+									surah.juz.map((j) => `
+										<a href="#" onclick="
+											var o=$('#juz-options');
+											o.val('juz${j}');
+											filterSurahs(o,'juz$${j}')"> Juz ${j} </a>`)
+										.join('')
+								}
+								${
+									pgNums.map((p, ind) => `
+										<a href="#" onclick="
+											toggleQuranView(true, '${index}', '${p}');">
+											${pgNums.length ==1 ? "" : (ind == 0 ? "Start": "End")}
+										Page ${p}
+										</a>`)
+										.join('')
+								}
+								</span>
+							</span>
+						</td>
+					</tr>`;	
 			mCount = surah.manzil;
 		}
 		table = table+'</table>';
@@ -1839,21 +1890,28 @@ function createGridView(data, div){
 			sOptions.append(op);
 			sOptions2.append(op.clone());
 			
-			var manzilImg = '<img style="margin:0;margin-right:4px;float:right;height:14px;" '+
-								 'title="manzil '+surah.manzil+'" '+
-								'src="data/qrn/mz/mz'+(surah.manzil)+'.jpg">'+
-							'</img>';
+			var manzilImg = `<img style="margin:0;margin-right:4px;float:right;height:14px;"
+								title="manzil ${surah.manzil}"
+								src="data/qrn/mz/mz${surah.manzil}.jpg">
+							 </img>`;
 										
-			var info = '<span style="float:right;">'+
-						   '<img style="float:right;width:16px;margin-left:3px;background-color:transparent;" '+
-								'src="images/info.png" onclick="$(this).parent().toggleClass(\'dropdown\')"></img>'+
-						   '<div class="dropdown-content" '+
-								'style="width:360px;right:-26px;margin-top:16px;">'+
-								'<a href="#" style="float:left" onclick="handleSurahInfoDisplay(this)">Urdu</a>'+
-								'<div style="direction:ltr;">'+replaceSurahIngoQLink(surah.en_text)+'</div>'+
-								'<div style="display:none">'+replaceSurahIngoQLink(surah.ur_text ?? surah.en_text)+'</div>'+
-						   '</div>'+
-					   '</span>';
+			var info = `<span style="float:right;">
+						   	<img style="float:right;width:16px;margin-left:3px;background-color:transparent;"
+								src="images/info.png" 
+								onclick="$(this).parent().toggleClass('dropdown')">
+							</img>
+						   	<div class="dropdown-content"
+								style="width:360px;right:-26px;margin-top:16px;">
+								<a 	href="#" style="float:left" 
+									onclick="handleSurahInfoDisplay(this)">Urdu</a>
+								<div style="direction:ltr;">
+									${replaceSurahIngoQLink(surah.en_text)}
+								</div>
+								<div style="display:none">
+									${replaceSurahIngoQLink(surah.ur_text ?? surah.en_text)}
+								</div>
+							</div>
+					   	</span>`;
 			
 			var nuzul_title = (surah.nuzul_note !== undefined) ? surah.nuzul_note : surah.nuzul;
 			var topicInfo = getSurahTopics(index, surah.topics);
