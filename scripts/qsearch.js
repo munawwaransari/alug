@@ -197,7 +197,7 @@ function search(pageNumber){
 			var nav = `
 			<div style="font-size:12px;margin-bottom:10px;padding:10px;background-color:#9DBF6C;">
 				${ (verseNumber > 1) ?
-					`<span onclick="searchText('${keys[0]}:${verseNumber-1})}')"
+					`<span onclick="searchText('${keys[0]}:${verseNumber-1}');"
 								style="cursor:pointer;margin-right:20px;">
 								<b>&lt;&nbsp;Prev</b>
 					</span>
@@ -212,7 +212,7 @@ function search(pageNumber){
 					onclick="onVerseLoaded('${keys[0]}','${verseNumber}');">
 					&nbsp;Qirat&nbsp;
 				</span>
-				<span onclick="searchText('(${keys[0]}:${verseNumber + 1}')"
+				<span onclick="searchText('${keys[0]}:${verseNumber + 1}');"
 					style="cursor:pointer;margin-left:20px;">
 					<b>Next&nbsp;&gt;</b>
 				</span>
