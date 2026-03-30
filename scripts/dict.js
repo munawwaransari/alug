@@ -26,7 +26,14 @@ window.onload = function () {
 			}
 
 			if (params.action && params.action !== 'cmp') {
-				handleParams();
+				if(posSearchObj){
+					handleParams();
+				}
+				else{
+					setTimeout(function(){
+						handleParams();
+					}, 500);
+				}
 			}
 		});
 	});
@@ -37,7 +44,14 @@ window.onload = function () {
 			return;
 		}
 		if (params.action === 'cmp') {
-			handleParams();
+			if(cmpAPIObj){
+				handleParams();
+			}
+			else{
+				setTimeout(function(){
+					handleParams();
+				}, 500);
+			}
 		}
 	});
 

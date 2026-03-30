@@ -1434,15 +1434,11 @@ function convertHTMLtoImage(selector, filter, imgFileName){
 		doc.addFileToVFS('NotoSansArabic.ttf', get_NotoSansArabic_Base64());
 		doc.addFont('NotoSansArabic.ttf', 'NotoSans', 'normal');
 		doc.setFont('NotoSans');
-		//doc.setFontSize('22px');
 
 		const elementHTML = document.querySelector(selector);
 		const oldFamily =  elementHTML.style.fontFamily;
 		elementHTML.style.fontFamily = 'NotoSans';
 
-		//const elementFilter = document.querySelector(filter);
-		//elementFilter.style.fontFamily = 'NotoSans';
-		
 		convertElementToImage(elementHTML, function(img){
 			require(["scripts/jsPDF/jspdf.umd.js"], function(ns){
 				const doc = new ns.jsPDF({
@@ -1502,36 +1498,9 @@ function convertHTMLtoImage(selector, filter, imgFileName){
 								imgW, 
 								imgH
 					);
-					/*
-					var position = 0;
-					var heightRemaning = imgHeight;
-					while(heightRemaning > 0){
-						var dImg = cropImage(img,
-							0,
-							position,
-							imgProps.width,
-							imgProps.height
-						);
-						const dImgProps = doc.getImageProperties(dImg);
-						imageToPageRatio = pageWidth / dImgProps.width;
-						position += pageHeight;
-						heightRemaning -= pageHeight;
-						
-						console.log(`convertElementToImage: image size = ${dImgProps.width} x ${dImgProps.height}`);
-						console.log(`convertElementToImage: heigh remaining = ${heightRemaning}`);
-						
-						doc.addImage(dImg, 
-									"PNG", 
-									xMargin+posX,
-									yMargin,
-									pageWidth,   //imgProps.width * imageToPageRatio, 
-									pageHeight //imgProps.height * imageToPageRatio
-						);
-						doc.addPage();	
-					}
-					*/
 				}
 				doc.save(imgFileName);
+				elementHTML.style.fontFamily = oldFamily;
 			});
 		});
 	});
