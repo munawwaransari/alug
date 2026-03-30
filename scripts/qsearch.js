@@ -1538,25 +1538,42 @@ function handleSurahInfoDisplay(elem){
 }
 
 function showMushafLayoutOptions(){
-	$("#tqMessage").html(
-		'The mushaf <b>'+ $("#mushaf-layout").attr('data-value').split(",")[0]+'</b> images are currently not available.'+
-		'<br/><br/>'+
-		' Try <b>Uthmani</b> or <b>KSU</b> layouts.'+
-		'<br/><br/>'+
-		'<table width="70%"><tr><th colspan="2">Available Layouts</th></tr>'+
-		'<tr><td>Default</td>'+
-			'<td><a href="#" onclick="updateLayoutData(\'default\');displayQPage();"><b>Apply</b></a></td>'+
-		'</tr>'+
-		'<tr><td>Uthmani</td>'+
-			'<td><a href="#" onclick="updateLayoutData(\'uthmani\');displayQPage();"><b>Apply</b></a></td>'+
-		'</tr>'+
-		 '<tr><td>Madni</td>'+
-			'<td><a href="#" onclick="updateLayoutData(\'madni\');displayQPage();"><b>Apply</b></a></td>'+
-		'</tr>'+
-		 '<tr><td>KSU</td>'+
-			'<td><a href="#" onclick="updateLayoutData(\'ksu\');displayQPage();"><b>Apply</b></a></td>'+
-		'</tr>'+
-		'</table>');
+	$("#tqMessage").html(`
+		The mushaf 
+		<b>${ $("#mushaf-layout").attr('data-value').split(",")[0] }
+		</b> images are currently not available.<br/><br/>
+		Try <b>Uthmani</b> or <b>KSU</b> layouts.<br/><br/>
+		<table width="70%"><tr><th colspan="2">Available Layouts</th></tr>
+		<tr><td>Default</td>
+			<td>
+				<a href="#" onclick="updateLayoutData('default');displayQPage();">
+					<b>Apply</b>
+				</a>
+			</td>
+		</tr>
+		<tr><td>Uthmani</td>
+			<td>
+				<a href="#" 
+				onclick="updateLayoutData('uthmani');displayQPage();">
+				<b>Apply</b></a>
+			</td>
+		</tr>
+		<tr>
+			<td>Madni</td>
+			<td>
+				<a href="#" onclick="updateLayoutData('madni');displayQPage();">
+				<b>Apply</b></a>
+			</td>
+		</tr>
+		<tr>
+			<td>KSU</td>
+			<td>
+				<a href="#" onclick="updateLayoutData('ksu');displayQPage();">
+					<b>Apply</b>
+				</a>
+			</td>
+		</tr>
+		</table>`);
 	$("#tqMessage").show();
 	$("#tqv2").hide();
 }
@@ -1564,20 +1581,34 @@ function showMushafLayoutOptions(){
 function showQuranicSymbols(){
 	var trStyle = 'style="vertical-align:top"';
 	var tdStyle = 'style="font-size:40px;padding-left:20px;"';
-	$("#tqMessage").html(
-		'<table style="width:60%;padding:10;margin:auto;text-align:left">'+
-		'<tr><th style="width:20%;text-align:left;">Symbol</th><th style="width:80%;text-align:left;">Indication</th></tr>'+
-		'<tr '+trStyle+'><td '+tdStyle+'>ۘ</td><td>must stop</td></tr>'+
-		'<tr '+trStyle+'><td '+tdStyle+'>ۙ</td><td>don\'t stop</td></tr>'+
-		'<tr '+trStyle+'><td '+tdStyle+'>ۚ</td><td>optional to stop</td></tr>'+
-		'<tr '+trStyle+'><td '+tdStyle+'>ۖ</td><td>better to not stop</td></tr>'+
-		'<tr '+trStyle+'><td '+tdStyle+'>ۗ</td><td>better to stop</td></tr>'+
-		'<tr '+trStyle+'><td '+tdStyle+'>ۜ</td><td>little pause</td></tr>'+
-		'<tr '+trStyle+'><td style="font-size:60px;padding-left:20px;">ۤ</td><td>prolong or extend</td></tr>'+
-		'<tr '+trStyle+'><td style="font-size:70px;padding-left:20px;"><i>ۛ</i>ۛ</td><td>must stop at either<br/>(but not both)</td></tr>'+
-		'<tr '+trStyle+'><td style="font-size:30px;">۩</td><td>ayah of sajdah(prostration)</td></tr>'+
-		'<tr '+trStyle+'><td style="font-size:20px;">۞</td><td>end of a juz</td></tr>'+
-		'</table>');
+	$("#tqMessage").html(`
+	<table style="width:60%;padding:10;margin:auto;text-align:left">
+		<tr>
+			<th style="width:20%;text-align:left;">Symbol</th>
+			<th style="width:80%;text-align:left;">Indication</th>
+		</tr>
+		<tr ${trStyle}><td ${tdStyle}>ۘ</td><td>must stop</td></tr>
+		<tr ${trStyle}><td ${tdStyle}>ۙ</td><td>don\'t stop</td></tr>
+		<tr ${trStyle}><td ${tdStyle}>ۚ</td><td>optional to stop</td></tr>
+		<tr ${trStyle}><td ${tdStyle}>ۖ</td><td>better to not stop</td></tr>
+		<tr ${trStyle}><td ${tdStyle}>ۗ</td><td>better to stop</td></tr>
+		<tr ${trStyle}><td ${tdStyle}>ۜ</td><td>little pause</td></tr>
+		<tr ${trStyle}><td style="font-size:60px;padding-left:20px;">ۤ
+			</td><td>prolong or extend</td>
+		</tr>
+		<tr ${trStyle}>
+			<td style="font-size:70px;padding-left:20px;"><i>ۛ</i>ۛ</td>
+			<td>must stop at either<br/>(but not both)</td>
+		</tr>
+		<tr ${trStyle}>
+			<td style="font-size:30px;">۩</td>
+			<td>ayah of sajdah(prostration)</td>
+		</tr>
+		<tr ${trStyle}>
+			<td style="font-size:20px;">۞</td>
+			<td>end of a juz</td>
+		</tr>
+	</table>`);
 	$("#tqMessage").show();
 	$("#tqv2").hide();
 }
@@ -1585,12 +1616,15 @@ function showQuranicSymbols(){
 function getSurahTopics(surah, topics){
 	if(topics === undefined)
 		return '';
-	var topicSpan = '<div class="dropdown-content" onclick="$(this).toggleClass(\'dropdown2\')" '+
-						 'style="position:relative;box-shadow:none;direction:ltr;padding-bottom:8px;padding-top:8px;cursor:pointer;">'+	
-							'Topics&nbsp;&gt;'+
-					'</div>'+
-					'<div class="dropdown-content2" onvisibilitychange="$(this).prev().toggleClass(\'dropdown2\')" '+
-						'style="z-index:999;width:auto;left:100px;top:5px;padding-left:6px;text-align:left;background-color:aliceblue;">';
+	var topicSpan = `
+		<div class="dropdown-content" 
+			onclick="$(this).toggleClass('dropdown2')"
+			style="position:relative;box-shadow:none;direction:ltr;padding-bottom:8px;padding-top:8px;cursor:pointer;">	
+			Topics&nbsp;&gt;
+		</div>
+		<div class="dropdown-content2" 
+			onvisibilitychange="$(this).prev().toggleClass('dropdown2')"
+			style="z-index:999;width:auto;left:100px;top:5px;padding-left:6px;text-align:left;background-color:aliceblue;">`;
 					
 	for(var i=0; i < topics.length; i++){
 		var ayahs = topics[i].split("|")[1];
@@ -1599,9 +1633,11 @@ function getSurahTopics(surah, topics){
 			var verse = surah+':'+ayahs[j];
 			var toipcName = topics[i].split("|")[0];
 			toipcName += toipcName.includes("(") ? '' : (' ('+verse+')');
-			topicSpan += '<p style="white-space:nowrap;width:auto;cursor:pointer;padding:0;"'+
-						     'onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+verse+'\')">'+
-						 toipcName+'</p>';
+			topicSpan += `
+				<p 	style="white-space:nowrap;width:auto;cursor:pointer;padding:0;"
+					onclick="changeQari=true;isAutoPlayQirat=false;searchText('${verse}')">
+					${toipcName}
+				</p>`;
 		}
 	}
 	topicSpan += '</div>';
@@ -1610,18 +1646,25 @@ function getSurahTopics(surah, topics){
 
 function getGraphMenu(index, surah){
 
-	var graphSpan = '<div class="dropdown-content" onclick="$(this).toggleClass(\'dropdown2\')" '+
-						 'style="position:relative;box-shadow:none;direction:ltr;padding-bottom:8px;padding-top:8px;cursor:pointer;">'+	
-							'Graphs&nbsp;&gt;'+
-					'</div>'+
-					'<div class="dropdown-content2" onvisibilitychange="$(this).prev().toggleClass(\'dropdown2\')" '+
-						'style="width:auto;left:100px;top:10px;padding-left:6px;text-align:left;background-color:aliceblue;">';
-					
-	graphSpan+= '<a href="#" onclick="$(\'#divOntology iframe\').attr(\'src\',\'https://qurananalysis.com/analysis/graphing.iframe.php?s='+
-					(index-1)+'&a='+encodeURIComponent(surah.ar)+
-					'&lang=AR\'); $(\'#divOntology\').show();">Ontology</a>'
-				+
-				'<a href="#" onclick="$(\'#divOntology iframe\').attr(\'src\',\'https://quickchart.io/wordcloud?text='+
+	var graphSpan = `
+		<div class="dropdown-content" 
+			onclick="$(this).toggleClass('dropdown2')"
+			style="position:relative;box-shadow:none;direction:ltr;padding-bottom:8px;padding-top:8px;cursor:pointer;">
+		Graphs&nbsp;&gt;
+		</div>
+		<div class="dropdown-content2" 
+			onvisibilitychange="$(this).prev().toggleClass('dropdown2')"
+			style="width:auto;left:100px;top:10px;padding-left:6px;text-align:left;background-color:aliceblue;">
+
+			<a href="#" 
+			   onclick="$('#divOntology iframe').attr('src',
+			    	'https://qurananalysis.com/analysis/graphing.iframe.php?s=${(index-1)}&a=${encodeURIComponent(surah.ar)}&lang=AR'); 
+				   	$('#divOntology').show();">
+			Ontology
+			</a>
+			<a href="#" 
+				onclick="$('#divOntology iframe').attr('src',
+					'https://quickchart.io/wordcloud?text='${
 								surah.topics.map(w=> encodeURI(w.toLowerCase()
 													  .replaceAll("\|","")
 													  .replaceAll("'s "," ")
@@ -1681,10 +1724,12 @@ function getGraphMenu(index, surah){
 													  .replaceAll(" se "," ")
 													  .replaceAll(" m "," ")
 													  .replaceAll(" for "," ")))
-													  .join()+
-								'\'); $(\'#divOntology\').show();">Word Cloud</a>';
-								
-	graphSpan += '</div>';
+													  .join()
+					}\'); 
+					$(\'#divOntology\').show();">
+			Word Cloud
+			</a>
+		</div>`;
 	return graphSpan;			
 }
 
@@ -1697,18 +1742,32 @@ function createTableView(data, div){
 	var sOptions = $("#surah-options");
 	var sOptions2 = $("#surahList");
 
-	var table = '<div id="tqMessage" style="margin-top:10px;width:100%;display:none;align-items:center;"></div>'+
-					'<div id="tqv2" style="margin-top:10px;width:100%;display:none;">'+
-						'<img onclick="switchPage(0);" style="position:relative;width:100%;transform-origin:right;transition: rotateY(0deg)" src=""></img>'+
-						'<img onclick="switchPage(1);"style="position:relative;width:100%;transform-origin:left;transition: rotateY(0deg)" src=""></img>'+
-						'<img style="display:none;position:absolute;opacity:30%;left:35%;top:35%;width:30%;" src="images/loading.gif"></img>'+
-					'</div>'+
-					'<table id="tqv1" style="direction:rtl;max-width:512px;margin:auto;padding:0;" '+
-						   'class="surahIndex">'+
-						   '<tr><th>Surah</th>'+
-						   '<th class="chkQ">&nbsp;Qirat&nbsp;</th>'+
-						   '<th class="chkT">Tafsir</th>'+
-						   '<th class="chkR">Search</th></tr>';
+	var table = `
+		<div id="tqMessage" 
+			style="margin-top:10px;width:100%;display:none;align-items:center;">
+		</div>
+		<div id="tqv2" style="margin-top:10px;width:100%;display:none;">
+			<img onclick="switchPage(0);" 
+				style="position:relative;width:100%;transform-origin:right;transition: rotateY(0deg)" 
+				src="">
+			</img>
+			<img onclick="switchPage(1);" 
+				style="position:relative;width:100%;transform-origin:left;transition: rotateY(0deg)" 
+				src="">
+			</img>
+			<img style="display:none;position:absolute;opacity:30%;left:35%;top:35%;width:30%;" 
+				src="images/loading.gif">
+			</img>
+		</div>
+		<table id="tqv1" 
+			style="direction:rtl;max-width:512px;margin:auto;padding:0;"
+			class="surahIndex">
+		<tr>
+			<th>Surah</th>
+			<th class="chkQ">&nbsp;Qirat&nbsp;</th>
+			<th class="chkT">Tafsir</th>
+			<th class="chkR">Search</th>
+		</tr>`;
 		
 		var mCount = 0;
 		for (const [order_index, surahVal] of Object.entries(data)) {
@@ -1852,20 +1911,33 @@ function createGridView(data, div){
 	var sOptions = $("#surah-options");
 	var sOptions2 = $("#surahList");
 
-	var table = '<div id="tqMessage" style="margin-top:10px;width:100%;display:none;align-items:center;"></div>'+
-				'<div id="tqv2" style="margin-top:10px;width:100%;display:none;">'+
-					'<img onclick="switchPage(0);" style="position:relative;width:100%;transform-origin:right;transition: rotateY(0deg)" src=""></img>'+
-					'<img onclick="switchPage(1);"style="position:relative;width:100%;transform-origin:left;transition: rotateY(0deg)" src=""></img>'+
-					'<img style="display:none;position:absolute;opacity:30%;left:35%;top:35%;width:30%;" src="images/loading.gif"></img>'+
-				'</div>'+
-				'<div id="tqv1" class="surahIndex" '+
-					   'style="direction:rtl;margin:auto;padding:0;">';		
+	var table = `
+		<div id="tqMessage" 
+			style="margin-top:10px;width:100%;display:none;align-items:center;">
+		</div>
+		<div id="tqv2" 
+			style="margin-top:10px;width:100%;display:none;">
+			<img onclick="switchPage(0);" 
+				style="position:relative;width:100%;transform-origin:right;transition: rotateY(0deg)" 
+				src="">
+			</img>
+			<img onclick="switchPage(1);"
+				style="position:relative;width:100%;transform-origin:left;transition: rotateY(0deg)" 
+				src="">
+			</img>
+			<img style="display:none;position:absolute;opacity:30%;left:35%;top:35%;width:30%;" 
+				src="images/loading.gif">
+			</img>
+		</div>
+		<div id="tqv1" class="surahIndex" style="direction:rtl;margin:auto;padding:0;">`;
+
 		var mCount = 0;
 		for (const [order_index, surahVal] of Object.entries(data)) {
 			mCount++;
 			var rOrder = surah_order !== undefined && surah_order == true;
 			var index = order_index;
 			var surah = surahVal;
+			
 			// Find chronologic order
 			if(rOrder === true){
 				let filtered = Object.fromEntries(
@@ -1886,7 +1958,7 @@ function createGridView(data, div){
 			}
 			
 			var pgNums = surah.pages.includes("-") ? surah.pages.split("-") : [surah.pages];
-			var op = $('<option value="'+index+'">'+index+' ' + surah.ar+'</option>');
+			var op = $(`<option value="${index}">${index} ${surah.ar}</option>`);
 			sOptions.append(op);
 			sOptions2.append(op.clone());
 			
@@ -1917,8 +1989,9 @@ function createGridView(data, div){
 			var topicInfo = getSurahTopics(index, surah.topics);
 			var graphInfo = getGraphMenu(index, surah);
 			var huruf = surah.huruf === undefined ? '': 
-					'<img style="float:right;height:16px;background-color:transparent;" '+
-						'src="data/qrn/huruf/'+surah.huruf+'.jpg"></img>';
+				`<img style="float:right;height:16px;background-color:transparent;"
+					  src="data/qrn/huruf/${surah.huruf}.jpg">
+				 </img>`;
 			var hClass = surah.huruf === undefined ? "noh" : surah.huruf;
 			
 			var clearStyle = '';
@@ -1931,83 +2004,94 @@ function createGridView(data, div){
 				clearStyle = mCount % count ? 'clear:both;' : '';
 			}
 			
-			table += '<div class="'+juz+' '+surah.nuzul+' mz'+surah.manzil+' '+hClass+'" '+
-							 'onmouseover="$(this).find(\'.play-menu\').show();'+
-							 '$(this).css(\'background-color\',\'#f6f6c3\');" '+
-							 '$(this).css(\'border-color\',\'groove\');" '+
-							 
-							 'onmouseout="$(this).find(\'.play-menu\').hide();'+
-							 '$(this).css(\'background-color\',\'transparent\');" '+
-							 '$(this).css(\'border\',\'groove\');" '+
-							 							 
-							 'style="max-height:80px;max-width:74px;float:right;font-szie:14px;padding:20px;'+
-									'border-color:gray;border:groove;">'+
-						
-						'<div class="qword" >'+
-							'<span>'+
-								'<b class="navUp" '+
-								  'style="display:none;float:right;margin:0;margin-top:-6px;padding:0;cursor:pointer;" '+
-								  'onclick="bringIntoView($(\'#playbox\'))">&#x2B06;&nbsp;&nbsp;&nbsp;'+
-								'</b>'+
-								info+
-								huruf+
-								'<img style="height:16px;margin:0;float:right;" '+
-									'title="'+nuzul_title+'" '+
-									'src="images/'+surah.nuzul+'.jpg"></img>'+
-								//manzilImg +
-								((rOrder === false) ? 
-								'<sup style="float:right">&nbsp;&nbsp;'+index+'</sup>': '')+
-								((rOrder === true) ? 
-								'<sup style="float:right">&nbsp;(R:'+(surah.r_order)+')</sup>':'') +
-							'</span>'+									
-							'<br/>'+
-							
-							'<img src="data/qrn/svg/'+index+'.svg" style="cursor:pointer;" '+
-								'onclick="$(this).parent().find(\'.play-menu\').toggle(); " >'+
-							'</img>'+
-							
-							'<div style="font-size:12px;display:ruby-text;text-align:center" >'+
-								surah.en.substring(surah.en.indexOf("(")).replace(/\(([^\s])/g, '\( $1')
-										.replace('The ','').replace('A ','')+
-							'</div>'+									
-						
-						//surah options menu
-							'<div class="play-menu" '+
-								'style="display:none;padding:0;margin:0;margin-top:-30px;'+
-									   'box-shadow:rgba(0, 0, 0, 0.24) 0px 3px 8px;">'+
-								/*
-								'<span class="chkQ" style="display:inline;font-size:14px;cursor:pointer;padding:0;cursor:pointer;">'+
-									'<span>'+getQuranAudioOptions(index, surah.en, surah.ayahCount)+'</span>'+
-								'</span>'+
-								*/
-								/*
-								'<span class="chkT" style="display:inline;font-size:14px;cursor:pointer;padding:0;cursor:pointer;">'+
-									 '<span>'+getTafsirAudioOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>'+
-									 (q_app_mode === 'Quran' ? '' :
-									 '<span>'+getTafsirPdfOptions(index, surah.en, surah.ar, surah.ayahCount)+'</span>')+
-								'</span>'+
-								*/
-								'<span class="chkR" style="display:inline;font-size:14px;padding:0;cursor:pointer;">'+
-									'<div class="dropdown" style="display:inline;padding:0;">'+
-										'<span style="font-size:20px;" onclick="toggleDropdownContent(this, true)"><b>𐄗</b></span>'+
-										'<span class="dropdown-content" style="left:-70px;top:-10px;">'
-										+
-										topicInfo 
-										+
-										graphInfo
-										+
-										'<a href="#" onclick="changeQari=true;isAutoPlayQirat=false; searchText(\''+index+':1\')">Research <b>1-'+(surah.ayahCount)+'</b></a>'+
-										surah.juz.map((j) => '<a href="#" '+
-													'onclick="var o=$(\'#juz-options\');o.val(\'juz'+j+'\');filterSurahs(o,\'juz'+j+'\')"> Juz '+j+' </a>').join('')+
-										pgNums.map((p, ind) => '<a href="#" onclick="toggleQuranView(true, \''+index+'\', \''+p+'\');"> '+
-												(pgNums.length ==1 ? "" : (ind == 0 ? "Start": "End"))+' Page '+ p+'</a>').join('')+
-										'</span>'+
-									'</div>'+
-								'</span>'+
-							'</div>'+
-						'</div>'+
-					'</div>';	
-			//mCount = surah.manzil;
+			table += `
+				<div class="${juz} ${surah.nuzul} mz${surah.manzil} ${hClass}"
+					onmouseover="
+						$(this).find('.play-menu').show();
+						$(this).css('background-color','#f6f6c3');
+						$(this).css('border-color','groove');"
+					onmouseout="
+						$(this).find('.play-menu').hide();
+						$(this).css('background-color','transparent');
+						$(this).css('border','groove');" 
+					style="max-height:80px;max-width:74px;float:right;
+						  	font-szie:14px;padding:20px;
+							border-color:gray;border:groove;">
+					<div class="qword" >
+						<span>
+							<b class="navUp"
+								style="display:none;float:right;margin:0;margin-top:-6px;padding:0;cursor:pointer;"
+								onclick="bringIntoView($('#playbox'))">&#x2B06;&nbsp;&nbsp;&nbsp;</b>
+								${info}
+								${huruf}
+								<img style="height:16px;margin:0;float:right;"
+									title="${nuzul_title}" src="images/${surah.nuzul}.jpg">
+								</img>
+								${
+									(rOrder === false) ? `<sup style="float:right">&nbsp;&nbsp;${index}</sup>`: ''
+								}
+								${
+									(rOrder === true) ? `<sup style="float:right">&nbsp;(R:${surah.r_order})</sup>`:''
+								}
+						</span>
+						<br/>
+						<img src="data/qrn/svg/${index}.svg" 
+							style="cursor:pointer;"
+							onclick="$(this).parent().find('.play-menu').toggle();">
+						</img>	
+						<div style="font-size:12px;display:ruby-text;text-align:center" >
+						${		
+							surah.en.substring(surah.en.indexOf("("))
+									.replace(/\(([^\s])/g, '\( $1')
+									.replace('The ','')
+									.replace('A ','')
+						}
+						</div>
+						<!-- >surah options menu -->
+						<div class="play-menu"
+							style="display:none;padding:0;margin:0;margin-top:-30px;
+									box-shadow:rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+							<span class="chkR" 
+								  style="display:inline;font-size:14px;padding:0;cursor:pointer;">
+								<div class="dropdown" 
+									style="display:inline;padding:0;">
+									<span style="font-size:20px;" 
+										onclick="toggleDropdownContent(this, true)"><b>𐄗</b>
+									</span>
+									<span class="dropdown-content" style="left:-70px;top:-10px;">
+										${topicInfo}
+										${graphInfo}
+										<a href="#" 
+											onclick="
+												changeQari=true;
+												isAutoPlayQirat=false; 
+												searchText('${index}:1')">Research <b>1-${surah.ayahCount}</b>
+										</a>
+										${
+											surah.juz.map((j) => `
+											<a 	href="#"
+												onclick="
+													var o=$('#juz-options');
+													o.val('juz$${j}');
+													filterSurahs(o,'juz${j}')"> Juz ${j} </a>`)
+											.join('')
+										}
+										${
+											pgNums.map((p, ind) => `
+											<a 	href="#" 
+												onclick="toggleQuranView(true, '${index}', '${p}');">
+												${
+													(pgNums.length ==1 ? "" : (ind == 0 ? "Start": "End"))+' Page '+ p
+												}
+											</a>`
+											).join('')
+										}
+									</span>
+								</div>
+							</span>
+						</div>
+					</div>
+				</div>`;	
 		}
 		table = table+'</div>';
 		div.append($(table));
