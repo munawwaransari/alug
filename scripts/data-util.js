@@ -225,7 +225,7 @@ function replaceAnalysisLink(val, addBreak){
 	return '';
 }
 
-function replaceSurahIngoQLink(addressHtml) {
+function replaceSurahInfoQLink(addressHtml) {
 	var qlinkExp = /^(<a\s+.*(\d+)\/(\d+)\-(\d+).*a>)/g;
 	if(addressHtml.match && addressHtml.match(qlinkExp)){
 		return addressHtml.replaceAll(qlinkExp, 

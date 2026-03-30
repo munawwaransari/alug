@@ -1810,9 +1810,17 @@ function createTableView(data, div){
 							</img>
 							<div class="dropdown-content"
 								style="width:360px;right:-26px;margin-top:16px;">
-								<a href="#" style="float:left" onclick="handleSurahInfoDisplay(this)">Urdu</a>
-								<div style="direction:ltr;">${replaceSurahIngoQLink(surah.en_text)}</div>
-								<div style="display:none">${replaceSurahIngoQLink(surah.ur_text ?? surah.en_text)}</div>
+								<img src="images/expand.png" 
+									 style="float:right;width:16px;margin-left:3px;
+									 	    background-color:transparent; padding:4px;"
+									onclick="expandSurahInfoInto(
+										$(this).next(),
+										'#divOntology iframe')"/>
+								<div>
+									<a href="#" style="float:left" onclick="handleSurahInfoDisplay(this)">Urdu</a>
+									<div style="direction:ltr;">${replaceSurahInfoQLink(surah.en_text)}</div>
+									<div style="display:none">${replaceSurahInfoQLink(surah.ur_text ?? surah.en_text)}</div>
+								</div>
 							</div>
 					    </span>`;
 			
@@ -1977,10 +1985,10 @@ function createGridView(data, div){
 								<a 	href="#" style="float:left" 
 									onclick="handleSurahInfoDisplay(this)">Urdu</a>
 								<div style="direction:ltr;">
-									${replaceSurahIngoQLink(surah.en_text)}
+									${replaceSurahInfoQLink(surah.en_text)}
 								</div>
 								<div style="display:none">
-									${replaceSurahIngoQLink(surah.ur_text ?? surah.en_text)}
+									${replaceSurahInfoQLink(surah.ur_text ?? surah.en_text)}
 								</div>
 							</div>
 					   	</span>`;
@@ -2161,4 +2169,16 @@ function copyAyahMp3Path(){
 		var url2  = encodeURI(current_url.replace(current_qari, selected_qari));
 		copyTextToClipboard(url2);
 	}
+}
+
+function  expandSurahInfoInto(elem, targetElem){
+	console.log(elem.html());
+	var direction = $(elem).find('a').text() == 'Urdu' ? 'ltr':'rtl';
+	var elemContent = $(elem.html());
+	var content = `<body dir='${direction}'>${
+		elemContent.first('div').html()+
+		elemContent.last('div').html()
+	}</body>`;
+	$(targetElem).attr('srcdoc', content);
+	$(targetElem).parent().show();
 }
