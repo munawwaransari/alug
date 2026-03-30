@@ -2176,8 +2176,9 @@ function  expandSurahInfoInto(elem, targetElem){
 	var direction = $(elem).find('a').text() == 'Urdu' ? 'ltr':'rtl';
 	var elemContent = $(elem.html());
 	var content = `<body dir='${direction}'>${
-		elemContent.first('div').html()+
-		elemContent.last('div').html()
+		(direction == 'ltr')? 
+			elemContent[2].innerHTML :
+			elemContent[4].innerHTML
 	}</body>`;
 	$(targetElem).attr('srcdoc', content);
 	$(targetElem).parent().show();
