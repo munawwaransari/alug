@@ -389,14 +389,14 @@
 		).then(result => {
 			if(result.data){
 				output.text(result.data.text);
-				output.append('<br/><br/>'+
-				'<a style="font-size:14px;" href="#" '+
-				'onclick="copy()">[Copy text]</a>');
+				output.append(`
+				<br/><br/>
+				<a style="font-size:14px;" href="#" onclick="copy()">[Copy text]</a>`);
 			}
 			else
 				output.text('Error!');
 		}).catch(err => {
-			output.html('<p style="font-size:12px;">Error: '+ err+'</p>');
+			output.html(`<p style="font-size:12px;">Error: ${err}</p>`);
 			console.log(err);
 		});
 	}

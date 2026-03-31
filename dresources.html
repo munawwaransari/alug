@@ -27,22 +27,24 @@
 	function loadChapters(){
 		var div = $("#tUL");
 		var topics = parent.topics;
-		var alink = '<a href="#" onclick="openTopic(\'$1\', $2, \'$3\')">$4</a>'
+		var alink = `<a href="#" onclick="openTopic('$1', $2, '$3')">$4</a>`;
 		for (const [key, value] of Object.entries(topics)){
 			var topicName = key.split('-')[1];
 			var topicPath = encodeURI(getLocationPath() + "html/" + key.replaceAll(' ','-') + '-Arabic.html');
 			
-			var li = '<li><span class="caret">'+topicName+'</span>'+
-					 '<ul class="nested">';
+			var li = `
+			<li><span class="caret">${topicName}</span>
+			<ul class="nested">`;
 			value.every(function(t){
 				var l = alink.replaceAll('$1', topicName)
 							 .replaceAll('$2', t.pageNo)
 							 .replaceAll('$3', topicPath)
 							 .replaceAll('$4', t.topic);
-			    li = li + '<li>'+l+'</li>';
+			    li = li + `<li>${l}</li>`;
 				return true;
 			});
-			li = li + '</ul></li>';
+			li = li + `
+			</ul></li>`;
 			div.append($(li));
 		}
 	}
