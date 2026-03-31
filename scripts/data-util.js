@@ -179,13 +179,13 @@ function filterTableRows(table, column, searchText, allText, useInlcude){
 	var txt = searchText ?  removeAlPrefix(removePunctuations(searchText)) : searchText;
 	if(txt === allText){
 		$(table + " tr td").show();
-		$(table + ' tr th:contains(\''+txt+'\')').show();
+		$(table + ` tr th:contains('${txt}')`).show();
 		return;
 	}
-	console.log("Filtering table: "+ table +", column: "+ column +", searchText: "+ txt);
+	console.log(`Filtering table: ${table}, column: ${column}, searchText: ${txt}`);
 	txt = txt.replace(/^'/, '').replace(/'$/, '');
 	$(table + " tr td").hide();
-	var tableRows = $(table + ' tr td:contains(\''+txt+'\')');
+	var tableRows = $(table + ` tr td:contains('${txt}')`);
 	tableRows.filter((i, td) => {
 		if(useInlcude == undefined){
 			if($(td).text().trim().startsWith(txt) === false){
@@ -202,8 +202,8 @@ function filterTableRows(table, column, searchText, allText, useInlcude){
 		}
 	});
 	if(column > 0){
-		$(table + ' tr td:contains(\''+txt+'\')').hide();
-		$(table + " tr th:nth-child("+column+")").hide();
+		$(table + ` tr td:contains('${txt}')`).hide();
+		$(table + ` tr th:nth-child(${column})`).hide();
 	}
 }
 
@@ -215,22 +215,21 @@ function isOS(os){
 function replaceAnalysisLink(val, addBreak){
 	var analysisExp = /([\u0600-\u06ff]+)\s+\-\s+([\u0600-\u06ff]+)/g;
 	var ex = val;
+	var res = '';
 	if(ex.match && ex.match(analysisExp)){
-		ex = ex.replaceAll(analysisExp, 
-					'<a href="#" style="text-decoration: none;" '+
-					'onclick="$(\'#wordSearchText\').val(\'$1\');analyzeSelectedWord();">'+
-					'$1 - $2</a>');
-		return '<span style="font-size:18px;">'+(addBreak ? '<br/>':'')+ex+'</span>';
+		ex = ex.replaceAll(analysisExp, `
+			<a 	href="#" style="text-decoration: none;"
+				onclick="$('#wordSearchText').val('$1');analyzeSelectedWord();">$1 - $2</a>
+		`);
+		res = `<span style="font-size:18px;">${addBreak ? '<br/>':''}${ex}</span>`;
 	}
-	return '';
+	return res;
 }
 
 function replaceSurahInfoQLink(addressHtml) {
 	var qlinkExp = /^(<a\s+.*(\d+)\/(\d+)\-(\d+).*a>)/g;
 	if(addressHtml.match && addressHtml.match(qlinkExp)){
-		return addressHtml.replaceAll(qlinkExp, 
-			//'<a href="#" onclick="if(parent.inSearch) parent.inSearch(\'...QuranSearch $2:$3\');">$3-$4</a>');
-			'$2:$3-$4');
+		return addressHtml.replaceAll(qlinkExp, '$2:$3-$4');
 	}
 	return addressHtml;
 }
@@ -246,11 +245,12 @@ function replaceQLink(val, addBreak=true){
 	var ex = val;
 	if(ex.match && ex.match(qlinkExp)){
 		var qLink = getLocationPath()+"?q="+val;
-		ex = ex.replace(qlinkExp, '<a href="#" '+
-					'onclick="if(parent.inSearch) parent.inSearch(\'...QuranSearch $2:$3\');">$1</a>');
-		return '<span style="font-size:18px;">'+(addBreak ? '<br/>':'')+ex+'</span>';
+		ex = ex.replace(qlinkExp, `
+			<a 	href="#" 
+				onclick="if(parent.inSearch) parent.inSearch('...QuranSearch $2:$3');">$1</a>`);
+		return `<span style="font-size:18px;">${addBreak ? '<br/>':''}${ex}</span>`;
 	}
-	return '<span style="font-size:18px;">'+val+'</span>';
+	return `<span style="font-size:18px;">${val}</span>`;
 }
 
 //https://stackoverflow.com/questions/35969656/how-can-i-generate-the-opposite-color-according-to-current-color
@@ -854,17 +854,26 @@ function getTafsirPdfOptions(index, chapterEn, chapterAr){
 		}
 		
 		var isAndroid = isOS("Android");				   
-		var openlink = 'var w = parent.window ? parent.window : window; w.'+
-					(isAndroid ? 'open(\''+encodeURI(url)+'\', \'_blank\');':
-								 'openInline(this.href);');
-		options += '<a href="'+(isAndroid ? '#' : encodeURI(url))+'" onclick="'+openlink+'">'+k+'</a>';
+		var openlink = `var w = parent.window ? parent.window : window;
+						w.${ isAndroid ? 
+							`open('${encodeURI(url)}', '_blank');`:
+							'openInline(this.href);'
+						}`;
+					
+		options += `<a 	href="${isAndroid ? '#' : encodeURI(url)}" 
+						onclick="${openlink}">${k}
+					</a>`;
 	}
-	return '<span class="dropdown" style="direction:ltr;">'+
-				'<button id="'+id+'" '+
-					'class="dropbtn" onclick="toggleDropdownContent(this, true)" '+
-					'style="background-color:transparent;color:black;font-size:22px;">📓</button>'+
-					'<div class="dropdown-content" style="">'+options+'</div>'+
-			'</span>';
+	return `
+	<span 	
+		class="dropdown" style="direction:ltr;">
+		<button id="${id}" class="dropbtn" 
+				onclick="toggleDropdownContent(this, true)"
+				style="background-color:transparent;color:black;font-size:22px;">
+			📓
+		</button>
+		<div class="dropdown-content" style="">${options}</div>
+	</span>`;
 }
 
 function getTafsirAudioOptions(index, chapterEn, chapterAr, ayatCount){
@@ -1107,12 +1116,16 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr, ayatCount){
 							url = url.replace('@Part@', '-AyatNo001To'+c);
 					}
 					else{
-						options += '<div class="dropdown-content dropdown2" style="position:relative">'+k+'</div>'+
-								   '<div class="dropdown-content2" style="margin-left:60px;">';
+						options += `
+						<div class="dropdown-content dropdown2" style="position:relative">${k}</div>
+						<div class="dropdown-content2" style="margin-left:60px;">`;
 								   
 						ayat_map[ch].every(function(part){		
 							var urlCopy = url.replace('@Part@', part.startsWith('A') ? '-'+part : part);
-							options += '<p onclick="playQuranChapterUrl(\''+encodeTafsirUrl(urlCopy)+'\',\''+id+'\')">'+part+'</p>';
+							options += `
+								<p onclick="playQuranChapterUrl('${encodeTafsirUrl(urlCopy)}','${id}')">
+								${part}
+								</p>`;
 							return true;
 						});
 						options += '</div>';
@@ -1202,7 +1215,10 @@ function getTafsirAudioOptions(index, chapterEn, chapterAr, ayatCount){
 				}
 				break;
 			}
-			options += '<p onclick="playQuranChapterUrl(\''+encodeTafsirUrl(url)+'\',\''+id+'\')">'+k+'</p>';
+			options += `
+			<p onclick="playQuranChapterUrl('${encodeTafsirUrl(url)}','${id}')">
+			${k}
+			</p>`;
 	}
 	
 	return getPlayControlsHtml(id, options, '𐄍'); //'▶');
@@ -1243,18 +1259,27 @@ function getQuranAudioOptions(chapter, enName, ayahCount){
 				}
 						 
 				var url = encodeURI(url).replace(/'/g, "%27");
-				options += '<p onclick="playQuranChapterUrl(\''+url+'\',\''+id+'\')">'+lang+'</p>';	
-			}					
+				options += `
+					<p onclick="playQuranChapterUrl('${url}','${id}')">
+					${lang}
+					</p>`;	
+			}				
 		}
 		else if(lang === "Telugu"){
 			if(chapter < 101){
 				var url = encodeURI("https://archive.org/download/OnlyTeluguAudioQuranTranslationMp3/Telugu_Audio_Quran_Translation_Mp3_Quran/"+ch+"_Only_Telugu_Audio_Quran_Translation_Mp3_Quran_VideoQuran.Net.mp3");
-				options += '<p onclick="playQuranChapterUrl(\''+url+'\',\''+id+'\')">'+lang+'</p>';				
+				options += `
+					<p onclick="playQuranChapterUrl('${url}','${id}')">
+					${lang}
+					</p>`;
 			}
 		}
 		else{
 			var url = encodeURI('https://www.truemuslims.net/Quran/'+lang+'/'+ch+'.mp3');
-			options += '<p onclick="playQuranChapterUrl(\''+url+'\',\''+id+'\')">'+lang+'</p>';
+			options += `
+				<p onclick="playQuranChapterUrl('${url}','${id}')">
+				${lang}
+				</p>`;
 		}
 		return true;
 	});
@@ -1263,17 +1288,21 @@ function getQuranAudioOptions(chapter, enName, ayahCount){
 }
 
 function getPlayControlsHtml(id, options, symbol){
-	return '<span class="dropdown" style="direction:ltr;padding:0;">'+
-			  '<button id="'+id+'" '+
-					   'data-value="'+symbol+'" '+
-					   'class="dropbtn" onclick="toggleDropdownContent(this, true)" '+
-					   'style="padding:0;background-color:transparent;color:black;font-size:22px;">'+symbol+'</button>'+
-			   '<div class="dropdown-content" style="">'+options+'</div>'+
-			   '<img id="'+id+'-progress" src="images/loading.gif" '+ 	
-						'style="display:none;width:16px;"></img>'+
-				'<img id="'+id+'-play-progress" src="images/playprog.gif" '+ 	
-					'style="display:none;width:26px;"></img>'+
-		   '</span>';
+	return `
+	<span class="dropdown" style="direction:ltr;padding:0;">
+		<button id="${id}" data-value="${symbol}"
+				class="dropbtn" onclick="toggleDropdownContent(this, true)"
+				style="padding:0;background-color:transparent;color:black;font-size:22px;">
+			${symbol}
+		</button>
+		<div class="dropdown-content" style="">${options}</div>
+		<img id="${id}-progress" src="images/loading.gif" 	
+			style="display:none;width:16px;">
+		</img>
+		<img id="${id}-play-progress" src="images/playprog.gif"
+			style="display:none;width:26px;">
+		</img>
+	</span>`;
 }
 
 function playTafsir(verseKey){
@@ -1284,12 +1313,6 @@ function playTafsir(verseKey){
 		if(opt !== null && opt !== "none"){
 			$("#chkQir").prop('checked', '');
 			var lang = opt.substring(0,2);
-			//getVerseTafsir(null, verseKey, function(t){
-				//$("#tafsir").html(t.text); 	
-				//parent.playText(t.text, lang === 'ur' ? 'ur-PK':
-				//						lang === 'ar' ? 'ar-SA': 'en-US');
-			//});
-
 			var text = $("#tafsir").html(); 	
 			parent.playText(text, lang === 'ur' ? 'ur-PK':
 								  lang === 'ar' ? 'ar-SA': 'en-US');
@@ -1309,14 +1332,15 @@ function loadQuranPdfOptions(){
 	
 	languages.forEach(function(lang){
 		var l = lang === "Arabic" ? "arabic": lang;
-		var url = 'https://www.truemuslims.net/PDF-quran-in-all-languages/'+l+'.pdf';
-		options += '<a '+
-			(isOS("Android") ?
-				'href="#" onclick="var w = parent.window ? parent.window : window; w.open(\''+url+'\');">'
+		var url = `https://www.truemuslims.net/PDF-quran-in-all-languages/${l}.pdf`;
+		options += isOS("Android") ?
+				`<a href="#" onclick="
+					var w = parent.window ? parent.window : window; 
+					w.open('${url}');"></a>`
 				:
-				'href="'+url+'" onclick="var w = parent.window ? parent.window : window; w.openInline(this.href); return false;">')
-					+lang +
-				   '</a>';
+				`<a href="${url}" onclick="
+					var w = parent.window ? parent.window : window; 
+					w.openInline(this.href); return false;">${lang}</a>`;
 		return true;
 	});
 	

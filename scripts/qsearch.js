@@ -31,13 +31,13 @@ window.onload = function(){
 	//Fill Juz select options
 	var jOptions = $("#juz-options");
 	for(var j=1; j <31; j++){
-		jOptions.append($('<option value="juz'+j+'">Juz '+j+'</option>'));
+		jOptions.append($(`<option value="juz${j}">Juz ${j}</option>`));
 	}
 	
 	//Fill Page select options
 	var pOptions = $("#page-options");
 	for(var j=1; j <605; j++){
-		pOptions.append($('<option value="page'+j+'">Page '+j+'</option>'));
+		pOptions.append($(`<option value="page${j}">Page ${j}</option>`));
 	}
 	
 	window.addEventListener("contextmenu", e =>
@@ -123,7 +123,6 @@ function loadWordsFrom(data){
 		var condition = val.length > 0 && val !== lastSuggestionInput;
 		if(condition){
 			lastSuggestionInput = val;
-			//getQSuggesstions(val, callback);
 			val = val.trim();
 			var suggestionsList = q_words.filter(function(w){
 				return arRemovePunct(w).startsWith(val);
@@ -157,6 +156,7 @@ function search(pageNumber){
 	var opt = { language: window.QuranJS.Language.ENGLISH, size: 10};
 	if(pageNumber)
 		opt.page = pageNumber;
+	
 	// check if verse key
 	if(text.trim().match(/^\d{1,3}\:\d{1,3}$/g)){
 		ctx = window.QuranJS.Verses.findByKey;
@@ -2180,7 +2180,6 @@ function  expandSurahInfoInto(elem, targetElem){
 		var p = parent.parent;
 		if(p && p.playTextAll){
 			var div = document.getElementsByTagName('body')[0];
-			//console.log(div.innerText);
 			p.playTextAll(div.innerText, ${direction=='ltr' ? `'en-US'`:`'ur-PK'`});
 		}
 	">Read</button>	
