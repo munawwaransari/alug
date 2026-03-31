@@ -1436,6 +1436,7 @@ function convertHTMLtoPDF(selector, filter, pdfFileName) {
 			callback: function(doc) {
 				// Save the PDF with a specific filename
 				doc.save(pdfFileName);
+				elementHTML.style.fontFamily = oldFamily;
 			},
 			margin: [10, 10, 10, 10], // Optional: add margins [top, right, bottom, left]
 			autoPaging: 'text', // Handles multi-page content automatically
