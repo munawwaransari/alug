@@ -88,10 +88,10 @@ class posSearch {
 		if(txt){
 			var parts = txt.trim().split(';');
 			parts.every(function(p){
-				ret += '<a href="#" '+
-						'style="text-decoration: none;" '+
-						'onclick="loadWord(\''+p+'\');">'
-						+p+'&nbsp;</a>';
+				ret += `
+				<a 	href="#" style="text-decoration: none;" onclick="loadWord('${p}');">
+				${p}&nbsp;
+				</a>`;
 				return true;
 			});
 			return ret;
@@ -110,27 +110,39 @@ class posSearch {
 		var res = this.#findWordInfo(word);
 		if(res.found){
 			container.empty();
-			var table = '<table class="pTable">'+
-						'<tr style="background-color:#ACE892;font-size:14px;"><th>(لفظ) Word</th><th>PoS</th><th>(تفاصيل) Details</th></tr>';
+			var table = `
+				<table class="pTable">
+				<tr style="background-color:#ACE892;font-size:14px;">
+					<th>(لفظ) Word</th>
+					<th>PoS</th>
+					<th>(تفاصيل) Details</th>
+				</tr>`;
+
 			if(res.info){
 				res.info.every(function(metaInfo){
-					table += '<tr><td>'+metaInfo.word+'</td>'+
-							 '<td>&nbsp;&nbsp;'+metaInfo.pos+'&nbsp;&nbsp;</td>'+
-							 '<td>&nbsp;';
+					table += `
+					<tr>
+					<td>${metaInfo.word}</td>
+					<td>&nbsp;&nbsp;${metaInfo.pos}&nbsp;&nbsp;</td>
+					<td>&nbsp;`;
+
 					if(metaInfo.plurals && metaInfo.plurals.trim() !== ''){
-						table += '<span><b style="font-size:14px;">(جمع) Plurals</b><br/>&nbsp;&nbsp;'+
-						thisInstance.#addAnalysisLink(metaInfo.plurals)+
-						'</span><br/>'
+						table += `
+						<span><b style="font-size:14px;">(جمع) Plurals</b><br/>&nbsp;&nbsp;
+						${thisInstance.#addAnalysisLink(metaInfo.plurals)}
+						</span><br/>`;
 					}
 					if(metaInfo.synonyms && metaInfo.synonyms.trim() !== ''){
-						table += '<span><b style="font-size:14px;">(المرادفات) Synonyms</b><br/>&nbsp;&nbsp;'+
-						thisInstance.#addAnalysisLink(metaInfo.synonyms)+
-						'</span><br/>'
+						table += `
+						<span><b style="font-size:14px;">(المرادفات) Synonyms</b><br/>&nbsp;&nbsp;
+						${thisInstance.#addAnalysisLink(metaInfo.synonyms)}
+						</span><br/>`;
 					}
 					if(metaInfo.antonyms && metaInfo.antonyms.trim() !== ''){
-						table += '<span><b style="font-size:14px;">(المتضادات) Antonyms</b><br/>&nbsp;&nbsp;'+
-						thisInstance.#addAnalysisLink(metaInfo.antonyms)+
-						'</span><br/>'
+						table += `
+						<span><b style="font-size:14px;">(المتضادات) Antonyms</b><br/>&nbsp;&nbsp;
+						${thisInstance.#addAnalysisLink(metaInfo.antonyms)}
+						</span><br/>`;
 					}					
 					table += '&nbsp;</td></tr>';
 					return true;

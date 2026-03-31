@@ -10,13 +10,16 @@ function loadQuiz(quizzes, obj, ch, lang){
 					
 	$("#topicHeading").text("Quiz: " + ch);
 	var div = undefined;
-	var div = $('<div id="'+obj.id+'"><h4>'+obj[lang+"_display"]+'</h4></div>');
+	var div = $(`<div id="${obj.id}"><h4>${obj[lang+"_display"]}</h4></div>`);
 	if(obj.questions){
 		obj.questions.forEach(function(q){
 			var child = prepareQuestion(q, ch);
 			div.append(child);
 		});
-		div.append($('<button type="button" onclick="showResults(this.parentNode.id);">Check Answers</button>'));
+		div.append($(`
+			<button type="button" 
+			onclick="showResults(this.parentNode.id);">Check Answers</button>`)
+		);
 		$("body").append(div);
 	}
 }
@@ -25,32 +28,46 @@ function prepareQuestion(obj, ch){
 	var divElement = undefined;
 	var style = obj.style;
 	if(style){
-		style = ' style="' + style + '" ';
+		style = ` style="${style}" `;
 	}
 	switch(obj.input){
 		case 'text':
 			console.log("keyboard: " + obj.keyboard);
-			var k = (obj.keyboard) ? '<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:4px" onclick="showKeyboard(\''+obj.keyboard+'\')"/>' : '';
-			divElement = $('<div class="card quizlib-question">' + 
-								'<div class="quizlib-question-title" '+style+'>'+obj.question+'</div>'+
-								'<div class="quizlib-question-answers">'+
-									'<input type="text" name="'+obj.name+'">' + k + 
-								'</div>'+
-						   '</div>');
+			var k = (obj.keyboard) ? `
+				<img src="images/kybd.jpg" 
+					 style="cursor: pointer; margin-top: 10px; margin-left:4px" 
+					 onclick="showKeyboard('${obj.keyboard}')"/>` : '';
+
+			divElement = $(`
+				<div class="card quizlib-question">
+					<div class="quizlib-question-title" ${style}>${obj.question}</div>
+					<div class="quizlib-question-answers">
+						<input type="text" name="${obj.name}">
+					${k}
+					</div>
+				</div>`);
 		break;
 		
 		case "radio":
 		case "checkbox":
 			var ulOptions = "";
 			for (const [val, opt] of Object.entries(obj.options)) {
-				ulOptions = ulOptions + '<li><label '+style+'><input type="'+obj.input+'" name="'+obj.name+'" value="'+val+'">'+opt+'</label></li>';
+				ulOptions = ulOptions + `
+					<li>
+						<label ${style}>
+						<input type="${obj.input}" name="${obj.name}" value="${val}">
+						${opt}
+						</label>
+					</li>`;
 			}
-			divElement = $('<div class="card quizlib-question">'+
-								'<div class="quizlib-question-title">'+obj.question+'</div>'+
-								'<div class="quizlib-question-answers">'+
-									'<ul '+style+'>' + ulOptions + '</ul>'+
-								'</div>'+
-							'</div>');
+
+			divElement = $(`
+				<div class="card quizlib-question">
+					<div class="quizlib-question-title">${obj.question}</div>
+					<div class="quizlib-question-answers">
+						<ul ${style}>${ulOptions}</ul>
+					</div>
+				</div>`);
 		break;
 		
 		default:
@@ -79,12 +96,7 @@ function showResults(quizID) {
     // Check answers and continue if all questions have been answered
     if (activeQuiz.checkAnswers()) {
         var quizScorePercent = activeQuiz.result.scorePercentFormatted; // The unformatted percentage is a decimal in range 0 - 1
-        
-		//Add a new element
-		// var resultElement = $('<div id="quiz-result-'+quizID+'" class="card">' +
-            // 'You Scored <span id="quiz-percent"></span>% - <span id="quiz-score"></span>/<span id="quiz-max-score"></span><br/>'+
-        // '</div>').prepend("#"+quizID+":first-child");
-		
+        		
 		var quizResultElementOriginal = document.getElementById('quiz-result');
 		var quizResultElement = quizResultElementOriginal.cloneNode(true);
 		quizResultElement.id = "quiz-result-"+quizID;
@@ -95,11 +107,12 @@ function showResults(quizID) {
 
         // Show the result element and add result values.
         quizResultElement.style.display = 'block';
-		document.getElementById('quiz-result-'+quizID).innerHTML = '<div style="color:white;text-align: center;width:100%">You scored '+
-								quizScorePercent.toString()+'% - '+ 
-								activeQuiz.result.score.toString()+' /'+
-								activeQuiz.result.totalQuestions.toString()+
-								'</div>';
+		document.getElementById('quiz-result-'+quizID).innerHTML = `
+			<div style="color:white;text-align: center;width:100%">
+				You scored ${quizScorePercent.toString()}% - 
+						   ${activeQuiz.result.score.toString()} /
+						   ${activeQuiz.result.totalQuestions.toString()}
+			</div>`;
 
         // Change background colour of results div according to score percent
         if (quizScorePercent >= 75) quizResultElement.style.backgroundColor = '#4caf50';

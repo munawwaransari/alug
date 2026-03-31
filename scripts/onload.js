@@ -195,9 +195,10 @@ function loadVoiceOptions(fill, clean){
 				var val = voices[i].value + voices[i].index;
 				var selected = states[voices[i].value] != undefined ? 
 						(states[voices[i].value].selIndex === i ? " selected " : "") : "";
-				o += '<option value="'+voices[i].index+'"'
-						+selected
-						+' data-lang="'+voices[i].value+'">'+voices[i].text+'</option>';
+				o += `
+				<option value="${voices[i].index}" ${selected} data-lang="${voices[i].value}">
+					${voices[i].text}
+				</option>`;
 			}
 			states[l].options = o;
 		}
@@ -227,7 +228,6 @@ function singInUser(){
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
 		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "login.html"));
-		//$('#title-img').hide();
 	}, 5);
 }
 
@@ -828,12 +828,13 @@ function getSitemapUrl(query){
 	var dateStr = '2025-01-08'
 	var baseUrl = 'https://munawwaransari.github.io/alug';
 	if(query) baseUrl += '?q='+encodeURI(query);
-	return '<url>'+
-      '<loc>'+baseUrl+'</loc>'+
-      '<lastmod>'+dateStr+'</lastmod>'+
-      '<changefreq>monthly</changefreq>'+
-      '<priority>'+priority+'</priority>'+
-   '</url>';
+	return `
+	<url>
+    	<loc>${baseUrl}</loc>
+    	<lastmod>${dateStr}</lastmod>
+    	<changefreq>monthly</changefreq>
+    	<priority>${priority}</priority>
+   	</url>`;
 }
 
 function changeTheme(opt){

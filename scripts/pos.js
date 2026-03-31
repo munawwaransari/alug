@@ -276,8 +276,8 @@ class posAPI {
 	
 	#prepareConjVerbRows(conjugations)
 	{
-		var alink = '<a href="#" style=" text-decoration: none" '+
-						' onclick="checkWord(\'$\');">$</a>';
+		var alink = `
+		<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
 		return `<tr><td>غائب (مذكّر)</td>
 					<td>${alink.replaceAll('$',conjugations[0])}</td>
 					<td>${alink.replaceAll('$',conjugations[1])}</td>
@@ -686,17 +686,21 @@ class posAPI {
 	addVerbInfoHtml(container, res){
 		var api = this;
 		container.empty();
-		var alink = '<a href="#" style=" text-decoration: none" onclick="checkWord(\'$\');">$</a>';
-		var cmpLink = '<a href="#" style=" text-decoration: none" onclick="showVerbComparisions(@);">$</a>';
-		
-		var vTable = $('<table id="vTable" class="vTable"><tr>'+
-						 '<th style="font-size: 14px;">Form</th>'+
-						 '<th>الماضي</th>'+
-						 '<th>المضارع</th>'+
-						 '<th>مصدر</th>'+
-						 '<th>اسم الفاعل</th>'+
-						 '<th>اسم المفعول</th>'+
-					   '</table>');
+		var alink = `
+		<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
+		var cmpLink = `
+		<a href="#" style=" text-decoration: none" onclick="showVerbComparisions(@);">$</a>`;
+		var vTable = $(`
+			<table id="vTable" class="vTable">
+			<tr>
+				<th style="font-size: 14px;">Form</th>
+				<th>الماضي</th>
+				<th>المضارع</th>
+				<th>مصدر</th>
+				<th>اسم الفاعل</th>
+				<th>اسم المفعول</th>
+			</tr>
+			</table>`);
 		container.append(vTable);
 		
 		var index = 0;

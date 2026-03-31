@@ -76,13 +76,12 @@ function addAsHtmlTable(container, table, columns){
 		if(columns[i].includes("ID") || columns[i].includes("VOCALIZED") ||  columns[i].includes("TYPE") )
 				return true;
 			
-		headings+= "<th>"+col+"</th>";
+		headings+= `<th>${col}</th>`;
 		return true;
 	});
-	headings+="</tr><table>";
-	var htmlTable = $('<table class="csvTable"><tr>'+headings+'</tr></table>');
-	var alink = '<a href="#" style=" text-decoration: none" '+
-					' onclick="checkWord(\'$\');">$</a>';
+	headings+='</tr><table>';
+	var htmlTable = $(`<table class="csvTable"><tr>${headings}</tr></table>`);
+	var alink = `<a href="#" style="text-decoration: none" onclick="checkWord('$');">$</a>`
 	var tableRows = "";
 	table.every(function(row, index){
 		if(index === 0) return true;
@@ -96,22 +95,29 @@ function addAsHtmlTable(container, table, columns){
 				return true;
 			
 			if(columns[i] == 'WORD')
-				tableRows+= "<td>"+alink.replaceAll('$', colVal.trim())+"</td>";
+				tableRows+= `<td>${alink.replaceAll('$', colVal.trim())}</td>`;
 			else
-				tableRows+= "<td>"+colVal+"</td>";
+				tableRows+= `<td>${colVal}</td>`;
 			return true;
 		});
-		tableRows+="</tr>";
+		tableRows+='</tr>';
 		return true;
 	});
 	
 	
-	container.append('<input id="txtFilter" style="font-size:18px; max-width=100px;" onchange="filterTable('+wordColumn+');"/>')
-	container.append($('<a style="font-size:10px; width:100%;text-align:center;" href="#" onclick="var w = parent ? parent.window: window;'+
-							'w.open(\'https://github.com/mdanok/ArabicLT\',\'_blank\')">'+
-							'Data source: https://github.com/mdanok/ArabicLT'+
-					 '</a>'));container.append(htmlTable);
-	
+	container.append(`
+		<input 	id="txtFilter" 
+				style="font-size:18px; max-width=100px;" 
+				onchange="filterTable(${wordColumn});"/>`);
+
+	container.append($(`
+		<a style="font-size:10px; width:100%;text-align:center;" 
+			href="#" onclick="
+				var w = parent ? parent.window: window;
+				w.open('https://github.com/mdanok/ArabicLT','_blank')">
+			Data source: https://github.com/mdanok/ArabicLT
+		</a>`));
+	container.append(htmlTable);
 	$(".csvTable tbody").append($(tableRows));
 	container.find("p").remove();
 }
