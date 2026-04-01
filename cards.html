@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="#" />
 	<title>Arabic Vocabulary Cards</title>
 	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+	<script src="scripts/require.js"></script>
 	<script src="scripts/data-util.js"></script>
 	<style>
 	/*
@@ -473,7 +474,16 @@
 	</script>
 </head>
   <body>
-    <div id="cardContainer">
+    <a href="#" 
+		onclick="convertHTMLtoImage('#cardContainer', 
+							        ['#cardContainer .flip-card-front',
+								     '#cardContainer .flip-card-back'], 
+									'exported-cards.pdf');">
+		<img src="images/exp.png" 
+			 style="width: 16px; height: 16px;"
+			 alt="Export to PDF"/>
+	</a>
+	<div id="cardContainer">
   </div>
 </body>
 </html>

@@ -1448,7 +1448,7 @@ function convertHTMLtoPDF(selector, filter, pdfFileName) {
 	});
 }
 
-function convertHTMLtoImage(selector, filter, imgFileName){
+function convertHTMLtoImage(selector, filters, imgFileName){
 	require(["scripts/jsPDF/polyfills.umd.js","scripts/jsPDF/jspdf.umd.js"], 
 	function(pf, ns){
         const doc = new ns.jsPDF({
@@ -1463,6 +1463,15 @@ function convertHTMLtoImage(selector, filter, imgFileName){
 		const elementHTML = document.querySelector(selector);
 		const oldFamily =  elementHTML.style.fontFamily;
 		elementHTML.style.fontFamily = 'NotoSans';
+
+		if (filters && filters.length > 0) {
+			$(filters[0]).css('fontFamily', 'NotoSans');
+		}
+		var backupDisplay = undefined;
+		if (filters && filters.length > 1) {
+			backupDisplay = $(filters[1]).css('display');
+			$(filters[1]).css('display', 'none');
+		}
 
 		convertElementToImage(elementHTML, function(img){
 			require(["scripts/jsPDF/jspdf.umd.js"], function(ns){
@@ -1499,6 +1508,13 @@ function convertHTMLtoImage(selector, filter, imgFileName){
 					var imageToPageRatio = pageWidth / imgWidth;
 					var imgW = imgWidth * imageToPageRatio;
 					var imgH = imgHeight * imageToPageRatio;
+					
+					if(imgW > pageWidth){
+						imageToPageRatio = pageHeight / imgHeight;
+						imgW = imgWidth * imageToPageRatio;
+						imgH = imgHeight * imageToPageRatio;
+					}
+
 					if ( (pageWidth - imgW) > 0){
 						posX = (pageWidth - imgW)/2;
 					}
@@ -1513,6 +1529,13 @@ function convertHTMLtoImage(selector, filter, imgFileName){
 					var imageToPageRatio = pageHeight / imgHeight;
 					var imgW = imgWidth * imageToPageRatio;
 					var imgH = imgHeight * imageToPageRatio;
+
+					if(imgW > pageWidth){
+						imageToPageRatio = pageWidth / imgWidth;
+						imgW = imgWidth * imageToPageRatio;
+						imgH = imgHeight * imageToPageRatio;
+					}
+
 					if ( (pageWidth - imgW) > 0){
 						posX = (pageWidth - imgW)/2;
 					}
@@ -1526,6 +1549,9 @@ function convertHTMLtoImage(selector, filter, imgFileName){
 				}
 				doc.save(imgFileName);
 				elementHTML.style.fontFamily = oldFamily;
+				if(backupDisplay){
+					$(filters[1]).css('display', backupDisplay);
+				}
 			});
 		});
 	});

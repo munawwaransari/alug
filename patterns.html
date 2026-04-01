@@ -48,8 +48,10 @@
 						console.log("Failed to initialize pos api");
 						return;
 					}
-					getPatterns();
-					loadPatterns();
+					setTimeout(function(){
+						getPatterns();
+						loadPatterns();
+					},500);
 				});
 				
 				function getPatterns(){
