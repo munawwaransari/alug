@@ -247,7 +247,7 @@ function search(pageNumber){
 				<span style="cursor:pointer;float:right;margin-right:8px;">
 					<img src="images/exp.png" title="Export to PDF"
 						style="height:20px;margin-top:1px;" 
-						onclick="convertHTMLtoImage('#searchResult', '#searchResult div', 'exported_${keys[0]}_${keys[1]}.pdf');" />
+						onclick="convertHTMLtoImage('#searchResult', ['#searchResult div'], 'exported_${keys[0]}_${keys[1]}.pdf');" />
 				</span>
 			</div>`;
 			div.append($(nav));
@@ -395,7 +395,7 @@ function search(pageNumber){
 			<span style="cursor:pointer;float:right;margin-right:8px;">
 				<img src="images/exp.png" title="Export to PDF"
 					style="height:20px;margin-top:1px;" 
-					onclick="convertHTMLtoImage('#searchResult', '#searchResult div', 'exported_${data.currentPage}.pdf');" />
+					onclick="convertHTMLtoImage('#searchResult', ['#searchResult div'], 'exported_${data.currentPage}.pdf');" />
 			</span>
 		</div>`;
 		div.append($(nav));
