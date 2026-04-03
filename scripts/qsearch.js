@@ -1915,7 +1915,7 @@ function createTableView(data, div){
 										<a href="#" onclick="
 											var o=$('#juz-options');
 											o.val('juz${j}');
-											filterSurahs(o,'juz$${j}')"> Juz ${j} </a>`)
+											filterSurahs(o,'juz${j}')"> Juz ${j} </a>`)
 										.join('')
 								}
 								${
