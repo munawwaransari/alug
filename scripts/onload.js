@@ -9,6 +9,34 @@ var dataCache = init_data_cache();
 
 $(document).ready(function()
 {	
+
+	var queryAcion = getParamValue("query");
+	if(queryAcion && queryAcion.length > 0){
+		var response = undefined;
+		switch(queryAcion){
+			case "actions":
+				response = [
+					"tools"
+				];
+			break;
+
+			case "tools":
+				response = [];
+				$.each($(".toolSpan img"), function(i, img){
+					response.push(img.id);
+					return true;
+				});
+				break;
+
+				default:
+				response = {"error": `Invalid query action, try 'actions'` };
+				break;
+		}		
+		window.document.writeln(JSON.stringify(response));
+		window.stop();
+		return false;
+	}
+
 	if(isOS("Android")){
 		setTimeout(function(){
 			if(speechSynthesis && speechSynthesis.onvoiceschanged)
