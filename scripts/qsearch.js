@@ -208,7 +208,7 @@ function search(pageNumber){
 						&nbsp;Tafsir&nbsp;
 					<input id="chkQir" style="border: 4px solid #8585D4;" type="Checkbox"
 					${isAutoPlayQirat ? 'checked': ''}
-					onclick="onVerseLoaded('${keys[0]}','${verseNumber}');">
+					onclick="onVerseLoaded('${keys[0]}',${verseNumber});">
 					&nbsp;Qirat&nbsp;
 				</span>
 				<span onclick="searchText('${keys[0]}:${verseNumber + 1}');"
