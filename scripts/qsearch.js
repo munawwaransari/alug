@@ -473,6 +473,15 @@ function changeTafsir(){
 			});
 		}
 	}
+	else {
+		// when searched by page
+		if(text.trim().match(/^\d{1,3}$/g)){
+			var div = $(`a:contains("Research")`);
+			if(div){
+				div.trigger('click');
+			}
+		}
+	}
 }
 
 //https://github.com/spa5k/tafsir_api
