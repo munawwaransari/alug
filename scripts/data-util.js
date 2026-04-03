@@ -1476,82 +1476,58 @@ function convertHTMLtoImage(selector, filters, imgFileName){
 		}
 
 		convertElementToImage(elementHTML, function(img){
-			require(["scripts/jsPDF/jspdf.umd.js"], function(ns){
+			require(["scripts/jsPDF/jspdf.umd.js"], function (ns) {
 				const doc = new ns.jsPDF({
-					orientation: "portrait", 
+					orientation: "portrait",
 					unit: 'px',
 					format: 'a4'
 				});
-				const imgProps = doc.getImageProperties(img); 
-			
+				const imgProps = doc.getImageProperties(img);
+
 				// log page sizes
 				console.log(`convertElementToImage: page Size = ${doc.internal.pageSize.getWidth()} x ${doc.internal.pageSize.getHeight()}`);
 				console.log(`convertElementToImage: image size = ${imgProps.width} x ${imgProps.height}`);
-				
+
 				doc.setFontSize(8);
 				doc.text(doc.internal.pageSize.getWidth() - 120,
-						 5, 
-						 'https://munawwaransari.github.io/alug/');
+					5,
+					'https://munawwaransari.github.io/alug/');
 
 				// Calculate best fit
 				var xMargin = 10, yMargin = 10;
-				var pageWidth = doc.internal.pageSize.getWidth() - xMargin*2;
-				var pageHeight = doc.internal.pageSize.getHeight() - yMargin*2;
-				var pageRatio =  pageWidth / pageHeight;
+				var pageWidth = doc.internal.pageSize.getWidth() - xMargin * 2;
+				var pageHeight = doc.internal.pageSize.getHeight() - yMargin * 2;
+				var pageRatio = pageWidth / pageHeight;
 				var imgWidth = imgProps.width * pageRatio;
 				var imgHeight = imgProps.height * pageRatio;
-				var posX = 0;
-				(pageWidth - imgWidth) / 2;
-				if(posX < 0){
-					posX = 0;
+				var imageToPageRatio = 1;
+				var imgW, imgH, posX = 0;
+				if (imgHeight <= pageHeight) {
+
+					imageToPageRatio = pageWidth / imgWidth
 				}
-
-				if(imgHeight < pageHeight){ 
-					var imageToPageRatio = pageWidth / imgWidth;
-					var imgW = imgWidth * imageToPageRatio;
-					var imgH = imgHeight * imageToPageRatio;
-					
-					if(imgW > pageWidth){
-						imageToPageRatio = pageHeight / imgHeight;
-						imgW = imgWidth * imageToPageRatio;
-						imgH = imgHeight * imageToPageRatio;
-					}
-
-					if ( (pageWidth - imgW) > 0){
-						posX = (pageWidth - imgW)/2;
-					}
-					doc.addImage(img, 
-								"PNG", 
-								xMargin+posX,
-								yMargin,
-								imgW, 
-								imgH
-					);
-				}else{
-					var imageToPageRatio = pageHeight / imgHeight;
-					var imgW = imgWidth * imageToPageRatio;
-					var imgH = imgHeight * imageToPageRatio;
-
-					if(imgW > pageWidth){
-						imageToPageRatio = pageWidth / imgWidth;
-						imgW = imgWidth * imageToPageRatio;
-						imgH = imgHeight * imageToPageRatio;
-					}
-
-					if ( (pageWidth - imgW) > 0){
-						posX = (pageWidth - imgW)/2;
-					}
-					doc.addImage(img, 
-								"PNG", 
-								xMargin+posX,
-								yMargin,
-								imgW, 
-								imgH
-					);
+				else if (imgWidth <= pageWidth) {
+					imageToPageRatio = pageHeight / imgHeight;
 				}
+				else if (imgHeight < imgWidth) {
+					imageToPageRatio = pageWidth / imgWidth;
+				} else {
+					imageToPageRatio = pageHeight / imgHeight;
+				}
+				imgW = imgWidth * imageToPageRatio;
+				imgH = imgHeight * imageToPageRatio;
+				if ((pageWidth - imgW) >= 0) {
+					posX = (pageWidth - imgW) / 2;
+				}
+				doc.addImage(img,
+					"PNG",
+					xMargin + posX,
+					yMargin,
+					imgW,
+					imgH);
 				doc.save(imgFileName);
 				elementHTML.style.fontFamily = oldFamily;
-				if(backupDisplay){
+				if (backupDisplay) {
 					$(filters[1]).css('display', backupDisplay);
 				}
 			});
