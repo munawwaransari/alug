@@ -453,7 +453,7 @@ function handleFilterIndex(val){
 	}
 }
 
-function listSearchIndex() {
+function listSearchIndex(indexKey='') {
 	ensureJsonData({name:'isearchData'}, function (data) {
 		$(".dictionary").empty();
 		$(".dictionary").append('<div style="margin-top: 40px;"></div>');
@@ -522,7 +522,7 @@ function listSearchIndex() {
 			);
 		});
 		$(".dictionary").append(div);
-		handleFilterIndex('id_')
+		handleFilterIndex('id_'+indexKey)
 	});
 }
 
