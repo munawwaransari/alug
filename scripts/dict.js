@@ -496,11 +496,12 @@ function listSearchIndex(indexKey='') {
 		div.append($(iDiv));
 
 		$.each(enSortedData, function (key, value) {
-			var link = 'parent.redirect(\'' + value.path + '\',\'' + value.action + '\'';
-			if (value.data && value.data == "@key")
-				link += ', \'' + key + '\');';
-			else
-				link += ', ' + (value.data ? '\'' + value.data + '\');' : ');');
+			var link = `
+			parent.redirect('${value.path}','${value.action}',
+			${
+				(value.data && value.data == '@key') ? `'${key}');`:
+				value.data ? `'${value.data}');`: ');'
+			}`;
 			div.append(`
 				<div id="id_${key[0]}"
 					style="margin:0;padding:10px;width:250px;display:inline-block;float:left;">
@@ -509,11 +510,12 @@ function listSearchIndex(indexKey='') {
 			);
 		});
 		$.each(arSortedData, function (key, value) {
-			var link = 'parent.redirect(\'' + value.path + '\',\'' + value.action + '\'';
-			if (value.data && value.data == "@key")
-				link += ', \'' + key + '\');';
-			else
-				link += ', ' + (value.data ? '\'' + value.data + '\');' : ');');
+			var link = `
+			parent.redirect('${value.path}','${value.action}',
+			${
+				(value.data && value.data == '@key') ? `'${key}');`:
+				value.data ? `'${value.data}');`: ');'
+			}`;
 			div.append(`
 				<div id="data_${key[0]}"
 					style="margin:0;padding:10px;width:250px;display:inline-block;float:right;">
@@ -777,7 +779,8 @@ function handleCompareCheck() {
 
 function showTriliteralVerbTable() {
 
-	var alink = '<a href="#" style=" text-decoration: none" onclick="checkWord(\'$\');">$</a>';
+	var alink = `
+	<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
 	$(".dictionary").empty()
 	var table = `
 	<table class="pTable">
@@ -862,7 +865,8 @@ function showTriliteralVerbTable() {
 
 function showInadequateVerbTable() {
 
-	var alink = '<a href="#" style=" text-decoration: none" onclick="checkWord(\'$\');">$</a>';
+	var alink = `
+	<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
 	$(".dictionary").empty();
 	var table = `
 	<table class="pTable">
@@ -926,7 +930,8 @@ function showInadequateVerbTable() {
 
 function showWeakVerbTable() {
 
-	var alink = '<a href="#" style=" text-decoration: none" onclick="checkWord(\'$\');">$</a>';
+	var alink = `
+	<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
 	$(".dictionary").empty();
 	var table = `
 	<table class="pTable">

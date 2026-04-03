@@ -62,8 +62,9 @@
 		    var div = '<div class="chart">';
 			for(var i=1; i <=maxFiles; i++){
 				var imgUrl = url+i+'.png';
-				div += '<img class="chartTile" src="'+imgUrl+'" '+
-							'onclick="parseImageAndPlay(\''+imgUrl+'\')"></img>';
+				div += `<img class="chartTile" src="${imgUrl}"
+							onclick="parseImageAndPlay('${imgUrl}')">
+						</img>`;
 			}
             div += '</div>';
 			$("#chartContainer").empty();

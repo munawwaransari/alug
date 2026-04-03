@@ -79,7 +79,12 @@ $(function () {
 		var chapterPath = '\''+ch+suffix+'\''; 
 		//console.log(chapterPath);
 		var chapterName = ch.split('-')[1].trim();
-		$div = $('<div class="chapter-card"><span onclick="openChapter(\''+chapterName+'\', '+chapterPath+', 0)" >'+chapterName+'</span></div>');
+		$div = $(`
+			<div class="chapter-card">
+				<span onclick="openChapter('${chapterName}', ${chapterPath}, 0)">
+				${chapterName}
+				</span>
+			</div>`);
 		$('.menu-container').append($div);
 			
 		if(links && links.length > 0){
@@ -87,8 +92,11 @@ $(function () {
 			$subNav = $('<div class="subnav-content"></div>');
 			links.forEach(function(link, index){
 				var lang = link.lang ? "\'"+link.lang+"\'" : undefined;
-				$subNav.append($('<div class="subNav" onclick="openChapter(\''+chapterName+'\','+chapterPath+',' + link.pageNo+','+lang+')">'+link.topic+'</div>'));				
-				//console.log('Added '+ link.topic);
+				$subNav.append($(`
+					<div class="subNav" 
+						 onclick="openChapter('${chapterName}',${chapterPath},${link.pageNo},${lang})">
+						 ${link.topic}
+					</div>`));				
 			});
 			$div.append($subNav);
 		}
@@ -103,12 +111,12 @@ $(function () {
 		$div.append($subNav);
 		for(let i=0; i < knowledge_checks.length; i++){
 			var entry = knowledge_checks[i];
-			//console.log("ch: " + entry.ch);
-			
-			//var chapterPath = '\''+entry.ch+suffix+'\''; 
-			$subNav.append($('<div class="subNav" onclick="openQuizV2(\'Knowledge Check\', \'quiz.html\',\'' + entry.topic+'\')">'+entry.topic+'</div>'));				
-			//console.log('Added '+ entry.topic);
+			$subNav.append($(`
+				<div class="subNav" 
+					 onclick="openQuizV2('Knowledge Check', 'quiz.html','${entry.topic}')">
+				${entry.topic}
+				</div>`)
+			);				
 		}
 	}
-		
 });

@@ -233,10 +233,10 @@ function search(pageNumber){
 						style="height:20px;margin-top:1px;" onclick="" />
 			
 					<div class="dropdown-content" style="margin-left:-60px;width:10px;">
-						<a href="#" onclick="copyAyahText(\'word-ar\');">Copy AR</a>
-						<a href="#" onclick="copyAyahText(\'word-en\');">Copy EN</a>
-						<a href="#" onclick="copyAyahText(\'word-ur\');">Copy UR</a>
-						<a href="#" onclick="copyAyahText(\'word-hi\');">Copy HI</a>
+						<a href="#" onclick="copyAyahText('word-ar');">Copy AR</a>
+						<a href="#" onclick="copyAyahText('word-en');">Copy EN</a>
+						<a href="#" onclick="copyAyahText('word-ur');">Copy UR</a>
+						<a href="#" onclick="copyAyahText('word-hi');">Copy HI</a>
 						<a href="#" onclick="copyTafsirText();">Copy تفسير</a>
 						<a href="#" onclick="copyAyahMp3Path();">MP3 Path</a>
 						<a href="#" onclick="copyAyahImagePath();">Image path</a>
@@ -777,32 +777,37 @@ function getVerseLinkOptions(verseKey){
 }
 
 function getAnalysisOptions(verse, verseKeys){
-	return '<span>'+			  
-					'<span class="dropdown">'+
-					  '<button class="dropbtn" title="Select a word to analyze" '+
-						'style="width:20px;'+
-							   'background: url(images/analyze.jpg);' + 
-							   'background-repeat: no-repeat;'+
-							   'background-size: 20px 20px;"'+
-						'>معني</button>'+
-					  '<div class="dropdown-content">'
-						+
-						'<p><a href="#" onclick="getReferences()">References</a>'
-						+
-						(q_app_mode === 'Quran' ? '' :
-						'<a href="#" onclick="analyzeLocal()" >Analyze (تحليل)</a>')
-						+
-						'<a href="#" onclick="analyzeSelection('+verseKeys[0]+','+verseKeys[1]+')">Analyze (Almaany)</a>'
-						+
-						'<a href="#" onclick="analyzeLookup(\'https://www.almaany.com/ar/dict/ar-$/\')"' +
-						'>Meaning (Almaany)</a>'
-						+
-						'<a href="#" onclick="analyzeLookup(\'https://glosbe.com/ar/$/\')"' +
-						'>Meaning (Glosbe)</a></p>'
-						+
-					  '</div>'+
-					'</span>'+
-		'</span>';
+	return `<span>
+				<span class="dropdown">
+					<button class="dropbtn" title="Select a word to analyze"
+						style="width:20px;
+						background: url(images/analyze.jpg);
+						background-repeat: no-repeat;
+						background-size: 20px 20px;">
+					معني
+					</button>
+					<div class="dropdown-content">
+					<p><a href="#" onclick="getReferences()">References</a>
+					${
+						q_app_mode === 'Quran' ? '' :
+						'<a href="#" onclick="analyzeLocal()" >Analyze (تحليل)</a>'
+					}
+					<a href="#" 
+					   onclick="analyzeSelection(${verseKeys[0]},${verseKeys[1]})">
+					Analyze (Almaany)
+					</a>
+					<a href="#" 
+					   onclick="analyzeLookup('https://www.almaany.com/ar/dict/ar-$/')">
+					Meaning (Almaany)
+					</a>
+					<a href="#" 
+					   onclick="analyzeLookup('https://glosbe.com/ar/$/')">
+					Meaning (Glosbe)
+					</a>
+					</p>
+				</div>
+			</span>'+
+		</span>`;
 }
 
 function analyzeLookup(url){
@@ -842,11 +847,19 @@ function listWordInfo(filter){
 	if(qf_list && qf_list.length > 0){
 		var div = $("#searchResult");
 		div.empty();
-		var credit = '<div class="credit">source: <a href="#" onclick="window.open(\''+q_summary.credit+'\', \'_blank\')">'+q_summary.credit+'</a><div>';
+		var credit = `
+		<div class="credit">source: 
+		    <a href="#" onclick="window.open('${q_summary.credit}', '_blank')">
+			${q_summary.credit}
+			</a>
+		<div>`;
 		var table = '<table class="wordIndex"><th>Frequency</th><th>PoS</th><th>Word</th>';
 		qf_list.forEach(function(data) {
-			var alink = '<p style="cursor:pointer;" onclick="selectWordAndSearchInQuran(\''+data.word+'\')">';
-				alink += data.word+'</p>';
+			var alink = `
+			<p style="cursor:pointer;" 
+			   onclick="selectWordAndSearchInQuran('${data.word}')">
+				${data.word}
+			</p>`;
 				
 			if(filter){
 				if(arRemovePunct(data.word).startsWith(arRemovePunct(filter))){
@@ -1673,9 +1686,9 @@ function getGraphMenu(index, surah){
 			</a>
 			<a href="#" 
 				onclick="$('#divOntology iframe').attr('src',
-					'https://quickchart.io/wordcloud?text='${
+					'https://quickchart.io/wordcloud?text=${
 								surah.topics.map(w=> encodeURI(w.toLowerCase()
-													  .replaceAll("\|","")
+													  .replaceAll(/\|.*$/g,"")
 													  .replaceAll("'s "," ")
 													  .replaceAll("'","")
 													  .replaceAll("\:","")
@@ -1734,8 +1747,8 @@ function getGraphMenu(index, surah){
 													  .replaceAll(" m "," ")
 													  .replaceAll(" for "," ")))
 													  .join()
-					}\'); 
-					$(\'#divOntology\').show();">
+					}'); 
+					$('#divOntology').show();">
 			Word Cloud
 			</a>
 		</div>`;

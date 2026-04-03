@@ -234,10 +234,11 @@
 				}
 				
 				function getNumDiv(n, txt){
-					return $('<div class="num-box" '+
-									   'onclick="playNumberText(\''+txt+'\')">'+
-									   n+'<br/>'+txt+
-								   '</div>')
+					return $(`
+						<div  class="num-box" onclick="playNumberText('${txt}')">
+						${n}<br/>${txt}
+						</div>`
+					);
 				}
 			}
 		</script>

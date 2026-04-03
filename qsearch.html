@@ -316,7 +316,7 @@
 					<select id="surahList" 
 						style="width:120px;margin-top:10px;margin-bottom:10px;background-color:beige;color:darkblue" 
 						value="Go to Surah"
-						onchange="bringIntoView($('img[src^=\'data/qrn/svg/'+$(this).val()+'.svg\']').parent(), 700);$(this).val('Go to Surah');">
+						onchange="bringIntoView($(`img[src^='data/qrn/svg'${$(this).val()}.svg']`).parent(), 700);$(this).val('Go to Surah');">
 						<option value="Go to Surah">Go to Surah</option>
 					</select>
 				</span>

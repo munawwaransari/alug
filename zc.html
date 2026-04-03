@@ -159,10 +159,11 @@
 						var icount= 0;
 						var style2 = isNegative ? ' style="color:red;" ': '';
 						values.input.every(function(inp){
-							table += '<td><input class="inp'+calcCounter+'" '+ style2 +
-										'value="0" '+
-										'onchange="recalculateChange(\''+ent+'\', '+calcCounter+','+subSecCount+','+scount+')" />'+
-									 '</td>';
+							table += `
+							<td>
+								<input class="inp${calcCounter}" ${style2} value="0"
+									onchange="recalculateChange('${ent}', ${calcCounter},${subSecCount},${scount})" />
+							</td>`;
 							// add default value
 							calc[ent].inputs.push(0);
 							calc[ent].factors.push(isNegative ? -1 : 1);

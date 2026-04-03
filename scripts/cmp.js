@@ -104,7 +104,7 @@ class cmpAPI {
 				var r = $(`<tr><td style="font-size:14px;background-color:#F6F6BA;" colspan="${topics.length}">${replaceQLink(cmp["notes"])}</td></tr>`);
 				$("#xTable tbody").append(r);
 			}
-			var alink = '<a href="#" style=" text-decoration: none" onclick="checkWord(\'$\');">$</a>';
+			var alink = `<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
 							
 			var featureCount = cmp["ar"].length;
 			var rows = "";

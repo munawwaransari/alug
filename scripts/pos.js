@@ -307,8 +307,8 @@ class posAPI {
 	
 	#prepareConjNounRows(conjugations, xform)
 	{
-		var alink = '<a href="#" style=" text-decoration: none" '+
-						' onclick="checkWord(\'$\');">$</a>';
+		var alink = `
+		<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
 		if(xform.gender === undefined){
 			return `<tr><td>مذكّر</td>
 						<td>${alink.replaceAll('$',conjugations[0])}</td>
@@ -456,8 +456,8 @@ class posAPI {
 	
 	#addParsedWords(currentTable, curPos, parseInfo)
 	{
-		var alink = '<a href="#" style=" text-decoration: none" '+
-						' onclick="checkWord(\'$\');">$</a>';
+		var alink = `
+		<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
 		var row = `<tr><td>${parseInfo.xform.form}</td>`;
 		if(parseInfo.xform.pos === "verb"){
 			row = `${row}
@@ -617,7 +617,8 @@ class posAPI {
 					   </table>`);
 		container.append(nTable);
 		
-		var alink = '<a href="#" style=" text-decoration: none" onclick="checkWord(\'$\');">$</a>';
+		var alink = `
+		<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
 		for (const keyVal of Object.entries(res)){
 			var entryName = keyVal[0];
 			var values = keyVal[1];
@@ -772,7 +773,8 @@ class posAPI {
 					   </table>`);
 		container.append(nTable);
 		
-		var alink = '<a href="#" style=" text-decoration: none" onclick="checkWord(\'$\');">$</a>';
+		var alink = `
+		<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
 		for (const keyVal of Object.entries(res)){
 			var entryName = keyVal[0];
 			var values = keyVal[1];

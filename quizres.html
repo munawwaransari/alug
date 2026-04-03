@@ -37,10 +37,12 @@
 	function loadQuizes(list){
 		var div = $("#tUL");
 		list.every(function(q){
-			var alink = '<a onclick="openQ(\''+q+'\')">'+q+'</a>';
-			var li = '<li><span class="caret">'+alink+'</span>'+
-					 '<ul class="nested">';
-			li = li + '</ul></li>';
+			var alink = `<a onclick="openQ('${q}')">${q}</a>`;
+			var li = `
+			<li>
+				<span class="caret">${alink}</span>
+				<ul class="nested"></ul>
+			</li>`;
 			div.append($(li));
 			return true;
 		});

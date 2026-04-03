@@ -131,13 +131,22 @@
 			Object.keys(searchParams).forEach(key => {
 				var sp = searchParams[key];
 				if(parent){
-					response.push($('<div><h2>'+sp.title+'</h2>'+
-							'<a href="'+sp.searchUrl+'" onclick="parent.window.open(this.href, \'_blank\'); return false;">'+decodeURI(sp.searchUrl)+'</a>'+
-							'</div>'));
+					response.push($(`
+					<div><h2>${sp.title}</h2>
+						<a href="${sp.searchUrl}" onclick="
+							parent.window.open(this.href, '_blank'); return false;">
+						${decodeURI(sp.searchUrl)}
+						</a>
+					</div>`));
 				}else{
-					response.push($('<div><h2>'+sp.title+'</h2>'+
-							'<a href="'+sp.searchUrl+'" onclick="window.open(this.href, \'_blank\'); return false;">'+decodeURI(sp.searchUrl)+'</a>'+
-							'</div>'));
+					response.push($(`
+					<div>
+						<h2>${sp.title}</h2>
+						<a href="${sp.searchUrl}" onclick="
+							window.open(this.href, '_blank'); return false;">
+						${decodeURI(sp.searchUrl)}
+						</a>
+					</div>`));
 				}
 			});
 			if(callback)

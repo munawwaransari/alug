@@ -528,7 +528,7 @@ function updateToolDescription(id, opt){
 						menu +=
 						`<span class="menuitem" onclick="${value}">${key}</span>`;
 					else{
-						var onAction = 'showChart(\''+key+'\')';
+						var onAction = `showChart('${key}')`;
 						menu += 
 						`<span class="menuitem" 
 							onclick="toggleMenu(['Vocab','Chart','Misc','TTS'],'sel${key}')">
