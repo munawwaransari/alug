@@ -1314,8 +1314,10 @@ function playTafsir(verseKey){
 			$("#chkQir").prop('checked', '');
 			var lang = opt.substring(0,2);
 			var text = $("#tafsir").html(); 	
-			parent.playText(text, lang === 'ur' ? 'ur-PK':
-								  lang === 'ar' ? 'ar-SA': 'en-US');
+			if(text && text != '' && text != null){
+				parent.playText(text, lang === 'ur' ? 'ur-PK':
+									lang === 'ar' ? 'ar-SA': 'en-US');
+			}
 		}		
 	}
 	else

@@ -486,7 +486,7 @@ function getVerseTafsir(id, verseKey, callback){
 	var tafsir = $("#tafsir-options").val();
 	
 	if(tafsir === null || tafsir === "none"){
-		callback(undefined, style);
+		callback(undefined, "");
 		return;
 	}
 	var style = tafsir.startsWith("ur-") ? " font-size:18px;":" font-size:16px;";
