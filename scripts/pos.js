@@ -8,15 +8,15 @@ class posAPI {
 	constructor(path, callback)
 	{
 		var cb = callback;
-		ensureJsonData({name: "posRulesData"}, 
-			function(data, isFromCache) {
-				posAPI.posRules = data;
-				if(cb) cb("loaded", false, isFromCache);
-			},
-			function(err){
-				if(cb) cb("error", err);
-			}
-		);
+		ensureJsonData({name: "posRulesData"})
+		.then((data, isFromCache) => 
+		{
+			posAPI.posRules = data;
+			if(cb) cb("loaded", false, isFromCache);
+		},
+		(err) => {
+			if(cb) cb("error", err);
+		});
 	} 
 	
 	#P2Root(w, pInfo, options = {})

@@ -429,18 +429,16 @@
 		//api: https://api.aladhan.com/v1/gToH/DD-MM-YYYY
 		function convertGregorianToHijri(date, callback){
 			var api = "https://api.aladhan.com/v1/gToH/"+date.Day+"-"+(date.Month+1)+"-"+date.Year;
-			loadJsonData(api, 
-				function (data) {
-					if(callback){
-						callback({
-							"Year": data.data.hijri.year, 
-							"Month": data.data.hijri.month.number, 
-							"Day": data.data.hijri.day, 
-							"WDay": date.WDay
-						});
-					}
+			loadJsonData(api).then((data) => {
+				if(callback){
+					callback({
+						"Year": data.data.hijri.year, 
+						"Month": data.data.hijri.month.number, 
+						"Day": data.data.hijri.day, 
+						"WDay": date.WDay
+					});
 				}
-			);
+			});
 		}
 
 		window.addEventListener('load', function () {

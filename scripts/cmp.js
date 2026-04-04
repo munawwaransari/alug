@@ -8,12 +8,12 @@ class cmpAPI {
 	constructor(path, callback)
 	{
 		var cb = callback;
-		ensureJsonData({name: "cmpData"}, 
-			function(data, isFromCache) {
+		ensureJsonData({name: "cmpData"})
+		.then((data, isFromCache) => {
 				cmpAPI.cmpData = data;
 				if(cb) cb("loaded", false, isFromCache);
 			},
-			function(err){
+			(err) => {
 				if(cb) cb("error", err);
 			}
 		);

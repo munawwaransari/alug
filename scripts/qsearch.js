@@ -91,7 +91,7 @@ Loads all words of Quran
 */
 async function loadQList(){
 	$("#hd-loading").show();
-	ensureJsonData({ name: "qfllistData" }, function (data) {
+	ensureJsonData({ name: "qfllistData" }).then((data) => {
 		loadWordsFrom(data);
 		$("#hd-loading").hide();
 	});		
@@ -501,7 +501,7 @@ function getVerseTafsir(id, verseKey, callback){
 	var style = tafsir.startsWith("ur-") ? " font-size:18px;":" font-size:16px;";
 	var vKey = verseKey.split(":");
 	var url = "https://cdn.jsdelivr.net/gh/spa5k/tafsir_api@main/tafsir/"+tafsir+"/"+vKey[0]+"/"+vKey[1]+".json";
-	loadJsonData(url, function(data){
+	loadJsonData(url).then((data) => {
 		
 		if(callback){
 			callback(data, style);
@@ -937,7 +937,7 @@ var juzPages = [1,22,42,62,82,102,121,142,162,182,201,222,242,262,282,302,322,34
 function updateRukuNumber(page){
 	var sel = $("#page-options");
 	var pg = page ?? parseInt(sel.val().replace('page',''));
-	loadJsonData("https://api.quranhub.com/v1/page/"+pg, function(res){
+	loadJsonData(`https://api.quranhub.com/v1/page/${pg}`).then((res) => {
 		var rukuNumbers = res.data.ayahs.map(a => a.ruku);
 		var rukuNumber = rukuNumbers.filter((value, index) => {
 		  return rukuNumbers.indexOf(value) === index;
@@ -1088,10 +1088,8 @@ Loads Quran surah index
 var surah_order = false, surah_disp_mode='table';
 function listSurahs(loadMushaf, index, page){
 	$("#qari").hide();
-	//var path = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
-	//var url = path + 'data/qrn/qsurah.zip';
-	ensureJsonData({name: 'qsurahData', file: 'qsurah.json'}, (data) => {
-		
+	ensureJsonData({name: 'qsurahData', file: 'qsurah.json'})
+	.then((data) => {	
 		if(data){
 			//Load Topicsa
 			setTimeout(loadQuranTopics, 40);
@@ -1537,7 +1535,8 @@ function toggleMakkiMadni(){
 }
 
 function getAyahTransliteration(verseKey, cb){	
-	ensureJsonData({name:"transliterationData", file: 'en-wbw-ayah.json'}, (data) => {
+	ensureJsonData({name:"transliterationData", file: 'en-wbw-ayah.json'})
+	.then((data) => {
 		if(cb) cb(data[verseKey]);
 	});
 }

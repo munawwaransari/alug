@@ -85,7 +85,7 @@
 		window.addEventListener('load', function () {
 			toggleMessage(false);
 			//Load data
-			loadJsonData(getLocationPath() + 'data/inh.json', function(data){
+			loadJsonData(`${getLocationPath()}data/inh.json`).then((data) => {
 				if(data){
 					loadInheritorsData(data);
 					loadInheritanceTables(data["InheritanceHeads"]);

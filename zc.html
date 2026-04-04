@@ -69,7 +69,7 @@
 		window.addEventListener('load', function () {
 			toggleMessage(false);
 			//Load data
-			loadJsonData(getLocationPath() + 'data/za.json', function(data){
+			loadJsonData(`${getLocationPath()}data/za.json`).then((data) => {
 				if(data && data["ZakatHeads"]){
 					loadZakatTables(data);
 					enableTreeview();

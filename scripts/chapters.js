@@ -35,7 +35,7 @@ function autoplayAudio(chapter, page, lang){
 
 	var url = `${getLocationPath()}data/audio/${langOption}_${chapter}_autoplay.json`;
 	console.log(`Loading play file: ${url}`);
-	loadJsonData(url, function(data){
+	loadJsonData(url).then((data) => {
 		
 		var sections = jQuery.map(data, function(obj) {
 			if(obj.pageNo === page)

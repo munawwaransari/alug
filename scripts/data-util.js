@@ -15,77 +15,88 @@ function getParamValue(paramName) {
     return params.get(paramName) ?? undefined;
 }
 
-async function ensureJsonData(d, callback, errorCallback)
+async function ensureJsonData(d)
 {
-	if(parent.dataCache === undefined || parent.dataCache[d.name] === undefined){
-		console.log("Error: Invalid cache state for: "+ d.name);
-		return;
-	}
-	if (parent.dataCache[d.name].data){
-		if(callback) callback(parent.dataCache[d.name].data, true);
-	}
-	else {
-		var loc = getLocationPath() + parent.dataCache[d.name].path;
-		var extension = loc.split('.').pop().toLowerCase();
-		if( extension === "zip"){
-			loadZipData(loc, d.file, function(data){
-				// Load Surah names
-				parent.dataCache[d.name].data = data;
-				if(callback) {callback(data, false);}
-			});
+	return new Promise((resolve, reject) => {
+		if (parent.dataCache === undefined || parent.dataCache[d.name] === undefined) {
+			console.log("Error: Invalid cache state for: " + d.name);
+			if(reject) {
+				reject("Invalid cache state for: " + d.name);
+			}
 		}
-		else if( extension === "json"){
-			loadJsonData(loc, function (data) {
-				parent.dataCache[d.name].data = data;
-				if(callback) {callback(data, false);}
-			},
-			errorCallback);
+		if (parent.dataCache[d.name].data) {
+			if (resolve){ 
+				resolve(parent.dataCache[d.name].data, true);
+			}
 		}
 		else {
-			console.log("Error: Invalid data file extension for: "+ loc);
+			var loc = getLocationPath() + parent.dataCache[d.name].path;
+			var extension = loc.split('.').pop().toLowerCase();
+			if (extension === "zip") {
+				loadZipData(loc, d.file)
+					.then((data) => {
+						// Load Surah names
+						parent.dataCache[d.name].data = data;
+						if (resolve) { 
+							resolve(data, false); 
+						}
+					});
+			}
+			else if (extension === "json") {
+				loadJsonData(loc)
+				.then((data) => {
+					parent.dataCache[d.name].data = data;
+					if (resolve) { 
+						resolve(data, false); 
+					}
+				})
+				.catch((err) => {
+					if(reject) {
+						reject(err);
+					}
+				});
+			}
+			else {
+				console.log(`Error: Invalid data file extension for: ${loc}`);
+			}
 		}
-	}
+	});
 }
 
-async function loadJsonData(url, callback, errorCallback)
+async function loadJsonData(url)
 {
-
+	console.log('Fetching JSON data: '+ url);
+	const fetchUrl = new URL(url);
+	fetchUrl.searchParams.set('nocache', Date.now());
 	try {
-		console.log('Fetching: '+ url);
-		const response = await fetch(url+"?nocache=123");
+		const response = await fetch(fetchUrl);
 		if (!response.ok) {
-
 			throw new Error(`HTTP error! Status: ${response.status}`);
 		}
-		const data = await response.json();
-
-		callback(data);
+		return response.json();
 	} 
 	catch (error) {
-
 		console.error("Fetch error:", error);
-		if (errorCallback){
-			errorCallback(error);
-		}
 	}
 }
 
-async function loadHtmlData(url,  callback, opt)
+async function loadHtmlData(url)
 {
+	console.log('Fetching Html/text data: '+ url);
+	const fetchUrl = new URL(url);
 	try {
-		const response = await fetch(url, opt);
+		const response = await fetch(fetchUrl);
 		if (!response.ok) {
 			throw new Error(`HTTP error! Status: ${response.status}`);
 		}
-		const data = await response.text();
-		callback(data);
+		return response.text();
 	} 
 	catch (error) {
 		console.error("Fetch error:", error);
 	}
 }
 
-async function loadZipData(url, file, callback, errorCallback)
+async function loadZipData(url, file)
 {
 	try {
 		console.log('Fetching zip: '+ url);
@@ -94,24 +105,26 @@ async function loadZipData(url, file, callback, errorCallback)
 			throw new Error(`HTTP error! Status: ${response.status}`);
 		}
 		var jsZip = new JSZip();
-		jsZip.loadAsync(response.blob())
-		     .then(function (zip){
-				zip.file(file)
-				   .async("string")
-				   .then(function(data){
-						if(file.endsWith(".json")){
-							var zdata = JSON.parse(data);
-							callback(zdata); 	
-						}						
-					})
-			 });
+		return new Promise((resolve, reject) => {
+			jsZip.loadAsync(response.blob())
+				.then(function (zip){
+					zip.file(file)
+					.async("string")
+					.then(function(data){
+							if(file.endsWith(".json")){
+								var zdata = JSON.parse(data);
+								resolve(zdata); 	
+							}						
+						})
+				.catch(function(err){
+					console.error("Error reading zip file: ", err);
+					if(reject) reject(err);
+				});
+			});
+		});
 	} 
 	catch (error) {
-
 		console.error("Fetch error:", error);
-		if (errorCallback){
-			errorCallback(error);
-		}
 	}
 }
 

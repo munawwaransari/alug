@@ -10,7 +10,7 @@ class posSearch {
 	{
 		var cb = callback;
 		var thisInstance = this;
-		loadHtmlData(path+'data/arabiclt/all-words.csv', function(data)
+		loadHtmlData(`${path}data/arabiclt/all-words.csv`).then((data) =>	
 		{
 			var csvData = loadCsvTable(data, false);
 			csvData.every(function(row, i){

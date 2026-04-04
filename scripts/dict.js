@@ -428,10 +428,12 @@ function listExamplesFromQuran() {
 	dict.append(qselect);
 
 	loadExamplesFromCmpData(dict, qselect);
-	ensureJsonData({name:"objectEffectsData"}, (data) => {
+	ensureJsonData({name:"objectEffectsData"})
+	.then((data) => {
 		loadExamplesFromObjectEffectData(dict, qselect, data);
 	});
-	ensureJsonData({name:"adverbData"}, (data) => {
+	ensureJsonData({name:"adverbData"})
+	.then((data) => {
 		loadExamplesFromObjectEffectData(dict, qselect, data);
 	});
 	loadExamplesFromData(dict, qselect, showImperativeTable(1), "Imperative - Form ");
@@ -454,7 +456,8 @@ function handleFilterIndex(val){
 }
 
 function listSearchIndex(indexKey='') {
-	ensureJsonData({name:'isearchData'}, function (data) {
+	ensureJsonData({name:'isearchData'})
+	.then((data) => {
 		$(".dictionary").empty();
 		$(".dictionary").append('<div style="margin-top: 40px;"></div>');
 
@@ -548,7 +551,7 @@ async function getSuggesstions(txt, callback) {
 	if (file.length > 0) {
 		var fileUrl = getLocationPath() + 'data/ar.dic/' + file[0][1] + '.json';
 		console.log('getting suggestions: ' + file[0][1] + '.json');
-		loadJsonData(fileUrl, function (data) {
+		loadJsonData(fileUrl).then((data) => {
 			// update global var for suggestions
 			var suggestionsList = data.filter(function (w) {
 				return w.startsWith(txt);

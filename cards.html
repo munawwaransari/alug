@@ -168,7 +168,7 @@
 			var dataParam = decodeURI(getParamValue("data"));
 			if(dataParam && dataParam != 'undefined'){
 				var url = getLocationPath() + 'data/grmr/'+dataParam+'.json';
-				loadJsonData(url, function(data){
+				loadJsonData(url).then((data) => {
 					const firstKey = Object.keys(data)[0];
 					var div = $("#cardContainer");
 					

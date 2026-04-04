@@ -24,12 +24,19 @@ function showPrayerTimings(container, cType, city){
 	if(city){
 		var url = getPrayerAPI(cType, city);
 		console.log('Loading prayr times for '+ cType + ' for city' + city);
-		loadJsonData(url, function(data){
-			var dir = cType === 'hijri' ? 'direction:rtl;text-align:right;font-size:18px;' : 'direction:ltr;text-align:left';
-			var prayTable = '<table style="margin-top:10px;'+dir+';">'+
-							'<tr><th style="width:80px;"><th colspan="2" style="'+dir+';">'+transTimeText(cType, 'Prayer Timings')+':</th></tr>'+
-							'<tr><th/><th style="'+dir+';width:150px;">'+transTimeText(cType, 'Event')+'</th>'+
-							'<th style="'+dir+';width:150px;">'+transTimeText(cType, 'Time')+'</th></tr>';
+		loadJsonData(url).then((data) => {
+			var dir = cType === 'hijri' ? 
+				'direction:rtl;text-align:right;font-size:18px;' : 
+				'direction:ltr;text-align:left';
+			var prayTable = `
+			<table style="margin-top:10px;${dir};">
+			<tr><th style="width:80px;"/>
+				<th colspan="2" style="${dir};">${transTimeText(cType, 'Prayer Timings')}:</th>
+			</tr>
+			<tr><th/>
+				<th style="${dir};width:150px;">${transTimeText(cType, 'Event')}</th>
+				<th style="${dir};width:150px;">${transTimeText(cType, 'Time')}</th>
+			</tr>`;
 			
 			var timings = data.data.timings ?? data.data[0].timings;
 			if(calendarType === 'hijri'){
@@ -55,9 +62,10 @@ function showPrayerTimings(container, cType, city){
 				
 				if(key !== ''){
 					if(pastFlag)
-						rows += '<tr'+cblink+'><td/><td style="'+dir+'">'+transTimeText(cType, key)+'</td><td>'+timings[key]+'</td></tr>';
+						rows += `<tr${cblink}><td/><td style="${dir}">${transTimeText(cType, key)}</td><td>${timings[key]}</td></tr>`;
 					else
-						rows = '<tr'+cblink+'><td/><td style="'+dir+'">'+transTimeText(cType, key)+'</td><td>'+timings[key]+'</td></tr>' + rows;
+						rows = `<tr${cblink}><td/><td style="${dir}">${transTimeText(cType, key)}</td><td>${timings[key]}</td></tr>` 
+							   + rows;
 				}
 			});
 			

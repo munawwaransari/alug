@@ -667,8 +667,7 @@ function autoplayAudio(chapter, page){
 	var lang = parent ? parent.getLangOption() : "en-US";
 	var url = getLocationPath() + 'data/audio/'+ lang + '_' + chapter + '_autoplay.json';
 	console.log('Loding play file: ' + url);
-	loadJsonData(url, function(data){
-		
+	loadJsonData(url).then((data) => {
 		var sections = jQuery.map(data, function(obj) {
 			if(obj.pageNo === page)
 			return obj.sections;
@@ -702,7 +701,8 @@ function loadHandwriting(){
 }
 
 async function getiSearchSuggesstions(txt, callback){
-	ensureJsonData({name:'isearchData'}, function(data){
+	ensureJsonData({name:'isearchData'})
+	.then((data) => {
 		var txt_lc = txt ? txt.toLowerCase().trim() : '';
 		handleiSearchData(txt_lc, callback);		
 	});
@@ -819,7 +819,8 @@ function getDefaultActions(txt){
 }
 
 function genAndDownloadSitemap(){
-	ensureJsonData({name:'isearchData'}, function(data){
+	ensureJsonData({name:'isearchData'})
+	.then((data) => {
 		var siteMap = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 		siteMap += getDefaultSiteMapUrls();
 		for(const [k,v] of Object.entries(data)){
