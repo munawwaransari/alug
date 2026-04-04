@@ -51,20 +51,20 @@
 	function openQ(topic){
 		if(parent){
 			var langOption = parent.getLangOption();
-			var data_path = getLocationPath() + 'data/km/' + topic + '_quiz.json';
-			var abs_path = getLocationPath() + 'quiz.html?&topic=' + topic + '&lang=' + langOption + '&data=' + data_path;
+			var data_path = `${getLocationPath()}data/km/${topic}_quiz.json`;
+			var abs_path = `${getLocationPath()}quiz.html?&topic=${topic}&lang=${langOption}&data=${data_path}`;
 			parent.openInline(abs_path);
 		}else{
 			var langOption = "en-US";
-			var data_path = getLocationPath() + 'data/km/' + topic + '_quiz.json';
-			var abs_path = getLocationPath() + 'quiz.html?&topic=' + topic + '&lang=' + langOption + '&data=' + data_path;
+			var data_path = `${getLocationPath()}data/km/${topic}_quiz.json`;
+			var abs_path = `${getLocationPath()}quiz.html?&topic=${topic}&lang=${langOption}&data=${data_path}`;
 			window.open(abs_path, "_blank");
 		}
 	}
 	</script>
 </head>
 <body>
-	<div><h4 style="width:100%text-align:center;margin-bottom:5px;">Test your knowledge:<h4></div>
+	<div><h4 style="width:100%;text-align:center;margin-bottom:5px;">Test your knowledge:</h4></div>
 	<ul id="tUL">
 	</ul>
 </body>

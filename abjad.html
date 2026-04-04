@@ -46,7 +46,6 @@
 		</style>
 		<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
 		<script>
-			var abjadNomatch = /[^ابجدهوزحطيكلمنسعفصقرشتثخذضظغ]/g;
 			var abjad = {
 				"ا": 1,
 				"ب": 2,
@@ -89,6 +88,7 @@
 			
 			function showTextValue(){
 				var txt = $("#textInput").val();
+				var abjadNomatch = /[^ابجدهوزحطيكلمنسعفصقرشتثخذضظغ]/g;
 				var value = getNumberValue(txt.replace(abjadNomatch, ''));
 				$("#numberDiv").html(value);
 			}

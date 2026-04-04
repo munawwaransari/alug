@@ -30,7 +30,8 @@
 		var alink = `<a href="#" onclick="openTopic('$1', $2, '$3')">$4</a>`;
 		for (const [key, value] of Object.entries(topics)){
 			var topicName = key.split('-')[1];
-			var topicPath = encodeURI(getLocationPath() + "html/" + key.replaceAll(' ','-') + '-Arabic.html');
+			var topicPath = encodeURI(
+				`${getLocationPath()}html/${key.replaceAll(' ','-')}-Arabic.html`);
 			
 			var li = `
 			<li><span class="caret">${topicName}</span>

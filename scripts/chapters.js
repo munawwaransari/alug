@@ -4,26 +4,25 @@
 function openChapter(chapter, file, page, lang){
 	console.log("file: " + file);
 	var loaction = window.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
-	var abs_path = getLocationPath() + 'pdfs/' + file;
+	var abs_path = `${getLocationPath()}pdfs/${file}`;
 	
 	if(page > 0){
-		console.log("opening '"+ abs_path + "' , page = " + page);
+		console.log(`opening '${abs_path}' , page = ${page}`);
 		$('.reading-pane').attr("src","");
 		setTimeout(function(){
 			$('.reading-pane').attr('src', encodeURI(abs_path)+"#page=" + page);
 		}, 5);
 	}
 	else{
-		console.log("opening '"+ abs_path + "'");
+		console.log(`opening '${abs_path}'`);
 		$('.reading-pane').attr("src","");
 		setTimeout(function(){
 			$('.reading-pane').attr('src', encodeURI(abs_path));
 		}, 5);
 	}
-	//$('#title-img').hide();
-	
+
 	updateStates({ action: "pdf", chapter: chapter, file: file, page: page});
-	
+
 	if(autoplay){
 		changeLanguageOption(lang);
 		setTimeout(function(){
@@ -34,8 +33,8 @@ function openChapter(chapter, file, page, lang){
 
 function autoplayAudio(chapter, page, lang){
 
-	var url = getLocationPath() + 'data/audio/'+ langOption + '_' + chapter + '_autoplay.json';
-	console.log('Loding play file: ' + url);
+	var url = `${getLocationPath()}data/audio/${langOption}_${chapter}_autoplay.json`;
+	console.log(`Loading play file: ${url}`);
 	loadJsonData(url, function(data){
 		
 		var sections = jQuery.map(data, function(obj) {
@@ -48,7 +47,7 @@ function autoplayAudio(chapter, page, lang){
 		if(sections){
 			sections.forEach(function(sect){
 				//console.log(sect.play);
-				$('#playSections').append('<option value="'+ sect.play +'">'+sect.topic+'</option>');					
+				$('#playSections').append(`<option value="${sect.play}">${sect.topic}</option>`);					
 			});
 			
 			$("#text").text($('#playSections').val());
@@ -60,11 +59,11 @@ function autoplayAudio(chapter, page, lang){
 }
 
 function openQuizV2(chapter, file, topic, lang) {
-	console.log("Quiz file: " + file);
+	console.log(`Quiz file: ${file}`);
 	var loaction = window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1);
-	var data_path = location + 'data/km/' + topic + '_quiz.json';
+	var data_path = `${getLocationPath()}data/km/${topic}_quiz.json`;
 
-	var abs_path = getLocationPath() + file + '?chapter=' + chapter + '&topic=' + topic + '&lang=' + (langOption ?? window.getLang()) + '&data=' + data_path;
+	var abs_path = `${getLocationPath()}${file}?chapter=${chapter}&topic=${topic}&lang=${langOption ?? window.getLang()}&data=${data_path}`;
 	$('.reading-pane').attr('src', encodeURI(abs_path));
 	updateStates({ action: "quiz", chapter: chapter, file: file, topic: topic });
 };
@@ -77,7 +76,6 @@ $(function () {
 	for (const [ch, links] of Object.entries(alug_chapters)) 
 	{
 		var chapterPath = '\''+ch+suffix+'\''; 
-		//console.log(chapterPath);
 		var chapterName = ch.split('-')[1].trim();
 		$div = $(`
 			<div class="chapter-card">
@@ -91,7 +89,7 @@ $(function () {
 			//console.log('Links found');
 			$subNav = $('<div class="subnav-content"></div>');
 			links.forEach(function(link, index){
-				var lang = link.lang ? "\'"+link.lang+"\'" : undefined;
+				var lang = link.lang ? `'{link.lang}'` : undefined;
 				$subNav.append($(`
 					<div class="subNav" 
 						 onclick="openChapter('${chapterName}',${chapterPath},${link.pageNo},${lang})">
@@ -104,7 +102,6 @@ $(function () {
 	
 	// Create Knowledge Check Menu
 	if(knowledge_checks && knowledge_checks.length > 0){
-		//console.log("Adding knowldeg check links: count = " + knowledge_checks.length);
 		$div = $('<div class="chapter-card"><span>Knowledge Check</span></div>');
 		$('.menu-container').append($div);
 		$subNav = $('<div class="subnav-content"></div>');

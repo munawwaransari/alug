@@ -73,7 +73,7 @@
 	}
 	function logError(err){
 		const headNode = document.createElement('h3');
-		headNode.innerHTML = 'Error:' + err.message;
+		headNode.innerHTML = `Error: ${err.message}`;
 		headNode.style.color = 'red';
 		document.body.appendChild(headNode);
 	}

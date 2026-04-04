@@ -194,7 +194,7 @@
 
 				if(m === undefined){
 					if(min > 20){
-						m= numberNames[units] + ' ' + tensNames[tens];
+						m= `${numberNames[units]} ${tensNames[tens]}`;
 					}
 					else if (tensNames[min] !== undefined){
 						m=  tensNames[min];
@@ -207,7 +207,7 @@
 						m=numberNames[units];
 					}
 					
-					ret = m === undefined ? h : h + ' ' + m;
+					ret = m === undefined ? h : `${h} ${m}`;
 					if(partNames[min] === undefined && numberNames[units] !== undefined && 
 					   (min > 2) && !(m >=11 && m <= 19))
 					{
@@ -219,7 +219,7 @@
 						if(hh > 12) hh = 1;
 						h = hourNames[hh-1];
 					}
-					ret = h + ' ' + m;
+					ret = `${h} ${m}`;
 				}
 				return ret;
 			}

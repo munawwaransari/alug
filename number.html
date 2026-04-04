@@ -125,7 +125,7 @@
 					if(v1[0] === 'و' && v1[1] === 'َ')
 						v1 = removePrefix(v1);
 					var v2 = p2 > 0 ? getNumberText(p2) : "";
-					return v1 + ' آلاف ' + v2;
+					return `${v1} آلاف ${v2}`;
 				}
 				return txt;
 			}
@@ -144,7 +144,7 @@
 			function get1000To9999(val){
 				if(val == 1000) return "اَلفٌ";
 				if(val == 2000) return "اَلفَين";
-				var ret = numberNames[Math.floor(val/1000)] + ' ' + "آلاف";
+				var ret = `${numberNames[Math.floor(val/1000)]} ${"آلاف"}`;
 				if(numberNames[val/1000]){
 					return removePrefix(ret);
 				}
@@ -197,8 +197,8 @@
 				var units = val % 10;
 				var tens = Math.floor(val / 10)*10;
 				if(pfx)
-					return numberNames[units] + ' ' + ((tens > 0) ? tensNames[tens] : '');
-				return removePrefix(numberNames[units]) + ' ' + ((tens > 0) ? tensNames[tens] : '');
+					return `${numberNames[units]} ${((tens > 0) ? tensNames[tens] : '')}`;
+				return `${removePrefix(numberNames[units])} ${((tens > 0) ? tensNames[tens] : '')}`;
 			}
 			
 			function removePrefix(txt){
