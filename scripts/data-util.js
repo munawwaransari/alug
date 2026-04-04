@@ -20,14 +20,10 @@ async function ensureJsonData(d)
 	return new Promise((resolve, reject) => {
 		if (parent.dataCache === undefined || parent.dataCache[d.name] === undefined) {
 			console.log("Error: Invalid cache state for: " + d.name);
-			if(reject) {
-				reject("Invalid cache state for: " + d.name);
-			}
+			reject("Invalid cache state for: " + d.name);
 		}
 		if (parent.dataCache[d.name].data) {
-			if (resolve){ 
-				resolve(parent.dataCache[d.name].data, true);
-			}
+			resolve(parent.dataCache[d.name].data, true);
 		}
 		else {
 			var loc = getLocationPath() + parent.dataCache[d.name].path;
@@ -37,23 +33,17 @@ async function ensureJsonData(d)
 					.then((data) => {
 						// Load Surah names
 						parent.dataCache[d.name].data = data;
-						if (resolve) { 
-							resolve(data, false); 
-						}
+						resolve(data, false); 
 					});
 			}
 			else if (extension === "json") {
 				loadJsonData(loc)
 				.then((data) => {
 					parent.dataCache[d.name].data = data;
-					if (resolve) { 
-						resolve(data, false); 
-					}
+					resolve(data, false); 
 				})
 				.catch((err) => {
-					if(reject) {
-						reject(err);
-					}
+					reject(err);
 				});
 			}
 			else {
