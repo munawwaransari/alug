@@ -68,7 +68,7 @@ function openQuizV2(chapter, file, topic, lang) {
 	updateStates({ action: "quiz", chapter: chapter, file: file, topic: topic });
 };
 
-$(function () {
+$(document).ready(function () {
 		
 	var suffix = " - Arabic.pdf";
 	
