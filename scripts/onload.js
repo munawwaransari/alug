@@ -9,14 +9,14 @@ var dataCache = init_data_cache();
 
 $(document).ready(function()
 {	
-
 	var queryAcion = getParamValue("query");
 	if(queryAcion && queryAcion.length > 0){
 		var response = undefined;
 		switch(queryAcion){
 			case "actions":
 				response = [
-					"tools"
+					"tools",
+					"pFunctions"
 				];
 			break;
 
@@ -26,11 +26,30 @@ $(document).ready(function()
 					response.push(img.id);
 					return true;
 				});
-				break;
+			break;
 
-				default:
+			case "pFunctions":
+				response = [
+					"changeAudioTime",
+					"getAllVoices",
+					"getLang",
+					"getLangOption",
+					"isLangSupported",
+					"isAutoPlayEnabled",
+					"openInline",
+					"pauseAudio",
+					"playAudio",
+					"playTextAll",
+					"stopAudio",
+					"resumeAudio",
+					"redirect",
+					"updateStates"
+				];
+			break;
+
+			default:
 				response = {"error": `Invalid query action, try 'actions'` };
-				break;
+			break;
 		}		
 		window.document.writeln(JSON.stringify(response));
 		window.stop();
@@ -52,9 +71,7 @@ $(document).ready(function()
 	updateDeviceSize();
 	function updateDeviceSize(){
 		var deviceType = getDeviceType();
-		$(".toolDiv").removeClass('mobile');
-		$(".toolDiv").removeClass('pad');
-		$(".toolDiv").removeClass('desktop');
+		$(".toolDiv").removeClass('mobile pad desktop');
 		$(".toolDiv").addClass(deviceType);
 		console.log(deviceType);
 		window.onresize = undefined;
