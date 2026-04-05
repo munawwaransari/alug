@@ -247,7 +247,11 @@ function search(pageNumber){
 				<span style="cursor:pointer;float:right;margin-right:8px;">
 					<img src="images/exp.png" title="Export to PDF"
 						style="height:20px;margin-top:1px;" 
-						onclick="convertHTMLtoImage('#searchResult', ['#searchResult div'], 'exported_${keys[0]}_${keys[1]}.pdf');" />
+						onclick="convertHTMLtoImage(
+							'#searchResult', 
+							['#searchResult div span\[class*=-ar]'], 
+							'exported_${keys[0]}_${keys[1]}.pdf'
+						);" />
 				</span>
 			</div>`;
 			div.append($(nav));
@@ -599,7 +603,7 @@ function displayVerse(div, verse, verseKey, options){
 	var divHtml = `
 		<div 
 			id="vdiv-${verseKeys[0]}-${verseKeys[1]}"  
-			style="padding-bottom:4px;font-size:22px;display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;${direction+bgColor}">
+			style="padding-bottom:4px;font-size:22px;display:inline;align-items:center;justify-content:center;${direction+bgColor}">
 			${
 				(options.ayahOption === "image") ?
 					`<img style="padding:4px;max-width:96%" 
@@ -654,6 +658,7 @@ function selectWordInAyah(id) {
 
     // Apply new highlights
     $(`[id='${baseId}']`).addClass("sel-word");
+	//$("#"+id).addClass("sel-word");	 // only
     langs.forEach(lang => {
         $(`#${baseId}-${lang}`).addClass(`sel-word-${lang}`);
     });
@@ -711,7 +716,8 @@ function reloadVerse(verseKey){
 }
 
 function getReferences(){
-	var word = $(".sel-word").text().trim();
+	var txt = $(".sel-word")[0].innerText; // choose the arabic part (not transliteration)
+	var word = removePunctuations(txt).trim(); 
 	if(word !== ""){
 		$("#searchText").val(word);
 		search();
