@@ -146,62 +146,68 @@ function getDeviceType() {
 }
 
 function arRemovePunct(txt){
-	var punctuation = "ًٌٍََُِّْٰۡ";
-	return txt.replaceAll(new RegExp("["+punctuation+"]+","g"), '')
+	// Combine all replacements into a single regex for a single pass
+    // 1. [ًٌٍََُِّْٰۡ]+ matches any sequence of diacritics
+    // 2. [ٱإأ] matches various Alifs to normalize to 'ا'
+    // 3. ى is handled separately to map to 'ي'
+	return txt.replaceAll(/[ًٌٍََُِّْٰۡ]/g, '')
 				.replaceAll(new RegExp("ٱ", "g"), 'ا')
-				.replaceAll(new RegExp("إ", "g"), 'ا')
-				.replaceAll(new RegExp("أ", "g"), 'ا')
-				.replaceAll(new RegExp("ى", "g"), 'ي');
+				.replaceAll(/[ٱإأ]/g, 'ا')
+				.replaceAll(/ى/g, 'ي');
 }
 
-function replaceWord(w){
-	var punctuation = "ۡۧ ـ	 ۦۥۣۤۢۡ۠۟۞۝ۜۛۚۙۘۗۖە";
-	var text = w.text
-				.replace(new RegExp("["+punctuation+"]+","g"), '')
-				.replace(new RegExp("ٱ", "g"), 'ا')
-				.replace(new RegExp("ىٰ","g"), 'ى')
-				.replace(new RegExp("وَال","g"), 'ال')
-				.replace(new RegExp("ٰ","g"), "ا")
-				.replace(new RegExp("لِل","g"),"");
-	return text;
+function replaceWord(w) {
+    const punctuation = "ۡۧ ـ\t ۦۥۣۤۢۡ۠۟۞۝ۜۛۚۙۘۗۖە";
+    return w.text
+        .replace(new RegExp("[" + punctuation + "]+", "g"), '') // Remove punctuation
+        .replace(/[ٱٰ]/g, 'ا')        // Normalize Alif and Dagger Alif to Alif
+        .replace(/ىٰ/g, 'ى')         // Normalize Alif Maqsura with Dagger
+        .replace(/وَال/g, 'ال')      // Strip "Wa" prefix from "Al"
+        .replace(/لِل/g, '');        // Remove "Li" prefix from "Al"
 }
 
 function removePunctuations(w){
-	var punctuation = "ۡۧـۦۥۣۤۢۡ۠ٓ۟۞۝ۜۛۚۙۘۡۗۖەۢ";
-	return w.replaceAll(new RegExp("["+punctuation+"]+","g"), '');
+	//var punctuation = "ۡۧـۦۥۣۤۢۡ۠ٓ۟۞۝ۜۛۚۙۘۡۗۖەۢ";
+	var punctuation = /[\u06df\u06e7\u0640\u06e6\u06e5\u06e4\u06e3\u06e2\u06df\u06e0\u0653\u06e1\u06dd\u06de\u06da\u06db\u06d9\u06d8\u06df\u06d7\u06d6\u06c7\u06e2]+/g;
+	return w.replace(punctuation, '');
 }
 
-function filterTableRows(table, column, searchText, allText, useInlcude){
-	
-	var txt = searchText ?  removeAlPrefix(removePunctuations(searchText)) : searchText;
-	if(txt === allText){
-		$(table + " tr td").show();
-		$(table + ` tr th:contains('${txt}')`).show();
-		return;
-	}
-	console.log(`Filtering table: ${table}, column: ${column}, searchText: ${txt}`);
-	txt = txt.replace(/^'/, '').replace(/'$/, '');
-	$(table + " tr td").hide();
-	var tableRows = $(table + ` tr td:contains('${txt}')`);
-	tableRows.filter((i, td) => {
-		if(useInlcude == undefined){
-			if($(td).text().trim().startsWith(txt) === false){
-				$(td).parent().children().hide();
-			}else {
-				$(td).parent().children().show();
-			}
-		}else{
-			if($(td).text().trim().includes(txt) === false){
-				$(td).parent().children().hide();
-			}else {
-				$(td).parent().children().show();
-			}
-		}
-	});
-	if(column > 0){
-		$(table + ` tr td:contains('${txt}')`).hide();
-		$(table + ` tr th:nth-child(${column})`).hide();
-	}
+function filterTableRows(table, column, searchText, allText, useInclude) {
+    const $rows = $(`${table} tr`);
+    const $cells = $rows.find('td, th');
+    
+    // 1. Normalize Search Text
+    let txt = searchText ? removeAlPrefix(removePunctuations(searchText)) : searchText;
+    
+    // 2. Quick Reset for "Show All"
+    if (txt === allText) {
+        $cells.show();
+        return;
+    }
+
+    // 3. Clean quotes and Prepare Search
+    txt = txt.replace(/^'|'$/g, '').trim();
+    const method = useInclude ? 'includes' : 'startsWith';
+
+    // 4. Single Pass Filtering
+    $rows.each(function() {
+        const $row = $(this);
+        const $targetCell = column > 0 
+            ? $row.find(`td:nth-child(${column}), th:nth-child(${column})`) 
+            : $row.find('td');
+
+        const cellText = $targetCell.text().trim();
+        const isMatch = cellText[method](txt);
+
+        // Toggle visibility of the entire row based on match
+        $row.toggle(isMatch);
+    });
+
+    // 5. Specific Column Logic (if needed to hide the matching cell specifically)
+    if (column > 0) {
+        $(`${table} tr td:contains('${txt}')`).hide();
+		$(`${table} tr th:nth-child(${column})`).hide();
+    }
 }
 
 function isOS(os){
@@ -232,22 +238,25 @@ function replaceSurahInfoQLink(addressHtml) {
 }
 
 function replaceQLink(val, addBreak=true){
-
 	var analysisLink = replaceAnalysisLink(val, true);
 	if(analysisLink !== ''){
 		return analysisLink;
 	}
 	
-	var qlinkExp = /(\[(\d+)\:(\d+)\])/g;
 	var ex = val;
-	if(ex.match && ex.match(qlinkExp)){
-		var qLink = getLocationPath()+"?q="+val;
-		ex = ex.replace(qlinkExp, `
-			<a 	href="#" 
-				onclick="if(parent.inSearch) parent.inSearch('...QuranSearch $2:$3');">$1</a>`);
-		return `<span style="font-size:18px;">${addBreak ? '<br/>':''}${ex}</span>`;
+	var qlinkExp = /(\[(\d+)\:(\d+)\])/g;
+	const hasMatch = ex.match && ex.match(qlinkExp);
+	if(hasMatch){
+		ex = val.replace(qlinkExp, `
+			<a 	href="#" onclick="
+				if(parent.inSearch) 
+					parent.inSearch('...QuranSearch $2:$3');">
+			$1
+			</a>
+		`);
 	}
-	return `<span style="font-size:18px;">${val}</span>`;
+	const prefix = (hasMatch && addBreak) ? '<br/>' : '';
+	return `<span style="font-size:18px;">${prefix}${ex}</span>`;
 }
 
 //https://stackoverflow.com/questions/35969656/how-can-i-generate-the-opposite-color-according-to-current-color
@@ -355,8 +364,8 @@ function loadAllVoices(sel, voicesAll ){
 		for(var i = 0; i < voicesAll.length; i++){
 			var lang = voicesAll[i].value.replace(/^([a-z]{2}-[A-Z]{2})(\d+)$/g,'$1')
 			if(lang && filter[lang] === undefined){
-				var value = ' value="'+lang+'" ';
-				o += '<option '+value+'>'+lang+'</option>';
+				var value = ` value="${lang}" `;
+				o += `<option ${value}>${lang}</option>`;
 				filter[lang] = true;
 			}
 		}
@@ -366,7 +375,6 @@ function loadAllVoices(sel, voicesAll ){
 }
 
 function toggleDropdownContent(elem, state){
-	//$(elem).closest('div').find("[class^='chk']").find("[class=dropdown-content]").hide();
 	if(state){
 		$(elem).next().addClass("dropdown-content");
 		$(elem).next().show();
@@ -418,11 +426,9 @@ function toDataURL(url, callback){
     xhr.responseType = 'blob';
     xhr.onload = function(){
       var fr = new FileReader();
-    
       fr.onload = function(){
         callback(this.result);
       };
-    
       fr.readAsDataURL(xhr.response); // async call
     };
     
