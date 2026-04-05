@@ -642,23 +642,21 @@ function displayVerse(div, verse, verseKey, options){
 	}
 }
 
-function selectWordInAyah(id){
-	if(id.endsWith("-en"))
-		id = id.replace(/\-en$/g, '');
-	else if(id.endsWith("-ur"))
-		id = id.replace(/\-ur$/g, '');
-	else if(id.endsWith("-hi"))
-		id = id.replace(/\-hi$/g, '');
-	
-	$(".word-ar").removeClass("sel-word");
-	$(".word-en").removeClass("sel-word-en");
-	$(".word-ur").removeClass("sel-word-ur");
-	$(".word-hi").removeClass("sel-word-hi");
-	
-	$("#"+id).addClass("sel-word");	
-	$("#"+id+"-en").addClass("sel-word-en");
-	$("#"+id+"-ur").addClass("sel-word-ur");
-	$("#"+id+"-hi").addClass("sel-word-hi");
+function selectWordInAyah(id) {
+    const langs = ['en', 'ur', 'hi'];
+    
+    // Normalize ID by removing any language suffix
+    const baseId = id.replace(/-(en|ur|hi)$/, '');
+
+    // Reset all highlights in one go
+    $(".word-ar, .word-en, .word-ur, .word-hi")
+	.removeClass("sel-word sel-word-en sel-word-ur sel-word-hi");
+
+    // Apply new highlights
+    $(`[id='${baseId}']`).addClass("sel-word");
+    langs.forEach(lang => {
+        $(`#${baseId}-${lang}`).addClass(`sel-word-${lang}`);
+    });
 }
 
 function getWordSpans(verse, words, vId){
