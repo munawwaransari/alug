@@ -789,23 +789,24 @@ function getAnalysisOptions(verse, verseKeys){
 					معني
 					</button>
 					<div class="dropdown-content">
-					<p><a href="#" onclick="getReferences()">References</a>
-					${
-						q_app_mode === 'Quran' ? '' :
-						'<a href="#" onclick="analyzeLocal()" >Analyze (تحليل)</a>'
-					}
-					<a href="#" 
-					   onclick="analyzeSelection(${verseKeys[0]},${verseKeys[1]})">
-					Analyze (Almaany)
-					</a>
-					<a href="#" 
-					   onclick="analyzeLookup('https://www.almaany.com/ar/dict/ar-$/')">
-					Meaning (Almaany)
-					</a>
-					<a href="#" 
-					   onclick="analyzeLookup('https://glosbe.com/ar/$/')">
-					Meaning (Glosbe)
-					</a>
+					<p>
+						<a href="#" onclick="getReferences()">References</a>
+						${
+							q_app_mode === 'Quran' ? '' :
+							'<a href="#" onclick="analyzeLocal()" >Analyze (تحليل)</a>'
+						}
+						<a href="#" onclick="analyzeSelection(${verseKeys[0]},${verseKeys[1]})">
+						<sub>Analyze (المعاني)</sub>
+						</a>
+						<a href="#" onclick="analyzeLookup('https://www.almaany.com/ar/dict/ar-$/')">
+						<sub>Meaning (المعاني)</sub>
+						</a>
+						<a href="#" onclick="analyzeLookup('https://context.reverso.net/translation/arabic-english/')">
+						<sub>Meaning (Reverso)</sub>
+						</a>
+						<a href="#" onclick="analyzeLookup('https://glosbe.com/ar/$/')">
+						<sub>Meaning (Glosbe)</sub>
+						</a>
 					</p>
 				</div>
 			</span>'+
@@ -813,13 +814,17 @@ function getAnalysisOptions(verse, verseKeys){
 }
 
 function analyzeLookup(url){
-	let selectedText = $(".sel-word").text().trim();	
-	lookupEx(url, $(".sel-word").text(), "Select a word (from the ayah)!");
+	let selElem = $(".sel-word")[0];
+	lookupEx(
+		url, 
+		selElem ? selElem.innerText.trim() : '', 
+		"Select a word (from the ayah)!"
+	);
 }
 
 function analyzeSelection(surah, verse){
 	let wordElem = $(".sel-word");
-	let selectedWord = wordElem.text().trim();
+	let selectedWord = wordElem[0].innerText.trim();
 	if (selectedWord){ 
 		var txt = removePunctuations(selectedWord.trim());
 		if(txt){								
