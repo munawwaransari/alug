@@ -1182,8 +1182,8 @@
         ],
         "features": {
             "اسم الجنس الإنفرادي": [
-				"<p style=\"direction: ltr;padding:0;margin:0;\">Indicates a single object of a group or <br/>collection of genus, generally ends with ة / ي <br/>",
-				"<p style=\"direction: ltr; margin-top:0;padding:0;margin-top:0;\"><u><p>Examples</u><div>نملة (an ant)</div><div>شجرة (a tree)</div><br/><div>عربي (An Arab)</div><div>رومي (A Roman)</div></p>"
+				"<p style=\"direction: ltr;padding:0;margin:0;\">Indicates a single object of a group or <br/>collection of genus, generally ends with<br/> (ياء النسب) ة (تاء التأنيث) / ي <br/><br/>",
+				"<p style=\"direction: ltr; margin-top:0;padding:0;margin-top:0;\"><u><p>Examples</u><div>نملة (an ant)</div><div>شجرة (a tree)</div><br/><div>عربي (An Arab)</div><div>رومي (A Roman)</div><br/><div> قَالَتۡ نَمۡلَةٞ يَٰٓأَيُّهَا ٱلنَّمۡلُ [27:18]<br/><br/>كَأَنَّهُمۡ أَعۡجَازُ نَخۡلٍ خَاوِيَةٖ [69:7]</div></p>"
 			]
         }
     },
@@ -1203,8 +1203,8 @@
         ],
         "features": {
             "اسم الجنس الجمعي": [
-				"<p style=\"direction: ltr;padding:0;margin:0;\">Indicates a group or collection of genus,<br/> generally formed by removing ة / ي <br/>from the singular noun of same genus<br/>",
-				"<p style=\"direction: ltr; margin-top:0;padding:0;margin-top:0;\"><u><p>Examples</u><div>نملة (an ant) => (ants) نمل</div><div>شجرة (a tree) => (trees of same kind) شجر</div><br/><div>عربي (An Arab) => (Arabs) عرب</div><div>رومي (A Roman) => (Rome) روم</div></p>"
+				"<p style=\"direction: ltr;padding:0;margin:0;\">Indicates a group or collection of genus,<br/> generally formed by removing<br/> (ياء النسب) ة (تاء التأنيث) / ي <br/>from the singular noun of same genus<br/>",
+				"<p style=\"direction: ltr; margin-top:0;padding:0;margin-top:0;\"><u><p>Examples</u><div>نملة (an ant) => (ants) نمل</div><div>شجرة (a tree) => (trees of same kind) شجر</div><br/><div>عربي (An Arab) => (Arabs) عرب</div><div>رومي (A Roman) => (Rome) روم</div><br/><div> قَالَتۡ نَمۡلَةٞ يَٰٓأَيُّهَا ٱلنَّمۡلُ [27:18]<br/><br/>كَأَنَّهُمۡ أَعۡجَازُ نَخۡلٍ خَاوِيَةٖ [69:7]</div></p>"
 			]
         }
     },
