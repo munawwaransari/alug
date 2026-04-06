@@ -1153,16 +1153,58 @@
         "notes": "See <a href=\"#\" onclick=\"if (parent.redirect) parent.redirect('dict.html','noun-pat')\">Noun patterns</a>",
         "ar": [
             "تعريف",
-			"تصريف"
+			"Inclension"
         ],
         "en": [
             "Definition",
-			"Inclension"
+			"تضمين"
         ],
         "features": {
             "الجمع التكسير (Broken Plural)": [
 				"<p style=\"direction: ltr;padding:0;margin:0;\">Plurals are formed based on varying rules<br/>;also called irregular plurals<br/><ul style=\"text-align:right;\"></ul>",
 				"<p style=\"direction: ltr; margin-top:0;padding:0;margin-top:0;\"><u><p>Examples</u><div>جَبَل => جِبَال</div><div>فَتِيٌ => فِتيَةٌ</div><div>شَهر => اَشهُر</div><div>قَلب => قُلُوب</div></p>"
+			]
+        }
+    },
+    {
+        "compareType": "noun",
+        "topics": [
+            "اسم الجنس الإنفرادي"
+        ],
+        "notes": "See also Collective Noun اسم الجنس الجمعي",
+        "ar": [
+            "تعريف",
+			"أمثلة"
+        ],
+        "en": [
+            "Generic Noun",
+			"Examples"
+        ],
+        "features": {
+            "اسم الجنس الإنفرادي": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">Indicates a single object of a group or <br/>collection of genus, generally ends with ة / ي <br/>",
+				"<p style=\"direction: ltr; margin-top:0;padding:0;margin-top:0;\"><u><p>Examples</u><div>نملة (an ant)</div><div>شجرة (a tree)</div><br/><div>عربي (An Arab)</div><div>رومي (A Roman)</div></p>"
+			]
+        }
+    },
+    {
+        "compareType": "noun",
+        "topics": [
+            "اسم الجنس الجمعي"
+        ],
+        "notes": "See also Generic Noun اسم الجنس الإنفرادي",
+        "ar": [
+            "تعريف",
+			"أمثلة"
+        ],
+        "en": [
+            "Collective Noun",
+			"Examples"
+        ],
+        "features": {
+            "اسم الجنس الجمعي": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">Indicates a group or collection of genus,<br/> generally formed by removing ة / ي <br/>from the singular noun of same genus<br/>",
+				"<p style=\"direction: ltr; margin-top:0;padding:0;margin-top:0;\"><u><p>Examples</u><div>نملة (an ant) => (ants) نمل</div><div>شجرة (a tree) => (trees of same kind) شجر</div><br/><div>عربي (An Arab) => (Arabs) عرب</div><div>رومي (A Roman) => (Rome) روم</div></p>"
 			]
         }
     },
