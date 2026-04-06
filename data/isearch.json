@@ -511,47 +511,59 @@
         "action": "noun-cmp",
         "data": "pos:6"
     },
-    "Active Participle;الفاعل":
+    "Generic Noun;اسم الجنس;إنفرادي":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:7"
     },
-    "Passive Participle;نائب الفاعل":
+    "Collection Noun;جمعي;اسم الجنس":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:8"
     },
-    "Predicate;مسند":
+    "Active Participle;الفاعل":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:9"
     },
-    "Subject;مسند اليه":
+    "Passive Participle;نائب الفاعل":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:10"
     },
-    "Auditory Verbal Noun;مصدر سماعي":
+    "Predicate;مسند":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:11"
     },
-    "Standard Verbal Noun;مصدر قياسي":
+    "Subject;مسند اليه":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:12"
     },
-    "Verbal Noun - Meemi;المصدر الميمي":
+    "Auditory Verbal Noun;مصدر سماعي":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:13"
+    },
+    "Standard Verbal Noun;مصدر قياسي":
+    {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:14"
+    },
+    "Verbal Noun - Meemi;المصدر الميمي":
+    {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:15"
     },
     "Quranic Examples;أمثلة من القرآن":
     {
