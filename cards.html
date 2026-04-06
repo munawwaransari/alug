@@ -64,7 +64,7 @@
     Styles
     */
 	 #cardContainer {
-        display: flex;
+        display: inline-flex;
         flex-direction:row;
         flex-wrap: wrap;
         direction: rtl;
@@ -171,14 +171,13 @@
 				loadJsonData(url).then((data) => {
 					const firstKey = Object.keys(data)[0];
 					var div = $("#cardContainer");
-					
 					data[firstKey].forEach(function(cdata){
-					  darwCard(div, dataParam, cdata);
+						darwCard(div, dataParam, cdata);
 					});
 				});
 			}
 		}
-		
+
 		function darwCard(div, name, cdata){
 		
 		  switch(name){
@@ -471,6 +470,27 @@
 			</div>`;
 		div.append($(fdiv));
 	}	
+
+	function toggleIcon(el){
+		var img = $(el).find('img');
+		if(img.prop('src').indexOf('menu-disabled') > -1){
+			img.prop('src', 'images/menu-enabled.jpg');
+			return 1;
+		}else{
+			img.prop('src', 'images/menu-disabled.jpg');
+			return 0;
+		}
+	}
+	function toggleCardImages(el){
+		toggleIcon(el);
+		$("#cardContainer .flip-card-front").toggleClass('flip-card-front flip-card-f');
+		$("#cardContainer .flip-card-back").toggleClass('flip-card-back flip-card-front');
+		$("#cardContainer .flip-card-f").toggleClass('flip-card-f flip-card-back');
+		
+		// var f = $("#cardContainer .flip-card-front");
+		// $(".flip-card-inner").remove(f);
+		// $(".flip-card-inner").append(f);
+	}
 	</script>
 </head>
   <body>
@@ -482,6 +502,12 @@
 		<img src="images/exp.png" 
 			 style="width: 16px; height: 16px;"
 			 alt="Export to PDF"/>
+	</a>
+	<br/>
+	<a href="#" onclick="toggleCardImages(this)">
+		<img src="images/menu-disabled.jpg" 
+			 style="width: 20px; height: 16px;"
+			 alt="Toggle Images"/>
 	</a>
 	<div id="cardContainer">
   </div>
