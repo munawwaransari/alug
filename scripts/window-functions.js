@@ -57,9 +57,8 @@ window.openInline = function (url, playOptions) {
 window.playTextAll = function (txt, lang) {
     setPlayLang(lang, true);
     stopAudio();
-    console.log("lang:" + $("#languages").val());
     var txtLog = txt ? (txt.length > 20 ? txt.substring(0, 20) : txt) : '';
-    console.log("playing..." + txtLog + "...");
+    console.log(`playing (${lang})... ${txtLog} ...`);
     $("#text").text(txt);
     $("#play").click();
 }
@@ -75,8 +74,7 @@ window.playText = function (txt, lang, options) {
         setPlayLang(lang);
     }
     if (txt != undefined) {
-        console.log("lang:" + $("#languages").val());
-        console.log("playing..." + txt.substring(0, 20) + "...");
+        console.log(`playing (${$("#languages").val()})... ${txt.substring(0, 20)} ...`);
         stopAudio();
         $("#text").text(txt);
         $("#play").click();

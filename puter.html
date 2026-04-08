@@ -7,21 +7,59 @@
   <link rel="shortcut icon" href="#" />
   <title>Test JSPDF</title>
   <style></style>
+  <script src="scripts/data-util.js"></script>
 </head>
 
 <body>
   <div style="align-content: center; width:90%; margin:auto;">
     <textarea id="prompt" rows="1" style="margin:auto;width:80%;field-sizing:autosize">Your prompt here</textarea>
     <button style="margin-top:-6px;" onclick="getAIResponse()">RUN</button>
+    <img src="images/speech-enabled.png"  
+         style="width: 20px;"
+         onclick="playResponse()" />
   </div>
   <div id="output"></div>
   <script src="https://js.puter.com/v2/"></script>
   <script>
+    window.onload = function() {
+        var p = getParamValue("data");
+          document.getElementById('prompt').value = p;
+          getAIResponse();
+    }
+
+    window.onunload = function() {
+      if(parent.stopAudio)
+        parent.stopAudio();
+    }
+
     async function getAIResponse() {
       const inputPrompt = document.getElementById('prompt').value;
       const outputDiv = document.getElementById('output');
       outputDiv.innerText = "Thinking...."
+      if(inputPrompt.includes('Target Language:ur') || 
+        inputPrompt.includes('Target Language:ar')){
+        outputDiv.style.direction = 'rtl';
+      }else{
+        outputDiv.style.direction = 'ltr';
+      }  
       outputDiv.innerText = await puter.ai.chat(inputPrompt);
+    }
+
+    function playResponse(){
+      
+      if(parent.playTextAll){
+        const inputPrompt = document.getElementById('prompt').value;
+        var lang = 'en-US'
+        if(inputPrompt.includes('Target Language:ur'))
+          lang = 'ur-PK';
+        if(inputPrompt.includes('Target Language:ar'))
+          lang = 'ar-SA';
+        if(inputPrompt.includes('Target Language:hi'))
+          lang = 'hi-IN';
+      }  
+
+      const outputDiv = document.getElementById('output');
+      parent.playTextAll(outputDiv.innerText, lang);
     }
   </script>
 </body>

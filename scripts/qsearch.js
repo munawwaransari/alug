@@ -789,25 +789,36 @@ function getAnalysisOptions(verse, verseKeys){
 					معني
 					</button>
 					<div class="dropdown-content">
-					<p>
 						<a href="#" onclick="getReferences()">References</a>
+						<!--//
 						${
 							q_app_mode === 'Quran' ? '' :
 							'<a href="#" onclick="analyzeLocal()" >Analyze (تحليل)</a>'
 						}
-						<a href="#" onclick="analyzeSelection(${verseKeys[0]},${verseKeys[1]})">
-						<sub>Analyze (المعاني)</sub>
-						</a>
-						<a href="#" onclick="analyzeLookup('https://www.almaany.com/ar/dict/ar-$/')">
-						<sub>Meaning (المعاني)</sub>
-						</a>
-						<a href="#" onclick="analyzeLookup('https://context.reverso.net/translation/arabic-english/')">
-						<sub>Meaning (Reverso)</sub>
-						</a>
-						<a href="#" onclick="analyzeLookup('https://glosbe.com/ar/$/')">
-						<sub>Meaning (Glosbe)</sub>
-						</a>
-					</p>
+						//-->
+						<div class="dropdown-content dropdown2" 
+						     style="position:relative;padding-top:10px;padding-bottom:10px;">Prompts &gt;</div> 
+						<div class="dropdown-content2" style="z-index:999999;margin-left:60px;padding:2px;">
+						${
+							getPromptsForVerse(verseKeys[0], verseKeys[1], $('sel-word').length > 0 ? $('sel-word')[0].text : '')
+						}
+						</div>
+						<div class="dropdown-content dropdown2" 
+						     style="position:relative;padding-top:10px;padding-bottom:10px;">Meaning &gt;</div> 
+						<div class="dropdown-content2" style="margin-left:60px;padding:2px;">
+							<a href="#" onclick="analyzeSelection(${verseKeys[0]},${verseKeys[1]})">
+							<sub>Analyze (المعاني)</sub>
+							</a>
+							<a href="#" onclick="analyzeLookup('https://www.almaany.com/ar/dict/ar-$/')">
+							<sub>Meaning (المعاني)</sub>
+							</a>
+							<a href="#" onclick="analyzeLookup('https://context.reverso.net/translation/arabic-english/')">
+							<sub>Meaning (Reverso)</sub>
+							</a>
+							<a href="#" onclick="analyzeLookup('https://glosbe.com/ar/$/')">
+							<sub>Meaning (Glosbe)</sub>
+							</a>
+						</div>
 				</div>
 			</span>'+
 		</span>`;

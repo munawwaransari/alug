@@ -388,15 +388,6 @@ function loadQuranSearch(text, sval = ''){
 	}, 5);
 }
 
-function loadPuterSearch(){
-	console.log("loadPuterSearch");
-	$('.reading-pane').attr("src","");
-	setTimeout(function(){
-		$('.reading-pane').attr('src', 
-			encodeURI(getLocationPath() + "puter.html"));
-	}, 5);
-}
-
 function showClock(){
 	console.log("showChart: "+ name);
 	$('.reading-pane').attr("src","");

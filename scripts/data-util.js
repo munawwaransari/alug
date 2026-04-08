@@ -4980,3 +4980,33 @@ ACcAAAGvAuEGJgalAAAABwYXAJAAAAABAL4CWAE2AvgADAAAQQ4CByM1PgM3MwE2BBceDzAFCgkH
 AlcC7xI2ORYMDiYpJxAAAAEAuQJeAToC/gALAABBDgIHIzU+AjczAToIEQ4DVwUYIRIxAvIRNTgW
 CRI2ORYAAAEAKAJeAVECpQADAABBFSE1AVH+1wKlR0cAAA==`
 }
+
+function getPromptsForVerse(chapter, verse) {
+    var word_promtp = `
+		Context: Quran\\nQuestion: Describe in detail the meaning of this word `.trim();
+	var verse_prompt_prefix =`
+		Context: Quran\\nVerse: ${chapter}:${verse}\\nQuestion: `.trim(); 
+	var verse_prommpt_suffix =`'\\nTarget Language:' + parent.window.getLang() `;
+	var sel = "$('.sel-word').first().text()";
+	return `
+	<a href="#" onclick="loadPuterSearch(\`${word_promtp}\`+${sel}+${verse_prommpt_suffix})">Describe word</a>
+	<a href="#" onclick="
+		loadPuterSearch(\`${verse_prompt_prefix} Provide a comprehensive summary of the given verse.\`+${verse_prommpt_suffix})">
+	Provide comprehensive summary
+	</a>
+	<a href="#" onclick="loadPuterSearch(\`${verse_prompt_prefix} Provide summary and include the main messages, and any significant interpretations or insights related to this verse.\`+${verse_prommpt_suffix})">
+	Provide summary with themes and insights
+	</a>
+	`.trim();
+}
+
+function loadPuterSearch(prompt){
+	console.log("loadPuterSearch");
+	if(parent.redirect){
+		parent.redirect(
+			"puter.html", 
+			"", 
+			prompt ? prompt : ''
+		);
+	}
+}
