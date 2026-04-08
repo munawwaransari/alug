@@ -388,6 +388,15 @@ function loadQuranSearch(text, sval = ''){
 	}, 5);
 }
 
+function loadPuterSearch(){
+	console.log("loadPuterSearch");
+	$('.reading-pane').attr("src","");
+	setTimeout(function(){
+		$('.reading-pane').attr('src', 
+			encodeURI(getLocationPath() + "puter.html"));
+	}, 5);
+}
+
 function showClock(){
 	console.log("showChart: "+ name);
 	$('.reading-pane').attr("src","");
@@ -468,6 +477,13 @@ function updateToolDescription(id, opt){
 			toolMessage.html(sdiv);
 			break;
 			
+		case 'ai':
+		var sdiv = $(`
+			<div  style="width:100%">AI Search powered by Puter</div>`);
+			toolMessage.html(sdiv);
+			loadPuterSearch();
+		break;
+
 		case 'in-search':
 			var sdiv = $(`
 			<div>
@@ -748,6 +764,13 @@ function handleiSearchData(txt, callback){
 window.inSearch = function(txt) {
 	isearch(txt);
 };
+
+function aisearch(prompt){
+
+}
+
+function aisearch(prompt){
+}
 
 function isearch(txt){
 	var data = arRemovePunct( (txt ?? $("#insearchtxt").val()).trim());
