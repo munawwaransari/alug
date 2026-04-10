@@ -11,8 +11,18 @@
   <script src="scripts/data-util.js"></script>
     <script src="https://js.puter.com/v2/"></script>
   <script>
+    
+    var PROMPT_CACHE_SIZE = 5;
+    var prompt_index = -1;
+    if(parent.dataCache["prompts"] == undefined)
+      parent.dataCache["prompts"] = {};
+
+    const encodeUnicode = (str) => btoa(String.fromCharCode(...new TextEncoder().encode(str)));
+    const decodeUnicode = (str) => new TextDecoder().decode(Uint8Array.from(atob(str), c => c.charCodeAt(0)));
+
     window.onload = function() {
         toggleHead($('#pHead'), $('#pHeadImg'));
+        //updateOptions();
         var p = getParamValue("data");
           document.getElementById('prompt').value = p;
           getAIResponse();
@@ -26,14 +36,96 @@
     async function getAIResponse() {
       const inputPrompt = document.getElementById('prompt').value;
       const outputDiv = document.getElementById('output');
-      outputDiv.innerText = "Thinking...."
+      const mDiv = document.getElementById('pLastRun');
+      
+      // Valdiate prmpt not empty
+      if(inputPrompt.trim() === ''){
+        outputDiv.innerText = `
+        It looks like your message came through blank. How can I help today? If you’re not sure where to start, here are some quick ideas:
+
+- Explain a concept or topic
+- Help write, edit, or summarize text
+- Plan a project or schedule
+- troubleshoot a tech issue
+- translate or compare information
+
+Tell me what you’d like to do, or paste any details you have.`;
+        return;
+      }
+
+      // See if cache already has the prompt
+      var cache = parent.dataCache["prompts"];
+      var cacheKey = encodeUnicode(inputPrompt);
+      if(cache[cacheKey] != undefined){
+        outputDiv.innerText = cache[cacheKey];
+        mDiv.innerText = 'Response from cache';
+        return;
+      }
+
       if(inputPrompt.includes('Target Language:ur') || 
         inputPrompt.includes('Target Language:ar')){
         outputDiv.style.direction = 'rtl';
       }else{
         outputDiv.style.direction = 'ltr';
       }  
-      outputDiv.innerText = await puter.ai.chat(inputPrompt);
+
+      mDiv.innerText = 'Running...';
+      outputDiv.innerText = "Researching...."
+      const start = performance.now();
+      var timer = setInterval(()=>{
+          outputDiv.innerText = `Researching... ${((performance.now() - start)/1000).toFixed(2)} seconds`;
+        }, 1000);
+      try{
+        outputDiv.innerText = await puter.ai.chat(inputPrompt);
+        const end = performance.now();
+        mDiv.innerText = `Last run took: ${((end - start)/1000).toFixed(2)} seconds`;
+        clearInterval(timer);
+
+        // Save propt and response to cache
+        updateCache(cacheKey, outputDiv.innerText);
+        updateOptions();
+      }
+      catch(err){
+        mDiv.innerText = 'Last run: Error';
+        outputDiv.innerText = `Error: ${err.message}`;
+        clearInterval(timer);
+      }
+    }
+
+    function updateCache(key, value) {
+        if (key) {
+          var cache = parent.dataCache["prompts"];
+          if (cache[key] == undefined) {
+            if (Object.keys(cache).length + 1 >= PROMPT_CACHE_SIZE) {
+              cache.pop();
+            }
+            cache[key] = value
+          }
+        }
+      }
+
+    function updateOptions(){
+        var cache = parent.dataCache["prompts"];
+        var sel = $("#pHead select")[0];
+        
+        //Add default
+        $("#pHead select").empty();
+        var o = document.createElement("option");
+        o.text = "none"; o.value = ""; o.id = o.text;
+        sel.add(o);
+        for (const [k, v] of Object.entries(cache)) {
+          var optionExists = sel.options.namedItem(k) !== null;
+          if (!optionExists) {
+            if (sel.options.length >= PROMPT_CACHE_SIZE) {
+              sel.remove(0);
+            }
+            var option = document.createElement("option");
+            option.text = k.length > 30 ? k.substring(0, 30) + '...' : k;
+            option.value = k;
+            option.id = k;
+            sel.add(option);
+          }
+        }
     }
 
     function playResponse(){
@@ -54,7 +146,6 @@
     }
   </script>
 </head>
-
 <body>
   <div style="text-align:center;margin:auto;cursor:pointer;" title="toggle" 
        onclick="toggleHead($('#pHead'), $('#pHeadImg'))">
@@ -66,8 +157,13 @@
            padding-bottom:10px;
            width:100%">
     <button style="margin:auto;margin-left:10px;text-align:left;" onclick="getAIResponse()">RUN</button>
+    <label id="pLastRun" style="float:right;margin-right:10px;"></label>
     <img src="images/speech-enabled.png" 
         style="margin:auto;margin-left: 10px;width:18px;" onclick="playResponse()" />
+    <span style="margin-left:20px;">
+      Prompts:
+      <select onchange="$('#prompt').val(decodeUnicode(this.value))"></select>
+    </span>
     <textarea id="prompt" rows="4" cols="1" 
       style="margin:auto;
              margin-left:10px;

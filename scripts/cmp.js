@@ -81,7 +81,7 @@ class cmpAPI {
 		selArray.every(function(sel1, index){
 			var id = selArray.length > 1 ? index+1 : '';
 			sel = sel1;
-			
+
 			var topics = sel.split(" vs ");
 			var tableHtml = `<table id="xTable${id}" class="pTable"><tr>`;
 			var tableHeaders = "";
@@ -99,7 +99,23 @@ class cmpAPI {
 			}
 			
 			var cmp = cmpAPI.cmpData.filter(x=>x["topics"].join(' vs ') === sel)[0];
-
+			
+			// Add AI Prompt
+			if(cmp["skipai"] == undefined){
+				$("#xTable tbody").append(`
+				<tr>
+					<td colspan="${topics.length}" style="font-size: 22px;">
+						<a href="#" onclick="
+						loadPuterSearch(\`${getPromptsForTopic(topics, 
+															   cmp["en"], 
+															   parent.window.getLang())}\`)">
+						ai Search
+						</a>
+					</td>
+				</tr>`);
+			}
+			
+			// Add notes
 			if(cmp["notes"]){
 				var r = $(`<tr><td style="font-size:14px;background-color:#F6F6BA;" colspan="${topics.length}">${replaceQLink(cmp["notes"])}</td></tr>`);
 				$("#xTable tbody").append(r);

@@ -5000,6 +5000,31 @@ function getPromptsForVerse(chapter, verse) {
 	`.trim();
 }
 
+function getPromptsForTopic(topics, section, lang, label) {
+	return`
+		You are an expert in Arabic studies, with deep knowledge of the Arabic Language, its linguistic and grammagical nuances.
+Privide final response in target Language: ${lang}
+		
+Context: Arabic Language
+		
+Detail out respone considering explanations for following topics:
+${
+	topics.map((t) => ` -  ${t}\\n`).join('')
+}
+		
+Include sections for each topic including below points:
+${
+	section.map((s) => ` -  ${s}\\n`).join('')
+}
+		
+Also provide:
+	1. Examples from Quran for the given topics.
+	2. General examples and explanations
+
+Note: Translate the examples in the given target language.
+	`.trim();
+}
+
 function loadPuterSearch(prompt){
 	console.log("loadPuterSearch");
 	if(parent.redirect){
