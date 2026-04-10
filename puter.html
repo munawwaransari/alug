@@ -7,21 +7,12 @@
   <link rel="shortcut icon" href="#" />
   <title>Test JSPDF</title>
   <style></style>
+  <script src="scripts/jquery/jquery-3.7.1.min.js"></script>
   <script src="scripts/data-util.js"></script>
-</head>
-
-<body>
-  <div style="align-content: center; width:90%; margin:auto;">
-    <textarea id="prompt" rows="1" style="margin:auto;width:80%;field-sizing:autosize">Your prompt here</textarea>
-    <button style="margin-top:-6px;" onclick="getAIResponse()">RUN</button>
-    <img src="images/speech-enabled.png"  
-         style="width: 20px;"
-         onclick="playResponse()" />
-  </div>
-  <div id="output"></div>
-  <script src="https://js.puter.com/v2/"></script>
+    <script src="https://js.puter.com/v2/"></script>
   <script>
     window.onload = function() {
+        toggleHead($('#pHead'), $('#pHeadImg'));
         var p = getParamValue("data");
           document.getElementById('prompt').value = p;
           getAIResponse();
@@ -62,5 +53,30 @@
       parent.playTextAll(outputDiv.innerText, lang);
     }
   </script>
+</head>
+
+<body>
+  <div style="text-align:center;margin:auto;cursor:pointer;" title="toggle" 
+       onclick="toggleHead($('#pHead'), $('#pHeadImg'))">
+      <img id="pHeadImg" src="images/up.png" width="12px;" alt="toggle"/>
+  </div>
+  <div  id="pHead" 
+    style="display:inline-block;
+           vertical-align:top;
+           padding-bottom:10px;
+           width:100%">
+    <button style="margin:auto;margin-left:10px;text-align:left;" onclick="getAIResponse()">RUN</button>
+    <img src="images/speech-enabled.png" 
+        style="margin:auto;margin-left: 10px;width:18px;" onclick="playResponse()" />
+    <textarea id="prompt" rows="4" cols="1" 
+      style="margin:auto;
+             margin-left:10px;
+             display:block;
+             width:90%;
+             text-align:left;">
+      Your prompt here
+    </textarea>
+  </div>
+  <div id="output">&nbsp;</div>  
 </body>
 </html>

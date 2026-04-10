@@ -289,13 +289,6 @@ function changeLanguageOption(lang){
 	selectElement.dispatchEvent(event);	
 }
 
-function toggleHead(){
-	$(".toolDiv").toggle();
-	if($("#imgHead").prop('src').endsWith("up.png"))
-		$("#imgHead").prop('src', 'images/dn.png');
-	else
-		$("#imgHead").prop('src', 'images/up.png');
-}
 function toggleAutoplay(){
 	
 	if(!speech_synthesis_supportd){

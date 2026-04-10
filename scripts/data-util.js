@@ -5010,3 +5010,14 @@ function loadPuterSearch(prompt){
 		);
 	}
 }
+
+function toggleHead(divEl, imgEl){
+	if(divEl)
+		divEl.toggle();
+	if(imgEl){
+		if(imgEl.prop('src').endsWith("up.png"))
+			imgEl.prop('src', 'images/dn.png');
+		else
+			imgEl.prop('src', 'images/up.png');
+	}
+}

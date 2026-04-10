@@ -797,7 +797,10 @@ function getAnalysisOptions(verse, verseKeys){
 						}
 						//-->
 						<div class="dropdown-content dropdown2" 
-						     style="position:relative;padding-top:10px;padding-bottom:10px;">Prompts &gt;</div> 
+						     style="position:relative;padding-top:10px;padding-bottom:10px;vertical-align:middle;">
+							 <img style="margin:auto;width:18px;" src="images/ai.png" alt="Powered by Puter"/>
+							 &nbsp; Prompts &gt;
+						</div> 
 						<div class="dropdown-content2" style="z-index:999999;margin-left:60px;padding:2px;">
 						${
 							getPromptsForVerse(verseKeys[0], verseKeys[1], $('sel-word').length > 0 ? $('sel-word')[0].text : '')
