@@ -13,16 +13,18 @@
   <script>
     
     var PROMPT_CACHE_SIZE = 5;
-    var prompt_index = -1;
+    
     if(parent.dataCache["prompts"] == undefined)
       parent.dataCache["prompts"] = {};
+    var p_cache = parent.dataCache["prompts"];
 
     const encodeUnicode = (str) => btoa(String.fromCharCode(...new TextEncoder().encode(str)));
     const decodeUnicode = (str) => new TextDecoder().decode(Uint8Array.from(atob(str), c => c.charCodeAt(0)));
 
     window.onload = function() {
         toggleHead($('#pHead'), $('#pHeadImg'));
-        //updateOptions();
+        loadModels();
+        updateOptions();
         var p = getParamValue("data");
           document.getElementById('prompt').value = p;
           getAIResponse();
@@ -34,12 +36,12 @@
     }
 
     async function getAIResponse() {
-      const inputPrompt = document.getElementById('prompt').value;
+      const inputPrompt = document.getElementById('prompt').value.trim();
       const outputDiv = document.getElementById('output');
       const mDiv = document.getElementById('pLastRun');
       
       // Valdiate prmpt not empty
-      if(inputPrompt.trim() === ''){
+      if(inputPrompt === ''){
         outputDiv.innerText = `
         It looks like your message came through blank. How can I help today? If you’re not sure where to start, here are some quick ideas:
 
@@ -54,10 +56,9 @@ Tell me what you’d like to do, or paste any details you have.`;
       }
 
       // See if cache already has the prompt
-      var cache = parent.dataCache["prompts"];
       var cacheKey = encodeUnicode(inputPrompt);
-      if(cache[cacheKey] != undefined){
-        outputDiv.innerText = cache[cacheKey];
+      if(p_cache[cacheKey] != undefined){
+        outputDiv.innerText = p_cache[cacheKey];
         mDiv.innerText = 'Response from cache';
         return;
       }
@@ -75,15 +76,17 @@ Tell me what you’d like to do, or paste any details you have.`;
       var timer = setInterval(()=>{
           outputDiv.innerText = `Researching... ${((performance.now() - start)/1000).toFixed(2)} seconds`;
         }, 1000);
-      try{
-        outputDiv.innerText = await puter.ai.chat(inputPrompt);
-        const end = performance.now();
+      
+      try
+      {
+        var model = $('#selModels').val();
+        outputDiv.innerText = model == 'default' ? 
+            await puter.ai.chat(inputPrompt):
+            await puter.ai.chat(inputPrompt, {model: model});
+        
+            const end = performance.now();
         mDiv.innerText = `Last run took: ${((end - start)/1000).toFixed(2)} seconds`;
         clearInterval(timer);
-
-        // Save propt and response to cache
-        updateCache(cacheKey, outputDiv.innerText);
-        updateOptions();
       }
       catch(err){
         mDiv.innerText = 'Last run: Error';
@@ -94,26 +97,67 @@ Tell me what you’d like to do, or paste any details you have.`;
 
     function updateCache(key, value) {
         if (key) {
-          var cache = parent.dataCache["prompts"];
-          if (cache[key] == undefined) {
-            if (Object.keys(cache).length + 1 >= PROMPT_CACHE_SIZE) {
-              cache.pop();
+          if (p_cache[key] == undefined) {
+            if (Object.keys(p_cache).length + 1 >= PROMPT_CACHE_SIZE) {
+              delete p_cache[ Object.keys(p_cache)[0] ];
             }
-            cache[key] = value
+            p_cache[key] = value
           }
         }
       }
 
+    function updateModelOptions(models){
+      var sel = $("#selModels")[0];
+      models.forEach(model => {
+        var option = document.createElement("option");
+        option.text = model.id;
+        option.value = model.id;
+        if(model.id == 'default')
+          option.selected = true;
+        sel.add(option);
+      });
+    }
+
+    function loadModels(){
+      
+      var models = parent.dataCache["models"];
+      if(models != undefined){
+        updateModelOptions(models);
+      }else{
+        puter.ai.listModels()
+        .then(models => {
+          models.push({id: "default", name: "Default"});
+          parent.dataCache["models"] = models;
+          updateModelOptions(models);
+        })
+        .catch(err => {
+          console.error("Error loading models: ", err);
+        });
+      }
+
+      puter.ai.listModels().then(models => {
+        
+        var sel = $("#selModels")[0];
+        models.forEach(model => {
+          var option = document.createElement("option");
+          option.text = model.id;
+          option.value = model.id;
+          sel.add(option);
+        });
+      }).catch(err => {
+        console.error("Error loading models: ", err);
+      });
+    }
+
     function updateOptions(){
-        var cache = parent.dataCache["prompts"];
-        var sel = $("#pHead select")[0];
+        var sel = $("#selPrompts")[0];
         
         //Add default
-        $("#pHead select").empty();
+        $("#selPrompts").empty();
         var o = document.createElement("option");
         o.text = "none"; o.value = ""; o.id = o.text;
         sel.add(o);
-        for (const [k, v] of Object.entries(cache)) {
+        for (const [k, v] of Object.entries(p_cache)) {
           var optionExists = sel.options.namedItem(k) !== null;
           if (!optionExists) {
             if (sel.options.length >= PROMPT_CACHE_SIZE) {
@@ -144,6 +188,24 @@ Tell me what you’d like to do, or paste any details you have.`;
       const outputDiv = document.getElementById('output');
       parent.playTextAll(outputDiv.innerText, lang);
     }
+
+    function addPrompt(){
+      const inputPrompt = document.getElementById('prompt').value.trim();
+      if(inputPrompt === '')
+        return;
+      const outputDiv = document.getElementById('output');
+      var cacheKey = encodeUnicode(inputPrompt);
+      updateCache(cacheKey, outputDiv.innerText);
+      updateOptions();
+    } 
+
+    function removePrompt(){
+      var val = $("#selPrompts").val();
+      if(val === 'default')
+        return;
+      delete p_cache[val];
+      updateOptions();
+    } 
   </script>
 </head>
 <body>
@@ -160,10 +222,16 @@ Tell me what you’d like to do, or paste any details you have.`;
     <label id="pLastRun" style="float:right;margin-right:10px;"></label>
     <img src="images/speech-enabled.png" 
         style="margin:auto;margin-left: 10px;width:18px;" onclick="playResponse()" />
-    <span style="margin-left:20px;">
+    <div style="margin-left:10px;padding-bottom:6px;padding-top:6px;">
+      Models:
+      <select id="selModels"></select>
+    </div>
+    <div style="margin-left:10px;padding-bottom:6px;">
       Prompts:
-      <select onchange="$('#prompt').val(decodeUnicode(this.value))"></select>
-    </span>
+      <select id="selPrompts" onchange="$('#prompt').val(decodeUnicode(this.value))"></select>
+      <button onclick="addPrompt()">+</button>
+      <button onclick="removePrompt(this)">-</button>
+    </div>
     <textarea id="prompt" rows="4" cols="1" 
       style="margin:auto;
              margin-left:10px;
