@@ -5005,7 +5005,7 @@ function getPromptsForVerse(chapter, verse, target = 'puter') {
 function getPromptsForTopic(topics, section, lang, label) {
 	return`
 		You are an expert in Arabic studies, with deep knowledge of the Arabic Language, its linguistic and grammagical nuances.
-Privide final response in target Language: ${lang}
+Provide final response in target Language: ${lang}
 		
 Context: Arabic Language
 		
