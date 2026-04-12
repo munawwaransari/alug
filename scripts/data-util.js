@@ -5009,7 +5009,7 @@ Provide final response in target Language: ${lang}
 		
 Context: Arabic Language
 		
-Detail out respone considering explanations for following topics:
+Detail out response considering explanations for following topics:
 ${
 	topics.map((t) => ` -  ${t}\\n`).join('')
 }
