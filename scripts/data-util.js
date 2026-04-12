@@ -4981,23 +4981,25 @@ AlcC7xI2ORYMDiYpJxAAAAEAuQJeAToC/gALAABBDgIHIzU+AjczAToIEQ4DVwUYIRIxAvIRNTgW
 CRI2ORYAAAEAKAJeAVECpQADAABBFSE1AVH+1wKlR0cAAA==`
 }
 
-function getPromptsForVerse(chapter, verse) {
+function getPromptsForVerse(chapter, verse, target = 'puter') {
     var word_promtp = `
 		Context: Quran\\nQuestion: Describe in detail the meaning of this word `.trim();
 	var verse_prompt_prefix =`
 		Context: Quran\\nVerse: ${chapter}:${verse}\\nQuestion: `.trim(); 
 	var verse_prommpt_suffix =`'\\nTarget Language:' + parent.window.getLang() `;
 	var sel = "$('.sel-word').first().text()";
+	
+	var target_function = target == 'puter' ? 'loadPuterSearch' : 'openGoogleAISearch';
 	return `
-	<a href="#" onclick="loadPuterSearch(\`${word_promtp}\`+${sel}+${verse_prommpt_suffix})">Describe word</a>
-	<a href="#" onclick="
-		loadPuterSearch(\`${verse_prompt_prefix} Provide a comprehensive summary of the given verse.\`+${verse_prommpt_suffix})">
-	Provide comprehensive summary
-	</a>
-	<a href="#" onclick="loadPuterSearch(\`${verse_prompt_prefix} Provide summary and include the main messages, and any significant interpretations or insights related to this verse.\`+${verse_prommpt_suffix})">
-	Provide summary with themes and insights
-	</a>
-	`.trim();
+		<a href="#" onclick="${target_function}(\`${word_promtp}\`+${sel}+${verse_prommpt_suffix})">Describe word</a>
+		<a href="#" onclick="
+			${target_function}(\`${verse_prompt_prefix} Provide a comprehensive summary of the given verse.\`+${verse_prommpt_suffix})">
+		Provide comprehensive summary
+		</a>
+		<a href="#" onclick="${target_function}(\`${verse_prompt_prefix} Provide summary and include the main messages, and any significant interpretations or insights related to this verse.\`+${verse_prommpt_suffix})">
+		Provide summary with themes and insights
+		</a>
+		`.trim();
 }
 
 function getPromptsForTopic(topics, section, lang, label) {
@@ -5023,6 +5025,11 @@ Also provide:
 
 Note: Translate the examples in the given target language.
 	`.trim();
+}
+
+function openGoogleAISearch(prompt){
+	var url = `https://www.google.com/ai?q=${encodeURIComponent(prompt)}`;
+	window.open(url, '_blank');
 }
 
 function loadPuterSearch(prompt){

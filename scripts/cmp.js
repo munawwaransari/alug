@@ -104,12 +104,19 @@ class cmpAPI {
 			if(cmp["skipai"] == undefined){
 				$("#xTable tbody").append(`
 				<tr>
-					<td colspan="${topics.length}" style="font-size: 22px;">
+					<td colspan="${topics.length}" style="font-size: 16px;">
 						<a href="#" onclick="
 						loadPuterSearch(\`${getPromptsForTopic(topics, 
 															   cmp["en"], 
 															   parent.window.getLang())}\`)">
-						ai Search
+						Puter ai search
+						</a>
+						&nbsp; | &nbsp;
+						<a href="#" onclick="
+						openGoogleAISearch(\`${getPromptsForTopic(topics, 
+															   cmp["en"], 
+															   parent.window.getLang())}\`)">
+						Google ai search
 						</a>
 					</td>
 				</tr>`);

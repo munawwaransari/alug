@@ -213,11 +213,10 @@ Tell me what you’d like to do, or paste any details you have.`;
        onclick="toggleHead($('#pHead'), $('#pHeadImg'))">
       <img id="pHeadImg" src="images/up.png" width="12px;" alt="toggle"/>
   </div>
-  <div  id="pHead" 
-    style="display:inline-block;
-           vertical-align:top;
-           padding-bottom:10px;
-           width:100%">
+  <div  id="pHead"  style="display:inline-block;vertical-align:top;padding-bottom:10px;width:100%">
+    <button style="margin:auto;margin-left:10px;text-align:left;" 
+        onclick="openGoogleAISearch(
+                 document.getElementById('prompt').value.trim())">Google</button>
     <button style="margin:auto;margin-left:10px;text-align:left;" onclick="getAIResponse()">RUN</button>
     <label id="pLastRun" style="float:right;margin-right:10px;"></label>
     <img src="images/speech-enabled.png" 
