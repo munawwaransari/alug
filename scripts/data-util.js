@@ -1316,9 +1316,11 @@ function playTafsir(verseKey){
 		if(opt !== null && opt !== "none"){
 			$("#chkQir").prop('checked', '');
 			var lang = opt.substring(0,2);
-			var tafsirElement = $("#tafsir");
+			
+			var verse = verseKey.split(":");
+			var tafsirElement = $(`#div${verse[0]}_${verse[1]}_tafsir`);
 			if(tafsirElement.length == 0){
-				tafsirElement = $("div [id*=_tafsir_]");
+				return;
 			}
 			var text = tafsirElement.html(); 	
 			if(text && text != '' && text != null){

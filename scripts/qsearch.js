@@ -388,16 +388,17 @@ function searchVerseKey(page, ayahText, verseKey){
 function changeTafsir(){
 	const text = arRemovePunct(document.getElementById("searchText").value);
 	if(text.trim().match(/^\d{1,3}\:\d{1,3}$/g)){
-		var div = $("#tafsir");
-		if(div.length > 0){
-			$("#chkTafsir").prop('checked', '');
+		var verse = text.trim().split(":");
+		var divTafsir = $(`#div${verse[0]}_${verse[1]}`);
+		if(divTafsir.length > 0){
+			var isTafsirEnabled = $("#chkTafsir").prop('checked');
 			stopPlayVerse();
-			getVerseTafsir(null, text, function(t){
-				if(t === undefined)
-					div.html('');
-				else
-					div.html(t.text);
-			});
+			$("#chkTafsir").prop('checked', '')
+			$(`#${divTafsir[0].id}_tafsir`).html('');
+
+			if($("#tafsir-options").val() !== "none"){
+				getVerseTafsir(divTafsir[0].id, text);
+			}
 		}
 	}
 	else {
@@ -412,38 +413,28 @@ function changeTafsir(){
 }
 
 //https://github.com/spa5k/tafsir_api
-function getVerseTafsir(id, verseKey, callback){
+function getVerseTafsir(id, verseKey){
 
-	var id = id.replace('div','vdiv-')
-	           .replace('_', '-');
-	var div = $("div#"+id).last();
-	var alink = $("#"+id+'_tafsir');
+	var container = $("#searchResult");
+	var alink = $("#"+id+'_t');
 	alink.addClass('blink');
 	var scrollPosition = $(window).scrollTop();
 	
-	var tafsir = $("#tafsir-options").val();
-	
+	var tafsir = $("#tafsir-options").val();	
 	if(tafsir === null || tafsir === "none"){
-		if(callback)
-		callback(undefined, "");
 		return;
 	}
 	var style = tafsir.startsWith("ur-") ? " font-size:18px;":" font-size:16px;";
 	var vKey = verseKey.split(":");
 	var url = "https://cdn.jsdelivr.net/gh/spa5k/tafsir_api@main/tafsir/"+tafsir+"/"+vKey[0]+"/"+vKey[1]+".json";
 	loadJsonData(url).then((data) => {
-		
-		if(callback){
-			callback(data, style);
-			return;
-		}
-		
-		var childId = id+'_tafsir_123';
+				
+		var childId = id+'_tafsir';
 		var elem = document.getElementById(childId); 
 		if(elem)
 			elem.parentNode.removeChild(elem);
 
-		div.append($('<div id="'+childId+'" style="'+style+'padding-top:14px;">'+data.text+'</div>'));
+		container.append($('<div id="'+childId+'" style="'+style+'padding-top:14px;">'+data.text+'</div>'));
 		
 		alink.removeClass('blink');
 		$(window).scrollTop(scrollPosition);
@@ -517,7 +508,7 @@ function getTranslationLinks(transLinkId, verseKey){
 						onclick="getVerseTranslation('hi', '${transLinkId}', '${verseKey}', '_hi', window.QuranJS.Language.HINDI);">
 						Hindi
 					</a>
-					<a 	id="${transLinkId}_tafsir" href="#"
+					<a 	id="${transLinkId}_t" href="#"
 						onclick="getVerseTafsir('${transLinkId}', '${verseKey}');">
 						Tafsir
 					</a>
@@ -1118,6 +1109,11 @@ function selectQariForLanguage(lang){
 }
 
 function onVerseLoaded(chapter, verse){
+	if($("#tafsir-options").val() !== "none"){
+		setTimeout(function(){
+			changeTafsir();
+		}, 200);
+	}
 	isAutoPlayQirat = $("#chkQir").prop('checked');
 	if(isAutoPlayQirat){
 		if(changeQari && parent && parent.getLang){
