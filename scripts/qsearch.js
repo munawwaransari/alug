@@ -135,6 +135,7 @@ function loadWordsFrom(data){
 	});
 }
 
+var last_verse_trans_langs = [];
 /* 
 Search Quran using QuranJS API  
 */
@@ -476,6 +477,11 @@ function getVerseTranslation(dataAttr, id, verseKey, sfx = '_en', lang = window.
 				if(prevDiv.length > 0){
 					prevDiv.remove();
 				}
+			}
+
+			// add last trans lang
+			if(last_verse_trans_langs.indexOf(lang) === -1){
+				last_verse_trans_langs.push(lang);
 			}
 			displayVerse(div, ayahText, verseKey, { 
 				words: data.words,
@@ -1115,6 +1121,7 @@ function onVerseLoaded(chapter, verse){
 			changeTafsir();
 		}, 200);
 	}
+
 	isAutoPlayQirat = $("#chkQir").prop('checked');
 	if(isAutoPlayQirat){
 		if(changeQari && parent && parent.getLang){
@@ -1156,6 +1163,22 @@ function onVerseLoaded(chapter, verse){
 	}
 	else{
 		stopPlayVerse();
+	}
+
+	if(last_verse_trans_langs){
+		last_verse_trans_langs.forEach(function(lang){
+			var vKey = `${chapter}:${verse}`;
+			var vId = `div${chapter}_${verse}`;
+			setTimeout(function(){
+				getVerseTranslation(lang, vId, vKey, '_'+lang,
+					(lang === 'ur') ? 
+						window.QuranJS.Language.URDU : 
+					(lang === 'hi') ? 
+						window.QuranJS.Language.HINDI : 
+					window.QuranJS.Language.ENGLISH
+				);
+			},500);
+		});
 	}
 }
 
