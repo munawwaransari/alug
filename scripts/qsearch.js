@@ -554,7 +554,7 @@ function getVerseTranslation(id, verseKey, sfx = '_en', lang = window.QuranJS.La
 				direction: (sfx === '_ar' || sfx === '_ur') ? 'rtl' : 'ltr'
 			});
 			
-			var scrollPosition = $(window).scrollTop();
+			var scrollPosition = $(div).offset().top; // ?? $(window).scrollTop();
 			alink.remove();
 			$(window).scrollTop(scrollPosition);
 		}
