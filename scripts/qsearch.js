@@ -564,7 +564,7 @@ function getVerseTranslation(id, verseKey, sfx = '_en', lang = window.QuranJS.La
 function getTranslationLinks(transLinkId, verseKey){
 	return `<span class="dropdown">
 				<button style="padding:0; border-style:hidden;margin-left:8px;cursor:pointer;font-size:16px;"
-					title="Click to see translation">&#x24c9;</button>
+					title="Click to see translation">&#x24c9;</button><!--Ⓣ-->
 				<div class="dropdown-content">
 					<a 	id="${transLinkId}_en" href="#" 
 						onclick="getVerseTranslation('${transLinkId}', '${verseKey}','_en');">
@@ -583,7 +583,7 @@ function getTranslationLinks(transLinkId, verseKey){
 						Tafsir
 					</a>
 				</div>
-			</span>`;
+			</span><br/>`;
 }
 
 function displayVerse(div, verse, verseKey, options){
