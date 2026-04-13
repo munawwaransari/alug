@@ -386,14 +386,15 @@ function searchVerseKey(page, ayahText, verseKey){
 }
 
 function changeTafsir(){
+	stopPlayVerse();
+	$("#chkTafsir").prop('checked', '')
+
 	const text = arRemovePunct(document.getElementById("searchText").value);
 	if(text.trim().match(/^\d{1,3}\:\d{1,3}$/g)){
 		var verse = text.trim().split(":");
 		var divTafsir = $(`#div${verse[0]}_${verse[1]}`);
 		if(divTafsir.length > 0){
 			var isTafsirEnabled = $("#chkTafsir").prop('checked');
-			stopPlayVerse();
-			$("#chkTafsir").prop('checked', '')
 			$(`#${divTafsir[0].id}_tafsir`).html('');
 
 			if($("#tafsir-options").val() !== "none"){
