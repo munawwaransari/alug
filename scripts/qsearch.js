@@ -270,7 +270,8 @@ function search(pageNumber){
 								{ 
 									words: res2.words, 
 									controls: true, 
-									direction: 'rtl', 
+									direction: 'rtl',
+									translateLink: true, 
 									ayahOption: $("#ayah-options").val() 
 								}
 							);
@@ -287,83 +288,7 @@ function search(pageNumber){
 										bgColor: '#F6F0c2',
 										direction: 'ltr'
 									}
-								);
-								
-								// Try to add English translation
-								SearchQuran(
-									window.QuranJS.Verses.findByKey, 
-									{ 
-										words:1, 
-										language: window.QuranJS.Language.ENGLISH, 
-										size: 10
-									}, 
-									verseKey
-								)
-								.then((data3) => {
-									displayVerse(
-										div, 
-										data3.words[0].translation.text, 
-										verseKey, 
-										{
-											words: data3.words,
-											bgColor: '#F6F0F2',
-											direction: 'ltr'
-										}
-									);
-									
-									// Try to add Urdu translation
-									SearchQuran(
-										window.QuranJS.Verses.findByKey, 
-										{
-											words:1, 
-											language: window.QuranJS.Language.URDU, 
-											size: 10 
-										}, 
-										verseKey
-									).then((data4) => {
-										displayVerse(
-											div, 
-											data4.words[0].translation.text, 
-											verseKey, 
-											{
-												words: data4.words,
-												bgColor: '#E8EEF4',
-												direction: 'rtl'
-											}
-										);
-										
-										// Try to add Hindi translation
-										SearchQuran(
-											window.QuranJS.Verses.findByKey, 
-											{ 
-												words:1, 
-												language: window.QuranJS.Language.HINDI, 
-												size: 10 
-											}, 
-											verseKey
-										)
-										.then((data5) => {
-											displayVerse(div, data5.words[0].translation.text, verseKey, {
-												words: data5.words,
-												bgColor: '#E8EEF4',
-												direction: 'ltr'
-											});
-											
-											//Add tafsir
-											getVerseTafsir(null, verseKey, function(t, s){
-												if(t === undefined)
-													div.append($('<div id="tafsir" style="'+s+'"></div>'));
-												else
-													div.append($('<div id="tafsir" style="'+s+'">'+t.text+'</div>'));
-												
-												if(tafsir_param !== undefined && tafsir_param !== ''){
-													$("#chkTafsir").click();
-													tafsir_param = '';
-												}
-											});
-										});
-									});
-								});
+								);								
 							});
 							return true;
 						}
@@ -489,7 +414,9 @@ function changeTafsir(){
 //https://github.com/spa5k/tafsir_api
 function getVerseTafsir(id, verseKey, callback){
 
-	var div = $("#"+id);
+	var id = id.replace('div','vdiv-')
+	           .replace('_', '-');
+	var div = $("div#"+id).last();
 	var alink = $("#"+id+'_tafsir');
 	alink.addClass('blink');
 	var scrollPosition = $(window).scrollTop();
@@ -497,6 +424,7 @@ function getVerseTafsir(id, verseKey, callback){
 	var tafsir = $("#tafsir-options").val();
 	
 	if(tafsir === null || tafsir === "none"){
+		if(callback)
 		callback(undefined, "");
 		return;
 	}
@@ -515,15 +443,18 @@ function getVerseTafsir(id, verseKey, callback){
 		if(elem)
 			elem.parentNode.removeChild(elem);
 
-		div.append($('<div id="'+childId+'" style="'+style+'">'+data.text+'</div>'));
+		div.append($('<div id="'+childId+'" style="'+style+'padding-top:14px;">'+data.text+'</div>'));
 		
 		alink.removeClass('blink');
 		$(window).scrollTop(scrollPosition);
 	});
 }
 
-function getVerseTranslation(id, verseKey, sfx = '_en', lang = window.QuranJS.Language.ENGLISH){
-	var div = $("#"+id);
+function getVerseTranslation(dataAttr, id, verseKey, sfx = '_en', lang = window.QuranJS.Language.ENGLISH){
+
+	var id2 = id.replace('div','vdiv-')
+	           .replace('_', '-');
+	var div = $("div#"+id2).last();
 	var alink = $("#"+id+sfx);
 	alink.addClass('blink');
 	SearchQuran(window.QuranJS.Verses.findByKey, { 
@@ -547,10 +478,18 @@ function getVerseTranslation(id, verseKey, sfx = '_en', lang = window.QuranJS.La
 				return ayah;
 			});
 			
+			//remove previous translation if exists
+			if(dataAttr){
+				var prevDiv = $(`#vdiv-${verseKey.replace(':', '-')}[data='${dataAttr}']`);
+				if(prevDiv.length > 0){
+					prevDiv.remove();
+				}
+			}
 			displayVerse(div, ayahText, verseKey, { 
 				words: data.words,
 				bgColor: sfx === '_en' ? '#F6F0F2' : '#E8EEF4',
 				keepFocus: true,
+				dataAttr: dataAttr,
 				direction: (sfx === '_ar' || sfx === '_ur') ? 'rtl' : 'ltr'
 			});
 			
@@ -566,16 +505,16 @@ function getTranslationLinks(transLinkId, verseKey){
 				<button style="padding:0; border-style:hidden;margin-left:8px;cursor:pointer;font-size:16px;"
 					title="Click to see translation">&#x24c9;</button><!--Ⓣ-->
 				<div class="dropdown-content">
-					<a 	id="${transLinkId}_en" href="#" 
-						onclick="getVerseTranslation('${transLinkId}', '${verseKey}','_en');">
+					<a 	id="${transLinkId}_en" href="#"
+						onclick="getVerseTranslation('en', '${transLinkId}', '${verseKey}','_en');">
 						English
 					</a>
 					<a id="${transLinkId}_ur" href="#"
-						onclick="getVerseTranslation('${transLinkId}', '${verseKey}', '_ur', window.QuranJS.Language.URDU);">
+						onclick="getVerseTranslation('ur', '${transLinkId}', '${verseKey}', '_ur', window.QuranJS.Language.URDU);">
 						Urdu
 					</a>
 					<a id="${transLinkId}_hi" href="#"
-						onclick="getVerseTranslation('${transLinkId}', '${verseKey}', '_hi', window.QuranJS.Language.HINDI);">
+						onclick="getVerseTranslation('hi', '${transLinkId}', '${verseKey}', '_hi', window.QuranJS.Language.HINDI);">
 						Hindi
 					</a>
 					<a 	id="${transLinkId}_tafsir" href="#"
@@ -599,8 +538,10 @@ function displayVerse(div, verse, verseKey, options){
 	var direction =  options.direction ? 'direction:'+options.direction+';' :
 						verse.match(/^[\x00-\x7F]+/g) ? '' : 'direction:rtl;';
 	var divHtml = `
+		<span style="display:block;padding-top:14px;"></span>
 		<div 
-			id="vdiv-${verseKeys[0]}-${verseKeys[1]}"  
+			id="vdiv-${verseKeys[0]}-${verseKeys[1]}" 
+			${options.dataAttr ? `data=${options.dataAttr}`:''} 
 			style="padding-bottom:4px;font-size:22px;display:inline;align-items:center;justify-content:center;${direction+bgColor}">
 			${
 				(options.ayahOption === "image") ?
