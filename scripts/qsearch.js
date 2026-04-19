@@ -1116,12 +1116,6 @@ function selectQariForLanguage(lang){
 }
 
 function onVerseLoaded(chapter, verse){
-	if($("#tafsir-options").val() !== "none"){
-		setTimeout(function(){
-			changeTafsir();
-		}, 200);
-	}
-
 	isAutoPlayQirat = $("#chkQir").prop('checked');
 	if(isAutoPlayQirat){
 		if(changeQari && parent && parent.getLang){
@@ -1165,20 +1159,25 @@ function onVerseLoaded(chapter, verse){
 		stopPlayVerse();
 	}
 
-	if(last_verse_trans_langs){
-		last_verse_trans_langs.forEach(function(lang){
+	if (last_verse_trans_langs) {
+		last_verse_trans_langs.forEach(function (lang) {
 			var vKey = `${chapter}:${verse}`;
 			var vId = `div${chapter}_${verse}`;
-			setTimeout(function(){
-				getVerseTranslation(lang, vId, vKey, '_'+lang,
-					(lang === 'ur') ? 
-						window.QuranJS.Language.URDU : 
-					(lang === 'hi') ? 
-						window.QuranJS.Language.HINDI : 
-					window.QuranJS.Language.ENGLISH
+			setTimeout(function () {
+				getVerseTranslation(lang, vId, vKey, '_' + lang,
+					(lang === 'ur') ?
+						window.QuranJS.Language.URDU :
+						(lang === 'hi') ?
+							window.QuranJS.Language.HINDI :
+							window.QuranJS.Language.ENGLISH
 				);
-			},500);
+			}, 100);
 		});
+	}
+	if ($("#tafsir-options").val() !== "none") {
+		setTimeout(function () {
+			changeTafsir();
+		}, 300);
 	}
 }
 
