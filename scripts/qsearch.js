@@ -1630,6 +1630,35 @@ function showQuranicSymbols(){
 	$("#tqv2").hide();
 }
 
+function getSuurahTopicAiSummary(surah, topics){
+	if(topics === undefined)
+		return '';
+
+	var prompt = `You are an expert in Quranic studies, with the scholarly interpretation, explanation, and commentary of the Quran in Islam.
+
+Consider this surah: ${surah.en} with the following topics: 
+${topics.map(t=>t.split("|")[0]).join("\n ")}
+
+Provide a detail summary of each topoc, with each topic as a separate section.
+`;
+
+	var topicSummarySpan = `
+		<div class="dropdown-content" 
+			onclick="$(this).toggleClass('dropdown2')"
+			style="position:relative;box-shadow:none;direction:ltr;padding-bottom:8px;padding-top:8px;cursor:pointer;">	
+			Summary&nbsp;&gt;
+		</div>
+		<div class="dropdown-content2" 
+			onvisibilitychange="$(this).prev().toggleClass('dropdown2')"
+			style="z-index:999;width:auto;left:100px;top:5px;padding-left:6px;text-align:left;background-color:aliceblue;">
+				<p 	style="white-space:nowrap;width:auto;cursor:pointer;padding:0;"
+					onclick="openGoogleAISearch(&#96;${prompt}&#96;)">Google</p>
+				<p 	style="white-space:nowrap;width:auto;cursor:pointer;padding:0;"
+				onclick="loadPuterSearch(&#96;${prompt}&#96;)">Puter</p>
+		</div>`;
+	return topicSummarySpan;
+}
+
 function getSurahTopics(surah, topics){
 	if(topics === undefined)
 		return '';
@@ -1842,6 +1871,7 @@ function createTableView(data, div){
 					    </span>`;
 			
 			var nuzul_title = (surah.nuzul_note !== undefined) ? surah.nuzul_note : surah.nuzul;
+			var topicSummary = getSuurahTopicAiSummary(surah, surah.topics);
 			var topicInfo = getSurahTopics(index, surah.topics);
 			var graphInfo = getGraphMenu(index, surah);
 			var huruf = surah.huruf === undefined ? '': 
@@ -1900,7 +1930,7 @@ function createTableView(data, div){
 								𐄗
 								</button>
 								<span class="dropdown-content" style="padding-top:10px;left:0;">
-								${topicInfo}${graphInfo}
+								${topicSummary}${topicInfo}${graphInfo}
 								<a 	href="#" 
 									onclick="changeQari=true;isAutoPlayQirat=false; searchText('${index}:1')">
 									Research <b>1-${surah.ayahCount}</b>

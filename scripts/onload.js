@@ -749,13 +749,6 @@ window.inSearch = function(txt) {
 	isearch(txt);
 };
 
-function aisearch(prompt){
-
-}
-
-function aisearch(prompt){
-}
-
 function isearch(txt){
 	var data = arRemovePunct( (txt ?? $("#insearchtxt").val()).trim());
 	var obj, objKey;
