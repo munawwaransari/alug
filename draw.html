@@ -88,7 +88,10 @@
 	var currentSelectColor;
 	var colorSel;
 	var canvas, mouse, ctx;
-		
+	var practiceMode = false;
+	var alpha = "ابتثجحخدذرزسشصضطظعغفقكلمنهوي";	
+	var randomAlpha = 0;
+
 	window.onload = function(){
 		init();
 		requestAnimationFrame(update);
@@ -144,7 +147,7 @@
 		canvas = document.getElementById("can");
 		mouse = createMouse().start(canvas, true);
 		ctx = canvas.getContext("2d");
-		
+
 		//*** Add Image Button
 		addButton('Img', function() {
 			let imgUrl = prompt("Enter image url:");
@@ -168,15 +171,40 @@
 				});
 			}
 		});
+
+		//*** Add Writing
+		addButton('Prac', function() {
+			
+			var chk = document.querySelector('input[id="Prac"]');
+			if(chk.checked){
+				practiceMode = true;
+				randomAlpha = Math.floor(Math.random() * alpha.length);
+			}
+			else{
+				practiceMode = false;
+			}
+			display();
+		}, 'checkbox');
 	}
 	
-	function addButton(name, func){
-		var btn = document.createElement("button");
+	function addButton(name, func, style){
+		var btn = style == 'checkbox' ?
+				document.createElement("input"):
+				document.createElement("button");
 		btn.height = 16;
 		btn.className = "btn";
 		btn.innerHTML = name;
 		btn.addEventListener('click', func);
+		if(style == 'checkbox'){ 
+			btn.type = "checkbox";
+			btn.id = name;
+		}
 		colorSel.appendChild(btn);
+		if(style == 'checkbox'){ 
+			var txt = document.createTextNode(name);
+			txt.style = 'verticalAlign:middle';
+			colorSel.appendChild(txt);
+		}
 	}
 
 	var updateDisplay = true; // when true the display needs updating
@@ -335,6 +363,7 @@
 	  ctx.fillStyle = "rgba(0,0,0,0.25)";
 	  const imgX = cw - (drawing.width / 2) | 0;
 	  const imgY = ch - (drawing.height / 2) | 0;
+	  
 	  // add a shadow to make it look nice
 	  ctx.fillRect(imgX + 5, imgY + 5, drawing.width, drawing.height);
 
@@ -379,6 +408,17 @@
 		else
 			ctx.drawImage(img, imgX+20, imgY+20);
 	  }	  
+
+	  // draw Practice Alphabet
+	  if(practiceMode){
+	    ctx.font = '200px Noto Sans Arabic UI, sans-serif';
+		ctx.strokeStyle = 'blue';
+		ctx.lineWidth = 2;
+		ctx.textAlign = 'center';
+		ctx.textBaseline = 'middle';
+		ctx.strokeText(alpha[randomAlpha], cw, ch);
+	  }
+
 	}
 	
 	//************************************************************
