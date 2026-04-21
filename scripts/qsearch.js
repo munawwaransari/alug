@@ -1633,17 +1633,11 @@ Provide the final response in language: LLL
 `;
 
 	var topicSummarySpan = `
-		<div class="dropdown-content" 
-			onclick="$(this).toggleClass('dropdown2')"
+		<div  
+			onclick="openGoogleAISearch(&#96;${prompt}&#96;)"
 			style="position:relative;box-shadow:none;direction:ltr;padding-bottom:8px;padding-top:8px;cursor:pointer;">	
 			<img style="margin:auto;width:18px;" src="images/ai.png"/>
-			Summary&nbsp;&gt;
-		</div>
-		<div class="dropdown-content2" 
-			onvisibilitychange="$(this).prev().toggleClass('dropdown2')"
-			style="z-index:999;width:auto;left:100px;top:5px;padding-left:6px;text-align:left;background-color:aliceblue;">
-				<p 	style="white-space:nowrap;width:auto;cursor:pointer;padding:0;"
-					onclick="openGoogleAISearch(&#96;${prompt}&#96;)">&nbsp;Google</p>
+			&nbsp;Summary
 		</div>`;
 	return topicSummarySpan;
 }
