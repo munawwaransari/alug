@@ -106,13 +106,6 @@ class cmpAPI {
 				<tr>
 					<td colspan="${topics.length}" style="font-size: 16px;">
 						<a href="#" onclick="
-						loadPuterSearch(\`${getPromptsForTopic(topics, 
-															   cmp["en"], 
-															   parent.window.getLang())}\`)">
-						Puter ai search
-						</a>
-						&nbsp; | &nbsp;
-						<a href="#" onclick="
 						openGoogleAISearch(\`${getPromptsForTopic(topics, 
 															   cmp["en"], 
 															   parent.window.getLang())}\`)">

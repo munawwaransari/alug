@@ -735,19 +735,6 @@ function getAnalysisOptions(verse, verseKeys){
 							'<a href="#" onclick="analyzeLocal()" >Analyze (تحليل)</a>'
 						}
 						//-->
-
-						<!-- Puter AI Search -->
-						<div class="dropdown-content dropdown2" 
-						     style="position:relative;padding-top:10px;padding-bottom:10px;vertical-align:middle;">
-							 <img style="margin:auto;width:18px;" src="images/ai.png" alt="Powered by Puter"/>
-							 &nbsp; Puter &gt;
-						</div> 
-						<div class="dropdown-content2" style="z-index:999999;margin-left:60px;padding:2px;">
-						${
-							getPromptsForVerse(verseKeys[0], verseKeys[1], $('sel-word').length > 0 ? $('sel-word')[0].text : '')
-						}
-						</div>
-						
 						<!-- Google AI Search -->
 						<div class="dropdown-content dropdown2" 
 						     style="position:relative;padding-top:10px;padding-bottom:10px;vertical-align:middle;">
