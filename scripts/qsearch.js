@@ -1639,7 +1639,10 @@ function getSuurahTopicAiSummary(surah, topics){
 Consider this surah: ${surah.en} with the following topics: 
 ${topics.map(t=>t.split("|")[0]).join("\n ")}
 
-Provide a detail summary of each topoc, with each topic as a separate section.
+Provide a detail summary of each topic, with each topic as a separate section.
+Also include key verses (in Arabic with chapter and ayah number) related to each topic, and explain the relevance of those verses to the topic.
+
+Provide the final response in language: LLL 
 `;
 
 	var topicSummarySpan = `
@@ -1871,7 +1874,9 @@ function createTableView(data, div){
 					    </span>`;
 			
 			var nuzul_title = (surah.nuzul_note !== undefined) ? surah.nuzul_note : surah.nuzul;
-			var topicSummary = getSuurahTopicAiSummary(surah, surah.topics);
+			var topicSummary = getSuurahTopicAiSummary(surah, surah.topics)
+							   .replaceAll("LLL", 
+										   parent.window ? parent.window.getLang(): 'en');
 			var topicInfo = getSurahTopics(index, surah.topics);
 			var graphInfo = getGraphMenu(index, surah);
 			var huruf = surah.huruf === undefined ? '': 
