@@ -1428,20 +1428,34 @@ function convertHTMLtoPDF(selector, filter, pdfFileName) {
 		doc.addFont('NotoSansArabic.ttf', 'NotoSans', 'normal');
 		doc.setFont('NotoSans');
 		doc.setFontSize(8);
-		doc.text(doc.internal.pageSize.getWidth() - 60,
-				5, 
-				'https://munawwaransari.github.io/alug/');
+		doc.text(5,5,'https://munawwaransari.github.io/alug/');
+		doc.setFontSize(12);
+		
+		console.log(`query selctor: '${selector}'`);
+		var elementHTML = document.querySelector(selector);
+		if(selector.includes("iframe")){
+			try
+			{
+				var idoc = elementHTML.contentDocument || elementHTML.contentWindow.document;
+				elementHTML = idoc.querySelector('body');
+			}
+			catch(err){
+				console.error(err.message);
+				return;
+			}
+		}
 
-		//doc.setFontSize('22px');
-
-		const elementHTML = document.querySelector(selector);
 		const oldFamily =  elementHTML.style.fontFamily;
 		elementHTML.style.fontFamily = 'NotoSans';
+		elementHTML.style.wordSpacing = "2px";
 
-		const elementFilter = document.querySelector(filter);
-		if(elementFilter){
-			elementFilter.style.fontFamily = 'NotoSans';
+		if (filter) {
+			const elementFilter = document.querySelector(filter);
+			if(elementFilter){
+				elementFilter.style.fontFamily = 'NotoSans';
+			}
 		}
+
 		// Use the html() method to render the HTML element
 		doc.html(elementHTML, {
 			callback: function(doc) {
@@ -1453,8 +1467,8 @@ function convertHTMLtoPDF(selector, filter, pdfFileName) {
 			autoPaging: 'text', // Handles multi-page content automatically
 			x: 0,
 			y: 0,
-			width: 190, // Target width in the PDF document
-			windowWidth: 675 // Window width in CSS pixels for accurate rendering
+			width: doc.internal.pageSize.getWidth(), // Target width in the PDF document
+			windowWidth: window.width ?? 675 // Window width in CSS pixels for accurate rendering
 		});
 	});
 }
@@ -1471,7 +1485,25 @@ function convertHTMLtoImage(selector, filters, imgFileName){
 		doc.addFont('NotoSansArabic.ttf', 'NotoSans', 'normal');
 		doc.setFont('NotoSans');
 
-		const elementHTML = document.querySelector(selector);
+		var elementHTML = document.querySelector(selector);
+		if(selector.includes("iframe")){
+			try
+			{
+				var idoc = elementHTML.contentDocument || elementHTML.contentWindow.document;
+				elementHTML = idoc.querySelector('body');
+
+				var svg = elementHTML.querySelector('svg');
+				if(svg.length > 0){
+					alert('Convert to SVG');
+					return;
+				}
+			}
+			catch(err){
+				console.error(err.message);
+				return;
+			}
+		}
+
 		const oldFamily =  elementHTML.style.fontFamily;
 		elementHTML.style.fontFamily = 'NotoSans';
 

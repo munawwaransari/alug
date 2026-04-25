@@ -508,9 +508,13 @@
 		>&#x2B07;</span>
 	</div>
 	<div id="divOntology" style="display:none;position: absolute;z-index:999;width:96%;height:90%;margin:auto;align-items:center;">
-		<a href="#" 
+		<a href="#" title="Close"
 			onclick="$(this).parent().hide(); if(parent.stopAudio) parent.stopAudio();" 
-			style="float:right; top:0;">❌</a>
+			style="float:right; top:0;">&nbsp;❌</a>
+			<img src="images/exp.png"  alt="Export" style="float:right; top:0; width:18px;cursor:pointer;"
+			onclick="
+			convertHTMLtoPDF('#divOntology iframe', null, 'exported-text.pdf');
+			"/>
 		<iframe style="width:100%;height:100%; background-color:white;align-items:center;" src=""></iframe>
 	</div>
 	<div id="searchResult" style="width: 100%;text-align: center;">Loading Quran...</div>

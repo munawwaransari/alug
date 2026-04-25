@@ -1673,6 +1673,27 @@ function getSurahTopics(surah, topics){
 	return topicSpan;
 }
 
+function showSurahOntology(index, surah){
+	var frm = $('#divOntology iframe');
+	frm.remove();
+	$('#divOntology').append(
+		$(`<iframe style="width:100%;height:100%; background-color:white;align-items:center;" src=""></iframe>`)
+	);
+	$('#divOntology iframe').attr('src',
+		`https://qurananalysis.com/analysis/graphing.iframe.php?s=${index}&a=${encodeURIComponent(surah)}&lang=AR`); 
+	$('#divOntology').show();
+}
+
+function showSurahWordCloud(surah){
+	var frm = $('#divOntology iframe');
+	frm.remove();
+	$('#divOntology').append(
+		$(`<iframe style="width:100%;height:100%; background-color:white;align-items:center;" src=""></iframe>`)
+	);
+	$('#divOntology iframe').attr('src', `https://quickchart.io/wordcloud?text=${surah}`); 
+	$('#divOntology').show();
+}
+
 function getGraphMenu(index, surah){
 
 	var graphSpan = `
@@ -1686,15 +1707,10 @@ function getGraphMenu(index, surah){
 			style="width:auto;left:100px;top:10px;padding-left:6px;text-align:left;background-color:aliceblue;">
 
 			<a href="#" 
-			   onclick="$('#divOntology iframe').attr('src',
-			    	'https://qurananalysis.com/analysis/graphing.iframe.php?s=${(index-1)}&a=${encodeURIComponent(surah.ar)}&lang=AR'); 
-				   	$('#divOntology').show();">
+			   onclick="showSurahOntology(${index-1}, '${surah.ar}')">
 			Ontology
 			</a>
-			<a href="#" 
-				onclick="$('#divOntology iframe').attr('src',
-					'https://quickchart.io/wordcloud?text=${
-								surah.topics.map(w=> encodeURI(w.toLowerCase()
+			<a href="#" onclick="showSurahWordCloud('${surah.topics.map(w=> encodeURI(w.toLowerCase()
 													  .replaceAll(/\|.*$/g,"")
 													  .replaceAll("'s "," ")
 													  .replaceAll("'","")
@@ -1753,9 +1769,7 @@ function getGraphMenu(index, surah){
 													  .replaceAll(" se "," ")
 													  .replaceAll(" m "," ")
 													  .replaceAll(" for "," ")))
-													  .join()
-					}'); 
-					$('#divOntology').show();">
+													  .join()}');">
 			Word Cloud
 			</a>
 		</div>`;
@@ -1842,9 +1856,8 @@ function createTableView(data, div){
 								<img src="images/expand.png" 
 									 style="float:right;width:16px;margin-left:3px;
 									 	    background-color:transparent; padding:4px;"
-									onclick="expandSurahInfoInto(
-										$(this).next(),
-										'#divOntology iframe')"/>
+									onclick="
+									expandSurahInfoInto($(this).next(),'#divOntology iframe')"/>
 								<div>
 									<a href="#" style="float:left" onclick="handleSurahInfoDisplay(this)">Urdu</a>
 									<div style="direction:ltr;">${replaceSurahInfoQLink(surah.en_text)}</div>
@@ -2204,7 +2217,6 @@ function copyAyahMp3Path(){
 }
 
 function  expandSurahInfoInto(elem, targetElem){
-	console.log(elem.html());
 	var direction = $(elem).find('a').text() == 'Urdu' ? 'ltr':'rtl';
 	var elemContent = $(elem.html());
 	var content = `<body dir='${direction}'>
