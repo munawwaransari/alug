@@ -200,6 +200,10 @@
 		  transform: rotateY(180deg);
 		  z-index: 1;
 		}
+
+		.pg_qari{
+			color: crimson;
+		}
 	</style>
 </head>
 
@@ -470,9 +474,59 @@
 				<br/>
 			</div>
 		</span>
-		<button style="height:100;cursor:pointer;margin-left:1px;
-					   background-color:transparent; border-color:lightsteelblue;"
-			  onclick="playOrStopCurrentPage(this)">▶</button>
+		<span class="dropdown">
+			<button class="dropdown" 
+					onclick="playOrStopCurrentPage(this)"
+					style="min-height:40px;cursor:pointer;margin-left:1px;
+						background-color:transparent; 
+						border-color:lightsteelblue;">
+				▶
+			</button>
+			<div class="dropdown-content" style="margin:0;margin-left:-40px;padding-top:10px;">
+				<p style="margin:0; padding:5px;">
+					<span class="pg_qari" style="cursor:pointer;" 
+						onclick="selectPageQari(this)"  
+						qari="Abdul_Basit_Murattal_64kbps">
+					Abdul Basit
+					</span>
+				</p>
+				<p style="margin:0; padding:5px;">
+					<span style="cursor:pointer;" 
+						onclick="selectPageQari(this)"  
+						qari="Abdurrahmaan_As-Sudais_64kbps">
+					Abdurrahmaan As-Sudais
+					</span>
+				</p>
+				<p style="margin:0; padding:5px;">
+					<span style="cursor:pointer;" 
+						onclick="selectPageQari(this)"  
+						qari="Alafasy_64kbps">
+					Alafasy
+					</span>
+				</p>
+				<p style="margin:0; padding:5px;">
+					<span style="cursor:pointer;" 
+						onclick="selectPageQari(this)"  
+						qari="Saood_ash-Shuraym_64kbps">
+					Saood Ash-Shuraym
+					</span>
+				</p>
+				<p style="margin:0; padding:5px;">
+					<span style="cursor:pointer;" 
+						onclick="selectPageQari(this)"  
+						qari="translations/urdu_shamshad_ali_khan_46kbps">
+					Shamshad Ali Khan (Urdu)
+					</span>
+				</p>
+				<p style="margin:0; padding:5px;">
+					<span style="cursor:pointer;" 
+						onclick="selectPageQari(this)"  
+						qari="English/Sahih_Intnl_Ibrahim_Walk_192kbps">
+					Sahih International (English)
+					</span>
+				</p>
+			</div>
+		</span>
 	</div>
 	<div style="display:none;">
 		<div id="playbox" style="display:inline-block;white-space:nowrap;width:90%;

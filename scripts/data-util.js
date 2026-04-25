@@ -686,16 +686,36 @@ function stopQuranChapter(){
 	if(id) $("#"+id).show();
 }
 
+function selectPageQari(qElement){
+	var sp = $(qElement).parent().parent().find("span.pg_qari");
+ 	if(sp.length > 0)
+		sp.removeClass('pg_qari');
+	$(qElement).addClass('pg_qari');
+}
+
+function getPageQari(elem){
+	var sp = $(elem).next().find("p span.pg_qari");
+	var qari = 'Abdul_Basit_Murattal_64kbps';
+	if(sp && sp.length > 0){
+		qari = sp.attr('qari').trim();
+	}
+	return qari;
+}
+
 function playOrStopCurrentPage(elem){
-	var page = $("#page-options").val().replace('page','');
-	if(page.length < 2) page = '0'+page;
-	if(page.length < 3) page = '0'+page;
-	var url = 'https://archive.org/download/QuranTransliterationMP3/pg'+page+'.mp3';
-	
-	var durationBar = $("#qt-duration");
-	var durationVal = $("#qt-value")
-	var state = $(elem).html();
+	var state = $(elem).html().trim();
 	if(state === '▶'){ //play
+
+		var page = $("#page-options").val().replace('page','');
+		if(page.length < 2) page = '0'+page;
+		if(page.length < 3) page = '0'+page;
+
+		var qari = getPageQari(elem);
+		var url = `https://everyayah.com/data/${qari}/PageMp3s/Page${page}.mp3`;
+		
+		var durationBar = $("#qt-duration");
+		var durationVal = $("#qt-value")
+
 		$(elem).html('⏹');
 		var pauseBtn = $("#qt-pause");
 		if(parent && parent.playAudio){
