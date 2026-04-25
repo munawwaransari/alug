@@ -5081,6 +5081,11 @@ function loadPuterSearch(prompt){
 	}
 }
 
+function openQuranCorpus(chapter, verse){
+	var url = `https://corpus.quran.com/treebank.jsp?chapter=${chapter}&verse=${verse}`;
+	window.open(url, '_blank');
+}
+
 function toggleHead(divEl, imgEl){
 	if(divEl)
 		divEl.toggle();

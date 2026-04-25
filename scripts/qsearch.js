@@ -729,6 +729,7 @@ function getAnalysisOptions(verse, verseKeys){
 					</button>
 					<div class="dropdown-content">
 						<a href="#" onclick="getReferences()">References</a>
+						<a href="#" onclick="openQuranCorpus(${verseKeys[0]},${verseKeys[1]});">Quran Corpus</a>
 						<!--//
 						${
 							q_app_mode === 'Quran' ? '' :
