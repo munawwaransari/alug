@@ -494,7 +494,7 @@
 	var playCardTimer = undefined;
 	function stopPlayCards(elem){
 			console.log('Stopping cards...');
-			$(elem).html('⏵');
+			$(elem).html('▶');
 			if(playCardTimer !== undefined)
 				clearInterval(playCardTimer);
 			playCardTimer = undefined;
@@ -528,7 +528,7 @@
 					$(bc).css('transform', oldT);
 				}, 1500);
 			}else{
-				$(elem).html('⏵');
+				$(elem).html('▶');
 				clearInterval(playCardTimer);
 				playCardTimer = undefined;
 				reloadCardData();
@@ -553,7 +553,7 @@
 		</a>
 		<a href="#" style="position:relative; top: -4px; left:4px; width: 20px; height: 16px;text-decoration: none;" 
 			title="Play Cards"
-			onclick="playAllCards(this)">&#x23F5;</a>
+			onclick="playAllCards(this)">▶</a>
 	</span>
 	<div id="cardContainer">
   </div>
