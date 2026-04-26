@@ -235,7 +235,16 @@
 							 class="alpha-image" 
 							 src="${alpha.image}">
                         </img>
-                        <span style="margin-bottom:0">${alpha.imageName}</span>
+                        <span style="margin-bottom:0">
+						<a href="#" style="text-decoration:none; cursor:pointer;"
+							onclick="openGoogleAISearch(
+							\`
+							Provide 7 Arabic sentences using ${alpha.imageName.trim()}. 
+							Use various grammatical nuances.
+							\`, true);">
+							${alpha.imageName.trim()}
+						</a>
+						</span>
                     </div>
                 </div>
             </div>`;
@@ -256,7 +265,15 @@
 							 src="${h.images[0]}">
                         </img>
 						<span style="top:10px; margin-bottom:0; font-size:18px">
+							<a href="#" style="text-decoration:none; cursor:pointer;"
+								onclick="openGoogleAISearch(
+								\`
+								Provide 7 Arabic sentences using ${h.names[0]}<br/>${h.ur[0]}/${h.en[0]}. 
+								Inlcude nuances in differences with its homonym ${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}.
+								Provide a comparision Table for both the word and it homonym.
+								\`, true);">
 							${h.names[0]}<br/>${h.ur[0]}/${h.en[0]}
+							</a>
 						</span>
                     </div>
                     <div class="flip-card-back">
@@ -268,7 +285,15 @@
 							 src="${h.images[1]}">
                         </img>
 						<span style="top:10px; margin-bottom:0; font-size:18px">
+							<a href="#" style="text-decoration:none; cursor:pointer;"
+								onclick="openGoogleAISearch(
+								\`
+								Provide 7 Arabic sentences using ${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}. 
+								Inlcude nuances in differences with its homonym ${h.names[0]}<br/>${h.ur[0]}/${h.en[0]}.
+								Provide a comparision Table for both the word and it homonym.
+								\`, true);">
 							${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}
+							</a>
 						</span>
                     </div>
                 </div>
@@ -290,7 +315,15 @@
 							 src="${h.images[0]}">
                         </img>
 						<span style="top:10px; margin-bottom:0; font-size:18px">
-							${h.names[0]}<br/>${h.ur[0]}/${h.en[0]}
+						<a href="#" style="text-decoration:none; cursor:pointer;"
+							onclick="openGoogleAISearch(
+							\`
+							Provide 7 Arabic sentences using ${h.names[0]}<br/>${h.ur[0]}/${h.en[0]}. 
+							Inlcude nuances in differences with its antonym ${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}.
+							Provide a comparision Table for both the word and it antonym.
+							\`, true);">
+						${h.names[0]}<br/>${h.ur[0]}/${h.en[0]}
+						</a>
 						</span>
                     </div>
                     <div class="flip-card-back">
@@ -302,7 +335,15 @@
 							 src="${h.images[1]}">
                         </img>
 						<span style="top:10px; margin-bottom:0; font-size:18px">
+						<a href="#" style="text-decoration:none; cursor:pointer;"
+							onclick="openGoogleAISearch(
+							\`
+							Provide 7 Arabic sentences using ${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}. 
+							Inlcude nuances in differences with its antonym ${h.names[0]}<br/>${h.ur[0]}/${h.en[0]}.
+							Provide a comparision Table for both the word and it antonym.
+							\`, true);">
 							${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}
+						</a>
 						</span>
                     </div>
                 </div>
@@ -339,7 +380,18 @@
 								src="${syn.image}">
 							</img>
 							<span style="top:10px; margin-bottom:0">
-								${syn.en}<br/>${syn.ur}
+								<a href="#" style="text-decoration:none; cursor:pointer;"
+									onclick="openGoogleAISearch(
+									\`
+									Provide 7 Arabic sentences using ${syn.en}<br/>${syn.ur}. 
+									Inlcude nuances in differences with its synonyms:
+										- ${syn.names[0]}
+										- ${syn.names[1]}
+										- ${syn.names[2]}
+										- ${syn.names[3]}
+									\`, true);">
+									${syn.en}<br/>${syn.ur}
+								</a>
 							</span>
 						</div>
 					</div>
@@ -364,7 +416,14 @@
 							 class="alpha-image" src="">
                         </img>
 						<span style="position:relative; display:flex; align-items:center; font-size:32px">
-							${h.names[1]}
+							<a href="#" style="text-decoration:none; cursor:pointer;"
+								onclick="openGoogleAISearch(
+								\`
+								Provide 7 Arabic sentences using hyperbole ${h.names[0]}<br/>${h.en[0]}. 
+								Inlcude examples based on this hyperbole patter.
+								\`, true);">
+								${h.names[1]}
+							</a>
 						</span>
                     </div>
                 </div>
@@ -390,7 +449,13 @@
 							     class="alpha-image" src="">
 							</img>
 							<span style="position:relative; display:flex; align-items:center; font-size:32px">
+							<a href="#" style="text-decoration:none; cursor:pointer;"
+								onclick="openGoogleAISearch(
+								\`
+								Provide 7 Arabic sentences using greeting ${name}, ${h.en[i]}.
+								\`, true);">
 								${h.en[i]}
+							</a>
 							</span>
 						</div>
 					</div>
@@ -500,6 +565,7 @@
 			playCardTimer = undefined;
 			reloadCardData();
 	}
+
 	function playAllCards(elem){
 		
 		var state = $(elem).html().trim();

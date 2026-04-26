@@ -5085,7 +5085,11 @@ Note: Translate the examples in the given target language.
 	`.trim();
 }
 
-function openGoogleAISearch(prompt){
+function openGoogleAISearch(prompt, useSelLang){
+	if(useSelLang){
+		prompt += '\n Provide Final response in language: '+ parent.getLang();
+	}
+	
 	var url = `https://www.google.com/ai?q=${encodeURIComponent(prompt)}`;
 	window.open(url, '_blank');
 }
