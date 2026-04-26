@@ -73,7 +73,7 @@
       .alpha-box {
         position: relative;
         display: inline-block;
-        float: left;
+        /*float: left;*/
         text-align: center;
         border: 4px solid;
         transition: transform 0.6s;
@@ -164,13 +164,16 @@
       }
 	</style>
 	<script>
-		window.onload = function(){
+		window.onload = reloadCardData;
+		
+		function reloadCardData(){
 			var dataParam = decodeURI(getParamValue("data"));
 			if(dataParam && dataParam != 'undefined'){
 				var url = getLocationPath() + 'data/grmr/'+dataParam+'.json';
 				loadJsonData(url).then((data) => {
 					const firstKey = Object.keys(data)[0];
 					var div = $("#cardContainer");
+					div.empty();
 					data[firstKey].forEach(function(cdata){
 						darwCard(div, dataParam, cdata);
 					});
@@ -222,7 +225,7 @@
 		             
 		  if(alpha.image){
 		    var fdiv = `
-			<div class="flip-card">
+			<div class="flip-card" number=${alpha.number}>
                 <div class="flip-card-inner">
                 	<div class="flip-card-front">${adiv}</div>
                     <div class="flip-card-back">
@@ -485,30 +488,73 @@
 		toggleIcon(el);
 		$("#cardContainer .flip-card-front").toggleClass('flip-card-front flip-card-f');
 		$("#cardContainer .flip-card-back").toggleClass('flip-card-back flip-card-front');
-		$("#cardContainer .flip-card-f").toggleClass('flip-card-f flip-card-back');
+		$("#cardContainer .flip-card-f").toggleClass('flip-card-f flip-card-back');		
+	}
+
+	var playCardTimer = undefined;
+	function stopPlayCards(elem){
+			console.log('Stopping cards...');
+			$(elem).html('⏵');
+			if(playCardTimer !== undefined)
+				clearInterval(playCardTimer);
+			playCardTimer = undefined;
+			reloadCardData();
+	}
+	function playAllCards(elem){
 		
-		// var f = $("#cardContainer .flip-card-front");
-		// $(".flip-card-inner").remove(f);
-		// $(".flip-card-inner").append(f);
+		var state = $(elem).html().trim();
+		console.log('state='+state);
+		if(state == '⏹'){ // stop
+			stopPlayCards(elem);
+			return;
+		}
+
+		console.log('Playing cards...');
+		$(elem).html('⏹'); //stop
+		var cards = $(".flip-card").sort((a,b) => $(a).attr('number') >= $(b).attr('number'));
+		
+		var index = -1;
+		playCardTimer = setInterval(() => {
+			if(index < cards.length){				
+				index++;
+				var text = $(cards[index]).find('span').html();
+				console.log(`index: ${index}; text=${text}`);
+
+				var bc = $(cards[index]).find(".flip-card-inner");
+				var oldT = $(bc).css('transform');
+				$(bc).css('transform', 'rotateY(180deg)');
+				playCard(text);
+				setTimeout(function(){
+					$(bc).css('transform', oldT);
+				}, 1500);
+			}else{
+				$(elem).html('⏵');
+				clearInterval(playCardTimer);
+				playCardTimer = undefined;
+				reloadCardData();
+			}
+		}, 2500, index);
 	}
 	</script>
 </head>
   <body>
-    <a href="#" 
-		onclick="convertHTMLtoImage('#cardContainer', 
-							        ['#cardContainer .flip-card-front',
-								     '#cardContainer .flip-card-back'], 
-									'exported-cards.pdf');">
-		<img src="images/exp.png" 
-			 style="width: 16px; height: 16px;"
-			 alt="Export to PDF"/>
-	</a>
-	<br/>
-	<a href="#" onclick="toggleCardImages(this)">
-		<img src="images/menu-disabled.jpg" 
-			 style="width: 20px; height: 16px;"
-			 alt="Toggle Images"/>
-	</a>
+	<span style="text-align: middle; align-content: center;">
+		<a href="#" style="text-decoration: none;" 
+			title="Export to PDF"
+			onclick="convertHTMLtoImage('#cardContainer', 
+								        ['#cardContainer .flip-card-front',
+									     '#cardContainer .flip-card-back'], 
+										'exported-cards.pdf');">
+			<img src="images/exp.png" style="width: 16px; height: 16px;"/>
+		</a>
+		<a href="#" style="text-decoration: none;" title="Toggle Images" 
+			onclick=" toggleCardImages(this)">
+			<img src="images/menu-disabled.jpg" style="width: 20px; height: 16px;" />
+		</a>
+		<a href="#" style="position:relative; top: -4px; left:4px; width: 20px; height: 16px;text-decoration: none;" 
+			title="Play Cards"
+			onclick="playAllCards(this)">&#x23F5;</a>
+	</span>
 	<div id="cardContainer">
   </div>
 </body>
