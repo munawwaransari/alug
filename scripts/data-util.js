@@ -681,6 +681,7 @@ function stopQuranChapter(){
 			var stp = $("#juz button").last();
 			if(stp && stp.html() !== '▶')
 				stp.html('▶');
+			$("#pagePlay").html('▶');
 		}
 	}
 	if(id) $("#"+id).show();
