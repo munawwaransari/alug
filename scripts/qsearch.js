@@ -1680,6 +1680,7 @@ function showSurahOntology(index, surah){
 	$('#divOntology').append(
 		$(`<iframe style="width:100%;height:100%; background-color:white;align-items:center;" src=""></iframe>`)
 	);
+	$('#divOntology').attr("convert","img");
 	$('#divOntology iframe').attr('src',
 		`https://qurananalysis.com/analysis/graphing.iframe.php?s=${index}&a=${encodeURIComponent(surah)}&lang=AR`); 
 	$('#divOntology').show();
@@ -1691,6 +1692,7 @@ function showSurahWordCloud(surah){
 	$('#divOntology').append(
 		$(`<iframe style="width:100%;height:100%; background-color:white;align-items:center;" src=""></iframe>`)
 	);
+	$('#divOntology').attr("convert","img");
 	$('#divOntology iframe').attr('src', `https://quickchart.io/wordcloud?text=${surah}`); 
 	$('#divOntology').show();
 }
@@ -2233,6 +2235,7 @@ function  expandSurahInfoInto(elem, targetElem){
 			elemContent[2].innerHTML :
 			elemContent[4].innerHTML
 	}</body>`;
+	$("#divOntology").attr("convert","pdf");
 	$(targetElem).attr('srcdoc', content);
 	$(targetElem).parent().show();
 }
