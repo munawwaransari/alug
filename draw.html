@@ -72,6 +72,7 @@
 	</style>
 	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
 	<script src='https://unpkg.com/tesseract.js@5.0.0/dist/tesseract.min.js'></script>
+	<script src='scripts/data-util.js'></script>
 	<script>
 	const maxHeight = 400;
 	// size of drawing and its starting background colour
@@ -89,6 +90,8 @@
 	var colorSel;
 	var canvas, mouse, ctx;
 	var practiceMode = false;
+	var practiceAlpha = undefined;
+	var practiceMatched = false;
 	var alpha = "ابتثجحخدذرزسشصضطظعغفقكلمنهوي";	
 	var randomAlpha = 0;
 
@@ -175,6 +178,7 @@
 		//*** Add Writing
 		addButton('ج', function() {
 			
+			practiceMatched = false;
 			var chk = document.querySelector('input[id="ج"]');
 			if(chk.checked){
 				practiceMode = true;
@@ -416,9 +420,13 @@
 		ctx.lineWidth = 2;
 		ctx.textAlign = 'center';
 		ctx.textBaseline = 'middle';
-		ctx.strokeText(alpha[randomAlpha], cw, ch);
+		practiceAlpha = alpha[randomAlpha]; 
+		ctx.strokeText(practiceAlpha, cw, ch);
+		if(practiceMatched === true){
+			ctx.fillStyle = 'green';
+			ctx.fillText(practiceAlpha, cw, ch);
+		}		
 	  }
-
 	}
 	
 	//************************************************************
@@ -428,10 +436,18 @@
 			url, 'ara'
 		).then(result => {
 			if(result.data){
-				output.text(result.data.text);
+				output.text(result.data.text.trim());
 				output.append(`
 				<br/><br/>
 				<a style="font-size:14px;" href="#" onclick="copy()">[Copy text]</a>`);
+
+				practiceMatched = practiceMode && 
+					practiceAlpha == arRemovePunct(result.data.text.trim());
+				
+				if(practiceMatched)
+				{
+					alert('Well-done!');
+				}
 			}
 			else
 				output.text('Error!');
