@@ -49,7 +49,7 @@
 	}
 	
 	function openQ(topic){
-		if(parent){
+		if(parent && parent.getLangOption){
 			var langOption = parent.getLangOption();
 			var data_path = `${getLocationPath()}data/km/${topic}_quiz.json`;
 			var abs_path = `${getLocationPath()}quiz.html?&topic=${topic}&lang=${langOption}&data=${data_path}`;

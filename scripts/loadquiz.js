@@ -76,6 +76,38 @@ function prepareQuestion(obj, ch){
 	return divElement;
 }
 
+function openTestPromptSearch(){
+	
+	var questions = '';
+	$.each($(".card.quizlib-question").slice(0,2), (i, e) => {
+		var txt = `${$(e).text()
+			.replaceAll("\t", "")
+			.replaceAll(/[\n]+/g, "\n")
+			.replaceAll("\n", "\r\n")
+			}`.trim('\r\n');
+		questions += txt.split('\r\n').map((v, i) =>
+			i == 0 ? `Question : ${v}\r\n` : `Option ${i}: ${v}\r\n`
+		).join('')+'\r\n';
+
+	})
+
+	var prompt = `Consider following Arabic language test questions.
+
+Context: ${$("#topicHeading").html()}
+
+${questions}
+
+Task: 
+- Provide a question set using above context and question template. 
+- Provide at least 10 questions
+- Use Quranic and general Arabic sentences
+- Use question of medium and complex understanding
+- Provide answer keys and brief explanation at the end
+	`;
+	
+openGoogleAISearch(prompt, true);
+}
+
 function showKeyboard(keybd){
 	setTimeout(function(){
 		console.log("Opening keyboard: " + keybd);
