@@ -1654,7 +1654,7 @@ function getSurahTopics(surah, topics){
 		</div>
 		<div class="dropdown-content2" 
 			onvisibilitychange="$(this).prev().toggleClass('dropdown2')"
-			style="z-index:999;width:auto;left:100px;top:5px;padding-left:6px;text-align:left;background-color:aliceblue;">`;
+			style="z-index:999;width:auto;left:100px;top:50px;padding-left:6px;text-align:left;background-color:aliceblue;">`;
 					
 	for(var i=0; i < topics.length; i++){
 		var ayahs = topics[i].split("|")[1];
@@ -1707,7 +1707,7 @@ function getGraphMenu(index, surah){
 		</div>
 		<div class="dropdown-content2" 
 			onvisibilitychange="$(this).prev().toggleClass('dropdown2')"
-			style="width:auto;left:100px;top:10px;padding-left:6px;text-align:left;background-color:aliceblue;">
+			style="width:auto;left:100px;top:80px;padding-left:6px;text-align:left;background-color:aliceblue;">
 
 			<a href="#" 
 			   onclick="showSurahOntology(${index-1}, '${surah.ar}')">
