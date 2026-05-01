@@ -583,9 +583,27 @@
 		playCardTimer = setInterval(() => {
 			if(index < cards.length){				
 				index++;
-				var text = $(cards[index]).find('span').html();
-				console.log(`index: ${index}; text=${text}`);
 
+				var text = '';
+				if( $(".bottom-right").length > 0 ){
+					text = `${$(cards[index]).find(".top-right").html()} . ${$(cards[index]).find(".top-left").html()} . ${$(cards[index]).find(".bottom-right").html()} . ${$(cards[index]).find(".bottom-left").html()}`;
+				}else{
+					var textElem = $(cards[index]).find('span:last');
+					if(textElem.find("a").length > 0){
+						textElem = textElem.find("a");
+					}
+					text = textElem.html();
+					if(text) {
+						text = text.trim()
+						if(text.includes("<br>")){
+							text = text.split("<br>")[0];
+						}
+					}
+				}
+				console.log(`index: ${index}; text=${text}`);
+				if(text == undefined || text == "undefined" || text == ""){
+					return;
+				}
 				var bc = $(cards[index]).find(".flip-card-inner");
 				var oldT = $(bc).css('transform');
 				$(bc).css('transform', 'rotateY(180deg)');
