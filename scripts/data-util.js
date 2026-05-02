@@ -1711,7 +1711,7 @@ function loadPuterSearch(prompt){
 	console.log("loadPuterSearch");
 	if(parent.redirect){
 		parent.redirect(
-			"puter.html", 
+			"ai.html", 
 			"", 
 			prompt ? prompt : ''
 		);
