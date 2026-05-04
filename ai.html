@@ -20,7 +20,7 @@
   </script>
   <script type="module" src="scripts/gen-ai.js"></script>
   <script>
-    var PROMPT_CACHE_SIZE = 5;
+    const PROMPT_CACHE_SIZE = 5;
 
     if (parent.dataCache === undefined)
       parent.dataCache = {};
@@ -49,15 +49,19 @@
 
     function run_ai(){
       var genai = $("#optionsGenAI").val();
+      var flags = {};
+      flags["IMAGE"] = $("#chkPartImage").is(":checked");
+      flags["HTML"] = $("#chkPartHTML").is(":checked");
+
       if(genai == "google-ai"){
         openGoogleAISearch(document.getElementById('prompt').value.trim());
       }
       else{
-        getAIResponse(genai);
+        getAIResponse(genai, flags);
       }
     }
 
-    async function getAIResponse(genai) {
+    async function getAIResponse(genai, flags) {
       const inputPrompt = document.getElementById('prompt').value.trim();
       if (inputPrompt == undefined || inputPrompt == "undefined") {
         return;
@@ -106,27 +110,70 @@ Tell me what you’d like to do, or paste any details you have.`;
         var model = $('#selModels').val();
         var response = '';
         switch(genai){
-          case "puter": 
-          {
-            response = model == 'default' ?
-              await puter.ai.chat(inputPrompt) :
-              await puter.ai.chat(inputPrompt, { model: model });
-          }
-          break;
 
           case "gemini":
           {
             response = await window.runGeminiGenAISearch(
               $('#apiKey').val(),
               $('#selModels').val(),
+              flags,
               document.getElementById('prompt').value.trim()
             )
             .catch(err => response = err);
           }
           break;
+
+          case "puter": 
+          default:
+          {
+            response = model == 'default' ?
+              await puter.ai.chat(inputPrompt) :
+              await puter.ai.chat(inputPrompt, { model: model });
+          }
+          break;
         }
 
-        var outText = response;
+        outputDiv.innerHTML = aiResponseToHTML(response);
+
+        const end = performance.now();
+        mDiv.innerText = `Last run took: ${((end - start) / 1000).toFixed(2)} seconds`;
+        clearInterval(timer);
+      }
+      catch (err) {
+        mDiv.innerText = 'Last run: Error';
+        outputDiv.innerText = `Error: ${err.message}`;
+        clearInterval(timer);
+      }
+    }
+
+    function aiResponseToHTML(result){
+    
+      var htmlResponse = $("<div/>");
+
+      if(typeof result=="string"){
+        htmlResponse.append(result);  
+      }
+      else // Check Image Part
+      if(result.response && result.response.candidates && 
+         result.response.candidates[0].content && 
+         result.response.candidates[0].content.parts &&
+        result.response.candidates[0].content.parts.length > 0){
+
+        // Iterate through response parts to find the image data
+        for (const part of result.response.candidates[0].content.parts) {
+          if (part.inlineData) {
+            const imageData = part.inlineData.data; // Base64 encoded string
+            
+            //const buffer = Buffer.from(imageData, "base64");
+            //fs.writeFileSync("generated_image.png", buffer);
+            
+            htmlResponse.append(`<img style="width:80%" src="${imageData}" />`);
+          } else if (part.text) {
+            htmlResponse.append(`${part.text}`);  
+          }
+        }
+      }
+      else {
         if(response.text){
           outText = response.text();
         }
@@ -141,17 +188,10 @@ Tell me what you’d like to do, or paste any details you have.`;
             }
           });
         }
-        outputDiv.innerText = outText;
+        htmlResponse.append(outText);
+      }
 
-        const end = performance.now();
-        mDiv.innerText = `Last run took: ${((end - start) / 1000).toFixed(2)} seconds`;
-        clearInterval(timer);
-      }
-      catch (err) {
-        mDiv.innerText = 'Last run: Error';
-        outputDiv.innerText = `Error: ${err.message}`;
-        clearInterval(timer);
-      }
+      return htmlResponse.html();
     }
 
     function updateCache(key, value) {
@@ -273,7 +313,7 @@ Tell me what you’d like to do, or paste any details you have.`;
     onclick="toggleHead($('#pHead'), $('#pHeadImg'))">
     <img id="pHeadImg" src="images/up.png" width="12px;" alt="toggle" />
   </div>
-  <div id="pHead" style="display:inline-block;vertical-align:top;padding-bottom:10px;width:100%">
+  <div id="pHead" style="display:block;padding-bottom:10px;width:100%">
     <label id="pLastRun" style="float:right;margin-right:10px;"></label>
     <div style="margin-left:10px;padding-bottom:6px;padding-top:6px;display:inline-block">
       Gen AI:
@@ -283,10 +323,18 @@ Tell me what you’d like to do, or paste any details you have.`;
         <option value="puter">Puter</option>
       </select>
       <button style="margin:auto;margin-left:10px;text-align:left;" onclick="run_ai()">Run</button>
+      <span>
+				<input id="chkPartImage" type="Checkbox" checked>
+        <label>Image</label>
+      </span>
+      <span>
+				<input id="chkPartHTML" type="Checkbox" checked>
+        <label>HTML</label>
+      </span>
     </div>
     <div style="margin-left:10px;padding-bottom:6px;padding-top:10px;">
       API KEY:
-      <input id="apiKey" />
+      <input id="apiKey" type="password" maxlength="128"/>
     </div>
     <div style="margin-left:10px;padding-bottom:6px;padding-top:6px;">
       Models:
@@ -309,7 +357,7 @@ Tell me what you’d like to do, or paste any details you have.`;
   <img src="images/speech-enabled.png" 
         style="margin:auto;margin-left: 10px;width:18px;" 
         onclick="playResponse()" />
-  <div id="output">&nbsp;</div>
+  <div id="output" style="display:block;left:0;">&nbsp;</div>
 </body>
 
 </html>
