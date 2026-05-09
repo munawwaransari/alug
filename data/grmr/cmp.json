@@ -52,17 +52,17 @@
             "Definition",
             "Sub-Types"
         ],
-        "notes": null,
         "features": {
             "ال العهدية": [
-                "<p style=\"direction:ltr\">This type of 'ال' refers to a specific, known entity that has been previously mentioned, is present, or is understood by the speaker and listener. It is equivalent to 'the' in English.</p>",
-                "<div style=\"direction:ltr\"><p>الذكرية (Mentioned):<br/> Refers to something mentioned previously.<br/>Example:<br/> فَعَصَىٰ   فِرۡعَوۡنُ   ٱلرَّسُولَ  [73:16]<br/>ٱلرَّسُولَ => The (particular) messenger </p><p>الحضورية (Present):<br/> Refers to something present at the time of speech<br/>Example:<br/>  ٱلۡيَوۡمَ   أَكۡمَلۡتُ   لَكُمۡ   دِينَكُمۡ [5:3]<br/>ٱلۡيَوۡمَ => The (this particular) day</p><p>الذهنية (Understood):<br/> Refers to something understood in the mind of the speaker/listener<br/>Example:<br/> جاءَ الرجلُ<br/>The (specific) man came</p></div>"
+                "This type of 'ال' refers to a specific, known entity that has been previously mentioned, is present, or is understood by the speaker and listener. It is equivalent to 'the' in English",
+                "الذكرية (Mentioned):<br/> Refers to something mentioned previously.<br/>Example:<br/> فَعَصَىٰ   فِرۡعَوۡنُ   ٱلرَّسُولَ  [73:16]<br/>ٱلرَّسُولَ => The (particular) messenger <br/><br/>الحضورية (Present):<br/> Refers to something present at the time of speech<br/>Example:<br/>  ٱلۡيَوۡمَ   أَكۡمَلۡتُ   لَكُمۡ   دِينَكُمۡ [5:3]<br/>ٱلۡيَوۡمَ => The (this particular) day<br/><br/>الذهنية (Understood):<br/> Refers to something understood in the mind of the speaker/listener<br/>Example:<br/> جاءَ الرجلُ<br/>The (specific) man came"
             ],
             "ال الجنسية": [
-                "<p style=\"direction:ltr\">This type of 'ال' is used to define an entire class, genus, or species of a thing rather than one specific item.</p>",
-                "<div style=\"direction:ltr\"><p>الاستغراقية (Comprehensive):<br/> Encompasses all individuals within a category.<br/> It can often be replaced by the word كُلّ (all/every)<br/>Example:<br/>  [4:28] وَخُلِقَ الْإِنسَانُ ضَعِيفًا <br/>(And [all] mankind was created weak)<br/> - Refers to every human being.</p><p>لبيان الماهية/الحقيقة (Specifying Essence):<br/> Focuses on the essence or nature of the thing without referring to a specific instance<br/>Example:<br/> إن الرجلَ خير من المرأة (Man is better than woman - speaking of the species/nature, not a specific man/woman).</p></div>"
+                "This type of 'ال' is used to define an entire class, genus, or species of a thing rather than one specific item",
+                "الاستغراقية (Comprehensive):<br/> Encompasses all individuals within a category.<br/> It can often be replaced by the word كُلّ (all/every)<br/>Example:<br/>  [4:28] وَخُلِقَ الْإِنسَانُ ضَعِيفًا <br/>(And [all] mankind was created weak)<br/> - Refers to every human being.<br/><br/>لبيان الماهية/الحقيقة (Specifying Essence):<br/> Focuses on the essence or nature of the thing without referring to a specific instance<br/>Example:<br/> إن الرجلَ خير من المرأة (Man is better than woman - speaking of the species/nature, not a specific man/woman)"
             ]
-        }
+        },
+        "notes": ""
     },
     {
         "topics": [
