@@ -307,6 +307,35 @@
     },
     {
         "topics": [
+            "لام الإبتداء (التوكيد)",
+            "لام الخبر (المزحلقة)"
+        ],
+        "ar": [
+            "تعريف",
+            "بناء",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Construct",
+            "Example"
+        ],
+        "features": {
+            "لام الإبتداء (التوكيد)": [
+                "Used to emphasize the Subject or topic in a Nominal sentence",
+                "ل(لام التوكيد) + مُبتداء + خبر",
+                "وَلَدَارُ   ٱلۡأٓخِرَةِ   خَيۡرٞۚ  [16:30] <br/><br/>وَلَعَبْدٌ مُّؤْمِنٌ خَيْرٌ مِّن مُّشْرِكٍ [2:221]<br/>&nbsp;"
+            ],
+            "لام الخبر (المزحلقة)": [
+                "Similar to لام الإبتداء however attaches to the Predicate when Subject is preceeded with إنَّ",
+                "إنَّ + مُبتداء + ل (لام المزحلقة) + خبر",
+                "إِنَّ رَبِّي لَسَمِيعُ الدُّعَاءِ [14:39] <br/><br/>ثُمَّ   إِنَّكُم   بَعۡدَ   ذَٰلِكَ   لَمَيِّتُونَ   ١٥ [23:15] <br/><br/>&nbsp;"
+            ]
+        },
+        "notes": "Both are open lam (لَـ) used for emphasis, but the difference between them lies in their position in the sentence and their relationship to the emphatic particle إنَّ"
+    },
+    {
+        "topics": [
             "نون التوكيد",
             "نون النسوة"
         ],

@@ -254,7 +254,7 @@
         "action": "cmp",
 	"data": "pos:6"
     },
-    "Wao;Ishba;واؤ الجمع;واؤ الاشباع": {
+    "Wao of Ishba;واؤ الجمع;واؤ الاشباع": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:7"
@@ -264,65 +264,75 @@
         "action": "cmp",
 	"data": "pos:8"
     },
-    "Faa;فاء العاطفة": {
+    "Faa of Conjunction;فاء العاطفة": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:9"
     },
-    "Faa;فاء الفصيحة": {
+    "Faa of Explanation;فاء الفصيحة": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:9"
     },
-    "Faa;فاء الزائدة": {
+    "Faa (Superfluous);فاء الزائدة": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:9"
     },
-    "Laam;لام التعليل": {
+    "Laam of Causation;لام التعليل": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:10"
     },
-    "Laam;لام النفي": {
+    "Laam of Negation;لام النفي": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:10"
     },
-    "Laam;لام الحجود": {
+    "Laam of Exclusion;لام الحجود": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:10"
     },
-    "Nun;نون التوكيد": {
+    "Laam of Emphasis;لام الإبتداء": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:11"
     },
-    "Faa;نون النسوة": {
+    "Laam (Sliding);لام المزحلقة": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:11"
     },
-    "Ya;ياء المخاطبة;ياء المتكلم": {
+    "Nun of Emphasis;نون التوكيد": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:12"
     },
-    "Vocative;النِّداء;ترخِيم;": {
+    "Faa;نون النسوة": {
+        "path": "dict.html",
+        "action": "cmp",
+	"data": "pos:12"
+    },
+    "Ya;ياء المخاطبة;ياء المتكلم": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:13"
     },
-    "Until;حتي;": {
+    "Vocative;النِّداء;ترخِيم;": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:14"
     },
-    "That;أن المخففة;أنّ الثقيلة": {
+    "Until;حتي;": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:15"
+    },
+    "That;أن المخففة;أنّ الثقيلة": {
+        "path": "dict.html",
+        "action": "cmp",
+	"data": "pos:16"
     },
 	"Masdar - Triliteral;مصادر;": {
         "path": "dict.html",
