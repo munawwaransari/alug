@@ -1653,7 +1653,17 @@ function cropImage(img, cropX, cropY, cropWidth, cropHeight){
 
 
 function getPromptsForVerse(chapter, verse, target = 'puter') {
-    var word_promtp = `
+    var word_conjugation_prompt = `
+		Context: Arabic Grammar\\nIdentify part of speech of above word\\nDepending on the part of speech, provide a conjugation table withh following details:
+Person, Gender, Number, Tense, Voice
+Format the response in a table format with columns for each of the above details and rows for each conjugation form.
+If it is a verb, provide separate conjugation tables for past, present, future and imperative forms. 
+Keep the person as row header, with gender as sub-header.
+Keep the number, tense and voice as columns.
+Keep the words in the table in Arabic, and provide transliteration in brackets next to it.
+If it is not a verb, provide any relevant conjugation details based on the part of speech.
+	`.trim();
+	var word_promtp = `
 		Context: Quran\\nQuestion: Describe in detail the meaning of this word `.trim();
 	var verse_prompt_prefix =`
 		Context: Quran\\nVerse: ${chapter}:${verse}\\nQuestion: `.trim(); 
@@ -1663,6 +1673,7 @@ function getPromptsForVerse(chapter, verse, target = 'puter') {
 	var target_function = target == 'puter' ? 'loadPuterSearch' : 'openGoogleAISearch';
 	return `
 		<a href="#" onclick="${target_function}(\`${word_promtp}\`+${sel}+${verse_prommpt_suffix})">Describe word</a>
+		<a href="#" onclick="${target_function}(${sel}+\`${word_conjugation_prompt}\`)">Conjugate word</a>
 		<a href="#" onclick="
 			${target_function}(\`${verse_prompt_prefix} Provide a comprehensive summary of the given verse.\`+${verse_prommpt_suffix})">
 		Provide comprehensive summary
