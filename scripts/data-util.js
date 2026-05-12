@@ -1674,12 +1674,11 @@ If it is not a verb, provide any relevant conjugation details based on the part 
 	return `
 		<a href="#" onclick="${target_function}(\`${word_promtp}\`+${sel}+${verse_prommpt_suffix})">Describe word</a>
 		<a href="#" onclick="${target_function}(${sel}+\`${word_conjugation_prompt}\`)">Conjugate word</a>
-		<a href="#" onclick="
-			${target_function}(\`${verse_prompt_prefix} Provide a comprehensive summary of the given verse.\`+${verse_prommpt_suffix})">
-		Provide comprehensive summary
+		<a href="#" onclick="${target_function}(\`${verse_prompt_prefix}\nProvide a comprehensive summary and include the main messages, and any significant interpretations or insights related to this verse.\`+${verse_prommpt_suffix})">
+		Summarize verse
 		</a>
-		<a href="#" onclick="${target_function}(\`${verse_prompt_prefix} Provide summary and include the main messages, and any significant interpretations or insights related to this verse.\`+${verse_prommpt_suffix})">
-		Provide summary with themes and insights
+		<a href="#" onclick="${target_function}(\`${verse_prompt_prefix}\nTranslate in 10 most common languages, provide only translation and references\`)">
+		Translate in 10 languages
 		</a>
 		`.trim();
 }
