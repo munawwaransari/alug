@@ -2159,7 +2159,9 @@ function changeSurahDisplayMode(elem){
 }
 
 function getVerseKeyFromElement(id, prefix){
-	var tk = id.replace(prefix,'').split('_');
+	var tk = id.replace(prefix,'').replace(/^[-_]/,'');
+	tk = tk.includes('-') ? tk.split('-') : tk.split('_');
+	console.log(tk);
 	if(tk){
 		return tk[0]+':'+tk[1];
 	}
@@ -2169,37 +2171,44 @@ function getVerseKeyFromElement(id, prefix){
 function copyAyahText(className){
 	var spans = $("div[id*=vdiv]").find("span[class="+className+"]");
 	var text = '';
+	var first;
 	spans.each(function(i, v){
 		if(text != '') text+= ' ';
 		text += $(v).text();
-		var verseKey = getVerseKeyFromElement($(v).parent().prop('id'), 'vdiv')
+		if(!first) first = v;
+	});
+	if(first){
+		var verseKey = getVerseKeyFromElement($(first).parent().prop('id'), 'vdiv')
 		if(verseKey !== ''){
 			text += ' [Quran '+verseKey+']';
 		}
-	});
-	if(text != ''){
-		copyTextToClipboard(text);
 	}
+	copyTextToClipboard(text);
 }
 
 function copyTafsirText(){
-	var txt = $("#tafsir").text();
+	var div = $("div[id*=_tafsir]");
+	var txt = div.text();
 	if(txt && txt.length > 0){
-		var id = $("#tafsir").prev('div').prop('id');
+		var id = div.prev('div').prop('id');
 		var verseKey = getVerseKeyFromElement(id, 'div')
 		if(verseKey != ''){
 			txt += ' [Quran '+verseKey+']';
 		}
 		copyTextToClipboard(txt);
 	}
+	else{
+		copyTextToClipboard('');
+	}
 }
 
 function copyAyahImagePath(){
-	var id = $("#tafsir").prev('div').prop('id');
-	var verseKey = getVerseKeyFromElement(id, 'div');
-	if(verseKey != ''){
-		verseKey = verseKey.replace(':', '_');
-		copyTextToClipboard(`https://everyayah.com/data/images_png/${verseKey}.png`);
+	var src = $("div[id*=vdiv]").find("img").prop('src');
+	if(src && src.length > 0){
+		copyTextToClipboard(src);
+	}
+	else{
+		copyTextToClipboard('');
 	}
 }
 
@@ -2216,6 +2225,9 @@ function copyAyahMp3Path(){
 									.split("/")[0];
 		var url2  = encodeURI(current_url.replace(current_qari, selected_qari));
 		copyTextToClipboard(url2);
+	}
+	else{
+		copyTextToClipboard('');
 	}
 }
 
