@@ -2161,7 +2161,6 @@ function changeSurahDisplayMode(elem){
 function getVerseKeyFromElement(id, prefix){
 	var tk = id.replace(prefix,'').replace(/^[-_]/,'');
 	tk = tk.includes('-') ? tk.split('-') : tk.split('_');
-	console.log(tk);
 	if(tk){
 		return tk[0]+':'+tk[1];
 	}
