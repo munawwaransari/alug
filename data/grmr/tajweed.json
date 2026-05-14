@@ -1,0 +1,76 @@
+{
+    "tajweed": [
+        {
+            "play": "بَ . بِ . بُ",
+            "names": ["بَ &#8592 b<b>a</b>", "بِ &#8592 b<b>i</b>", "بُ &#8592 b<b>u</b>"],
+			"en": ["حَرَكَة - One Beat"]
+        },
+        {
+            "play": "بَا . بِي . بُو",
+            "names": ["بَا &#8592 b<b>aa</b>", "بِي &#8592 b<b>ee</b>", "بُو &#8592 b<b>oo</b>"],
+			"en": ["حَرَكَة - Two Beat"]
+        },
+        {
+            "play": "إِذَا جآءَ . الضّآلِّين",
+            "names": ["إِذَا جآءَ <br/> idha j<b>aaaa</b>a", "الضّآلِّين <br/><sub>adh<b>aaaa</b>ll<b>eeee</b>n</sub>"],
+			"en": ["حَرَكَة - Four to Six Beat"]
+        },
+        {
+            "play": "إنَّ . ثُمَّ",
+            "names": [
+                "إنَّ <br/>i<b>nnn</b>a",
+                "ثُمَّ <br/>thu<b>mmm</b>a"    
+            ],
+			"en": ["غُنّة <br/> Nasalization"]
+        },
+        {
+            "play": "مِنْ بَعدِ",
+            "names": [
+                "مِنْ بَعدِ mi<b>mm</b>ba'di",
+                "اَنْبَتنا <br/>a<b>mm</b>batnaa"
+            ],
+            "en": ["إقلاب <br/> Flipping<br/> نْ &#8592 م"]
+        },
+        {
+            "play": "وَاضْرِب . تَجْرِي",
+            "names": [
+                "وَاضْرِب &#8592 wadh<b><sup>a</sup></b>rib",
+                "تَجْرِي &#8592 <br/>taj<b><sup>a</sup></b>ri"
+            ],
+            "en": ["قلقلة <br/> Shaking <br/> ق ط ب ج د"]
+        },
+        {
+            "play": "فَمَنْ يَّعمَل . خَيراً يَّرَهُ",
+            "names": [
+                "فَمَنْ يَّعمَل <br/><sub>fama<b>nnyy</b>'amal</sub>",
+                "خَيراً يَّرَهُ <br/><sub>khaira<b>nnyy</b>arahu</sub>"
+            ],
+            "en": ["إدغام <br/> Dipthong with Ghunna<br/> ي ن و م"]
+        },
+        {
+            "play": "مِنْ رَّبِّهِم . فِي القَتْلِ",
+            "names": [
+                "مِنْ رَّبِّهِم <br/><sub>mi<b>rr</b>abihim</sub>",
+                "فِي القَتْلِ <br/><sub>fi<b>l</b>qatli</sub>"
+            ],
+            "en": ["إدغام <br/> Dipthong without Ghunna<br/>ل ر"]
+        },
+        {
+            "play": "مِنهَا . لطِيفٌ . اَنعَمتَ",
+            "names": [
+                "مِنهَا <sub>mi<b>n</b>ha</sub>",
+                "لطِيفٌ <sub>latifu<b>n</b></sub>",
+                "اَنعَمتَ <sub>a<b>n</b>'amta</sub>"
+            ],
+            "en": ["إظهار <br/> Proclamation<br/> ء ه ع ح غ خ"]
+        },
+        {
+            "play": "فَليَنظُر . مِنْ شَرٍّ",
+            "names": [
+                "فَليَنظُر <sub>falya<b><u>n</u></b>zur</sub>",
+                "مِنْ شَرٍّ <sub>mi<b><u>n</u></b>sharri</sub>"
+            ],
+            "en": ["إخفاء <br/> Concealment<br/>(Light Ghunna)"]
+        }
+    ]
+}

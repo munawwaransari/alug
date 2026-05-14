@@ -414,6 +414,11 @@
         "action": "Vocab",
         "data": "hyperbole"
     },
+    "Tajweed (Cards);Charts;Vocabulary;تجويد": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "tajweed"
+    },
     "Greetings (Cards);Charts;Vocabulary;تحيات;تحية;": {
         "path": "cards.html",
         "action": "Vocab",

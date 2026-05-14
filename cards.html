@@ -199,6 +199,9 @@
 			case "hyperbole":
 				darwHyperbole(div, cdata);
 				break;
+			case "tajweed":
+				darwTajweed(div, cdata);
+				break;
 			case "greetings":
 				darwGreetings(div, cdata);
 				break;
@@ -429,7 +432,31 @@
                 </div>
             </div>`;
 		    div.append($(fdiv));
-		}		
+		}
+		
+		function darwTajweed(div, h){             
+		    var fdiv = `
+			<div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" onmouseenter="playCard('${h.play}')">
+					    <span style="position:relative; display:flex; align-items:center; font-size:34px">
+							${h.en[0]}
+						</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <img style="opacity:0;top:24%; width:94%; height:76%" 
+							 class="alpha-image" src="">
+                        </img>
+						<span style="position:relative; display:flex; align-items:center; font-size:32px">
+							<a href="#" style="text-decoration:none; cursor:pointer;">
+								${h.names.map((n, i) => `${n}<br/><br/>`).join("")}
+							</a>
+						</span>
+                    </div>
+                </div>
+            </div>`;
+		    div.append($(fdiv));
+		}
 		
 		function darwGreetings(div, h){             
 

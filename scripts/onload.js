@@ -540,6 +540,7 @@ function updateToolDescription(id, opt){
 						"Homonymn": "homonym",
 						"Antonym": "antonym",
 						"Hyperbole": "hyperbole",
+						"Tajweed": "tajweed",
 						"Greetings": "greetings",
 						"Colors": "colors",
 						"Pronouns": "pronouns"
