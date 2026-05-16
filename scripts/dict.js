@@ -939,7 +939,9 @@ function showWeakVerbTable() {
 	var table = `
 	<table class="pTable">
 		<tr>
-			<td style="background-color:#E8E885;"><b>مِثال</b></td>
+			<td style="background-color:#E8E885;">
+				<b><a href="#" title="AI search" onclick="openGoogleAISearch(getWeakVerbPrompt('مِثال'))">مِثال</a></b>
+			</td>
 			<td rowspan="3">(يَفعَلُ) يَوجِدُ => ${alink.replaceAll('$', 'يَجِدُ')}
 			<br/><br/>(يَفعِلُونَ) يَوذِرُونَ => يَذِرُونَ</td>
 		</tr>
@@ -953,7 +955,9 @@ function showWeakVerbTable() {
 			<td colspan="2">${replaceQLink('وَمَن يَلْعَنِ اللَّهُ فَلَن تَجِدَ لَهُ نَصِيرًا [4:52]', false)}</td>
 		</tr>
 		<tr>
-			<td style="background-color:#E8E885;"><b>أَجوَف</b></td>
+			<td style="background-color:#E8E885;">
+				<b><a href="#" title="AI search" onclick="openGoogleAISearch(getWeakVerbPrompt('أَجوَف'))">أَجوَف</a></b>
+			</td>
 			<td rowspan="3">(فَعَلَ) قَوَلَ => ${alink.replaceAll('$', 'قَالَ')}
 			<br/><br/>(فُعِلَ) قُوِلَ => قِيلَ</td>
 		</tr>
@@ -967,7 +971,9 @@ function showWeakVerbTable() {
 			<td colspan="2">${replaceQLink('وَأَن تَصُومُوا خَيْرٌ لَّكُمْ [2:184]', false)}</td>
 		</tr>
 		<tr>
-			<td style="background-color:#E8E885;"><b>نَاقِص</b></td>
+			<td style="background-color:#E8E885;">
+				<b><a href="#" title="AI search" onclick="openGoogleAISearch(getWeakVerbPrompt('نَاقِص'))">نَاقِص</a></b>
+				</td>
 			<td rowspan="3">(فَعَلُوا) رَضَيُوا=> ${alink.replaceAll('$', 'رَضُوا')}<br/></td>
 		</tr>
 		<tr>
@@ -980,7 +986,9 @@ function showWeakVerbTable() {
 			<td colspan="2">${replaceQLink('رَّضِيَ اللَّهُ عَنْهُمْ وَرَضُوا عَنْهُ [5:119]', false)}</td>
 		</tr>
 		<tr>
-			<td style="background-color:#E8E885;"><b>لَفِيف</b></td>
+			<td style="background-color:#E8E885;">
+				<b><a href="#" title="AI search" onclick="openGoogleAISearch(getWeakVerbPrompt('لَفِيف'))">لَفِيف</a></b>
+			</td>
 			<td rowspan="3">(اِفتَعَلَ) إوتَقَيَ => إتْتَقَي => ${alink.replaceAll('$', 'إتَّقَي')}
 			<br/><br/>(فَعِلنَا) وَقِينَا=> وَقِنَا</td>
 		</tr>
@@ -993,7 +1001,9 @@ function showWeakVerbTable() {
 			<td colspan="2">${replaceQLink('وَقِنَا عَذَابَ النَّارِ [3:16]', false)}</td>
 		</tr>
 		<tr>
-			<td style="background-color:#E8E885;"><b>مَهمُوز</b></td>
+			<td style="background-color:#E8E885;">
+				<b><a href="#" onclick="openGoogleAISearch(getWeakVerbPrompt('مَهمُوز'))">مَهمُوز</a></b>
+			</td>
 			<td rowspan="3">(فَعَلُوا) رَأَيُو => ${alink.replaceAll('$', 'رَأَو')}
 			<br/><br/>(يَفعَلُ) يَاكُلُ [Exception]</td>
 		</tr>
