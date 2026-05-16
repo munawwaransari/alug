@@ -739,7 +739,7 @@ function getAnalysisOptions(verse, verseKeys){
 						<!-- Google AI Search -->
 						<div class="dropdown-content dropdown2" 
 						     style="position:relative;padding-top:10px;padding-bottom:10px;vertical-align:middle;">
-							 <img style="margin:auto;width:18px;" src="images/ai.png" alt="Powered by Puter"/>
+							 <img style="margin:auto;width:18px;" src="images/ai.png"/>
 							 &nbsp; Google &gt;
 						</div> 
 						<div class="dropdown-content2" style="z-index:999999;margin-left:60px;padding:2px;">

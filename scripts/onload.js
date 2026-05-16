@@ -463,7 +463,7 @@ function updateToolDescription(id, opt){
 			
 		case 'ai':
 		var sdiv = $(`
-			<div  style="width:100%">AI Search powered by Puter</div>`);
+			<div  style="width:100%">AI Search</div>`);
 			toolMessage.html(sdiv);
 			loadPuterSearch();
 		break;
