@@ -165,7 +165,8 @@
 	</style>
 	<script>
 		window.onload = reloadCardData;
-		
+		ensureJsonData({name: "ai-prompts"});
+
 		function reloadCardData(){
 			var dataParam = decodeURI(getParamValue("data"));
 			if(dataParam && dataParam != 'undefined'){
@@ -241,10 +242,8 @@
                         <span style="margin-bottom:0">
 						<a href="#" style="text-decoration:none; cursor:pointer;"
 							onclick="openGoogleAISearch(
-							\`
-							Provide 7 Arabic sentences using ${alpha.imageName.trim()}. 
-							Use various grammatical nuances.
-							\`, true);">
+								getPromptFromKey(['Alphabets'], 
+									{'0': ['${alpha.imageName[0]}']}, true));">
 							${alpha.imageName.trim()}
 						</a>
 						</span>
@@ -270,11 +269,8 @@
 						<span style="top:10px; margin-bottom:0; font-size:18px">
 							<a href="#" style="text-decoration:none; cursor:pointer;"
 								onclick="openGoogleAISearch(
-								\`
-								Provide 7 Arabic sentences using ${h.names[0]}<br/>${h.ur[0]}/${h.en[0]}. 
-								Inlcude nuances in differences with its homonym ${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}.
-								Provide a comparision Table for both the word and it homonym.
-								\`, true);">
+									getPromptFromKey(['Homonyms'], 
+										{'0': ['${h.names[0]}<br/>${h.ur[0]}/${h.en[0]}']}, true));">
 							${h.names[0]}<br/>${h.ur[0]}/${h.en[0]}
 							</a>
 						</span>
@@ -290,11 +286,8 @@
 						<span style="top:10px; margin-bottom:0; font-size:18px">
 							<a href="#" style="text-decoration:none; cursor:pointer;"
 								onclick="openGoogleAISearch(
-								\`
-								Provide 7 Arabic sentences using ${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}. 
-								Inlcude nuances in differences with its homonym ${h.names[0]}<br/>${h.ur[0]}/${h.en[0]}.
-								Provide a comparision Table for both the word and it homonym.
-								\`, true);">
+									getPromptFromKey(['Homonyms'], 
+										{'0': ['${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}']}, true));">
 							${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}
 							</a>
 						</span>
@@ -320,11 +313,8 @@
 						<span style="top:10px; margin-bottom:0; font-size:18px">
 						<a href="#" style="text-decoration:none; cursor:pointer;"
 							onclick="openGoogleAISearch(
-							\`
-							Provide 7 Arabic sentences using ${h.names[0]}<br/>${h.ur[0]}/${h.en[0]}. 
-							Inlcude nuances in differences with its antonym ${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}.
-							Provide a comparision Table for both the word and it antonym.
-							\`, true);">
+								getPromptFromKey(['Antonyms'], 
+									{'0': ['${h.names[0]},${h.ur[0]}/${h.en[0]}']}, true));">
 						${h.names[0]}<br/>${h.ur[0]}/${h.en[0]}
 						</a>
 						</span>
@@ -340,11 +330,8 @@
 						<span style="top:10px; margin-bottom:0; font-size:18px">
 						<a href="#" style="text-decoration:none; cursor:pointer;"
 							onclick="openGoogleAISearch(
-							\`
-							Provide 7 Arabic sentences using ${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}. 
-							Inlcude nuances in differences with its antonym ${h.names[0]}<br/>${h.ur[0]}/${h.en[0]}.
-							Provide a comparision Table for both the word and it antonym.
-							\`, true);">
+								getPromptFromKey(['Antonyms'], 
+									{'0': ['${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}']}, true));">
 							${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}
 						</a>
 						</span>
@@ -385,14 +372,12 @@
 							<span style="top:10px; margin-bottom:0">
 								<a href="#" style="text-decoration:none; cursor:pointer;"
 									onclick="openGoogleAISearch(
-									\`
-									Provide 7 Arabic sentences using ${syn.en}<br/>${syn.ur}. 
-									Inlcude nuances in differences with its synonyms:
-										- ${syn.names[0]}
-										- ${syn.names[1]}
-										- ${syn.names[2]}
-										- ${syn.names[3]}
-									\`, true);">
+									getPromptFromKey(['Synonyms'], 
+										{'0': ['${syn.en}<br/>${syn.ur}', 
+											['${syn.names[0]}',
+											 '${syn.names[1]}',
+											 '${syn.names[2]}',
+											 '${syn.names[3]}']]}, true));">
 									${syn.en}<br/>${syn.ur}
 								</a>
 							</span>
@@ -421,10 +406,8 @@
 						<span style="position:relative; display:flex; align-items:center; font-size:32px">
 							<a href="#" style="text-decoration:none; cursor:pointer;"
 								onclick="openGoogleAISearch(
-								\`
-								Provide 7 Arabic sentences using hyperbole ${h.names[0]}<br/>${h.en[0]}. 
-								Inlcude examples based on this hyperbole patter.
-								\`, true);">
+								getPromptFromKey(['Hyperboles'], 
+									{'0': ['${h.names[0]}<br/>${h.en[0]}']}, true));">
 								${h.names[1]}
 							</a>
 						</span>
@@ -478,9 +461,8 @@
 							<span style="position:relative; display:flex; align-items:center; font-size:32px">
 							<a href="#" style="text-decoration:none; cursor:pointer;"
 								onclick="openGoogleAISearch(
-								\`
-								Provide 7 Arabic sentences using greeting ${name}, ${h.en[i]}.
-								\`, true);">
+								getPromptFromKey(['Greetings'], 
+									{'0': ['${name}', '${h.en[i]}']}, true));">
 								${h.en[i]}
 							</a>
 							</span>

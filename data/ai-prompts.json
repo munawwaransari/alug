@@ -69,5 +69,33 @@
         "Provide a detail summary of each topic, with each topic as a separate section.",
         "Also include key verses (in Arabic with chapter and ayah number) related to each topic, and explain the relevance of those verses to the topic.",
         "Provide the final response in language: LLL"
+    ],
+    "Alphabets": [
+        "Provide 7 Arabic words starting with alphabet @0",
+        "Show example using each word in a sentence.",
+        "Use various grammatical nuances."
+    ],
+    "Homonyms": [
+        "Provide 7 Arabic sentences using @0",
+        "Inlcude nuances in differences with its homonym @1",
+        "Provide a comparision Table for both the word and it homonym."
+    ],
+    "Antonyms": [
+        "Provide 7 Arabic sentences using @0",
+        "Inlcude nuances in differences with its antonym @1",
+        "Provide a comparision Table for both the word and it antonym."
+    ],
+    "Synonyms": [
+        "Provide 7 Arabic sentences using @0",
+        "Inlcude nuances in differences with its synonyms:",
+        "@1"
+    ],
+    "Hyperbole": [
+        "Provide 7 Arabic sentences using hyperbole @0",
+        "Inlcude examples based on this hyperbole pattern."
+    ],
+    "Greetings": [
+        "Provide 7 Arabic sentences for greeting @0, @1",
+        "Include nuances and variations in greetings based on the context."
     ]
 }
