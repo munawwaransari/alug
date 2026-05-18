@@ -1654,18 +1654,6 @@ function cropImage(img, cropX, cropY, cropWidth, cropHeight){
 	return canvas.toDataURL('image/png');
 }
 
-
-function getWeakVerbPrompt(wType){
-    return `
-		Context: Arabic Grammar\\n Verb Type: ${wType}\\nIdentify type of above weak verb\\nDepending on the type, provide a conjugation tables with eample verbs from this weak verb type with following details:
-Format the response in a table format with columns for each of the above details and rows for each conjugation form.
-If it is a verb, provide separate conjugation tables for past, present, future and imperative forms. 
-Keep the person as row header, with gender as sub-header.
-Keep the number, tense and voice as columns.
-Keep the words in the table in Arabic, and provide transliteration in brackets next to it.
-`.trim();
-}
-
 function getPromptsForVerse(chapter, verse, target = 'puter') {
 	var selLang = parent.getLang ? parent.getLang() ?? 'EN' : 'EN';
 	var selWord = "${$('.sel-word').first().text()}";

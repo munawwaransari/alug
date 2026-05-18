@@ -50,5 +50,16 @@
         "Context: Quran",
         "Verse: @0:@1",
         "Translate the verse in 10 most common languages, provide only translation and references"
+    ],
+    "WeakVerbs": [
+        "Context: Arabic Grammar",
+        "Verb Type: @0",
+        "Identify type of above weak verb",
+        "Depending on the type, provide a conjugation tables with eample verbs from this weak verb type with following details:",
+        "Format the response in a table format with columns for each of the above details and rows for each conjugation form.",
+        "If it is a verb, provide separate conjugation tables for past, present, future and imperative forms.",
+        "Keep the person as row header, with gender as sub-header.",
+        "Keep the number, tense and voice as columns.",
+        "Keep the words in the table in Arabic, and provide transliteration in brackets next to it."
     ]
 }

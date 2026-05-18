@@ -941,7 +941,9 @@ function showWeakVerbTable() {
 	<table class="pTable">
 		<tr>
 			<td style="background-color:#E8E885;">
-				<b><a href="#" title="AI search" onclick="openGoogleAISearch(getWeakVerbPrompt('مِثال'))">مِثال</a></b>
+				<b><a href="#" title="AI search" 
+					onclick="openGoogleAISearch(
+						getPromptFromKey(['WeakVerbs'], {'0': ['مِثال']}, true))">مِثال</a></b>
 			</td>
 			<td rowspan="3">(يَفعَلُ) يَوجِدُ => ${alink.replaceAll('$', 'يَجِدُ')}
 			<br/><br/>(يَفعِلُونَ) يَوذِرُونَ => يَذِرُونَ</td>
@@ -957,7 +959,9 @@ function showWeakVerbTable() {
 		</tr>
 		<tr>
 			<td style="background-color:#E8E885;">
-				<b><a href="#" title="AI search" onclick="openGoogleAISearch(getWeakVerbPrompt('أَجوَف'))">أَجوَف</a></b>
+				<b><a href="#" title="AI search" 
+					onclick="openGoogleAISearch(
+						getPromptFromKey(['WeakVerbs'], {'0': ['أَجوَف']}, true))">أَجوَف</a></b>
 			</td>
 			<td rowspan="3">(فَعَلَ) قَوَلَ => ${alink.replaceAll('$', 'قَالَ')}
 			<br/><br/>(فُعِلَ) قُوِلَ => قِيلَ</td>
@@ -973,7 +977,9 @@ function showWeakVerbTable() {
 		</tr>
 		<tr>
 			<td style="background-color:#E8E885;">
-				<b><a href="#" title="AI search" onclick="openGoogleAISearch(getWeakVerbPrompt('نَاقِص'))">نَاقِص</a></b>
+				<b><a href="#" title="AI search" 
+					onclick="openGoogleAISearch(
+						getPromptFromKey(['WeakVerbs'], {'0': ['نَاقِص']}, true))">نَاقِص</a></b>
 				</td>
 			<td rowspan="3">(فَعَلُوا) رَضَيُوا=> ${alink.replaceAll('$', 'رَضُوا')}<br/></td>
 		</tr>
@@ -988,7 +994,9 @@ function showWeakVerbTable() {
 		</tr>
 		<tr>
 			<td style="background-color:#E8E885;">
-				<b><a href="#" title="AI search" onclick="openGoogleAISearch(getWeakVerbPrompt('لَفِيف'))">لَفِيف</a></b>
+				<b><a href="#" title="AI search" 
+					onclick="openGoogleAISearch(
+						getPromptFromKey(['WeakVerbs'], {'0': ['لَفِيف']}, true))">لَفِيف</a></b>
 			</td>
 			<td rowspan="3">(اِفتَعَلَ) إوتَقَيَ => إتْتَقَي => ${alink.replaceAll('$', 'إتَّقَي')}
 			<br/><br/>(فَعِلنَا) وَقِينَا=> وَقِنَا</td>
@@ -1003,7 +1011,8 @@ function showWeakVerbTable() {
 		</tr>
 		<tr>
 			<td style="background-color:#E8E885;">
-				<b><a href="#" onclick="openGoogleAISearch(getWeakVerbPrompt('مَهمُوز'))">مَهمُوز</a></b>
+				<b><a href="#" onclick="openGoogleAISearch(
+				getPromptFromKey(['WeakVerbs'], {'0': ['مَهمُوز']}, true))">مَهمُوز</a></b>
 			</td>
 			<td rowspan="3">(فَعَلُوا) رَأَيُو => ${alink.replaceAll('$', 'رَأَو')}
 			<br/><br/>(يَفعَلُ) يَاكُلُ [Exception]</td>
