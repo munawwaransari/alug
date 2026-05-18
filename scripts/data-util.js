@@ -1679,14 +1679,24 @@ If it is not a verb, provide any relevant conjugation details based on the part 
 	var verse_prompt_prefix =`
 		Context: Quran\\nVerse: ${chapter}:${verse}\\nQuestion: `.trim(); 
 	var verse_prommpt_suffix =`'\\nTarget Language:' + parent.window.getLang() `;
+	var selLang = parent.getLang ? parent.getLang() ?? 'EN' : 'EN';
+	var verse_to_image_prompt = `
+Generate an appealing image for the Quranic verse ${chapter}:${verse}
+Show the verse and reference in big font in front, and keep the image in background, translate in ${selLang}.
+Keep the image size moderate.
+Use appropriate context characters in the background if applicable.
+Use nano banana 2 style for the image
+`;
 	var sel = "$('.sel-word').first().text()";
-	
 	var target_function = target == 'puter' ? 'loadPuterSearch' : 'openGoogleAISearch';
 	return `
 		<a href="#" onclick="${target_function}(\`${word_promtp}\`+${sel}+${verse_prommpt_suffix})">Describe word</a>
 		<a href="#" onclick="${target_function}(${sel}+\`${word_conjugation_prompt}\`)">Conjugate word</a>
 		<a href="#" onclick="${target_function}(\`${verse_prompt_prefix}\nProvide a comprehensive summary and include the main messages, and any significant interpretations or insights related to this verse.\`+${verse_prommpt_suffix})">
 		Summarize verse
+		</a>
+		<a href="#" onclick="${target_function}(\`${verse_to_image_prompt}\`)">
+		Verse to image
 		</a>
 		<a href="#" onclick="${target_function}(\`${verse_prompt_prefix}\nTranslate in 10 most common languages, provide only translation and references\`)">
 		Translate in 10 languages
