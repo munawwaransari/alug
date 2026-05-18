@@ -106,9 +106,15 @@ class cmpAPI {
 				<tr>
 					<td colspan="${topics.length}" style="font-size: 16px;">
 						<a href="#" onclick="
-						openGoogleAISearch(\`${getPromptsForTopic(topics, 
-															   cmp["en"], 
-															   parent.window.getLang())}\`)">
+						var prompts = getPromptFromKey (
+							['Topics'], 
+							{'0':[
+								'${parent.window.getLang()}', 
+								[${topics.map(t => `\'${t}\'`).join(",")}], 
+								'${cmp['en']}'
+							]}
+						);
+						openGoogleAISearch(prompts[0]);">
 						Google ai search
 						</a>
 					</td>

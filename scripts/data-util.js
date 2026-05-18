@@ -1445,6 +1445,9 @@ function init_data_cache(){
 		},
 		"noto-sans-font":{
 			path: "styles/NotoSansSerif.ttf"
+		},
+		"ai-prompts":{
+			path: "data/ai-prompts.json"
 		}
 	};
 }
@@ -1664,69 +1667,66 @@ Keep the words in the table in Arabic, and provide transliteration in brackets n
 }
 
 function getPromptsForVerse(chapter, verse, target = 'puter') {
-    var word_conjugation_prompt = `
-		Context: Arabic Grammar\\nIdentify part of speech of above word\\nDepending on the part of speech, provide a conjugation table withh following details:
-Person, Gender, Number, Tense, Voice
-Format the response in a table format with columns for each of the above details and rows for each conjugation form.
-If it is a verb, provide separate conjugation tables for past, present, future and imperative forms. 
-Keep the person as row header, with gender as sub-header.
-Keep the number, tense and voice as columns.
-Keep the words in the table in Arabic, and provide transliteration in brackets next to it.
-If it is not a verb, provide any relevant conjugation details based on the part of speech.
-	`.trim();
-	var word_promtp = `
-		Context: Quran\\nQuestion: Describe in detail the meaning of this word `.trim();
-	var verse_prompt_prefix =`
-		Context: Quran\\nVerse: ${chapter}:${verse}\\nQuestion: `.trim(); 
-	var verse_prommpt_suffix =`'\\nTarget Language:' + parent.window.getLang() `;
 	var selLang = parent.getLang ? parent.getLang() ?? 'EN' : 'EN';
-	var verse_to_image_prompt = `
-Generate an appealing image for the Quranic verse ${chapter}:${verse}
-Show the verse and reference in big font in front, and keep the image in background, translate in ${selLang}.
-Keep the image size moderate.
-Use appropriate context characters in the background if applicable.
-Use nano banana 2 style for the image
-`;
-	var sel = "$('.sel-word').first().text()";
+	var selWord = "${$('.sel-word').first().text()}";
+	var prompts = getPromptFromKey(
+		["Conjugation", "WordPrompt", "VersePrompt", "VerseToImage", "VerseTransate"],
+		{
+			"0": [selWord, selLang],
+			"1": [selWord, selLang],
+			"2": [chapter, verse, selLang],
+			"3": [chapter, verse, selLang],
+			"4": [chapter, verse]
+		});
+
+	var word_conjugation_prompt = prompts[0];
+	var word_promtp = prompts[1];
+	var verse_prompt = prompts[2];
+	var verse_to_image_prompt = prompts[3];
+	var verse_translate_prompt = prompts[4];
 	var target_function = target == 'puter' ? 'loadPuterSearch' : 'openGoogleAISearch';
-	return `
-		<a href="#" onclick="${target_function}(\`${word_promtp}\`+${sel}+${verse_prommpt_suffix})">Describe word</a>
-		<a href="#" onclick="${target_function}(${sel}+\`${word_conjugation_prompt}\`)">Conjugate word</a>
-		<a href="#" onclick="${target_function}(\`${verse_prompt_prefix}\nProvide a comprehensive summary and include the main messages, and any significant interpretations or insights related to this verse.\`+${verse_prommpt_suffix})">
-		Summarize verse
-		</a>
-		<a href="#" onclick="${target_function}(\`${verse_to_image_prompt}\`)">
-		Verse to image
-		</a>
-		<a href="#" onclick="${target_function}(\`${verse_prompt_prefix}\nTranslate in 10 most common languages, provide only translation and references\`)">
-		Translate in 10 languages
-		</a>
-		`.trim();
-}
-
-function getPromptsForTopic(topics, section, lang, label) {
 	return`
-		You are an expert in Arabic studies, with deep knowledge of the Arabic Language, its linguistic and grammagical nuances.
-Provide final response in target Language: ${lang}
-		
-Context: Arabic Language
-		
-Detail out response considering explanations for following topics:
-${
-	topics.map((t) => ` -  ${t}\\n`).join('')
+		<a href="#" onclick="${target_function}(\`${word_promtp}\`)">Describe word</a>
+		<a href="#" onclick="${target_function}(\`${word_conjugation_prompt}\`)">Conjugate word</a>
+		<a href="#" onclick="${target_function}(\`${verse_prompt}\`)">Summarize verse</a>
+		<a href="#" onclick="${target_function}(\`${verse_to_image_prompt}\`)">Verse to image</a>
+		<a href="#" onclick="${target_function}(\`${verse_translate_prompt}\`)">Translate in 10 languages</a>
+		`
+		.trim();
 }
-		
-Include sections for each topic including below points:
-${
-	section.map((s) => ` -  ${s}\\n`).join('')
-}
-		
-Also provide:
-	1. Examples from Quran for the given topics.
-	2. General examples and explanations
 
-Note: Translate the examples in the given target language.
-	`.trim();
+function getPromptFromKey(promptKeys, paramsDict, useSelLang) {
+	var data = parent.dataCache["ai-prompts"];
+	if (!data && !data.data) {
+		console.error("Error loading AI prompt:", promptKey);
+		return [];
+	}
+	var prompts = [];
+	data = data.data;
+	promptKeys.forEach((promptKey, pIndex) => {
+		if (data[promptKey]) {
+			var prompt = data[promptKey].join("\n").trim();
+			var params = paramsDict[`${pIndex}`];
+			if (params && params.length > 0) {
+				params.forEach((p, index) => {
+					if (Array.isArray(p)) {
+						prompt = prompt.replaceAll(`@${index}`,
+							p.map(t => `- ${t}`).join("\n"));
+					} else {
+						prompt = prompt.replaceAll(`@${index}`, p);
+					}
+				});
+			}
+			if (useSelLang) {
+				prompt += '\nProvide Final response in language: ' + parent.getLang();
+			}
+			prompts.push(prompt);
+		}
+		else {
+			prompts.push("Prompt not found for key: " + promptKey);
+		}
+	});
+	return prompts;
 }
 
 function openGoogleAISearch(prompt, useSelLang){

@@ -65,6 +65,7 @@ window.onload = function () {
 	});
 
 	ensureJsonData({name: "mappingsData"});
+	ensureJsonData({name: "ai-prompts"});
 
 	$("#wordSearchText").keyup(function (event) {
 		if (event.keyCode === 13) {

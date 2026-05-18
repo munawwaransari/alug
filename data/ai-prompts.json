@@ -1,0 +1,54 @@
+{
+    "Topics": [
+        "You are an expert in Arabic studies, with deep knowledge of the Arabic Language, its linguistic and grammagical nuances.",
+        "Provide final response in target Language: @0",
+        "Context: Arabic Language",
+        "Detail out response considering explanations for following topics:",
+        "@1",
+        "Include sections for each topic including below points:",
+        "@2",
+        "Also provide:",
+        " 1. Examples from Quran for the given topics.",
+        " 2. General examples and explanations",
+        "Note: Translate the examples in the given target language."
+    ],
+    "Conjugation": [
+		"Context: Arabic Grammar",
+        "Identify part of speech of the word: @0",
+        "Depending on the part of speech, provide a conjugation table withh following details:",
+        "Person, Gender, Number, Tense, Voice",
+        "Format the response in a table format with columns for each of the above details and rows for each conjugation form.",
+        "If it is a verb, provide separate conjugation tables for past, present, future and imperative forms.",
+        "Keep the person as row header, with gender as sub-header.",
+        "Keep the number, tense and voice as columns.",
+        "Keep the words in the table in Arabic, and provide transliteration in brackets next to it.",
+        "If it is not a verb, provide any relevant conjugation details based on the part of speech.",
+        "Target Language: @1"
+   ],
+   "WordPrompt": [
+		"Context: Quran",
+        "Question: Describe in detail the meaning of this word: @0",
+        "Target Language: @1"
+    ],
+   "VersePrompt": [
+        "Context: Quran",
+        "Verse: @0:@1",
+        "Provide a comprehensive summary and include the main messages, and any significant interpretations or insights related to this verse.",
+        "Target Language: @2"
+    ],
+   "VerseToImage": [
+        "Context: Quran",
+        "Verse: @0:@1",
+        "Generate an appealing image for the given Quranic verse.",
+        "Show the verse and reference in big font in front, and keep the image in background, translate in @2.",
+        "Keep the image size moderate.",
+        "Use appropriate context characters in the background if applicable.",
+        "Use nano banana 2 style for the image.",
+        "Target Language: @2"
+    ],
+    "VerseTransate": [
+        "Context: Quran",
+        "Verse: @0:@1",
+        "Translate the verse in 10 most common languages, provide only translation and references"
+    ]
+}

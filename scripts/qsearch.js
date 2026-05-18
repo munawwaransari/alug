@@ -27,7 +27,8 @@ window.onload = function(){
 	}
 
 	ensureJsonData({name:"similarAyahData"});
-	
+	ensureJsonData({name: "ai-prompts"});
+
 	//Fill Juz select options
 	var jOptions = $("#juz-options");
 	for(var j=1; j <31; j++){
