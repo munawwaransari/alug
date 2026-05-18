@@ -61,5 +61,13 @@
         "Keep the person as row header, with gender as sub-header.",
         "Keep the number, tense and voice as columns.",
         "Keep the words in the table in Arabic, and provide transliteration in brackets next to it."
+    ],
+    "SurahTopics": [
+        "You are an expert in Quranic studies, with the scholarly interpretation, explanation, and commentary of the Quran in Islam.",
+        "Consider this surah: @0 with the following topics:",
+        "@1",
+        "Provide a detail summary of each topic, with each topic as a separate section.",
+        "Also include key verses (in Arabic with chapter and ayah number) related to each topic, and explain the relevance of those verses to the topic.",
+        "Provide the final response in language: LLL"
     ]
 }

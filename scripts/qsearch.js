@@ -1619,21 +1619,11 @@ function showQuranicSymbols(){
 	$("#tqv2").hide();
 }
 
-function getSuurahTopicAiSummary(surah, topics){
+function getSurahTopicAiSummary(surah, topics){
 	if(topics === undefined)
 		return '';
 
-	var prompt = `You are an expert in Quranic studies, with the scholarly interpretation, explanation, and commentary of the Quran in Islam.
-
-Consider this surah: ${surah.en} with the following topics: 
-${topics.map(t=>t.split("|")[0]).join("\n ")}
-
-Provide a detail summary of each topic, with each topic as a separate section.
-Also include key verses (in Arabic with chapter and ayah number) related to each topic, and explain the relevance of those verses to the topic.
-
-Provide the final response in language: LLL 
-`;
-
+	var prompt = getPromptFromKey(["SurahTopics"], {"0": [surah.en, topics]});
 	var topicSummarySpan = `
 		<div  
 			onclick="openGoogleAISearch(&#96;${prompt}&#96;)"
@@ -1871,7 +1861,7 @@ function createTableView(data, div){
 					    </span>`;
 			
 			var nuzul_title = (surah.nuzul_note !== undefined) ? surah.nuzul_note : surah.nuzul;
-			var topicSummary = getSuurahTopicAiSummary(surah, surah.topics)
+			var topicSummary = getSurahTopicAiSummary(surah, surah.topics)
 							   .replaceAll("LLL", 
 										   parent.window ? parent.window.getLang(): 'en');
 			var topicInfo = getSurahTopics(index, surah.topics);
