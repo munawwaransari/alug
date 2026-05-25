@@ -703,7 +703,8 @@ function getVerseLinkOptions(verseKey){
 		<span>
 			<span class="dropdown">
 				<button class="dropbtn" 
-					style="background-color:#EEEEEE;color:black;position:relative;top:-5px;">
+					style="background-color:#EEEEEE;color:black;position:relative;top:-5px;
+						   cursor:pointer;font-size:12px;padding:4px;">
 					[${verseKey}]
 				</button>
 				<div class="dropdown-content">
