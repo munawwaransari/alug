@@ -556,10 +556,10 @@ function displayVerse(div, verse, verseKey, options){
 	var surah_index = parseInt(verseKeys[0]);
 	divHtml += (options == undefined || options.controls) ?
 	`
-	    <span style="padding-right:8px;">${analysisOptions}</span>
-	    <span style="padding-right:8px;">${genAIOptions}</span>
-	    <span style="padding-right:8px;">${playOptions}</span>
-	    <span style="margin:auto;">${verseLinkOptions}</span>
+	    ${analysisOptions}
+	    ${genAIOptions}
+	    ${playOptions}
+	    ${verseLinkOptions}
 	    ${
 			(surah_list ? 
 			`<span 	onclick="loadSurahFromPage(${surah_index},'${surah_list[surah_index].pages}');"
@@ -637,7 +637,7 @@ function getWordSpans(verse, words, vId){
 function getPlayOptions(verseKey, verseKeys){
 	var spanId = verseKeys[0]+"_"+verseKeys[1];
 	var play = parent.playAudio ? `
-		<span id="${spanId}">
+		<span id="${spanId}" style="padding:6px;">
 			<img 	title="Play Qirat" 
 					src="images/speech-enabled.png" 
 					style="visibility:visible;width:20px;cursor: pointer;"
@@ -728,6 +728,7 @@ function getAnalysisOptions(verse, verseKeys){
 						background: url(images/analyze.jpg);
 						background-repeat: no-repeat;
 						background-size: 20px 20px;
+						padding: 6px;
 						cursor:pointer;">
 					معني
 					</button>
@@ -768,6 +769,7 @@ function getGoogleAIOptions(verseKey, verseKeys){
 					background: url(images/ai.png);
 					background-repeat: no-repeat;
 					background-size: 18px 18px;
+					padding: 6px;
 					cursor:pointer;">
 				&nbsp;
 				</button>
