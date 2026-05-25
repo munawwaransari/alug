@@ -501,7 +501,9 @@ function getVerseTranslation(dataAttr, id, verseKey, sfx = '_en', lang = window.
 
 function getTranslationLinks(transLinkId, verseKey){
 	return `<span class="dropdown">
-				<button style="padding:0; border-style:hidden;margin-left:8px;cursor:pointer;font-size:16px;"
+				<button 
+					style="padding:0; border-style:hidden;margin-left:8px;
+						   cursor:pointer;font-size:16px;position:relative;top:-4px;"
 					title="Click to see translation">&#x24c9;</button><!--Ⓣ-->
 				<div class="dropdown-content">
 					<a 	id="${transLinkId}_en" href="#"
@@ -552,7 +554,9 @@ function displayVerse(div, verse, verseKey, options){
 			}
 		</div>`;
 	
-	divHtml += `<div style="font-size:14px;padding-bottom:12px;" id="${transLinkId}">`;
+	divHtml += `<div 
+		style="font-size:14px;padding-bottom:12px;margin-top:8px;" 
+		id="${transLinkId}">`;
 	var surah_index = parseInt(verseKeys[0]);
 	divHtml += (options == undefined || options.controls) ?
 	`
@@ -563,7 +567,7 @@ function displayVerse(div, verse, verseKey, options){
 	    ${
 			(surah_list ? 
 			`<span 	onclick="loadSurahFromPage(${surah_index},'${surah_list[surah_index].pages}');"
-					style="margin:auto;font-size:14px;margin-left:6px;color:#49348D;cursor:pointer;">
+					style="margin:auto;font-size:14px;margin-left:6px;color:#49348D;cursor:pointer;top:-5px;position:relative;">
 				<b>${surah_list[surah_index].ar}</b>
 			</span>` : '')
 		}
@@ -698,7 +702,8 @@ function getVerseLinkOptions(verseKey){
 	return `
 		<span>
 			<span class="dropdown">
-				<button class="dropbtn" style="background-color:#EEEEEE;color:black;">
+				<button class="dropbtn" 
+					style="background-color:#EEEEEE;color:black;position:relative;top:-5px;">
 					[${verseKey}]
 				</button>
 				<div class="dropdown-content">
@@ -728,7 +733,7 @@ function getAnalysisOptions(verse, verseKeys){
 						background: url(images/analyze.jpg);
 						background-repeat: no-repeat;
 						background-size: 20px 20px;
-						padding: 6px;
+						padding: 6px; margin-right:2px;
 						cursor:pointer;">
 					معني
 					</button>
