@@ -527,6 +527,7 @@ function getTranslationLinks(transLinkId, verseKey){
 function displayVerse(div, verse, verseKey, options){
 	var verseKeys = verseKey.split(":");
 	var playOptions = getPlayOptions(verseKey, verseKeys);
+	var genAIOptions = getGoogleAIOptions(verseKey, verseKeys);
 	var analysisOptions = getAnalysisOptions(verse, verseKeys);
 	var verseLinkOptions = getVerseLinkOptions(verseKey);
 					 
@@ -556,13 +557,14 @@ function displayVerse(div, verse, verseKey, options){
 	divHtml += (options == undefined || options.controls) ?
 	`
 	    <span style="padding-right:8px;">${analysisOptions}</span>
+	    <span style="padding-right:8px;">${genAIOptions}</span>
 	    <span style="padding-right:8px;">${playOptions}</span>
 	    <span style="margin:auto;">${verseLinkOptions}</span>
 	    ${
 			(surah_list ? 
 			`<span 	onclick="loadSurahFromPage(${surah_index},'${surah_list[surah_index].pages}');"
 					style="margin:auto;font-size:14px;margin-left:6px;color:#49348D;cursor:pointer;">
-				'<b>${surah_list[surah_index].ar}</b>
+				<b>${surah_list[surah_index].ar}</b>
 			</span>` : '')
 		}
 		${
@@ -725,7 +727,8 @@ function getAnalysisOptions(verse, verseKeys){
 						style="width:20px;
 						background: url(images/analyze.jpg);
 						background-repeat: no-repeat;
-						background-size: 20px 20px;">
+						background-size: 20px 20px;
+						cursor:pointer;">
 					معني
 					</button>
 					<div class="dropdown-content">
@@ -737,18 +740,6 @@ function getAnalysisOptions(verse, verseKeys){
 							'<a href="#" onclick="analyzeLocal()" >Analyze (تحليل)</a>'
 						}
 						//-->
-						<!-- Google AI Search -->
-						<div class="dropdown-content dropdown2" 
-						     style="position:relative;padding-top:10px;padding-bottom:10px;vertical-align:middle;">
-							 <img style="margin:auto;width:18px;" src="images/ai.png"/>
-							 &nbsp; Google &gt;
-						</div> 
-						<div class="dropdown-content2" style="z-index:999999;margin-left:60px;padding:2px;">
-						${	
-							getPromptsForVerse(verseKeys[0], verseKeys[1], $('sel-word').length > 0 ? $('sel-word')[0].text : '', 'google')
-						}
-						</div>
-
 						<div class="dropdown-content dropdown2" 
 						     style="position:relative;padding-top:10px;padding-bottom:10px;">Meaning &gt;</div> 
 						<div class="dropdown-content2" style="margin-left:60px;padding:2px;">
@@ -765,9 +756,29 @@ function getAnalysisOptions(verse, verseKeys){
 							<sub>Meaning (Glosbe)</sub>
 							</a>
 						</div>
+					</div>
+				</span>
+			</span>`;
+}
+
+function getGoogleAIOptions(verseKey, verseKeys){
+	return `<span class="dropdown">
+				<button class="dropbtn" title="Select a word to analyze"
+					style="width:18px;
+					background: url(images/ai.png);
+					background-repeat: no-repeat;
+					background-size: 18px 18px;
+					cursor:pointer;">
+				&nbsp;
+				</button>
+				<div class="dropdown-content" 
+					 style="z-index:999999;padding:2px;">
+				${	
+					getPromptsForVerse(verseKeys[0], verseKeys[1], $('sel-word').length > 0 ? $('sel-word')[0].text : '', 'google')
+				}
 				</div>
-			</span>'+
-		</span>`;
+			</span>
+		`;
 }
 
 function analyzeLookup(url){
