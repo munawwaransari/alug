@@ -58,10 +58,12 @@ window.onload = function(){
 	}
 	
 	tafsir_param = decodeURI(getParamValue("tf"));
-	if(tafsir_param !== undefined && tafsir_param !== ''){
+	if(tafsir_param !== undefined && tafsir_param !== "undefined" && tafsir_param !== ''){
 		$("#tafsir-options").val(tafsir_param);
 	}
-	
+	else{
+		$("#tafsir-options").val("none");
+	}
 	var searchVal = decodeURI(getParamValue("search"));	
 	if(searchVal && searchVal != 'undefined'){
 		if(searchVal === 'surahs' || searchVal === 'mushaf' ){
@@ -770,13 +772,12 @@ function getAnalysisOptions(verse, verseKeys){
 
 function getGoogleAIOptions(verseKey, verseKeys){
 	return `<span class="dropdown">
-				<button class="dropbtn" title="Select a word to analyze"
+				<button class="dropbtn" title="AI based insights"
 					style="width:18px;
 					background: url(images/ai.png);
 					background-repeat: no-repeat;
 					background-size: 18px 18px;
-					padding: 6px;
-					cursor:pointer;">
+					padding: 6px;cursor:pointer;">
 				&nbsp;
 				</button>
 				<div class="dropdown-content" 

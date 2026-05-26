@@ -430,7 +430,7 @@
 						"Year": data.data.hijri.year, 
 						"Month": data.data.hijri.month.number, 
 						"Day": data.data.hijri.day, 
-						"WDay": data.data.hijri.weekday
+						"WDay": getWeekDay(data.data.gregorian.weekday.en)
 					});
 				}
 			});
@@ -444,6 +444,11 @@
 			});
 		});
 		
+		function getWeekDay(dayStr){
+			var wDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+			return wDays.indexOf(dayStr);
+		}
+
 		function playCalendarText(txt){
 			if(parent && parent.playText){
 				parent.playText(txt, 'ar-SA');

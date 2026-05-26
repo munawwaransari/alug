@@ -12,7 +12,7 @@ function getLastDateStr(){
 function getPrayerAPI(cType, city){
 	var url = "";
 	if(cType === 'hijri'){
-		var dateStr = last_Date.Year+"/"+(last_Date.Month+1);
+		var dateStr = last_Date.Year+"/"+last_Date.Month;
 		url = 'https://api.aladhan.com/v1/hijriCalendarByCity/'+dateStr+'?country=IN&city='+city;
 	}else{
 		url = 'https://api.aladhan.com/v1/timingsByCity/'+getLastDateStr()+'?country=IN&city='+city;
@@ -25,6 +25,10 @@ function showPrayerTimings(container, cType, city){
 		var url = getPrayerAPI(cType, city);
 		console.log('Loading prayr times for '+ cType + ' for city' + city);
 		loadJsonData(url).then((data) => {
+			if(data === undefined || data.data === undefined){
+				console.log('Unable to load prayer timings for city: ' + city);
+				return;
+			}
 			var dir = cType === 'hijri' ? 
 				'direction:rtl;text-align:right;font-size:18px;' : 
 				'direction:ltr;text-align:left';
