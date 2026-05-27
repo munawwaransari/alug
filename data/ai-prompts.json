@@ -33,17 +33,18 @@
    "VersePrompt": [
         "Context: Quran",
         "Verse: @0:@1",
-        "Provide a comprehensive summary and include the main messages, and any significant interpretations or insights related to this verse.",
+        "Provide a comprehensive summary and include the main messages, and any significant interpretations or insightsor difference of opinions related to this verse.",
         "Target Language: @2"
     ],
    "VerseToImage": [
         "Context: Quran",
         "Verse: @0:@1",
         "Generate an appealing image for the given Quranic verse.",
-        "Show the verse and reference in big font in front, and keep the image in background, translate in @2.",
-        "Keep the image size moderate.",
+        "Show the verse and reference",
+        "Show translation in big font in front, translate in langauge @2.",
         "Use appropriate context characters in the background if applicable.",
-        "Use nano banana 2 style for the image.",
+        "Use nano banana 2 or similar style for the image.",
+        "Only return an image, do not include any text in the response.",
         "Target Language: @2"
     ],
     "VerseTransate": [
