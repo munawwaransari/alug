@@ -1752,3 +1752,81 @@ function toggleHead(divEl, imgEl){
 			imgEl.prop('src', 'images/up.png');
 	}
 }
+
+function togglePreviewImages(previewContainer, imageContainer){
+	var isVisible = $(previewContainer).is(':visible');
+	if(isVisible){
+		$(previewContainer).css('display', 'none');
+		return;
+	}
+	var images = $(imageContainer).find("img[src!='']");
+	if(images.length == 0){
+		console.log("No images found to preview");
+		$(previewContainer).css('display', 'none');
+		return;
+	}
+	$(previewContainer).attr('data-count', images.length);
+	nextPreviewImage(previewContainer, imageContainer);
+	$(previewContainer).css('display', 'flex');
+}
+
+function nextPreviewImage(previewContainer, imageContainer){
+	var count = parseInt($(previewContainer).attr('data-count'));
+	var index = parseInt($(previewContainer).attr('data-index'));
+	if(isNaN(count)) count = 0;
+	if(isNaN(index)) index = -1;
+	if(count > 0){
+		var images = $(imageContainer).find("img[src!='']");
+		index++;
+		if(index >= count) index = 0;
+		var img = $(previewContainer).find('img').first();
+		img.prop('src', $(images[index]).prop('src'));
+		img.prev().text($(images[index]).prop('title'));
+		$(previewContainer).attr('data-index', index);
+	}
+}
+
+function prevPreviewImage(previewContainer, imageContainer){
+	var count = parseInt($(previewContainer).attr('data-count'));
+	var index = parseInt($(previewContainer).attr('data-index'));
+	if(isNaN(count)) count = 0;
+	if(isNaN(index)) index = -1;
+	if(count > 0){
+		var images = $(imageContainer).find("img[src!='']");
+		index--;
+		if(index < 0) index = count - 1;
+		var img = $(previewContainer).find('img').first();
+		img.prop('src', $(images[index]).prop('src'));
+		img.prev().text($(images[index]).prop('title'));
+		$(previewContainer).attr('data-index', index);
+	}
+}
+
+function addImagePreviewer(containerName){
+	
+	var html = `
+		<div class="image-prev" 
+			 style="height:100%;float:left;background-color: #bbb;font-size:40px;align-content: space-around;cursor:pointer;"
+			 onclick="prevPreviewImage('.image-preview','#${containerName}');">
+		<b>&lt;</b>
+		</div>
+		<div style="width: 100%; height:100;align-items: center;justify-content: center;">
+			<div style="text-align:center;width:100%;height: auto; margin: auto; padding: 10px;">Title</div>
+			<img style="width: 100%; height: auto; margin: auto; object-fit: contain; max-height: 400px;"/>
+		</div>
+		<div class="image-next" 
+			 style="height:100%;float:right;background-color: #bbb;font-size:40px;align-content: space-around;cursor:pointer;"
+			 onclick="nextPreviewImage('.image-preview','#${containerName}');">
+		<b>&gt;</b>
+		</div>
+	`;
+	$(".image-preview").html(html);
+
+	var iconHtml = `
+		<a href="#" style="text-decoration: none;" title="Preview Images" 
+			onclick=" togglePreviewImages('.image-preview','#${containerName}');">
+			<img src="images/lookup.jpg" style="width: 20px; height: 16px; margin-left: 2px;" />
+		</a>
+	`;
+	$(iconHtml).insertAfter($(".image-preview").prev());
+}
