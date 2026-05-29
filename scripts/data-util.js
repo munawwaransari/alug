@@ -1830,3 +1830,14 @@ function addImagePreviewer(containerName){
 	`;
 	$(iconHtml).insertAfter($(".image-preview").prev());
 }
+
+function getRandomIndices(arr){
+	var indices = Array.from({length: arr.length}, (_, i) => i);
+
+	// Fisher-Yates shuffle algorithm to randomize the indices
+	for (let i = indices.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[indices[i], indices[j]] = [indices[j], indices[i]];
+	}
+	return indices;
+}

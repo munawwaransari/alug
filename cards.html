@@ -196,7 +196,14 @@
 					const firstKey = Object.keys(data)[0];
 					var div = $("#cardContainer");
 					div.empty();
-					data[firstKey].forEach(function(cdata){
+					var rdata = [];
+					if(dataParam !== "alpha"){
+						rdata = getRandomIndices(data[firstKey]);
+					}else{ 
+						rdata = Array.from({length: data[firstKey].length}, (_, i) => i);
+					}
+					rdata.forEach(function(index){
+						var cdata = data[firstKey][index];
 						darwCard(div, dataParam, cdata);
 					});
 				});
