@@ -95,6 +95,171 @@
             ],
             "images": [
             ]
+        },
+        {
+            "names": [
+                "هذا",
+                "هذه"
+            ],
+            "en": [
+                "This (M)",
+                "This (F)"
+            ],
+            "images": [
+            ]
+        },
+        {
+            "names": [
+                "هذانِ",
+                "هاتانِ"
+            ],
+            "en": [
+                "These two (M)",
+                "These two (F)"
+            ],
+            "images": [
+            ]
+        },
+        {
+            "names": [
+                "هؤلاء",
+                "هؤلاء"
+            ],
+            "en": [
+                "These (M)",
+                "These (F)"
+            ],
+            "images": [
+            ]
+        },
+        {
+            "names": [
+                "ذلك",
+                "تِلك"
+            ],
+            "en": [
+                "That (M)",
+                "That (F)"
+            ],
+            "images": [
+            ]
+        },
+        {
+            "names": [
+                "ذانك",
+                "تانِك"
+            ],
+            "en": [
+                "Those two (M)",
+                "Those two (F)"
+            ],
+            "images": [
+            ]
+        },
+        {
+            "names": [
+                "اولئِك",
+                "اولئِك"
+            ],
+            "en": [
+                "Those (M)",
+                "Those (F)"
+            ],
+            "images": [
+            ]
+        },
+        {
+            "names": [
+                "ـهُ",
+                "ـهَا"
+            ],
+            "en": [
+                "His",
+                "Her"
+            ],
+            "images": []
+        },
+        {
+            "names": [
+                "ـهُمَا",
+                "ـهُمَا"
+            ],
+            "en": [
+                "Their both (M)",
+                "Their both (F)"
+            ],
+            "images": []
+        },
+        {
+            "names": [
+                "ـهُم",
+                "ـهُنَّ"
+            ],
+            "en": [
+                "Their (M)",
+                "Their (F)"
+            ],
+            "images": []
+        },
+        {
+            "names": [
+                "ـكَ",
+                "ـكِ"
+            ],
+            "en": [
+                "You (M)",
+                "You (F)"
+            ],
+            "images": [
+            ]
+        },
+        {
+            "names": [
+                "ـكُمَا",
+                "ـكُمَا"
+            ],
+            "en": [
+                "You both (M)",
+                "You both (F)"
+            ],
+            "images": [
+            ]
+        },
+        {
+            "names": [
+                "ـكُم",
+                "ـكُنَّ"
+            ],
+            "en": [
+                "You all (M)",
+                "You all (F)"
+            ],
+            "images": [
+            ]
+        },
+        {
+            "names": [
+                "ـي",
+                "ـي"
+            ],
+            "en": [
+                "My (M)",
+                "My (F)"
+            ],
+            "images": [
+            ]
+        },
+        {
+            "names": [
+                "ـنَا",
+                "ـنَا"
+            ],
+            "en": [
+                "Our (M)",
+                "Our (F)"
+            ],
+            "images": [
+ 1           ]
         }
     ]
 }

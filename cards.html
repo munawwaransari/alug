@@ -419,7 +419,7 @@
 
 		function darwHyperbole(div, h){             
 		    var fdiv = `
-			<div class="flip-card">
+			<div class="flip-card" style="border:4px solid transparent;">
                 <div class="flip-card-inner">
                     <div class="flip-card-front" onmouseenter="playCard('${h.names[0]}')">
 					    <span style="position:relative; display:flex; align-items:center; font-size:34px">
@@ -446,7 +446,7 @@
 		
 		function darwTajweed(div, h){             
 		    var fdiv = `
-			<div class="flip-card">
+			<div class="flip-card" style="border:4px solid transparent;">
                 <div class="flip-card-inner">
                     <div class="flip-card-front" onmouseenter="playCard('${h.play}')">
 					    <span style="position:relative; display:flex; align-items:center; font-size:28px">
@@ -472,7 +472,7 @@
 
 			h.names.every(function(name, i){			
 				var fdiv = `
-				<div class="flip-card">
+				<div class="flip-card" style="border:4px solid transparent;">
 					<div class="flip-card-inner">
 						<div class="flip-card-front"
 							 ontouchstart="playCard('${name}')" 
@@ -529,7 +529,7 @@
 			}
 							
 		    var cdiv = `
-			<div class="flip-card">
+			<div class="flip-card" style="border:4px solid transparent;">
 				<div class="flip-card-inner">
                     <div class="flip-card-front"
 						 ontouchstart="playCard('${color.names[0]}.${color.names[1]}')"
@@ -553,7 +553,7 @@
 		function drawPronouns(div, p){             
 		
 			var fdiv = `
-			<div class="flip-card">
+			<div class="flip-card" style="border:4px solid transparent;">
 				<div class="flip-card-inner">
 					<div class="flip-card-front">
 						<span style="position:relative; display:flex; align-items:center; font-size:34px">
@@ -563,9 +563,6 @@
 					<div class="flip-card-back"
 						 ontouchstart="playCard('${p.names[0]}.${p.names[1]}')"
 						 onmouseenter="playCard('${p.names[0]}.${p.names[1]}')" >
-						<img style="opacity:0;top:24%; width:94%; height:76%" 
-							 class="alpha-image" src="">
-						</img>
 						<span style="position:relative; display:flex; align-items:center; font-size:32px">
 							${p.names[1]}<br/>${p.en[1]}
 						</span>

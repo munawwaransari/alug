@@ -109,6 +109,24 @@
 				"https://images.freeimages.com/images/large-previews/152/the-best-shoes-1186640.jpg?fmt=webp&h=350"
 				
 			]
-        }
+        },
+		{
+			"names": ["غني", "فقير"],
+			"en": ["Rich", "Poor"],
+			"ur": ["امیر", "مفلس"],
+			"images": [
+				"https://images.freeimages.com/variants/LNnX2LfxDVCv4dkCHsrwq8rc/f4a36f6589a0e50e702740b15352bc00e4bfaf6f58bd4db850e167794d05993d?fmt=avif&h=350",
+				"https://images.freeimages.com/images/large-previews/733/missed-opportunities-2-1239516.jpg?fmt=avif&h=350"
+			]
+		},
+		{
+			"names": ["سعيد", "حزين"],
+			"en": ["Happy", "Sad"],
+			"ur": ["خوش", "اداس"],
+			"images": [
+				"https://images.freeimages.com/images/large-previews/3c0/joyful-father-daughter-moment-0410-5701985.jpg?fmt=avif&h=350",
+				"https://images.freeimages.com/images/large-previews/b23/jace-1431984.jpg?fmt=avif&h=350"
+			]
+		}
     ]
 }
