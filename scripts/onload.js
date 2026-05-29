@@ -449,13 +449,18 @@ function updateToolDescription(id, opt){
 	switch(id){
 		case 'theme':
 			var sdiv = $(`
-			<div>Choose a theme: 
+			<div>Theme: 
 				<select id="theme-options" onchange="changeTheme(this)">
 					<option value="default" ${(app_theme === 'default' ?' selected ':'')}>Default</option>
 					<option value="theme-dark" ${(app_theme === 'dark-theme' ?' selected ':'')}>Dark</option>
 					<option value="theme-grayscale" ${(app_theme === 'grayscale-theme' ?' selected ':'')}+'>Grayscale</option>
 					<option value="theme-saturation" ${(app_theme === 'saturation-theme' ?' selected ':'')}>Saturation</option>
 					<option value="theme-sepia" ${(app_theme === 'sepia-theme' ?' selected ':'')}>Sepia</option>
+				</select>
+				&nbsp;Image: 
+				<select id="bg-options" onchange="changeBackground(this)">
+					<option value="default" ${(app_bg === 'default' ?' selected ':'')}>Default</option>
+					<option value="bg-1" ${(app_bg === 'bg-1' ?' selected ':'')}>Background 1</option>
 				</select>
 			</div>`);
 			toolMessage.html(sdiv);
@@ -889,5 +894,16 @@ function changeTheme(opt){
 	var t=$(opt).val();
 	if(t !== 'default'){
 		$('body').addClass(t);
+	}
+}
+
+function changeBackground(opt){
+	var div = $('.toolDiv');
+	var bg=$(opt).val();
+	if(bg !== 'default'){
+		div.css('background-image', `url("images/h-${bg}.jpg")`);
+		div.css('background-repeat', 'round');
+	}else{
+		div.css('background-image', '');
 	}
 }

@@ -14,6 +14,7 @@ var audio_last_time;
 var audio_last_duration;
 var app_mode = 'default';
 var app_theme = 'default';
+var app_bg = 'default';
 var app_bg_color = 'default';
 window.topics = alug_chapters;
 window.updateStates = function (s) { $.extend(states, s); };
