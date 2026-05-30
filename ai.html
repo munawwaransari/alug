@@ -14,7 +14,8 @@
   <script type="importmap">
   {
     "imports": {
-      "@google/generative-ai": "https://esm.run/@google/generative-ai"
+      "@google/generative-ai": "https://esm.run/@google/generative-ai",
+      "openai": "https://esm.run/openai"
     }
   }
   </script>
@@ -110,6 +111,18 @@ Tell me what you’d like to do, or paste any details you have.`;
         var model = $('#selModels').val();
         var response = '';
         switch(genai){
+
+          case "openai":
+          {
+            response = await window.runOpenAISearch(
+              $('#apiKey').val(),
+              $('#selModels').val(),
+              flags,
+              document.getElementById('prompt').value.trim()
+            )
+            .catch(err => response = err);
+          }
+          break;
 
           case "gemini":
           {
@@ -319,6 +332,7 @@ Tell me what you’d like to do, or paste any details you have.`;
       Gen AI:
       <select id="optionsGenAI">
         <option value="google-ai">Google AI (Browser)</option>
+        <option value="openai">Open AI</option>
         <option value="gemini">Gemini</option>
         <option value="puter">Puter</option>
       </select>
