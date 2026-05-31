@@ -181,13 +181,14 @@
 	  }
 	</style>
 	<script>
+		var cardsFirstLoad = true;
 		window.onload = () => {
 			addImagePreviewer("cardContainer");
-			reloadCardData(true);
+			reloadCardData();
 		}
 		ensureJsonData({name: "ai-prompts"});
 
-		function reloadCardData(firstLoad){
+		function reloadCardData(){
 			var dataParam = decodeURI(getParamValue("data"));
 			if(dataParam && dataParam != 'undefined'){
 				var url = getLocationPath() + 'data/grmr/'+dataParam+'.json';
@@ -195,16 +196,18 @@
 					const firstKey = Object.keys(data)[0];
 					var div = $("#cardContainer");
 					div.empty();
+					var firstLoad = parent && parent.dataCache["cards-data-first"];
 					var rdata = [];
-					if(firstLoad && dataParam !== "alpha"){
-						firstLoad = undefined;
-						rdata = getRandomIndices(data[firstKey]);
-					}else{ 
+					if(dataParam == "alpha" && firstLoad == undefined){
 						rdata = Array.from({length: data[firstKey].length}, (_, i) => i);
+					}else {
+						rdata = getRandomIndices(data[firstKey]); 
 					}
+					if(parent)
+						parent.dataCache["cards-data-first"] = true;
 					rdata.forEach(function(index){
 						var cdata = data[firstKey][index];
-						darwCard(div, dataParam, cdata);
+							darwCard(div, dataParam, cdata);
 					});
 				});
 			}

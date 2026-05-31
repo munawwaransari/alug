@@ -90,13 +90,16 @@
 			return max;
 		}
 		
-		function loadCharts(url, maxFiles, firstLoad){
+		function loadCharts(url, maxFiles){
 		
+			var firstLoad = parent && parent.dataCache["charts-data-first"];
 		    var indices = Array.from({length: maxFiles}, (_, i) => i);
-			if(!firstLoad || !url.endsWith('/alphabets/')){
-				firstLoad = undefined;
+			if(firstLoad || !url.endsWith('/alphabets/')){
 				indices = getRandomIndices(indices);
 			}
+			if(parent)
+				parent.dataCache["charts-data-first"] = true;
+
 			var div = '<div class="chart">';
 			for(var i=0; i < maxFiles; i++){
 				var imgUrl = url+(indices[i]+1)+'.png';
