@@ -183,11 +183,11 @@
 	<script>
 		window.onload = () => {
 			addImagePreviewer("cardContainer");
-			reloadCardData();
+			reloadCardData(true);
 		}
 		ensureJsonData({name: "ai-prompts"});
 
-		function reloadCardData(){
+		function reloadCardData(firstLoad){
 			var dataParam = decodeURI(getParamValue("data"));
 			if(dataParam && dataParam != 'undefined'){
 				var url = getLocationPath() + 'data/grmr/'+dataParam+'.json';
@@ -196,7 +196,8 @@
 					var div = $("#cardContainer");
 					div.empty();
 					var rdata = [];
-					if(dataParam !== "alpha"){
+					if(firstLoad && dataParam !== "alpha"){
+						firstLoad = undefined;
 						rdata = getRandomIndices(data[firstKey]);
 					}else{ 
 						rdata = Array.from({length: data[firstKey].length}, (_, i) => i);

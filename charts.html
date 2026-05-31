@@ -47,6 +47,19 @@
 				font-weight: bolder;
 				
 		}
+
+		.ioverlay {
+			position:absolute;
+			background-color: white;
+			color:white;
+			padding:10px;
+			text-align:center;
+			width:70%;
+			height:56px;
+			margin-bottom: 14px;
+			z-Index: 1;
+			bottom: 0;
+		}
 	</style>
 	<script>
 		window.onload = function(){
@@ -57,8 +70,8 @@
 			}
 			if(folder){
 				var url = getLocationPath() + 'images/charts/'+folder+'/';
-				loadCharts(url, getMax(folder));
-				addImagePreviewer("chartContainer");
+				loadCharts(url, getMax(folder), true);
+				addImagePreviewer("chartContainer", 'bottom');
 			}
 		}	
 		
@@ -77,10 +90,11 @@
 			return max;
 		}
 		
-		function loadCharts(url, maxFiles){
+		function loadCharts(url, maxFiles, firstLoad){
 		
 		    var indices = Array.from({length: maxFiles}, (_, i) => i);
-			if(!url.endsWith('/alphabets/')){
+			if(!firstLoad || !url.endsWith('/alphabets/')){
+				firstLoad = undefined;
 				indices = getRandomIndices(indices);
 			}
 			var div = '<div class="chart">';

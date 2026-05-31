@@ -1753,7 +1753,7 @@ function toggleHead(divEl, imgEl){
 	}
 }
 
-function togglePreviewImages(previewContainer, imageContainer){
+function togglePreviewImages(previewContainer, imageContainer, overlayOption){
 	var isVisible = $(previewContainer).is(':visible');
 	if(isVisible){
 		$(previewContainer).css('display', 'none');
@@ -1766,13 +1766,38 @@ function togglePreviewImages(previewContainer, imageContainer){
 		return;
 	}
 	$(previewContainer).attr('data-count', images.length);
+	if(overlayOption){
+		$(previewContainer).attr('data-overlay', overlayOption);
+	}
+	$(previewContainer).attr('data-index', -1);
 	nextPreviewImage(previewContainer, imageContainer);
 	$(previewContainer).css('display', 'flex');
+}
+
+function setRevealAnswer(previewContainer, el, title, overlayOption) {
+	el.html(`
+		<p style="cursor:pointer;font-weight:bold;" 
+			onclick="
+			$(this).text('${title}'); 
+			if('${overlayOption}' == 'bottom'){
+				$('.ioverlay').remove();
+			}
+		">
+		?
+		</p>`);
+
+	$(".ioverlay").remove();
+	if (overlayOption == "bottom"){
+		$(previewContainer).append(`
+				<div class="ioverlay"</div>
+			`);
+		}
 }
 
 function nextPreviewImage(previewContainer, imageContainer){
 	var count = parseInt($(previewContainer).attr('data-count'));
 	var index = parseInt($(previewContainer).attr('data-index'));
+	var overlayOption = $(previewContainer).attr('data-overlay');
 	if(isNaN(count)) count = 0;
 	if(isNaN(index)) index = -1;
 	if(count > 0){
@@ -1781,7 +1806,8 @@ function nextPreviewImage(previewContainer, imageContainer){
 		if(index >= count) index = 0;
 		var img = $(previewContainer).find('img').first();
 		img.prop('src', $(images[index]).prop('src'));
-		img.prev().text($(images[index]).prop('title'));
+		var title = $(images[index]).prop('title');
+		setRevealAnswer(previewContainer, img.prev(), title, overlayOption);
 		$(previewContainer).attr('data-index', index);
 	}
 }
@@ -1789,6 +1815,7 @@ function nextPreviewImage(previewContainer, imageContainer){
 function prevPreviewImage(previewContainer, imageContainer){
 	var count = parseInt($(previewContainer).attr('data-count'));
 	var index = parseInt($(previewContainer).attr('data-index'));
+	var overlayOption = $(previewContainer).attr('data-overlay');
 	if(isNaN(count)) count = 0;
 	if(isNaN(index)) index = -1;
 	if(count > 0){
@@ -1797,12 +1824,13 @@ function prevPreviewImage(previewContainer, imageContainer){
 		if(index < 0) index = count - 1;
 		var img = $(previewContainer).find('img').first();
 		img.prop('src', $(images[index]).prop('src'));
-		img.prev().text($(images[index]).prop('title'));
+		var title = $(images[index]).prop('title');
+		setRevealAnswer(previewContainer, img.prev(), title, overlayOption);
 		$(previewContainer).attr('data-index', index);
 	}
 }
 
-function addImagePreviewer(containerName){
+function addImagePreviewer(containerName, overlayOption){
 	
 	var html = `
 		<div class="image-prev" 
@@ -1824,7 +1852,7 @@ function addImagePreviewer(containerName){
 
 	var iconHtml = `
 		<a href="#" style="text-decoration: none;" title="Preview Images" 
-			onclick=" togglePreviewImages('.image-preview','#${containerName}');">
+			onclick=" togglePreviewImages('.image-preview','#${containerName}', '${overlayOption}');">
 			<img src="images/lookup.jpg" style="width: 20px; height: 16px; margin-left: 2px;" />
 		</a>
 	`;
