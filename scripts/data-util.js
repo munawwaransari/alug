@@ -1757,12 +1757,14 @@ function togglePreviewImages(previewContainer, imageContainer, overlayOption){
 	var isVisible = $(previewContainer).is(':visible');
 	if(isVisible){
 		$(previewContainer).css('display', 'none');
+		$(imageContainer).show();
 		return;
 	}
 	var images = $(imageContainer).find("img[src!='']");
 	if(images.length == 0){
 		console.log("No images found to preview");
 		$(previewContainer).css('display', 'none');
+		$(imageContainer).show();
 		return;
 	}
 	$(previewContainer).attr('data-count', images.length);
@@ -1772,6 +1774,7 @@ function togglePreviewImages(previewContainer, imageContainer, overlayOption){
 	$(previewContainer).attr('data-index', -1);
 	nextPreviewImage(previewContainer, imageContainer);
 	$(previewContainer).css('display', 'flex');
+	$(imageContainer).hide();
 }
 
 function setRevealAnswer(previewContainer, el, title, overlayOption) {
