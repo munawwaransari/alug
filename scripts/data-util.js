@@ -1811,7 +1811,7 @@ function addImagePreviewer(containerName){
 		<b>&lt;</b>
 		</div>
 		<div style="width: 100%; height:100;align-items: center;justify-content: center;">
-			<div style="text-align:center;width:100%;height: auto; margin: auto; padding: 10px;">Title</div>
+			<div style="text-align:center;width:100%;height: auto; margin: auto; padding: 10px; font-size:20px;">Title</div>
 			<img style="width: 100%; height: auto; margin: auto; object-fit: contain; max-height: 400px;"/>
 		</div>
 		<div class="image-next" 
