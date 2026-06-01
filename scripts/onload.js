@@ -461,6 +461,8 @@ function updateToolDescription(id, opt){
 				<select id="bg-options" onchange="changeBackground(this)">
 					<option value="default" ${(app_bg === 'default' ?' selected ':'')}>Default</option>
 					<option value="bg-1" ${(app_bg === 'bg-1' ?' selected ':'')}>Background 1</option>
+					<option value="bg-2" ${(app_bg === 'bg-2' ?' selected ':'')}>Background 2</option>
+					<option value="bg-3" ${(app_bg === 'bg-3' ?' selected ':'')}>Background 3</option>
 				</select>
 			</div>`);
 			toolMessage.html(sdiv);
