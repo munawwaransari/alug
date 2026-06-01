@@ -81,10 +81,10 @@
 	  height: maxHeight, //160,
 	  bgColor: "white",
 	}
-	const brushSizes = [6, 8, 10, 12, 14];
+	const brushSizes = [6, 10, 14, 18, 22];
 	const colors = "red,green,blue,white,black".split(",");
 	var currentColor = "blue";
-	var currentWidth = 12;
+	var currentWidth = 14;
 	var currentSelectBrush;
 	var currentSelectColor;
 	var colorSel;
@@ -415,7 +415,7 @@
 
 	  // draw Practice Alphabet
 	  if(practiceMode){
-	    ctx.font = '200px Noto Sans Arabic UI, sans-serif';
+	    ctx.font = '180px Noto Sans Arabic UI, sans-serif';
 		ctx.strokeStyle = 'lightgray';
 		ctx.lineWidth = 2;
 		ctx.textAlign = 'center';
