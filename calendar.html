@@ -300,7 +300,7 @@
 
 			var dayofweek = 0;
 			if(calendarType === 'hijri'){
-				dayofweek = h_date.WDay
+				dayofweek = g_date.WDay; // h_date.WDay
 			}else{
 				dayofweek = gregorianDate(new Date(g_date.Year, g_date.Month, 0)).WDay;
 			}
@@ -381,15 +381,16 @@
 				date = g_date;
 				month = date.Month;
 				year = date.Year;
+				sel_day = date.Day - 1;
 			}
 			else{
 				date = h_date;
 				month_hijri = date.Month - 1;
 				year_hijri = date.Year;
+				sel_day = date.Day;
 			}
-			sel_day = date.Day - 1;
-			startYear = date.Year - 15;
-			endYear = date.Year + 5;
+			startYear = date.Year;
+			endYear = date.Year;
 			
 			document.getElementById("curMonth").innerHTML = calendarType === 'gregorian' ? 
 				months_en[month] : 
