@@ -40,6 +40,13 @@
         "Provide traceable references f Quranic verse or hadith wherever mentioned in the response.",
         "Target Language: @2"
     ],
+    "VerseHadithReferencePrompt": [
+        "Context: Quran",
+        "Verse: @0:@1",
+        "Look for explanation about this verse in authentic hadith books and provide a summary with hadith reference, and any significant interpretations or insights or difference of opinions related to this verse.",
+        "Provide key hadith passage and correct references for the hadith, including book name, hadith number and if possible a link to the hadith.",
+        "Target Language: @2"
+    ],
    "VerseToImage": [
         "Context: Quran",
         "Verse: @0:@1",

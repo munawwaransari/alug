@@ -1658,25 +1658,28 @@ function getPromptsForVerse(chapter, verse, target = 'puter') {
 	var selLang = parent.getLang ? parent.getLang() ?? 'EN' : 'EN';
 	var selWord = "${$('.sel-word').first().text()}";
 	var prompts = getPromptFromKey(
-		["Conjugation", "WordPrompt", "VersePrompt", "VerseToImage", "VerseTransate"],
+		["Conjugation", "WordPrompt", "VersePrompt", "VerseHadithReferencePrompt", "VerseToImage", "VerseTransate"],
 		{
 			"0": [selWord, selLang],
 			"1": [selWord, selLang],
 			"2": [chapter, verse, selLang],
 			"3": [chapter, verse, selLang],
-			"4": [chapter, verse]
+			"4": [chapter, verse, selLang],
+			"5": [chapter, verse]
 		});
 
 	var word_conjugation_prompt = prompts[0];
 	var word_promtp = prompts[1];
 	var verse_prompt = prompts[2];
-	var verse_to_image_prompt = prompts[3];
-	var verse_translate_prompt = prompts[4];
+	var verse_hadith_reference_prompt = prompts[3];
+	var verse_to_image_prompt = prompts[4];
+	var verse_translate_prompt = prompts[5];
 	var target_function = target == 'puter' ? 'loadPuterSearch' : 'openGoogleAISearch';
 	return`
 		<a href="#" onclick="${target_function}(\`${word_promtp}\`)">Describe word</a>
 		<a href="#" onclick="${target_function}(\`${word_conjugation_prompt}\`)">Conjugate word</a>
 		<a href="#" onclick="${target_function}(\`${verse_prompt}\`)">Summarize verse</a>
+		<a href="#" onclick="${target_function}(\`${verse_hadith_reference_prompt}\`)">Hadith reference</a>
 		<a href="#" onclick="${target_function}(\`${verse_to_image_prompt}\`)">Verse to image</a>
 		<a href="#" onclick="${target_function}(\`${verse_translate_prompt}\`)">Translate in 10 languages</a>
 		`
