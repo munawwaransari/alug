@@ -1786,18 +1786,35 @@ function setRevealAnswer(previewContainer, el, title, overlayOption) {
 			onclick="
 			$(this).text('${title}'); 
 			if('${overlayOption}' == 'bottom'){
-				$('.ioverlay').remove();
+				$('.ioverlay-bottom').remove();
+			}else if('${overlayOption}' == 'top'){
+				$('.ioverlay-top').remove();
+			}else if('${overlayOption}' == 'bottom-top'){
+				$('.ioverlay-bottom').remove();
+				$('.ioverlay-top').remove();
 			}
 		">
 		?
 		</p>`);
 
-	$(".ioverlay").remove();
-	if (overlayOption == "bottom"){
+	$(".ioverlay-bottom").remove();
+	$(".ioverlay-top").remove();
+	$(".ioverlay-bottom").remove();
+
+	if (overlayOption == "bottom") {
 		$(previewContainer).append(`
-				<div class="ioverlay"</div>
+				<div class="ioverlay-bottom"></div>
 			`);
-		}
+	}else if (overlayOption == "top") {
+		$(previewContainer).append(`
+				<div class="ioverlay-top"></div>
+			`);
+	} else if (overlayOption == "bottom-top") {
+		$(previewContainer).append(`
+				<div class="ioverlay-bottom"></div>
+				<div class="ioverlay-top"></div>
+			`);
+	}		
 }
 
 function nextPreviewImage(previewContainer, imageContainer){

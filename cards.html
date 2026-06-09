@@ -183,7 +183,7 @@
 	<script>
 		var cardsFirstLoad = true;
 		window.onload = () => {
-			addImagePreviewer("cardContainer");
+			addImagePreviewer("cardContainer", 'bottom');
 			reloadCardData();
 		}
 		ensureJsonData({name: "ai-prompts"});

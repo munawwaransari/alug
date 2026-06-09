@@ -48,18 +48,32 @@
 				
 		}
 
-		.ioverlay {
+		.ioverlay-bottom {
 			position:absolute;
 			background-color: white;
 			color:white;
 			padding:10px;
 			text-align:center;
-			width:70%;
+			width:80%;
 			height:56px;
 			margin-bottom: 14px;
 			z-Index: 1;
 			bottom: 0;
 		}
+
+		.ioverlay-top {
+			position:absolute;
+			background-color: white;
+			color:white;
+			padding:10px;
+			text-align:center;
+			width:80%;
+			height:56px;
+			margin-bottom: 14px;
+			z-Index: 1;
+			top: 100px;
+		}
+
 	</style>
 	<script>
 		window.onload = function(){
@@ -71,7 +85,11 @@
 			if(folder){
 				var url = getLocationPath() + 'images/charts/'+folder+'/';
 				loadCharts(url, getMax(folder), true);
-				addImagePreviewer("chartContainer", 'bottom');
+				if(folder === "alphabets"){
+					addImagePreviewer("chartContainer", 'bottom');
+				}else{
+					addImagePreviewer("chartContainer", 'bottom-top');
+				}
 			}
 		}	
 		
