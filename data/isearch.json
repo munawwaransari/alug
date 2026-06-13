@@ -334,25 +334,30 @@
         "action": "cmp",
 	"data": "pos:16"
     },
-	"Masdar - Triliteral;مصادر;": {
+	"Verbal Nouns;اسماء الأفعال": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:1"
     },
+    "Masdar - Triliteral;مصادر;": {
+        "path": "dict.html",
+        "action": "masdar",
+        "data": "pos:4"
+    },
     "Masdar - Quadliteral;مصادر;": {
         "path": "dict.html",
         "action": "masdar",
-        "data": "pos:8"
+        "data": "pos:11"
     },
     "Masdar - Five-Letter;مصادر;": {
         "path": "dict.html",
         "action": "masdar",
-        "data": "pos:13"
+        "data": "pos:16"
     },
     "Masdar - Six-Letter;مصادر;": {
         "path": "dict.html",
         "action": "masdar",
-        "data": "pos:16"
+        "data": "pos:19"
     },
     "Direct Object;المفعُول بِهِ;": {
         "path": "dict.html",
