@@ -334,7 +334,7 @@
         "action": "cmp",
 	"data": "pos:16"
     },
-	"Verbal Nouns;اسماء الأفعال": {
+	"Verbal Nouns;اسماء الأفعال;هَيْهاتَ;شَتّانَ;سُرْعَانَ;صَهْ;حَيَّ;هَلُمَّ;مَهْ;أُفٍّ;وَيْ;قَطْ": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:1"
