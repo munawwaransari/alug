@@ -259,6 +259,11 @@ function showVerbTable() {
 	posAPIObj.addVerbInfoHtml($(".dictionary"), vTable);
 }
 
+function showMetonymies() {
+	var mTable = posAPIObj.getMetonymies();
+	posAPIObj.addMetonymyHtml($(".dictionary"), mTable);
+}
+
 function showParticleTable() {
 	var pTable = posAPIObj.getParticleInfo();
 	posAPIObj.addParticleInfoHtml($(".dictionary"), pTable);

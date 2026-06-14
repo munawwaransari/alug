@@ -832,6 +832,46 @@ class posAPI {
 		}
 	}
 
+	addMetonymyHtml(container, res){
+		var api = this;
+		container.empty();
+		var filters = [];
+		var index = 0;
+		$.each(res, function(key, value){
+			index++;
+			var nTable = $(`
+			<table id="mTable${index}" class="mTable">
+				<tr style="background-color:#F6F6BA;font-size:18px;">
+					<th style="font-size: 22px;">
+						${value.ar}<br/>${value.en}
+					</th>
+				</tr>
+			</table>`);
+			container.append(nTable);
+			$.each(value.words, function(wkey, wvalue){
+				nTable.append(
+				`<tr><td style="background-color:#ACE892;"><b>${wvalue.ar}&nbsp;&nbsp;${wvalue.en}</b></td></tr>
+				<tr><td style="background-color:#ACE892;"><b>${wvalue.structure}</b></td></tr>
+				<tr><td style="direction:ltr">Examples:<br/>
+				${
+					wvalue.examples.map(ex => `
+						${replaceQLink(ex)}</br/>
+				    `).join('')
+				}</td></tr>`);
+			});
+		});
+	}
+
+	getMetonymies(){
+		var res = [];
+		for (const keyVal of Object.entries(posAPI.posRules)){
+			if(keyVal[0] === "Metonymies"){
+				res = posAPI.posRules[keyVal[0]];
+			}
+		}
+		return res;
+	}
+
 	getPerpPhraseInfo(){
 		var res = [];
 		for (const keyVal of Object.entries(posAPI.posRules)){
