@@ -204,34 +204,34 @@
 		"construct_ar": [
             "<b>اِستِفعَال</b><br/>اِستَخرَجَ  -->  اِستِخْرَاج<br/><sup>(Extraction)</sup><br/>اِستَمَرَّ  -->  اِستِمرَار<br/><sup>(Continuation)</sup><br/>اِستَغفَرَ  -->  اِستِغفَار<br/><sup>(Repentance)</sup><br/>"
         ],
-        "notes": "denotes seeking, requesting, or finding a certain quality in an action (Form X)"
+        "notes": "denotes seeking, requesting, or finding a certain quality<br/> in an action (Form X)"
     },
     {
         "name_ar":  "مصدر سماعي",
         "name_en":  "Auditory Verbal Noun",
         "construct_sep": "<br/>",
         "construct_ar": [
-            "<p style=\"direction: ltr;padding:0;margin:0;\">These are the verbal nouns derived from the triliteral verbs (افعال الثلاثية). These are not based on any predictable rule<br/></li><br/><li>رَجَعَ --> رجُوعاً<br/></li><br/><li>كَتَبَ --> كَتابَة<br/>&nbsp;</li><li>أَخَذَ --> أَخذاً</li></ul><br/>",
+            "<p style=\"width:90%;direction: ltr;padding:0;margin:0;\">These are the verbal nouns derived from the triliteral verbs (افعال الثلاثية). These are not based on any predictable rule<br/></li><br/><li>رَجَعَ --> رجُوعاً<br/></li><br/><li>كَتَبَ --> كَتابَة<br/>&nbsp;</li><li>أَخَذَ --> أَخذاً</li></ul><br/>",
             "ذَهَبَ - يَذهَبُ --> ذِهَاب (مصدر)<br/><br/>قَتَلَ - يَقتُلُ --> قَتل (مصدر)<br/><br/>سَارَ - يَسِيرُ --> سَير (مصدر)<br/><br/>سَمِعَ - يَسمَعُ --> سماع (مصدر)<br/><br/>"
         ],
-        "notes": "<div style=\"direction:ltr\">Both قياسي and سماعي are types of verbal noun (مصدر). There are some special types of verbal noun: e.g. Masdar Mimi (المصدر الميمي): A verbal noun starting with an extra mīm (م) that carries the same meaning as the standard form </div>"
+        "notes": "<div style=\"text-align:center;width:90%;direction:ltr;\">Both قياسي and سماعي are types of verbal noun (مصدر). There are some special types of verbal noun: e.g. Masdar Mimi (المصدر الميمي): A verbal noun starting with an extra mīm (م) that carries the same meaning as the standard form </div>"
     },
     {
         "name_ar":  "مصدر قياسي",
         "name_en":  "Standard Verbal Noun",
         "construct_sep": "<br/>",
         "construct_ar": [
-            "<p style=\"direction: ltr;padding:0;margin:0;\">These are the verbal nouns derived from the non-triliteral verbs (افعال غير ثلاثية). These are based on predictable grammar word patterns (اوزان)<br/></li><br/><li>رباعي => قاتَلَ --> قِتال / مُقَاتِلَة ,&nbsp;&nbsp;اَخرَجَ --> اِخراج<br/></li><br/><li>خُماسي => اتّخَدَ --> اِتِّخاذ, &nbsp;تَوَكَّلَ --> تَوّكُّل<br/>&nbsp;</li><li>سُداسي =>اِستَخدَمَ --> اِستِخدام</li></ul><br/>",
-            "صلّي - يصلّي --> (رباعي) --> صَلاة (مصدر)<br/><br/>اَسلَمَ - يُسلِمُ --> (رباعي) --> اِسلام (مصدر)<br/><br/>تَقَبَّلَ - يَتَقَبَّلُ --> (خماسي) --> تَقَبُّل (مصدر)<br/><br/>استَقبَلَ - يَستَقبِلُ --> (سُداسي) --> اِستِقبَال (مصدر)<br/><br/>"
+            "<p style=\"width:90%;direction: ltr;padding:0;margin:0;\">These are the verbal nouns derived from the non-triliteral verbs (افعال غير ثلاثية). These are based on predictable grammar word patterns (اوزان)<br/></li><br/><li>رباعي => قاتَلَ --> قِتال / مُقَاتِلَة ,&nbsp;&nbsp;اَخرَجَ --> اِخراج<br/></li><br/><li>خُماسي => اتّخَدَ --> اِتِّخاذ, &nbsp;تَوَكَّلَ --> تَوّكُّل<br/>&nbsp;</li><li>سُداسي =>اِستَخدَمَ --> اِستِخدام</li></ul><br/>",
+            "صلّي - يصلّي --> (رباعي) --> صَلاة (مصدر)<br/><br/>اَسلَمَ - يُسلِمُ --> (رباعي) --> اِسلام (مصدر)<br/><br/>تَقَبَّلَ - يَتَقَبَّلُ --> (خماسي) --> تَقَبُّل (مصدر)<br/><br/>استּقبּلּ - يּستּقبּלּ --> (سُداسي) --> اِستِقبּال (مصدر)<br/><br/>"
         ],
-        "notes": "<div style=\"direction:ltr\">Both قياسي and سماعي are types of verbal noun (مصدر). There are some special types of verbal noun: e.g. Masdar Mimi (المصدر الميمي): A verbal noun starting with an extra mīm (م) that carries the same meaning as the standard form </div>"
+        "notes": "<div style=\"text-align:center;width:90%;direction:ltr;\">Both قياسي and سماعي are types of verbal noun (مصدر). There are some special types of verbal noun: e.g. Masdar Mimi (المصدر الميمي): A verbal noun starting with an extra mīm (م) that carries the same meaning as the standard form </div>"
     },
     {
         "name_ar":  "المصدر الميمي",
         "name_en":  "Meemi Verbal Noun",
         "construct_sep": "<br/>",
         "construct_ar": [
-            "<p style=\"direction: ltr;padding:0;margin:0;\">These are special type of verbal noun (مصدر). They can be derived from both triliteral and non-triliteral verbs (افعال ثلاثية وغير ثلاثية) and are characterized by an extra mīm (م) at the beginning of the verbal noun.<br/></li><br/><li>من الفعل الثلاثي: Mostly formed on the pattern مفعل or مفعلة<br/></li><br/><li>من الفعل غير الثلاثي: Mostly formed from صيغة المضارع (adding letter م at the beginning and faa kalima being مفتُوح<br/>&nbsp;</li></ul>",
+            "<p style=\"width:90%;direction: ltr;padding:0;margin:0;\">These are special type of verbal noun (مصدر). They can be derived from both triliteral and non-triliteral verbs (افعال ثلاثية وغير ثلاثية) and are characterized by an extra mīm (م) at the beginning of the verbal noun.<br/></li><br/><li>من الفعل الثلاثي: Mostly formed on the pattern مفعل or مفعلة<br/></li><br/><li>من الفعل غير الثلاثي: Mostly formed from صيغة المضارع (adding letter م at the beginning and faa kalima being مفتُوح<br/>&nbsp;</li></ul>",
             "<br/>يَنطَلِقُ (فعل) --> مُنطَلَق (مصدر)<br/><br/>يَستَخرِجُ (فعل) --> مُستَخرَج (مصدر)<br/><br/>يُجَاهِدُ (فعل) --> مُجاهَدَة (مصدر)<br/><br/>"
         ],
         "notes": ""
