@@ -667,7 +667,7 @@
             "قياسي",
             "سماعي"
         ],
-        "notes": null,
+        "notes": "<p style=\"direction:ltr\">See also <a href=\"#\" onclick=\"parent.openInline(encodeURI(getLocationPath()+'dict.html?action=masdar&data=pos:20'));\">مصدر سماعي</a>&nbsp;<a href=\"#\" onclick=\"parent.openInline(encodeURI(getLocationPath()+'dict.html?action=masdar&data=pos:21'));\">مصدر قياسي</a></p>",
         "ar": [
             "تعريف",
             "مِثال"

@@ -81,10 +81,12 @@ window.onload = function () {
 function selectAndTrigger(data, filterClass) {
 	var d = data ? data.toLowerCase() : data;
 	const select = document.getElementsByClassName(filterClass)[0];
-	for (let i = 0; i < select.options.length; i++) {
-		if (arRemovePunct(select.options[i].value).toLowerCase().includes(d)) {
-			$("." + filterClass).val(select.options[i].value);
-			$("." + filterClass).trigger('onchange');
+	if(select){
+		for (let i = 0; i < select.options.length; i++) {
+			if (arRemovePunct(select.options[i].value).toLowerCase().includes(d)) {
+				$("." + filterClass).val(select.options[i].value);
+				$("." + filterClass).trigger('onchange');
+			}
 		}
 	}
 }
