@@ -572,19 +572,19 @@
         "action": "noun-cmp",
         "data": "pos:12"
     },
-    "Auditory Verbal Noun;مصدر سماعي":
+    "Auditory Verbal Noun;Masdar;مصدر سماعي":
     {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:20"
     },
-    "Standard Verbal Noun;مصدر قياسي":
+    "Standard Verbal Noun;Masdar;مصدر قياسي":
     {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:21"
     },
-    "Verbal Noun - Meemi;المصدر الميمي":
+    "Verbal Noun - Meemi;Masdar;المصدر الميمي":
     {
         "path": "dict.html",
         "action": "masdar",
