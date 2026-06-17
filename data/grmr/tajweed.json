@@ -71,6 +71,46 @@
                 "مِنْ شَرٍّ <sub>mi<b><u>n</u></b>sharri</sub>"
             ],
             "en": ["إخفاء <br/> Concealment<br/>(Light Ghunna)"]
+        },
+        {
+            "play": "أَحَبُّ . يُحِبُّ",
+            "names": [
+                "يُحْبِبُ -> يُحِبُّ <sub>yuh<b><u>bb</u></b>u</sub>",
+                "أَحْبَبُ -> أَحَبُّ <sub>aha<b><u>bb</u></b>a</sub>"
+            ],
+            "en": ["تَشْدِيدٌ <br/> Gemination <br/>(Phonetic Doubling)"]
+        },
+        {
+            "play": "عَرِّضْ . يُحبِبْ",
+            "names": [
+                "يُحبِبْ <sub>yuh<b><u>bib</u></b></sub>",
+                "عَرِّضْ <sub>`arri<b><u>dh</u></b></sub>"
+            ],
+            "en": ["جزم <br/> Degemination <br/>(Phonetic undoubling)"]
+        },
+        {
+            "play": "اِتَّبَعَ . اِتَّقَي",
+            "names": [
+                "<sub>اِوْتَقَي --> اِتَّقَي i<b style=\"text-decoration: line-through;\">w</b><b>t</b>taqa</sub>",
+                "<sub>اِوتَبَعَ --> اِتَّبَعَ i<b style=\"text-decoration: line-through;\">w</b><b>t</b>taba'</sub>"
+            ],
+            "en": ["تاء <br/> Form VIII Assimilation"]
+        },
+        {
+            "play": "اِطَّلَعَ . اِطَّرَدَ",
+            "names": [
+                "<sub>اِوْطَرَدَ --> اِطَّرَدَ i<b style=\"text-decoration: line-through;\">w</b><b>t</b>tarada</sub>",
+                "<sub>اِوْطَلَعَ --> اِطَّلَعَ i<b style=\"text-decoration: line-through;\">w</b><b>t</b>tala'</sub>"
+            ],
+            "en": ["طاء <br/> Form VIII Assimilation"]
+        },
+        {
+            "play": "مُدِّكِر . اِدَّعَي",
+            "names": [
+                "<sub>اِودَعَي --> اِدَّعَي i<b style=\"text-decoration: line-through;\">w</b><b>d</b>da'</sub>",
+                "<sub>مُوْذَكِر -> مُتْذَكِر -> مُدَّكِر mu<b style=\"text-decoration: line-through;\">w</b>ddakir</sub>"
+            ],
+            "en": ["دال <br/> Form VIII Assimilation"]
         }
     ]
 }
