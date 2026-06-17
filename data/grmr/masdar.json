@@ -231,7 +231,7 @@
         "name_en":  "Meemi Verbal Noun",
         "construct_sep": "<br/>",
         "construct_ar": [
-            "<p style=\"width:90%;direction: ltr;padding:0;margin:0;\">These are special type of verbal noun (مصدر). They can be derived from both triliteral and non-triliteral verbs (افعال ثلاثية وغير ثلاثية) and are characterized by an extra mīm (م) at the beginning of the verbal noun.<br/></li><br/><li>من الفعل الثلاثي: Mostly formed on the pattern مفعل or مفعلة<br/></li><br/><li>من الفعل غير الثلاثي: Mostly formed from صيغة المضارع (adding letter م at the beginning and faa kalima being مفتُوح<br/>&nbsp;</li></ul>",
+            "<p style=\"width:90%;direction: ltr;padding:0;margin:0;\">These are special type of verbal noun (مصدر). They can be derived from both triliteral and non-triliteral verbs (افعال ثلاثية وغير ثلاثية) and are characterized by an extra mīm (م) at the beginning of the verbal noun.<br/></li><br/><li style=\"list-style-type: none;direction:ltr;width:90%\">من الفعل الثلاثي: <br/>Mostly formed on the pattern مفعل or مفعلة<br/></li><br/><li style=\"list-style-type: none;direction:ltr;width:90%\">من الفعل غير الثلاثي: <br/>Mostly formed from صيغة المضارع (adding letter م at the beginning and faa kalima being مفتُوح<br/>&nbsp;</li></ul>",
             "<br/>يَنطَلِقُ (فعل) --> مُنطَلَق (مصدر)<br/><br/>يَستَخرِجُ (فعل) --> مُستَخرَج (مصدر)<br/><br/>يُجَاهِدُ (فعل) --> مُجاهَدَة (مصدر)<br/><br/>"
         ],
         "notes": ""
