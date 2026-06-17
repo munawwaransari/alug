@@ -575,20 +575,20 @@
     "Auditory Verbal Noun;مصدر سماعي":
     {
         "path": "dict.html",
-        "action": "noun-cmp",
-        "data": "pos:13"
+        "action": "masdar",
+        "data": "pos:20"
     },
     "Standard Verbal Noun;مصدر قياسي":
     {
         "path": "dict.html",
-        "action": "noun-cmp",
-        "data": "pos:14"
+        "action": "masdar",
+        "data": "pos:21"
     },
     "Verbal Noun - Meemi;المصدر الميمي":
     {
         "path": "dict.html",
-        "action": "noun-cmp",
-        "data": "pos:15"
+        "action": "masdar",
+        "data": "pos:22"
     },
     "Quranic Examples;أمثلة من القرآن":
     {
