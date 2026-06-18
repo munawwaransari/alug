@@ -896,6 +896,8 @@ function showInadequateVerbTable() {
 		</tr>
 		<tr>
 			<td>اصبَحَ الطَّقَسُ جَمِيلَةً<br/>The weather has become beautiful<br/>بَاتَ المَريضُ جَادًا<br/>The patient became (in night) seriosly ill
+			<br/>
+			<a href="#" onclick="openGoogleAISearch(getPromptFromKey(['InadequateVerbs'], {'0': ['توقيت']}, true))">More</a>
 			</td>
 		</tr>
 		<tr style="background-color:#E8E885;">
@@ -908,6 +910,8 @@ function showInadequateVerbTable() {
 		</tr>
 		<tr>
 			<td>صَارَ الماءُ جَليِدًا<br/>The water became ice<br/>صارَ إلَي لِصٍّ<br/>He beame a thief
+			<br/>
+			<a href="#" onclick="openGoogleAISearch(getPromptFromKey(['InadequateVerbs'], {'0': ['تحويل']}, true))">More</a>
 			</td>
 		</tr>
 		</tr>
@@ -920,6 +924,8 @@ function showInadequateVerbTable() {
 		</tr>
 		<tr>
 			<td>أَلَيْسَ الصُّبْحُ بِقَرِيبٍ [11:81]<br/>Is not the morning approaching?<br/>لَيسَ المُعَلِّمُ حاضِرًا<br/>The teacher is not present
+			<br/>
+			<a href="#" onclick="openGoogleAISearch(getPromptFromKey(['InadequateVerbs'], {'0': ['نفي']}, true))">More</a>
 			</td>
 		</tr>
 		<tr style="background-color:#E8E885;">
@@ -932,6 +938,8 @@ function showInadequateVerbTable() {
 		</tr>
 		<tr>
 			<td>مابرح الجوء لَطيفًا<br/>Weather is still nice<br/>مازال الطِّفلُ نَائمًا<br/>The baby is still asleep
+			<br/>
+			<a href="#" onclick="openGoogleAISearch(getPromptFromKey(['InadequateVerbs'], {'0': ['استمرار']}, true))">More</a>
 			</td>
 		</tr>
 		<table>`;
@@ -948,12 +956,14 @@ function showWeakVerbTable() {
 	<table class="pTable">
 		<tr>
 			<td style="background-color:#E8E885;">
-				<b><a href="#" title="AI search" 
-					onclick="openGoogleAISearch(
-						getPromptFromKey(['WeakVerbs'], {'0': ['مِثال']}, true))">مِثال</a></b>
+				<b>مِثال</b>
 			</td>
 			<td rowspan="3">(يَفعَلُ) يَوجِدُ => ${alink.replaceAll('$', 'يَجِدُ')}
-			<br/><br/>(يَفعِلُونَ) يَوذِرُونَ => يَذِرُونَ</td>
+			<br/><br/>(يَفعِلُونَ) يَوذِرُونَ => يَذِرُونَ
+			<br/><br/>
+			<a href="#" title="AI search" style="font-size:14px;" onclick="openGoogleAISearch(
+						getPromptFromKey(['WeakVerbs'], {'0': ['مِثال']}, true))">More</a>
+			</td>
 		</tr>
 		<tr style="background-color:#E8E885;">
 			<td>ف كلمة => ا و ي</td>
@@ -966,12 +976,14 @@ function showWeakVerbTable() {
 		</tr>
 		<tr>
 			<td style="background-color:#E8E885;">
-				<b><a href="#" title="AI search" 
-					onclick="openGoogleAISearch(
-						getPromptFromKey(['WeakVerbs'], {'0': ['أَجوَف']}, true))">أَجوَف</a></b>
+				<b>أَجوَف</b>
 			</td>
 			<td rowspan="3">(فَعَلَ) قَوَلَ => ${alink.replaceAll('$', 'قَالَ')}
-			<br/><br/>(فُعِلَ) قُوِلَ => قِيلَ</td>
+			<br/><br/>(فُعِلَ) قُوِلَ => قِيلَ
+			<br/><br/>
+			<a href="#" title="AI search" style="font-size:14px;" onclick="openGoogleAISearch(
+						getPromptFromKey(['WeakVerbs'], {'0': ['أَجوَف']}, true))">More</a>
+			</td>
 		</tr>
 		<tr>
 			<td style="background-color:#E8E885;">ع كلمة => ا و ي</td>
@@ -984,11 +996,13 @@ function showWeakVerbTable() {
 		</tr>
 		<tr>
 			<td style="background-color:#E8E885;">
-				<b><a href="#" title="AI search" 
-					onclick="openGoogleAISearch(
-						getPromptFromKey(['WeakVerbs'], {'0': ['نَاقِص']}, true))">نَاقِص</a></b>
+				<b>نَاقِص</b>
 				</td>
-			<td rowspan="3">(فَعَلُوا) رَضَيُوا=> ${alink.replaceAll('$', 'رَضُوا')}<br/></td>
+			<td rowspan="3">(فَعَلُوا) رَضَيُوا=> ${alink.replaceAll('$', 'رَضُوا')}
+			<br/><br/>
+			<a href="#" title="AI search" style="font-size:14px;" onclick="openGoogleAISearch(
+						getPromptFromKey(['WeakVerbs'], {'0': ['نَاقِص']}, true))">More</a>
+			</td>
 		</tr>
 		<tr>
 			<td style="background-color:#E8E885;">ل كلمة => ا و ي</td>
@@ -1001,12 +1015,14 @@ function showWeakVerbTable() {
 		</tr>
 		<tr>
 			<td style="background-color:#E8E885;">
-				<b><a href="#" title="AI search" 
-					onclick="openGoogleAISearch(
-						getPromptFromKey(['WeakVerbs'], {'0': ['لَفِيف']}, true))">لَفِيف</a></b>
+				<b>لَفِيف</b>
 			</td>
 			<td rowspan="3">(اِفتَعَلَ) إوتَقَيَ => إتْتَقَي => ${alink.replaceAll('$', 'إتَّقَي')}
-			<br/><br/>(فَعِلنَا) وَقِينَا=> وَقِنَا</td>
+			<br/><br/>(فَعِلنَا) وَقِينَا=> وَقِنَا
+			<br/><br/>
+			<a href="#" title="AI search" style="font-size:14px;" onclick="openGoogleAISearch(
+						getPromptFromKey(['WeakVerbs'], {'0': ['لَفِيف']}, true))">More</a>
+			</td>
 		</tr>
 		<tr>
 			<td style="background-color:#E8E885;">و/ي root has</td>
@@ -1018,11 +1034,14 @@ function showWeakVerbTable() {
 		</tr>
 		<tr>
 			<td style="background-color:#E8E885;">
-				<b><a href="#" onclick="openGoogleAISearch(
-				getPromptFromKey(['WeakVerbs'], {'0': ['مَهمُوز']}, true))">مَهمُوز</a></b>
+				<b>مَهمُوز</b>
 			</td>
 			<td rowspan="3">(فَعَلُوا) رَأَيُو => ${alink.replaceAll('$', 'رَأَو')}
-			<br/><br/>(يَفعَلُ) يَاكُلُ [Exception]</td>
+			<br/><br/>(يَفعَلُ) يَاكُلُ [Exception]
+			<br/><br/>
+			<a href="#" title="AI search" style="font-size:14px;" onclick="openGoogleAISearch(
+						getPromptFromKey(['WeakVerbs'], {'0': ['مَهمُوز']}, true))">More</a>
+			</td>
 		</tr>
 		<tr>
 			<td style="background-color:#E8E885;">root has hamza</td>

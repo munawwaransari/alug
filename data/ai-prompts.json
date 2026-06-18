@@ -125,5 +125,12 @@
         "Provide concise definitio of the given grammar element.",
         "Provide exxample sentences (at least 5) for the given grammar element.",
         "Cover all grmmatical nuances."
+    ],
+    "InadequateVerbs": [
+        "Context: Arabic Grammar",
+        "Verb Type: @0",
+        "Provide concise definition of the given verb type.",
+        "Provide example sentences (at least 5) for the given verb type.",
+        "Cover all grammatical nuances."
     ]
 }
