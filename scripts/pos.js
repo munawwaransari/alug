@@ -638,10 +638,23 @@ class posAPI {
 					
 					if(xform["e.g."]){
 						var example = replaceQLink(xform["e.g."].join('<br/>'));
-						row = row +`<td>${example}</td>`;	
+						row = row +`<td>${example}`;	
+						if(xform["e.g."].length <= 1) row = row + '<br/>';
 					}else{
-						row = row +'<td></td>';	
-					}					
+						row = row +'<td><br/>';	
+					}			
+					//Add Ai search link
+					var prompt = getPromptFromKey(['Word-Patterns'], 
+									{'0': [
+										values.en,
+										xform.form,
+										xform.plurals.map((x)=>x.form).join("\n"),
+
+									]}, false);
+					row = row +`<a href="#" style="cursor:pointer;font-size: 14px;"
+								onclick="openGoogleAISearch(\`${prompt}\`);">More</a></td>`;
+
+					//Add noun type
 					row = row +`<td>${values.ar}<br/>${values.en}</td>`;
 					row = row +'</tr>';
 					

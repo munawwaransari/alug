@@ -110,5 +110,20 @@
     "Greetings": [
         "Provide 7 Arabic sentences for greeting @0, @1",
         "Include nuances and variations in greetings based on the context."
+    ],
+    "Word-Patterns": [
+        "Context: Arabic Grammar type @0",
+        "Singular word pattern: @1",
+        "Related Patterns:", 
+        "@2",
+        "Provide example words (at least 5 each) and sentnces for above patters.",
+        "Cover all patterns from the list, also add if any other pattern is relavant to the singualr word given."
+    ],
+    "Object-Effects": [
+        "Context: Arabic Grammar",
+        "Grammar type: @0",
+        "Provide concise definitio of the given grammar element.",
+        "Provide exxample sentences (at least 5) for the given grammar element.",
+        "Cover all grmmatical nuances."
     ]
 }

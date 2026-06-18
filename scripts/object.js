@@ -82,7 +82,11 @@ function addObjectEffectTable(container, objData){
 			}
 			div += `<span>${replaceQLink(ex)}</span><br/>`;
 			return true;
-		});					
+		});		
+		// Add Ai search link for more details
+		var prompt = getPromptFromKey(['Object-Effects'], {'0': [objData.name_ar]}, true);
+		div += `<a href="#" style="cursor:pointer;font-size: 14px;"
+					onclick="openGoogleAISearch(\`${prompt}\`);">More</a>`;			
 		div += '</div>';
 		pTable += `
 			<tr>
