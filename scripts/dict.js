@@ -510,38 +510,61 @@ function listSearchIndex(indexKey='') {
 
 		var div = $("<div style='direction:ltr;width:100%;height=100%;'></div>");
 		div.append($(iDiv));
-
 		$.each(enSortedData, function (key, value) {
-			var link = `
-			parent.redirect('${value.path}','${value.action}',
-			${
-				(value.data && value.data == '@key') ? `'${key}');`:
-				value.data ? `'${value.data}');`: ');'
-			}`;
-			div.append(`
-				<div id="id_${key[0]}"
-					style="margin:0;padding:10px;width:250px;display:inline-block;float:left;">
-					<a href="#" onclick="${link}">${key}</a>
-				</div>`
-			);
+			div.append(getIndexEntry(key, value, 'id', 
+				'margin:0;padding:0;padding-left:10px;padding-top:14px;width:220px;display:inline-block;float:left;'));
 		});
 		$.each(arSortedData, function (key, value) {
-			var link = `
-			parent.redirect('${value.path}','${value.action}',
-			${
-				(value.data && value.data == '@key') ? `'${key}');`:
-				value.data ? `'${value.data}');`: ');'
-			}`;
-			div.append(`
-				<div id="data_${key[0]}"
-					style="margin:0;padding:10px;width:250px;display:inline-block;float:right;">
-					<a href="#" onclick="${link}">${key}</a>
-				</div>`
-			);
+			div.append(getIndexEntry(key, value, 'data', 
+				'margin:0;padding:0;padding-left:10px;padding-top:14px;width:220px;display:inline-block;float:right;'
+			));
 		});
 		$(".dictionary").append(div);
 		handleFilterIndex('id_'+indexKey)
 	});
+}
+
+function getIndexEntry(key, value, id, style){
+	var link = `
+	parent.redirect('${value.path}','${value.action}',
+	${
+		(value.data && value.data == '@key') ? `'${key}');`:
+		value.data ? `'${value.data}');`: ');'
+	}`;
+	var icon = getIndexEntryIcon(value.path, value.action);
+	return `
+		<div id="${id}_${key[0]}"
+			style="${style}">
+			${icon}<a href="#" onclick="${link}">${key}</a>
+		</div>
+	`;
+}
+
+function getIndexEntryIcon(path, action){
+	var style = "height:14px;padding:0;margin:0;display:inline";
+	switch(path)
+	{
+		case 'charts.html':
+		case 'cards.html':
+			return `<img src="images/fcard.png" style="${style}}"/>`;
+		default:
+			break
+	}
+	switch(action)
+	{
+		case 'cmp':
+		case 'noun-cmp':
+			return `<img src="images/cmp.png" style="${style}"/>`;
+		
+		case 'noun-plural':
+		case 'noun-syn':
+		case 'noun-ant':
+			return `<img src="images/tab.png" style="${style}"/>`;
+
+		default:
+			break
+	}
+	return '';
 }
 
 function selectWord(text) {
