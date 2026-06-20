@@ -158,7 +158,7 @@ function handleParams() {
 
 		case 'prep-ph':
 			showPrepPhrasesTable();
-			if (params["data"]) {
+			if (params["data"] && params["data"] != '@Key') {
 				var table = $('#pTable:visible');
 				const exp = new RegExp("(?:^|[a-z\\s])" + params["data"] + "(?:$|[a-z\\s])", 'ig');
 				table.find('tr').filter(function (n, el) {
