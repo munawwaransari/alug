@@ -390,7 +390,8 @@ function searchVerseKey(page, ayahText, verseKey){
 }
 
 function changeTafsir(){
-	stopPlayVerse();
+	
+	//stopPlayVerse();
 	$("#chkTafsir").prop('checked', '')
 
 	const text = arRemovePunct(document.getElementById("searchText").value);
@@ -1183,6 +1184,7 @@ function onVerseLoaded(chapter, verse){
 			}, 100);
 		});
 	}
+	
 	if ($("#tafsir-options").val() !== "none") {
 		setTimeout(function () {
 			changeTafsir();

@@ -1345,6 +1345,7 @@ function playTafsir(verseKey){
 		
 		var opt = $("#tafsir-options").val();
 		if(opt !== null && opt !== "none"){
+			stopPlayVerse();
 			$("#chkQir").prop('checked', '');
 			var lang = opt.substring(0,2);
 			

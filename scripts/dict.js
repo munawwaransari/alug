@@ -513,11 +513,11 @@ function listSearchIndex(indexKey='') {
 		div.append($(iDiv));
 		$.each(enSortedData, function (key, value) {
 			div.append(getIndexEntry(null, key, value, 'id', 
-				'margin:0;padding:0;padding-left:10px;padding-top:14px;width:220px;display:inline-block;float:left;'));
+				'cursor:pointer;margin:0;padding:0;padding-left:10px;padding-top:14px;width:220px;display:inline-block;float:left;'));
 		});
 		$.each(arSortedData, function (key, value) {
 			div.append(getIndexEntry(arSortedDataOriginalKeys, key, value, 'data', 
-				'margin:0;padding:0;padding-left:10px;padding-top:14px;width:220px;display:inline-block;float:right;'
+				'cursor:pointer;margin:0;padding:0;padding-left:10px;padding-top:14px;width:220px;display:inline-block;float:right;'
 			));
 		});
 		$(".dictionary").append(div);
@@ -560,6 +560,7 @@ function getIndexEntryIcon(path, action){
 	{
 		case 'cmp':
 		case 'noun-cmp':
+		case 'sentence':
 			return `<img src="images/cmp.png" style="${style}"/>`;
 		
 		case 'noun-plural':
