@@ -1410,6 +1410,9 @@ function shareExternal(title, parameters){
 
 function init_data_cache(){
 	return {
+		"adjectiveData": {
+			path: "data/grmr/adjective.json"
+		},
 		"adverbData": {
 			path: "data/grmr/adverb.json"
 		},

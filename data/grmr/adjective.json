@@ -1,0 +1,154 @@
+[
+	{
+        "name_ar": "أنماط الصفات الأساسية",
+        "name_en": "Primary Adjective Patterns",
+		"construct_sep": "/",
+        "construct_ar": [			
+            "السمات الأساسية",
+            "الصفات الجوهرية أو الحالات",
+            "الفاعل المتكرر/الصفة",
+            "المشاعر أو الحالات المؤقتة"
+        ],
+        "construct_en": [
+            "Basic physical attributes",
+            "Intrinsic qualities or states",
+            "Frequent doer/quality",
+            "Feelings or temporary states"
+        ],
+        "examples": [
+            "وَٱللَّهُ   شَكُورٌ   حَلِيمٌ [64:17]",
+            "فَإِنَّ   ٱللَّهَ   غَنِيٌّ   حَمِيدٞ [31:12]",
+            "كَبُرَ   مَقۡتًا   عِندَ   ٱللَّهِ   أَن   تَقُولُواْ   مَا   لَا   تَفۡعَلُونَ   ٣ [61:3]",
+            "إِنَّ   ٱللَّهَ   قَوِيٌّ   عَزِيزٞ [58:21]",
+            "فَمِنۡهُمۡ   شَقِيّٞ   وَسَعِيدٞ [11:105]"
+        ],
+		"em":["شَكُورٌ", "حَلِيمٌ", "كَبُرَ", "غَنِيٌّ", "حَمِيدٞ", "قَوِيٌّ", "عَزِيزٞ"],
+        "set": [
+            "فَعْل --> ضَخْمٌ; ضَخْمَةٌ",
+            "فَعِيل --> ظريف ; ظريفة, فَعُلَ --> كَبُرَ",
+            "فَعُول --> صَبُورٌ; صَبُورَةٌ",
+            "فَعِل --> تَعِبٌ; تَعِبَةٌ"
+        ],
+		"set_en":[
+			"huge",
+			"charming, great/severe",
+			"patient",
+			"tired"
+		]
+    },
+	{
+        "name_ar": "الألوان والعيوب المادية",
+        "name_en": "Colors and Physical Defects",
+		"construct_sep": "/",
+        "construct_ar": [
+            "اَفعَلْ",
+            "فَعْلاء"
+        ],
+        "construct_en": [
+            "Masculine pattern: أَفْعَل (Af'al)",
+            "Feminine pattern: فَعْلاء (Fa'laa)"
+        ],
+        "notes": "<p style=\"direction:ltr;width:90%\">Adjectives indicating colors, physical defects, or adornments follow the أَفْعَل (Af'al) pattern. Their feminine counterparts follow the فَعْلاء (Fa'laa) pattern.</p>",
+        "examples": [
+            "إِنَّهَا   بَقَرَةٞ   صَفۡرَآءُ [2:69]",
+            "قَالَ   رَبِّ   لِمَ   حَشَرۡتَنِيٓ   أَعۡمَىٰ [20:125]"
+        ],
+		"em":["صَفۡرَآءُ", "أَعۡمَىٰ"],
+        "set": [
+            "أَفْعَل --> اعرج, أَفْعَل --> اعمَي, أَفْعَل --> اعورّ",
+            "فَعْلاء --> عَمَياء, فَعْلاء --> صَفۡرَآءُ, فَعْلاء --> سَودَاءَ"
+        ],
+		"set_en":[
+			"one-eyed,blind man,lame",
+			"blind woman,yellow,black"
+		]
+    },
+	{
+        "name_ar": "صفات التفضيل",
+        "name_en": "Elevative Adjectives",
+        "construct_sep": "/",
+        "construct_ar": [
+            "اَفعَلْ",
+            "فُعلَي"
+        ],
+        "construct_en": [
+            "Masculine pattern: أَفْعَل (Af'al)",
+            "Feminine pattern: فُعلَي (Fu'laa)"
+        ],
+        "notes": "<p style=\"direction:ltr;width:90%\">Elevated Adjectives follow the أَفْعَل (Af'al) pattern. Their feminine counterparts follow the فُعلَي (Fu'laa) pattern.</p>",
+        "examples": [
+            "وَصَدَّقَ   بِٱلۡحُسۡنَىٰ   ٦ [92:6]",
+            "ٱلَّذِيٓ   أَحۡسَنَ   كُلَّ   شَيۡءٍ   خَلَقَهُۥۖ [32:7]",
+            "وَلَلۡأٓخِرَةُ   خَيۡرٞ   لَّكَ   مِنَ   ٱلۡأُولَىٰ   ٤ [93:4]",
+            "فَأَرَىٰهُ   ٱلۡأٓيَةَ   ٱلۡكُبۡرَىٰ   ٢٠ [79:20]",
+            "وَٱلَّذِينَ   ءَامَنُوٓاْ   أَشَدُّ   حُبّٗا   لِّلَّهِۗ [2:165]"
+        ],
+		"em":["حُسۡنَىٰ", "أُولَىٰ"],
+        "set": [
+            "أَفْعَل --> اَرحَم, أَفْعَل --> اَعلَم, أَفْعَل --> اَكبَر",
+            "فُعلَي --> دُنْيَا, فُعلَي --> وُسْطَى, فُعلَي --> كُبرَي"
+        ],
+		"set_en":[
+			"most merciful, more knowledgeable, great",
+			"central, lowest, great"
+		]
+    },
+    {
+        "name_ar": "اسم الفاعل واسم المفعول",
+        "name_en": "Participle Adjectives",
+		"construct_sep": "/",
+        "construct_ar": [
+            "فَاعِل",
+            "مَفْعُول"
+        ],
+        "construct_en": [
+            "Active participle: فَاعِل (Fa'il)",
+            "passive participle: مَفْعُول (Maf'ool)"
+        ],
+        "examples": [
+            "وَبَشِّرِ   ٱلصَّٰبِرِينَ [2:155]",
+            "هَلۡ   أَتَىٰ   عَلَى   ٱلۡإِنسَٰنِ   حِينٞ   مِّنَ   ٱلدَّهۡرِ   لَمۡ   يَكُن   شَيۡـٔٗا   مَّذۡكُورًا   ١ [76:1]",
+            "إِنَّ   ٱلۡمُسۡلِمِينَ   وَٱلۡمُسۡلِمَٰتِ   وَٱلۡمُؤۡمِنِينَ   وَٱلۡمُؤۡمِنَٰتِ  <br/> وَٱلۡقَٰنِتِينَ   وَٱلۡقَٰنِتَٰتِ   وَٱلصَّٰدِقِينَ   وَٱلصَّٰدِقَٰتِ  <br/> وَٱلصَّٰبِرِينَ   وَٱلصَّٰبِرَٰتِ   وَٱلۡخَٰشِعِينَ   وَٱلۡخَٰشِعَٰتِ <br/>  وَٱلۡمُتَصَدِّقِينَ   وَٱلۡمُتَصَدِّقَٰتِ   وَٱلصَّٰٓئِمِينَ   وَٱلصَّٰٓئِمَٰتِ  <br/> وَٱلۡحَٰفِظِينَ   فُرُوجَهُمۡ   وَٱلۡحَٰفِظَٰتِ  <br/> وَٱلذَّٰكِرِينَ   ٱللَّهَ   كَثِيرٗا   وَٱلذَّٰكِرَٰتِ  <br/> أَعَدَّ   ٱللَّهُ   لَهُم   مَّغۡفِرَةٗ   وَأَجۡرًا   عَظِيمٗا   ٣٥ [33:35]"
+        ],
+		"em":[ "مَّذۡكُورًا", "ٱلصَّٰبِرِينَ" ],
+		"set": [
+            "فَاعِل --> شاهِد, فَاعِل --> عاقِل, فَاعِل --> جاهِل",
+            "مَفْعُول --> مَشهُود, مَفْعُول --> مَعقُول, مَفْعُول --> مَجهُول"
+        ],
+        "set_en":[
+			"witness, sane, ignorant",
+			"witnessed, reasonable, unknown"
+		]
+    },
+    {
+        "name_ar": "النسبة",
+        "name_en": "Relative Adjectives",
+		"construct_sep": "",
+        "construct_ar": [
+            "اسم + (ـيّ) ==> النسبة <br/> النسبة  + (ة) ==> المصدر الصناعي"
+        ],
+        "construct_en": [
+            ""
+        ],
+        "notes": "<p style=\"direction:ltr;width:90%\"><b>Relative adjective</b> is formed by adding a stressed 'ـيّ' (iyyun) to the end of a noun and <b>absolute noun</b> can be made by adding (ة) to the relative adjective</p>",
+        "examples": [
+            "وَلَٰكِن   كُونُواْ   رَبَّٰنِيِّـۧنَ   بِمَا   كُنتُمۡ   تُعَلِّمُونَ   ٱلۡكِتَٰبَ   وَبِمَا   كُنتُمۡ   تَدۡرُسُونَ   ٧٩  [3:79]"
+        ],
+		"em":[ "رَبَّٰنِيِّـۧنَ" ],
+		"set": [
+            "رَبّ -> رَبَّانِيّ/رَبَّانِيُّون --> رَبَّانِيَّة",
+            "أُمّ --> أُمِّيّ/أُمِّيُّون --> أُمِّيَّة",
+            "إِنْس --> إِنْسِيّ/إِنْسِيَّة --> إِنْسَانِيَّة",
+            "دُنْيَا --> دُنْيَوِيّ --> دُنْيَوِيَّة",
+            "شَرْق --> شَرْقِيّ --> شَرْقِيَّة"
+        ],
+        "set_name": "<skip>",
+        "set_en":[
+            "Divinity <-- God-oriented <-- lord/master",
+			"illiteracy <-- unlettered <-- mother/origin",
+            "humanity<-- human-like <-- human",
+            "worldiness <-- wordly <-- world",
+            "orientalism <-- eastern/oriental <-- east"
+		]
+    }
+]

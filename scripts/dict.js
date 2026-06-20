@@ -199,9 +199,14 @@ function handleParams() {
 			});
 			break;
 
+		case 'adj':
 		case 'adv':
+			
 			setTimeout(function () {
-				showObjectEffects('ism', 'ظُرُوف', 'Adverbs', 'adverbData');
+				showObjectEffects('ism', 
+					action == 'adj'? 'صفات':'ظُرُوف',
+					action == 'adj'? 'Adjectives' : 'Adverbs', 
+					action == 'adj'? 'adjectiveData': 'adverbData');
 				if (params["data"])
 					if (params["data"].startsWith("pos:")) {
 						var index = parseInt(params["data"].substring(4));

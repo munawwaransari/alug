@@ -96,14 +96,15 @@ function addObjectEffectTable(container, objData){
 	
 	if(objData["set"] && objData["construct_ar"]){
 		objData["set"].every(function(val, index){
-			pTable += `
-				<tr>
+			pTable += objData["set_name"] !== "<skip>" ?
+			`<tr>
 					<td style="background-color:#F2F2B3;padding-top:8px;padding-bottom:8px;">
 						${objData["set_name"] === undefined ? 
-							objData["construct_ar"][index] : 
+							`${objData["construct_ar"][index]}<br/>(${objData["construct_en"][index]})` : 
 							objData["set_name"]}
 					</td>
-				</tr>`;
+			</tr>`
+			: '';
 			var div = `
 				<div style="disaply:flex;flex-direction:column;align-content:center;width:100%;">`;
 			var setData_ar = val.split(",").filter(x=>x!=='');
@@ -114,7 +115,7 @@ function addObjectEffectTable(container, objData){
 				div += `
 				<span>
 					${val2}
-					${setData_en ? `<p class="engText">(${setData_en[i]})</p>`:'<p/>'}
+					${setData_en && setData_en[i] ? `<p class="engText">(${setData_en[i]})</p>`:'<p/>'}
 					</span>
 					${(index < setData_ar.length - 1) ? 
 						'<span style="padding:10px;"></span>':''

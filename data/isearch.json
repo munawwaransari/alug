@@ -389,7 +389,32 @@
         "action": "obj-effect",
         "data": "pos:5"
     },
-	"Adverbs;ظُرُوف;ظرف": {
+	"Adjectives;السمات الأساسية;الصفات الجوهرية أو الحالات;/الفاعل المتكرر;الصفة": {
+        "path": "dict.html",
+        "action": "adj",
+        "data": "pos:1"
+    },
+	"Colors and Physical Defects;العيوب المادية;الألوان;اَفعَلْ;فَعْلاء": {
+        "path": "dict.html",
+        "action": "adj",
+        "data": "pos:2"
+    },
+    "Elevative Adjectives;;اَفعَلْ;vصفات التفضيل": {
+        "path": "dict.html",
+        "action": "adj",
+        "data": "pos:3"
+    },
+    "Participle Adjectives;اسم الفاعل;اسم المفعول": {
+        "path": "dict.html",
+        "action": "adj",
+        "data": "pos:4"
+    },
+    "Relative Adjective;النسبة": {
+        "path": "dict.html",
+        "action": "adj",
+        "data": "pos:5"
+    },
+    "Adverbs;ظُرُوف;ظرف": {
         "path": "dict.html",
         "action": "adv",
         "data": "pos:1"
