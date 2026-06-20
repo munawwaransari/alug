@@ -32,7 +32,7 @@ function showPronounInfo(k, v1, v2){
 
 function filterPronounView(){
 	var val = $(".pronounFilter").val();
-	if(val == 'all'){
+	if(val == null || val == 'all'){
 		$('.pTable tr').show();
 	}else{
 		$('.pTable tr').hide();

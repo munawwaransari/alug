@@ -475,7 +475,7 @@ function listSearchIndex(indexKey='') {
 		$(".dictionary").append('<div style="margin-top: 40px;"></div>');
 
 		//sort by key
-		var arSortedData = {};
+		var arSortedData = {}, arSortedDataOriginalKeys = {};
 		const enSortedData = Object.keys(data)
 			.sort()
 			.reduce((tempObj, key) => {
@@ -485,6 +485,7 @@ function listSearchIndex(indexKey='') {
 					amatch = amatch.split(',')[0];
 				if(amatch !== "null"){
 					arSortedData[amatch] = data[key];
+					arSortedDataOriginalKeys[amatch]=key;
 				}
 
 				// English text
@@ -511,11 +512,11 @@ function listSearchIndex(indexKey='') {
 		var div = $("<div style='direction:ltr;width:100%;height=100%;'></div>");
 		div.append($(iDiv));
 		$.each(enSortedData, function (key, value) {
-			div.append(getIndexEntry(key, value, 'id', 
+			div.append(getIndexEntry(null, key, value, 'id', 
 				'margin:0;padding:0;padding-left:10px;padding-top:14px;width:220px;display:inline-block;float:left;'));
 		});
 		$.each(arSortedData, function (key, value) {
-			div.append(getIndexEntry(key, value, 'data', 
+			div.append(getIndexEntry(arSortedDataOriginalKeys, key, value, 'data', 
 				'margin:0;padding:0;padding-left:10px;padding-top:14px;width:220px;display:inline-block;float:right;'
 			));
 		});
@@ -524,11 +525,16 @@ function listSearchIndex(indexKey='') {
 	});
 }
 
-function getIndexEntry(key, value, id, style){
+function getIndexEntry(keys, key, value, id, style){
+	
+	var originalKey = keys ? keys[key] : key;
+	if(originalKey.includes(";")){
+		originalKey = originalKey.split(";")[0];
+	}
 	var link = `
 	parent.redirect('${value.path}','${value.action}',
 	${
-		(value.data && value.data == '@key') ? `'${key}');`:
+		(value.data && value.data == '@key') ? `'${originalKey}');`:
 		value.data ? `'${value.data}');`: ');'
 	}`;
 	var icon = getIndexEntryIcon(value.path, value.action);
