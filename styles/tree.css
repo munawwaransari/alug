@@ -11,7 +11,7 @@ ul, #tUL, li {
 	list-style-type: none;
 	font-size: 16px!important;
 }
-#tUL {
+#vUL, #tUL {
 	margin: 0;
 	padding: 4px;
 }

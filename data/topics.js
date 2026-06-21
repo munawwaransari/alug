@@ -163,3 +163,51 @@ var knowledge_checks = [
 		ch: "P4-Sentences", 	topic: "Conditional Sentences",  pageNo: 20
 	}
 ];
+
+
+var video_links = [
+	{
+		title: "التعارف",
+		link: "https://www.youtube.com/watch?v=_h55IfqB5no"
+	},
+	{
+		title: "محادثة عربية",
+		link: "https://www.youtube.com/watch?v=okOOqKv1mfE"
+	},
+	{
+		title: "حوار في الطائرة",
+		link: "https://www.youtube.com/watch?v=OD0VoZEevgU"
+	},
+	{
+		title: "اجتماع عمل",
+		link: "https://www.youtube.com/watch?v=qcTqesC-Iuw"
+	},
+	{
+		title: "Hotel booking",
+		link: "https://www.youtube.com/watch?v=OjBIwDLEVKA"
+	},
+	{
+		title: "حوار في المطعم",
+		link: "https://www.youtube.com/watch?v=CXsmArqKWj4"
+	},
+	{
+		title: "العائلة والمهن",
+		link: "https://www.youtube.com/watch?v=bwRyVJLyDgc"
+	},
+	{
+		title: "كيف تسأل عن الحافلة",
+		link: "https://www.youtube.com/watch?v=C47QBbi_h1I"
+	},
+	{
+		title: "في قسم الجوازات بالمطار",
+		link: "https://www.youtube.com/watch?v=YEERWud4Wo4"
+	},
+	{
+		title: "زيارة الطبيب",
+		link: "https://www.youtube.com/watch?v=ApsKWK3R1RU"
+	},
+	{
+		title: "ركوب التاكسي",
+		link: "https://www.youtube.com/watch?v=PWbr85BjlVI"
+	}
+];
