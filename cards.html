@@ -455,7 +455,9 @@
 		}
 		
 		function darwTajweed(div, h){             
-		    var fdiv = `
+		    var prompt = getPromptFromKey(['Tajweed'], {'0': [h.en]}, true);
+			var onclick = `openGoogleAISearch(\`${prompt}\`, true);"`;
+			var fdiv = `
 			<div class="flip-card" style="border:4px solid transparent;">
                 <div class="flip-card-inner">
                     <div class="flip-card-front" onmouseenter="playCard('${h.play}')">
@@ -468,7 +470,8 @@
 							 class="alpha-image" src="">
                         </img>
 						<span style="position:relative; display:flex; align-items:center; font-size:30px">
-							<a href="#" style="text-decoration:none; cursor:pointer;">
+							<a href="#" style="text-decoration:none; cursor:pointer;"
+							 onclick="${onclick}">
 								${h.names.map((n, i) => `${n}<br/><br/>`).join("")}
 							</a>
 						</span>

@@ -132,5 +132,12 @@
         "Provide concise definition of the given verb type.",
         "Provide example sentences (at least 5) for the given verb type.",
         "Cover all grammatical nuances."
+    ],
+    "Tajweed": [
+        "Context: Arabic Language Tajweed Rules",
+        "Topic: @0",
+        "Provide concise definition of the given tajweed topic.",
+        "Provide examples including pronunciation audio.",
+        "Cover all pronunciation nuances."
     ]
 }
