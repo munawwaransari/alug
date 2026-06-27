@@ -162,5 +162,11 @@
         "Provide definition, meaning and examples of the given phrase",
         "Provide at least 5 or more examples covering all grammatical nuances.",
         "translate the exammples in given language"
+    ],
+    "FiveNouns": [
+        "Context: Arabic Language (Five Nouns)",
+        "Provide details on five nouns in a structure manner",
+        "Give examples for each of the five nouns covering all grammatical nuances",
+        "Translate the exammples in the given language"
     ]
 }

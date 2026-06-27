@@ -279,6 +279,11 @@ function showFiveNouns(k, v1, v2){
 		<div style="${enStyle}">The lion\'s mouth is open<div><br/>
 		<div style="${arStyle}">اِسمُ أَخِي هَارُون</div>
 		<div style="${enStyle}">My brother\'s name is Aaron<div>
+		<div style="font-size:12px;">
+			<br/>
+			<a href="#" onclick="openGoogleAISearch(
+				getPromptFromKey(['FiveNouns'],{}))">More</a>
+		<div>
 	`;
 	container.append($(examples));
 }
