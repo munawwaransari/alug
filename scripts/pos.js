@@ -708,8 +708,8 @@ class posAPI {
 			<table id="vTable" class="vTable">
 			<tr>
 				<th style="font-size: 14px;">Form</th>
-				<th>الماضي</th>
-				<th>المضارع</th>
+				<th>المعروف</th>
+				<th>المجهول</th>
 				<th>مصدر</th>
 				<th>اسم الفاعل</th>
 				<th>اسم المفعول</th>
@@ -733,12 +733,38 @@ class posAPI {
 				if(pst.length === 0) pst = ["?", "?"];
 				var prt = xform.filter(x=>x.en.startsWith("present "))
 									   .map(x=>x.form);								   
+				
+				var promptLink = `<a href="#" style="font-size:11px;"
+						onclick="openGoogleAISearch(
+							getPromptFromKey(['VerbConjugation'], 
+								{'0': ['${entryName}','YYY (ZZZ)']}, true))"
+						>WWW</a>`;
 				var row = `
 					<tr>
 						<td>${cmpLink.replaceAll('\$', entryName.split(' ')[1]).replaceAll('@', index)}</td>
-						<td>${cmpLink.replaceAll('\$',pst[0]+' - '+ prt[0]).replaceAll('@', index)}</td>
+						<td>
+							${cmpLink.replaceAll('\$',pst[0]+' - '+ prt[0]).replaceAll('@', index)}
+							<br/>
+								${promptLink.replace("WWW", "Present")
+											  .replace("YYY", prt[0])
+									          .replace("ZZZ", "المضارع المعروف")}
+								&nbsp;-&nbsp;
+								${promptLink.replace("WWW", "Past")
+											  .replace("YYY", pst[0])
+									          .replace("ZZZ", "الماضي المعروف")}
+						</td>
 						${(pst.length > 1) ?
-							`<td>${alink.replaceAll('\$',pst[1])+' - '+alink.replaceAll('\$',prt[1])}</td>`
+							`<td>
+							${alink.replaceAll('\$',pst[1])+' - '+alink.replaceAll('\$',prt[1])}
+							<br/>
+								${promptLink.replace("WWW", "Present")
+								 			 .replace("YYY", prt[1])
+									         .replace("ZZZ", "المضارع المجهول")}
+								&nbsp;-&nbsp;
+								${promptLink.replace("WWW", "Past")
+											 .replace("YYY", pst[1])
+									         .replace("ZZZ", "الماضي المجهول")} 
+							</td>`
 							:'<td>-</td>'
 						}
 						<td>${alink.replaceAll('\$',vn[0])}</td>

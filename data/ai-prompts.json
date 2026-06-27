@@ -25,6 +25,21 @@
         "If it is not a verb, provide any relevant conjugation details based on the part of speech.",
         "Target Language: @1"
    ],
+   "VerbConjugation": [
+		"Context: Arabic Grammar Verbs",
+        "Consider Verb Form: @0",
+        "Consider tense and voice as: @1",
+        "Provide the response as single visually appealing table",
+        "Organize the table with following column in given order: Plural, Dual, Singular",
+        "Organize the table with following rows: Third Person, Second Person, First Person",
+        "Combine the gender with rows e.f. Third Person (Male & Female)",
+        "Always keep the words in the table in Arabic, and optinally provide transliteration in brackets below it (add a newline).",
+        "After the conjugation, add more tables considering following examples:",
+        "- Use an example verb where all root letters are Sahih.",
+        "- Use an example verb From Waek verbs.",
+        "- Use an example verb (any) and provide the conjugation for its imperative from.",
+        "Target Language: @2"
+   ],
    "WordPrompt": [
 		"Context: Quran",
         "Question: Describe in detail the meaning of this word: @0",
