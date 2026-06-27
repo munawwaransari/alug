@@ -769,11 +769,11 @@ class posAPI {
 						${alink.replaceAll('\$',vn[0])}<sub>&nbsp;(مصدر)</sub>
 						${(ap.length > 0) ?
 							`<br/>${alink.replaceAll('\$',ap[0])}&nbsp;<sub>(اسم الفاعل)</sub>`:
-							'<br/>'
+							''
 						}
 						${(pp.length > 0) ?
 							`<br/>${alink.replaceAll('\$',pp[0])}&nbsp;<sub>(اسم المفعول)</sub>`:
-							'<br/>'
+							''
 						}
 						</td>
 					</tr>`;
