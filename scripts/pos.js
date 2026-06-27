@@ -710,9 +710,7 @@ class posAPI {
 				<th style="font-size: 14px;">Form</th>
 				<th>المعروف</th>
 				<th>المجهول</th>
-				<th>مصدر</th>
-				<th>اسم الفاعل</th>
-				<th>اسم المفعول</th>
+				<th>الاسم</th>
 			</tr>
 			</table>`);
 		container.append(vTable);
@@ -767,15 +765,17 @@ class posAPI {
 							</td>`
 							:'<td>-</td>'
 						}
-						<td>${alink.replaceAll('\$',vn[0])}</td>
+						<td>
+						${alink.replaceAll('\$',vn[0])}<sub>&nbsp;(مصدر)</sub>
 						${(ap.length > 0) ?
-							`<td>${alink.replaceAll('\$',ap[0])}</td>`:
-							'<td>-</td>'
+							`<br/>${alink.replaceAll('\$',ap[0])}&nbsp;<sub>(اسم الفاعل)</sub>`:
+							'<br/>'
 						}
 						${(pp.length > 0) ?
-							`<td>${alink.replaceAll('\$',pp[0])}</td>`:
-							'<td>-</td>'
+							`<br/>${alink.replaceAll('\$',pp[0])}&nbsp;<sub>(اسم المفعول)</sub>`:
+							'<br/>'
 						}
+						</td>
 					</tr>`;
 				$("#vTable tbody").append($(row));
 				index++;
