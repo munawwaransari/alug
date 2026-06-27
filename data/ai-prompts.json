@@ -37,8 +37,7 @@
         "After the conjugation, add more tables considering following examples:",
         "- Use an example verb where all root letters are Sahih.",
         "- Use an example verb From Waek verbs.",
-        "- Use an example verb (any) and provide the conjugation for its imperative from.",
-        "Target Language: @2"
+        "- Use an example verb (any) and provide the conjugation for its imperative from."
    ],
    "WordPrompt": [
 		"Context: Quran",

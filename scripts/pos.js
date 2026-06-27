@@ -737,7 +737,7 @@ class posAPI {
 				var promptLink = `<a href="#" style="font-size:11px;"
 						onclick="openGoogleAISearch(
 							getPromptFromKey(['VerbConjugation'], 
-								{'0': ['${entryName}','YYY (ZZZ)']}, true))"
+								{'0': ['${entryName}','YYY (ZZZ)']}), true)"
 						>WWW</a>`;
 				var row = `
 					<tr>
