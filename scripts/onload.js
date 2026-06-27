@@ -6,6 +6,7 @@ const RETRY_DELAY = 400;
 var loadRetryCount = 5; 
 var lastiSearchSuggestionInput;
 var dataCache = init_data_cache();
+var action_history = {};
 
 $(document).ready(function()
 {	

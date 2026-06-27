@@ -815,7 +815,12 @@ class posAPI {
 					if (values["e.g."] && values["e.g."][counter]){
 						ex = replaceQLink(values["e.g."][counter]);
 					}
-					row = row + `<td>${alink.replaceAll('\$',values["en-words"][counter])+ex}</td>`;
+					var prompt_link = `<a href="#" style="font-size:10px;" 
+					    onclick="openGoogleAISearch(getPromptFromKey(['Prepositions'], 
+								{'0': ['${values.ar} (${values.en}', '${w}']}, true));">More</a>`;
+
+					row = row + `<td>${alink.replaceAll('\$',values["en-words"][counter])+ex}
+								 <br>${prompt_link}</td>`;
 					row = row + `<td>${values.ar}<br/>${values.en}</td>`;
 					row = row +'</tr>';
 					
@@ -869,7 +874,11 @@ class posAPI {
 				${
 					wvalue.examples.map(ex => `
 						${replaceQLink(ex)}</br/>
-				    `).join('')
+				    `).join('')+`
+					<br/>
+					<a href="#" style="font-size:11px;" 
+					   onclick="openGoogleAISearch(getPromptFromKey(['Metonymy'],
+					   	{'0': ['${wvalue.ar} ${wvalue.en}']}));">More</a>`
 				}</td></tr>`);
 			});
 		});

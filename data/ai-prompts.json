@@ -139,5 +139,21 @@
         "Provide concise definition of the given tajweed topic.",
         "Provide examples including pronunciation audio.",
         "Cover all pronunciation nuances."
+    ],
+    "Prepositions": [
+        "Context: Arabic Language Prepositions",
+        "Topic: @0",
+        "Word from topic: @1",
+        "Provide concise definition of the given topic.",
+        "Provide examples covering all grammatical nuances.",
+        "Give examples of contradictory or multiple meanings is applicable"
+    ],
+    "Metonymy": [
+        "Context: Arabic Language Metonymy",
+        "Word from topic: @0",
+        "Provide concise definition of the given topic.",
+        "Provide examples covering all grammatical nuances.",
+        "Give examples of contradictory or multiple meanings is applicable.",
+        "Also cover more words of the same topic."
     ]
 }
