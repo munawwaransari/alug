@@ -155,5 +155,12 @@
         "Provide examples covering all grammatical nuances.",
         "Give examples of contradictory or multiple meanings is applicable.",
         "Also cover more words of the same topic."
+    ],
+    "PrepPhrase": [
+        "Context: Arabic Language",
+        "Consider this prepositional phrase: @0",
+        "Provide definition, meaning and examples of the given phrase",
+        "Provide at least 5 or more examples covering all grammatical nuances.",
+        "translate the exammples in given language"
     ]
 }

@@ -936,8 +936,12 @@ class posAPI {
 				}
 				var row = "";;
 				row = row + '<tr>';
-				row = row + '<td>'+arText+'<br/>'+enText+'</td>';
-				//row = row + '<td>'+arText+'<br/>'+enText+'</td>';
+				row = row + `<td>${arText}<br/>${enText}
+					${id==true?`
+					<br/><a href="#" style="font-size:11px" 
+					     onclick="openGoogleAISearch(
+						    getPromptFromKey(['PrepPhrase'],{'0': ['${arText}']}, true))">Miore</a>
+					`:''}</td>`;
 				row = row +'</tr>';
 				$("#pTable tbody").append($(row));
 			}
