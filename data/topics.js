@@ -167,47 +167,43 @@ var knowledge_checks = [
 
 var video_links = [
 	{
-		title: "التعارف",
-		link: "https://www.youtube.com/watch?v=_h55IfqB5no"
+		title: "100 Common Arabic Verbs in Use",
+		link: "https://www.youtube.com/watch?v=xmgAQVSv1uk"
 	},
 	{
-		title: "محادثة عربية",
-		link: "https://www.youtube.com/watch?v=okOOqKv1mfE"
+		title: "100 Daily Negation Arabic Phrases",
+		link: "https://www.youtube.com/watch?v=xid58o7fGOs"
 	},
 	{
-		title: "حوار في الطائرة",
-		link: "https://www.youtube.com/watch?v=OD0VoZEevgU"
+		title: "100 Active and Passive Sentences",
+		link: "https://www.youtube.com/watch?v=3t6lTUOP_qo"
 	},
 	{
-		title: "اجتماع عمل",
-		link: "https://www.youtube.com/watch?v=qcTqesC-Iuw"
+		title: "60+ Islamic Arabic Phrases to Welcome & Honor Guests",
+		link: "https://www.youtube.com/watch?v=bFQ8_FKp6lI"
 	},
 	{
-		title: "Hotel booking",
-		link: "https://www.youtube.com/watch?v=OjBIwDLEVKA"
+		title: "50 Modern Standard Arabic Sentences for Islamic Etiquette",
+		link: "https://www.youtube.com/watch?v=5IiyOWPdHHs&list=PLRlwqYwDN0zDI_KJFQ8vtGgZXi1ZuFrD0"
 	},
 	{
-		title: "حوار في المطعم",
-		link: "https://www.youtube.com/watch?v=CXsmArqKWj4"
+		title: "50 Arabic linking words",
+		link: "https://www.youtube.com/watch?v=Wyyh-fGT3s0"
 	},
 	{
-		title: "العائلة والمهن",
-		link: "https://www.youtube.com/watch?v=bwRyVJLyDgc"
+		title: "30 Must-Know Arabic Connectors",
+		link: "https://www.youtube.com/watch?v=7Nv_UQvXh0M"
 	},
 	{
-		title: "كيف تسأل عن الحافلة",
-		link: "https://www.youtube.com/watch?v=C47QBbi_h1I"
+		title: "15 Arabic Negation Mistakes",
+		link: "https://www.youtube.com/watch?v=JJmTyOiDlEs"
 	},
 	{
-		title: "في قسم الجوازات بالمطار",
-		link: "https://www.youtube.com/watch?v=YEERWud4Wo4"
+		title: "Active to Passive Made Easy",
+		link: "https://www.youtube.com/watch?v=uLWAgAPa46E"
 	},
 	{
-		title: "زيارة الطبيب",
-		link: "https://www.youtube.com/watch?v=ApsKWK3R1RU"
-	},
-	{
-		title: "ركوب التاكسي",
-		link: "https://www.youtube.com/watch?v=PWbr85BjlVI"
+		title: "A Lesson in Rhetoric دَرْسٌ فِي البَلَاغَةِ",
+		link: "https://www.youtube.com/watch?v=CCsK1b3nFBI"
 	}
 ];
