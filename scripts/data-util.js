@@ -191,6 +191,7 @@ function filterTableRows(table, column, searchText, allText, useInclude) {
     
     // 2. Quick Reset for "Show All"
     if (txt === allText) {
+		$rows.show();
         $cells.show();
         return;
     }
