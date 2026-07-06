@@ -131,6 +131,7 @@
         "Related Patterns:", 
         "@2",
         "Provide example words (at least 5 each) and sentnces for above patters.",
+        "Also cover opposite gender patterns related to it if applicable.",
         "Cover all patterns from the list, also add if any other pattern is relavant to the singualr word given."
     ],
     "Object-Effects": [
