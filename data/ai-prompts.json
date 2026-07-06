@@ -52,6 +52,8 @@
         "Provide precise cross-references with other verses in the Quran (Nazā'il) that elaborate on, restrict, or explain the theme of this verse.",
         "Provide authentic cross-references with Prophetic Hadith (from Sahih al-Bukhari, Sahih Muslim, etc.) that directly comment on or provide context to this verse.",
         "Provide verified, traceable text references and numeric indexing (Book, Chapter, Hadith number) for every Quranic verse or Prophetic tradition mentioned throughout the response.",
+        "Keep original Quranic text, do not alter or modify to fit the text in frame of the response.",
+        "Provide the complete, fully vocalized Arabic text of the verse along with its formal numeric Surah:Ayah reference.",
         "Target Language: @2"
     ],
     "VerseHadithReferencePrompt": [
