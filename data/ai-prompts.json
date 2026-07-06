@@ -1,187 +1,190 @@
 {
     "Topics": [
-        "You are an expert in Arabic studies, with deep knowledge of the Arabic Language, its linguistic and grammagical nuances.",
+        "You are an expert in Arabic studies, with deep knowledge of the Arabic Language, its historical development, linguistic branches, and complex grammatical nuances.",
         "Provide final response in target Language: @0",
-        "Context: Arabic Language",
-        "Detail out response considering explanations for following topics:",
+        "Context: Arabic Language and Linguistics",
+        "Detail out response considering comprehensive explanations, morpho-syntactic rules, and semantic impacts for the following topics:",
         "@1",
-        "Include sections for each topic including below points:",
+        "Include distinct sections for each topic covering structural forms, rule application constraints, exceptions, and phonetic variations including below points:",
         "@2",
         "Also provide:",
-        " 1. Examples from Quran for the given topics.",
-        " 2. General examples and explanations",
-        "Note: Translate the examples in the given target language."
+        " 1. Contextual examples from the Quran (including Surah and Ayah citation) for the given topics.",
+        " 2. General everyday and classical poetry examples alongside comprehensive structural explanations.",
+        "Note: Provide exact phonetic transliteration, grammatical breakdown (I'rab), and accurate translation of all Arabic examples into the given target language."
     ],
     "Conjugation": [
-		"Context: Arabic Grammar",
-        "Identify part of speech of the word: @0",
-        "Depending on the part of speech, provide a conjugation table withh following details:",
-        "Person, Gender, Number, Tense, Voice",
-        "Format the response in a table format with columns for each of the above details and rows for each conjugation form.",
-        "If it is a verb, provide separate conjugation tables for past, present, future and imperative forms.",
-        "Keep the person as row header, with gender as sub-header.",
-        "Keep the number, tense and voice as columns.",
-        "Keep the words in the table in Arabic, and provide transliteration in brackets next to it.",
-        "If it is not a verb, provide any relevant conjugation details based on the part of speech.",
-        "Target Language: @1"
-   ],
-   "VerbConjugation": [
-		"Context: Arabic Grammar Verbs",
-        "Consider Verb Form: @0",
-        "Consider tense and voice as: @1",
-        "Provide the response as single visually appealing table",
-        "Organize the table with following column in given order: Plural, Dual, Singular",
-        "Organize the table with following rows: Third Person, Second Person, First Person",
-        "Combine the gender with rows e.f. Third Person (Male & Female)",
-        "Always keep the words in the table in Arabic, and optinally provide transliteration in brackets below it (add a newline).",
-        "After the conjugation, add more tables considering following examples:",
-        "- Use an example verb where all root letters are Sahih.",
-        "- Use an example verb From Waek verbs.",
-        "- Use an example verb (any) and provide the conjugation for its imperative from."
-   ],
-   "WordPrompt": [
-		"Context: Quran",
-        "Question: Describe in detail the meaning of this word: @0",
-        "Target Language: @1",
-        "Also briefly provide linguistic details, synonyms, antonyms, homonyms, and any relevant grammatical details of the word."
+        "Context: Classical Arabic Grammar (Sarf and Nahw)",
+        "Identify the precise part of speech, root letters (Usool), and morphological weight (Wazn) of the word: @0",
+        "Depending on the part of speech, provide an exhaustive conjugation table detailing the complete paradigm across the following parameters:",
+        "Person (1st, 2nd, 3rd), Gender (Masculine, Feminine), Number (Singular, Dual, Plural), Tense/Mood (Past/Madi, Present-Future/Mudari' in Marfu'/Mansub/Majzum states), and Voice (Active/Ma'ruf, Passive/Majhul)",
+        "Format the response in a structured table format with clear columns for each morphological parameter and rows mapped to every valid inflectional form.",
+        "If it is a verb, generate distinct, independent conjugation tables for past, present, future (using prefixes), jussive, and imperative (Amr) forms.",
+        "Keep the person as the primary row header, with grammatical gender clearly marked as a sub-header.",
+        "Keep the grammatical number, tense/mood, and voice mapped neatly across the horizontal columns.",
+        "Keep all native Arabic script words in the table with full vocalisation (Tashkeel), and provide precise academic transliteration in brackets next to each.",
+        "If it is a noun or derived particle (Ism/Harf), provide declension tables across the three grammatical cases (Marfu', Mansub, Majrur), definite/indefinite states, and relevant structural derivations based on its part of speech.",
+        "Target Language for explanations: @1"
     ],
-   "VersePrompt": [
-        "Context: Quran",
-        "Verse: @0:@1",
-        "Provide a comprehensive summary and include the main messages, and any significant interpretations or insightsor difference of opinions related to this verse.",
-        "Also provide cross reference if applicable with other verses in the Quran.",
-        "Also provide cross reference with authentic hadith if applicable.",
-        "Provide traceable references f Quranic verse or hadith wherever mentioned in the response.",
+    "VerbConjugation": [
+        "Context: Arabic Morphological Systems (Sarf) for Triliteral and Quadriliteral Verbs",
+        "Consider Verb Form / Scale (Wazn/Bab): @0",
+        "Consider grammatical tense, aspect, mood, and voice configuration as: @1",
+        "Provide the comprehensive inflectional paradigm response as a single, highly readable, visually appealing markdown table.",
+        "Organize the table layout horizontally with columns sorted in the following standard linguistic order: Plural (Jam'), Dual (Muthanna), Singular (Mufrad).",
+        "Organize the table layout vertically with rows sorted by conversational perspective: Third Person (Gha'ib), Second Person (Mukhatab), First Person (Mutakallim).",
+        "Combine and split the gender classifications systematically within the rows (e.g., Third Person Masculine, Third Person Feminine).",
+        "Always keep the core inflected words in the table in fully vowelized Arabic script, and provide standard academic transliteration alongside a direct literal English breakdown in brackets below it (separated by a newline).",
+        "After displaying the core paradigm, add comparative baseline tables demonstrating variations across root classifications using the following specific examples:",
+        "- Use an example verb where all three root letters are completely sound and healthy (Sahih Salim).",
+        "- Use an example verb from Weak verbs (Mithal, Ajwaf, Naqis, or Lafif) showing morphophonemic changes like deletion or substitution.",
+        "- Use an example verb from the same scale and provide the explicit conjugation rules and forms for its Imperative (Amr) paradigm including the energetic forms (Noon al-Tawkeed)."
+    ],
+    "WordPrompt": [
+        "Context: Quranic Linguistics and Classical Arabic Lexicography",
+        "Question: Describe in comprehensive detail the lexical, contextual, and theological meaning of this specific Quranic word: @0",
+        "Target Language: @1",
+        "Provide a profound linguistic analysis including: its three or four-letter root (Jadr), its morphological pattern (Wazn), classical Arabic dictionary definitions (e.g., from Lisan al-Arab), exact contextual synonyms within the Quran, antonyms, homonyms (Wujuh al-Quran), structural variants, and detailed grammatical analysis (I'rab) of the word in its structural context."
+    ],
+    "VersePrompt": [
+        "Context: Quranic Exegesis (Tafsir) and Hermeneutics",
+        "Verse Reference: Surah @0, Ayah @1",
+        "Provide a comprehensive, academically rigorous summary of the text. Include the historical context of revelation (Asbab al-Nuzul), the core theological/moral messages, legal rulings derived (Ahkam), and significant interpretive insights or differences of opinion among classical and contemporary exegetes (e.g., Ibn Kathir, Al-Qurtubi, Al-Tabari).",
+        "Provide precise cross-references with other verses in the Quran (Nazā'il) that elaborate on, restrict, or explain the theme of this verse.",
+        "Provide authentic cross-references with Prophetic Hadith (from Sahih al-Bukhari, Sahih Muslim, etc.) that directly comment on or provide context to this verse.",
+        "Provide verified, traceable text references and numeric indexing (Book, Chapter, Hadith number) for every Quranic verse or Prophetic tradition mentioned throughout the response.",
         "Target Language: @2"
     ],
     "VerseHadithReferencePrompt": [
-        "Context: Quran",
-        "Verse: @0:@1",
-        "Look for explanation about this verse in authentic hadith books and provide a summary with hadith reference, and any significant interpretations or insights or difference of opinions related to this verse.",
-        "Provide key hadith passage and correct references for the hadith, including book name, hadith number and if possible a link to the hadith.",
+        "Context: Hadith Literature and Secondary Quranic Commentary",
+        "Verse Reference: Surah @0, Ayah @1",
+        "Extract, translate, and synthesize analytical explanations of this verse found across authentic Hadith compendiums (Sihah al-Sittah). Provide an organized summary of classical insights, prophetic commentary, companion narratives (Asar), and major scholarly schools of thought regarding its application.",
+        "Provide the exact Arabic text and translation of the key Hadith passages along with rigorous academic source citations. Include the primary collection book name, specific volume, book chapter, exact Hadith number, verification status (Tahqiq), and if available, a reliable, stable URL link to the digital archive of the Hadith.",
         "Target Language: @2"
     ],
-   "VerseToImage": [
-        "Context: Quran",
-        "Verse: @0:@1",
-        "Generate an image for the given Quranic verse.",
-        "Use creative illustrations and design elements to make the image visually appealing and engaging.",
-        "Use appropriate context and/or actors in the background if applicable.",
-        "Show translation in big font in front, translate in langauge @2.",
-        "Show the correct Arabic verse and reference clearly in the image.",
+    "VerseToImage": [
+        "Context: Islamic Art and Quranic Visual Concept Design",
+        "Verse Reference: Surah @0, Ayah @1",
+        "Generate a highly detailed prompt to create an evocative, respectful, and culturally appropriate image inspired by the thematic essence of the given Quranic verse.",
+        "Utilize symbolic fine art illustrations, intricate Islamic geometric patterns, classical arabesque design elements, and dramatic lighting to make the image visually stunning, meditative, and engaging.",
+        "Depict an appropriate historical, natural, or conceptual backdrop using symbolic elements (avoiding physical depictions of Prophets or Divine entities) to reinforce the verse's inner meaning.",
+        "Overlay the translated text of the verse in a clean, elegant, high-contrast typography/calligraphy layout in the foreground, using target language: @2.",
+        "Ensure the complete, fully vocalized original Arabic verse text along with its formal numeric Surah:Ayah reference is rendered accurately and clearly in a balanced corner of the frame.",
         "Use nano banana 2 or similar style for the image.",
-        "Target Language: @2"
+        "Provide only the image as response, do not return textual explanations or preambles.",
+        "Target Language for prompt coordination: @2"
     ],
-    "VerseTransate": [
-        "Context: Quran",
-        "Verse: @0:@1",
-        "Translate the verse in 10 most common languages, provide only translation and references",
-        "Include Urdu, Hindi and English in the translations."
+    "VerseTranslate": [
+        "Context: Global Quranic Translations and Comparative Linguistics",
+        "Verse Reference: Surah @0, Ayah @1",
+        "Translate the exact meaning of this verse into the 10 most widely spoken and globally accepted translations, ensuring text accuracy and semantic fidelity. Output only the localized text strings and formal source references without conversational preamble.",
+        "Mandatorily include high-quality orthodox translations for Urdu (e.g., Abul Ala Maududi/Ahmed Raza Khan), Hindi (e.g., Farooq Khan), and English (e.g., Sahih International/M.A.S. Abdel Haleem) among the 10 language outputs."
     ],
     "WeakVerbs": [
-        "Context: Arabic Grammar",
-        "Verb Type: @0",
-        "Identify type of above weak verb",
-        "Depending on the type, provide a conjugation tables with eample verbs from this weak verb type with following details:",
-        "Format the conjugation tables in a tabular format with columns for each of the above details and rows for each conjugation form.",
-        "If it is a verb, provide separate conjugation tables for past, present, future and imperative forms.",
-        "Keep the person as row header, with gender as sub-header.",
-        "Keep the number, tense and voice as columns.",
-        "Keep the words in the table in Arabic, and provide transliteration in brackets next to it."
+        "Context: Arabic Morphology (Sarf) of Unsound Roots (Al-Af'al al-Da'ifah)",
+        "Verb Paradigm / Root classification: @0",
+        "Identify and classify the specific sub-type of the weak verb provided (e.g., Mithal [Assimilated], Ajwaf [Hollow], Naqis [Defective], or Lafif [Mixed]).",
+        "Depending on the structural classification, detail the underlying morphophonemic rules of alteration (I'lal by omission, substitution, or quiescence). Provide complete paradigm tables for standard example verbs representing this type, displaying the following analytical data points for each form:",
+        "Format the conjugation output into clean, structured tables with explicit column headers for morphological parameters and rows for individual inflections.",
+        "Provide completely separated, distinct tables for Past (Madi), Present/Future (Mudari' in its indicative, subjunctive, and jussive states), and Imperative (Amr) forms.",
+        "Structure the table with the grammatical person (1st, 2nd, 3rd) acting as the main row partition, accompanied by clear gender sub-headers (Masculine/Feminine).",
+        "Map the grammatical number (Singular, Dual, Plural), structural tense, and active/passive voice parameters as distinct column fields.",
+        "Ensure all verb forms are printed in the native Arabic script with exact vowelization (Harakat), followed directly by standard academic transliteration and root-change notes in brackets next to it."
     ],
     "SurahTopics": [
-        "You are an expert in Quranic studies, with the scholarly interpretation, explanation, and commentary of the Quran in Islam.",
-        "Consider this surah: @0 with the following topics:",
+        "You are a leading scholar in Ulum al-Quran (Quranic Sciences), specializing in the thematic unity (Al-Nazm al-Ma'nawi), historical context, legal dimensions, and structural commentary of the Quran.",
+        "Consider this Surah: @0 which contains the following thematic topics and conceptual divisions:",
         "@1",
-        "Provide a detail summary of each topic, with each topic as a separate section.",
-        "Also include key verses (in Arabic with chapter and ayah number) related to each topic, and explain the relevance of those verses to the topic.",
-        "Provide the final response in language: LLL"
+        "Provide an extensive, deeply researched summary of each topic. Isolate each thematic division into its own comprehensive section with clear markdown headings.",
+        "Incorporate the primary underlying core verses (written out in fully vowelized Arabic script with exact Chapter and Ayah numbers) that anchor each topic. Critically analyze and explain the semantic, legal, or theological relevance of those specific verses to the overarching topic.",
+        "Deliver the entire analytical response in target language: LLL"
     ],
     "Alphabets": [
-        "Provide 7 Arabic words starting with alphabet @0",
-        "Show example using each word in a sentence.",
-        "Use various grammatical nuances."
+        "Provide 7 distinct, linguistically rich Arabic words that begin with the specific letter: @0",
+        "Compose an original example sentence for each word demonstrating its classical usage and natural syntax.",
+        "Incorporate a diverse range of grammatical structures across the sentences (e.g., nominal sentences [Jumlah Ismiyyah], verbal sentences [Jumlah Fi'liyyah], conditional clauses, constructs of annexation [Idafah], and various noun/verb modifiers)."
     ],
     "Homonyms": [
-        "Provide 7 Arabic sentences using @0",
-        "Inlcude nuances in differences with its homonym @1",
-        "Provide a comparision Table for both the word and it homonym."
+        "Provide 7 distinct Arabic sentences utilizing the exact word: @0 to illustrate its various contextual meanings.",
+        "Demonstrate the subtle linguistic nuances, semantic shifts, and systemic differences between this word and its homonym/confusable counterpart: @1 based on context, vowel variations, or particle associations.",
+        "Construct an explicit morphological and semantic comparison table contrasting both words, mapping out their root letters, dictionary definitions, variants, and syntactic behavior."
     ],
     "Antonyms": [
-        "Provide 7 Arabic sentences using @0",
-        "Inlcude nuances in differences with its antonym @1",
-        "Provide a comparision Table for both the word and it antonym."
+        "Provide 7 distinct Arabic sentences utilizing the word: @0 in structures that emphasize its lexical meaning.",
+        "Highlight the structural contrast, rhetorical value (Taqabil/Tibaq), and semantic nuances by juxtaposing it with its direct lexical antonym: @1 within real linguistic contexts.",
+        "Construct a clear comparison table for both the target word and its antonym, detailing their roots, morphological weights (Wazn), primary definitions, and binary oppositional usage."
     ],
     "Synonyms": [
-        "Provide 7 Arabic sentences using @0",
-        "Inlcude nuances in differences with its synonyms:",
-        "@1"
+        "Provide 7 distinct Arabic sentences utilizing the base word: @0.",
+        "Illustrate the highly specific shades of meaning, register differences, and stylistic choices that differentiate this word from its close synonyms:",
+        "@1",
+        "Explain why one synonym is preferred over another in specific literary or Quranic contexts based on classical Arabic rhetoric (Balaghah)."
     ],
     "Hyperboles": [
-        "Provide 7 Arabic sentences using hyperbole @0",
-        "Inlcude examples based on this hyperbole pattern."
+        "Provide 7 high-register Arabic sentences showcasing the specific hyperbole/intensive pattern (Sighat al-Mubalaghah): @0",
+        "Include a deep analysis of semantic amplification based on this hyperbole pattern, explaining how the root meaning scales upward, and provide 5 additional high-frequency lexical examples that share this exact morphological scale."
     ],
     "Greetings": [
-        "Provide 7 Arabic sentences for greeting @0, @1",
-        "Include nuances and variations in greetings based on the context."
+        "Provide 7 distinct Arabic conversational formulas or sentences for expressions of greeting and social etiquette tailored to: @0 and @1",
+        "Include deep sociolinguistic nuances, regional or classical variations, and appropriate shifts in phrasing based on situational context (formal, informal, royal, religious) and gender/number addressing rules."
     ],
     "Word-Patterns": [
-        "Context: Arabic Grammar type @0",
-        "Singular word pattern: @1",
-        "Related Patterns:", 
+        "Context: Arabic Morphology (Sarf) and Pattern Derivations for Type: @0",
+        "Singular Masculine Pattern Scale (Wazn): @1",
+        "Related Derivative or Plural Patterns on the same root structure:",
         "@2",
-        "Provide example words (at least 5 each) and sentnces for above patters.",
-        "Also cover opposite gender patterns related to it if applicable.",
-        "Cover all patterns from the list, also add if any other pattern is relavant to the singualr word given."
+        "Provide at least 5 highly relevant example vocabulary words for each of the patterns listed above, demonstrating how real roots populate the scales.",
+        "Construct authentic, fully vowelled Arabic sentences for every single example word to show how it functions in living grammar.",
+        "Systematically cover the corresponding opposite gender (feminine) patterns, regular sound inflections, and applicable broken plural variations (Jam' Taksir) for each scale.",
+        "Exhaustively cover all patterns provided in the list, and proactively add any other structurally relevant or highly expected morphological patterns tied to the base singular pattern given."
     ],
     "Object-Effects": [
-        "Context: Arabic Grammar",
-        "Grammar type: @0",
-        "Provide concise definition of the given grammar element.",
-        "Provide exxample sentences (at least 5) for the given grammar element.",
-        "Cover all grmmatical nuances."
+        "Context: Arabic Syntax and Governing Dynamics (Nahw / Al-Awamil)",
+        "Grammatical Element / Governing Agent (Amil/Ma'mul): @0",
+        "Provide a concise, linguistically precise definition and the structural scope of the given grammar element, detailing its effect on case endings (Raf', Nasb, Jarr, or Jazm).",
+        "Provide at least 5 distinct example sentences demonstrating the element in action across varying sentence architectures (e.g., internal shifts, weak terminal roots).",
+        "Cover all advanced grammatical nuances, governing exceptions, underlying structural explanations (Taqdir), and rhetorical effects connected to this element."
     ],
     "InadequateVerbs": [
-        "Context: Arabic Grammar",
-        "Verb Type: @0",
-        "Provide concise definition of the given verb type.",
-        "Provide example sentences (at least 5) for the given verb type.",
-        "Cover all grammatical nuances."
+        "Context: Arabic Syntax and Defective/Non-Flexing Verbs (Al-Af'al al-Naqisah / Al-Jamidah)",
+        "Verb Category / Structural Type: @0",
+        "Provide a concise linguistic definition, structural purpose, and syntactic rules of the given verb type (e.g., Kana and its sisters, verbs of praise/blame, or non-inflecting verbs). Explain its functional impact on the subject (Ism) and predicate (Khabar).",
+        "Provide at least 5 clear, diverse example sentences illustrating these verbs changing governance within complex structures.",
+        "Cover all advanced grammatical nuances, including rules for displacing the predicate (Taqdim al-Khabar), structural omissions, and instances where inflection is frozen or implied."
     ],
     "Tajweed": [
-        "Context: Arabic Language Tajweed Rules",
-        "Topic: @0",
-        "Provide concise definition of the given tajweed topic.",
-        "Provide examples including pronunciation audio.",
-        "Cover all pronunciation nuances."
+        "Context: Science of Quranic Recitation phonetics (Tajweed Rules)",
+        "Rule / Topic: @0",
+        "Provide a concise, technically precise articulation definition of the given Tajweed rule, explaining its linguistic meaning, its applied technical meaning, and its exact point of articulation (Makhraj) or acoustic characteristic (Sifah).",
+        "Provide clear textual examples from the Quran, adding unambiguous text-based instructions on how to replicate the correct pronunciation audio flow (e.g., duration of Nasalization/Ghunnah, degree of Echo/Qalqalah, or elongation lengths).",
+        "Cover all phonetic nuances, mandatory assimilation rules (Idgham), hiding rules (Ikhfa), structural exceptions, and variations tied to specific reading tracks (Riwayah), such as Hafs 'an 'Asim."
     ],
     "Prepositions": [
-        "Context: Arabic Language Prepositions",
-        "Topic: @0",
-        "Word from topic: @1",
-        "Provide concise definition of the given topic.",
-        "Provide examples covering all grammatical nuances.",
-        "Give examples of contradictory or multiple meanings is applicable"
+        "Context: Arabic Syntax and Governing Dynamics (Harf al-Jarr / Huroof al-Jarr)",
+        "Topic Category: @0",
+        "Target Preposition (Harf): @1",
+        "Provide a concise, linguistically precise definition of the given preposition category, including its syntactic governance (Amal) and how it affects the case ending (Jarr/Kasrah) of the subsequent noun (Ism Majrur).",
+        "Provide at least 5 distinct example sentences from Classical Arabic or the Quran that cover all grammatical and structural nuances (such as structural displacement or attached pronouns).",
+        "Give clear examples demonstrating when this preposition shifts meanings, yields multiple or contradictory interpretations (e.g., literal vs. metaphorical, or change in meaning when paired with different verbs), or functions as a redundant/extra particle (Harf Jarr Za'id) for rhetorical emphasis (Tawkeed)."
     ],
     "Metonymy": [
-        "Context: Arabic Language Metonymy",
-        "Word from topic: @0",
-        "Provide concise definition of the given topic.",
-        "Provide examples covering all grammatical nuances.",
-        "Give examples of contradictory or multiple meanings is applicable.",
-        "Also cover more words of the same topic."
+        "Context: Arabic Rhetoric (Balaghah - Ilm al-Bayan) and Metonymy (Kinayah)",
+        "Target Expression / Word: @0",
+        "Provide a concise, academically rigorous definition of the given rhetorical topic (Kinayah), explaining the structural difference between its literal meaning (Ma'na Haqiqi) and its implied metonymic meaning (Ma'na Majazi).",
+        "Provide diverse classical examples covering all semantic and grammatical nuances, categorized by its type (e.g., Kinayah about an attribute [Sifah], a persona [Mawsuf], or a relationship [Nisbah]).",
+        "Give specific examples where the phrasing carries contradictory, dual, or multiple layers of contextual meanings depending on historical, cultural, or textual settings.",
+        "Proactively cover at least 3 additional high-frequency words or idiomatic phrases belonging to the exact same rhetorical topic or category."
     ],
     "PrepPhrase": [
-        "Context: Arabic Language",
-        "Consider this prepositional phrase: @0",
-        "Provide definition, meaning and examples of the given phrase",
-        "Provide at least 5 or more examples covering all grammatical nuances.",
-        "translate the exammples in given language"
+        "Context: Arabic Syntax and Phrasal Structures (Al-Jar wa al-Majrur)",
+        "Target Prepositional Phrase / Idiomatic Construct: @0",
+        "Provide a comprehensive definition, structural breakdown, semantic core, and the underlying grammatical attachment (Ta'alluq) of the given phrasal construct to its governing verb or noun.",
+        "Provide at least 5 or more advanced contextual examples (incorporating verses from the Quran or classical literature) that cover all grammatical nuances, structural variations, and idiomatic implications.",
+        "Translate all Arabic example sentences accurately into the target language, including word-for-word grammatical breakdowns (I'rab) and exact phonetic transliterations in brackets."
     ],
     "FiveNouns": [
-        "Context: Arabic Language (Five Nouns)",
-        "Provide details on five nouns in a structure manner",
-        "Give examples for each of the five nouns covering all grammatical nuances",
-        "Translate the exammples in the given language"
+        "Context: Arabic Morpho-Syntax and Irregular Declensions (Al-Asma' al-Khamsah)",
+        "Provide a highly structured, analytical breakdown detailing the linguistic rules governing the Five Nouns (Al-Asma' al-Khamsah), explicitly specifying the 3 mandatory conditions (Shuroot) required for them to be expressed with long vowels (Waw, Alif, Ya) instead of short vowels.",
+        "Give clear, contextual example sentences for every single one of the five nouns, exhaustively covering all three grammatical states: Nominative (Marfu' with Waw), Accusative (Mansub with Alif), and Genitive (Majrur with Ya).",
+        "Translate all generated example sentences into the specified target language, providing phonetic transliterations and a clear structural analysis of the inflected case endings for each noun."
     ]
 }

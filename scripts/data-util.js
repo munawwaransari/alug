@@ -1662,7 +1662,7 @@ function getPromptsForVerse(chapter, verse, target = 'puter') {
 	var selLang = parent.getLang ? parent.getLang() ?? 'EN' : 'EN';
 	var selWord = "${$('.sel-word').first().text()}";
 	var prompts = getPromptFromKey(
-		["Conjugation", "WordPrompt", "VersePrompt", "VerseHadithReferencePrompt", "VerseToImage", "VerseTransate"],
+		["Conjugation", "WordPrompt", "VersePrompt", "VerseHadithReferencePrompt", "VerseToImage", "VerseTranslate"],
 		{
 			"0": [selWord, selLang],
 			"1": [selWord, selLang],
@@ -1684,7 +1684,7 @@ function getPromptsForVerse(chapter, verse, target = 'puter') {
 		<a href="#" onclick="${target_function}(\`${word_conjugation_prompt}\`)">Conjugate word</a>
 		<a href="#" onclick="${target_function}(\`${verse_prompt}\`)">Summarize verse</a>
 		<a href="#" onclick="${target_function}(\`${verse_hadith_reference_prompt}\`)">Hadith reference</a>
-		<a href="#" onclick="${target_function}(\`${verse_to_image_prompt}\`)">Verse to image</a>
+		<a href="#" onclick="${target_function}(\`${verse_to_image_prompt}\`)">Visualize Verse</a>
 		<a href="#" onclick="${target_function}(\`${verse_translate_prompt}\`)">Translate in 10 languages</a>
 		`
 		.trim();
