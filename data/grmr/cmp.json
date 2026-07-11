@@ -1291,7 +1291,7 @@
     {
         "compareType": "noun",
         "topics": [
-            "الفاعل (Active Participle)"
+            "الفاعل (Active Voice)"
         ],
         "notes": "",
         "ar": [
@@ -1303,8 +1303,8 @@
             "Type"
         ],
         "features": {
-            "الفاعل (Active Participle)": [
-				"<p style=\"direction: ltr;padding:0;margin:0;\">Active Participles are in Nominative case (رفع)<br/>and represents the Subject in an active voice sentence<br/><ul style=\"text-align:right;\"><li>اسم الظاهر (Used as explicit Subject)<br/> e.g. جاءَ عليٌّ<br/></li><li>ضمير المتصلة (Used as attached pronoun)<br/> e.g. كتبــتُ</li></ul>",
+            "الفاعل (Active Voice)": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">Active Voice subjects are in Nominative case (رفع)<br/>and represents the Subject in an active voice sentence<br/><ul style=\"text-align:right;\"><li>اسم الظاهر (Used as explicit Subject)<br/> e.g. جاءَ عليٌّ<br/></li><li>ضمير المتصلة (Used as attached pronoun)<br/> e.g. كتبــتُ</li></ul>",
 				"Active voice (فعل مبني للمعلوم)"
 			]
         }
@@ -1312,7 +1312,7 @@
     {
         "compareType": "noun",
         "topics": [
-            "نائب الفاعل (Passive Participle)"
+            "نائب الفاعل (Passive Voice)"
         ],
         "notes": "",
         "ar": [
@@ -1324,8 +1324,8 @@
             "Type"
         ],
         "features": {
-            "نائب الفاعل (Passive Participle)": [
-				"<p style=\"direction: ltr;padding:0;margin:0;\">Passive Participles are in Nominative case (رفع)<br/>and represents the direct Object in a passive voice sentence<br/></li><br/><li>مفعول به (Used as direct object)<br/> e.g. كُتِبتِ الدّرسُ --> الدّرسُ (مرفوع)<br/><br/>e.g. كُسِرَتْ الزُّجَاجَةُ --> الزُّجَاجَةُ (مرفوع)<br/></li></ul>",
+            "نائب الفاعل (Passive Voice)": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">Passive voice objects are in Nominative case (رفع)<br/>and represents the direct Object in a passive voice sentence<br/></li><br/><li>مفعول به (Used as direct object)<br/> e.g. كُتِبتِ الدّرسُ --> الدّرسُ (مرفوع)<br/><br/>e.g. كُسِرَتْ الزُّجَاجَةُ --> الزُّجَاجَةُ (مرفوع)<br/></li></ul>",
 				"Passive voice (فعل مبني للمجهول)"
 			]
         }

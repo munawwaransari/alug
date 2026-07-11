@@ -52,6 +52,16 @@
         "action": "noun-pat",
         "data": "@key"
     },
+    "Active participle;اسم الفاعل": {
+        "path": "dict.html",
+        "action": "noun-pat",
+        "data": "@key"
+    },
+    "Passive participle;اسم المفعول": {
+        "path": "dict.html",
+        "action": "noun-pat",
+        "data": "@key"
+    },
     "Pronouns;ضمير;ضمائر": {
         "path": "dict.html",
         "action": "pronoun",
@@ -578,13 +588,13 @@
         "action": "noun-cmp",
         "data": "pos:8"
     },
-    "Active Participle;الفاعل":
+    "Active Voice;الفاعل":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:9"
     },
-    "Passive Participle;نائب الفاعل":
+    "Passive Voice;نائب الفاعل":
     {
         "path": "dict.html",
         "action": "noun-cmp",
