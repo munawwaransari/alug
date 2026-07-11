@@ -96,7 +96,8 @@
     {
         "name_ar": "اسم الفاعل واسم المفعول",
         "name_en": "Participle Adjectives",
-		"construct_sep": "/",
+		"notes": "<p style=\"direction:ltr;width:90%\">See also: <a href=\"#\" onclick=\"parent.openInline(encodeURI(getLocationPath()+'dict.html?action=noun-pat&data=Active%20Participle'));\">اسم الفاعل</a>&nbsp;<a href=\"#\" onclick=\"parent.openInline(encodeURI(getLocationPath()+'dict.html?action=noun-pat&data=Passive%20Participle'));\">اسم المفعول</a></p>",
+        "construct_sep": "/",
         "construct_ar": [
             "فَاعِل",
             "مَفْعُول"
