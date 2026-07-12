@@ -1291,6 +1291,24 @@
     {
         "compareType": "noun",
         "topics": [
+            "الاسم المشتق (Derived nouns)"
+        ],
+        "notes": "<p style=\"direction:ltr\">In Arabic grammar, nouns are categorized by their origin into two primary types: Derived Nouns (الاسم المشتق) and Primitive Nouns (الاسم الجامد). Primmitive nouns are proper names, while derived nouns are formed from verbs and can be further classified into active participles (اسم الفاعل), passive participles (اسم المفعول), and other derived forms. Derived nouns often indicate the doer of an action, the recipient of an action, or a characteristic related to the action</p>",
+        "ar": [
+            "تعريف"
+        ],
+        "en": [
+            "Derived Noun"
+        ],
+        "features": {
+            "الاسم المشتق (Derived nouns)": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">There are following primary types of derived nouns<br/><ul><li><a href=\"#\" onclick=\"parent.openInline(encodeURI(getLocationPath()+'dict.html?action=noun-pat&data=Active%20Participle'));\">(Active Participle) اسم الفاعل</a></li><li><a href=\"#\" onclick=\"parent.openInline(encodeURI(getLocationPath()+'dict.html?action=noun-pat&data=Passive%20Participle'));\">(Passive Participle) اسم المفعول</a></li><li><a href=\"#\" onclick=\"parent.openInline(encodeURI(getLocationPath()+'dict.html?action=noun-pat&data=Hyperbole'));\">(Hyperbole / Similar Adjective) الصفة المشبهة</a></li><li><a href=\"#\" onclick=\"parent.openInline(encodeURI(getLocationPath()+'dict.html?action=noun-pat&data=comparative'));\">(Comparative / Superlative) اسم التفضيل</a></li><li><a href=\"#\" onclick=\"parent.openInline(encodeURI(getLocationPath()+'dict.html?action=noun-pat&data=Noun%20of%20place'));\">(Noun of Time and Place) اسم الزمان والمكان</a></li><li><a href=\"#\" onclick=\"parent.openInline(encodeURI(getLocationPath()+'dict.html?action=noun-pat&data=Noun%20of%20the%20instrument'));\">(Noun of Instruments) اسم الآلة</a></li></ul><br/></p>"
+			]
+        }
+    },
+    {
+        "compareType": "noun",
+        "topics": [
             "الفاعل (Active Voice)"
         ],
         "notes": "",
