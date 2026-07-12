@@ -588,35 +588,41 @@
         "action": "noun-cmp",
         "data": "pos:8"
     },
-    "Derived Noun;اسم الجامد;اسم المشتق":
+    "Indeclinable Noun;Proper Noun;اسم الجامد":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:9"
     },
-    "Active Voice;الفاعل":
+    "Derived Noun;اسم المشتق":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:10"
     },
-    "Passive Voice;نائب الفاعل":
+    "Active Voice;الفاعل":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:11"
     },
-    "Predicate;مسند":
+    "Passive Voice;نائب الفاعل":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:12"
     },
-    "Subject;مسند اليه":
+    "Predicate;مسند":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:13"
+    },
+    "Subject;مسند اليه":
+    {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:14"
     },
     "Auditory Verbal Noun;Masdar;مصدر سماعي":
     {
