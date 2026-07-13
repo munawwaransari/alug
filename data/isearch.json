@@ -624,6 +624,12 @@
         "action": "noun-cmp",
         "data": "pos:14"
     },
+    "Exceptional Patterns;أسماء استثنائية":
+    {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:15"
+    },
     "Auditory Verbal Noun;Masdar;مصدر سماعي":
     {
         "path": "dict.html",

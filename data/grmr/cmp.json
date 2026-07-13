@@ -1416,5 +1416,32 @@
 				"ضَرَبَ ٱللَّهُ مَثَلٗا [39:29]<br/>(ٱللَّهُ <-- Subject/مسند اليه)<br/><br/>"
 			]
         }
+    },
+    {
+        "compareType": "noun",
+        "topics": [
+            "أسماء استثنائية (Exceptional Patterns)"
+        ],
+        "notes": "Arabic name patterns follow strict grammatical structures derived from three-letter or four-letter roots (Arabic morphology/Sarf). However, several exceptional name patterns break standard gender rules, use rare archaic weights, or borrow from non-Arabic traditions.",
+        "ar": [
+            "أنماط ذكورية",
+            "أنماط أنثوية",
+            "أنماط محايدة",
+            "الأعجمي"
+        ],
+        "en": [
+            "Male Patterns",
+            "Female Patterns",
+            "Neutral Patterns",
+            "Foreign Names"
+        ],
+        "features": {
+            "أسماء استثنائية (Exceptional Patterns)": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\"><u>فَعَّالَة (Intensifier)</u>:<br/><br/>عَلَّامة (ultra-scholarly male)<br/>عَطَّارَة (merchant of perfumes)<br/>رَوَّايَة (an expert narrator)<br/></p>",
+				"<p style=\"direction: ltr;padding:0;margin:0;\"><u>Ending in ة or فَعْلَة or فُعَلَة</u>:<br/><br/>حمزة (Hamzah)<br/>أسامة (Usāmah)<br/>عبيدة (Ubaydah)<br/>طلحة (Talḥah)<br/></p>",
+                "<p style=\"direction: ltr;padding:0;margin:0;\"><u>فُعَال</u>:<br/><br/>شُعَاع (Ray of light)<br/>جُمَاد (Solid)<br/>سُحَاب (cloud)<br/><br/><u>فِعَال</u>:<br/><br/>حذام (Swift)<br/>رباب (white clouds)<br/>قطام (traditional name)<br/></p>",
+                "<p style=\"direction: ltr;padding:0;margin:0;\"><u>Biblical and pre-Islamic names</u>:<br/><br/>إِبْرَاهِيم (Abraham)<br/>إِسْمَاعِيل (Ismail)<br/>سُلَيْمَان (Solomon)<br/><br/><u>Foreign Loanwords </u>:<br/>فِرْعَوْن (Pharao)<br/>طالوت<br/>جَالُوت (Goliath)<br/></p>"
+			]
+        }
     }
 ]
