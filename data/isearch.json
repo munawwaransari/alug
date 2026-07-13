@@ -62,6 +62,11 @@
         "action": "noun-pat",
         "data": "@key"
     },
+    "Four-letter Noun;اسم الرباعي":{
+        "path": "dict.html",
+        "action": "noun-pat",
+        "data": "@key"
+    },
     "Pronouns;ضمير;ضمائر": {
         "path": "dict.html",
         "action": "pronoun",
