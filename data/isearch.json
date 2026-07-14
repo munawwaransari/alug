@@ -659,6 +659,12 @@
         "action": "masdar",
         "data": "pos:22"
     },
+    "Verbal Noun - Implied;Masdar;المصدر مؤول":
+    {
+        "path": "dict.html",
+        "action": "masdar",
+        "data": "pos:23"
+    },
     "Quranic Examples;أمثلة من القرآن":
     {
         "path": "dict.html",
