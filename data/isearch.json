@@ -109,7 +109,7 @@
         "action": "prep",
         "data": "all"
     },
-    "Phrases;العبارات": {
+    "Phrases;عبارات": {
         "path": "dict.html",
         "action": "prep-ph",
         "data": "@Key"
@@ -204,7 +204,7 @@
         "action": "sentence",
 	"data": "pos:3"
     },
-    "Sentence Erab;الاعتراضية;جملة إنشائية": {
+    "Sentence Erab;اعتراضية;جملة إنشائية": {
         "path": "dict.html",
         "action": "sentence",
 	"data": "pos:4"
@@ -244,7 +244,7 @@
         "action": "cmp",
 	"data": "pos:0"
     },
-    "Alif Laam;الجنسية;العهدية;": {
+    "Alif Laam;جنسية;عهدية;": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:1"

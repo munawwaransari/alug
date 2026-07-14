@@ -475,7 +475,7 @@ function listSearchIndex(indexKey='') {
 		$(".dictionary").append('<div style="margin-top: 40px;"></div>');
 
 		//sort by key
-		var arSortedData = {}, arSortedDataOriginalKeys = {};
+		var arSortedData = {}, arSortedDataOriginalKeys = {}, sortElements = {};
 		const enSortedData = Object.keys(data)
 			.sort()
 			.reduce((tempObj, key) => {
@@ -516,10 +516,19 @@ function listSearchIndex(indexKey='') {
 				'cursor:pointer;margin:0;padding:0;padding-left:10px;padding-top:14px;width:220px;display:inline-block;float:left;'));
 		});
 		$.each(arSortedData, function (key, value) {
-			div.append(getIndexEntry(arSortedDataOriginalKeys, key, value, 'data', 
+			var elem = getIndexEntry(arSortedDataOriginalKeys, key, value, 'data', 
 				'cursor:pointer;margin:0;padding:0;padding-left:10px;padding-top:14px;width:220px;display:inline-block;float:right;'
-			));
+			);
+			sortElements[key] = elem;
+			//div.append(elem);
 		});
+		// rearrange arabic index to be in the order of arabic letters
+		var sortedKeys = Object.keys(sortElements).sort(function(a, b) {
+			return a.localeCompare(b, 'ar');	
+		});
+		div.append(sortedKeys.map(function(key) {
+			return sortElements[key];
+		}));
 		$(".dictionary").append(div);
 		handleFilterIndex('id_'+indexKey)
 	});
