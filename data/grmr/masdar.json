@@ -241,8 +241,8 @@
         "name_en":  "Implied infinitive",
         "construct_sep": "<br/>",
         "construct_ar": [
-            "<p style=\"width:90%;direction: ltr;padding:0;margin:0;\"><u>As Subject (مبتدأ)</u>:<br/>أَنْ تَصُومُوا خَيْرٌ لَكُمْ<br/><sub>(الصَّومُ) <= (أَنْ تَصُومُوا)</sub><br/><sub><b>Fasting</b> is better for you</sub><br/><br/><u>As Direct object (مفعول به)</u>:<br/>أُرِيدُ أَنْ أَذْهَبَ<br/><sub>(الذّهاب) <= (أَنْ أَذْهَبَ)</sub><br/><sub>I want <b>to go</b></sub><br/><br/><u>As Prepositional Object (مجرور)</u>:<br/>عَجِبْتُ مِمَّا صَنَعْتَ<br/><sub>(صَنعُك) <= (مَا صَنَعْتَ)</sub><br/><sub>I was amazed by <b>your creation</b></sub><br/></p>"
+            "<p style=\"width:90%;direction: ltr;padding:0;margin:0;\"><u>As Subject (مبتدأ)</u>:<br/>أَنْ تَصُومُوا خَيْرٌ لَكُمْ<br/><sub>(الصَّومُ) <= (أَنْ تَصُومُوا)</sub><br/><sub><b>Fasting</b> is better for you</sub><br/><br/><u>As Direct object (مفعول به)</u>:<br/>أُرِيدُ أَنْ أَذْهَبَ<br/><sub>(الذّهاب) <= (أَنْ أَذْهَبَ)</sub><br/><sub>I want <b>to go</b></sub><br/><br/><u>As Prepositional Object (مجرور)</u>:<br/>عَجِبْتُ مِمَّا صَنَعْتَ<br/><sub>(صَنعُك) <= (مَا صَنَعْتَ)</sub><sub>I was amazed by <b>your creation</b></sub><br/></p>"
         ],
-        "notes": "<p style=\"direction:ltr\">In Arabic grammar, a مصدر مؤول (interpreted/implied infinitive) is a phrase that functions as a single verbal noun (مصدر صريح). It is formed by joining a specific particle (such as أَنْ, ما, or أَنَّ) with a following verb or sentence, and can take the grammatical case of whatever it replaces.</p>"
+        "notes": "<p style=\"text-align:center;width:90%;direction:ltr\">In Arabic grammar, a مصدر مؤول (interpreted/implied infinitive) is a phrase that functions as a single verbal noun (مصدر صريح). It is formed by joining a specific particle (such as أَنْ, ما, or أَنَّ) with a following verb or sentence, and can take the grammatical case of whatever it replaces.</p>"
     }
 ]
