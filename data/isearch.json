@@ -545,95 +545,101 @@
         "action": "noun-cmp",
         "data": "pos:0"
     },
-    "Diptote;غير المنصرف":
+    "Noun Endings;Declinable;الصحيح;المنقوص;المقصور;الممدود;مُعرب":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:1"
     },
-    "Indeclinable;المبني":
+    "Diptote;غير المنصرف":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:2"
     },
-    "Indefinite Noun;اسم النكرة":
+    "Indeclinable;المبني":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:3"
     },
-    "Definite Noun;اسم المعرفة":
+    "Indefinite Noun;اسم النكرة":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:4"
     },
-    "Sound Plural;الجمع السالم":
+    "Definite Noun;اسم المعرفة":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:5"
     },
-    "Broken Plural;الجمع التكسير":
+    "Sound Plural;الجمع السالم":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:6"
     },
-    "Generic Noun;اسم الجنس;إنفرادي":
+    "Broken Plural;الجمع التكسير":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:7"
     },
-    "Collection Noun;جمعي;اسم الجنس":
+    "Generic Noun;اسم الجنس;إنفرادي":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:8"
     },
-    "Indeclinable Noun;Proper Noun;اسم الجامد;اسم العَلم;اسم الذات;اسم المعنى;":
+    "Collection Noun;جمعي;اسم الجنس":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:9"
     },
-    "Derived Noun;اسم المشتق":
+    "Indeclinable Noun;Proper Noun;اسم الجامد;اسم العَلم;اسم الذات;اسم المعنى;":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:10"
     },
-    "Active Voice;الفاعل":
+    "Derived Noun;اسم المشتق":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:11"
     },
-    "Passive Voice;نائب الفاعل":
+    "Active Voice;الفاعل":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:12"
     },
-    "Predicate;مسند":
+    "Passive Voice;نائب الفاعل":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:13"
     },
-    "Subject;مسند اليه":
+    "Predicate;مسند":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:14"
     },
-    "Exceptional Patterns;أسماء استثنائية":
+    "Subject;مسند اليه":
     {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:15"
+    },
+    "Exceptional Patterns;أسماء استثنائية":
+    {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:16"
     },
     "Auditory Verbal Noun;Masdar;مصدر سماعي":
     {

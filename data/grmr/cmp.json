@@ -1117,6 +1117,34 @@
     {
         "compareType": "noun",
         "topics": [
+            "اسم مُعرب (Noun Endings)"
+        ],
+        "notes": "",
+        "ar": [
+            "الاسم الصحيح",
+            "الاسم المنقوص",
+            "الاسم المقصور",
+            "الاسم الممدود"
+            
+        ],
+        "en": [
+            "Sound/Correct Noun",
+            "Defective Noun",
+            "Elongated Noun",
+            "Extended Noun"
+        ],
+        "features": {
+            "اسم مُعرب (Noun Endings)": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">Any standard noun that does not end in an alif (ا), ya (ي), or wao (و)</p><p>عمل (work)<br/> بيت (house)<br/> قلم (pen)</p>",
+				"<p style=\"direction: ltr;padding:0;margin:0;\">A noun ending in a long ي preceded by a كسرة</p><p>قاضٍ / القاضِي (judge)<br/> محامٍ / المحامِي (lawyer)<br/> داعٍ / الداعِي (inviter)</p>",
+                "<p style=\"direction: ltr;padding:0;margin:0;\">A noun ending with a long obligatory alif (written as either ا or ى) preceded by a fathah.</p><p>هُدى (guidance)<br/> مصطفى (Mustafa)<br/> مستشفى (hospital)</p>",
+                "<p style=\"direction: ltr;padding:0;margin:0;\">A noun ending in a hamza (ء) preceded by an elongated alif (ا)</p><p>سماء (sky)<br/> صحراء (desert)<br/> إنشاء (construction)</p>"
+			]
+        }
+    },
+    {
+        "compareType": "noun",
+        "topics": [
             "غير المنصرف (Diptote)"
         ],
         "notes": "",
