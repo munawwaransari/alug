@@ -545,7 +545,7 @@
         "action": "noun-cmp",
         "data": "pos:0"
     },
-    "Noun Endings;Declinable;الصحيح;المنقوص;المقصور;الممدود;مُعرب":
+    "Declinable Noun Endings;الصحيح;المنقوص;المقصور;الممدود;مُعرب":
     {
         "path": "dict.html",
         "action": "noun-cmp",
