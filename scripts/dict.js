@@ -453,6 +453,17 @@ function listExamplesFromQuran() {
 	loadExamplesFromData(dict, qselect, get_ce_examples());
 }
 
+function handleFilterAction(val, action){
+	if (action !== ''){
+		handleFilterIndex(val);
+		$("div[data_action]:not([data_action*='"+action+"'])").hide();
+	}
+	else{
+		$("div[data_action]").show();
+		handleFilterIndex(val);
+	}
+}
+
 function handleFilterIndex(val){
 	if (val == 'id_ع'){
 		$("div [id*=id_]").hide();
@@ -507,6 +518,21 @@ function listSearchIndex(indexKey='') {
 					iDiv += "<option value=id_" + charValue + ">" + charValue + "</option>";
 				};
 				iDiv += "</select>";
+				iDiv += `
+				Topic: <select style="width:40;" onchange="handleFilterAction($(this).prev().val(), $(this).val());">
+					<option value="">All</option>
+					<option value="cmp">Comparison</option>
+					<option value="masdar">Verbal Noun</option>
+					<option value="noun-cmp">Noun</option>
+					<option value="noun-pat">Noun Patternns</option>
+					<option value="adj">Adjective</option>
+					<option value="adv">Adverb</option>
+					<option value="pronoun">Pronoun</option>
+					<option value="prep">Preposition</option>
+					<option value="sentence">Sentence</option>
+					<option value="Vocab">Vocabulary</option>
+					<option value="Chart">Charts</option>
+				</select>`;
 			});
 
 		var div = $("<div style='direction:ltr;width:100%;height=100%;'></div>");
@@ -548,7 +574,7 @@ function getIndexEntry(keys, key, value, id, style){
 	}`;
 	var icon = getIndexEntryIcon(value.path, value.action);
 	return `
-		<div id="${id}_${key[0]}"
+		<div id="${id}_${key[0]}" data_action="${value.action}"
 			style="${style}">
 			${icon}<a href="#" onclick="${link}">${key}</a>
 		</div>
