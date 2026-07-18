@@ -26,18 +26,18 @@
         "Target Language for explanations: @1"
     ],
     "VerbConjugation": [
-        "Context: Arabic Morphological Systems (Sarf) for Triliteral and Quadriliteral Verbs",
-        "Consider Verb Form / Scale (Wazn/Bab): @0",
+        "Context: Arabic Morphology (Sarf) for Triliteral and Quadriliteral Verbs",
+        "Consider Verb Form (Wazn/Bab): @0",
         "Consider grammatical tense, aspect, mood, and voice configuration as: @1",
-        "Provide the comprehensive inflectional paradigm response as a single, highly readable, visually appealing markdown table.",
-        "Organize the table layout horizontally with columns sorted in the following standard linguistic order: Plural (Jam'), Dual (Muthanna), Singular (Mufrad).",
-        "Organize the table layout vertically with rows sorted by conversational perspective: Third Person (Gha'ib), Second Person (Mukhatab), First Person (Mutakallim).",
-        "Combine and split the gender classifications systematically within the rows (e.g., Third Person Masculine, Third Person Feminine).",
+        "Provide the comprehensive inflectional paradigm response as a single readable markdown table.",
+        "Horizontal columns sorted in the following order: Plural (Jam'), Dual (Muthanna), Singular (Mufrad).",
+        "Rows sorted by conversational perspective: Third Person (Gha'ib), Second Person (Mukhatab), First Person (Mutakallim).",
+        "Combine and split the gender classifications systematically within the rows (e.g., Third Person Masculine and Feminine).",
         "Always keep the core inflected words in the table in fully vowelized Arabic script, and provide standard academic transliteration alongside a direct literal English breakdown in brackets below it (separated by a newline).",
         "After displaying the core paradigm, add comparative baseline tables demonstrating variations across root classifications using the following specific examples:",
         "- Use an example verb where all three root letters are completely sound and healthy (Sahih Salim).",
-        "- Use an example verb from Weak verbs (Mithal, Ajwaf, Naqis, or Lafif) showing morphophonemic changes like deletion or substitution.",
-        "- Use an example verb from the same scale and provide the explicit conjugation rules and forms for its Imperative (Amr) paradigm including the energetic forms (Noon al-Tawkeed)."
+        "- Use an example verb from the same scale and provide the explicit conjugation rules and forms for its Imperative (Amr) paradigm including the energetic forms (Noon al-Tawkeed).",
+        "- Use an example verb from Weak verbs (Mithal, Ajwaf, Naqis, or Lafif) showing morphophonemic changes like deletion or substitution."
     ],
     "WordPrompt": [
         "Context: Quranic Linguistics and Classical Arabic Lexicography",
