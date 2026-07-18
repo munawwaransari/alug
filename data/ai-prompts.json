@@ -81,6 +81,16 @@
         "Translate the exact meaning of this verse into the 10 most widely spoken and globally accepted translations, ensuring text accuracy and semantic fidelity. Output only the localized text strings and formal source references without conversational preamble.",
         "Mandatorily include high-quality orthodox translations for Urdu (e.g., Abul Ala Maududi/Ahmed Raza Khan), Hindi (e.g., Farooq Khan), and English (e.g., Sahih International/M.A.S. Abdel Haleem) among the 10 language outputs."
     ],
+    "VerseErab":[
+        "Act as an expert in classical Arabic grammar (Nahw) and morphology (Sarf).",
+        "Provide a strict, word-by-word grammatical and syntax analysis for the following Quranic verse: Surah @0, Ayah @1",
+        "Structure the response using a clean, tabular format with the following columns for each individual word",
+        "- Word: The exact Arabic word as it appears in the text.Morphology (Sarf)",
+        "- Identify the part of speech (noun, verb, particle), gender, number, and the 3-letter root word (jadr).",
+        "- Grammatical Declension (I'rab)",
+        "- Explain its grammatical position in the sentence (e.g., Marfoo', Mansoub, Majroor, Majzoom) and the explicit sign of that case (e.g., Dammah, Fathah, Kasrah, Sukun).", 
+        "- Role / Syntax (Nahw): Define its functional role in the clause (e.g., subject/Mubtada, predicate/Khabar, doer/Fa'il, object/Maf'ool, conjunction, etc.)."
+    ],
     "WeakVerbs": [
         "Context: Arabic Morphology (Sarf) of Unsound Roots (Al-Af'al al-Da'ifah)",
         "Verb Paradigm / Root classification: @0",
