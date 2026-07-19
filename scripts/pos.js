@@ -938,7 +938,7 @@ class posAPI {
 			<table id="pTable" class="pTable">
 				<tr>
 					<th style="font-size: 22px;directoin:rtl;">
-						Prepositional Phrases
+						Prepositional Phrases (<a href="#" onclick="listPrepPhrases($('.nFilter option'))">List</a>)
 					</th>
 				</tr>
 			</table>`);

@@ -159,13 +159,21 @@ function handleParams() {
 		case 'prep-ph':
 			showPrepPhrasesTable();
 			if (params["data"] && params["data"] != '@Key') {
-				var table = $('#pTable:visible');
-				const exp = new RegExp("(?:^|[a-z\\s])" + params["data"] + "(?:$|[a-z\\s])", 'ig');
-				table.find('tr').filter(function (n, el) {
-					if (!exp.test($(el).text()))
-						$(el).hide();
-				});
-				$(".nFilter").hide();
+				if (params["data"].startsWith("pos:")) {
+					var index = parseInt(params["data"].substring(4));
+					setTimeout(function () {
+						selectIndexAndTrigger(index, 'nFilter');
+					}, 150);
+				}
+				else{
+					var table = $('#pTable:visible');
+					const exp = new RegExp("(?:^|[a-z\\s])" + params["data"] + "(?:$|[a-z\\s])", 'ig');
+					table.find('tr').filter(function (n, el) {
+						if (!exp.test($(el).text()))
+							$(el).hide();
+					});
+					$(".nFilter").hide();
+				}
 			}
 			break;
 
