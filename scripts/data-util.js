@@ -1915,7 +1915,7 @@ function listListItems(el, listId, page, action){
 			if(text && text.trim() === 'Show All') return true; // Skip
 			
 			container += `
-			<div style="height: fit-content;width: 120px; padding:10px;cursor:pointer;border: 1px solid #ccc;border-radius: 5px;box-shadow: 2px 2px 5px rgba(0,0,0,0.1);"
+			<div style="height: fit-content;width: 150px; padding:10px;cursor:pointer;border: 1px solid #ccc;border-radius: 5px;box-shadow: 2px 2px 5px rgba(0,0,0,0.1);"
 				onclick="if(parent) {
 						console.log('hi');
 						parent.redirect('${page}', '${action}', 'pos:${index}');
