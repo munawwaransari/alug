@@ -9,7 +9,7 @@ function showObjectEffects(k, v1, v2, dataName){
 	ensureJsonData({name: dataName})
 	.then((data) => {
 		container.empty();
-		createSelectionFilters(container, data);
+		createSelectionFilters(container, data, dataName);
 		data.every(function (objData) {
 			addObjectEffectTable(container, objData);
 			return true;
@@ -136,33 +136,40 @@ function addObjectEffectTable(container, objData){
 	container.append($(pTable));
 }
 
-function createSelectionFilters(container, data){
-	var sel = '<select class="pronounFilter" '+ 
-					' onchange="filterObjectEffectView(event && event.target ? event.target.value: undefined);">';
-	sel +=	'<option value="all">Show All</option>';
-	data.every(function(obj){
-		var v = makeId('', obj.name_en);
-		sel += '<option value="'+v+'">'+obj.name_ar+' ( '+obj.name_en+' )'+'</option>';
-		return true;
-	});
-	sel += '</select>';
-	container.append($(sel));
+function createSelectionFilters(container, data, dataAction){
+	var sel = `
+	<select class="pronounFilter" 
+			onchange="filterObjectEffectView(event && event.target ? event.target.value: undefined);">
+	<option value="all">Show All</option>
+	${
+		data.map(function(obj){
+			var v = makeId('', obj.name_en);
+			return '<option value="'+v+'">'+obj.name_ar+' ( '+obj.name_en+' )'+'</option>';
+		}).join('')
+	}
+	</select>`;
+	container.append($(getListButtinWithSelect(sel, 'pronounFilter', dataAction)));
+	filterObjectEffectView();
 }
 
 function filterObjectEffectView(value){
 	var val = value ?? $(".pronounFilter").val();
+	var lstButton = $(".nFilterBtn");
+	var lst = $(".pronounFilter");
 	if(val == 'all'){
 		$('.pTable tr').show();
 	}else{
 		$('.pTable tr').hide();
 		var t = $("#pTable_"+val);
 		t.remove();
-		var lst = $(".pronounFilter");
+		lstButton.remove();
 		lst.remove();
 		$(".dictionary").prepend(t);
+		$(".dictionary").prepend(lstButton);
 		$(".dictionary").prepend(lst);
 		$("#pTable_"+val+' tr').show();
 	}
+	lstButton.css('width', lst.css('width'));
 }
 
 function makeId(prefix, txt){

@@ -1901,9 +1901,10 @@ function getRandomIndices(arr){
 	return indices;
 }
 
-function listPrepPhrases(list){
-	if(list){
-		var div = $(".dictionary");
+function listListItems(el, listId, page, action){
+	if(listId){
+		var list = $(listId);
+		var div = $(el);
 		div.empty();
 		var container = '<div style="width:90%;display: flex; flex-wrap: wrap;gap: 10px;">';
 		container += `<div style="width:100%; height:50px;">&nbsp;</div>`;
@@ -1914,10 +1915,10 @@ function listPrepPhrases(list){
 			if(text && text.trim() === 'Show All') return true; // Skip
 			
 			container += `
-			<div style="height: fit-content;width: 200px; padding:10px;cursor:pointer;border: 1px solid #ccc;border-radius: 5px;box-shadow: 2px 2px 5px rgba(0,0,0,0.1);"
+			<div style="height: fit-content;width: 120px; padding:10px;cursor:pointer;border: 1px solid #ccc;border-radius: 5px;box-shadow: 2px 2px 5px rgba(0,0,0,0.1);"
 				onclick="if(parent) {
 						console.log('hi');
-						parent.redirect('dict.html', 'prep-ph', 'pos:${index}');
+						parent.redirect('${page}', '${action}', 'pos:${index}');
 					}">
 			${text}
 			</div>`;
@@ -1926,4 +1927,26 @@ function listPrepPhrases(list){
 		container += '</div>';
 		div.append($(container));
 	}
+}
+
+function getListButtinWithSelect(sel, filterClass, compareType) {
+	var cmpAction = 
+			compareType == 'noun'? 'noun-cmp': 
+			compareType == 'verb'? 'vtab-all':
+			compareType == 'adjectiveData'? 'adj':
+			compareType == 'adverbData'? 'adv':
+			compareType == 'objectEffectsData'? 'obj-effect':
+			compareType == 'masdarData'? 'masdar':
+			compareType ?? 'cmp';
+	return `
+	<div class="nFilterDiv">
+		${sel}
+		<br style="height:1px;padding:0;margin:0;"/>
+		<button class="nFilterBtn"
+				onclick="listListItems('.dictionary',
+										'.${filterClass} option', 
+										'dict.html', 
+										'${cmpAction}')"
+			>List</button>
+	</div>`;
 }

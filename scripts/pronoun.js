@@ -32,18 +32,23 @@ function showPronounInfo(k, v1, v2){
 
 function filterPronounView(){
 	var val = $(".pronounFilter").val();
+	var lstButton = $(".nFilterBtn");
+	var lst = $(".pronounFilter");
+
 	if(val == null || val == 'all'){
 		$('.pTable tr').show();
 	}else{
 		$('.pTable tr').hide();
 		var t = $("#pTable_"+val[0]);
 		t.remove();
-		var lst = $(".pronounFilter");
 		lst.remove();
+		lstButton.remove();
 		$(".dictionary").prepend(t);
+		$(".dictionary").prepend(lstButton);
 		$(".dictionary").prepend(lst);
 		$("#pTable_"+val[0]+' tr').show();
 	}
+	lstButton.css('width', lst.css('width'));
 }
 
 function addRelativePronouns(container){

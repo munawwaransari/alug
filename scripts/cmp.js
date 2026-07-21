@@ -21,26 +21,35 @@ class cmpAPI {
 
 	addComparisionList(container, inp, showComparison, compareType){
 		var api = this;
-		container.empty();
-		var sel = '<select class="nFilter" onchange="loadComparision()">';
 		var first = null, index = 0, indexValue = inp;
-		cmpAPI.cmpData.map(function(cEntry){
-			
-			if ((showComparison && cEntry.compareType === compareType) || 
-				(!showComparison && cEntry.compareType === undefined)){
-				var val = cEntry["topics"].join(' vs ');
-				var selected = index === indexValue ? ' selected ' : '';
-				sel += `<option value="${val}" ${selected}>${val}</option>`;
-				if(index === indexValue)
-					first = val;
-				index=index+1;
-			}
-		});
+		var sel = `
+		<select class="nFilter" onchange="loadComparision()">
+		${
+			cmpAPI.cmpData.map(
+				function(cEntry){
+					if ((showComparison && cEntry.compareType === compareType) || 
+						(!showComparison && cEntry.compareType === undefined)){
+						var val = cEntry["topics"].join(' vs ');
+						var selected = index === indexValue ? ' selected ' : '';
+						if(index === indexValue)
+							first = val;
+						index=index+1;
+						return `<option value="${val}" ${selected}>${val}</option>`;
+					}
+				}).join('')
+		}
+		</select>`;
+
 		if(first === null && cmpAPI.cmpData.length > 0){
 			first = cmpAPI.cmpData["topics"].join(' vs ')
 		}
 
-		container.prepend($(sel+'</select>'));
+		container.empty();
+		container.prepend(getListButtinWithSelect(
+			sel+'</select>', 
+			'nFilter',
+			compareType));
+
 		if(showComparison){
 			container.prepend($(`<p style="margin:auto;padding:0;"><br/>
 									<label id="cmpLabel">Compare</label>
@@ -55,11 +64,14 @@ class cmpAPI {
 		
 		var compare = $(containerClass + " p:first");
 		var nfilter = $(containerClass + " .nFilter");
+		var nFilterButton = $(containerClass + " .nFilterBtn");
+		nFilterButton.css('width', nfilter.css('width'));
 		$(containerClass).empty();
 		if(compare.length > 0){
 			$(containerClass).append(compare);
 		}
 		$(containerClass).append(nfilter);
+		$(containerClass).append(nFilterButton);
 		$(containerClass).append('<div style="height:10px;"></div>');
 		
 		var selArray = (firstTopic && firstTopic !== sel) ? [sel, firstTopic] : [sel];

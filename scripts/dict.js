@@ -80,6 +80,14 @@ window.onload = function () {
 
 function selectAndTrigger(data, filterClass) {
 	var d = data ? data.toLowerCase() : data;
+	if(d.startsWith("pos:")){
+		var index = parseInt(d.substring(4));
+		setTimeout(function () {
+			selectIndexAndTrigger(index, 'nFilter');
+		}, 150);
+		return;
+	} 
+
 	const select = document.getElementsByClassName(filterClass)[0];
 	if(select){
 		for (let i = 0; i < select.options.length; i++) {
