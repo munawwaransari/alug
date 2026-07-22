@@ -1427,6 +1427,9 @@ function init_data_cache(){
 		"masdarData": {
 			path: "data/grmr/masdar.json"
 		},
+		"verbTypeData": {
+			path: "data/grmr/verbtypes.json"
+		},
 		"objectEffectsData": {
 			path: "data/grmr/objecteffects.json"
 		},
@@ -1992,5 +1995,6 @@ function getActionFromCompareType(compareType){
 	compareType == 'adverbData'? 'adv':
 	compareType == 'objectEffectsData'? 'obj-effect':
 	compareType == 'masdarData'? 'masdar':
+	compareType == 'verbTypeData'? 'verbType':
 	compareType ?? 'cmp';
 }

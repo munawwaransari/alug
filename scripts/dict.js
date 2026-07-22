@@ -185,6 +185,21 @@ function handleParams() {
 			}
 			break;
 
+		case 'verbType':
+			setTimeout(function () {
+				showObjectEffects('verb','Verb Types', 'انواع لاأفعال', 'verbTypeData');
+				if (params["data"])
+					if (params["data"].startsWith("pos:")) {
+						var index = parseInt(params["data"].substring(4));
+						setTimeout(function () {
+							selectIndexAndTrigger(index, 'pronounFilter');
+						}, 150);
+					}
+					else
+						selectAndTrigger(params["data"], 'pronounFilter');
+			});
+			break;
+
 		case 'masdar':
 			setTimeout(function () {
 				showObjectEffects('ism', 'المصادر', 'Verbal Nouns', 'masdarData');

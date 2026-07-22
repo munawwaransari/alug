@@ -1,0 +1,86 @@
+[
+    {
+        "name_ar": "الزمان",
+        "name_en": "By Time or Tense",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "الماضي (Past) <br/> المضارع (Present/Future) <br/> الأمر (Imperative)"
+        ],
+        "construct_en": [
+            "Indicates an action with respect tp tiime ot tense"
+        ],
+        "examples": [
+            "<b>كَتَبَ</b><br/><sup>(He wrote)</sup>",
+            "<b>يَكْتُبُ</b><br/><sup>(He writes/is writing)</sup>",
+            "<b>سَيَكْتُبُ</b><br/><sup>(He will write)</sup>",
+            "<b>اُكْتُبْ</b><br/><sup>(Write!)</sup>"
+        ],
+        "em": [
+        ]
+    },
+    {
+        "name_ar": "اللزوم والتعدي",
+        "name_en": "By Definitiveness of the action",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "الفعل اللازم (Intransitive) <br/> الفعل المتعدي (Transitive)"
+        ],
+        "construct_en": [
+            "By definitiveness of the action"
+        ],
+        "examples": [
+            "<b>نَامَ الطِّفْلُ</b><br/><sup>(The child slept)</sup>",
+            "<b>شَرِبَ الرَّجُلُ المَاءَ</b><br/><sup>(The man drank the water)</sup>",
+            "<b>شَرَحَ المُعَلِّمُ الدَّرْسَ</b><br/><sup>(The teacher explained the lesson)</sup>",
+            "<b>ذَهَبَ الوَلَدُ إِلَى المَدْرَسَةِ</b><br/><sup>(The boy went to school)</sup>"
+        ],
+        "em": [
+        ]
+    },
+    {
+        "name_ar": "التصرف والجمود",
+        "name_en": "By Transmutability",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "الأفعال المتصرفة (Conjugatable) <br/> الأفعال الجامدة (Rigid/Frozen)"
+        ],
+        "construct_en": [
+            "Conjugatable: Verbs that can appear in past, present, and imperative forms.<br/>Rigid/Frozen: Verbs restricted to one specific tense (e.g.  المدح والذم والرجاء والاستثناء)"
+        ],
+        "examples": [
+            "<u style=\"padding:3px;\">Rigid/Frozen (المدح والذم والرجاء والاستثناء)</u>",
+            "<b>ليس الكسولُ ناجحاً</b><br/><sup>(The lazy is not successful)</sup>",
+            "<b>نِعْمَ الصديقُ الوفيّ</b><br/><sup>(What an excellent, loyal friend!)</sup>",
+            "<b>بِئْسَ الصفةُ الكذبُ</b><br/><sup>(Lying is a despicable trait)</sup>",
+            "<b>عَسَى اللهُ أن يفرجَ الكربَ</b><br/><sup>(May God relieve the distress)</sup>",
+            "<u style=\"padding:3px;\">Conjugatable</u>",
+            "<b>كَتَبَ</b><br/><sup>(He wrote)</sup>",
+            "<b>يَكْتُبُ</b><br/><sup>(He writes)</sup>"
+        ],
+        "em": [
+            "","ليس", "نِعْمَ", "بِئْسَ", "عَسَى"
+        ]
+    },
+    {
+        "name_ar": "المعلوم والمجهول",
+        "name_en": "By Sincerity of Action or Voice",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "المبني للمعلوم (Active Voice) <br/> المبني للمجهول (Passive Voice)"
+        ],
+        "construct_en": [
+            "Active or passive voice"
+        ],
+        "examples": [
+            "<u style=\"padding:3px;\">Active Voice</u>",
+            "<b>كَتَبَ الْمُهَنْدِسُ التَّقْرِيرَ</b><br/><sup>(The engineer wrote the report)</sup>",
+            "<b>شَرَحَ الْمُعَلِّمُ الدَّرْسَ</b><br/><sup>(The teacher exaplained the lession)</sup>",
+            "<u style=\"padding:3px;\">Passive Voice</u>",
+            "<b>أُكِلَ الطَّعَامُ</b><br/><sup>(The food was eaten)</sup>",
+            "<b>فُتِحَ البَابُ</b><br/><sup>(The door was opened)</sup>"
+        ],
+        "em": [
+            "","كَتَبَ", "شَرَحَ", "", "أُكِلَ", "فُتِحَ"
+        ]
+    }
+]

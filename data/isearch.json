@@ -670,5 +670,29 @@
         "path": "dict.html",
         "action": "q-examples",
         "data": ""
+    },
+    "Verb Type by Tense;الزمان":
+    {
+        "path": "dict.html",
+        "action": "verbType",
+        "data": "pos:1"
+    },
+    "Verb Type by definitiveness of the action;Intransitive;Transitiveاللزوم والتعدي;الفعل اللازم;الفعل المتعدي":
+    {
+        "path": "dict.html",
+        "action": "verbType",
+        "data": "pos:2"
+    },
+    "Verb Type by Transmutability;Conjugatable;Rigid;Frozen;التصرف والجمود;الأفعال المتصرفة;الأفعال الجامدة":
+    {
+        "path": "dict.html",
+        "action": "verbType",
+        "data": "pos:3"
+    },
+    "Verb Type by sincerity of Action or voice;Active Voice;Passive Voice;المعلوم والمجهول;المبني للمعلوم;المبني للمجهول":
+    {
+        "path": "dict.html",
+        "action": "verbType",
+        "data": "pos:4"
     }
 }
