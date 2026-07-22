@@ -1901,6 +1901,31 @@ function getRandomIndices(arr){
 	return indices;
 }
 
+function listQListItems(el, listId){
+	if(listId){
+		var list = $(listId+" option");
+		var div = $(el);
+		div.empty();
+		var container = '<div style="width:90%;display: flex; flex-wrap: wrap;gap: 10px;">';
+		container += `<div style="width:100%; height:50px;">&nbsp;</div>`;
+		list.each(function(index, element) {
+			var value = $(this).val();  // Get option value
+			var text = $(this).text();  // Get visible text
+			
+			if(text && text.trim() === 'ALL') return true; // Skip
+			
+			container += `
+			<div style="height: fit-content;width: 160px; padding:10px;cursor:pointer;border: 1px solid #ccc;border-radius: 5px;box-shadow: 2px 2px 5px rgba(0,0,0,0.1);"
+				onclick="listExamplesFromQuran('${value}');">
+			${text}
+			</div>`;
+			//console.log('Index: ' + index + ' | Value: ' + value + ' | Text: ' + text);
+		});
+		container += '</div>';
+		div.append($(container));
+	}
+}
+
 function listListItems(el, listId, page, action){
 	if(listId){
 		var list = $(listId);

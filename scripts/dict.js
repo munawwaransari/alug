@@ -437,12 +437,12 @@ function loadExamplesFromData(dict, qselect, data, prefix) {
 	}
 }
 
-function listExamplesFromQuran() {
+function listExamplesFromQuran(selText) {
 	var dict = $(".dictionary");
 	dict.empty();
 	// Add select
 	var qselect = $(`
-		<select id="qs1" style="text-align:center;margin-top:10px;"
+		<select id="qs1" style="text-align:center;"
 			onchange=" 
 			$('div [id*=qid_]').hide();
 			if($(this).val() == 'ALL'){ 
@@ -452,9 +452,14 @@ function listExamplesFromQuran() {
 				$('div [id=qid_'+id+']').show();
 			}
 			">
-		</select>`);
+		</select>
+		`);
 	qselect.append('<option value="ALL">ALL</option>');
 	dict.append(qselect);
+	dict.prepend($(`
+		<button class="nFilterBtn" 
+			style="width:100%;"
+			onclick="listQListItems('.dictionary', '#qs1')">List</button>`));
 
 	loadExamplesFromCmpData(dict, qselect);
 	ensureJsonData({name:"objectEffectsData"})
@@ -467,6 +472,15 @@ function listExamplesFromQuran() {
 	});
 	loadExamplesFromData(dict, qselect, showImperativeTable(1), "Imperative - Form ");
 	loadExamplesFromData(dict, qselect, get_ce_examples());
+
+	if(selText){
+		setTimeout(function(){
+			$("#qs1").val(selText);
+			if($("#qs1").val() !== ''){
+				$("#qs1").trigger('change');
+			}
+		},40);
+	}
 }
 
 function handleFilterAction(val, action){
