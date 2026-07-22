@@ -1931,8 +1931,11 @@ function listListItems(el, listId, page, action){
 		var list = $(listId);
 		var div = $(el);
 		div.empty();
-		var container = '<div style="width:90%;display: flex; flex-wrap: wrap;gap: 10px;">';
-		container += `<div style="width:100%; height:50px;">&nbsp;</div>`;
+		var container = `
+		<div style="width:90%;display: flex; flex-wrap: wrap;gap: 10px;">
+		<div style="height:20px;width:100%;padding:10px;text-align:center;vertical-align:middle">
+			<b>${getActionTitle(action)}</b>
+		</div>`;
 		list.each(function(index, element) {
 			var value = $(this).val();  // Get option value
 			var text = $(this).text();  // Get visible text
@@ -1955,14 +1958,6 @@ function listListItems(el, listId, page, action){
 }
 
 function getListButtinWithSelect(sel, filterClass, compareType) {
-	var cmpAction = 
-			compareType == 'noun'? 'noun-cmp': 
-			compareType == 'verb'? 'vtab-all':
-			compareType == 'adjectiveData'? 'adj':
-			compareType == 'adverbData'? 'adv':
-			compareType == 'objectEffectsData'? 'obj-effect':
-			compareType == 'masdarData'? 'masdar':
-			compareType ?? 'cmp';
 	return `
 	<div class="nFilterDiv">
 		${sel}
@@ -1971,7 +1966,31 @@ function getListButtinWithSelect(sel, filterClass, compareType) {
 				onclick="listListItems('.dictionary',
 										'.${filterClass} option', 
 										'dict.html', 
-										'${cmpAction}')"
+										'${getActionFromCompareType(compareType)}')"
 			>List</button>
 	</div>`;
+}
+
+function getActionTitle(action){
+	return  action == 'masdar'? 'Verbal Nouns':
+	action == 'vtab-all' ? 'Verbs':
+	action == 'obj-effect' ? 'Object Effects':				 
+	action == 'noun-pat'? 'Noun Patterns' : 
+	action == 'noun-cmp'? 'Nouns' : 
+	action == 'cmp'? 'Particles' : 
+	action == 'adj'? 'Adjectives' : 
+	action == 'adv'? 'Adverbs' : 
+	action == 'prep'? 'Prepositions' : 
+	action == 'prep-ph'? 'Prepositional Phrases' : 
+	action;
+}
+
+function getActionFromCompareType(compareType){
+	return compareType == 'noun'? 'noun-cmp': 
+	compareType == 'verb'? 'vtab-all':
+	compareType == 'adjectiveData'? 'adj':
+	compareType == 'adverbData'? 'adv':
+	compareType == 'objectEffectsData'? 'obj-effect':
+	compareType == 'masdarData'? 'masdar':
+	compareType ?? 'cmp';
 }
