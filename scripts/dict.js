@@ -432,7 +432,8 @@ function loadExamplesFromData(dict, qselect, data, prefix) {
 			var values = value.match ? [value] : value;
 			values.every(function (ex, i) {
 				if (/\[\d+\:\d+\]/ig.test(ex)) {
-					div += `<p style="font-size:10px;">${replaceQLink(value)}</p>`;
+					div += `<p style="font-size:10px;">${replaceQLink(value)}</p>`
+					  .replaceAll(']', ']<br/><br/>');
 				}
 			});
 			
