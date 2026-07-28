@@ -1939,21 +1939,26 @@ function listListItems(el, listId, page, action){
 		<div style="height:20px;width:100%;padding:10px;text-align:center;vertical-align:middle">
 			<b>${getActionTitle(action)}</b>
 		</div>`;
+		var sortedList = [], lookupText={};
 		list.each(function(index, element) {
 			var value = $(this).val();  // Get option value
 			var text = $(this).text();  // Get visible text
 			
 			if(text && text.trim() === 'Show All') return true; // Skip
 			
+			var txt = text.replace(/\(.*\)/ig,'').replace(/[a-zA-Z\-\/]+/ig, '').trim();
+			sortedList.push(txt);
+			lookupText[txt] = text;
+		});
+		sortedList.sort();
+		$.each(sortedList, function(index, text) {
 			container += `
 			<div style="height: fit-content;width: 160px; padding:10px;cursor:pointer;border: 1px solid #ccc;border-radius: 5px;box-shadow: 2px 2px 5px rgba(0,0,0,0.1);"
 				onclick="if(parent) {
-						console.log('hi');
 						parent.redirect('${page}', '${action}', 'pos:${index}');
 					}">
-			${text}
+			${lookupText[text]}
 			</div>`;
-			//console.log('Index: ' + index + ' | Value: ' + value + ' | Text: ' + text);
 		});
 		container += '</div>';
 		div.append($(container));
