@@ -1948,16 +1948,18 @@ function listListItems(el, listId, page, action){
 			
 			var txt = text.replace(/\(.*\)/ig,'').replace(/[a-zA-Z\-\/]+/ig, '').trim();
 			sortedList.push(txt);
-			lookupText[txt] = text;
+			lookupText[txt] = {val: text, pos: index};
 		});
 		sortedList.sort();
 		$.each(sortedList, function(index, text) {
+			var txt = lookupText[text].val;
+			var pos = lookupText[text].pos;
 			container += `
 			<div style="height: fit-content;width: 160px; padding:10px;cursor:pointer;border: 1px solid #ccc;border-radius: 5px;box-shadow: 2px 2px 5px rgba(0,0,0,0.1);"
 				onclick="if(parent) {
-						parent.redirect('${page}', '${action}', 'pos:${index}');
+						parent.redirect('${page}', '${action}', 'pos:${pos}');
 					}">
-			${lookupText[text]}
+			${txt}
 			</div>`;
 		});
 		container += '</div>';
