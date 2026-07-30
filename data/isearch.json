@@ -449,6 +449,11 @@
         "action": "Vocab",
         "data": "synonym"
     },
+    "Genres (Cards);Vocabulary;الأجناس;": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "genres"
+    },
     "Homonyms (Cards);Vocabulary;متجانسات;متجانسة;": {
         "path": "cards.html",
         "action": "Vocab",

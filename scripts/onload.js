@@ -544,6 +544,7 @@ function updateToolDescription(id, opt){
 				var menuItems = {
 					"Vocab": {
 						"Alphabets": "alpha",
+						"Genres": "genres",
 						"Synonyms": "synonym",
 						"Homonymn": "homonym",
 						"Antonym": "antonym",
