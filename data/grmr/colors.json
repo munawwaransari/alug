@@ -1,15 +1,5 @@
 {
     "colors": [
-		{
-            "names": [
-                "الوان",
-                "الوان"
-            ],
-            "ar": "",
-			"en": "Colors",
-			"ur": "رنگ",
-            "image": "https://images.freeimages.com/images/large-previews/74a/pastel-abstract-background-0410-5697605.jpg?fmt=webp&h=350"
-        },
         {
             "names": [
                 "فاقع",
@@ -18,7 +8,7 @@
             "ar": "",
 			"en": "Bright",
 			"ur": "روشن",
-            "image": "#00FFFF"
+            "color": "#00FFFF"
         },
 		{
             "names": [
@@ -28,7 +18,7 @@
             "ar": "",
 			"en": "Light",
 			"ur": "ہلکا",
-            "image": "#F6E7E7"
+            "color": "#F6E7E7"
         },
 		{
             "names": [
@@ -38,7 +28,7 @@
             "ar": "",
 			"en": "Dark",
 			"ur": "اندھیرا",
-            "image": "#110B0E"
+            "color": "#110B0E"
         },
 		{
             "names": [
@@ -48,7 +38,7 @@
             "ar": "",
 			"en": "Transparent",
 			"ur": "شفاف",
-            "image": "#FEFEFE"
+            "color": "#FEFEFE"
         },
 		{
             "names": [
@@ -58,7 +48,7 @@
             "ar": "",
 			"en": "Red",
 			"ur": "سرخ",
-            "image": "#FF0000"
+            "color": "#FF0000"
         },
 		{
             "names": [
@@ -68,7 +58,7 @@
             "ar": "",
 			"en": "Orange",
 			"ur": "نارنجی",
-            "image": "#FF9900"
+            "color": "#FF9900"
         },
 		{
             "names": [
@@ -78,7 +68,7 @@
             "ar": "",
 			"en": "Blue",
 			"ur": "نیلا",
-            "image": "#0000FF"
+            "color": "#0000FF"
         },
 		{
             "names": [
@@ -88,7 +78,7 @@
             "ar": "",
 			"en": "Yellow",
 			"ur": "پیلا",
-            "image": "#FFFF00"
+            "color": "#FFFF00"
         },
 		{
             "names": [
@@ -98,7 +88,7 @@
             "ar": "",
 			"en": "Brown",
 			"ur": "بھورا",
-            "image": "#783F04"
+            "color": "#783F04"
         },
 		{
             "names": [
@@ -108,7 +98,7 @@
             "ar": "",
 			"en": "Pink",
 			"ur": "گلابی",
-            "image": "#F4CCCC"
+            "color": "#F4CCCC"
         },
 		{
             "names": [
@@ -118,7 +108,7 @@
             "ar": "",
 			"en": "Purple",
 			"ur": "جامنی",
-            "image": "#9F1F9F"
+            "color": "#9F1F9F"
         },
 		{
             "names": [
@@ -128,7 +118,7 @@
             "ar": "",
 			"en": "Voilet",
 			"ur": "بنفشہ",
-            "image": "#EE82EE"
+            "color": "#EE82EE"
         },
 		{
             "names": [
@@ -138,7 +128,7 @@
             "ar": "",
 			"en": "White",
 			"ur": "سفید",
-            "image": "#FFFFFF"
+            "color": "#FFFFFF"
         },
 		{
             "names": [
@@ -148,7 +138,7 @@
             "ar": "",
 			"en": "White",
 			"ur": "سیاہ",
-            "image": "#000000"
+            "color": "#000000"
         },
 		{
             "names": [
@@ -158,7 +148,7 @@
             "ar": "",
 			"en": "Gray",
 			"ur": "سیاہ مائل",
-            "image": "#444444"
+            "color": "#444444"
         }
     ]
 }
