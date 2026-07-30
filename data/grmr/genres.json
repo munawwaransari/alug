@@ -31,7 +31,7 @@
         {
             "names": ["الضَّائنة","البقر","الغنم","الماعزة"],
             "ar": "البقر.الماعزة.الضَّائنة",
-			"en": "Animal,Sheep,Ewe,Goat",
+			"en": "Animal,Sheep,Goat",
 			"ur": "الماشِيَة",
             "image": "#"
         },
@@ -45,14 +45,14 @@
         {
             "names": ["الذئب","النمر","الدُّب","الثعلب"],
             "ar": "الضِواري",
-			"en": "Predator,Wolf,Leopard",
+			"en": "Wolf,Leopard",
 			"ur": "الضِواري",
             "image": "#"
         },
         {
             "names": ["البَطَّة","البقرة","الدُّجاجة","النَّعامة"],
             "ar": "الحَكل",
-			"en": "Birds,Ostrich,Cattle",
+			"en": "Ostrich,Cattle",
 			"ur": "الحَكل",
             "image": "#"
         }
