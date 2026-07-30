@@ -249,11 +249,13 @@ function showFiveNouns(k, v1, v2){
 	
 	var fiveNouns = ['اَب', 'اَخ', 'حَم', 'فَم', 'ذُو'];
 	var fiveNouns_opposite = ['اُم', 'اُخت', 'حماة', 'فَمة', 'ذات'];
+	var fiveNouns_plural = ['آبَاء', 'إِخْوَان/إِخْوَة', 'أَحْمَاء', 'أَفْوَاه', 'ذَوُون/ذَوِين/ذَوَات'];
 	var pTable = `
 	<table id="n5Table" class="pTable" style="margin-top:20px;font-size:18px;">
 		<tr style="background-color:#CFE2F3">
 			<th>&nbsp;اسم&nbsp;</th>
 			<th>&nbsp;مؤنث&nbsp;</th>
+			<th>&nbsp;جمع&nbsp;</th>
 			<th>&nbsp;مرفوع&nbsp;</th>
 			<th>&nbsp;منصوب&nbsp;</th>
 			<th>&nbsp;مجزوم&nbsp;</th>
@@ -264,6 +266,7 @@ function showFiveNouns(k, v1, v2){
 		<tr>
 			<td><b>${fiveNouns[i]}</b></td>
 			<td>${fiveNouns_opposite[i]}</td>
+			<td>${fiveNouns_plural[i]}</td>
 			<td style="background-color:#C4DBBB">${n+'ُو'}</td>
 			<td style="background-color:#EAD1DC">${n+'َا'}</td>
 			<td style="background-color:#C8C3D6">${n+'ِي'}</td>
@@ -283,7 +286,11 @@ function showFiveNouns(k, v1, v2){
 		<div style="${arStyle}">فَمُو الأسَدِ مَفتُوحٌ</div>
 		<div style="${enStyle}">The lion\'s mouth is open<div><br/>
 		<div style="${arStyle}">اِسمُ أَخِي هَارُون</div>
-		<div style="${enStyle}">My brother\'s name is Aaron<div>
+		<div style="${enStyle}">My brother\'s name is Aaron<div><br/>
+		<div style="${arStyle}">هَؤُلَاءِ إِخْوَةٌ صَادِقُونَ</div>
+		<div style="${enStyle}">These are honest brothers</div><br/>
+		<div style="${arStyle}">طَهَّرْتُ أَفْوَاهَ الأَطْفَالِ</div>
+		<div style="${enStyle}">I cleaned the children\'s mouths</div>
 		<div style="font-size:12px;">
 			<br/>
 			<a href="#" onclick="openGoogleAISearch(
