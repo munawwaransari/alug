@@ -2,7 +2,7 @@
     "homonymns": [
         {
             "names": ["عاصف", "آسف"],
-			"en": ["Stormy","Sorry"],
+			"en": ["Storm,wind","Sorry,grief"],
 			"ur": ["طوفانی","افسوس"],
             "images": [
 				"https://images.freeimages.com/images/large-previews/ba0/storm-clouds-1191897.jpg?fmt=webp&h=350",
@@ -11,7 +11,7 @@
         },
 		{
             "names": ["نصب", "نسب"],
-			"en": ["Installation","lineage"],
+			"en": ["Installation,fix","lineage,family"],
 			"ur": ["سیٹ اپ","نسب نامہ"],
             "images": [
 				"https://images.freeimages.com/images/large-previews/e44/fix-it-7-1507910.jpg?fmt=webp&h=350",
@@ -20,7 +20,7 @@
         },
 		{
             "names": ["قضاء", "كذا"],
-			"en": ["Judiciary","So.."],
+			"en": ["Judiciary,justice","So,So"],
 			"ur": ["عدلیہ","فلاں"],
             "images": [
 				"https://images.freeimages.com/images/large-previews/542/balance-1172786.jpg?fmt=webp&h=350",
@@ -29,7 +29,7 @@
         },
 		{
             "names": ["صوم", "ثوم"],
-			"en": ["Fasting", "Garlic"],
+			"en": ["Fasting,hungry", "Garlic,vegetable"],
 			"ur": ["روزہ","لہسن"],
             "images": [
 				"https://images.freeimages.com/images/large-previews/227/jerusalem-life-the-mist-1156771.jpg?fmt=webp&h=350",
@@ -38,7 +38,7 @@
         },
 		{
             "names": ["صورة", "سورة"],
-			"en": ["Image", "Surah"],
+			"en": ["Image,picture", "Verse,Surah"],
 			"ur": ["تصویر","سورہ"],
             "images": [
 				"https://images.freeimages.com/images/large-previews/05c/an-african-picture-sold-in-a-zanzibar-market-1229364.jpg?fmt=webp&h=350",
@@ -47,7 +47,7 @@
         },
 		{
             "names": ["طين", "تِين"],
-			"en": ["clay", "Fig"],
+			"en": ["clay,pot", "Fig,Fruit"],
 			"ur": ["مٹی","انجیر"],
             "images": [
 				"https://images.freeimages.com/images/large-previews/66c/dryness-in-portugal-1309279.jpg?fmt=webp&h=350",
@@ -56,7 +56,7 @@
         },
 		{
             "names": ["ضليل", "ذليل"],
-			"en": ["Stray", "Servile"],
+			"en": ["Lost,Stray", "Destitute,Servile"],
 			"ur": ["گمراہ","خدمتگار"],
             "images": [
 				"https://images.freeimages.com/images/large-previews/9f7/wanna-beer-1056482.jpg?fmt=webp&h=350",
@@ -65,7 +65,7 @@
         },
 		{
             "names": ["قلب", "كلب"],
-			"en": ["Heart", "Dog"],
+			"en": ["Heart,center", "Dog,Animal"],
 			"ur": ["دل","کتا"],
             "images": [
 				"https://images.freeimages.com/images/large-previews/95f/heart-1170606.jpg?fmt=webp&h=350",
@@ -74,7 +74,7 @@
         },
 		{
             "names": ["عاقِل", "آكل"],
-			"en": ["Sane", "Eater"],
+			"en": ["Sane,Wise", "Eater,Glutton"],
 			"ur": ["سمجھدار","کھانے والا"],
             "images": [
 				"https://images.freeimages.com/images/large-previews/1cc/ai-robot-network-profile-0410-5699593.jpg?fmt=webp&h=350",
@@ -83,7 +83,7 @@
         },
 		{
             "names": ["شك", "شق"],
-			"en": ["Doubt", "Incision"],
+			"en": ["Doubt,Question", "Incision,Cut"],
 			"ur": ["شک","چیرا"],
             "images": [
 				"https://images.freeimages.com/images/large-previews/9e1/question-mark-1-1159479.jpg?fmt=webp&h=350",
@@ -92,7 +92,7 @@
         },
 		{
             "names": ["نضرة", "نظرة"],
-			"en": ["Fresh", "Look"],
+			"en": ["Fresh,New", "Look,See"],
 			"ur": ["تازگی", "دیکھنا"],
             "images": [
 				"https://images.freeimages.com/images/large-previews/b5a/fresh-vegetables-1187928.jpg?fmt=webp&h=350",
@@ -102,7 +102,7 @@
         },
 		{
             "names": ["كعبة", "كابة"],
-			"en": ["Kaba", "Depression"],
+			"en": ["Kaba,Mecca", "Depression,Sadness"],
 			"ur": ["کعبہ", "اداسی"],
             "images": [
 				"https://images.freeimages.com/images/large-previews/d10/el-haram-elmakki-1441555.jpg?fmt=webp&h=350",
@@ -112,7 +112,7 @@
         },
 		{
             "names": ["عِبادة", "إبادة"],
-			"en": ["Worship", "Genocide"],
+			"en": ["Worship,Pray", "Genocide,Kill"],
 			"ur": ["عبادت", "تباہی"],
             "images": [
 				"https://images.freeimages.com/images/large-previews/985/namaz-preparation-1462502.jpg?fmt=webp&h=350",
@@ -141,7 +141,7 @@
         },
 		{
             "names": ["سمين", "ثمين"],
-			"en": ["Fat", "Costly"],
+			"en": ["Fat,heavy", "Costly,Cheap"],
 			"ur": ["موٹا", "مہنگا"],
             "images": [
 				"https://images.freeimages.com/images/large-previews/db8/fat-shadow-man-1168363.jpg?fmt=webp&h=350",

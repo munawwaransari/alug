@@ -269,7 +269,7 @@
                              style="top:12%; height:80%" 
 							 class="alpha-image" 
 							 title="${alpha.imageName}"
-							 src="https://loremflickr.com/360/480/${alpha.enName ?? alpha.imageName}">
+							 src="${getFreeImageSource(alpha.enName ?? alpha.imageName)}">
                         </img>
                         <span style="margin-bottom:0">
 						<a href="#" style="text-decoration:none; cursor:pointer;"
@@ -297,7 +297,7 @@
 						<img style="top:24%; width:94%; height:76%" 
 							 title="${h.names[0]}"
 							 class="alpha-image" 
-							 src="${h.images[0]}">
+							 src="${getFreeImageSource(h.en[0])}">
                         </img>
 						<span style="top:10px; margin-bottom:0; font-size:18px">
 							<a href="#" style="text-decoration:none; cursor:pointer;"
@@ -315,7 +315,7 @@
                              style="top:24%; width:94%; height:76%" 
 							 title="${h.names[1]}"
 							 class="alpha-image" 
-							 src="${h.images[1]}">
+							 src="${getFreeImageSource(h.en[1])}">
                         </img>
 						<span style="top:10px; margin-bottom:0; font-size:18px">
 							<a href="#" style="text-decoration:none; cursor:pointer;"
@@ -343,7 +343,7 @@
 						<img style="top:24%; width:94%; height:76%" 
 							title="${h.names[0]}"
 							class="alpha-image" 
-							src="${h.images[0]}">
+							src="${getFreeImageSource(h.en[0])}">
                         </img>
 						<span style="top:10px; margin-bottom:0; font-size:18px">
 						<a href="#" style="text-decoration:none; cursor:pointer;"
@@ -361,7 +361,7 @@
                             style="top:24%; width:94%; height:76%" 
 							title="${h.names[1]}"
 							class="alpha-image" 
-							src="${h.images[1]}">
+							src="${getFreeImageSource(h.en[1])}">
                         </img>
 						<span style="top:10px; margin-bottom:0; font-size:18px">
 						<a href="#" style="text-decoration:none; cursor:pointer;"
@@ -404,7 +404,7 @@
 								style="top:18%; width:96%; height:80%" 
 								title="${syn.ar}"
 								class="alpha-image" 
-								src="${syn.image}">
+								src="${getFreeImageSource(syn.en)}">
 							</img>
 							<span style="top:10px; margin-bottom:0">
 								<a href="#" style="text-decoration:none; cursor:pointer;"

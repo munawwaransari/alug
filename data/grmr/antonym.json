@@ -11,7 +11,7 @@
         },
 		{
             "names": ["نحيل", "سمين"],
-			"en": ["Slim","Fat"],
+			"en": ["Slim,man","Fat,man"],
 			"ur": ["دُبلا","موٹا"],
             "images": [
 				"https://images.freeimages.com/variants/yuTfnowPjG3eExT1uHfabQWN/f4a36f6589a0e50e702740b15352bc00e4bfaf6f58bd4db850e167794d05993d?fmt=webp&h=350",
@@ -29,7 +29,7 @@
         },
 		{
             "names": ["سريع", "بطيء"],
-			"en": ["Fast", "Slow"],
+			"en": ["Fast,speed", "Slow,motion"],
 			"ur": ["تیز","سُست"],
             "images": [
 				"https://images.freeimages.com/images/large-previews/0e1/arctic-hare-snow-leap-0410-5700136.jpg?fmt=webp&h=350",
@@ -38,7 +38,7 @@
         },
 		{
             "names": ["خفيف", "ثقيل"],
-			"en": ["Light", "Heavy"],
+			"en": ["Light,weigth", "Heavy,weigth"],
 			"ur": ["ہلکا", "بھاری"],
             "images": [
 				"https://images.freeimages.com/image/previews/fed/autumn-watercolor-leaf-png-5691099.png?fmt=webp&h=350",
@@ -47,7 +47,7 @@
         },
 		{
             "names": ["بارد", "حار"],
-			"en": ["Cold", "Hot"],
+			"en": ["Cold,temperature", "Hot,temperature"],
 			"ur": ["سرد","گرم"],
             "images": [
 				"https://images.freeimages.com/image/previews/551/snowy-beanie-cap-png-art-5702343.png?fmt=webp&h=350",
@@ -102,7 +102,7 @@
         },
 		{
             "names": ["صعب", "سهل"],
-			"en": ["Difficult", "Easy"],
+			"en": ["Difficult,job", "Easy,job"],
 			"ur": ["مشکل", "آسان"],
             "images": [
 				"https://images.freeimages.com/images/large-previews/1fc/jigsaw-1173046.jpg?fmt=webp&h=350",
@@ -121,7 +121,7 @@
 		},
 		{
 			"names": ["سعيد", "حزين"],
-			"en": ["Happy", "Sad"],
+			"en": ["Joyful,boy", "Sad,cry"],
 			"ur": ["خوش", "اداس"],
 			"images": [
 				"https://images.freeimages.com/images/large-previews/3c0/joyful-father-daughter-moment-0410-5701985.jpg?fmt=avif&h=350",

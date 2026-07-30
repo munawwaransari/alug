@@ -2005,3 +2005,7 @@ function getActionFromCompareType(compareType){
 	compareType == 'verbTypeData'? 'verbType':
 	compareType ?? 'cmp';
 }
+
+function getFreeImageSource(keyword, url="https://loremflickr.com/360/480/"){
+	return `${url}${keyword}`;
+}
