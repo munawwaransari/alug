@@ -167,6 +167,26 @@ var knowledge_checks = [
 
 var video_links = [
 	{
+		title: "Arabic Word Formation",
+		link: "https://www.youtube.com/watch?v=qXHjdR-Cy-w"
+	},
+	{
+		title: "Sentence Structure in Arabic",
+		link: "https://www.youtube.com/watch?v=pT_gHGUue90"
+	},
+	{
+		title: "How to Conjugate Arabic Verbs",
+		link: "https://www.youtube.com/watch?v=Eqr8rfMKq_Y"
+	},
+	{
+		title: "How Arabic Verb Forms Change Meaning",
+		link: "https://www.youtube.com/watch?v=Pwyxx22PQUI"
+	},
+	{
+		title: "Arabic Irregular Verbs Explained",
+		link: "https://www.youtube.com/watch?v=TL93wjNpuwc"
+	},
+	{
 		title: "100 Common Arabic Verbs in Use",
 		link: "https://www.youtube.com/watch?v=xmgAQVSv1uk"
 	},
@@ -189,6 +209,10 @@ var video_links = [
 	{
 		title: "50 Arabic linking words",
 		link: "https://www.youtube.com/watch?v=Wyyh-fGT3s0"
+	},
+	{
+		title: "50 Arabic Connectors",
+		link: "https://www.youtube.com/watch?v=CQ-ftYSIxR4"
 	},
 	{
 		title: "30 Must-Know Arabic Connectors",
