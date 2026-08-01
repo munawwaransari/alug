@@ -3301,8 +3301,7 @@
                     "structure": "الصفات",
                     "examples": [
                         "<br/>يَطْحَنُ النَّوَى<br/>(He grinds the seeds)<br/>=> He is extremely poor",
-                        "<br/>هو نظيف اليد<br/>(He has clean hands)<br/>=> He is honest and trustworthy",
-                        ""
+                        "<br/>هو نظيف اليد<br/>(He has clean hands)<br/>=> He is honest and trustworthy"
                     ]
                 }
             ]
@@ -3318,8 +3317,7 @@
                     "examples": [
                         "<br/> الذهب الأسود<br/>(Black Gold)<br/>=>Petroleum",
                         "<br/>ابْنَةُ العِنَبِ<br/>(Daughter of the vine)<br/>=>Wine",
-                        "<br/>صَاحِبِ الْحُوتِ>br/>(Companion of the whale)<br/>=>Jonah",
-                        ""
+                        "<br/>صَاحِبِ الْحُوتِ><br/>(Companion of the whale)<br/>=>Jonah"
                     ]
                 }
             ]
@@ -3334,8 +3332,43 @@
                     "structure": "نِسْبَة",
                     "examples": [
                         "<br/>اليُمْنُ يَتْبَعُ ظِلَّهُ<br/>(Good fortune follows his shadow)<br/>=>He brings good fortune",
-                        "<br/>الفصاحةُ في بيانِهِ<br/>(Eloquence is his expression)<br/>=>He is eloquent",
-                        ""
+                        "<br/>الفصاحةُ في بيانِهِ<br/>(Eloquence is his expression)<br/>=>He is eloquent"
+                    ]
+                }
+            ]
+        },
+        {
+            "ar": "المجاز المرسل",
+            "en": "Synecdoche", 
+            "words": [
+                {
+                    "ar": "",
+                    "en": "part for the whole",
+                    "structure": "العلاقة الجزئية",
+                    "examples": [
+                        "<br/>فَكُّ رَقَبَةٍ<br/>(Freeing of a neck)<br/>=>free a slave",
+                        "<br/>بَثَّ القَائِدُ عُيُونَهُ<br/>(The commander scattered his eyes)<br/>=>The commander sent out spies",
+                        "<br/>أَلْقَى الرَّئِيسُ كَلِمَةً)<br/>(The president delivered a word)<br/>=>The president delivered a speech"
+                    ]
+                },
+                {
+                    "ar": "",
+                    "en": "whole for the part",
+                    "structure": "العلاقة الكلية",
+                    "examples": [
+                        "يَجۡعَلُونَ   أَصَٰبِعَهُمۡ   فِيٓ   ءَاذَانِهِم [2:19]",
+                        "يَقُولُونَ   بِأَفۡوَٰهِهِم   مَّا   لَيۡسَ   فِي   قُلُوبِهِمۡۚ [3:167]",
+                        "<br/>توضأت بماء البحر<br/>(I performed ablution with seawater)<br/>=>I performed ablution with a small amount of seawater"
+                    ]
+                },
+                {
+                    "ar": "",
+                    "en": "place for its inhabitants",
+                    "structure": "العلاقة المحلية",
+                    "examples": [
+                        "فَلۡيَدۡعُ   نَادِيَهُۥ   ١٧ [96:17]",
+                        "فَمَا   بَكَتۡ   عَلَيۡهِمُ   ٱلسَّمَآءُ   وَٱلۡأَرۡضُ [44:29]",
+                        "<br/>المَدْرَسَةُ ذَهَبَتْ إِلَى رِحْلَةٍ<br/>(The school went on a trip)<br/>=>The students of the school went on a trip"
                     ]
                 }
             ]

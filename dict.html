@@ -248,6 +248,18 @@
 				    <a href="#" onclick="showSentenceComparisions(0);toggleDropdownContent($(this).parent().prev());">Compare</a>
 					<a href="#" onclick="analyzeSelectedWord();toggleDropdownContent($(this).parent().prev());">Analyze</a>
 					<a href="#" onclick="analyzeSelectedWordOld();toggleDropdownContent($(this).parent().prev());">Conjugate</a>
+					<a href="#" onclick="lookupEx('https://context.reverso.net/translation/arabic-english/');toggleDropdownContent($(this).parent().prev());">
+						<img src="images/share.png" style="width: 16px; height: 16px;"/>
+						<span style="font-size: 12px; margin-top:-4px;">Reverso</span>
+					</a>
+					<a href="#" onclick="lookupEx('https://www.almaany.com/ar/dict/ar-$/');toggleDropdownContent($(this).parent().prev());">
+						<img src="images/share.png" style="width: 16px; height: 16px;"/>
+						<span style="font-size: 12px; margin-top:-4px;">Almaany</span>
+					</a>
+					<a href="#" onclick="lookupEx('https://glosbe.com/ar/$/');toggleDropdownContent($(this).parent().prev());">
+						<img src="images/share.png" style="width: 16px; height: 16px;"/>
+						<span style="font-size: 12px; margin-top:-4px;">Glosbe</span>
+					</a>
 				</div>
 			</div>
 
@@ -255,7 +267,6 @@
 			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">الفعل</button>
 			  <div class="dropdown-content">
 				<a href="#" onclick="showVerbComparisions(0);toggleDropdownContent($(this).parent().prev());">Compare</a>
-				<a href="#" onclick="showCauseAndEffects('Cause & Effect','السبب والنتيجة');toggleDropdownContent($(this).parent().prev());">Cause & Effect</a>
 				<a href="#" onclick="showObjectEffects('verb','Verb Types', 'انواع لاأفعال', 'verbTypeData');toggleDropdownContent($(this).parent().prev());">انواع لاأفعال</a>
 				<a href="#" onclick="showVerbTable();toggleDropdownContent($(this).parent().prev());">أبواب الفعل</a>
 				<a href="#" onclick="showTriliteralVerbTable();toggleDropdownContent($(this).parent().prev());">افعال ثلاثي مجرَّد</a>
@@ -269,14 +280,12 @@
 			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">الاِسم</button>
 			  <div class="dropdown-content">
 				<a href="#" onclick="showNounComparisions(0);toggleDropdownContent($(this).parent().prev());">Compare</a>
+				<a href="#" onclick="showCauseAndEffects('Cause & Effect','السبب والنتيجة');toggleDropdownContent($(this).parent().prev());">Cause & Effect</a>
 				<a href="#" onclick="showNounTable('ism','الاسم', 'Noun');toggleDropdownContent($(this).parent().prev());">Noun Patterns</a>
 				<a href="#" onclick="showObjectEffects('ism','المفاعيل', 'Object', 'objectEffectsData');toggleDropdownContent($(this).parent().prev());">Object Effects</a>
 				<a href="#" onclick="showObjectEffects('ism','المصادر', 'Verbal Nouns', 'masdarData');toggleDropdownContent($(this).parent().prev());">Verbal Nouns</a>
 				<a href="#" onclick="showFiveNouns('ism', 'اسماءُ الخَمسة', 'Five Nouns');toggleDropdownContent($(this).parent().prev());">Five Nouns</a>
 				<a href="#" onclick="showPronounInfo('ism', 'ضَمائر', 'Pronouns');toggleDropdownContent($(this).parent().prev());">Pronouns</a>
-				<a href="#" onclick="loadArabicLTTable('plural.csv', 'ism','الجمع', 'Plural');toggleDropdownContent($(this).parent().prev());">Plural</a>
-				<a href="#" onclick="loadArabicLTTable('synonyms.csv', 'ism','المرادفات', 'Synonyms');toggleDropdownContent($(this).parent().prev());">Synonyms</a>
-				<a href="#" onclick="loadArabicLTTable('antonyms.csv', 'ism','المتضادات', 'Antonyms');toggleDropdownContent($(this).parent().prev());">Antonyms</a>
 			  </div>
 			</div>
 			
@@ -299,19 +308,10 @@
 				<a href="#" onclick="listExamplesFromQuran();toggleDropdownContent($(this).parent().prev());">
 					<span style="font-size: 12px; margin-top:-4px;">Examples (Quran)</span>
 				</a>
+				<a href="#" onclick="loadArabicLTTable('plural.csv', 'ism','الجمع', 'Plural');toggleDropdownContent($(this).parent().prev());"><sup>Plural</sup></a>
+				<a href="#" onclick="loadArabicLTTable('synonyms.csv', 'ism','المرادفات', 'Synonyms');toggleDropdownContent($(this).parent().prev());"><sup>Synonyms</sup></a>
+				<a href="#" onclick="loadArabicLTTable('antonyms.csv', 'ism','المتضادات', 'Antonyms');toggleDropdownContent($(this).parent().prev());"><sup>Antonyms</sup></a>
 				<!--<a href="#" onclick="convertHTMLtoPDF('.dictionary', '.nFilter', 'exported.pdf');"><sub>Export to PDF</sub></a>-->
-				<a href="#" onclick="lookupEx('https://context.reverso.net/translation/arabic-english/');toggleDropdownContent($(this).parent().prev());">
-					<img src="images/share.png" style="width: 16px; height: 16px;"/>
-					<span style="font-size: 12px; margin-top:-4px;">Reverso</span>
-				</a>
-				<a href="#" onclick="lookupEx('https://www.almaany.com/ar/dict/ar-$/');toggleDropdownContent($(this).parent().prev());">
-					<img src="images/share.png" style="width: 16px; height: 16px;"/>
-					<span style="font-size: 12px; margin-top:-4px;">Almaany</span>
-				</a>
-				<a href="#" onclick="lookupEx('https://glosbe.com/ar/$/');toggleDropdownContent($(this).parent().prev());">
-					<img src="images/share.png" style="width: 16px; height: 16px;"/>
-					<span style="font-size: 12px; margin-top:-4px;">Glosbe</span>
-				</a>
 			  </div>
 			</div>
 

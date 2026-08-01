@@ -568,6 +568,11 @@
         "action": "metonymy",
         "data": "pos:4"
     },
+    "Synecdoche;المجاز المرسل":{
+        "path": "dict.html",
+        "action": "metonymy",
+        "data": "pos:5"
+    },
     "Triptote;المعرب":
     {
         "path": "dict.html",
