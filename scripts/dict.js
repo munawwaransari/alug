@@ -114,6 +114,14 @@ function handleParams() {
 
 	var action = params["action"];
 	switch (action) {
+
+		case 'defs':	
+			if(params["data"]){
+				var bookmark=params["data"].replace("def:","#bm_"); 
+				listDefinitions(bookmark);
+			}
+		break;
+
 		case 'analyze':
 			var word = params["data"];
 			if (word && word.trim()) {
@@ -544,7 +552,7 @@ function handleFilterIndex(val){
 	}
 }
 
-function listDefinitions(){
+function listDefinitions(bk){
 	var container = $(".dictionary");
 	ensureJsonData({name:'def-data'})
 	.then((data) => {
@@ -585,6 +593,10 @@ function listDefinitions(){
 				defSelect.append($(`<option value="#bm_${key}">${key} (${entry.en})</option>`)) 
 			  }
 			);
+
+			if(bk){
+				window,open(bk, '_self');
+			}
 	});
 }
 

@@ -730,8 +730,12 @@ function loadHandwriting(){
 async function getiSearchSuggesstions(txt, callback){
 	ensureJsonData({name:'isearchData'})
 	.then((data) => {
-		var txt_lc = txt ? txt.toLowerCase().trim() : '';
-		handleiSearchData(txt_lc, callback);		
+		// Merge definitions data
+		ensureJsonData({name: 'def-data'})
+		.then((data2) => {			
+			var txt_lc = txt ? txt.toLowerCase().trim() : '';
+			handleiSearchData(txt_lc, callback);		
+		});
 	});
 }
 
@@ -740,6 +744,8 @@ function handleiSearchData(txt, callback){
 	// update global var for suggestions
 	var txtInput = txt ? arRemovePunct(txt) : txt;
 	var res = getDefaultActions(txt);
+	
+	// Process seach list
 	for(const [k,v] of Object.entries(dataCache["isearchData"].data)){
 		var kVal=arRemovePunct(k);
 		if(kVal.toLowerCase().includes(txtInput)){
@@ -747,6 +753,19 @@ function handleiSearchData(txt, callback){
 				res.push(' '+k.split(";")[0].trim());
 			}else{
 				res.push(' '+kVal);
+			}
+		}
+	}
+	
+	//Process definitions
+	for(const [k,v] of Object.entries(dataCache["def-data"].data)){
+		var arVal = arRemovePunct(k);
+		var kVal=`${v.en};${arVal}}`;
+		if(kVal.toLowerCase().includes(txtInput)){
+			if(kVal.includes(";")){
+				res.push(`def:${arVal}`);
+			}else{
+				res.push(`def:${arVal}`);
 			}
 		}
 	}
@@ -763,11 +782,18 @@ function isearch(txt){
 	var data = arRemovePunct( (txt ?? $("#insearchtxt").val()).trim());
 	var obj, objKey;
 	
-	if(data.startsWith('...')){
+	if(data.startsWith('def:')){
+		obj = {
+			"path": "dict.html",
+			"action": "defs",
+			"data": `bm_${data.trim()}`
+		}
+	}
+	else if(data.startsWith('...')){
 		var action, value, key = data.trim();
-		if(key.startsWith('...Analyze ')){
+		if (key.startsWith('...Analyze ')) {
 			action = 'analyze';
-			data = key.replace('...Analyze ','');
+			data = key.replace('...Analyze ', '');
 			obj = {
 				"path": "dict.html",
 				"action": action,
