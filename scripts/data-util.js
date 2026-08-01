@@ -182,17 +182,31 @@ function removePunctuations(w){
 	return w.replace(punctuation, '');
 }
 
+function filterMTableRows(match, index, text){
+    const rows = $(`table[id*=${match}] tr`);
+	const cells = rows.find('td, th');
+	if(text == 'all'){
+		cells.show();
+	}
+	else{
+		cells.hide();
+		tableRows = $(`table[id=${match}${index}] tr`);
+		const tableCells = tableRows.find('td, th');
+		tableCells.show();
+	}
+}
+
 function filterTableRows(table, column, searchText, allText, useInclude) {
-    const $rows = $(`${table} tr`);
-    const $cells = $rows.find('td, th');
+    const rows = $(`${table} tr`);
+    const cells = rows.find('td, th');
     
     // 1. Normalize Search Text
     let txt = searchText ? removeAlPrefix(removePunctuations(searchText)) : searchText;
     
     // 2. Quick Reset for "Show All"
     if (txt === allText) {
-		$rows.show();
-        $cells.show();
+		rows.show();
+        cells.show();
         return;
     }
 
@@ -201,17 +215,17 @@ function filterTableRows(table, column, searchText, allText, useInclude) {
     const method = useInclude ? 'includes' : 'startsWith';
 
     // 4. Single Pass Filtering
-    $rows.each(function() {
-        const $row = $(this);
-        const $targetCell = column > 0 
-            ? $row.find(`td:nth-child(${column}), th:nth-child(${column})`) 
-            : $row.find('td');
+    rows.each(function() {
+        const row = $(this);
+        const targetCell = column > 0 
+            ? row.find(`td:nth-child(${column}), th:nth-child(${column})`) 
+            : row.find('td');
 
-        const cellText = $targetCell.text().trim();
+        const cellText = targetCell.text().trim();
         const isMatch = cellText[method](txt);
 
         // Toggle visibility of the entire row based on match
-        $row.toggle(isMatch);
+        row.toggle(isMatch);
     });
 
     // 5. Specific Column Logic (if needed to hide the matching cell specifically)

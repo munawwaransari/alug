@@ -544,6 +544,30 @@
         "action": "Misc",
         "data": "number"
     },
+    "Metonymymy of number;كنايات العدد":
+    {
+        "path": "dict.html",
+        "action": "metonymy",
+        "data": "pos:1"
+    },
+    "Metonymymy of attribute;كنايات عَنْ صِفَة":
+    {
+        "path": "dict.html",
+        "action": "metonymy",
+        "data": "pos:2"
+    },
+    "Metonymymy of trait;كنايات عَنْ مَوْصُوف":
+    {
+        "path": "dict.html",
+        "action": "metonymy",
+        "data": "pos:3"
+    },
+    "Metonymymy of connection;كنايات عَنْ نِسْبَة":
+    {
+        "path": "dict.html",
+        "action": "metonymy",
+        "data": "pos:4"
+    },
     "Triptote;المعرب":
     {
         "path": "dict.html",

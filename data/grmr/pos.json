@@ -3256,8 +3256,8 @@
                     "examples": [
                         "كَمۡ   أَهۡلَكۡنَا   مِن   قَبۡلِهِم   مِّنَ   ٱلۡقُرُونِ [32:26]",
                         "وَلَمۡ   يَرَوۡاْ   إِلَى   ٱلۡأَرۡضِ   كَمۡ   أَنۢبَتۡنَا   فِيهَا   مِن   كُلِّ   زَوۡجٖ   كَرِيمٍ   ٧ [26:7]",
-                        "<br/>كَمْ يَوْمًا بَقِيتَ فِي السَّفَرِ؟",
-                        "<br/>كَمْ عَالِمٍ أَفَادَ الْبَشَرِيَّةَ!"
+                        "<br/>كَمْ يَوْمًا بَقِيتَ فِي السَّفَرِ؟<br/>(How many days did you stay on the trip?)",
+                        "<br/>كَمْ عَالِمٍ أَفَادَ الْبَشَرِيَّةَ!<br/>(How many scholars have benefited humanity?)"
                     ]
                 },
                 {
@@ -3265,8 +3265,8 @@
                     "en": "many",
                     "structure": "(Unknown or unspecified quantity)",
                     "examples": [
-                        "<br/>في المطارِ كذا وكذا طائرةً",
-                        "<br/>يَقُولَ لِي كَذَا وكَذَا"
+                        "<br/>في المطارِ كذا وكذا طائرةً<br/>(There are such-and-such airplanes at the airport)",
+                        "<br/>يَقُولَ لِي كَذَا وكَذَا<br/>(He says to me this and that)"
                     ]
                 },
                 {
@@ -3275,19 +3275,67 @@
                     "structure": "بِضْعَ + اسم مجرور",
                     "examples": [
                         "فَلَبِثَ   فِي   ٱلسِّجۡنِ   بِضۡعَ   سِنِينَ [12:42]",
-                        "<br/>قضيتُ بضعَ ليالٍ",
-                        "<br/>يَقُولَ لِي كَذَا وكَذَا"
+                        "<br/>قضيتُ بضعَ ليالٍ<br/>(I spent a few nights)",
+                        "<br/>اِنْتَظَرْتُ الحَافِلَةَ بِضْعَ سَاعَاتٍ<br/>(I waited for the bus for a few hours)"
                     ]
-                   
                 },
                 {
                     "ar": "نَيِّف / نَيِّفاً",
                     "en": "a little over somthing",
                     "structure": "نَيِّف + اسم منصوب",
                     "examples": [
-                        "<br/>عَاشَ النَّبِيُّ صلى الله عليه وسلم نَيِّفاً وَسِتِّينَ سَنَةً",
-                        "<br/>حَضَرَ المُؤْتَمَرَ مِائَةٌ وَنَيِّفٌ مِنَ العُلَمَاءِ",
-                        "<br/>قَرأتُ نَيِّفاً و ثَلاثُونَ مَقالةً"
+                        "<br/>عَاشَ النَّبِيُّ صلى الله عليه وسلم نَيِّفاً وَسِتِّينَ سَنَةً<br/>(The Prophet [peace be upon him] lived a little over sixty years)",
+                        "<br/>حَضَرَ المُؤْتَمَرَ مِائَةٌ وَنَيِّفٌ مِنَ العُلَمَاءِ<br/>(A little over one hundred scholars attended the conference)",
+                        "<br/>قَرأتُ نَيِّفاً و ثَلاثُونَ مَقالةً<br/>(I read a little over thirty articles)"
+                    ]
+                }
+            ]
+        },
+        {
+            "ar": "كنايات عَنْ صِفَة",
+            "en": "Metonymies of Trait", 
+            "words": [
+                {
+                    "ar": "",
+                    "en": "Used as attributes",
+                    "structure": "الصفات",
+                    "examples": [
+                        "<br/>يَطْحَنُ النَّوَى<br/>(He grinds the seeds)<br/>=> He is extremely poor",
+                        "<br/>هو نظيف اليد<br/>(He has clean hands)<br/>=> He is honest and trustworthy",
+                        ""
+                    ]
+                }
+            ]
+        },
+        {
+            "ar": "كنايات عَنْ مَوْصُوف",
+            "en": "Metonymies of Entity", 
+            "words": [
+                {
+                    "ar": "",
+                    "en": "Used as Subject",
+                    "structure": "الاسماء",
+                    "examples": [
+                        "<br/> الذهب الأسود<br/>(Black Gold)<br/>=>Petroleum",
+                        "<br/>ابْنَةُ العِنَبِ<br/>(Daughter of the vine)<br/>=>Wine",
+                        "<br/>صَاحِبِ الْحُوتِ>br/>(Companion of the whale)<br/>=>Jonah",
+                        ""
+                    ]
+                }
+            ]
+        },
+        {
+            "ar": "كنايات عَنْ نِسْبَة",
+            "en": "Metonymies of Connection", 
+            "words": [
+                {
+                    "ar": "",
+                    "en": "Used as Relationship",
+                    "structure": "نِسْبَة",
+                    "examples": [
+                        "<br/>اليُمْنُ يَتْبَعُ ظِلَّهُ<br/>(Good fortune follows his shadow)<br/>=>He brings good fortune",
+                        "<br/>الفصاحةُ في بيانِهِ<br/>(Eloquence is his expression)<br/>=>He is eloquent",
+                        ""
                     ]
                 }
             ]

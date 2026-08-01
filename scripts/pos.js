@@ -889,6 +889,9 @@ class posAPI {
 		var index = 0;
 		$.each(res, function(key, value){
 			index++;
+			if(filters.indexOf(value.ar+' - '+value.en) === -1){
+				filters.push(value.ar+' - '+value.en);
+			}
 			var nTable = $(`
 			<table id="mTable${index}" class="mTable">
 				<tr style="background-color:#F6F6BA;font-size:18px;">
@@ -914,6 +917,25 @@ class posAPI {
 				}</td></tr>`);
 			});
 		});
+
+		// Add filter drop down
+		index = 0;
+		if(filters.length > 0){
+			index++;
+			var sel = `
+				<select class="nFilter"
+							onchange="filterMTableRows('mTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val().replace(' - ',''))">
+						<option value="all">Show All</option>
+						${
+							filters.map((n) => {
+								return `<option value="'${n}'"><b>${n}</b></option>`
+							})
+						}
+				</select>
+			`;
+			container.prepend($(getListButtinWithSelect(sel, 'nFilter', 'metonymy')));
+			$('.nFilterBtn').css('width', $('.nFilter').css('width'));
+		}
 	}
 
 	getMetonymies(){

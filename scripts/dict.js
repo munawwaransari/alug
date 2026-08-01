@@ -156,6 +156,14 @@ function handleParams() {
 			loadArabicLTTable('antonyms.csv', 'ism', 'المتضادات', 'Antonyms');
 			break;
 
+		case 'metonymy':
+			setTimeout(function () {
+				showMetonymies();
+				if (params["data"])
+					selectAndTrigger(params["data"], 'nFilter');
+			});
+			break;
+
 		case 'prep':
 			setTimeout(function () {
 				showParticleTable();
