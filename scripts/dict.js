@@ -551,7 +551,7 @@ function listDefinitions(){
 		container.empty(); 
 		container.append($(`
 			<select id="defFilter" 
-					style="text-align: center;text-align-last: center;"
+					style="text-align: center;text-align-last: center;padding:6px;"
 			        onchange="window.open(this.value, '_self')"></select>`));
 		var defSelect = $("#defFilter");
 		
@@ -564,17 +564,19 @@ function listDefinitions(){
 				var entry = data[key];
 				table.append($(
 				`<tr><td id="bm_${key}" style="border:none; border-bottom: 2px solid black;">
-				<b><a href="#defFilter">[Top]</a> &nbsp;&nbsp;${key} (${entry.en})</b>
-				<p style="directoin:ltr">${entry.def}</p>
-				${entry.ref ? '<br/>:<u>References</u><br/>' : ''}
-				${entry.ref ? entry.ref.map(ex => `<a href="#bm_${ex}" >${ex}</a>`).join('<br/>'): ''}
-				${entry.examples ? '<br/>:<u>Examples</u><br/>' : ''}
-				${entry.examples ? entry.examples.map(ex => `${replaceQLink(ex)}</br/>`).join(''): ''}
-				${entry.types ? '<br/>:<u>Types</u><br/><ul style="background-color:lightgray;">' : ''}
+				<a href="#defFilter">[&#8593]</a>&nbsp;&nbsp;
+				<b style="background-color:#F0F0A0">${key} (${entry.en})</b>
+				<p style="directoin:ltr;padding:2px;">${entry.def}</p>
+				${entry.ref ? ':<u>References</u><br/>' : ''}
+				${entry.ref ? `
+					<div style="text-align:center;display:inline-flex;padding-bottom:6px;">
+					${entry.ref.map(ex => `<a style="padding-left:20px;padding-right:20px;" href="#bm_${ex}" >${ex}</a>`).join('<br/>')}
+					</div>`: ''}
+				<div style="background-color:lightgray;">${entry.examples ? entry.examples.map(ex => `${replaceQLink(ex)}</br/>`).join(''): ''}</div>
+				${entry.types ? '<ul>' : ''}
 				${entry.types ? entry.types.map(t => `
 					<li style="list-style-type: none;">
-					<u>${t.name} (${t.en})</u>
-					${t.examples ? '<br/>:Examples<br/>' : ''}
+					<u style="background-color:lightgray;">${t.name} (${t.en})</u><br/>
 					${t.examples ? t.examples.map(ex => `${replaceQLink(ex)}</br/>`).join('<br/>'): ''}
 					</li><br/>
 					`).join(''): ''}

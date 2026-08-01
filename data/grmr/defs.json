@@ -19,6 +19,120 @@
         "def": "The study of rhetorical devices and techniques that enhance the aesthetic and persuasive qualities of language, including alliteration, assonance, and other stylistic elements.",
         "ref": ["الطباق", "المقابلة", "الجناس", "السجع"]
     },
+    "جملة الاسمية": {
+        "en": "Nominal Sentence",
+        "def": "A جملة اسمية (nominal sentence) is a sentence in Arabic that begins with a noun (إسم) or a pronoun (ضمير)",
+        "ref": ["المبتدأ", "الخبر"],
+        "examples": [
+            "الْوَلَدُ مُجْتَهِدٌ<br/>The boy is diligent",
+            "<br.>الْكِتَابُ جَدِيدٌ<br/>The book is new"
+        ]
+    },
+    "جملة الفعلية": {
+        "en": "Verbal Sentence",
+        "def": "A جملة فعلية (verbal sentence) is a sentence in Arabic that begins with a verb (فعل)",
+        "ref": ["الفعل", "الفاعل", "المفاعيل"]
+    },
+    "الفعل":{
+        "en": "Verb",
+        "def": "The action word that sets the tense (past, present, or command)",
+        "examples": [
+            "كَتَبَ<br/>He <u>wrote</u>",
+            "<br/>يَجْرِي<br/>He <u>runs</u>"
+        ]
+    },
+    "الفاعل":{
+        "en": "Subject",
+        "def": "The doer of the action, which follows the verb and takes a nominative case (marfu')",
+        "examples": [
+            "سافرَ خالدٌ إلى مكة<br/><u>Khalid</u> travelled to Mecca",
+            "<br/>اقرأْ الكتابَ<br/>Read the book"
+        ]
+    },
+    "المفاعيل":{
+        "en": "Object Effects",
+        "def": "refers to a noun that is affected by or involved in the action of a verb.",
+        "ref":[
+            "المفعول به",
+            "المفعول المطلق",
+            "المفعول فيه",
+            "المفعول لأجله",
+            "المفعول معه"
+        ]
+    },
+    "المفعول به":{
+        "en": "Direct Object",
+        "def": " The receiver of the action, which is optional and takes an accusative case (mansub) if present",
+        "examples":[
+          "أكلَ الولدُ التفاحةَ<br/>The boy ate <u>the apple</u>",
+          "<br/>قرأَتْ فاطمةُ قصةً<br/>Fatima read <u>a story</u>"
+        ]
+    },
+    "المفعول المطلق":{
+        "en": "Absolute Object",
+        "def": "A verbal noun derived from the verb itself, used to emphasize the action or show its type/count",
+        "examples":[
+            "ضَرَبْتُهُ ضَرْبًا<br/>I hit him <u>a hard blow</u>",
+            "نطق المتكلّم كلاماً فصيحاً<br/>The speaker uttered <u>eloquent speech</u>"
+        ]
+    },
+    "المفعول فيه":{
+        "en":"Adverbial Object of TIme or Place",
+        "def":"The ظرف (Zarf) or time/place indicator showing when or where the action happened",
+        "ref": ["ظرف زمان", "ظرف مكان", "حال"],
+        "examplees":[
+            "سَافَرْتُ صَبَاحًا<br/>I travelled <U>in the morning</u>",
+            "<br/>جَلَسَ الطِّفْلُ أَمَامَ المُعَلِّمِ<br/>The child sat <u>in front of</u> the teacher"
+        ]
+    },
+    "ظرف زمان":{
+        "en": "Adverb of Time",
+        "def": "These words tell us when an action happens",
+        "examples":[
+            "الآن (Now)",
+            "غدًا (Tomorrow)",
+            "صباحًا (In the morning)"
+        ]
+    },
+    "ظرف مكان":{
+        "en":"Adverb of Place",
+        "def": "These words tell us where an action happens",
+        "examples":[
+            "هنا (there)",
+            "تحت (below)"
+        ]
+    },
+    "حال":{
+        "en": "Adverb of Manner",
+        "def": "These words describe how an action is performed",
+        "examples": [
+            "بهدوء (Slowly)",
+            "سريعًا (Quickly)"
+        ]
+    },
+    "المفعول لأجله":{
+        "en": "Causal Object",
+        "def": "A noun explaining the reason or intention behind why the action was done",
+        "examples":[
+            "وَقَفْتُ إِجْلَالًا لِلْمُعَلِّمِ<br/>I stood up <u>out of respect</u> for the teacher",
+            "يَجۡعَلُونَ   أَصَٰبِعَهُمۡ   فِيٓ   ءَاذَانِهِم   مِّنَ   ٱلصَّوَٰعِقِ   حَذَرَ   ٱلۡمَوۡتِۚ [2:19]"
+        ]
+    },
+    "المفعول معه":{
+        "en": "Object of Accompaniment",
+        "def": "A noun following a waw (Waw al-Maiyah) meaning \"along with\" or \"alongside\" indicating accompaniment",
+        "examples":[
+            "سِرْتُ وَالنِّيلَ<br/>I walked alongside the Nile River",
+            "<br/>اسْتَيْقَظْتُ وَأَذَانَ الفَجْرِ<br/>I wake up at the dawn right at the call of prayer"
+        ]
+    },
+    "المبتدأ":{
+        "en": "Subject",
+        "def": "The subject of a nominal sentence (جملة اسمية)",
+        "examples": [
+            "الماءُ باردٌ<br/>The <b>water</b> is cold"
+        ]
+    },
     "الخبر": {
         "en": "Predicate",
         "def": "that can be judged as true or false; such as affirmative or negative",
@@ -28,7 +142,8 @@
                 "en": "Single Predicate",
                 "def": "A single word that can be judged as true or false.",
                 "examples": [
-                    "<br/>الجو جميل<br/>(The weather is beautiful)<br/>=> True"
+                    "<br/>الجو جميل<br/>(The weather is beautiful)",
+                    "العلمُ نافعٌ<br/>(Knowledge is beneficial)"
                 ]
             },
             {
@@ -36,15 +151,17 @@
                 "en": "Sentence Predicate",
                 "def": "A sentence that can be judged as true or false",
                 "examples": [
-                    "<br/>الجو جميل اليوم<br/>(The weather is beautiful today)<br/>=> True"
+                    "<br/>الجو جميل اليوم<br/>(The weather is beautiful today)",
+                    "الحَدِيقَةُ أَسْوَارُهَا جَمِيلَةٌ<br/>(The garden's fences are beautiful)"
                 ]
             },
             {
                 "name": "خبر شبه جملة",
                 "en": "Phrase Predicate",
-                "def": "A phrase that can be judged as true or false.",
+                "def": "consists of either a prepositional phrase (جار ومجرور) or an adverbial phrase (ظرف)",
                 "examples": [
-                    "<br/>الجو في الخارج<br/>(The weather is outside)<br/>=> True"
+                    "<br/>العصفور في القفصِ<br/>(The bird is in the cage)",
+                    "السفرُ غداً<br/>(The travel is tomorrow)"
                 ]
             }
         ]
@@ -58,7 +175,7 @@
                 "en": "Request Predicate",
                 "def": "A request that cannot be judged as true or false.<br/>Examples include <ul><li>النهي/الأمر (Command)</li><li>الاستفهام (Question)</li><li>التمني (Longing)</li><li>النداء (Cry)</li></u>",
                 "examples": [
-                    "<br/>أعطني الكتاب<br/>(Give me the book)<br/>=> Cannot be judged as true or false"
+                    "<br/>أعطني الكتاب<br/>(Give me the book)"
                 ]
             },
             {
@@ -66,7 +183,7 @@
                 "en": "Non-Request Predicate",
                 "def": "A non-request that cannot be judged as true or false.<br/>Examples include <ul><li>التعجب (Exclamation)</li><li>المدح والذم (Praise and Criticism)</li><li>القسم (Vow)</li><li>الرجاء (Hope)</li></u>",
                 "examples": [
-                    "<br/>ما أجمل هذا اليوم<br/>(How beautiful this day is)<br/>=> Cannot be judged as true or false"
+                    "<br/>ما أجمل هذا اليوم<br/>(How beautiful this day is)"
                 ]
             }
         ]
@@ -94,7 +211,7 @@
             "وَمَا   مُحَمَّدٌ   إِلَّا   رَسُولٞ [3:144]",
             "إِنَّمَا   يَخۡشَى   ٱللَّهَ   مِنۡ   عِبَادِهِ   ٱلۡعُلَمَٰٓؤُاْۗ [35:28]",
             "إِيَّاكَ   نَعۡبُدُ   وَإِيَّاكَ   نَسۡتَعِينُ [1:5]",
-            "<br/>الشجاع يصدق لا يكذب<br/>=> The brave person tells the truth, not lies"
+            "<br/>الشجاع يصدق لا يكذب<br/>The brave person tells the truth, not lies"
         ]
     },
     "التشبيه": {
@@ -186,8 +303,8 @@
         "en": "Antithesis",
         "def": "The use of contrasting words or ideas in close proximity to create a striking effect and emphasize differences.",
         "examples": [
-            "وَتَحۡسَبُهُمۡ   أَيۡقَاظٗا   وَهُمۡ   رُقُودٞۚ [18:18]",
-            "العِلْمُ نُورٌ وَالْجَهْلُ ظَلَامٌ<br/>Knowledge is light and ignorance is darkness"
+            "وَتَحۡسَبُهُمۡ أَيۡقَاظٗا وَهُمۡ رُقُودٞۚ [18:18]",
+            "<br/>العِلْمُ نُورٌ وَالْجَهْلُ ظَلَامٌ<br/>Knowledge is light and ignorance is darkness"
         ]
     },
     "المقابلة": {
@@ -210,8 +327,8 @@
         "en": "Rhymed Prose",
         "def": "A form of prose that employs a rhythmic and rhyming structure, creating a musical and harmonious effect in the language.",
         "examples": [
-            "فِيهَا   سُرُرٞ   مَّرۡفُوعَةٞ   <br/>١٣ وَأَكۡوَابٞ   مَّوۡضُوعَةٞ   ١٤ [88:13]",
-            "أَلَمۡ   نَجۡعَل   لَّهُۥ   عَيۡنَيۡنِ    <br/>٨ وَلِسَانٗا   وَشَفَتَيۡنِ   ٩ [90:8]"
+            "فِيهَا   سُرُرٞ   مَّرۡفُوعَةٞ  ١٣<br/> وَأَكۡوَابٞ   مَّوۡضُوعَةٞ   ١٤ [88:13]",
+            "أَلَمۡ   نَجۡعَل   لَّهُۥ   عَيۡنَيۡنِ  ٨ <br/> وَلِسَانٗا   وَشَفَتَيۡنِ   ٩ [90:8]"
         ]
     }
 }
