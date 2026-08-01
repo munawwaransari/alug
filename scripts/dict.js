@@ -541,16 +541,19 @@ function listDefinitions(){
 		container.empty(); 
 		container.append($(`
 			<select id="defFilter" 
+					style="text-align: center;text-align-last: center;"
 			        onchange="window.open(this.value, '_self')"></select>`));
 		var defSelect = $("#defFilter");
-		container.append($(`<table id="defTable" style="text-align:center;"><tbody></tbody></table>`));
+		
+		container.append($(`<table id="defTable" 
+				style="text-align:center;"><tbody></tbody></table>`));
 		var table = $("#defTable tbody");
 		Object.keys(data)
 		      .sort()
 			  .forEach(function(key) {
 				var entry = data[key];
 				table.append($(
-				`<tr><td id="bm_${key}">
+				`<tr><td id="bm_${key}" style="border:none; border-bottom: 2px solid black;">
 				<b><a href="#defFilter">[Top]</a> &nbsp;&nbsp;${key} (${entry.en})</b>
 				<p style="directoin:ltr">${entry.def}</p>
 				${entry.ref ? '<br/>:<u>References</u><br/>' : ''}
