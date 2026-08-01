@@ -339,60 +339,70 @@ function analyzeSelectedWordOld() {
 }
 
 function loadExamplesFromCmpData(dict, qselect) {
-	if (cmpAPI.cmpData) {
-		var examples = {};
-		var data = cmpAPI.cmpData
-			.map(function (item) { return item.features })
-			.map(function (feature) {
-				Object.fromEntries(
-					Object.entries(feature).filter(
-						function ([key, value]) {
-							value.filter(function (v) {
-								if (/\[\d+\:\d+\]/ig.test(v)) {
-									if (examples[key])
-										examples[key] = examples[key] + "<br/>" + v;
-									else
-										examples[key] = v;
-								}
-							})
-						}
-					)
-				)
+	if (!cmpAPI || !cmpAPI.cmpData || !cmpAPI.cmpData.length) {
+		return;
+	}
+
+	var examples = {};
+	cmpAPI.cmpData.forEach(function (item) {
+		var features = item && item.features;
+		if (!features) {
+			return;
+		}
+
+		Object.entries(features).forEach(function ([key, value]) {
+			if (!Array.isArray(value)) {
+				return;
+			}
+
+			var matches = value.filter(function (v) {
+				return /\[\d+\:\d+\]/ig.test(v);
 			});
 
-		var html = '<div style="font-size:12px;width:100%;text-align:center;">';
-		// Display examples
-		Object.entries(examples).filter(function ([key, value]) {
-			var div = '';
-			var keyExamples = examples[key].split('<br/>');
-			keyExamples.every(function (ex, i) {
-				if (/\[\d+\:\d+\]/ig.test(ex)) {
-					;
-					div += `
+			if (!matches.length) {
+				return;
+			}
+
+			examples[key] = examples[key]
+				? examples[key] + "<br/>" + matches.join("<br/>")
+				: matches.join("<br/>");
+		});
+	});
+
+	var html = '<div style="font-size:12px;width:100%;text-align:center;">';
+	Object.entries(examples).forEach(function ([key, value]) {
+		var keyExamples = String(value).split('<br/>');
+		var div = keyExamples
+			.filter(function (ex) {
+				return /\[\d+\:\d+\]/ig.test(ex);
+			})
+			.map(function (ex) {
+				return `
 					<p style="font-size:10px;">
 						${replaceQLink(ex.replaceAll('e.g.', ''))}
 					</p>`;
-				}
-				return true;
-			});
-			if (div !== '') {
-				var kval = arRemovePunct(key)
-					.replaceAll(' ', '_')
-					.replaceAll('(', '')
-					.replaceAll(')', '')
-					.replaceAll('/', '');
-				qselect.append(`<option value="${kval}">${key}</option>`);
-				html += `
-				<div id="qid_${kval}" 
-					style="margin:auto;padding:10px;width:100%;display:inline-block;">
-					<p>${key}</p>
+			})
+			.join('');
+
+		if (div === '') {
+			return;
+		}
+
+		var kval = arRemovePunct(key)
+			.replaceAll(' ', '_')
+			.replaceAll('(', '')
+			.replaceAll(')', '')
+			.replaceAll('/', '');
+		qselect.append(`<option value="${kval}">${key}</option>`);
+		html += `
+			<div id="qid_${kval}" 
+				style="margin:auto;padding:10px;width:100%;display:inline-block;">
+				<p>${key}</p>
 				${div}
-				</div>`;
-			}
-		});
-		html += '</div>';
-		dict.append($(html));
-	}
+			</div>`;
+	});
+	html += '</div>';
+	dict.append($(html));
 }
 
 function loadExamplesFromObjectEffectData(dict, qselect, data) {
