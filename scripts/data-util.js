@@ -1470,6 +1470,9 @@ function init_data_cache(){
 		},
 		"ai-prompts":{
 			path: "data/ai-prompts.json"
+		},
+		"def-data":{
+			path: "data/grmr/defs.json"
 		}
 	};
 }

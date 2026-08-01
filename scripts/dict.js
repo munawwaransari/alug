@@ -534,6 +534,45 @@ function handleFilterIndex(val){
 	}
 }
 
+function listDefinitions(){
+	var container = $(".dictionary");
+	ensureJsonData({name:'def-data'})
+	.then((data) => {
+		container.empty(); 
+		container.append($(`
+			<select id="defFilter" 
+			        onchange="window.open(this.value, '_self')"></select>`));
+		var defSelect = $("#defFilter");
+		container.append($(`<table id="defTable" style="text-align:center;"><tbody></tbody></table>`));
+		var table = $("#defTable tbody");
+		Object.keys(data)
+		      .sort()
+			  .forEach(function(key) {
+				var entry = data[key];
+				table.append($(
+				`<tr><td id="bm_${key}">
+				<b><a href="#defFilter">[Top]</a> &nbsp;&nbsp;${key} (${entry.en})</b>
+				<p style="directoin:ltr">${entry.def}</p>
+				${entry.ref ? '<br/>:<u>References</u><br/>' : ''}
+				${entry.ref ? entry.ref.map(ex => `<a href="#bm_${ex}" >${ex}</a>`).join('<br/>'): ''}
+				${entry.examples ? '<br/>:<u>Examples</u><br/>' : ''}
+				${entry.examples ? entry.examples.map(ex => `${replaceQLink(ex)}</br/>`).join(''): ''}
+				${entry.types ? '<br/>:<u>Types</u><br/><ul style="background-color:lightgray;">' : ''}
+				${entry.types ? entry.types.map(t => `
+					<li style="list-style-type: none;">
+					<u>${t.name} (${t.en})</u>
+					${t.examples ? '<br/>:Examples<br/>' : ''}
+					${t.examples ? t.examples.map(ex => `${replaceQLink(ex)}</br/>`).join('<br/>'): ''}
+					</li><br/>
+					`).join(''): ''}
+				${entry.types ? '</ul>' : ''}
+				</td></tr>`));
+				defSelect.append($(`<option value="#bm_${key}">${key} (${entry.en})</option>`)) 
+			  }
+			);
+	});
+}
+
 function listSearchIndex(indexKey='') {
 	ensureJsonData({name:'isearchData'})
 	.then((data) => {

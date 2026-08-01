@@ -1,0 +1,217 @@
+{
+    "البلاغة":{
+        "en": "Rhetoric",
+        "def": "The art of using language effectively and persuasively, focusing on the style, structure, and impact of words and sentences.",
+        "ref": ["علم المعاني", "علم البيان", "علم البديع"]
+    },
+    "علم المعاني":{
+        "en": "Science of Meanings",
+        "def": "The study of the meanings of words and sentences in the Arabic language, focusing on how context and structure affect interpretation.",
+        "ref": ["الخبر", "الإنشاء", "الفصل", "الوصل", "القصر"]
+    },
+    "علم البيان":{
+        "en": "Science of Expression",
+        "def": "The study of the expressive aspects of language, including metaphor, simile, and other figures of speech that enhance the clarity and beauty of communication.",
+        "ref": ["التشبيه", "المجاز", "الكناية", "الاستعارة"]
+    },
+    "علم البديع":{
+        "en": "Science of Rhetoric",
+        "def": "The study of rhetorical devices and techniques that enhance the aesthetic and persuasive qualities of language, including alliteration, assonance, and other stylistic elements.",
+        "ref": ["الطباق", "المقابلة", "الجناس", "السجع"]
+    },
+    "الخبر": {
+        "en": "Predicate",
+        "def": "that can be judged as true or false; such as affirmative or negative",
+        "types": [
+            {
+                "name": "خبر مفرد",
+                "en": "Single Predicate",
+                "def": "A single word that can be judged as true or false.",
+                "examples": [
+                    "<br/>الجو جميل<br/>(The weather is beautiful)<br/>=> True"
+                ]
+            },
+            {
+                "name": "خبر جملة",
+                "en": "Sentence Predicate",
+                "def": "A sentence that can be judged as true or false",
+                "examples": [
+                    "<br/>الجو جميل اليوم<br/>(The weather is beautiful today)<br/>=> True"
+                ]
+            },
+            {
+                "name": "خبر شبه جملة",
+                "en": "Phrase Predicate",
+                "def": "A phrase that can be judged as true or false.",
+                "examples": [
+                    "<br/>الجو في الخارج<br/>(The weather is outside)<br/>=> True"
+                ]
+            }
+        ]
+    },
+    "الإنشاء": {
+        "en": "Predicate",
+        "def": "That cannot be judged as true or false such as a command or request",
+        "types": [
+            {
+                "name": "الإنشاء الطلبي",
+                "en": "Request Predicate",
+                "def": "A request that cannot be judged as true or false.<br/>Examples include <ul><li>النهي/الأمر (Command)</li><li>الاستفهام (Question)</li><li>التمني (Longing)</li><li>النداء (Cry)</li></u>",
+                "examples": [
+                    "<br/>أعطني الكتاب<br/>(Give me the book)<br/>=> Cannot be judged as true or false"
+                ]
+            },
+            {
+                "name": "الإنشاء غير الطلبي",
+                "en": "Non-Request Predicate",
+                "def": "A non-request that cannot be judged as true or false.<br/>Examples include <ul><li>التعجب (Exclamation)</li><li>المدح والذم (Praise and Criticism)</li><li>القسم (Vow)</li><li>الرجاء (Hope)</li></u>",
+                "examples": [
+                    "<br/>ما أجمل هذا اليوم<br/>(How beautiful this day is)<br/>=> Cannot be judged as true or false"
+                ]
+            }
+        ]
+    },
+    "الفصل": {
+        "ar": "عطف الجمل بالواو",
+        "en": "Conjoining Sentences with 'و'",
+        "def": "Conjoining sentences with the conjunction 'و' (and) can affect the meaning and interpretation of the sentence",
+        "examples":[
+            "فَلۡيَضۡحَكُواْ   قَلِيلٗا   وَلۡيَبۡكُواْ   كَثِيرٗا [9:82]"
+        ]
+    },
+    "الوصل": {
+        "ar": "ترك العطف",
+        "en": "Omit conjunction",
+        "def": "Omitting the conjunction 'و' (and) can affect the meaning and interpretation of the sentence",
+        "examples": [
+            "يُدَبِّرُ   ٱلۡأَمۡرَ   يُفَصِّلُ   ٱلۡأٓيَٰتِ [13:2]"
+        ]
+    },
+    "القصر": {
+        "en": "Restricting",
+        "def": "restricting or confining one thing to another to show exclusivity and a specific limit.",
+        "examples": [
+            "وَمَا   مُحَمَّدٌ   إِلَّا   رَسُولٞ [3:144]",
+            "إِنَّمَا   يَخۡشَى   ٱللَّهَ   مِنۡ   عِبَادِهِ   ٱلۡعُلَمَٰٓؤُاْۗ [35:28]",
+            "إِيَّاكَ   نَعۡبُدُ   وَإِيَّاكَ   نَسۡتَعِينُ [1:5]",
+            "<br/>الشجاع يصدق لا يكذب<br/>=> The brave person tells the truth, not lies"
+        ]
+    },
+    "التشبيه": {
+        "en": "Simile",
+        "def": "Simile or direct comparison using explicit sharing of traits",
+        "examples": [
+            "الرجل كالأسد في شجاعته<br/>The man is like a lion in his bravery",
+            "<br/>الرجل أسد<br/>The man is (as brave as) a lion"
+        ]
+    },
+    "المجاز": {
+        "en": "Metaphor",
+        "def": "Metaphor or figurative usage where a word is used outside its literal definition",
+        "types": [
+            {
+                "name": "المجاز اللغوي",
+                "en": "Linguistic Metaphor",
+                "def": "A metaphor where the implied meaning is derived from the linguistic context and usage of words rather than direct comparison.",
+                "examples": [
+                    "رأيت أسدًا يحارب في المعركة<br/>I saw a lion (somone brave enough) fighting in the battlefield"
+                ]
+            },
+            {
+                "name": "المجاز العقلي",
+                "en": "Rational Metaphor",
+                "def": "A metaphor where the implied meaning is derived from logical reasoning and understanding of concepts rather than direct comparison.",
+                "examples": [
+                    "دَارَتْ بي الأيامُ<br/>The days have turned against me (I have faced many hardships)"
+                ]
+            },
+            {
+                "name": "المجاز بالحذف",
+                "en": "Metaphor by Omission",
+                "def": "A metaphor where a word is used in a figurative sense by omitting its literal meaning, relying on the context to convey the intended message.",
+                "examples": [
+                    "وَاسْأَلِ الْقَرْيَةَ<br/>Ask the village (ask the people of the village)"
+                ]
+            }
+        ]
+    },
+    "الكناية": {
+        "en": "Metonymy",
+        "def": "Metonymy or an expression pointing to a secondary implied meaning while keeping the literal sense open",
+        "types": [
+            {
+                "name": "كنايات العدد",
+                "en": "Metonymy of Number",
+                "def": "A metonymy where a word is used to imply a specific quantity or number, while keeping the literal sense open.",
+                "examples": [
+                    "كم كتاباً قرأت؟<br/>How many books did you read? (The word 'كم' implies a specific number of books, while keeping the literal sense open)",
+                    "اشتريتُ كذا كتاباً<br/>I bought several books (The word 'كذا' implies a specific number of books, while keeping the literal sense open)"
+                ]
+            },
+            {
+                "name": "كنايات الحديث والقصص",
+                "en": "Metonymy of Speech and Story",
+                "def": "A metonymy where a word is used to imply a specific speech or story, while keeping the literal sense open.",
+                "examples": [
+                    "نَهَى عَنْ كَيْتَ وَكَيْتَ<br/>He forbade (the story of) Kayt and Kayta (The word 'نَهَى' implies a specific story, while keeping the literal sense open)",
+                    "ذَهَبْتُ إِلَى القَاضِي فَقُلْتُ لَهُ كَيْتَ وَكَيْتَ، فَقَالَ لِي ذَيْتَ وَذَيْتَ<br/>I went to the judge and told him (the story of) Kayt and Kayta, and he said to me (the story of) Zayt and Zayta (The words 'كَيْتَ وَكَيْتَ' and 'ذَيْتَ وَذَيْتَ' imply specific stories, while keeping the literal sense open)"
+                ]
+            }
+        ]
+    },
+    "الاستعارة": { 
+        
+        "en": "Metaphor",
+        "def": "Borrowed metaphor (a specialized type of majaz) where a root word is applied based on a hidden resemblance",
+        "types": [
+            {
+                "name": "لاستعارة التصريحية",
+                "en": "Explicit Metaphor",
+                "def": "A metaphor where the implied meaning is explicitly stated, making the figurative sense clear and direct.",
+                "examples": [
+                    "رأيت بَحراً يُعطي الفقراء<br/>I saw a sea (a generous person) giving to the poor"
+                ]
+            },
+            {
+                "name": "الاستعارة المكنية",
+                "en": "Implied Metaphor",
+                "def": "A metaphor where the implied meaning is suggested or hinted at, requiring the reader to infer the figurative sense from the context.",
+                "examples": [
+                    "طَارَ الرَّجلُ من فَرْحَتِهِ<br/>The man flew with joy (The man was extremely happy)"
+                ]
+            }
+        ]
+    },
+    "الطباق":{
+        "en": "Antithesis",
+        "def": "The use of contrasting words or ideas in close proximity to create a striking effect and emphasize differences.",
+        "examples": [
+            "وَتَحۡسَبُهُمۡ   أَيۡقَاظٗا   وَهُمۡ   رُقُودٞۚ [18:18]",
+            "العِلْمُ نُورٌ وَالْجَهْلُ ظَلَامٌ<br/>Knowledge is light and ignorance is darkness"
+        ]
+    },
+    "المقابلة": {
+        "en": "Juxtaposition",
+        "def": "The placement of contrasting words or ideas in close proximity to highlight their differences and create a more impactful effect.",
+        "examples": [
+            "نَّكُمْ لَتَكْثُرُونَ عِنْدَ الْفَزَعِ، وَتَقِلُّونَ عِنْدَ الطَّمَعِ<br/>You are abundant in times of fear, and scarce in times of greed",
+            "الخير والشر<br/>Good and Evil"
+        ]
+    },
+    "الجناس": {
+        "en": "Homonymy",
+        "def": "The use of words that sound similar but have different meanings, creating a play on words and enhancing the aesthetic quality of language.",
+        "examples": [
+            "وَيَوۡمَ   تَقُومُ   ٱلسَّاعَةُ [30:14",
+            "سَمَّيْتُهُ يَحْيَى لِيَحْيَا<br/>I named him Yahya so that he may live"
+        ]
+    },
+    "السجع": {
+        "en": "Rhymed Prose",
+        "def": "A form of prose that employs a rhythmic and rhyming structure, creating a musical and harmonious effect in the language.",
+        "examples": [
+            "فِيهَا   سُرُرٞ   مَّرۡفُوعَةٞ   <br/>١٣ وَأَكۡوَابٞ   مَّوۡضُوعَةٞ   ١٤ [88:13]",
+            "أَلَمۡ   نَجۡعَل   لَّهُۥ   عَيۡنَيۡنِ    <br/>٨ وَلِسَانٗا   وَشَفَتَيۡنِ   ٩ [90:8]"
+        ]
+    }
+}
