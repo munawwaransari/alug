@@ -198,5 +198,16 @@
         "Provide a highly structured, analytical breakdown detailing the linguistic rules governing the Five Nouns (Al-Asma' al-Khamsah), explicitly specifying the 3 mandatory conditions (Shuroot) required for them to be expressed with long vowels (Waw, Alif, Ya) instead of short vowels.",
         "Give clear, contextual example sentences for every single one of the five nouns, exhaustively covering all three grammatical states: Nominative (Marfu' with Waw), Accusative (Mansub with Alif), and Genitive (Majrur with Ya).",
         "Translate all generated example sentences into the specified target language, providing phonetic transliterations and a clear structural analysis of the inflected case endings for each noun."
+    ],
+
+    "Definitions":[
+        "Context: Arabic Grammar and Rhetroric",
+        "Topic: @0",
+        "Types: @1",
+        "Definition something like: @2",
+        "Provide a highly structured, analytical breakdown detailing the linguistic rules governing the given topic and its types",
+        "Give clear, contextual example sentences for every single one of the type",
+        "Give example passages with translation from Hadith, History and other wellknow Arabic sources",
+        "Translate all generated example sentences into the specified target language"
     ]
 }

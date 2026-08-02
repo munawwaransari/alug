@@ -574,6 +574,15 @@ function listDefinitions(bk){
 				`<tr><td id="bm_${key}" style="border:none; border-bottom: 2px solid black;">
 				<a href="#defFilter">[&#8593]</a>&nbsp;&nbsp;
 				<b style="background-color:#F0F0A0">${key} (${entry.en})</b>
+				&nbsp;&nbsp<a href="#" 
+				   onclick="openGoogleAISearch(
+							getPromptFromKey(['Definitions'], 
+									{'0': ['${key} (${entry.en})', 
+									        '${entry.types && entry.types.length > 0 ? 
+												entry.types.map(x=>`${x.name}(${x.en})`).join(","):
+												"find out types"}',
+									        '${entry.def})']}, 
+									true));">[AI]</a>
 				<p style="directoin:ltr;padding:2px;">${entry.def}</p>
 				${entry.ref ? ':<u>References</u><br/>' : ''}
 				${entry.ref ? `
