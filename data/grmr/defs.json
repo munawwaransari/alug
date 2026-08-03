@@ -65,7 +65,8 @@
         "def": " The receiver of the action, which is optional and takes an accusative case (mansub) if present",
         "examples":[
           "أكلَ الولدُ التفاحةَ<br/>The boy ate <u>the apple</u>",
-          "<br/>قرأَتْ فاطمةُ قصةً<br/>Fatima read <u>a story</u>"
+          "<br/>قرأَتْ فاطمةُ قصةً<br/>Fatima read <u>a story</u>",
+          "إِيَّاكَ نَعْبُدُ [1:5]<br/><b>You [alone]</b> we worship"
         ]
     },
     "المفعول المطلق":{

@@ -413,6 +413,53 @@ function loadExamplesFromCmpData(dict, qselect) {
 	dict.append($(html));
 }
 
+function loadExamplesFromDefinitions(dict, qselect, data){
+	if (data) {
+		var examples = data;
+		var html = '<div style="font-size:12px;width:100%;text-align:center;">';
+		// Display examples
+		Object.entries(examples).filter(function ([key, value]) {
+			var div = '';
+			if(value.examples){
+				value.examples.every(function (ex, i) {
+					if (/\[\d+\:\d+\]/ig.test(ex)) {
+						div += `<p style="font-size:10px;">${replaceQLink(ex)}</p>`;
+					}
+					return true;
+				});
+			}
+			if(value.types){
+				value.types.map(function (v, i) {
+					if(v.examples)
+					{
+						v.examples.every(function (ex, i) {
+							if (/\[\d+\:\d+\]/ig.test(ex)) {
+								div += `<p style="font-size:10px;">${replaceQLink(ex)}</p>`;
+							}
+						});
+					}
+				});
+			}
+			if (div !== '') {
+				var kval = arRemovePunct(value.name_ar ?? key)
+					.replaceAll(' ', '_')
+					.replaceAll('(', '')
+					.replaceAll(')', '')
+					.replaceAll('/', '');
+				qselect.append(`<option value="${kval}">${value.name_ar ?? `${key} (${value.en})`}</option>`);
+				html += `
+				<div id="qid_${kval}" 
+					style="margin:auto;padding:10px;width:100%;display:inline-block;">
+					<p>${value.name_ar ?? `${key} (${value.en})`}</p>
+					${div}
+				</div>`;
+			}
+		});
+		html += '</div>';
+		dict.append($(html));
+	}
+}
+
 function loadExamplesFromObjectEffectData(dict, qselect, data) {
 	if (data) {
 		var examples = data;
@@ -512,6 +559,10 @@ function listExamplesFromQuran(selText) {
 	ensureJsonData({name:"adverbData"})
 	.then((data) => {
 		loadExamplesFromObjectEffectData(dict, qselect, data);
+	});
+	ensureJsonData({name:"def-data"})
+	.then((data) => {
+		loadExamplesFromDefinitions(dict, qselect, data);
 	});
 	loadExamplesFromData(dict, qselect, showImperativeTable(1), "Imperative - Form ");
 	loadExamplesFromData(dict, qselect, get_ce_examples());
