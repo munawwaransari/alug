@@ -1451,7 +1451,7 @@ function showImperativeTable(d, ii) {
 			container.append(vTable);
 			//$(`#mTable$${index} tbody`).append($(rows));
 			//Add filter
-			filters.push(`Imperative - ${entryName}`);
+			filters.push(`Imperative - Form ${formNumber}`);
 		}
 	}
 	// Add filter drop down

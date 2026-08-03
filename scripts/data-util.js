@@ -1963,7 +1963,8 @@ function listListItems(el, listId, page, action){
 			
 			if(text && text.trim() === 'Show All') return true; // Skip
 			
-			var txt = text.replace(/\(.*\)/ig,'').replace(/[a-zA-Z\-\/]+/ig, '').trim();
+			console.log(`val:${value}, text=${text}, index: ${index}`);
+			var txt = text.replace(/\(.*\)/ig,'');
 			sortedList.push(txt);
 			lookupText[txt] = {val: text, pos: index};
 		});
