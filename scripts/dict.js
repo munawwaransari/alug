@@ -296,6 +296,15 @@ function handleParams() {
 			}
 			break;
 
+		case 'weak-verb':
+			var pos = 0;
+			var data = params["data"];
+			if (data.startsWith("pos:")) {
+				pos = parseInt(data.substring(4));
+			}
+			showWeakVerbTable(null, pos);
+			break;
+
 		case 'q-examples':
 			listExamplesFromQuran();
 			toggleDropdownContent($(this).parent().prev());
@@ -1199,7 +1208,7 @@ function showInadequateVerbTable() {
 	$(".dictionary").append($(table));
 }
 
-function showWeakVerbTable(d) {
+function showWeakVerbTable(d, ii) {
 	var alink = `
 	<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
 	var nawaqis = {
@@ -1209,7 +1218,9 @@ function showWeakVerbTable(d) {
 				"ف كلمة => ا و ي", "(و ج د)"
 			],
 			examples: [
-				"وَمَن يَلْعَنِ اللَّهُ فَلَن تَجِدَ لَهُ نَصِيرًا [4:52]"
+				"وَمَن يَلْعَنِ اللَّهُ فَلَن تَجِدَ لَهُ نَصِيرًا [4:52]",
+				"رَبَّنَآ ...  وَقِنَا   عَذَابَ   ٱلنَّارِ [3:16]",
+				"فَلۡيَتَّقُواْ   ٱللَّهَ   وَلۡيَقُولُواْ   قَوۡلٗا   سَدِيدًا [4:9]"
 			]
 		},
 		'أَجوَف': {
@@ -1256,10 +1267,14 @@ function showWeakVerbTable(d) {
 	}
 
 	$(".dictionary").empty();
-	var table = '<table class="pTable">';
+	var filters = [];
+	$(".dictionary").append('<div style="height:10px;"></div><div style="width:100%; text-align:center">حرف العِلَّت When root of a word has one or more </div>');
+	var index = 0;
 	$.each(nawaqis, (k, v)=>{
-		table += `
-		<tr>
+		index++;
+		var table = `
+		<table class="mTable" id="mTable${index}">
+		<tr style="width:100%">
 			<td style="background-color:#E8E885;">
 				<b>${k}</b>
 			</td>
@@ -1278,11 +1293,30 @@ function showWeakVerbTable(d) {
 			<td colspan="2">
 			${v.examples.map((ex) => replaceQLink(ex, false)).join('<br/>')}
 			</td>
-		</tr>`;
+		</tr>
+		<table>`;
+		$(".dictionary").append($(table));
+		
+		//Add filter
+		filters.push(k);
 	});
-	table +='<table>';
-	$(".dictionary").append('<div style="height:10px;"></div><div style="width:100%; text-align:center">حرف العِلَّت When root of a word has one or more </div>');
-	$(".dictionary").append($(table));
+
+	// Add filter drop down
+	if (filters.length > 0) {
+		$(".dictionary").prepend($(getListButtinWithSelect(`
+			<select class="nFilter" onchange="filterMTableRows('mTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val())">
+			<option value="all">Show All</option>
+			${
+				filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
+			}
+			</select>
+		`, 'nFilter', 'weak-verb')));
+		$('.nFilterBtn').css('width', $('.nFilter').css('width'));
+	}
+	if(ii){
+		$('.nFilter').prop('selectedIndex', ii);
+		filterMTableRows('mTable', ii, $('.nFilter').val());
+	}
 }
 
 function showImperativeTable(d) {
