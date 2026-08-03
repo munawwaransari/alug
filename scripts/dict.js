@@ -296,6 +296,15 @@ function handleParams() {
 			}
 			break;
 
+		case 'imp-verb':
+			var pos = 0;
+			var data = params["data"];
+			if (data.startsWith("pos:")) {
+				pos = parseInt(data.substring(4));
+			}
+			showImperativeTable(null, pos);
+			break;
+
 		case 'weak-verb':
 			var pos = 0;
 			var data = params["data"];
@@ -1228,7 +1237,9 @@ function showWeakVerbTable(d, ii) {
 				"(فَعَلَ) قَوَلَ => قَالَ<br/>(فُعِلَ) قُوِلَ => قِيلَ", 
 				"ع كلمة => ا و ي", "(ق و ل)"],
 			examples: [
-				"وَأَن تَصُومُوا خَيْرٌ لَّكُمْ [2:184]"
+				"وَأَن تَصُومُوا خَيْرٌ لَّكُمْ [2:184]",
+				"قَالَ   إِنَّمَآ   أَنَا۠   رَسُولُ   رَبِّكِ [19:19]",
+				"لَن   تَنَالُواْ   ٱلۡبِرَّ   حَتَّىٰ   تُنفِقُواْ   مِمَّا   تُحِبُّونَۚ [3:92]"
 			]
 		},
 		'نَاقِص': {
@@ -1236,7 +1247,9 @@ function showWeakVerbTable(d, ii) {
 				"(فَعَلُوا) رَضَيُوا=> رَضُوا",
 				"ل كلمة => ا و ي","(ر ض ي)"],
 			examples:[
-				"رَّضِيَ اللَّهُ عَنْهُمْ وَرَضُوا عَنْهُ [5:119]"
+				"رَّضِيَ اللَّهُ عَنْهُمْ وَرَضُوا عَنْهُ [5:119]",
+				"أُجِيبُ   دَعۡوَةَ   ٱلدَّاعِ   إِذَا   دَعَانِۖ [2:186]",
+				"اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ [1:6]"
 			]
 		},
 		'لَفِيف': {
@@ -1244,7 +1257,9 @@ function showWeakVerbTable(d, ii) {
 				"و/ي root has", 
 				"(و ق ي)"],
 			examples: [
-				"وَقِنَا عَذَابَ النَّارِ [3:16]"
+				"وَقِنَا عَذَابَ النَّارِ [3:16]",
+				"يَوۡمَ نَطۡوِي  ٱلسَّمَآءَ كَطَيِّ ٱلسِّجِلِّ لِلۡكُتُبِۚ [21:104]",
+				"وَتَعِيَهَآ   أُذُنٞ   وَٰعِيَةٞ [69:12]"
 			]
 		},
 		'مَهمُوز': {
@@ -1253,7 +1268,8 @@ function showWeakVerbTable(d, ii) {
 				"root has hamza", "(أ ك ل)"],
 			examples: [
 				"وَلَئِنْ أَرْسَلْنَا رِيحًا فَرَأَوْهُ مُصْفَرًّا [30:51]",
-				""
+				"سَأَلَ   سَآئِلُۢ   بِعَذَابٖ   وَاقِعٖ [70:1]",
+				"فَلَمَّا   رَءَا   ٱلۡقَمَرَ   بَازِغٗا [6:77]"
 			]
 		}
 	};
@@ -1278,7 +1294,7 @@ function showWeakVerbTable(d, ii) {
 			<td style="background-color:#E8E885;">
 				<b>${k}</b>
 			</td>
-			<td rowspan="3">${v.info[0]}<br/>
+			<td rowspan="3" style="min-width:200px;">${v.info[0]}<br/>
 			<a href="#" title="AI search" style="font-size:14px;" onclick="openGoogleAISearch(
 						getPromptFromKey(['WeakVerbs'], {'0': ['${k}}']}, true))">More</a>
 			</td>
@@ -1290,8 +1306,8 @@ function showWeakVerbTable(d, ii) {
 			<td>${v.info[2]}</td>
 		</tr>
 		<tr>
-			<td colspan="2">
-			${v.examples.map((ex) => replaceQLink(ex, false)).join('<br/>')}
+			<td colspan="2" style="border:none">
+			<br/>${v.examples.map((ex) => replaceQLink(ex, false)).join('<br/>')}<br/><br/>
 			</td>
 		</tr>
 		<table>`;
@@ -1319,7 +1335,7 @@ function showWeakVerbTable(d, ii) {
 	}
 }
 
-function showImperativeTable(d) {
+function showImperativeTable(d, ii) {
 	var examples = {
 		'I':  
 		[
@@ -1387,20 +1403,20 @@ function showImperativeTable(d) {
 	var container = $(".dictionary");
 	var verbInfo = posAPIObj.getVerbInfo();
 	var api = this;
+	var filters = [];
 	container.empty();
 	var alink = `<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
-	var vTable = $(`
-	<table id="vTable" class="vTable">
-		<tr>
-			<th class="engText" style="font-size: 14px;">Form</th>
-			<th class="engText">Gender<br/>M/F</th>
-			<th class="engText">2nd Person<br/>مضارع</th>
-			<th colspan="2" class="engText">Imperative<br/>الأمر/النهي</th>
-		</tr>
-	</table>`);
-	container.append(vTable);
-
+	var index=0;
 	for (const keyVal of Object.entries(verbInfo)) {
+		index++;
+		var vTable = `
+		<table id="mTable${index}" class="mTable">
+			<tr>
+				<th class="engText" style="font-size: 14px;">Form</th>
+				<th class="engText">Gender<br/>M/F</th>
+				<th class="engText">2nd Person<br/>مضارع</th>
+				<th colspan="2" class="engText">Imperative<br/>الأمر/النهي</th>
+			</tr>`;
 		var entryName = keyVal[0];
 		var xform = keyVal[1];
 		if (xform) {
@@ -1413,7 +1429,7 @@ function showImperativeTable(d) {
 			var impF1 = makeImperative(pa[0], 'f');
 			var impF2 = impF1.replace(new RegExp("^(ا|([ء-ي]))", "g"), "لا ت$2");
 			var formNumber = entryName.split(' ')[1];
-			var rows = `
+			vTable += `
 			<tr>
 				<td rowspan="2" class="engText">${formNumber}</td>
 				<td class="engText">M</td>
@@ -1432,7 +1448,27 @@ function showImperativeTable(d) {
 					${examples[formNumber].map((ex)=>replaceQLink(ex, false)).join('<br/>')}
 				</td>
 			</tr>`;
-			$("#vTable tbody").append($(rows));
+			container.append(vTable);
+			//$(`#mTable$${index} tbody`).append($(rows));
+			//Add filter
+			filters.push(`Imperative - ${entryName}`);
 		}
 	}
+	// Add filter drop down
+	if (filters.length > 0) {
+		container.prepend($(getListButtinWithSelect(`
+			<select class="nFilter" onchange="filterMTableRows('mTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val())">
+			<option value="all">Show All</option>
+			${
+				filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
+			}
+			</select>
+		`, 'nFilter', 'imp-verb')));
+		$('.nFilterBtn').css('width', $('.nFilter').css('width'));
+	}
+	if(ii){
+		$('.nFilter').prop('selectedIndex', ii);
+		filterMTableRows('mTable', ii, $('.nFilter').val());
+	}
+
 }
