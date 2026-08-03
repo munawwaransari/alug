@@ -2010,6 +2010,8 @@ function getActionTitle(action){
 	action == 'adv'? 'Adverbs' : 
 	action == 'prep'? 'Prepositions' : 
 	action == 'prep-ph'? 'Prepositional Phrases' : 
+	action == 'imp-verb'? 'Imperatives' : 
+	action == 'weak-verb'? 'Weak Verbs' :
 	action;
 }
 
