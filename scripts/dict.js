@@ -565,6 +565,7 @@ function listExamplesFromQuran(selText) {
 		loadExamplesFromDefinitions(dict, qselect, data);
 	});
 	loadExamplesFromData(dict, qselect, showImperativeTable(1), "Imperative - Form ");
+	loadExamplesFromData(dict, qselect, showWeakVerbTable(1), "Weak Verbs ");
 	loadExamplesFromData(dict, qselect, get_ce_examples());
 
 	if(selText){
@@ -1198,110 +1199,88 @@ function showInadequateVerbTable() {
 	$(".dictionary").append($(table));
 }
 
-function showWeakVerbTable() {
-
+function showWeakVerbTable(d) {
 	var alink = `
 	<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
+	var nawaqis = {
+		'مِثال': {
+			info: [
+				"(يَفعَلُ) يَوجِدُ => يَجِدُ<br/>(يَفعِلُونَ) يَوذِرُونَ => يَذِرُونَ", 
+				"ف كلمة => ا و ي", "(و ج د)"
+			],
+			examples: [
+				"وَمَن يَلْعَنِ اللَّهُ فَلَن تَجِدَ لَهُ نَصِيرًا [4:52]"
+			]
+		},
+		'أَجوَف': {
+			info: [
+				"(فَعَلَ) قَوَلَ => قَالَ<br/>(فُعِلَ) قُوِلَ => قِيلَ", 
+				"ع كلمة => ا و ي", "(ق و ل)"],
+			examples: [
+				"وَأَن تَصُومُوا خَيْرٌ لَّكُمْ [2:184]"
+			]
+		},
+		'نَاقِص': {
+			info: [
+				"(فَعَلُوا) رَضَيُوا=> رَضُوا",
+				"ل كلمة => ا و ي","(ر ض ي)"],
+			examples:[
+				"رَّضِيَ اللَّهُ عَنْهُمْ وَرَضُوا عَنْهُ [5:119]"
+			]
+		},
+		'لَفِيف': {
+			info: ["(اِفتَعَلَ) إوتَقَيَ => إتْتَقَي => إتَّقَي<br/>(فَعِلنَا) وَقِينَا=> وَقِنَا", 
+				"و/ي root has", 
+				"(و ق ي)"],
+			examples: [
+				"وَقِنَا عَذَابَ النَّارِ [3:16]"
+			]
+		},
+		'مَهمُوز': {
+			info: [
+				"(فَعَلُوا) رَأَيُو => رَأَو<br/>(يَفعَلُ) يَاكُلُ [Exception]", 
+				"root has hamza", "(أ ك ل)"],
+			examples: [
+				"وَلَئِنْ أَرْسَلْنَا رِيحًا فَرَأَوْهُ مُصْفَرًّا [30:51]",
+				""
+			]
+		}
+	};
+
+	if(d){ //return data when inline call
+		return Object.assign({}, ...$.map(nawaqis, function(value, key) {
+			var obj = {};
+			obj[key] = value.examples;
+			return obj;
+		}));
+	}
+
 	$(".dictionary").empty();
-	var table = `
-	<table class="pTable">
+	var table = '<table class="pTable">';
+	$.each(nawaqis, (k, v)=>{
+		table += `
 		<tr>
 			<td style="background-color:#E8E885;">
-				<b>مِثال</b>
+				<b>${k}</b>
 			</td>
-			<td rowspan="3">(يَفعَلُ) يَوجِدُ => ${alink.replaceAll('$', 'يَجِدُ')}
-			<br/><br/>(يَفعِلُونَ) يَوذِرُونَ => يَذِرُونَ
-			<br/><br/>
+			<td rowspan="3">${v.info[0]}<br/>
 			<a href="#" title="AI search" style="font-size:14px;" onclick="openGoogleAISearch(
-						getPromptFromKey(['WeakVerbs'], {'0': ['مِثال']}, true))">More</a>
+						getPromptFromKey(['WeakVerbs'], {'0': ['${k}}']}, true))">More</a>
 			</td>
 		</tr>
 		<tr style="background-color:#E8E885;">
-			<td>ف كلمة => ا و ي</td>
+			<td>${v.info[1]}</td>
 		</tr>
 		<tr>
-			<td>(و ج د)</td>
+			<td>${v.info[2]}</td>
 		</tr>
 		<tr>
-			<td colspan="2">${replaceQLink('وَمَن يَلْعَنِ اللَّهُ فَلَن تَجِدَ لَهُ نَصِيرًا [4:52]', false)}</td>
-		</tr>
-		<tr>
-			<td style="background-color:#E8E885;">
-				<b>أَجوَف</b>
+			<td colspan="2">
+			${v.examples.map((ex) => replaceQLink(ex, false)).join('<br/>')}
 			</td>
-			<td rowspan="3">(فَعَلَ) قَوَلَ => ${alink.replaceAll('$', 'قَالَ')}
-			<br/><br/>(فُعِلَ) قُوِلَ => قِيلَ
-			<br/><br/>
-			<a href="#" title="AI search" style="font-size:14px;" onclick="openGoogleAISearch(
-						getPromptFromKey(['WeakVerbs'], {'0': ['أَجوَف']}, true))">More</a>
-			</td>
-		</tr>
-		<tr>
-			<td style="background-color:#E8E885;">ع كلمة => ا و ي</td>
-		</tr>
-		<tr>
-			<td>(ق و ل)</td>
-		</tr>
-		<tr>
-			<td colspan="2">${replaceQLink('وَأَن تَصُومُوا خَيْرٌ لَّكُمْ [2:184]', false)}</td>
-		</tr>
-		<tr>
-			<td style="background-color:#E8E885;">
-				<b>نَاقِص</b>
-				</td>
-			<td rowspan="3">(فَعَلُوا) رَضَيُوا=> ${alink.replaceAll('$', 'رَضُوا')}
-			<br/><br/>
-			<a href="#" title="AI search" style="font-size:14px;" onclick="openGoogleAISearch(
-						getPromptFromKey(['WeakVerbs'], {'0': ['نَاقِص']}, true))">More</a>
-			</td>
-		</tr>
-		<tr>
-			<td style="background-color:#E8E885;">ل كلمة => ا و ي</td>
-		</tr>
-		<tr>
-			<td>(ر ض ي)</td>
-		</tr>
-		<tr>
-			<td colspan="2">${replaceQLink('رَّضِيَ اللَّهُ عَنْهُمْ وَرَضُوا عَنْهُ [5:119]', false)}</td>
-		</tr>
-		<tr>
-			<td style="background-color:#E8E885;">
-				<b>لَفِيف</b>
-			</td>
-			<td rowspan="3">(اِفتَعَلَ) إوتَقَيَ => إتْتَقَي => ${alink.replaceAll('$', 'إتَّقَي')}
-			<br/><br/>(فَعِلنَا) وَقِينَا=> وَقِنَا
-			<br/><br/>
-			<a href="#" title="AI search" style="font-size:14px;" onclick="openGoogleAISearch(
-						getPromptFromKey(['WeakVerbs'], {'0': ['لَفِيف']}, true))">More</a>
-			</td>
-		</tr>
-		<tr>
-			<td style="background-color:#E8E885;">و/ي root has</td>
-		</tr>
-		<tr><td>(و ق ي)</td></tr>
-		</tr>
-		<tr>
-			<td colspan="2">${replaceQLink('وَقِنَا عَذَابَ النَّارِ [3:16]', false)}</td>
-		</tr>
-		<tr>
-			<td style="background-color:#E8E885;">
-				<b>مَهمُوز</b>
-			</td>
-			<td rowspan="3">(فَعَلُوا) رَأَيُو => ${alink.replaceAll('$', 'رَأَو')}
-			<br/><br/>(يَفعَلُ) يَاكُلُ [Exception]
-			<br/><br/>
-			<a href="#" title="AI search" style="font-size:14px;" onclick="openGoogleAISearch(
-						getPromptFromKey(['WeakVerbs'], {'0': ['مَهمُوز']}, true))">More</a>
-			</td>
-		</tr>
-		<tr>
-			<td style="background-color:#E8E885;">root has hamza</td>
-		</tr>
-		<tr><td>(أ ك ل)</td></tr>
-		<tr>
-			<td colspan="2">${replaceQLink('وَلَئِنْ أَرْسَلْنَا رِيحًا فَرَأَوْهُ مُصْفَرًّا [30:51]', false)}</td>
-		</tr>
-	<table>`;
+		</tr>`;
+	});
+	table +='<table>';
 	$(".dictionary").append('<div style="height:10px;"></div><div style="width:100%; text-align:center">حرف العِلَّت When root of a word has one or more </div>');
 	$(".dictionary").append($(table));
 }
