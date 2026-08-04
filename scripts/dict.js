@@ -305,6 +305,15 @@ function handleParams() {
 			showImperativeTable(null, pos);
 			break;
 
+		case 'inad-verb':
+			var pos = 0;
+			var data = params["data"];
+			if (data.startsWith("pos:")) {
+				pos = parseInt(data.substring(4));
+			}
+			showInadequateVerbTable(null, pos);
+			break;
+
 		case 'weak-verb':
 			var pos = 0;
 			var data = params["data"];
@@ -582,8 +591,9 @@ function listExamplesFromQuran(selText) {
 	.then((data) => {
 		loadExamplesFromDefinitions(dict, qselect, data);
 	});
-	loadExamplesFromData(dict, qselect, showImperativeTable(1), "Imperative - Form ");
-	loadExamplesFromData(dict, qselect, showWeakVerbTable(1), "Weak Verbs ");
+	loadExamplesFromData(dict, qselect, showImperativeTable(1), "Imperative - Form");
+	loadExamplesFromData(dict, qselect, showWeakVerbTable(1), "Weak Verbs");
+	loadExamplesFromData(dict, qselect, showInadequateVerbTable(1), "Inadequate Verbs");
 	loadExamplesFromData(dict, qselect, get_ce_examples());
 
 	if(selText){
@@ -1144,77 +1154,114 @@ function showTriliteralVerbTable() {
 	$(".dictionary").append($(table));
 }
 
-function showInadequateVerbTable() {
+function showInadequateVerbTable(d, ii) {
+
+	var inadVerbs = {
+		"توقيت": {
+			en: "(Timing)",
+			info: [
+				"to become / to change", "أصبَح / أَمسَ / ظَلّ / بَاتَ"
+			],
+			examples: [
+				"فَسُبۡحَٰنَ   ٱللَّهِ   حِينَ   تُمۡسُونَ   وَحِينَ   تُصۡبِحُونَ [30:17]",
+				"فَظَلَّتۡ   أَعۡنَٰقُهُمۡ   لَهَا   خَٰضِعِينَ [26:4]",
+				"",
+				"اصبَحَ الطَّقَسُ جَمِيلَةً<br/>The weather has become beautiful",
+				"بَاتَ المَريضُ جَادًا<br/>The patient became (in night) seriosly ill"
+			]
+		},
+		"تحويل": {
+			en: "(Transition)",
+			info: [
+				"to tansition / become", "صَارَ / صَارَ إِلَي"
+			],
+			examples: [
+				"قُلۡ تَمَتَّعُواْ فَإِنَّ مَصِيرَكُمۡ إِلَى ٱلنَّارِ [14:30]",
+				"وَٱتَّخَذَ   ٱللَّهُ   إِبۡرَٰهِيمَ   خَلِيلٗا [4:125]",
+				"قُلۡ   أَرَءَيۡتُمۡ   إِنۡ   أَصۡبَحَ   مَآؤُكُمۡ   غَوۡرٗا... [67:30]",
+				"",
+				"صَارَ الماءُ جَليِدًا<br/>The water became ice",
+				"صارَ إلَي لِصٍّ<br/>He beame a thief"
+			]
+		},
+		"نفي": {
+			en: "(Negation)",
+			info: [
+				"not", "لَيسَ"
+			],
+			examples: [
+				"أَلَيْسَ الصُّبْحُ بِقَرِيبٍ [11:81]",
+				"فَلَا   تَسۡـَٔلۡنِ   مَا   لَيۡسَ   لَكَ   بِهِۦ   عِلۡمٌۖ [11:46]",
+				"",
+				"لَيسَ المُعَلِّمُ حاضِرًا<br/>The teacher is not present"
+			]
+		},
+		"استمرار": {
+			en: "(Continuation)",
+			info: [
+				"to remain / continue", "مَازالَ / مابَرِحَ / ماأنفَكَّ"
+			],
+			examples: [
+				"فَمَا زَالَت تِّلۡكَ دَعۡوَىٰهُمۡ حَتَّىٰ... [21:15]",
+				"",
+				"مابرح الجوء لَطيفًا<br/>Weather is still nice",
+				"مازال الطِّفلُ نَائمًا<br/>The baby is still asleep"
+			]
+		},
+	};
+
+	if(d){ //return data when inline call
+		return Object.assign({}, ...$.map(inadVerbs, function(value, key) {
+			var obj = {};
+			obj[key] = value.examples;
+			return obj;
+		}));
+	}
 
 	var alink = `
 	<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
+	var filters = [];
 	$(".dictionary").empty();
-	var table = `
-	<table class="pTable">
-		<tr style="background-color:#E8E885;">
-			<td><b>توقيت (Timing)</b></td>
-		</tr>
-		<tr style="background-color:#E8E885;">
-			<td>to become / to change<br/>
-			${
-				alink.replaceAll('$', 'أصبَح') + ' / ' +
-				alink.replaceAll('$', 'أَمسَ') + ' / ' +
-				alink.replaceAll('$', 'ظَلّ') + ' / ' +
-				alink.replaceAll('$', 'بَاتَ') 
-			}
-			</td>
-		</tr>
-		<tr>
-			<td>اصبَحَ الطَّقَسُ جَمِيلَةً<br/>The weather has become beautiful<br/>بَاتَ المَريضُ جَادًا<br/>The patient became (in night) seriosly ill
-			<br/>
-			<a href="#" onclick="openGoogleAISearch(getPromptFromKey(['InadequateVerbs'], {'0': ['توقيت']}, true))">More</a>
-			</td>
-		</tr>
-		<tr style="background-color:#E8E885;">
-			<td><b>تحويل (Transition)</b></td>
-		</tr>
-		<tr style="background-color:#E8E885;">
-			<td>to tansition / become<br/>
-			${alink.replaceAll('$', 'صَارَ')} / صَارَ إِلَي
-			</td>
-		</tr>
-		<tr>
-			<td>صَارَ الماءُ جَليِدًا<br/>The water became ice<br/>صارَ إلَي لِصٍّ<br/>He beame a thief
-			<br/>
-			<a href="#" onclick="openGoogleAISearch(getPromptFromKey(['InadequateVerbs'], {'0': ['تحويل']}, true))">More</a>
-			</td>
-		</tr>
-		</tr>
-		<tr style="background-color:#E8E885;">
-			<td><b>نفي (Negation)</b>
-			</td>
-		</tr>
-		<tr style="background-color:#E8E885;">
-			<td>لَيسَ</td>
-		</tr>
-		<tr>
-			<td>أَلَيْسَ الصُّبْحُ بِقَرِيبٍ [11:81]<br/>Is not the morning approaching?<br/>لَيسَ المُعَلِّمُ حاضِرًا<br/>The teacher is not present
-			<br/>
-			<a href="#" onclick="openGoogleAISearch(getPromptFromKey(['InadequateVerbs'], {'0': ['نفي']}, true))">More</a>
-			</td>
-		</tr>
-		<tr style="background-color:#E8E885;">
-			<td><b>استمرار (Continuation)</b>
-			</td>
-		</tr>
-		<tr style="background-color:#E8E885;">
-			<td>to remain / continue<br/>مَازالَ / مابَرِحَ / ماأنفَكَّ
-			</td>
-		</tr>
-		<tr>
-			<td>مابرح الجوء لَطيفًا<br/>Weather is still nice<br/>مازال الطِّفلُ نَائمًا<br/>The baby is still asleep
-			<br/>
-			<a href="#" onclick="openGoogleAISearch(getPromptFromKey(['InadequateVerbs'], {'0': ['استمرار']}, true))">More</a>
-			</td>
-		</tr>
-		<table>`;
 	$(".dictionary").append('<div style="height:10px;"></div>');
-	$(".dictionary").append($(table));
+	Object.keys(inadVerbs).forEach((k, index)=>{
+		
+		var table = `
+		<table class="mTable" id="mTable${index+1}">
+			<tr style="background-color:#E8E885;">
+				<td style="min-width:300px;"><b>${k} ${inadVerbs[k].en}</b></td>
+			</tr>
+			<tr style="background-color:#E8E885;">
+				<td>${inadVerbs[k].info[0]}<br/>${inadVerbs[k].info[1]}</td>
+			</tr>
+			<tr>
+				<td>${inadVerbs[k].examples.map((x)=>replaceQLink(x)).join('<br/>')}
+				<br/>
+				<a href="#" onclick="openGoogleAISearch(getPromptFromKey(['InadequateVerbs'], {'0': ['${k}']}, true))">More</a>
+				</td>
+			</tr>
+			<table>`;
+		$(".dictionary").append($(table));
+
+		//Add filter
+		filters.push(`${k} ${inadVerbs[k].en}`);
+	});
+
+	// Add filter drop down
+	if (filters.length > 0) {
+		$(".dictionary").prepend($(getListButtinWithSelect(`
+			<select class="nFilter" onchange="filterMTableRows('mTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val())">
+			<option value="all">Show All</option>
+			${
+				filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
+			}
+			</select>
+		`, 'nFilter', 'inad-verb')));
+		$('.nFilterBtn').css('width', $('.nFilter').css('width'));
+	}
+	if(ii){
+		$('.nFilter').prop('selectedIndex', ii);
+		filterMTableRows('mTable', ii, $('.nFilter').val());
+	}
 }
 
 function showWeakVerbTable(d, ii) {
