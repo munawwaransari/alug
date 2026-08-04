@@ -219,6 +219,7 @@
 			case "alpha":
 				darwAlphabet(div, cdata);
 				break;
+			case 'movements':
 			case 'genres':
 			case "synonym":
 				darwSynonym(div, cdata);
@@ -380,10 +381,10 @@
 				<div class="center">${syn.en}<br/>
 					<p style="font-size: 20px;">${syn.ur}</p>
 				</div>
-				<div class="top-left">${syn.names[0]}</div>
-				<div class="top-right">${syn.names[1]}</div>
-				<div class="bottom-left">${syn.names[2]}</div>
-				<div class="bottom-right">${syn.names[3]}</div>
+				<div class="top-left">${syn.names[0] ?? ''}</div>
+				<div class="top-right">${syn.names[1] ?? ''}</div>
+				<div class="bottom-left">${syn.names[2] ?? ''}</div>
+				<div class="bottom-right">${syn.names[3] ?? ''}</div>
 			</div>`;
 
 			var fdiv = `
@@ -392,7 +393,7 @@
 					<div class="flip-card-front">${adiv}</div>
 					<div class="flip-card-back">
 						<img ontouchstart="playCard('${syn.ar}', '${syn.en}')"
-							onmouseenter="playCard('${syn.ar}', '${syn.en}')"
+							onmouseenter="if('${syn.ar}') playCard('${syn.ar}', '${syn.en}')"
 							style="top:18%; width:96%; height:80%" 
 							title="${syn.ar}"
 							class="alpha-image" 
@@ -403,10 +404,10 @@
 								onclick="openGoogleAISearch(
 								getPromptFromKey(['Synonyms'], 
 									{'0': ['${syn.en}<br/>${syn.ur}', 
-										['${syn.names[0]}',
-											'${syn.names[1]}',
-											'${syn.names[2]}',
-											'${syn.names[3]}']]}, true));">
+										['${syn.names[0]  ?? ''}',
+											'${syn.names[1]  ?? ''}',
+											'${syn.names[2]  ?? ''}',
+											'${syn.names[3]}  ?? ''']]}, true));">
 								${syn.en}<br/>${syn.ur}
 							</a>
 						</span>

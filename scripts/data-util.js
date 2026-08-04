@@ -335,7 +335,10 @@ async function tesseract_imageToText(url, lang, callback){
 
 function playCard(text, altText){
 	if(parent.playText) {
-		parent.playText(text, 'ar-SA', {'en-US': altText});
+		if(text === 'undefined')
+			parent.playText(altText, 'en-US', {'en-US': altText});
+		else
+			parent.playText(txt, 'ar-SA', {'en-US': altText});
 	}
 }
 

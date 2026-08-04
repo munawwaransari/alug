@@ -545,6 +545,7 @@ function updateToolDescription(id, opt){
 					"Vocab": {
 						"Alphabets": "alpha",
 						"Genres": "genres",
+						"Movements": "movements",
 						"Synonyms": "synonym",
 						"Homonymn": "homonym",
 						"Antonym": "antonym",

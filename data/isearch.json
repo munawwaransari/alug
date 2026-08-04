@@ -454,6 +454,11 @@
         "action": "Vocab",
         "data": "genres"
     },
+    "Movements (Cards);Vocabulary;حركات;": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "movements"
+    },
     "Homonyms (Cards);Vocabulary;متجانسات;متجانسة;": {
         "path": "cards.html",
         "action": "Vocab",
