@@ -220,6 +220,8 @@
 				darwAlphabet(div, cdata);
 				break;
 			case 'movements':
+				darwSynonym(div, cdata, true);
+				break;
 			case 'genres':
 			case "synonym":
 				darwSynonym(div, cdata);
@@ -374,7 +376,7 @@
 		    div.append($(fdiv));
 		} 
 		
-		function darwSynonym(div, syn) {
+		function darwSynonym(div, syn, addSuffix) {
 
 			var adiv = `
 		  	<div class="alpha-box" style="align-content: center;">
@@ -397,7 +399,7 @@
 							style="top:18%; width:96%; height:80%" 
 							title="${syn.ar}"
 							class="alpha-image" 
-							src="${getFreeImageSource(syn.en)}">
+							src="${getFreeImageSource(addSuffix ? syn.en[0].replace(/y$/ig,"ie")+"s" : syn.en)}">
 						</img>
 						<span style="top:10px; margin-bottom:0">
 							<a href="#" style="text-decoration:none; cursor:pointer;"
