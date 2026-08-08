@@ -344,41 +344,43 @@ function handleParams() {
 
 function showAllVerbTables(ii){
 
-	var filters = [];
-	var flag = undefined;
-	["V1", "V2", "V3"].forEach((k)=>{
-		showVerbTable(k, flag);
-		flag = 1
-		
-		var title = k == 'V1' ? 'Trilateral Verbs (المزيد)' : 
-		k == 'V2' ? 'Qaudrilateral Verbs (الرباعي)' :
-		k == 'V3' ? 'Extended Verbs Forms' :  '';;
+	ensureJsonData({name: "verb-examples"})
+	.then((data) => {
+		var filters = [];
+		var flag = undefined;
+		["V1", "V2", "V3"].forEach((k)=>{
+			showVerbTable(data, k, flag);
+			flag = 1
+			
+			var title = k == 'V1' ? 'Trilateral Verbs (المزيد)' : 
+			k == 'V2' ? 'Qaudrilateral Verbs (الرباعي)' :
+			k == 'V3' ? 'Extended Verbs Forms' :  '';;
 
-		filters.push(title);
+			filters.push(title);
+		});
+
+		// Add filter drop down
+		if (filters.length > 0) {
+			$(".dictionary").prepend($(getListButtinWithSelect(`
+				<select class="nFilter" onchange="filterMTableRows('vTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val())">
+				<option value="all">Show All</option>
+				${
+					filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
+				}
+				</select>
+			`, 'nFilter', 'vtab-all')));
+			$('.nFilterBtn').css('width', $('.nFilter').css('width'));
+		}
+		if(ii){
+			$('.nFilter').prop('selectedIndex', ii);
+			filterMTableRows('vTable', ii, $('.nFilter').val());
+		}
 	});
-
-	// Add filter drop down
-	if (filters.length > 0) {
-		$(".dictionary").prepend($(getListButtinWithSelect(`
-			<select class="nFilter" onchange="filterMTableRows('vTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val())">
-			<option value="all">Show All</option>
-			${
-				filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
-			}
-			</select>
-		`, 'nFilter', 'vtab-all')));
-		$('.nFilterBtn').css('width', $('.nFilter').css('width'));
-	}
-	if(ii){
-		$('.nFilter').prop('selectedIndex', ii);
-		filterMTableRows('vTable', ii, $('.nFilter').val());
-	}
-
 }
 
-function showVerbTable(key, flag) {
+function showVerbTable(data, key, flag) {
 	var vTable = posAPIObj.getVerbInfo(key);
-	posAPIObj.addVerbInfoHtml($(".dictionary"), vTable, key, flag);
+	posAPIObj.addVerbInfoHtml(data, $(".dictionary"), vTable, key, flag);
 }
 
 function showMetonymies() {
@@ -620,6 +622,18 @@ function listExamplesFromQuran(selText) {
 			onclick="listQListItems('.dictionary', '#qs1')">List</button>`));
 
 	loadExamplesFromCmpData(dict, qselect);
+	ensureJsonData({name:"verb-examples"})
+	.then((data) => {
+		const exData = Object.fromEntries(
+			Object.entries(data).map(([key, value]) => [
+				key.replace("V1_", "Trilateral ")
+				   .replace("V1_", "Quadlateral ")
+				   .replace("V1_", "Extended"), 
+				value]
+			)
+		);
+		loadExamplesFromObjectEffectData(dict, qselect, exData);
+	});
 	ensureJsonData({name:"objectEffectsData"})
 	.then((data) => {
 		loadExamplesFromObjectEffectData(dict, qselect, data);

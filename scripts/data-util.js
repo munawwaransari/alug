@@ -1476,6 +1476,9 @@ function init_data_cache(){
 		},
 		"def-data":{
 			path: "data/grmr/defs.json"
+		},
+		"verb-examples":{
+			path: "data/grmr/verb-ex.json"
 		}
 	};
 }

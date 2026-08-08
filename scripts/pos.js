@@ -700,7 +700,7 @@ class posAPI {
 		return res;
 	}
 	
-	addVerbInfoHtml(container, res, key, flag){
+	addVerbInfoHtml(exData, container, res, key, flag){
 		var api = this;
 
 		if(flag === undefined){
@@ -792,6 +792,19 @@ class posAPI {
 						}
 						</td>
 					</tr>`;
+
+				//Add Examples
+				var exKey = `${key}_${entryName.split(' ')[1]}`;	
+				var examples = exData[exKey] ? exData[exKey].examples : undefined;
+				if(examples){
+					row += `
+					<td colspan="4" style="background-color:#F5F5F5"><u style="font-size:12px;">Examples</u><br/>
+					${
+						examples.map(x => replaceQLink(x)).join("<br/>")
+					}
+					<br/>&nbsp;
+					</td>`;
+				}
 				$(`#vTable${key[1]} tbody`).append($(row));
 				index++;
 			}
