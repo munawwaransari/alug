@@ -700,15 +700,23 @@ class posAPI {
 		return res;
 	}
 	
-	addVerbInfoHtml(container, res, title){
+	addVerbInfoHtml(container, res, key, flag){
 		var api = this;
-		container.empty();
+
+		if(flag === undefined){
+			container.empty();
+		}
+
+		var title = key == 'V1' ? 'Trilateral Verbs (المزيد)' : 
+			key == 'V2' ? 'Qaudrilateral Verbs (الرباعي)' :
+			key == 'V3' ? 'Extended Verbs Forms' :  '';;
+
 		var alink = `
 		<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
 		var cmpLink = `
 		<a href="#" style=" text-decoration: none" onclick="showVerbComparisions(@);">$</a>`;
 		var vTable = $(`
-			<table id="vTable" class="vTable">
+			<table id="vTable${key[1]}" class="vTable">
 			${ title ? 
 				`<tr><td colspan="4">${title}</td></tr>`:
 				''
@@ -784,7 +792,7 @@ class posAPI {
 						}
 						</td>
 					</tr>`;
-				$("#vTable tbody").append($(row));
+				$(`#vTable${key[1]} tbody`).append($(row));
 				index++;
 			}
 		}

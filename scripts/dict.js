@@ -129,7 +129,14 @@ function handleParams() {
 			}
 			break;
 
-		case 'vtab-all': showVerbTable(); break;
+		case 'vtab-all': 
+			var pos = 0;
+			var data = params["data"];
+			if (data.startsWith("pos:")) {
+				pos = parseInt(data.substring(4));
+			}			
+			showAllVerbTables(pos); 
+			break;
 		case 'vtab-3': showTriliteralVerbTable(); break;
 		case 'vtab-inad': showInadequateVerbTable(); break;
 		case 'vtab-weak': showWeakVerbTable(); break;
@@ -335,11 +342,43 @@ function handleParams() {
 	}
 }
 
-function showVerbTable(key) {
+function showAllVerbTables(ii){
+
+	var filters = [];
+	var flag = undefined;
+	["V1", "V2", "V3"].forEach((k)=>{
+		showVerbTable(k, flag);
+		flag = 1
+		
+		var title = k == 'V1' ? 'Trilateral Verbs (المزيد)' : 
+		k == 'V2' ? 'Qaudrilateral Verbs (الرباعي)' :
+		k == 'V3' ? 'Extended Verbs Forms' :  '';;
+
+		filters.push(title);
+	});
+
+	// Add filter drop down
+	if (filters.length > 0) {
+		$(".dictionary").prepend($(getListButtinWithSelect(`
+			<select class="nFilter" onchange="filterMTableRows('vTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val())">
+			<option value="all">Show All</option>
+			${
+				filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
+			}
+			</select>
+		`, 'nFilter', 'vtab-all')));
+		$('.nFilterBtn').css('width', $('.nFilter').css('width'));
+	}
+	if(ii){
+		$('.nFilter').prop('selectedIndex', ii);
+		filterMTableRows('vTable', ii, $('.nFilter').val());
+	}
+
+}
+
+function showVerbTable(key, flag) {
 	var vTable = posAPIObj.getVerbInfo(key);
-	var title = key == 'V1' ? 'Trilateral Verbs (المزيد)' : 
-	            key == 'V2' ? 'Qaudrilateral Verbs (الرباعي)' :  '';
-	posAPIObj.addVerbInfoHtml($(".dictionary"), vTable, title);
+	posAPIObj.addVerbInfoHtml($(".dictionary"), vTable, key, flag);
 }
 
 function showMetonymies() {
