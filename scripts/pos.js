@@ -683,10 +683,10 @@ class posAPI {
 		}
 	}
 
-	getVerbInfo(){
+	getVerbInfo(key="V1"){
 		var res = {};
 		for (const keyVal of Object.entries(posAPI.posRules)){
-			if(keyVal[0] === "V1"){
+			if(keyVal[0] === key){
 				var patternInfo = keyVal[1]["matches"];
 				for (const mKeyVal of Object.entries(patternInfo)){
 					var entryName = mKeyVal[0];
@@ -700,7 +700,7 @@ class posAPI {
 		return res;
 	}
 	
-	addVerbInfoHtml(container, res){
+	addVerbInfoHtml(container, res, title){
 		var api = this;
 		container.empty();
 		var alink = `
@@ -709,6 +709,10 @@ class posAPI {
 		<a href="#" style=" text-decoration: none" onclick="showVerbComparisions(@);">$</a>`;
 		var vTable = $(`
 			<table id="vTable" class="vTable">
+			${ title ? 
+				`<tr><td colspan="4">${title}</td></tr>`:
+				''
+			}
 			<tr>
 				<th style="font-size: 14px;">Form</th>
 				<th>المعروف</th>

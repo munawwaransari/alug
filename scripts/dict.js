@@ -335,9 +335,11 @@ function handleParams() {
 	}
 }
 
-function showVerbTable() {
-	var vTable = posAPIObj.getVerbInfo();
-	posAPIObj.addVerbInfoHtml($(".dictionary"), vTable);
+function showVerbTable(key) {
+	var vTable = posAPIObj.getVerbInfo(key);
+	var title = key == 'V1' ? 'Trilateral Verbs (المزيد)' : 
+	            key == 'V2' ? 'Qaudrilateral Verbs (الرباعي)' :  '';
+	posAPIObj.addVerbInfoHtml($(".dictionary"), vTable, title);
 }
 
 function showMetonymies() {
