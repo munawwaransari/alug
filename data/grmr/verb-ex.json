@@ -1,11 +1,108 @@
 {
     "V1_I": {
         "name_ar": "Trilateral Verb (From I)",
+        "notes": [
+            "Generally used for physical actions by someone/something doing on its own",
+            "indicates basic sense of action (transitive or intransitive)"
+        ],
         "examples": [
             "خَلَقَ   ٱلسَّمَٰوَٰتِ   وَٱلۡأَرۡضَ   بِٱلۡحَقِّۚ [16:3]",
             "خُلِقَ   ٱلۡإِنسَٰنُ   مِنۡ   عَجَلٖۚ [21:37]",
             "أَمۡ   خُلِقُواْ   مِنۡ   غَيۡرِ   شَيۡءٍ   أَمۡ   هُمُ   ٱلۡخَٰلِقُونَ [52:35]",
             "خَلۡقُ   ٱلسَّمَٰوَٰتِ   وَٱلۡأَرۡضِ   أَكۡبَرُ   مِنۡ   خَلۡقِ   ٱلنَّاسِ [40:57]"
+        ]
+    },
+    "V1_II": {
+        "name_ar": "Trilateral Verb (From II)",
+        "notes": [
+            "Makes a verb strong or intensive"
+        ],
+        "examples": [
+            "عَلَّمَ المُعلِّمُ الطّالب<br/>(The teacher taught the student)",
+            "<br/>قَطَّعَ الطَّبَّاخُ اللَّحْمَ<br/>(The cook cut up the meat)"
+        ]
+    },
+    "V1_III": {
+        "name_ar": "Trilateral Verb (From III)",
+        "notes": [
+            "shows an action done with someone else"
+        ],
+        "examples": [
+            "سَابَقَ الْوَلَدُ صَاحِبَهُ<br/>(The boy raced with his friend)",
+            "<br/>جَادَلَ التَّلْمِيذُ الْأُسْتَاذَ<br/>(The student argued with the teacher)"
+        ]
+    },
+    "V1_IV": {
+        "name_ar": "Trilateral Verb (From IV)",
+        "notes": [
+            "makes an intransitive verb transitive"
+        ],
+        "examples": [
+            "أَفْهَمَ الْمُعَلَّمُ التَّلْمِيذَ<br/>(The teacher made the student understand)",
+            "<br/>أَعْلَمَ المدير الموظفين<br/>(The manager informed the employees)"
+        ]
+    },
+    "V1_V": {
+        "name_ar": "Trilateral Verb (From V)",
+        "notes": [
+            "Makes the Form II Reflexive",
+            "Shows the result of Form II or doing something to oneself."
+        ],
+        "examples": [
+            "تَعَلَّمَ الْوَلَدُ اللُّغَةَ<br/>(The boy learned the language)",
+            "<br/>تَفَهَّمَت المرأة المشكلة<br/>(The woman understood the problem)"
+        ]
+    },
+    "V1_VI": {
+        "name_ar": "Trilateral Verb (From VI)",
+        "notes": [
+            "shows a mutual or shared action between two or more people"
+        ],
+        "examples": [
+            "تَبَايَعَ التَّاجِرَانِ فِي السُّوقِ<br/>(The two merchants traded in the market)",
+            "<br/>تَمَارَى النَّاسُ فِي الْأَمْرِ<br/>(The people doubted the matter among themselves)"
+        ]
+    },
+    "V1_VII": {
+        "name_ar": "Trilateral Verb (From VII)",
+        "notes": [
+            "shows passiveness or that something happened to the object by itself"
+        ],
+        "examples": [
+            "انْكَسَرَ الزُّجَاجُ<br/>(The glass broke)",
+            "<br/>انْصَرَفَ الطَّلَبَةُ إِلَى الْبَيْتِ<br/>(The students left for home)"
+        ]
+    },
+    "V1_VIII": {
+        "name_ar": "Trilateral Verb (From VIII)",
+        "notes": [
+            "often means doing an action for oneself or taking care of something"
+        ],
+        "examples": [
+            "اجْتَمَعَ النَّاسُ فِي الْمَسْجِدِ<br/>(People gathered in the mosque)",
+            "<br/>اضْطَرَبَ الْبَحْرُ<br/>(The sea became rough)",
+            "<br/>انْتَظَرَ الْوَلَدُ أَبَاهُ<br/>(The boy waited for his father)"
+        ]
+    },
+    "V1_IX": {
+        "name_ar": "Trilateral Verb (From IX)",
+        "notes": [
+            "used for colors and physical traits"
+        ],
+        "examples": [
+            "اصْفَرَّ الْوَرَقُ<br/>(The leaf turned yellow)",
+            "<br/>ازْرَقَّ السَّمَاءُ<br/>(The sky turned blue)",
+            "<br/>احْمَرَّ الْوَرْدُ<br/>(The flower turned red)"
+        ]
+    },
+    "V1_X": {
+        "name_ar": "Trilateral Verb (From X)",
+        "notes": [
+            "used to ask for something or find something"
+        ],
+        "examples": [
+            "اسْتَغْفَرَ الرَّجُلُ رَبَّهُ<br/>(The man asked his Lord for forgiveness)",
+            "<br/> اسْتَخْدَمَ الطَّالِبُ الْقَلَمَ<br/>(The student used the pen)"
         ]
     },
     "V2_I": {
@@ -34,6 +131,59 @@
         "examples":[
             "إِطْمَأَنَّ قَلبِي بِذِكْرِ اللهِ<br/>(My heart finds peace in the remembrance of Allah)",
             "<br/>إِقشَعَرَّ جِسْمِي مِن بَردِ الشِّتَاءِ<br/>(My body shuddered from the winter cold)"
+        ]
+    },
+    "V3_XI":{
+        "name_ar": "Extended Verb (From XI)",
+        "notes": [
+            "<b>Intransitive</b>, <b>stative</b>",
+            "Used exclusively to describe intense or deep physical colors and bodily defects or traits",
+            "(Related to Form IX اِفْعَلَّ)"
+        ],
+        "examples":[
+            "اِسْوَدَّ اللَّيْلُ حَتَّى غَابَ القَمَرُ<br/>(The night turned pitch black until the moon disappeared)",
+            "<br/>اِصْفَارَّ المريضُ مِنَ التَّعَبِ<br/>(The patient turned pale from exhaustion)"
+        ]
+    },
+    "V3_XII":{
+        "name_ar": "Extended Verb (From XII)",
+        "notes": [
+            "Indicates acquiring a physical quality, state, or bodily shape"
+        ],
+        "examples":[
+            "اِحْدَوْدَبَ ظَهْرُ الشَّيْخِ مِنَ الكِبَرِ<br/>(The old man's back is hunched due to old age)",
+            "<br/>اِحْلَوْلَى المَذَاقُ فِي الفَمِ<br/>(The taste grew exceptionally sweet in the mouth)"
+        ]
+    },
+    "V3_XIII":{
+        "name_ar": "Extended Verb (From XIII)",
+        "notes": [
+            "Signifies a prolonged or intense physical state, action, or bodily posture"
+        ],
+        "examples":[
+            "اسْرَوَّعَ الفَارِسُ<br/>(The horseman hurried on)",
+            "<br/>اِعْلَوَّطَ الرَّجُلُ البَعِيرَ بِلاَ خِطَامٍ<br/>(The man mounted the camel without a snout.)"
+        ]
+    },
+    "V3_XIV":{
+        "name_ar": "Extended Verb (From XIV)",
+        "notes": [
+            "Denotes extreme intensity or depth of a quality",
+            "typically concerning darkness or physical bulk"
+        ],
+        "examples":[
+            "اقْشَعَرَّ الجِلْدُ مِنَ البَرْدِ<br/>(The skin shivered from the cold)",
+            "<br/>اِحْلَنْكَكَ الظَّلاَمُ<br/>(The darkness became pitch black)"
+        ]
+    },
+    "V3_XV":{
+        "name_ar": "Extended Verb (From XV)",
+        "notes": [
+            "Representing maximal physical swelling, pride, or aggressive posturing"
+        ],
+        "examples":[
+            "اعْرَنْطَى الخَصْمُ فِي مُجَادَلَتِهِ<br/>(The opponent became arrogant in his argument)",
+            "<br/>اِحْبَنْطَى الرَّجُلُ مِنَ الغَيْظِ<br/>(The man became depressed with anger)"
         ]
     }
 }

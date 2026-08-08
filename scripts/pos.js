@@ -793,8 +793,15 @@ class posAPI {
 						</td>
 					</tr>`;
 
-				//Add Examples
+				//Add Examples and notes
 				var exKey = `${key}_${entryName.split(' ')[1]}`;	
+				var notes = exData[exKey] ? exData[exKey].notes : undefined;
+				if(notes){
+					row += `
+					<td colspan="4" style="font-size:14px;background-color:#ffffe0;direction:ltr">
+					${notes.map(x => x).join("<br/>")}
+					</td></tr>`;
+				}
 				var examples = exData[exKey] ? exData[exKey].examples : undefined;
 				if(examples){
 					row += `
