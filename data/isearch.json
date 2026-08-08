@@ -429,15 +429,30 @@
         "action": "adj",
         "data": "pos:5"
     },
-    "Adverbs;ظُرُوف;ظرف": {
+    "Temporal Adverb;ظُرُوف;ظرف;ظرفُ الزَّمان": {
         "path": "dict.html",
         "action": "adv",
         "data": "pos:1"
     },
-	"Distinction;Distinctive;of Number;of Quality;of Quantity;التمييز;مميز العدد;مميزة الكمية;مميزة الجودة": {
+    "Adverb of Place;ظُرُوف;ظرف;ظرفُ المكان": {
         "path": "dict.html",
         "action": "adv",
         "data": "pos:2"
+    },
+    "Adverb of Frequency;ظُرُوف;ظرف;ظرفُ التكرار": {
+        "path": "dict.html",
+        "action": "adv",
+        "data": "pos:3"
+    },
+    "Adverb of Manner;ظُرُوف;ظرف;الحال": {
+        "path": "dict.html",
+        "action": "adv",
+        "data": "pos:4"
+    },
+	"Distinction;Distinctive;of Number;of Quality;of Quantity;التمييز;مميز العدد;مميزة الكمية;مميزة الجودة": {
+        "path": "dict.html",
+        "action": "adv",
+        "data": "pos:5"
     },
 	"Exclusion;Exceptions;المستثنى;أداةُ الإستِثناء;": {
         "path": "dict.html",
