@@ -183,16 +183,16 @@ function removePunctuations(w){
 }
 
 function filterMTableRows(match, index, text){
-    const rows = $(`table[id*=${match}] tr`);
-	const cells = rows.find('td, th');
+	const tab = $(`table[id*=${match}]`);
 	if(text == 'all'){
-		cells.show();
-	}
-	else{
-		cells.hide();
-		tableRows = $(`table[id=${match}${index}] tr`);
-		const tableCells = tableRows.find('td, th');
-		tableCells.show();
+		tab.css('display', '');
+	}else{
+		tab.css('display', 'none');
+		var tab2 = $(`table[id=${match}${index}]`);
+		var p = tab2.parent();
+		tab2.remove();
+		$(".nFilterDiv").after(tab2);
+		tab2.css('display', '');
 	}
 }
 
