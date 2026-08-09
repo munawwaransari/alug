@@ -3,7 +3,7 @@
         "path": "dict.html",
         "action": "vtab-all"
     },
-    "Triliterate verbs;ثلاثي مجرد": {
+    "Trilateral verbs;ثلاثي مجرد": {
         "path": "dict.html",
         "action": "vtab-3"
     },
@@ -359,12 +359,12 @@
         "action": "masdar",
         "data": "pos:1"
     },
-    "Masdar - Triliteral;مصادر;": {
+    "Masdar - Trilateral;مصادر;": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:4"
     },
-    "Masdar - Quadliteral;مصادر;": {
+    "Masdar - Quadrilateral;مصادر;": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:11"
