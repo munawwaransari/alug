@@ -748,5 +748,20 @@
         "path": "dict.html",
         "action": "verbType",
         "data": "pos:4"
+    },
+    "Trilateral Verbs;Form I;Form II;Form III;Form IV;Form V;Form VI;Form VII;Form VIII;Form IX;Form X;ابواب الفعل المزيد":{
+        "path": "dict.html",
+        "action": "vtab-all",
+        "data": "pos:1"
+    },
+    "Quadrilateral Verbs;ابواب الفعل الرباعي":{
+        "path": "dict.html",
+        "action": "vtab-all",
+        "data": "pos:2"
+    },
+    "Extended Verbs;Form XI;Form XII;Form XIII;Form XIV;Form XV":{
+        "path": "dict.html",
+        "action": "vtab-all",
+        "data": "pos:3"
     }
 }
