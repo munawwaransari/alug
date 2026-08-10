@@ -1404,14 +1404,14 @@ function showWeakVerbTable(d, ii) {
 						getPromptFromKey(['WeakVerbs'], {'0': ['${k}}']}, true))">More</a>
 			</td>
 		</tr>
-		<tr style="background-color:#E8E885;">
-			<td>${v.info[1]}</td>
+		<tr>
+			<td style="background-color:#E8E885;">${v.info[1]}</td>
 		</tr>
 		<tr>
 			<td>${v.info[2]}</td>
 		</tr>
 		<tr>
-			<td colspan="2" style="border:none">
+			<td colspan="2" style="border:none;">
 			<br/>${v.examples.map((ex) => replaceQLink(ex, false)).join('<br/>')}<br/><br/>
 			</td>
 		</tr>
