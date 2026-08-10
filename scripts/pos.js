@@ -718,7 +718,8 @@ class posAPI {
 		var vTable = $(`
 			<table id="vTable${key[1]}" class="vTable">
 			${ title ? 
-				`<tr><td colspan="4">${title}</td></tr>`:
+				`<tr><td colspan="4">${title}</td></tr>
+				 <tr><td id="tdForm${key[1]}" colspan="4"></td></tr>`:
 				''
 			}
 			<tr>
@@ -752,9 +753,13 @@ class posAPI {
 							getPromptFromKey(['VerbConjugation'], 
 								{'0': ['${entryName}','YYY (ZZZ)']}), true)"
 						>WWW</a>`;
+				
+				var formNumber = entryName.split(' ')[1];
+				$(`#tdForm${key[1]}`).append($(`
+					<a style="margin-right:10px;text-decoration:none" href="#form${formNumber}">${formNumber}</a>`));
 				var row = `
-					<tr>
-						<td>${cmpLink.replaceAll('\$', entryName.split(' ')[1]).replaceAll('@', index)}</td>
+					<tr id="form${formNumber}">
+						<td>${cmpLink.replaceAll('\$', formNumber).replaceAll('@', index)}</td>
 						<td>
 							${cmpLink.replaceAll('\$',pst[0]+' - '+ prt[0]).replaceAll('@', index)}
 							<br/>
@@ -798,7 +803,8 @@ class posAPI {
 				var notes = exData[exKey] ? exData[exKey].notes : undefined;
 				if(notes){
 					row += `
-					<td colspan="4" style="font-size:14px;background-color:#ffffe0;direction:ltr">
+					<td><a style="text-decoration:none;" href="#">[↑]</a></td>
+					<td colspan="3" style="font-size:14px;background-color:#ffffe0;direction:ltr">
 					${notes.map(x => x).join("<br/>")}
 					</td></tr>`;
 				}
