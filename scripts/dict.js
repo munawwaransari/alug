@@ -1215,7 +1215,7 @@ function showInadequateVerbTable(d, ii) {
 		"توقيت": {
 			en: "(Timing)",
 			info: [
-				"to become / to change", "أصبَح / أَمسَ / ظَلّ / بَاتَ"
+				"to become / to change", "أصبَح / أَمْسَى / أَضْحَى / ظَلّ / بَاتَ"
 			],
 			examples: [
 				"فَسُبۡحَٰنَ   ٱللَّهِ   حِينَ   تُمۡسُونَ   وَحِينَ   تُصۡبِحُونَ [30:17]",
@@ -1282,6 +1282,9 @@ function showInadequateVerbTable(d, ii) {
 		
 		var table = `
 		<table class="mTable" id="mTable${index+1}">
+			<tr>
+				<td style="min-width:300px;"><b>(الأفعال الناقصة) Inadequate Verbs</b></td>
+			</tr>
 			<tr style="background-color:#E8E885;">
 				<td style="min-width:300px;"><b>${k} ${inadVerbs[k].en}</b></td>
 			</tr>
@@ -1386,7 +1389,7 @@ function showWeakVerbTable(d, ii) {
 
 	$(".dictionary").empty();
 	var filters = [];
-	$(".dictionary").append('<div style="height:10px;"></div><div style="width:100%; text-align:center">حرف العِلَّت When root of a word has one or more </div>');
+	$(".dictionary").append('<div id="wvTitle" style="margin-top:10px; width:100%; text-align:center"><b>(الأفعال الناقصة) Weak Verbs</b><br/>حرف العِلَّت When root of a word has one or more </div>');
 	var index = 0;
 	$.each(nawaqis, (k, v)=>{
 		index++;
@@ -1422,7 +1425,12 @@ function showWeakVerbTable(d, ii) {
 	// Add filter drop down
 	if (filters.length > 0) {
 		$(".dictionary").prepend($(getListButtinWithSelect(`
-			<select class="nFilter" onchange="filterMTableRows('mTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val())">
+			<select class="nFilter" 
+				onchange="filterMTableRows('mTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val());
+				          var d =$('#wvTitle');
+						  d.remove();
+						  $('.nFilterBtn').after(d); 
+						  d.show();">
 			<option value="all">Show All</option>
 			${
 				filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
