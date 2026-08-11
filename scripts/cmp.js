@@ -149,7 +149,16 @@ class cmpAPI {
 						<tr>
 						${
 							topics.map((topic) => {
-								return `<td>${replaceQLink(cmp["features"][topic][f])}</td>`
+								if(cmp["features_links"]){
+									var res = cmp["features"][topic][f];
+									Object.keys(cmp["features_links"]).every((key)=>{
+										res = res.replace(key, `<a href="#" onclick="parent.redirect(${cmp["features_links"][key]});">${key}</a>`);
+										return true;
+									});
+									return `<td>${replaceQLink(res)}</td>`;
+								}else{
+									return `<td>${replaceQLink(cmp["features"][topic][f])}</td>`
+								}
 							})
 						}
 						</tr>`;

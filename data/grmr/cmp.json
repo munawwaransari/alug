@@ -602,6 +602,45 @@
     {
         "compareType":"sentence",
         "topics": [
+            "المعرب",
+            "المبني"
+        ],
+        "notes": null,
+        "ar": [
+            "تعريف",
+            "مِثال"
+        ],
+        "en": [
+            "Definition",
+            "Example"
+        ],
+        "features": {
+            "المعرب": [
+                "<p style=\"direction:ltr\"><b>المعرب (محل له من الإعراب)</b><br/>These are words that change their last vowel or letter when their place in the sentence changes.<br/><br/>These are :<br/>Fully Declinable (مُنصَرِف),<br/>Partially Declinable (ممنوع من الصرف)<br/><br/></p>",
+                "<p style=\"direction:ltr\">Examples:<br/>الاسم المفرد: مثل (محمدٌ، محمدًا، محمدٍ)<br/>جمع التكسير: مثل (رجالٌ، رجالًا، رجالٍ)<br/>جمع المؤنث السالم: مثل (المؤمناتُ، المؤمناتِ) <br/>الفعل المضارع:(يكتبُ، لن يكتبَ، لم يكتبْ)<br/>المثنى  (مثل: الطالبان، الطالبين)<br/>جمع المذكر السالم (مثل: المعلمون، المعلمين)<br/>اسماء الخمسة: (أبوك، أخوك، حموك، فوك، ذو مال)<br/>الأفعال الخمسة (يفعلان, تفعلان, يفعلون, تفعلون, تفعلين)</p>"
+            ],
+            "المبني": [
+                "<p style=\"direction:ltr\"><b>المبني (لا محل له من الإعراب)</b><br/>These words keep one fixed sound at the end no matter what happens in the sentence.<br/><br/>These are (Past Tense Verbs) الافعال الماضي,<br/> (Particles) الحروف,<br/> الأسماء المبنية.</p>",
+                "<p style=\"direction:ltr\">Examples:<br/>الماضي: (كَتَبَ, ذَهَبَ)<br/>الأمر: (اِذْهَبْ, اُكْتبي)<br/>الحروف: (مِنْ, إِلَى, فِي, عَنْ, عَلَى)<br/>الأسماء الموصولة: (الذي, اللائي, التي, التي)<br/>ضمائر المنفصلة: (أنتَ, نحن, أنتم)<br/>ضمائر المتصلة: (تاء الفاعل:نجحتُ, واو الجماعة:نجحوا, الغائب:كتابه)<br/>أسماء الإشارة: (هذا, هاتان, هؤلاء)<br/>أسماء الاستفهام: (مَنْ, متى, كيف, أين)<br/>أسماء الشرط: (أينما, ما, مهما)</p>"
+            ]
+        },
+        "features_links":{
+            "الفعل المضارع": "'dict.html','verbType','pos:1'",
+            "جمع التكسير": "'dict.html','noun-pat'",
+            "اسماء الخمسة": "'dict.html','five-noun'",
+            "الماضي": "'dict.html','verbType','pos:1'",
+            "الأمر": "'dict.html','vtab-imp'",
+            "الحروف":"'dict.html','prep','all'",
+            "الأسماء الموصولة": "'dict.html','pronoun','Relative Pronouns'",
+            "ضمائر المنفصلة": "'dict.html','pronoun','Subjective Pronouns'",
+            "ضمائر المتصلة": "'dict.html','pronoun','Objective Pronouns'",
+            "أسماء الإشارة": "'dict.html','pronoun','Demonstrative Pronouns'",
+            "أسماء الشرط": "'dict.html','prep','مَا - Preposition'"
+        }
+    },
+    {
+        "compareType":"sentence",
+        "topics": [
             "علاماتُ التَّشكِيل",
             "إعراب"
         ],
@@ -626,32 +665,6 @@
                 "<b>إعراب </b>are used as grammatical notions on nouns and verbs to identify cases and states. <br/><b>Noun --> رَفع ( ُ )، نَصب ( َ )،<br/> جر ( ِ )، تنوِين( ٌ/ ٍ/ ً)<br/>Verbs --> رَفع ( ُ )، نَصب ( َ )، جزم ( ْ )</b>",
                 "used on last letter of the noun, and for verbs it is fixed for each pattern",
                 "زَيدٌ --> letter د has تَنوِين as erab <br/>(indicating nominative case) <br/><br/>كِتَابُ اللهِ --> letter ب has ضَمَّة as erab <br/>(its tanween removed)<br/>and letter ه has كَسَرَة as erab <br/>(indicating possesive noun)<br/>"
-            ]
-        }
-    },
-    {
-        "compareType":"sentence",
-        "topics": [
-            "المعرب",
-            "المبني"
-        ],
-        "notes": null,
-        "ar": [
-            "تعريف",
-            "مِثال"
-        ],
-        "en": [
-            "Definition",
-            "Example"
-        ],
-        "features": {
-            "المعرب": [
-                "<p style=\"direction:ltr\"><b>المعرب (محل له من الإعراب)</b><br/>These are words that change their last vowel or letter when their place in the sentence changes.<br/><br/>These are of two main types:<br/>Fully Declinable (مُنصَرِف) and <br/>Partially Declinable (ممنوع من الصرف)<br/><br/></p>",
-                "<p style=\"direction:ltr\">Examples:<br/>الاسم المفرد: مثل (محمدٌ، محمدًا، محمدٍ)<br/>جمع التكسير: مثل (رجالٌ، رجالًا، رجالٍ)<br/>جمع المؤنث السالم: مثل (المؤمناتُ، المؤمناتِ) <br/>الفعل المضارع (يكتبُ، لن يكتبَ، لم يكتبْ)<br/>المثنى  (مثل: الطالبان، الطالبين)<br/>جمع المذكر السالم (مثل: المعلمون، المعلمين)<br/>الأسماء الخمسة: (أبوك، أخوك، حموك، فوك، ذو مال)<br/>الأفعال الخمسة (يفعلان, تفعلان, يفعلون, تفعلون, تفعلين)</p>"
-            ],
-            "المبني": [
-                "<p style=\"direction:ltr\"><b>المبني (لا محل له من الإعراب)</b><br/>These words keep one fixed sound at the end no matter what happens in the sentence.<br/><br/>These are (Past Tense Verbs) الافعال الماضي,<br/> (Particles) الحروف,<br/> الأسماء المبنية.</p>",
-                "<p style=\"direction:ltr\">Examples:<br/>الماضي: (كَتَبَ, ذَهَبَ)<br/>الأمر: (اِذْهَبْ, اُكْتبي)<br/>الحروف: (مِنْ, إِلَى, فِي, عَنْ, عَلَى)<br/>الأسماء الموصولة: (الذي, اللائي, التي, التي)<br/>الضمائر المنفصلة: (أنتَ, نحن, أنتم)<br/>الضمائر المتصلة: (تاء الفاعل - نجحتُ, واو الجماعة - نجحوا, الغائب - كتابه)<br/>أسماء الإشارة: (هذا, هاتان, هؤلاء)<br/>أسماء الاستفهام: (مَنْ, متى, كيف, أين)<br/>أسماء الشرط: (أينما, ما, مهما)</p>"
             ]
         }
     },     

@@ -184,12 +184,12 @@
         "action": "prep",
         "data": "حروف مشبة بِالفعل (ظَنَّ)"
     },
-    "Erab vs Tashkeel;علاماتُ التَّشكِيل;إعراب;": {
+    "Words with or without Erab;مُعرب;مبني;محل له من العراب": {
         "path": "dict.html",
         "action": "sentence",
 	"data": "pos:0"
     },
-    "Words with or without Erab;مُعرب;مبني;محل له من العراب": {
+    "Erab vs Tashkeel;علاماتُ التَّشكِيل;إعراب;": {
         "path": "dict.html",
         "action": "sentence",
 	"data": "pos:1"
