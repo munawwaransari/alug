@@ -189,55 +189,60 @@
         "action": "sentence",
 	"data": "pos:0"
     },
-    "Scripts;خط الإملائي;خط العروضي": {
+    "Words with or without Erab;مُعرب;مبني;محل له من العراب": {
         "path": "dict.html",
         "action": "sentence",
 	"data": "pos:1"
     },
-    "Rule based vs Auditory;قياسي;سماعي": {
+    "Scripts;خط الإملائي;خط العروضي": {
         "path": "dict.html",
         "action": "sentence",
 	"data": "pos:2"
     },
-    "Sentence types;جملة خبرية;جملة إنشائية": {
+    "Rule based vs Auditory;قياسي;سماعي": {
         "path": "dict.html",
         "action": "sentence",
 	"data": "pos:3"
     },
-    "Sentence Erab;اعتراضية;جملة إنشائية": {
+    "Sentence types;جملة خبرية;جملة إنشائية": {
         "path": "dict.html",
         "action": "sentence",
 	"data": "pos:4"
     },
+    "Sentence Erab;اعتراضية;جملة إنشائية": {
+        "path": "dict.html",
+        "action": "sentence",
+	"data": "pos:5"
+    },
     "Affirmative sentence;إيجابي;": {
-        "path": "dict.html",
-        "action": "sentence",
-        "data": "pos:5"
-    },
-	"Negative sentence;نفي;": {
-        "path": "dict.html",
-        "action": "sentence",
-        "data": "pos:5"
-    },
-	"Interrogative sentence;استفهامي;": {
-        "path": "dict.html",
-        "action": "sentence",
-        "data": "pos:5"
-    },
-    "Emphasis;توكيد اللفظي;توكيد اللمعنوي;": {
         "path": "dict.html",
         "action": "sentence",
         "data": "pos:6"
     },
-    "Possesive Construction;إضافة;المركب الإضافي;مُضاف;مُضاف إليه": {
+	"Negative sentence;نفي;": {
+        "path": "dict.html",
+        "action": "sentence",
+        "data": "pos:6"
+    },
+	"Interrogative sentence;استفهامي;": {
+        "path": "dict.html",
+        "action": "sentence",
+        "data": "pos:6"
+    },
+    "Emphasis;توكيد اللفظي;توكيد اللمعنوي;": {
         "path": "dict.html",
         "action": "sentence",
         "data": "pos:7"
     },
-    "Adjectival Construction;المركب التوصيفي;نعت;منعوت;": {
+    "Possesive Construction;إضافة;المركب الإضافي;مُضاف;مُضاف إليه": {
         "path": "dict.html",
         "action": "sentence",
         "data": "pos:8"
+    },
+    "Adjectival Construction;المركب التوصيفي;نعت;منعوت;": {
+        "path": "dict.html",
+        "action": "sentence",
+        "data": "pos:9"
     },
     "Hamza;همزة القطع;همزة الوصل;": {
         "path": "dict.html",

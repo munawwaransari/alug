@@ -229,5 +229,17 @@ var video_links = [
 	{
 		title: "A Lesson in Rhetoric دَرْسٌ فِي البَلَاغَةِ",
 		link: "https://www.youtube.com/watch?v=CCsK1b3nFBI"
+	},
+	{
+		title: "Learn Arabic Through Stories - 1",
+		link: "https://www.youtube.com/watch?v=mmVwnxu1urw"
+	},
+	{
+		title: "Learn Arabic Through Stories - 2",
+		link: "https://www.youtube.com/watch?v=8tezQIF4VCo"
+	},
+	{
+		title: "Learn Arabic Through Stories - 3",
+		link: "https://www.youtube.com/watch?v=DCNj8hJcP68"
 	}
 ];
