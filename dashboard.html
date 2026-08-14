@@ -1,0 +1,113 @@
+<!--
+	Author: munawwar_ali@yahoo.com	
+//-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+	<link rel="stylesheet" type="text/css" href="styles/autoc-styles.css" media="screen">
+	<title>Dashboard</title>
+	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+	<script src="scripts/require.js"></script>
+    <script src="scripts/data-util.js"></script>
+    <script src="scripts/dbrd.js"></script>
+	<style>
+        #dbContainer {
+            width: auto;
+            height: auto;
+            margin-top:10px;
+            display:inline-flex;
+            flex-wrap: wrap; 
+        }
+
+        .dbcard textarea {
+            width:100%;
+            height:100%;
+        }
+
+        .dbcard img {
+            width:auto;
+            height:auto;
+            display:block;
+            object-fit: contain;
+        }
+
+        .dbcard-select {
+            background-color: lightcyan !important;
+        }
+        
+        .dbcard {
+            border:2px solid black;
+            background-color: white;
+            font-size: 18px;
+            text-align: center;
+            vertical-align: middle;
+            width: auto;
+            height: auto;
+        }
+
+        .dbcard-settings {
+            display: none;
+        }        
+	</style>
+</head>
+  <body onload="refreshCards()">
+    <div class="containerHead" onclick="toggleQHead()">
+        <img id="imgQHead" style="position:absolute;z-index:999;margin-bottom:6px;margin:auto;height:10px;" 
+            src="images/up.png">
+    </div>
+  	<div id="divQHead">
+		<div style="text-align:center;display:inline-block;width:100%">
+			<div>
+				<span style="float:right;display:inline-flex;flex-direction:row;justify-content:center;">
+                    <img src="images/exp.png"  
+                        alt="Export" style="float:right; top:0; width:18px;cursor:pointer;"
+                        onclick="convertHTMLtoImage('#dbContainer', [], 'exported-board.pdf')"/>
+                    <span>&nbsp;</span>
+                    <button onclick="addNewCardToDashboard();refreshCards();">&#x2795</button>
+					<span>&nbsp;</span>
+                    <button onclick="delSelectedCardFromDashboard();refreshCards();">&#x2796</button>
+                    <span>&nbsp;</span>
+                    <button onclick="narkCardsAsDeleted();refreshCards();">Clear</button>
+                    <span>&nbsp;&nbsp;</span>
+				</span>
+                <div class="dbcard-settings">
+                    <span style="cursor:pointer" onclick="moveSelectedCard('left')">&#x1F844</span>
+                    <span>&nbsp;&nbsp;</span>
+                    Size: <select id="selSize" onchange="changeSettings('ui', 'data-width', $(this).val())">
+                        <option value="100%">100%</option>
+                        <option value="50%">50%</option>
+                        <option value="fit-content">Content</option>
+                    </select>
+					<span>&nbsp;&nbsp;</span>
+                    Float: <select id="selFloat" onchange="changeSettings('ui', 'float', $(this).val())"> 
+                        <option value="none">none</option>
+                        <option value="right">right</option>
+                        <option value="left">left</option>
+                    </select>
+					<span>&nbsp;&nbsp;</span>
+                    Border: <select id="selBorder" onchange="changeSettings('ui', 'border', $(this).val())"> 
+                        <option value="0px">0</option>
+                        <option value="1px">1</option>
+                        <option value="2px" selected>2</option>
+                        <option value="4px">4</option>
+                    </select>
+					<span>&nbsp;&nbsp;</span>
+                    Text: <select id="selBorder" onchange="changeSettings('ui', 'text', $(this).val())"> 
+                        <option value="name" selected>Name</option>
+                        <option value="1">Gap 1</option>
+                        <option value="2">Gap 2</option>
+                        <option value="3">Gap 3</option>
+                    </select>
+                    <span>&nbsp;&nbsp;</span>
+                    <span style="cursor:pointer" onclick="moveSelectedCard('right')">&#x1F846</span>
+				</div>
+			</div>
+		</div>
+	</div>  
+  <div id="dbContainer">
+  </div>
+</body>
+</html>

@@ -129,6 +129,22 @@ class cmpAPI {
 						openGoogleAISearch(prompts[0]);">
 						Google ai search
 						</a>
+						${
+						parent.document.getElementById('dbrd').style.display != "none" ?
+						`&nbsp;
+						<a style="float:right">
+							<img alt="Pin to Dashboard" 
+							     src="images/pin.png"
+								 style="width:22px;"
+								 onclick="convertElementToImage($('#xTable')[0],
+										{
+								 			'crop': true, 
+											'cropRect': $('#xTable tbody:first')[0].getBoundingClientRect()
+										},
+								 		(img)=>{addNewCardToDashboard(img.outerHTML)})"/>`
+						:''
+						}
+						</a>
 					</td>
 				</tr>`);
 			}

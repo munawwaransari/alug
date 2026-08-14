@@ -1591,7 +1591,7 @@ function convertHTMLtoImage(selector, filters, imgFileName){
 				$(filters[1]).css('display', 'none');
 			}
 
-			convertElementToImage(elementHTML, function(img){
+			convertElementToImage(elementHTML, null, function(img){
 				require(["scripts/jsPDF/jspdf.umd.js"], function (ns) {
 					const doc = new ns.jsPDF({
 						orientation: "portrait",
@@ -1652,37 +1652,56 @@ function convertHTMLtoImage(selector, filters, imgFileName){
 	});
 }
 
-function convertElementToImage(element, cb) {
+function convertElementToImage(element, opt, cb) {
   	require(["html2canvas.js"], function(html2canvas){
-		html2canvas(element).then(canvas => {
-			// The image data is available as a data URL (base64 encoded string)
-			const imageDataUrl = canvas.toDataURL("image/png"); 
-			//console.log("Image Data URL:", imageDataUrl);
+		html2canvas(element)
+		.then(canvas => {			
 
-			// Optional: Display the image on the page
 			const img = new Image();
-			img.src = imageDataUrl;
-			if(cb){
-				cb(img);
+			img.src = canvas.toDataURL("image/png"); 
+			if(opt && opt.crop){
+				img.onload = () => {
+					const cropped = cropCanvas(img, 
+						opt.cropRect.x, 
+						0, //opt.cropRect.y,
+						opt.cropRect.width,
+						opt.cropRect.height);
+		
+					//document.body.appendChild(cropped);
+					const img2 = new Image();
+					img2.src = cropped.toDataURL('image/png');
+					if(cb){
+						cb(img2);
+					}
+				};
+			}else{
+				if(cb){
+					cb(img);
+				}
 			}
 		});
 	});
 }
 
-function cropImage(img, cropX, cropY, cropWidth, cropHeight){
-  
-	const canvas = document.createElement('canvas');
-	const ctx = canvas.getContext('2d');
+function cropCanvas(source, sx, sy, width, height) {
+    // 1. Create a new, temporary canvas element
+    const croppedCanvas = document.createElement('canvas');
+    const ctx = croppedCanvas.getContext('2d');
 
-	// Set canvas size to the desired crop dimensions
-	canvas.width = cropWidth;
-	canvas.height = cropHeight;
+    // 2. Set the canvas dimensions to match the target crop size
+    croppedCanvas.width = width;
+    croppedCanvas.height = height;
 
-	// Draw the specific portion of the image onto the canvas
-	ctx.drawImage(img, cropX, cropY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
-  
-	// Export as a Data URL or Blob
-	return canvas.toDataURL('image/png');
+    // 3. Draw the sub-region of the source onto the new canvas
+    ctx.drawImage(
+        source, 
+        sx, sy,       // Source crop position
+        width, height, // Source crop dimensions
+        0, 0,          // Destination placement position
+        width, height  // Destination placement dimensions
+    );
+
+    return croppedCanvas;
 }
 
 function getPromptsForVerse(chapter, verse, target = 'puter') {
@@ -1770,6 +1789,17 @@ function loadPuterSearch(prompt){
 			"ai.html", 
 			"", 
 			prompt ? prompt : ''
+		);
+	}
+}
+
+function loaDashboard(){
+	console.log("loadPuterSearch");
+	if(parent.redirect){
+		parent.redirect(
+			"dashboard.html", 
+			"", 
+			''
 		);
 	}
 }
@@ -2035,4 +2065,39 @@ function getActionFromCompareType(compareType){
 
 function getFreeImageSource(keyword, url="https://loremflickr.com/360/480/"){
 	return `${url}${keyword}`;
+}
+
+function delSelectedCardFromDashboard(){
+	if(parent.dashboard){
+		var selCard = $(".dbcard-select");
+		if(selCard.length == 1){
+			var dashboard = parent.dashboard;
+			var id = selCard.prop('id');
+			if(dashboard.cards[id]){
+				dashboard.cards[id].html = 'DELETED';
+			}
+		}
+	}
+}
+
+function addNewCardToDashboard(source){
+    if(parent.dashboard){
+		var dashboard = parent.dashboard;
+		var id=`dbcard${dashboard.count+1}`;
+		
+		// // adjust styles
+		// if(source && source.startsWith("<img ")){
+		// 	source = source.replace('<img ', '<img style="max-width:auto;height:auto;display:block;" ')
+		// }
+		dashboard.cards[id]={
+			id: id,
+			num:dashboard.count+1,
+			html: source,
+			settings: {
+				"size": "fit-content",
+				"float": "none"
+			}
+		};
+		dashboard.count++;
+	}
 }

@@ -476,6 +476,13 @@ function updateToolDescription(id, opt){
 			loadPuterSearch();
 		break;
 
+		case 'dbrd':
+		var sdiv = $(`
+			<div  style="width:100%">Dashboard</div>`);
+			toolMessage.html(sdiv);
+			loaDashboard();
+		break;
+
 		case 'in-search':
 			var sdiv = $(`
 			<div>
