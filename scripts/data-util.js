@@ -1654,9 +1654,15 @@ function convertHTMLtoImage(selector, filters, imgFileName){
 
 function convertElementToImage(element, opt, cb) {
   	require(["html2canvas.js"], function(html2canvas){
+		//hide pin icon
+		var pinImg = $(element).find("img[alt='Pin to Dashboard']");
+		if(pinImg.length > 0 && pinImg.is(":visible")){
+			pinImg.hide();
+		}else{
+			pinImg = undefined;
+		}
 		html2canvas(element)
-		.then(canvas => {			
-
+		.then(canvas => {				
 			const img = new Image();
 			img.src = canvas.toDataURL("image/png"); 
 			if(opt && opt.crop){
@@ -1678,6 +1684,11 @@ function convertElementToImage(element, opt, cb) {
 				if(cb){
 					cb(img);
 				}
+			}
+
+			//reenable icon
+			if(pinImg){
+				pinImg.show();
 			}
 		});
 	});
