@@ -610,7 +610,7 @@ class posAPI {
 		var filters = [];
 		var nTable = $(`<table id="nTable" class="nTable">
 						<tr>
-						 <th style="font-size: 22px;">اسم (واحد)</th>
+						 <th style="font-size: 22px;">اسم (واحد)${getPinIcon('nTable', parent.document)}</th>
 						 <th style="font-size: 22px;">جمع (مكسّر)</th>
 						 <th style="font-size: 14px;">Example</th>
 						 <th style="font-size: 14px;">Type</th>
@@ -718,7 +718,7 @@ class posAPI {
 		var vTable = $(`
 			<table id="vTable${key[1]}" class="vTable">
 			${ title ? 
-				`<tr><td colspan="4">${title}</td></tr>
+				`<tr><td colspan="4">${title}${getPinIcon(`vTable${key[1]}`, parent.document)}</td></tr>
 				 <tr><td id="tdForm${key[1]}" colspan="4"></td></tr>`:
 				''
 			}
@@ -935,6 +935,7 @@ class posAPI {
 				<tr style="background-color:#F6F6BA;font-size:18px;">
 					<th style="font-size: 22px;">
 						${value.ar}<br/>${value.en}
+						${getPinIcon(`mTable${index}`,parent.document)}
 					</th>
 				</tr>
 			</table>`);

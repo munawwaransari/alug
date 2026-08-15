@@ -22,7 +22,10 @@ function addObjectEffectTable(container, objData){
 	var pTable = `
 		<table id="${id}" class="pTable">
 		<tr>
-			<td style="background-color:#ACE892;">${objData.name_ar}</td>
+			<td style="background-color:#ACE892;">
+			${objData.name_ar}
+			${getPinIcon(id, parent.document)}
+			</td>
 		</tr>`;
 	
 	if(objData["notes"]){

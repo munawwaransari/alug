@@ -2101,3 +2101,19 @@ function addNewCardToDashboard(source){
 		dashboard.count++;
 	}
 }
+
+function getPinIcon(id, doc){
+	return doc.getElementById('dbrd').style.display != "none" ?
+	`&nbsp;
+	<a style="float:right">
+		<img alt="Pin to Dashboard" 
+				src="images/pin.png"
+				style="width:22px;cursor:pointer;"
+				onclick="convertElementToImage($('#${id}')[0],
+					{
+						'crop': true, 
+						'cropRect': $('#${id} tbody:first')[0].getBoundingClientRect()
+					},
+					(img)=>{addNewCardToDashboard(img.outerHTML)})"/></a>`
+	:'';
+}
