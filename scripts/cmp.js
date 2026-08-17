@@ -129,7 +129,7 @@ class cmpAPI {
 						openGoogleAISearch(prompts[0]);">
 						Google ai search
 						</a>
-						${getPinIcon('xTable', parent.document)}
+						${getPinIcon('xTable',' tbody:first',parent.document)}
 					</td>
 				</tr>`);
 			}

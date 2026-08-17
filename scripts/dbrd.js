@@ -18,7 +18,7 @@ function selectCard(el){
         // load selected settings
         selCard = $(`.${dbcardSelectClass}`)
         changeSettings(undefined, 'data-width', selCard.attr('data-width'));
-        changeSettings(undefined, 'float', selCard.css('float'));
+        changeSettings(undefined, 'padding', selCard.css('padding'));
         changeSettings(undefined, 'border', selCard.css('border-width'));
         changeSettings(undefined, 'text', selCard.attr('data-text'));
         
@@ -122,12 +122,12 @@ function changeSettings(src, prop, val){
             }
             break;
 
-        case 'float':
+        case 'padding':
             if(src == 'ui'){
-                elem.css(prop, val);
+                elem.css(prop, `${val}`);
             }
             else{
-                $("#selFloat").val(elem.css(prop));
+                $("#selPadding").val(elem.css(prop));
             }
             break;
 

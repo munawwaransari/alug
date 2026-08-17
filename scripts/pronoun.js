@@ -60,7 +60,7 @@ function addRelativePronouns(container){
 			<tr>
 				<th colspan="3" class="engText" style="font-size: 18px;">
 					Relative Pronouns (اسمَاءُ الموصول)
-					${getPinIcon('pTable_R',parent.document)}
+					${getPinIcon('pTable_R',' tbody:first',parent.document)}
 				</th>
 			</tr>
 			${getRows('RN1', null, rel, 'اسماء الموصولة الخاصَّة (that/which)')}
@@ -84,7 +84,7 @@ function addDemonstrativePronouns(container){
 			<tr>
 				<th colspan="3" class="engText" style="font-size: 18px;">
 					Demonstrative Pronouns (اسماءُالإشارة)
-					${getPinIcon('pTable_D',parent.document)}
+					${getPinIcon('pTable_D',' tbody:first',parent.document)}
 				</th>
 			</tr>
 			${getRows('DN', null, near_arr, 'اسماءُالإشارةِ القريب')}
@@ -98,7 +98,7 @@ function addPronounConjugation(container, path, en, ar, pronounMap){
 		<table id="pTable_${en[0]}" class="pTable">
 			<tr>
 				<th colspan="3" class="engText" style="font-size: 18px;">
-					${en} (${ar}) ${getPinIcon(`pTable_${en[0]}`, parent.document)}
+					${en} (${ar}) ${getPinIcon(`pTable_${en[0]}`,' tbody:first',parent.document)}
 				</th>
 			</tr>
 			${getRows(en[0]+'3', path, pronounMap["3"], 'Third person (غائب)')}
@@ -255,7 +255,7 @@ function showFiveNouns(k, v1, v2){
 	var pTable = `
 	<table id="n5Table" class="pTable" style="margin-top:20px;font-size:18px;">
 		<tr style="background-color:#CFE2F3">
-			<th>&nbsp;اسم&nbsp;${getPinIcon('n5Table', parent.document)}</th>
+			<th>&nbsp;اسم&nbsp;${getPinIcon('n5Table',' tbody:first',parent.document)}</th>
 			<th>&nbsp;مؤنث&nbsp;</th>
 			<th>&nbsp;جمع&nbsp;</th>
 			<th>&nbsp;مرفوع&nbsp;</th>

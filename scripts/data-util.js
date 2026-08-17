@@ -338,7 +338,7 @@ function playCard(text, altText){
 		if(text === 'undefined')
 			parent.playText(altText, 'en-US', {'en-US': altText});
 		else
-			parent.playText(txt, 'ar-SA', {'en-US': altText});
+			parent.playText(text, 'ar-SA', {'en-US': altText});
 	}
 }
 
@@ -2113,17 +2113,17 @@ function addNewCardToDashboard(source){
 	}
 }
 
-function getPinIcon(id, doc){
+function getPinIcon(id, subId, doc){
 	return doc.getElementById('dbrd').style.display != "none" ?
 	`&nbsp;
 	<a style="float:right">
 		<img alt="Pin to Dashboard" 
 				src="images/pin.png"
-				style="width:22px;cursor:pointer;"
+				style="width:18px;cursor:pointer"
 				onclick="convertElementToImage($('#${id}')[0],
 					{
 						'crop': true, 
-						'cropRect': $('#${id} tbody:first')[0].getBoundingClientRect()
+						'cropRect': $('#${id}${subId}')[0].getBoundingClientRect()
 					},
 					(img)=>{addNewCardToDashboard(img.outerHTML)})"/></a>`
 	:'';

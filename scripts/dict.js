@@ -475,7 +475,8 @@ function loadExamplesFromCmpData(dict, qselect) {
 		html += `
 			<div id="qid_${kval}" 
 				style="margin:auto;padding:10px;width:100%;display:inline-block;">
-				<p>${key}</p>
+				<p>${key}
+				${getPinIcon(`qid_${kval}`,'',parent.document)}</p>
 				${div}
 			</div>`;
 	});
@@ -520,7 +521,10 @@ function loadExamplesFromDefinitions(dict, qselect, data){
 				html += `
 				<div id="qid_${kval}" 
 					style="margin:auto;padding:10px;width:100%;display:inline-block;">
-					<p>${value.name_ar ?? `${key} (${value.en})`}</p>
+					<p>
+					${value.name_ar ?? `${key} (${value.en})`}
+					${getPinIcon(`qid_${kval}`,'',parent.document)}
+					</p>
 					${div}
 				</div>`;
 			}
@@ -553,7 +557,10 @@ function loadExamplesFromObjectEffectData(dict, qselect, data) {
 				html += `
 				<div id="qid_${kval}" 
 					style="margin:auto;padding:10px;width:100%;display:inline-block;">
-					<p>${value.name_ar}</p>
+					<p>
+					${value.name_ar}
+					${getPinIcon(`qid_${kval}`,'',parent.document)}
+					</p>
 					${div}
 				</div>`;
 			}
@@ -587,7 +594,10 @@ function loadExamplesFromData(dict, qselect, data, prefix) {
 				html += `
 				<div id="qid_${kval}" 
 					style="margin:auto;padding:10px;width:100%;display:inline-block;">
-					<p>${prefix} ${key}</p>
+					<p>
+					${prefix} ${key}
+					${getPinIcon(`qid_${kval}`,'',parent.document)}
+					</p>
 				${div}
 				</div>`;
 			}
@@ -1131,7 +1141,7 @@ function showTriliteralVerbTable() {
 	var table = `
 	<table id="nTable_3" class="pTable">
 		<tr style="background-color:#B6D7A8;font-size:16px;">
-			<th>الماضي المعلُوم${getPinIcon('nTable_3', parent.document)}</th>
+			<th>الماضي المعلُوم${getPinIcon('nTable_3',' tbody:first',parent.document)}</th>
 			<th>المُضارع المعلوم<br/>(مُرفُوع)</th>
 			<th>الماضي المجهُول</th>
 			<th>المُضارع المجهُول<br/>(مُرفُوع)</th>
@@ -1284,7 +1294,7 @@ function showInadequateVerbTable(d, ii) {
 		<table class="mTable" id="mTable${index+1}">
 			<tr>
 				<td style="min-width:300px;"><b>(الأفعال الناقصة) Inadequate Verbs</b>
-				${getPinIcon(`mTable${index+1}`, parent.document)}
+				${getPinIcon(`mTable${index+1}`,' tbody:first',parent.document)}
 				</td>
 			</tr>
 			<tr style="background-color:#E8E885;">
@@ -1399,7 +1409,7 @@ function showWeakVerbTable(d, ii) {
 		<table class="mTable" id="mTable${index}">
 		<tr style="width:100%">
 			<td style="background-color:#E8E885;">
-				<b>${k}${getPinIcon(`mTable${index}`, parent.document)}</b>
+				<b>${k}${getPinIcon(`mTable${index}`,' tbody:first',parent.document)}</b>
 			</td>
 			<td rowspan="3" style="min-width:200px;">${v.info[0]}<br/>
 			<a href="#" title="AI search" style="font-size:14px;" onclick="openGoogleAISearch(
@@ -1525,7 +1535,7 @@ function showImperativeTable(d, ii) {
 		<table id="mTable${index}" class="mTable">
 			<tr>
 				<th class="engText" style="font-size: 14px;">Form
-				${getPinIcon(`mTable${index}`, parent.document)}</th>
+				${getPinIcon(`mTable${index}`,' tbody:first',parent.document)}</th>
 				<th class="engText">Gender<br/>M/F</th>
 				<th class="engText">2nd Person<br/>مضارع</th>
 				<th colspan="2" class="engText">Imperative<br/>الأمر/النهي</th>

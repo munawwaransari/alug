@@ -40,7 +40,8 @@
         }
         
         .dbcard {
-            border:2px solid black;
+            padding: 20px;
+            border:0px solid black;
             background-color: white;
             font-size: 18px;
             text-align: center;
@@ -89,16 +90,19 @@
                         <option value="fit-content">Content</option>
                     </select>
 					<span>&nbsp;&nbsp;</span>
-                    Float: <select id="selFloat" onchange="changeSettings('ui', 'float', $(this).val())"> 
-                        <option value="none">none</option>
-                        <option value="right">right</option>
-                        <option value="left">left</option>
+                    Padding: <select id="selPadding" onchange="changeSettings('ui', 'padding', $(this).val())"> 
+                        <option value="0px">0</option>
+                        <option value="10px">10</option>
+                        <option value="20px" selected>20</option>
+                        <option value="30px">30</option>
+                        <option value="40px">40</option>
+                        <option value="50px">50</option>
                     </select>
 					<span>&nbsp;&nbsp;</span>
                     Border: <select id="selBorder" onchange="changeSettings('ui', 'border', $(this).val())"> 
-                        <option value="0px">0</option>
+                        <option value="0px" selected>0</option>
                         <option value="1px">1</option>
-                        <option value="2px" selected>2</option>
+                        <option value="2px">2</option>
                         <option value="4px">4</option>
                     </select>
 					<span>&nbsp;&nbsp;</span>

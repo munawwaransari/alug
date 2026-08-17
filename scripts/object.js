@@ -24,7 +24,7 @@ function addObjectEffectTable(container, objData){
 		<tr>
 			<td style="background-color:#ACE892;">
 			${objData.name_ar}
-			${getPinIcon(id, parent.document)}
+			${getPinIcon(id,' tbody:first',parent.document)}
 			</td>
 		</tr>`;
 	
