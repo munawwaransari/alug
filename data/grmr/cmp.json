@@ -41,6 +41,34 @@
     },
     {
         "topics": [
+            "هاء السكت",
+            "هاء الضمير"
+        ],
+        "ar": [
+            "تعريف",
+            "نطق",
+            "أمثلة"
+        ],
+        "en": [
+            "Definition",
+            "Prinunciation",
+            "Examples"
+        ],
+        "features": {
+            "هاء السكت": [
+                "An extra (optional) 'ha' added to the end of a word to indicate stopping (waqf)",
+                "is read when you stop, dropped when you keep reading (wasl)",
+                "...  فَيَقُولُ   هَآؤُمُ   ٱقۡرَءُواْ   كِتَٰبِيَهۡ [69:19]<br/>(كِتَٰبِيَهۡ => my book [is not translated هۡ])<br/><br/>وَلَمۡ   أَدۡرِ   مَا   حِسَابِيَهۡ [69:26]<br/><br/>مَآ   أَغۡنَىٰ   عَنِّي   مَالِيَهۡۜ [69:28]"
+            ],
+            "هاء الضمير": [
+                "A pronoun that attaches to the end of nouns, verbs, or particles",
+                "is always read",
+                "فَأَمَّا   مَنۡ   أُوتِيَ   كِتَٰبَهُۥ   بِيَمِينِهِۦ ... [69:19]<br/>(كِتَٰبَهُ => his book)<br/><br/> فَإِنَّمَا   حِسَابُهُۥ   عِندَ   رَبِّهِۦٓۚ  [23:117]<br/><br/>مَآ   أَغۡنَىٰ   عَنۡهُ   مَالُهُۥ   وَمَا   كَسَبَ [111:2]"
+            ]
+        }
+    },
+    {
+        "topics": [
             "ال العهدية",
             "ال الجنسية"
         ],

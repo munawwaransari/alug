@@ -254,117 +254,122 @@
         "action": "cmp",
 	"data": "pos:0"
     },
-    "Alif Laam;جنسية;عهدية;": {
+    "Ha;هاء السكت;هاء الضمير;": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:1"
     },
-    "Baa;باء القسم;باء التأكيد;باء السببية": {
+    "Alif Laam;جنسية;عهدية;": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:2"
     },
-    "Taa;تاء المربوطة;تاء المفتوحة;تاء الفاعل": {
+    "Baa;باء القسم;باء التأكيد;باء السببية": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:3"
     },
-    "Seen;سينُ الاستقبال;سينُ الطلب": {
+    "Taa;تاء المربوطة;تاء المفتوحة;تاء الفاعل": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:4"
     },
-    "Kaaf;كاف التشبيه;كاف الخطاب": {
+    "Seen;سينُ الاستقبال;سينُ الطلب": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:5"
     },
-	"واؤ;العطف;المعِيَّة;واؤ الحال": {
+    "Kaaf;كاف التشبيه;كاف الخطاب": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:6"
     },
-    "Wao of Ishba;واؤ الجمع;واؤ الاشباع": {
+	"واؤ;العطف;المعِيَّة;واؤ الحال": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:7"
     },
-    "Faa;فاء الإستئناف": {
+    "Wao of Ishba;واؤ الجمع;واؤ الاشباع": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:8"
     },
-    "Faa of Conjunction;فاء العاطفة": {
+    "Faa;فاء الإستئناف": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:9"
+    },
+    "Faa of Conjunction;فاء العاطفة": {
+        "path": "dict.html",
+        "action": "cmp",
+	"data": "pos:10"
     },
     "Faa of Explanation;فاء الفصيحة": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:9"
+	"data": "pos:10"
     },
     "Faa (Superfluous);فاء الزائدة": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:9"
+	"data": "pos:10"
     },
     "Laam of Causation;لام التعليل": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:10"
+	"data": "pos:11"
     },
     "Laam of Negation;لام النفي": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:10"
+	"data": "pos:11"
     },
     "Laam of Exclusion;لام الحجود": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:10"
+	"data": "pos:11"
     },
     "Laam of Emphasis;لام الإبتداء": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:11"
+	"data": "pos:12"
     },
     "Laam (Sliding);لام المزحلقة": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:11"
+	"data": "pos:12"
     },
     "Nun of Emphasis;نون التوكيد": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:12"
+	"data": "pos:13"
     },
     "Faa;نون النسوة": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:12"
+	"data": "pos:13"
     },
     "Ya;ياء المخاطبة;ياء المتكلم": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:13"
+	"data": "pos:14"
     },
     "Vocative;النِّداء;ترخِيم;": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:14"
+	"data": "pos:15"
     },
     "Until;حتي;": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:15"
+	"data": "pos:16"
     },
     "That;أن المخففة;أنّ الثقيلة": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:16"
+	"data": "pos:17"
     },
-	"Verbal Nouns;اسماء الأفعال;هَيْهاتَ;شَتّانَ;سُرْعَانَ;صَهْ;حَيَّ;هَلُمَّ;مَهْ;أُفٍّ;وَيْ;قَطْ": {
+	"Verbal Nouns;اسم فعل مضارع;اسم فعل ماضٍ;اسم فعل أمر;اسماء الأفعال;هَيْهاتَ;شَتّانَ;سُرْعَانَ;صَهْ;حَيَّ;هَلُمَّ;مَهْ;أُفٍّ;وَيْ;قَطْ": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:1"
