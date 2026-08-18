@@ -1668,8 +1668,8 @@ function convertElementToImage(element, opt, cb) {
 			if(opt && opt.crop){
 				img.onload = () => {
 					const cropped = cropCanvas(img, 
-						opt.cropRect.x, 
-						0, //opt.cropRect.y,
+						opt.useX ? opt.cropRect.x : 0, 
+						opt.useY ? opt.cropRect.y : 0,
 						opt.cropRect.width,
 						opt.cropRect.height);
 		
@@ -2123,7 +2123,8 @@ function getPinIcon(id, subId, doc){
 				onclick="convertElementToImage($('#${id}')[0],
 					{
 						'crop': true, 
-						'cropRect': $('#${id}${subId}')[0].getBoundingClientRect()
+						'cropRect': $('#${id}${subId}')[0].getBoundingClientRect(),
+						'useX': '${id}'.startsWith('xTable')
 					},
 					(img)=>{addNewCardToDashboard(img.outerHTML)})"/></a>`
 	:'';

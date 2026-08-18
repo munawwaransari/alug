@@ -447,7 +447,7 @@ function loadExamplesFromCmpData(dict, qselect) {
 		});
 	});
 
-	var html = '<div style="font-size:12px;width:100%;text-align:center;">';
+	var html = '<div style="font-size:12px;text-align:center;">';
 	Object.entries(examples).forEach(function ([key, value]) {
 		var keyExamples = String(value).split('<br/>');
 		var div = keyExamples
@@ -474,11 +474,11 @@ function loadExamplesFromCmpData(dict, qselect) {
 		qselect.append(`<option value="${kval}">${key}</option>`);
 		html += `
 			<div id="qid_${kval}" 
-				style="margin:auto;padding:10px;width:100%;display:inline-block;">
+				style="margin:auto;padding:10px;display:inline-block;">
 				<p>${key}
 				${getPinIcon(`qid_${kval}`,'',parent.document)}</p>
 				${div}
-			</div>`;
+			</div><br/>`;
 	});
 	html += '</div>';
 	dict.append($(html));
@@ -487,7 +487,7 @@ function loadExamplesFromCmpData(dict, qselect) {
 function loadExamplesFromDefinitions(dict, qselect, data){
 	if (data) {
 		var examples = data;
-		var html = '<div style="font-size:12px;width:100%;text-align:center;">';
+		var html = '<div style="font-size:12px;text-align:center;">';
 		// Display examples
 		Object.entries(examples).filter(function ([key, value]) {
 			var div = '';
@@ -520,13 +520,13 @@ function loadExamplesFromDefinitions(dict, qselect, data){
 				qselect.append(`<option value="${kval}">${value.name_ar ?? `${key} (${value.en})`}</option>`);
 				html += `
 				<div id="qid_${kval}" 
-					style="margin:auto;padding:10px;width:100%;display:inline-block;">
+					style="margin:auto;padding:10px;display:inline-block;">
 					<p>
 					${value.name_ar ?? `${key} (${value.en})`}
 					${getPinIcon(`qid_${kval}`,'',parent.document)}
 					</p>
 					${div}
-				</div>`;
+				</div><br/>`;
 			}
 		});
 		html += '</div>';
@@ -537,7 +537,7 @@ function loadExamplesFromDefinitions(dict, qselect, data){
 function loadExamplesFromObjectEffectData(dict, qselect, data) {
 	if (data) {
 		var examples = data;
-		var html = '<div style="font-size:12px;width:100%;text-align:center;">';
+		var html = '<div style="font-size:12px;text-align:center;">';
 		// Display examples
 		Object.entries(examples).filter(function ([key, value]) {
 			var div = '';
@@ -556,13 +556,13 @@ function loadExamplesFromObjectEffectData(dict, qselect, data) {
 				qselect.append(`<option value="${kval}">${value.name_ar}</option>`);
 				html += `
 				<div id="qid_${kval}" 
-					style="margin:auto;padding:10px;width:100%;display:inline-block;">
+					style="margin:auto;padding:10px;display:inline-block;">
 					<p>
 					${value.name_ar}
 					${getPinIcon(`qid_${kval}`,'',parent.document)}
 					</p>
 					${div}
-				</div>`;
+				</div><br/>`;
 			}
 		});
 		html += '</div>';
@@ -575,7 +575,7 @@ function loadExamplesFromData(dict, qselect, data, prefix) {
 	if (!prefix) prefix = '';
 	if (impExamples) {
 		var examples = impExamples;
-		var html = '<div style="font-size:12px;width:100%;text-align:center;">';
+		var html = '<div style="font-size:12px;text-align:center;">';
 		// Display examples
 		Object.entries(examples).filter(function ([key, value]) {
 			var div = '';
@@ -593,13 +593,13 @@ function loadExamplesFromData(dict, qselect, data, prefix) {
 				qselect.append(`<option value="${kval}">${prefix} ${key}</option>`);
 				html += `
 				<div id="qid_${kval}" 
-					style="margin:auto;padding:10px;width:100%;display:inline-block;">
+					style="margin:auto;padding:10px;display:inline-block;">
 					<p>
 					${prefix} ${key}
 					${getPinIcon(`qid_${kval}`,'',parent.document)}
 					</p>
 				${div}
-				</div>`;
+				</div><br/>`;
 			}
 		});
 		html += '</div>';
@@ -615,11 +615,14 @@ function listExamplesFromQuran(selText) {
 		<select id="qs1" style="text-align:center;"
 			onchange=" 
 			$('div [id*=qid_]').hide();
+			$('div [id*=qid_]').nextAll('br').hide();
 			if($(this).val() == 'ALL'){ 
 				$('div [id*=qid_]').show()
+				$('div [id*=qid_]').nextAll('br').show();
 			}else{
 				var id = arRemovePunct($(this).val()).replaceAll(' ','_');
 				$('div [id=qid_'+id+']').show();
+				$('div [id=qid_'+id+']').nextAll('br').show();
 			}
 			">
 		</select>
