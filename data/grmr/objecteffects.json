@@ -13,7 +13,7 @@
             "Subject",
             "Direct Object"
         ],
-        "notes": "Indicates the object undergoing the action (directly affected)",
+        "notes": "<p style=\"direction:ltr;\">Indicates the object undergoing the action (directly affected)</p>",
         "examples": [
             "كَذَٰلِكَ يَضْرِبُ اللَّهُ الْحَقَّ وَالْبَاطِلَ [13:17]",
             "قَالُوا يَا وَيْلَنَا إِنَّا كُنَّا طَاغِينَ [68:31]",
@@ -45,7 +45,7 @@
             "Subject",
             "Verbal Noun (Accusative)"
         ],
-        "notes": "<p style=\"direction:ltr;\">Indicates the nature of action or confirms it.It can be of following types:<br/><u>Confirmative / Emphatic (المؤكد للفعل)</u><br/><u>Descriptive (المبين للنوع)</u><br/><u>Specifying the Number (المبين للعدد)</u><br/></p>",
+        "notes": "<p style=\"direction:ltr;\">Indicates the nature of action or confirms it.It can be of following types:<br/><u>Confirmative / Emphatic (المؤكد للفعل)</u><br/><u>Descriptive (المبين للنوع)</u><br/><u>Specifying the Number (المبين للعدد)</u><br/><br/>See also: <a href=\"#\" onclick=\"parent.redirect('dict.html', 'adv', 'pos:5');\">التمييز</a>&nbsp;,&nbsp;<a href=\"#\" onclick=\"parent.redirect('dict.html', 'adv', 'pos:4');\">الحال</a></p>",
         "examples": [
             "<b><u>المؤكد للفعل</u></b>",
             "وَكَلَّمَ اللَّهُ مُوسَىٰ تَكْلِيمًا [4:164]",

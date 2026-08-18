@@ -49,13 +49,15 @@
         ],
         "notes": "<p style=\"direction:ltr\">Indicates the meaning of tense of a verb<br/>See Also: <a href=\"#\" onclick=\"parent.redirect('dict.html','masdar','pos:2');\">اسم فعل مضارع</a>, <a href=\"#\" onclick=\"parent.redirect('dict.html','masdar','pos:1');\">اسم فعل ماضٍ</a></p>",
         "examples": [
-            "<b>صَهْ</b><br/><sup>(Shut up / Hush)</sup><br/>صَهْ يا رجل<br/><br/><b>حَيَّ</b><br/><sup>(Hurry up)</sup><br/>حَيَّ عَلَى الفَلَاحِ<br/><br/><b>هَلُمَّ</b><br/><sup>(Let go)</sup><br/>هَلُمَّ بنا<br/><br/><b>مَهْ</b><br/><sup>(Stop / Hold on)</sup><br/>مَهْ عَنَّا<br/><br/>"
+            "<b>صَهٍ / صَهْ</b><br/><sup>(Shut up / Hush)</sup><br/>صَهْ يا رجل<br/><br/><b>حَيَّ</b><br/><sup>(Hurry up)</sup><br/>حَيَّ عَلَى الفَلَاحِ<br/><br/><b>هَلُمَّ</b><br/><sup>(Let go)</sup><br/>هَلُمَّ بنا<br/><sup>(Let's go!)</sup><br/><br/><b>مَهْ / مَهٍ</b><br/><sup>(Stop / Hold on)</sup><br/>مَهْ عَنَّا<br/><sup>(Leave us alone)</sup><br/>"
         ],
         "em": [
             "صَهْ",
+            "صَهٍ",
             "حَيَّ",
             "هَلُمَّ",
-            "مَهْ"
+            "مَهْ",
+            "مَهٍ"
         ]
     },
     {

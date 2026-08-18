@@ -98,6 +98,7 @@
             "Verbal",
             "Nominal"
         ],
+        "notes": "<br/>See also: <a href=\"#\" onclick=\"parent.redirect('dict.html', 'obj-effect', 'pos:2');\">المفعول المطلق</a>",
         "examples": [
             "لَا تَقْرَبُوا الصَّلَاةَ وَأَنتُمْ سُكَارَىٰ [4:43]",
             "وَجَآءُوٓ أَبَاهُمۡ عِشَآءٗ يَبۡكُونَ [12:16]",
@@ -131,19 +132,19 @@
             "Distinctive of Quantity",
             "Distinctive of Quality"
         ],
-        "notes": "Clarifies or disambiguates – Number / Quantity or Quality",
+        "notes": "<p style=\"direction:ltr;\">Clarifies or disambiguates – Number / Quantity or Quality<br/>See also: <a href=\"#\" onclick=\"parent.redirect('dict.html', 'obj-effect', 'pos:2');\">المفعول المطلق</a></p>",
         "examples": [
             "<p style=\"background-color:#D6CCB1;margin-top:-8px;padding:0;\">Distinctive of Number</p>إِنِّي رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًا [12:4]",
             "فَاجْلِدُوهُمْ ثَمَانِينَ جَلْدَةً [24:4]",
 			"<br/>لَدَيَّ خَمسُونَ دُولارًا",
-			"<p style=\"background-color:#D6CCB1;margin-top:-8px;padding:0;\">Distinctive of Quantity</p>فَسَوَّاهُنَّ سَبْعَ سَمَاوَاتٍ [2:29]",
+			"<p style=\"background-color:#D6CCB1;margin-top:-8px;padding:0;\">Distinctive of Quantity</p>فَلَن يُقۡبَلَ مِنۡ أَحَدِهِم مِّلۡءُ ٱلۡأَرۡضِ ذَهَبٗا وَلَوِ ٱفۡتَدَىٰ بِهِ [3:91]",
 			"لَهُ تِسْعٌ وَتِسْعُونَ نَعْجَةً [38:23]",
 			"<br/>اِشتَرَيتُ كِيلًا تُفَّاحًا",
 			"<p style=\"background-color:#D6CCB1;margin-top:-8px;padding:0;\">Distinctive of Quality</p>وَالَّذِينَ آمَنُوا أَشَدُّ حُبًّا لِّلَّهِ [2:165]",
 			"وَمَنْ أَحْسَنُ مِنَ اللَّهِ صِبْغَةً [2:138]",
 			"<br/>زَيدٌ يَلعَبُ جَيِّدُا"
         ],
-		"em":[ "كَوْكَبًا", "جَلْدَةً", "دُولارًا", "سَمَاوَاتٍ", "نَعْجَةً", "تُفَّاحًا", "حُبًّا", "صِبْغَةً", "جَيِّدُا"]
+		"em":[ "كَوْكَبًا", "جَلْدَةً", "دُولارًا", "ذَهَبٗا", "نَعْجَةً", "تُفَّاحًا", "حُبًّا", "صِبْغَةً", "جَيِّدُا"]
     },
 	{
         "name_ar": "المستثنى",
