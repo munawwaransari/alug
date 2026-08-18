@@ -249,7 +249,7 @@
         "action": "sentence",
         "data": "pos:10"
     },
-    "Demonstrative Phrase;المركب الإشاري;المشار إليه;اسم الإشارة;": {
+    "Demonstrative Phrase;المركب الإشاري;المشار إليه;اسم الإشارة;ضَمِير الفَصْل;": {
         "path": "dict.html",
         "action": "sentence",
         "data": "pos:11"
