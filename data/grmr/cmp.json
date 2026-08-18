@@ -956,6 +956,24 @@
         }
     },
     {
+        "compareType": "sentence",
+        "topics": [
+            "المركب الإشاري (Demonstrative Construction)"
+        ],
+        "notes": "",
+        "ar": [
+            "المركب الإشاري"
+        ],
+        "en": [
+            "Demonstrative Phrase"
+        ],
+        "features": {
+            "المركب الإشاري (Demonstrative Construction)":[
+                "<p style=\"direction:ltr;\">تركيب (structure):<br/><b>اسم الإشارة + المشار إليه</b><br/>Noun + Demonstrative<br/>(اسم المعرفة)+(مبني)<br/><br/>اعراب:<br/>The اسم الإشارة follows the اعراب of the المشار إليه<br/><br/>gender e.g. هَذَا الْوَلَدُ, هَذِهِ الْبِنْتُ<br/>number e.g. هَؤُلَاءِ الطَّلَابُ, هذا الولدان<br/>noun case e.g. تِلْكَ السَّيَّارَةَ, هَذَا البَيْتِ<br/><br/><b>امثلة (Examples):</b><br/><br/>ذَٰلِكَ ٱلۡكِتَٰبُ لَا رَيۡبَۛ فِيهِۛ [2:2]<br/><br/>وَمَا   كَانَ   هَٰذَا   ٱلۡقُرۡءَانُ   أَن   يُفۡتَرَىٰ   مِن   دُونِ   ٱللَّهِ [10:37]<br/><br/>فَلۡيَعۡبُدُواْ   رَبَّ   هَٰذَا   ٱلۡبَيۡتِ [106:3]<br/><br/>أَفَمِنۡ   هَٰذَا   ٱلۡحَدِيثِ   تَعۡجَبُونَ [53:59]</p>"
+            ]
+        }
+    },
+    {
         "compareType": "verb",
         "topics": [
             "فَعلَ - يَفْعلُ (Form I)"

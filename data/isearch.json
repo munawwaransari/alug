@@ -249,6 +249,11 @@
         "action": "sentence",
         "data": "pos:10"
     },
+    "Demonstrative Phrase;المركب الإشاري;المشار إليه;اسم الإشارة;": {
+        "path": "dict.html",
+        "action": "sentence",
+        "data": "pos:11"
+    },
     "Hamza;همزة القطع;همزة الوصل;": {
         "path": "dict.html",
         "action": "cmp",
