@@ -759,7 +759,10 @@ class posAPI {
 					<a style="margin-right:10px;text-decoration:none" href="#form${formNumber}">${formNumber}</a>`));
 				var row = `
 					<tr id="form${formNumber}">
-						<td>${cmpLink.replaceAll('\$', formNumber).replaceAll('@', index)}</td>
+						<td>
+						${cmpLink.replaceAll('\$', formNumber).replaceAll('@', index)}
+						${getPinIcon(`form${formNumber}`,'',parent.document)}
+						</td>
 						<td>
 							${cmpLink.replaceAll('\$',pst[0]+' - '+ prt[0]).replaceAll('@', index)}
 							<br/>
@@ -810,13 +813,14 @@ class posAPI {
 				}
 				var examples = exData[exKey] ? exData[exKey].examples : undefined;
 				if(examples){
-					row += `
+					row += `<tr id="form${formNumber}_ex">
 					<td colspan="4" style="background-color:#F5F5F5"><u style="font-size:12px;">Examples</u><br/>
+					${getPinIcon(`form${formNumber}_ex`,'',parent.document)}
 					${
 						examples.map(x => replaceQLink(x)).join("<br/>")
 					}
 					<br/>&nbsp;
-					</td>`;
+					</td></tr>`;
 				}
 				$(`#vTable${key[1]} tbody`).append($(row));
 				index++;
