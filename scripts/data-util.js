@@ -2117,10 +2117,10 @@ function addNewCardToDashboard(source){
 function getPinIcon(id, subId, doc){
 	return doc.getElementById('dbrd').style.display != "none" ?
 	`&nbsp;
-	<a style="float:right">
+	<a style="float:right;">
 		<img alt="Pin to Dashboard" 
+		        class="pinIcon"
 				src="images/pin.png"
-				style="width:18px;cursor:pointer"
 				onclick="convertElementToImage($('#${id}')[0],
 					{
 						'eId': '${id}',

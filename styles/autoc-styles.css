@@ -98,3 +98,17 @@ input[type=submit] {
 
 .dropdown-content > a:hover, p:hover {background-color: #ddd;}
 .dropdown-content2 > a:hover, p:hover {background-color: #ddd;}
+
+img[alt='Pin to Dashboard'] {
+	width:18px;
+	cursor:pointer;
+	opacity:0;
+}
+
+div p:hover img[alt='Pin to Dashboard'] {
+	opacity:1;
+}
+
+table:hover img[alt='Pin to Dashboard'] {
+	opacity:1;
+}
