@@ -359,7 +359,7 @@
         "action": "cmp",
 	"data": "pos:14"
     },
-    "Vocative;النِّداء;ترخِيم;": {
+    "Vocative or Oath;النِّداء;ترخِيم;القسم": {
         "path": "dict.html",
         "action": "cmp",
 	"data": "pos:15"
