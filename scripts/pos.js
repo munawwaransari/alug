@@ -719,7 +719,18 @@ class posAPI {
 			<table id="vTable${key[1]}" class="vTable">
 			${ title ? 
 				`<tr><td colspan="4">${title}${getPinIcon(`vTable${key[1]}`,' tbody:first',parent.document)}</td></tr>
-				 <tr><td id="tdForm${key[1]}" colspan="4"></td></tr>`:
+				 <tr><td id="tdForm${key[1]}" colspan="4">
+				 	<a style="text-decoration:none" href="#" 
+					onclick="$('#vTable${key[1]} tr[id*=_ex]').toggle();
+					         $('#vTable${key[1]} tr[id*=_notes]').toggle();
+							 $(this).text().trim() == 'Ex(-)' ?
+							 	$(this).text('Ex(+)'):
+								$(this).text('Ex(-)');
+							 setTimeout(function(){
+							  $('#vTable${key[1]}')[0].scrollIntoView();
+							 }, 10);">
+				Ex(-)</a>&nbsp;
+				</td></tr>`:
 				''
 			}
 			<tr>
@@ -761,7 +772,6 @@ class posAPI {
 					<tr id="form${formNumber}">
 						<td>
 						${cmpLink.replaceAll('\$', formNumber).replaceAll('@', index)}
-						${getPinIcon(`form${formNumber}`,'',parent.document)}
 						</td>
 						<td>
 							${cmpLink.replaceAll('\$',pst[0]+' - '+ prt[0]).replaceAll('@', index)}
@@ -805,7 +815,7 @@ class posAPI {
 				var exKey = `${key}_${entryName.split(' ')[1]}`;	
 				var notes = exData[exKey] ? exData[exKey].notes : undefined;
 				if(notes){
-					row += `
+					row += `<tr id="form${formNumber}_notes">
 					<td><a style="text-decoration:none;" href="#">[↑]</a></td>
 					<td colspan="3" style="font-size:14px;background-color:#ffffe0;direction:ltr">
 					${notes.map(x => x).join("<br/>")}
@@ -815,7 +825,6 @@ class posAPI {
 				if(examples){
 					row += `<tr id="form${formNumber}_ex">
 					<td colspan="4" style="background-color:#F5F5F5"><u style="font-size:12px;">Examples</u><br/>
-					${getPinIcon(`form${formNumber}_ex`,'',parent.document)}
 					${
 						examples.map(x => replaceQLink(x)).join("<br/>")
 					}
