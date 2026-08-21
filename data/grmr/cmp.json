@@ -740,6 +740,43 @@
             "مُنصرِف": "'dict.html','noun-cmp','pos:3'",
             "جمع المؤنث السالم": "'dict.html','noun-cmp','pos:6'"
         }
+    },
+    {
+        "compareType":"sentence",
+        "topics":[
+            "النَّحْو (Case)",
+            "الاشْتِقَاق (Mood)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "الاعراب",
+            "مِثال"
+        ],
+        "en": [
+            "Definition",
+            "Erab Types",
+            "Example"
+        ],
+        "features":{
+            "النَّحْو (Case)": [
+                "<p style=\"direction:ltr;\">Applies to: Nouns, pronouns, and adjectives.<br/>Function: Shows the grammatical role of a noun in relation to other words.<br/><br/>The Question it Answers:<br/> Who did it?<br/>Whom did they do it to?<br/> Whose is it?</p>",
+                "<b>المَرْفُوع</b>:<br/>Nominatove case<br/>جَاءَ المُعَلِّمُ (The teacher came)<br/><br/><b>المَنْصُوب</b>:<br/>Accusative case<br/>رَأَيْتُ المُعَلِّمَ  (I saw the teacher)<br/><br/><b>المَجْرُور</b>:<br/>Genitive / Possesive<br/>كِتَابُ المُعَلِّمِ (Techaer's book)<br/>",
+                "Nominative:<br/>إِذَا   جَآءَ   نَصۡرُ   ٱللَّهِ   وَٱلۡفَتۡحُ [110:1]<br/><br/>Accusative:<br/>إِنَّآ   أَعۡطَيۡنَٰكَ   ٱلۡكَوۡثَرَ [108:1]<br/><br/>Genitive:<br/>بِسۡمِ   ٱللَّهِ   ٱلرَّحۡمَٰنِ   ٱلرَّحِيمِ [1:1]"
+                
+            ],
+            "الاشْتِقَاق (Mood)": [
+                "<p style=\"direction:ltr;\">Applies to: Verbs<br/> Function: Shows the speaker’s perspective, intent, or attitude toward the action.<br/><br/>The Question it Answers:<br/> Is this a fact?<br/> A command?<br/> A wish?<br/> A hypothetical situation?</p>",
+                "<b>المَرْفُوع</b>:<br/>Indicative mood<br/>يَذْهَبُ (he goes)<br/><br/><b>المَنْصُوب</b>:<br/>Subjunctive mood<br/>أَنْ يَذْهَبَ (to go)<br/><br/><b>المَجْرُوم</b>:<br/>Jussive / Imperative<br/>لَمْ يَذْهَبْ (He did not go)<br/>",
+                "Indicative:<br/>يَقُولُ   أَهۡلَكۡتُ   مَالٗا   لُّبَدًا [90:6]<br/><br/>Subjunctive:<br/>لَن تَنَالُواْ ٱلۡبِرَّ حَتَّىٰ تُنفِقُواْ مِمَّا تُحِبُّونَۚ [3:92]<br/><br/>Jussive/Imperative:<br/>لَمۡ   يَلِدۡ   وَلَمۡ   يُولَدۡ [112:3]<br/>"
+            ]
+        },
+        "features_links":{
+            "اسماء الافعال": "'dict.html','masdar','pos:3'",
+            "مُعرب": "'dict.html','noun-cmp','pos:0'",
+            "مُنصرِف": "'dict.html','noun-cmp','pos:3'",
+            "جمع المؤنث السالم": "'dict.html','noun-cmp','pos:6'"
+        }
     },     
     {
         "compareType":"sentence",

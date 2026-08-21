@@ -87,8 +87,8 @@ class posAPI {
 	
 	#removeErab(pattern, removeAll=false)
 	{
-		var exp = removeAll ? "([ًٌٍَُِّْ])" : "([ًٌٍَُِْ])$";
-		var p = pattern.replace(new RegExp(exp,"g"), "");
+		var exp = removeAll ? "([ًٌٍَُِّْ ۡ])" : "([ًٌٍَُِْ])$";
+		var p = pattern.replaceAll(new RegExp(exp,"g"), "");
 		return p;
 	}
 	
@@ -1174,7 +1174,7 @@ class posAPI {
 										
 									}
 									if(parseOut.parse.length > 0)
-										parseInfo.push(parseOut);
+											parseInfo.push(parseOut);
 									return true;									
 								 });
 							}
