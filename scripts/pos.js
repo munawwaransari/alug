@@ -87,7 +87,22 @@ class posAPI {
 	
 	#removeErab(pattern, removeAll=false)
 	{
-		var exp = removeAll ? "([ًٌٍَُِّْ ۡ])" : "([ًٌٍَُِْ])$";
+		// \u064B: ً (Arabic Fathatan)
+		// \u064C: ٌ (Arabic Dammatan)
+		// \u064D: ٍ (Arabic Kasratan)
+		// \u064E: َ (Arabic Fatha)
+		// \u064F: ُ (Arabic Damma)
+		// \u0650: ِ (Arabic Kasra)
+		// \u0651: ّ (Arabic Shaddah)
+		// \u0652: ْ (Arabic Sukun)
+		// \u06E1: ۡ (Arabic Small High Dotless Head of Khah)
+		// \u0657: Arabic Inverted Damma (Vowel)
+		// \u064E: Arabic Inverted Fatha (Vowel)
+		// \u0650: Arabic Inverted Kasrah (Vowel)
+
+		//var exp = removeAll ? "([ًٌٍَُِّْ ۡ])" : "([ًٌٍَُِْ])$";
+		var exp = removeAll ? "([\u064B\u064C\u064D\u064E\u064F\u0650\u0651\u0652\u06E1\u0657\u064E\u0650])" : 
+				"([\u064B\u064C\u064D\u064E\u064F\u0650\u0652])$";
 		var p = pattern.replaceAll(new RegExp(exp,"g"), "");
 		return p;
 	}
