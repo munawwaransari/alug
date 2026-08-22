@@ -174,7 +174,17 @@
         "action": "prep",
         "data": "حروف مشبة بالفعل (كانَ)"
     },
-    "Verbs of hope/inception;افعال المقاربة;افعال الرجاء;افعال الشروع;": {
+    "Verbs of hope;افعال الرجاء;": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "حروف مشبة بِالفعل (كَادَ)"
+    },
+    "Verbs of inception;افعال الشروع": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "حروف مشبة بِالفعل (كَادَ)"
+    },
+    "Verbs of approaching;افعال المقاربة;": {
         "path": "dict.html",
         "action": "prep",
         "data": "حروف مشبة بِالفعل (كَادَ)"
@@ -204,7 +214,22 @@
         "action": "sentence",
 	    "data": "pos:2"
     },
-    "Case vs Mood;النَّحْو;الاشْتِقَاق;الإِعْرَاب لِلأَسْمَاءِ;الإِعْرَاب لِلأَفْعَال;": {
+    "Noun Case;النَّحْو;": {
+        "path": "dict.html",
+        "action": "sentence",
+	    "data": "pos:3"
+    },
+    "Verb Mood;الاشْتِقَاق;": {
+        "path": "dict.html",
+        "action": "sentence",
+	    "data": "pos:3"
+    },
+    "Noun Case Erab;الإِعْرَاب لِلأَسْمَاءِ;": {
+        "path": "dict.html",
+        "action": "sentence",
+	    "data": "pos:3"
+    },
+    "Mood Erabs;الإِعْرَاب لِلأَفْعَال;": {
         "path": "dict.html",
         "action": "sentence",
 	    "data": "pos:3"
