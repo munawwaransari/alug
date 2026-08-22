@@ -1018,6 +1018,36 @@
         }
     },
     {
+        "compareType": "sentence",
+        "topics": [
+            "الاستثناء (Exceptions)"
+        ],
+        "notes": "",
+        "ar": [
+            "",
+            "تام مثبت",
+            "تام منفي",
+            "ناقص منفي",
+            "أنواع أخرى"
+        ],
+        "en": [
+            "Definition",
+            "Complete & Affirmative",
+            "Complete & Negative",
+            "Incomplete & Negative",
+            "Other types"
+        ],
+        "features": {
+            "الاستثناء (Exceptions)":[
+                "<p style=\"direction:ltr;\">It is the exclusion of a noun from a general rule or previous statement using an exclusion particle like (إلا).<br/>It consists of three main parts:<br/>the object excluded from:<b>المستثنى منه</b><br/>the tool (e.g إلَّا):<b>أداة الاستثناء</b><br/>the excluded object:<b>المستثنى</b></p>",
+                "<p style=\"direction:ltr;\">The excluded noun is always منصوب<br/><br/>كُلُّ شَيۡءٍ هَالِكٌ إِلَّا وَجۡهَهُ [28:88]<br/><br/>أَلَّا تَعۡبُدُوٓاْ إِلَّا ٱللَّهَۚ [11:2]<br/><br/> وَعِندَهُۥ مَفَاتِحُ ٱلۡغَيۡبِ لَا يَعۡلَمُهَآ إِلَّا هُوَۚ [6:59]</p>",
+                "<p style=\"direction:ltr;\">The excluded noun can be منصوب or بدل of the noun excluded<br/><br/>وَلَا يَلۡتَفِتۡ مِنكُمۡ أَحَدٌ إِلَّا ٱمۡرَأَتَكَۖ [11:81]<br/><br/>وَمَا هُم بِضَآرِّينَ بِهِۦ مِنۡ أَحَدٍ إِلَّا بِإِذۡنِ ٱللَّهِۚ [2:102]<br/><br/>وَلَا يَزِيدُ ٱلۡكَٰفِرِينَ كُفۡرُهُمۡ إِلَّا خَسَارٗا [35:39]<br/><br/>وَمَا يُهۡلِكُنَآ إِلَّا ٱلدَّهۡرُۚ [45:24]...</p>",
+                "<p style=\"direction:ltr;\">المستثنى منه is omitted and the sentence is negative<br/><br/>لَا تَعۡبُدُونَ إِلَّا ٱللَّهَ [2:83]<br/><br/>وَمَا مُحَمَّدٌ إِلَّا رَسُولٞ [3:144]</p>",
+                "<p style=\"direction:ltr;\"><b>غَيْر and سِوَى</b>:<br/><br/>غَيۡرِ ٱلۡمَغۡضُوبِ عَلَيۡهِمۡ وَلَا ٱلضَّآلِّينَ [1:7]<br/><br/>فَمَنِ اضْطُرَّ فِي مَخْمَصَةٍ غَيْرَ مُتَجَانِفٍ لِإِثْمٍ [5:3]<br/><br/><b>خَلا , عَدَا, and حَاشَا</b>:<br/><br/>قُلۡنَ حَاشَ لِلَّهِ مَا عَلِمۡنَا عَلَيۡهِ مِن سُوٓءٖۚ [12:51]<br/><br/></p>"
+            ]
+        }
+    },
+    {
         "compareType": "verb",
         "topics": [
             "فَعلَ - يَفْعلُ (Form I)"
