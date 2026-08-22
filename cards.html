@@ -545,14 +545,14 @@
 				<div class="flip-card-inner">
 					<div class="flip-card-front">
 						<span style="position:relative; display:flex; align-items:center; font-size:34px">
-							${p.names[0]}<br/>${p.en[0]}
+							${p.names[0]}<br/>${p.en[0]}<br/>${p.type ? `</sub>${p.type}</sub>`: ''}
 						</span>
 					</div>
 					<div class="flip-card-back"
 						 ontouchstart="playCard('${p.names[0]}.${p.names[1]}')"
 						 onmouseenter="playCard('${p.names[0]}.${p.names[1]}')" >
 						<span style="position:relative; display:flex; align-items:center; font-size:32px">
-							${p.names[1]}<br/>${p.en[1]}
+							${p.names[1]}<br/>${p.en[1]}<br/>${p.type ? `</sub>${p.type}</sub>`: ''}
 						</span>
 					</div>
 				</div>

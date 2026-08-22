@@ -100,9 +100,9 @@ class posAPI {
 		// \u064E: Arabic Inverted Fatha (Vowel)
 		// \u0650: Arabic Inverted Kasrah (Vowel)
 
-		//var exp = removeAll ? "([ًٌٍَُِّْ ۡ])" : "([ًٌٍَُِْ])$";
-		var exp = removeAll ? "([\u064B\u064C\u064D\u064E\u064F\u0650\u0651\u0652\u06E1\u0657\u064E\u0650])" : 
-				"([\u064B\u064C\u064D\u064E\u064F\u0650\u0652])$";
+		var exp = removeAll ? 
+		"([\u064B\u064C\u064D\u064E\u064F\u0650\u0651\u0652\u06E1\u0657\u064E\u0650])" : 
+		"([\u064B\u064C\u064D\u064E\u064F\u0650\u0652])$";
 		var p = pattern.replaceAll(new RegExp(exp,"g"), "");
 		return p;
 	}

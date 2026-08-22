@@ -78,6 +78,11 @@ window.onload = function(){
 			search();
 			loadStatus = "search";
 		}
+	}
+	else if (parent && parent.states.lastQSearch){
+		$("#searchText").val(parent.states.lastQSearch);
+		search();
+		loadStatus = "search";
 	}	
 	
 	if(parent.playAudio == undefined){
@@ -153,6 +158,13 @@ function search(pageNumber){
 	$("#qari").show();
 	stopPlayVerse();
 	const text = arRemovePunct(document.getElementById("searchText").value);
+
+	// Save last search for context
+	if(parent && text != parent.states.lastQSearch)
+	{
+		parent.updateStates({ lastQSearch: text });
+	}
+
 	var div = $("#searchResult");
 	div.empty();
 	
@@ -609,6 +621,18 @@ function selectWordInAyah(id) {
     langs.forEach(lang => {
         $(`#${baseId}-${lang}`).addClass(`sel-word-${lang}`);
     });
+
+	//////////////////////////////////////////////////////////////////
+	processSelectedWordPos($(".word-ar.sel-word:first").text().trim(),
+	data => 
+	{
+		console.log(`prefix: ${JSON.stringify(data.prefixes)}`); 
+		console.log(`suffix: ${JSON.stringify(data.suffixes)}`); 
+		console.log(`verb: ${JSON.stringify(data.verbs)}`); 
+		console.log(`noun: ${JSON.stringify(data.nouns)}`); 
+		console.log(`pronoun: ${JSON.stringify(data.pronouns)}`); 
+		console.log(`particle: ${JSON.stringify(data.particles)}`); 
+	});
 }
 
 function getWordSpans(verse, words, vId){
@@ -743,6 +767,9 @@ function getAnalysisOptions(verse, verseKeys){
 					</button>
 					<div class="dropdown-content">
 						<a href="#" onclick="getReferences()">References</a>
+						<a href="#" onclick="
+						var w = \$('.word-ar.sel-word').first().text().trim();
+						parent.redirect('dict.html','analyze', w)">Check</a>
 						<a href="#" onclick="openQuranCorpus(${verseKeys[0]},${verseKeys[1]});">Quran Corpus</a>
 						<!--//
 						${

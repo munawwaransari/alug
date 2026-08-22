@@ -18,12 +18,13 @@ window.onload = function () {
 			console.log("Failed to initialize pos api");
 			return;
 		}
-
 		posSearchObj = new posSearch(getLocationPath(), function (msg, err) {
 			if (err) {
 				console.log("Failed to initialize pos search api");
 				return;
 			}
+
+			parent.dataCache["API_POS"].data = posAPIObj;
 
 			if (params.action && params.action !== 'cmp') {
 				if(posSearchObj){
@@ -402,10 +403,22 @@ function checkWord(w) {
 	$("#wordSearchText").val(w);
 }
 
-function analyzeSelectedWord() {
+function analyzeSelectedWord(w) {
 
-	var word = $("#wordSearchText").val();
-	posSearchObj.searchAndAddHtml(word, $(".dictionary"));
+	var word = w ?? $("#wordSearchText").val();
+	processSelectedWordPos(word.trim(),
+	data => {
+		var word = data.word;
+		if(data.nouns.length > 0){
+			console.log("pos: taking noun");
+			word = data.nouns[0];
+		}
+		else if(data.verbs.length > 0){
+			console.log("pos: taking verb");
+			word = data.verbs[0];
+		}
+		posSearchObj.searchAndAddHtml(word, $(".dictionary"));
+	});
 }
 
 function analyzeSelectedWordOld() {
