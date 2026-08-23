@@ -637,6 +637,48 @@
     {
         "compareType":"sentence",
         "topics": [
+            "أقسام الكلام (Parts of Speech)"
+        ],
+        "notes": "<p style=\"direction:ltr\">Traditional Arabic grammar simplifies all words into just three main parts of speech (أقسام الكلام - Aqsam al-Kalam)</p>",
+        "ar": [
+            "اِسْم",
+            "فِعْل",
+            "حَرْف"
+        ],
+        "en": [
+            "Noun",
+            "Verb",
+            "Particle"
+        ],
+        "features": {
+            "أقسام الكلام (Parts of Speech)": [
+                "<p style=\"direction:ltr\">اِسْم is a word that names a person, place, thing, animal, idea, adjective, or pronoun.<br/><br/>Examples:<br/> كتاب (noun), هو (pronoun), كبير (adjective), غالبًا (adverb)<br/><br/>Related Topics:<br/>Noun Types, Object Effects, Noun Patterns, Verbal Nouns, Five Nouns, Adjectives, Adverbs</p>",
+                "<p style=\"direction:ltr\">فِعْل is a word that shows an action or state linked to a specific time.<br/><br/>Examples:<br/>كَتَبَ (past tense), يَكتُبُ (prsent tense)<br/><br/>Related Topics:<br/>Verb Types, Verb Forms, Imperatives, Weak Verbs, Inadequate Verbs, Metonymies, Synecdoche</p>",
+                "<p style=\"direction:ltr\">حَرْف is a helper word that does not have a complete, independent meaning by itself.<br/><br/>Examples:<br/>من (preposition), و (conjunction)<br/><br/>Related Topics:<br/>Prepositions, Harf Types</p>"
+            ]
+        },
+        "features_links":{
+            "Noun Types": "'dict.html','noun-cmp','pos:0'",
+            "Object Effects": "'dict.html','obj-effect',''",
+            "Noun Patterns": "'dict.html','noun-pat','pos:0'",
+            "Verbal Nouns": "'dict.html','masdar','pos:0'",
+            "Five Nouns": "'dict.html','fiive-noun',''",
+            "Adjectives": "'dict.html','adj','pos:0'",
+            "Adverbs": "'dict.html','adv','pos:0'",
+            "Verb Types": "'dict.html','verbType','pos:0'",
+            "Verb Forms": "'dict.html','vtab-all','pos:0'",
+            "Imperatives": "'dict.html','vtab-imp','pos:0'",
+            "Weak Verbs": "'dict.html','vtab-weak','pos:0'",
+            "Inadequate Verbs": "'dict.html','vtab-inad','pos:0'",
+            "Harf Types": "'dict.html','cmp','pos:0'",
+            "Prepositions": "'dict.html','prep','pos:0'",
+            "Metonymies": "'dict.html','metonymy','pos:0'",
+            "Synecdoche":"'dict.html','metonymy','pos:5'"
+        }
+    },
+    {
+        "compareType":"sentence",
+        "topics": [
             "المعرب",
             "المبني"
         ],
