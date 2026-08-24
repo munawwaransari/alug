@@ -254,60 +254,65 @@
         "action": "sentence",
 	    "data": "pos:3"
     },
-    "Declarative Sentence;جملة خبرية": {
+    "Types of Sentences;أقسام الجُمُل;الاسم الصريح;الاسم المؤول;الفعل الصريح;الفعل المقدر":{
         "path": "dict.html",
         "action": "sentence",
 	    "data": "pos:4"
     },
-    "Non-Declarative Sentence;جملة إنشائية": {
+    "Declarative Sentence;جملة خبرية": {
         "path": "dict.html",
         "action": "sentence",
 	    "data": "pos:5"
     },
-    "Initial Sentence;جملة الإبتدائية;الاستئنافية": {
+    "Non-Declarative Sentence;جملة إنشائية": {
         "path": "dict.html",
         "action": "sentence",
 	    "data": "pos:6"
+    },
+    "Initial Sentence;جملة الإبتدائية;الاستئنافية": {
+        "path": "dict.html",
+        "action": "sentence",
+	    "data": "pos:7"
     },
     "Parenthetical;الجملة الاعتراضية": {
         "path": "dict.html",
         "action": "sentence",
-	    "data": "pos:6"
+	    "data": "pos:8"
     },
     "Affirmative sentence;إيجابي;": {
         "path": "dict.html",
         "action": "sentence",
-        "data": "pos:7"
+        "data": "pos:9"
     },
 	"Negative sentence;نفي;": {
         "path": "dict.html",
         "action": "sentence",
-        "data": "pos:8"
+        "data": "pos:10"
     },
 	"Interrogative sentence;استفهامي;": {
         "path": "dict.html",
         "action": "sentence",
-        "data": "pos:9"
+        "data": "pos:11"
     },
     "Possesive Construction;إضافة;المركب الإضافي;مُضاف;مُضاف إليه": {
         "path": "dict.html",
         "action": "sentence",
-        "data": "pos:10"
+        "data": "pos:12"
     },
     "Adjectival Construction;المركب التوصيفي;نعت;منعوت;": {
         "path": "dict.html",
         "action": "sentence",
-        "data": "pos:11"
+        "data": "pos:13"
     },
     "Demonstrative Phrase;المركب الإشاري;المشار إليه;اسم الإشارة;ضَمِير الفَصْل;": {
         "path": "dict.html",
         "action": "sentence",
-        "data": "pos:12"
+        "data": "pos:14"
     },
     "Exceptions;الاستثناء;تام مثبت;تام منفي;ناقص منفي": {
         "path": "dict.html",
         "action": "sentence",
-        "data": "pos:13"
+        "data": "pos:15"
     },
     "Hamza;همزة القطع;همزة الوصل;": {
         "path": "dict.html",

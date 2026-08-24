@@ -761,7 +761,7 @@
         ],
         "features":{
             "العلم النَّحْو (Grammar)": [
-                "<p style=\"direction:ltr;\">علم النحو (Arabic Syntax) is the science of classical Arabic grammar that studies how to connect nouns, verbs, and particles to form correct sentences.<br/><br/>Concepts:<br/>Parts of Speech, Case Endings, Verb Types, Inadequate Verbs, Weak Verbs, Declarative Sentences, Non-Declarative Sentences, Nominal Sentences, Parenthetical,Affirmative Sentences,Negative Sentences, Interrogative Sentences, Possesive Construction, Adjectival Construction, Demonstrative Construction Exceptions & Exclusions<br/></p>",
+                "<p style=\"direction:ltr;\">علم النحو (Arabic Syntax) is the science of classical Arabic grammar that studies how to connect nouns, verbs, and particles to form correct sentences.<br/><br/>Concepts:<br/>Parts of Speech, Case Endings, Verb Types, Sentence Types, Possesive Construction, Adjectival Construction, Demonstrative Construction Exceptions & Exclusions<br/></p>",
                 "<p style=\"direction:ltr;\">Applies to: Nouns, pronouns, and adjectives.<br/>Function: Shows the grammatical role of a noun in relation to other words.<br/><br/>The Question it Answers:<br/> Who did it? Whom did they do it to? Whose is it?<br/><br/>(Nominative case) <b>المَرْفُوع</b>:<br/>جَاءَ المُعَلِّمُ (The teacher came)<br/><br/>(Accusative case) <b>المَنْصُوب</b>:<br/>رَأَيْتُ المُعَلِّمَ  (I saw the teacher)<br/><br/>(Genitive / Possesive) <b>المَجْرُور</b>:<br/>كِتَابُ المُعَلِّمِ (Techaer's book)<br/></p>",
                 "<p style=\"direction:ltr;\">Applies to: Verbs<br/> Function: Shows the speaker’s perspective, intent, or attitude toward the action.<br/><br/>The Question it Answers:<br/> Is this a fact? A command?  wish? A hypothetical situation?<br/><br/>(Indicative mood) <b>المَرْفُوع</b>:<br/>يَذْهَبُ (he goes)<br/><br/>(Subjunctive mood) <b>المَنْصُوب</b>:<br/>أَنْ يَذْهَبَ (to go)<br/><br/>(Jussive / Imperative) <b>المَجْرُوم</b>:<br/>لَمْ يَذْهَبْ (He did not go)<br/></p>",
                 "<p style=\"direction:ltr;\">Nominative:<br/>إِذَا   جَآءَ   نَصۡرُ   ٱللَّهِ   وَٱلۡفَتۡحُ [110:1]<br/><br/>Accusative:<br/>إِنَّآ   أَعۡطَيۡنَٰكَ   ٱلۡكَوۡثَرَ [108:1]<br/><br/>Genitive:<br/>بِسۡمِ   ٱللَّهِ   ٱلرَّحۡمَٰنِ   ٱلرَّحِيمِ [1:1]<br/><br/>Indicative:<br/>يَقُولُ   أَهۡلَكۡتُ   مَالٗا   لُّبَدًا [90:6]<br/><br/>Subjunctive:<br/>لَن تَنَالُواْ ٱلۡبِرَّ حَتَّىٰ تُنفِقُواْ مِمَّا تُحِبُّونَۚ [3:92]<br/><br/>Jussive/Imperative:<br/>لَمۡ   يَلِدۡ   وَلَمۡ   يُولَدۡ [112:3]<br/></p>"
@@ -770,17 +770,11 @@
         "features_links": {
             "Parts of Speech": "'dict.html','sentence','pos:3'",
             "Case Endings": "'dict.html','sen-cmp','pos:3'",
-            "Declarative Sentences": "'dict.html','sentence','pos:4'",
-            "Non-Declarative Sentences": "'dict.html','sentence','pos:5'",
-            "Nominal Sentences": "'dict.html','sentence','pos:6'",
-            "Parenthetical": "'dict.html','sentence','pos:7'",
-            "Affirmative Sentences": "'dict.html','sentence','pos:8'",
-            "Negative Sentences": "'dict.html','sentence','pos:9'",
-            "Interrogative Sentences": "'dict.html','sentence','pos:10'",
-            "Possesive Construction": "'dict.html','sentence','pos:11'",
-            "Adjectival Construction": "'dict.html','sentence','pos:12'",
-            "Demonstrative Construction": "'dict.html','sentence','pos:13'",
-            "Exceptions & Exclusions": "'dict.html','sentence','pos:14'",
+            "Sentence Types": "'dict.html','sentence','pos:4'",
+            "Possesive Construction": "'dict.html','sentence','pos:12'",
+            "Adjectival Construction": "'dict.html','sentence','pos:13'",
+            "Demonstrative Construction": "'dict.html','sentence','pos:14'",
+            "Exceptions & Exclusions": "'dict.html','sentence','pos:15'",
             "Verb Types": "'dict.html','verbType','pos:0'",
             "Inadequate Verbs": "'dict.html','inad-verb','pos:0'",
             "Weak Verbs": "'dict.html','weak-verb','pos:0'"
@@ -901,6 +895,39 @@
             "Prepositions": "'dict.html','prep','pos:0'",
             "Metonymies": "'dict.html','metonymy','pos:0'",
             "Synecdoche":"'dict.html','metonymy','pos:5'"
+        }
+    },
+    {
+        "compareType":"sentence",
+        "topics": [
+            "أقسام الجُمُل (Sentence types)"
+        ],
+        "notes": "<p style=\"direction:ltr\">Traditional Arabic grammar simplifies all sentences into two main types (الجملة الاسمية and الجملة الفعلية)</p>",
+        "ar": [
+            "الجملة الاسمية",
+            "الجملة الفعلية",
+            "أنواع أخرى"
+        ],
+        "en": [
+            "Nominal Sentence",
+            "Verbal Sentence",
+            "Other Types"
+        ],
+        "features": {
+            "أقسام الجُمُل (Sentence types)": [
+                "<p style=\"direction:ltr\">A nominal sentence manly consists of المبتدأ followed by الخبر<br/><br/>A sentence is considered nominal sentence if it starts with any of the following:<br/><b>الاسم الصريح</b> - Explicit noun <br/>e.g. العَلمُ نافع<br/><b>الاسم المؤول</b> - Interpreted noun <br/>e.g. أَن تَصُومُوا (صِيامُكُم) خيرٌ لكُم<br/><b>حرف بعده اسم</b> - Noun after Harf <br/>e.g. لعلّ الجيش ينتصر</p>",
+                "<p style=\"direction:ltr\">A verbal sentence manly consists of الفعل (verb), الفاعل (subject) and المفعول به (object)<br/><br/>A sentence is considered verbal sentence if it starts with any of the following:<br/><b>الفعل الصريح</b> - Explicit verb <br/>e.g. فَهِمَ الطَّالِبُ الدَّرْسَ<br/><b>الفعل المقدر</b> - Implied verb <br/>e.g. يَٰمَرۡيَمُ ٱقۡنُتِي لِرَبِّكِ [3:43]<br/><b>حرف بعده فعل</b> - Verb after Harf <br/>e.g. هَلۡ أَتَىٰكَ حَدِيثُ ٱلۡغَٰشِيَةِ [88:1]</p>",
+                "<p style=\"direction:ltr\">Sentences can also be classified based on their usage:<br/>جملة خبرية (Declarative)<br/>جملة إنشائية (Non-Declarative)<br/>جملة الإبتدائية (Initiating)<br/>جملة الاعتراضية (Parenthetical)<br/>إيجابي (Affirmmative)<br/>نفي (Negative)<br/>استفهامي (Interrogative)</p>"
+            ]
+        },
+        "features_links":{
+            "جملة خبرية (Declarative)":  "'dict.html','sentence','pos:5'",
+            "جملة إنشائية (Non-Declarative)":  "'dict.html','sentence','pos:6'",
+            "جملة الإبتدائية (Initiating)":  "'dict.html','sentence','pos:7'",
+            "جملة الاعتراضية (Parenthetical)":  "'dict.html','sentence','pos:8'",
+            "إيجابي (Affirmmative)":  "'dict.html','sentence','pos:9'",
+            "نفي (Negative)":  "'dict.html','sentence','pos:10'",
+            "استفهامي (Interrogative)":  "'dict.html','sentence','pos:11'"
         }
     },
     {
