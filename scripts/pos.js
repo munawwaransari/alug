@@ -724,7 +724,7 @@ class posAPI {
 
 		var title = key == 'V1' ? 'Trilateral Verbs (المزيد)' : 
 			key == 'V2' ? 'Qaudrilateral Verbs (الرباعي)' :
-			key == 'V3' ? 'Extended Verbs Forms' :  '';;
+			key == 'V3' ? 'Extended Verbs' :  '';;
 
 		var alink = `
 		<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;

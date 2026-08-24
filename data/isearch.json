@@ -262,14 +262,14 @@
     "Non-Declarative Sentence;جملة إنشائية": {
         "path": "dict.html",
         "action": "sentence",
-	    "data": "pos:4"
-    },
-    "Primary Sentence;جملة الإبتدائية": {
-        "path": "dict.html",
-        "action": "sentence",
 	    "data": "pos:5"
     },
-    "Interjection;الجملة الاعتراضية": {
+    "Initial Sentence;جملة الإبتدائية;الاستئنافية": {
+        "path": "dict.html",
+        "action": "sentence",
+	    "data": "pos:6"
+    },
+    "Parenthetical;الجملة الاعتراضية": {
         "path": "dict.html",
         "action": "sentence",
 	    "data": "pos:6"

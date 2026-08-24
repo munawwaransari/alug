@@ -356,7 +356,7 @@ function showAllVerbTables(ii){
 			
 			var title = k == 'V1' ? 'Trilateral Verbs (المزيد)' : 
 			k == 'V2' ? 'Qaudrilateral Verbs (الرباعي)' :
-			k == 'V3' ? 'Extended Verbs Forms' :  '';;
+			k == 'V3' ? 'Extended Verbs' :  '';;
 
 			filters.push(title);
 		});

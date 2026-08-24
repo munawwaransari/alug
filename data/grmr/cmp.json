@@ -761,7 +761,7 @@
         ],
         "features":{
             "العلم النَّحْو (Grammar)": [
-                "<p style=\"direction:ltr;\">علم النحو (Arabic Syntax) is the science of classical Arabic grammar that studies how to connect nouns, verbs, and particles to form correct sentences.<br/><br/>Concepts:<br/>Parts of Speech, Case Endings, Verb Types, Inadequate Verbs, Weak Verbs, Declarative Sentences, Non-Declarative Sentences, Nominal Sentences, Interjection,Affirmative Sentences,Negative Sentences, Interrogative Sentences, Possesive Construction, Adjectival Construction, Demonstrative Construction Exceptions & Exclusions<br/></p>",
+                "<p style=\"direction:ltr;\">علم النحو (Arabic Syntax) is the science of classical Arabic grammar that studies how to connect nouns, verbs, and particles to form correct sentences.<br/><br/>Concepts:<br/>Parts of Speech, Case Endings, Verb Types, Inadequate Verbs, Weak Verbs, Declarative Sentences, Non-Declarative Sentences, Nominal Sentences, Parenthetical,Affirmative Sentences,Negative Sentences, Interrogative Sentences, Possesive Construction, Adjectival Construction, Demonstrative Construction Exceptions & Exclusions<br/></p>",
                 "<p style=\"direction:ltr;\">Applies to: Nouns, pronouns, and adjectives.<br/>Function: Shows the grammatical role of a noun in relation to other words.<br/><br/>The Question it Answers:<br/> Who did it? Whom did they do it to? Whose is it?<br/><br/>(Nominative case) <b>المَرْفُوع</b>:<br/>جَاءَ المُعَلِّمُ (The teacher came)<br/><br/>(Accusative case) <b>المَنْصُوب</b>:<br/>رَأَيْتُ المُعَلِّمَ  (I saw the teacher)<br/><br/>(Genitive / Possesive) <b>المَجْرُور</b>:<br/>كِتَابُ المُعَلِّمِ (Techaer's book)<br/></p>",
                 "<p style=\"direction:ltr;\">Applies to: Verbs<br/> Function: Shows the speaker’s perspective, intent, or attitude toward the action.<br/><br/>The Question it Answers:<br/> Is this a fact? A command?  wish? A hypothetical situation?<br/><br/>(Indicative mood) <b>المَرْفُوع</b>:<br/>يَذْهَبُ (he goes)<br/><br/>(Subjunctive mood) <b>المَنْصُوب</b>:<br/>أَنْ يَذْهَبَ (to go)<br/><br/>(Jussive / Imperative) <b>المَجْرُوم</b>:<br/>لَمْ يَذْهَبْ (He did not go)<br/></p>",
                 "<p style=\"direction:ltr;\">Nominative:<br/>إِذَا   جَآءَ   نَصۡرُ   ٱللَّهِ   وَٱلۡفَتۡحُ [110:1]<br/><br/>Accusative:<br/>إِنَّآ   أَعۡطَيۡنَٰكَ   ٱلۡكَوۡثَرَ [108:1]<br/><br/>Genitive:<br/>بِسۡمِ   ٱللَّهِ   ٱلرَّحۡمَٰنِ   ٱلرَّحِيمِ [1:1]<br/><br/>Indicative:<br/>يَقُولُ   أَهۡلَكۡتُ   مَالٗا   لُّبَدًا [90:6]<br/><br/>Subjunctive:<br/>لَن تَنَالُواْ ٱلۡبِرَّ حَتَّىٰ تُنفِقُواْ مِمَّا تُحِبُّونَۚ [3:92]<br/><br/>Jussive/Imperative:<br/>لَمۡ   يَلِدۡ   وَلَمۡ   يُولَدۡ [112:3]<br/></p>"
@@ -773,7 +773,7 @@
             "Declarative Sentences": "'dict.html','sentence','pos:4'",
             "Non-Declarative Sentences": "'dict.html','sentence','pos:5'",
             "Nominal Sentences": "'dict.html','sentence','pos:6'",
-            "Interjection": "'dict.html','sentence','pos:7'",
+            "Parenthetical": "'dict.html','sentence','pos:7'",
             "Affirmative Sentences": "'dict.html','sentence','pos:8'",
             "Negative Sentences": "'dict.html','sentence','pos:9'",
             "Interrogative Sentences": "'dict.html','sentence','pos:10'",
@@ -806,9 +806,9 @@
         ],
         "features":{
             "العلم الصرف (Morphology)": [
-                "<p style=\"direction:ltr;\">علم الصرف (Arabic Morphology or Sarf) is the foundational Arabic linguistic science that studies the internal structure, patterns, and transformations of individual words.<br/><br/>Concepts:<br/>Noun Patterns, Trilateral Verbs, Qaudrilateral Verbs, Extended Verbs Forms<br/></p>",
-                "<p style=\"direction:ltr;\">Most Arabic words trace back to a three-letter root (radical) that carries a core conceptual meaning. Sarf dictates how it shifts across tenses, voices, and actions:<br/><br/><b>ك - ت - ب</b><br/><b> (K-T-B, associated with writing)</b><br/>كَتَبَ (he wrote)<br/>كَاتِبٌ (A writer)<br/>مَكْتُوبٌ (something written)<br/></p>",
-                "<p style=\"direction:ltr;\">Arab grammarians use the template root ف ع ل (Fa-‘a-la) as a universal measuring scale to analyze word structures, vowels, and added letters<br/><br/><b>ع - ل - م</b><br/><b> (K-T-B, associated with knowing)</b><br/>عَلِمَ (He knew)<br/>عَلَّمَ (He tought)<br/>اَعَلَمُ (I know)<br/></p>",
+                "<p style=\"direction:ltr;\">علم الصرف (Arabic Morphology or Sarf) is the foundational Arabic linguistic science that studies the internal structure, patterns, and transformations of individual words.<br/><br/>Concepts:<br/>Noun Patterns, Trilateral Verbs, Qaudrilateral Verbs, Extended Verbs<br/></p>",
+                "<p style=\"direction:ltr;\">Most Arabic words trace back to a three-letter root (radical) that carries a core conceptual meaning. Sarf dictates how it shifts across tenses, voices, and actions:<br/><br/><b>ك - ت - ب</b><br/><b> (K-T-B, associated with writing)</b><br/>كَتَبَ (he wrote)<br/>كَاتِبٌ (A writer)<br/>مَكْتُوبٌ (something written)<br/><br/><b>و - ص - ل</b><br/><b> (W-S-L, to arrive / connect)</b><br/>وَصَلَ (past tense)<br/>يَصِلُ (present tense)<br/>صِلْ (command)</p>",
+                "<p style=\"direction:ltr;\">Arab grammarians use the template root ف ع ل (Fa-‘a-la) as a universal measuring scale to analyze word structures, vowels, and added letters<br/><br/><b>ع - ل - م</b><br/><b> (A'-L-M, associated with knowing)</b><br/>عَلِمَ (He knew)<br/>عَلَّمَ (He tought)<br/>اَعَلَمُ (I know)<br/><br/><b>ق - و - ل</b><br/><b> (Q-W-L, to say)</b><br/>قُلْتُ (I said)<br/>يَقُولُ (He says)<br/>قَائِل (speaker)</p>",
                 "<p style=\"direction:ltr;\">Noun of place<br/>Comparative Noun<br/>Diminutive<br/>Hyperbole<br/>Active Participle<br/>Passive Participle<br/>Four-letter Nouns</p>"
             ]
         },
@@ -816,6 +816,7 @@
             "Noun Patterns": "'dict.html','noun-pat','pos:0'",
             "Trilateral Verbs": "'dict.html','vtab-all','pos:1'",
             "Qaudrilateral Verbs": "'dict.html','vtab-all','pos:2'",
+            "Extended Verbs": "'dict.html','vtab-all','pos:3'",
             "Noun of place": "'dict.html','noun-pat','pos:3'",
             "Comparative Noun": "'dict.html','noun-pat','pos:4'",
             "Diminutive": "'dict.html','noun-pat','pos:5'",
@@ -986,9 +987,9 @@
     {
         "compareType": "sentence",
         "topics": [
-            "الجملة الإبتدائية (Primary)"
+            "الجملة الإبتدائية (Initial)"
         ],
-        "notes": "<p style=\"direction:ltr\">Both الجملة الإبتدائية/ الاستئنافية and الجملة الاعتراضية have no grammatical position (لا محل لها من الإعراب)</p>",
+        "notes": "<p style=\"direction:ltr\">Both الجملة الإبتدائية/ الاستئنافية and الجملة الاعتراضية <br/>have no grammatical position (لا محل لها من الإعراب)</p>",
         "ar": [
             "تعريف",
             "بناء",
@@ -1000,7 +1001,7 @@
             "Example"
         ],
         "features": {
-            "الجملة الإبتدائية (Primary)": [
+            "الجملة الإبتدائية (Initial)": [
                 "<p style=\"direction:ltr\">Initial Sentence is any sentence that opens a speech or a text, whether it is nominal or verbal.</p>",
                 "(جملة اسمية)في ابتداء الكلام:<br/>هَٰذَا بَلَٰغٞ لِّلنَّاسِ<br/><br/>(جملة فعلية)في ابتداء الكلام:<br/>اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ [96:1]<br/><br/>حرف استفتاح:<br/><b>أَلَآ</b> إِنَّهُمۡ هُمُ ٱلۡمُفۡسِدُونَ [2:12]<br/><br/>المقطعات:<br/>كهيعص [19:1]",
                 "<p>ٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَٰلَمِينَ ٢ [1:2]<br/><br/>ٱللَّهُ نُورُ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضِۚ [24:35]</p>"
@@ -1010,7 +1011,7 @@
     {
         "compareType": "sentence",
         "topics": [
-            "الجملة الاعتراضية (Interjection)"
+            "الجملة الاعتراضية (Parenthetical)"
         ],
         "notes": "<p style=\"direction:ltr\">Both الجملة الإبتدائية/ الاستئنافية and الجملة الاعتراضية have no grammatical position (لا محل لها من الإعراب)</p>",
         "ar": [
@@ -1024,8 +1025,8 @@
             "Example"
         ],
         "features": {
-            "الجملة الاعتراضية (Interjection)": [
-                "<p style=\"direction:ltr\">An interjection is a phrase inserted into the middle of a sentence<br/> between two related elements (such as مبتدأ وخبر، فعل وفاعل) to emphasize meaning or express a wish.</p>",
+            "الجملة الاعتراضية (Parenthetical)": [
+                "<p style=\"direction:ltr\">A parenthetical or intercepting phrase separates two tightly connected grammatical components.<br/> For example. an interjection is added between two related elements (such as مبتدأ وخبر، فعل وفاعل) to emphasize meaning or express a wish.</p>",
                 ":بين المبتدأ والخبر<br/>الشمسُ -أصلحك الله- طالعةٌ<br/><br/>:بين الفعل والفاعل<br/>جاء -أظن- محمدٌ<br/><br/>:بين الفعل والمفعول<br/>سمعت -والله- الحقَ<br/><br/>:للدعاء<br/>إنّ -حفظك الله- الحقَ منتصرٌ",
                 "<p>وَقَالُواْ ٱتَّخَذَ ٱلرَّحۡمَٰنُ وَلَدٗاۗ <b>سُبۡحَٰنَهُۥۚ</b> بَلۡ عِبَادٞ مُّكۡرَمُونَ ٢٦ [21:26]<br/><br/>وَإِنَّهُۥ لَقَسَمٞ <b>لَّوۡ تَعۡلَمُونَ</b> عَظِيمٌ ٧٦ [56:76]<br/><br/>ذَٰلِكَ ٱلۡكِتَٰبُ <b>لَا رَيۡبَۛ فِيهِۛ</b> هُدٗى لِّلۡمُتَّقِينَ ٢ [2:2]</p>"
             ]
@@ -1123,7 +1124,7 @@
     {
         "compareType": "sentence",
         "topics": [
-            "إضافة (Possevive Construction)"
+            "المركب الإضافي (Possevive Construction)"
         ],
         "notes": "",
         "ar": [
@@ -1139,7 +1140,7 @@
             "With multiple مُضاف chain"
         ],
         "features": {
-            "إضافة (Possevive Construction)":[
+            "المركب الإضافي (Possevive Construction)":[
                 "<p style=\"direction:ltr;\">تركيب (structure):<br/><b>مُضاف إليه (Owner) + مُضاف (Owned)</b><br/><br/>اعراب المُضاف:<br/>The مُضاف is characterized by omission of <br/>nunnation (التنوين), نون الإعراب and <br/>the definite article (ال)<br/><br/>e.g. كِتَابٌ -->  كِتَابٌن --> كِتَابُ <br/>كِتَابًا -->  كِتَابَن+ا --> كِتَابَا<br/>كِتَابٍ -->  كِتَابِن --> كِتَابِ<br/>كِتَابُونَ  --> كِتَابُو<br/>كِتَابَينِ --> كِتَابَي<br/>الكِتَابُ -->  كِتَابُ<br/><br/><br/>إعراب المُضاف إليه:<br/>المُضاف إليه is always in Genitive case (مجرور)<br/>e.g. كِتَابٌ --> كِتَابٍ<br/>الكِتَابُ --> الكِتَابِ<br/><br/><b>امثلة (Examples):</b><br/>(Arabic Language) لِسَانُ العرَبِي<br/>(A boy's book) كِتَابُ وَلَدٍ<br/>(Torment of the Fire) عَذَابُ النَّارِ</p>",
                 "<p style=\"direction:ltr;\">When مُضاف is superlative, then مُضاف إليه is in the plural form<br/><br/><b>امثلة (Examples):</b><br/>وَأَنتَ أَرۡحَمُ ٱلرَّٰحِمِينَ ٨٣ [21:83]<br/>وهُوَ خَيۡرُ ٱلرَّٰزِقِينَ ٧٢ [23:72]<br/>وَمَضَىٰ مَثَلُ ٱلۡأَوَّلِينَ ٨ [43:8]</p>",
                 "<p style=\"direction:ltr;\">تركيب (structure):<br/><b>Noun (whole)+ مِن + Noun (part)</b><br/><br/>Noun (whole) + مِن => forms the المركب الإضافي,<br/> while Noun (part) is generally in Nominative case (رفع)<br/><br/><b>امثلة (Examples):</b><br/>نَفۡحَةٞ مِّنۡ عَذَابِ رَبِّكَ [21:46]<br/>حَبَّةٖ مِّنۡ خَرۡدَلٍ [21:47]<br/>طَّآئِفَةٞ مِّنۡ أَهۡلِ ٱلۡكِتَٰبِ [3:69]</p>",
