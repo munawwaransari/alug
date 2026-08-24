@@ -244,60 +244,55 @@
         "action": "sentence",
 	    "data": "pos:5"
     },
-    "Rule based vs Auditory;قياسي;سماعي": {
+    "Sentence types;جملة خبرية;جملة إنشائية": {
         "path": "dict.html",
         "action": "sentence",
 	    "data": "pos:6"
     },
-    "Sentence types;جملة خبرية;جملة إنشائية": {
+    "Sentence Erab;اعتراضية;جملة الإبتدائية": {
         "path": "dict.html",
         "action": "sentence",
 	    "data": "pos:7"
     },
-    "Sentence Erab;اعتراضية;جملة الإبتدائية": {
-        "path": "dict.html",
-        "action": "sentence",
-	    "data": "pos:8"
-    },
     "Affirmative sentence;إيجابي;": {
         "path": "dict.html",
         "action": "sentence",
-        "data": "pos:9"
+        "data": "pos:8"
     },
 	"Negative sentence;نفي;": {
         "path": "dict.html",
         "action": "sentence",
-        "data": "pos:9"
+        "data": "pos:8"
     },
 	"Interrogative sentence;استفهامي;": {
         "path": "dict.html",
         "action": "sentence",
-        "data": "pos:9"
+        "data": "pos:8"
     },
     "Emphasis;توكيد اللفظي;توكيد اللمعنوي;": {
         "path": "dict.html",
         "action": "sentence",
-        "data": "pos:10"
+        "data": "pos:9"
     },
     "Possesive Construction;إضافة;المركب الإضافي;مُضاف;مُضاف إليه": {
         "path": "dict.html",
         "action": "sentence",
-        "data": "pos:11"
+        "data": "pos:10"
     },
     "Adjectival Construction;المركب التوصيفي;نعت;منعوت;": {
         "path": "dict.html",
         "action": "sentence",
-        "data": "pos:12"
+        "data": "pos:11"
     },
     "Demonstrative Phrase;المركب الإشاري;المشار إليه;اسم الإشارة;ضَمِير الفَصْل;": {
         "path": "dict.html",
         "action": "sentence",
-        "data": "pos:13"
+        "data": "pos:12"
     },
     "Exceptions;الاستثناء;تام مثبت;تام منفي;ناقص منفي": {
         "path": "dict.html",
         "action": "sentence",
-        "data": "pos:14"
+        "data": "pos:13"
     },
     "Hamza;همزة القطع;همزة الوصل;": {
         "path": "dict.html",

@@ -853,32 +853,6 @@
         }
     },
     {
-        "compareType":"sentence",
-        "topics": [
-            "قياسي",
-            "سماعي"
-        ],
-        "notes": "<p style=\"direction:ltr\">See also <a href=\"#\" onclick=\"parent.openInline(encodeURI(getLocationPath()+'dict.html?action=masdar&data=pos:20'));\">مصدر سماعي</a>&nbsp;<a href=\"#\" onclick=\"parent.openInline(encodeURI(getLocationPath()+'dict.html?action=masdar&data=pos:21'));\">مصدر قياسي</a></p>",
-        "ar": [
-            "تعريف",
-            "مِثال"
-        ],
-        "en": [
-            "Definition",
-            "Example"
-        ],
-        "features": {
-            "قياسي": [
-                "Based on strict, logical rules, patterns, or formulas<br/>",
-                "Sound plurals based on patterns <br/> كِتَاب --> كُتُب<br/><br/>Nouns based on patterns<br/> عالِم, معلوم, etc"
-            ],
-            "سماعي": [
-                "Based solely on what has been historically heard from native speakers",
-                "Irregualr plurals e.g. امرأة → نساء <br/><br/>أخ (Brother) → إخوة (Ikhwah)<br/><br/>ماء (Water) → مياه (Miyah)"
-            ]
-        }
-    },
-    {
         "compareType": "sentence",
         "topics": [
             "جملة خبرية",
