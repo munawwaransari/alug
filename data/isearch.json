@@ -224,25 +224,40 @@
         "action": "sen-cmp",
         "data": "pos:4"
     },
-    "Parts of Speech;أقسام الكلام":{
+    "Grammar;النَّحْو;": {
         "path": "dict.html",
         "action": "sentence",
 	    "data": "pos:0"
     },
-    "Noun Case;النَّحْو;الإِعْرَاب لِلأَسْمَاءِ;": {
+    "Noun Case;الإِعْرَاب لِلأَسْمَاءِ;": {
         "path": "dict.html",
         "action": "sentence",
-	    "data": "pos:1"
+	    "data": "pos:0"
     },
     "Mood;الاشْتِقَاق;الإِعْرَاب لِلأَفْعَال": {
         "path": "dict.html",
         "action": "sentence",
+	    "data": "pos:0"
+    },
+    "Morphology;الصرف;": {
+        "path": "dict.html",
+        "action": "sentence",
+	    "data": "pos:1"
+    },
+    "Rhetoric;البلاغة;": {
+        "path": "dict.html",
+        "action": "sentence",
 	    "data": "pos:2"
+    },
+    "Parts of Speech;أقسام الكلام":{
+        "path": "dict.html",
+        "action": "sentence",
+	    "data": "pos:3"
     },
     "Declarative Sentence;جملة خبرية": {
         "path": "dict.html",
         "action": "sentence",
-	    "data": "pos:3"
+	    "data": "pos:4"
     },
     "Non-Declarative Sentence;جملة إنشائية": {
         "path": "dict.html",

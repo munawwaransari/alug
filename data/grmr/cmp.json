@@ -635,48 +635,6 @@
         }
     },
     {
-        "compareType":"sentence",
-        "topics": [
-            "أقسام الكلام (Parts of Speech)"
-        ],
-        "notes": "<p style=\"direction:ltr\">Traditional Arabic grammar simplifies all words into just three main parts of speech (أقسام الكلام - Aqsam al-Kalam)</p>",
-        "ar": [
-            "اِسْم",
-            "فِعْل",
-            "حَرْف"
-        ],
-        "en": [
-            "Noun",
-            "Verb",
-            "Particle"
-        ],
-        "features": {
-            "أقسام الكلام (Parts of Speech)": [
-                "<p style=\"direction:ltr\">اِسْم is a word that names a person, place, thing, animal, idea, adjective, or pronoun.<br/><br/>Examples:<br/> كتاب (noun), هو (pronoun), كبير (adjective), غالبًا (adverb)<br/><br/>Related Topics:<br/>Noun Types, Object Effects, Noun Patterns, Verbal Nouns, Five Nouns, Adjectives, Adverbs</p>",
-                "<p style=\"direction:ltr\">فِعْل is a word that shows an action or state linked to a specific time.<br/><br/>Examples:<br/>كَتَبَ (past tense), يَكتُبُ (prsent tense)<br/><br/>Related Topics:<br/>Verb Types, Verb Forms, Imperatives, Weak Verbs, Inadequate Verbs, Metonymies, Synecdoche</p>",
-                "<p style=\"direction:ltr\">حَرْف is a helper word that does not have a complete, independent meaning by itself.<br/><br/>Examples:<br/>من (preposition), و (conjunction)<br/><br/>Related Topics:<br/>Prepositions, Harf Types</p>"
-            ]
-        },
-        "features_links":{
-            "Noun Types": "'dict.html','noun-cmp','pos:0'",
-            "Object Effects": "'dict.html','obj-effect',''",
-            "Noun Patterns": "'dict.html','noun-pat','pos:0'",
-            "Verbal Nouns": "'dict.html','masdar','pos:0'",
-            "Five Nouns": "'dict.html','fiive-noun',''",
-            "Adjectives": "'dict.html','adj','pos:0'",
-            "Adverbs": "'dict.html','adv','pos:0'",
-            "Verb Types": "'dict.html','verbType','pos:0'",
-            "Verb Forms": "'dict.html','vtab-all','pos:0'",
-            "Imperatives": "'dict.html','vtab-imp','pos:0'",
-            "Weak Verbs": "'dict.html','vtab-weak','pos:0'",
-            "Inadequate Verbs": "'dict.html','vtab-inad','pos:0'",
-            "Harf Types": "'dict.html','cmp','pos:0'",
-            "Prepositions": "'dict.html','prep','pos:0'",
-            "Metonymies": "'dict.html','metonymy','pos:0'",
-            "Synecdoche":"'dict.html','metonymy','pos:5'"
-        }
-    },
-    {
         "compareType":"sen-cmp",
         "topics": [
             "المعرب",
@@ -786,52 +744,164 @@
     {
         "compareType":"sentence",
         "topics":[
-            "النَّحْو (Case)"
+            "العلم النَّحْو (Grammar)"
         ],
         "notes": "",
         "ar": [
             "تعريف",
             "الاعراب",
+            "الاشْتِقَاق",
             "مِثال"
         ],
         "en": [
             "Definition",
-            "Erab Types",
+            "Noun Cases",
+            "Veb Moods",
             "Example"
         ],
         "features":{
-            "النَّحْو (Case)": [
-                "<p style=\"direction:ltr;\">Applies to: Nouns, pronouns, and adjectives.<br/>Function: Shows the grammatical role of a noun in relation to other words.<br/><br/>The Question it Answers:<br/> Who did it?<br/>Whom did they do it to?<br/> Whose is it?</p>",
-                "<b>المَرْفُوع</b>:<br/>Nominatove case<br/>جَاءَ المُعَلِّمُ (The teacher came)<br/><br/><b>المَنْصُوب</b>:<br/>Accusative case<br/>رَأَيْتُ المُعَلِّمَ  (I saw the teacher)<br/><br/><b>المَجْرُور</b>:<br/>Genitive / Possesive<br/>كِتَابُ المُعَلِّمِ (Techaer's book)<br/>",
-                "Nominative:<br/>إِذَا   جَآءَ   نَصۡرُ   ٱللَّهِ   وَٱلۡفَتۡحُ [110:1]<br/><br/>Accusative:<br/>إِنَّآ   أَعۡطَيۡنَٰكَ   ٱلۡكَوۡثَرَ [108:1]<br/><br/>Genitive:<br/>بِسۡمِ   ٱللَّهِ   ٱلرَّحۡمَٰنِ   ٱلرَّحِيمِ [1:1]"
-                
+            "العلم النَّحْو (Grammar)": [
+                "<p style=\"direction:ltr;\">علم النحو (Arabic Syntax) is the science of classical Arabic grammar that studies how to connect nouns, verbs, and particles to form correct sentences.<br/><br/>Concepts:<br/>Parts of Speech, Case Endings, Verb Types, Inadequate Verbs, Weak Verbs, Declarative Sentences, Non-Declarative Sentences, Nominal Sentences, Interjection,Affirmative Sentences,Negative Sentences, Interrogative Sentences, Possesive Construction, Adjectival Construction, Demonstrative Construction Exceptions & Exclusions<br/></p>",
+                "<p style=\"direction:ltr;\">Applies to: Nouns, pronouns, and adjectives.<br/>Function: Shows the grammatical role of a noun in relation to other words.<br/><br/>The Question it Answers:<br/> Who did it? Whom did they do it to? Whose is it?<br/><br/>(Nominative case) <b>المَرْفُوع</b>:<br/>جَاءَ المُعَلِّمُ (The teacher came)<br/><br/>(Accusative case) <b>المَنْصُوب</b>:<br/>رَأَيْتُ المُعَلِّمَ  (I saw the teacher)<br/><br/>(Genitive / Possesive) <b>المَجْرُور</b>:<br/>كِتَابُ المُعَلِّمِ (Techaer's book)<br/></p>",
+                "<p style=\"direction:ltr;\">Applies to: Verbs<br/> Function: Shows the speaker’s perspective, intent, or attitude toward the action.<br/><br/>The Question it Answers:<br/> Is this a fact? A command?  wish? A hypothetical situation?<br/><br/>(Indicative mood) <b>المَرْفُوع</b>:<br/>يَذْهَبُ (he goes)<br/><br/>(Subjunctive mood) <b>المَنْصُوب</b>:<br/>أَنْ يَذْهَبَ (to go)<br/><br/>(Jussive / Imperative) <b>المَجْرُوم</b>:<br/>لَمْ يَذْهَبْ (He did not go)<br/></p>",
+                "<p style=\"direction:ltr;\">Nominative:<br/>إِذَا   جَآءَ   نَصۡرُ   ٱللَّهِ   وَٱلۡفَتۡحُ [110:1]<br/><br/>Accusative:<br/>إِنَّآ   أَعۡطَيۡنَٰكَ   ٱلۡكَوۡثَرَ [108:1]<br/><br/>Genitive:<br/>بِسۡمِ   ٱللَّهِ   ٱلرَّحۡمَٰنِ   ٱلرَّحِيمِ [1:1]<br/><br/>Indicative:<br/>يَقُولُ   أَهۡلَكۡتُ   مَالٗا   لُّبَدًا [90:6]<br/><br/>Subjunctive:<br/>لَن تَنَالُواْ ٱلۡبِرَّ حَتَّىٰ تُنفِقُواْ مِمَّا تُحِبُّونَۚ [3:92]<br/><br/>Jussive/Imperative:<br/>لَمۡ   يَلِدۡ   وَلَمۡ   يُولَدۡ [112:3]<br/></p>"
             ]
+        },
+        "features_links": {
+            "Parts of Speech": "'dict.html','sentence','pos:3'",
+            "Case Endings": "'dict.html','sen-cmp','pos:3'",
+            "Declarative Sentences": "'dict.html','sentence','pos:4'",
+            "Non-Declarative Sentences": "'dict.html','sentence','pos:5'",
+            "Nominal Sentences": "'dict.html','sentence','pos:6'",
+            "Interjection": "'dict.html','sentence','pos:7'",
+            "Affirmative Sentences": "'dict.html','sentence','pos:8'",
+            "Negative Sentences": "'dict.html','sentence','pos:9'",
+            "Interrogative Sentences": "'dict.html','sentence','pos:10'",
+            "Possesive Construction": "'dict.html','sentence','pos:11'",
+            "Adjectival Construction": "'dict.html','sentence','pos:12'",
+            "Demonstrative Construction": "'dict.html','sentence','pos:13'",
+            "Exceptions & Exclusions": "'dict.html','sentence','pos:14'",
+            "Verb Types": "'dict.html','verbType','pos:0'",
+            "Inadequate Verbs": "'dict.html','inad-verb','pos:0'",
+            "Weak Verbs": "'dict.html','weak-verb','pos:0'"
         }
     },
     {
         "compareType":"sentence",
         "topics":[
-            "الاشْتِقَاق (Mood)"
+            "العلم الصرف (Morphology)"
         ],
         "notes": "",
         "ar": [
             "تعريف",
-            "الاعراب",
+            "الجذر",
+            "الوزن",
             "مِثال"
         ],
         "en": [
             "Definition",
-            "Erab Types",
+            "Root System",
+            "The Scale",
             "Example"
         ],
         "features":{
-            "الاشْتِقَاق (Mood)": [
-                "<p style=\"direction:ltr;\">Applies to: Verbs<br/> Function: Shows the speaker’s perspective, intent, or attitude toward the action.<br/><br/>The Question it Answers:<br/> Is this a fact?<br/> A command?<br/> A wish?<br/> A hypothetical situation?</p>",
-                "<b>المَرْفُوع</b>:<br/>Indicative mood<br/>يَذْهَبُ (he goes)<br/><br/><b>المَنْصُوب</b>:<br/>Subjunctive mood<br/>أَنْ يَذْهَبَ (to go)<br/><br/><b>المَجْرُوم</b>:<br/>Jussive / Imperative<br/>لَمْ يَذْهَبْ (He did not go)<br/>",
-                "Indicative:<br/>يَقُولُ   أَهۡلَكۡتُ   مَالٗا   لُّبَدًا [90:6]<br/><br/>Subjunctive:<br/>لَن تَنَالُواْ ٱلۡبِرَّ حَتَّىٰ تُنفِقُواْ مِمَّا تُحِبُّونَۚ [3:92]<br/><br/>Jussive/Imperative:<br/>لَمۡ   يَلِدۡ   وَلَمۡ   يُولَدۡ [112:3]<br/>"
+            "العلم الصرف (Morphology)": [
+                "<p style=\"direction:ltr;\">علم الصرف (Arabic Morphology or Sarf) is the foundational Arabic linguistic science that studies the internal structure, patterns, and transformations of individual words.<br/><br/>Concepts:<br/>Noun Patterns, Trilateral Verbs, Qaudrilateral Verbs, Extended Verbs Forms<br/></p>",
+                "<p style=\"direction:ltr;\">Most Arabic words trace back to a three-letter root (radical) that carries a core conceptual meaning. Sarf dictates how it shifts across tenses, voices, and actions:<br/><br/><b>ك - ت - ب</b><br/><b> (K-T-B, associated with writing)</b><br/>كَتَبَ (he wrote)<br/>كَاتِبٌ (A writer)<br/>مَكْتُوبٌ (something written)<br/></p>",
+                "<p style=\"direction:ltr;\">Arab grammarians use the template root ف ع ل (Fa-‘a-la) as a universal measuring scale to analyze word structures, vowels, and added letters<br/><br/><b>ع - ل - م</b><br/><b> (K-T-B, associated with knowing)</b><br/>عَلِمَ (He knew)<br/>عَلَّمَ (He tought)<br/>اَعَلَمُ (I know)<br/></p>",
+                "<p style=\"direction:ltr;\">Noun of place<br/>Comparative Noun<br/>Diminutive<br/>Hyperbole<br/>Active Participle<br/>Passive Participle<br/>Four-letter Nouns</p>"
             ]
+        },
+        "features_links": {
+            "Noun Patterns": "'dict.html','noun-pat','pos:0'",
+            "Trilateral Verbs": "'dict.html','vtab-all','pos:1'",
+            "Qaudrilateral Verbs": "'dict.html','vtab-all','pos:2'",
+            "Noun of place": "'dict.html','noun-pat','pos:3'",
+            "Comparative Noun": "'dict.html','noun-pat','pos:4'",
+            "Diminutive": "'dict.html','noun-pat','pos:5'",
+            "Hyperbole": "'dict.html','noun-pat','pos:6'",
+            "Active Participle": "'dict.html','noun-pat','pos:7'",
+            "Passive Participle": "'dict.html','noun-pat','pos:8'",
+            "Four-letter Nouns": "'dict.html','noun-pat','pos:9'"
         }
-    },     
+    },
+    {
+        "compareType":"sentence",
+        "topics":[
+            "العلم البلاغة (Rhetoric)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "الجذر",
+            "الوزن",
+            "مِثال"
+        ],
+        "en": [
+            "Definition",
+            "Root System",
+            "The Scale",
+            "Example"
+        ],
+        "features":{
+            "العلم البلاغة (Rhetoric)": [
+                "<p style=\"direction:ltr;\">ʿIlm al-Balāghah (علم البلاغة) is the science of Arabic rhetoric, eloquence, and stylistics. It is the study of how to express meanings clearly, beautifully, and effectively, ensuring that the speech perfectly suits the psychological state of the listener and the context of the situation.<br/><br/>Concepts:<br/>ʿIlm al-Bayān (علم البيان), Metaphor (الاستعارة), Simile (التشبيه), علم البديع, Metonymy (كناية), Synechdoche (المجاز)<br/></p>",
+                "<p style=\"direction:ltr;\">Most Arabic words trace back to a three-letter root (radical) that carries a core conceptual meaning. Sarf dictates how it shifts across tenses, voices, and actions:<br/><br/><b>ك - ت - ب</b><br/><b> (K-T-B, associated with writing)</b><br/>كَتَبَ (he wrote)<br/>كَاتِبٌ (A writer)<br/>مَكْتُوبٌ (something written)<br/></p>",
+                "<p style=\"direction:ltr;\">Arab grammarians use the template root ف ع ل (Fa-‘a-la) as a universal measuring scale to analyze word structures, vowels, and added letters<br/><br/><b>ع - ل - م</b><br/><b> (K-T-B, associated with knowing)</b><br/>عَلِمَ (He knew)<br/>عَلَّمَ (He tought)<br/>اَعَلَمُ (I know)<br/></p>",
+                "<p style=\"direction:ltr;\">Noun of place<br/>Comparative Noun<br/>Diminutive<br/>Hyperbole<br/>Active Participle<br/>Passive Participle<br/>Four-letter Nouns</p>"
+            ]
+        },
+        "features_links": {
+           "ʿIlm al-Bayān (علم البيان)": "'dict.html','defs','def:علم البيان'",
+           "Metaphor (الاستعارة)": "'dict.html','defs','def:الاستعارة'",
+           "Simile (التشبيه)": "'dict.html','defs','def:التشبيه'",
+           "علم البديع": "'dict.html','defs','def:علم البديع'",
+           "Metonymy (كناية)": "'dict.html','metonymy','all'",
+           "Synechdoche (المجاز)": "'dict.html','metonymy','pos:5'"
+        }
+    },
+    {
+        "compareType":"sentence",
+        "topics": [
+            "أقسام الكلام (Parts of Speech)"
+        ],
+        "notes": "<p style=\"direction:ltr\">Traditional Arabic grammar simplifies all words into just three main parts of speech (أقسام الكلام - Aqsam al-Kalam)</p>",
+        "ar": [
+            "اِسْم",
+            "فِعْل",
+            "حَرْف"
+        ],
+        "en": [
+            "Noun",
+            "Verb",
+            "Particle"
+        ],
+        "features": {
+            "أقسام الكلام (Parts of Speech)": [
+                "<p style=\"direction:ltr\">اِسْم is a word that names a person, place, thing, animal, idea, adjective, or pronoun.<br/><br/>Examples:<br/> كتاب (noun), هو (pronoun), كبير (adjective), غالبًا (adverb)<br/><br/>Related Topics:<br/>Noun Types, Object Effects, Noun Patterns, Verbal Nouns, Five Nouns, Adjectives, Adverbs</p>",
+                "<p style=\"direction:ltr\">فِعْل is a word that shows an action or state linked to a specific time.<br/><br/>Examples:<br/>كَتَبَ (past tense), يَكتُبُ (prsent tense)<br/><br/>Related Topics:<br/>Verb Types, Verb Forms, Imperatives, Weak Verbs, Inadequate Verbs, Metonymies, Synecdoche</p>",
+                "<p style=\"direction:ltr\">حَرْف is a helper word that does not have a complete, independent meaning by itself.<br/><br/>Examples:<br/>من (preposition), و (conjunction)<br/><br/>Related Topics:<br/>Prepositions, Harf Types</p>"
+            ]
+        },
+        "features_links":{
+            "Noun Types": "'dict.html','noun-cmp','pos:0'",
+            "Object Effects": "'dict.html','obj-effect',''",
+            "Noun Patterns": "'dict.html','noun-pat','pos:0'",
+            "Verbal Nouns": "'dict.html','masdar','pos:0'",
+            "Five Nouns": "'dict.html','fiive-noun',''",
+            "Adjectives": "'dict.html','adj','pos:0'",
+            "Adverbs": "'dict.html','adv','pos:0'",
+            "Verb Types": "'dict.html','verbType','pos:0'",
+            "Verb Forms": "'dict.html','vtab-all','pos:0'",
+            "Imperatives": "'dict.html','vtab-imp','pos:0'",
+            "Weak Verbs": "'dict.html','vtab-weak','pos:0'",
+            "Inadequate Verbs": "'dict.html','vtab-inad','pos:0'",
+            "Harf Types": "'dict.html','cmp','pos:0'",
+            "Prepositions": "'dict.html','prep','pos:0'",
+            "Metonymies": "'dict.html','metonymy','pos:0'",
+            "Synecdoche":"'dict.html','metonymy','pos:5'"
+        }
+    },
     {
         "compareType":"sen-cmp",
         "topics":[
