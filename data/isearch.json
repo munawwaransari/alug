@@ -199,105 +199,105 @@
         "action": "prep",
         "data": "حروف مشبة بِالفعل (ظَنَّ)"
     },
+    "Words with or without Erab;مُعرب;مبني;محل له من العراب": {
+        "path": "dict.html",
+        "action": "sen-cmp",
+	    "data": "pos:0"
+    },
+    "Erab vs Tashkeel;علاماتُ التَّشكِيل;إعراب;": {
+        "path": "dict.html",
+        "action": "sen-cmp",
+	    "data": "pos:1"
+    },
+    "Erab vs Tanween;التنوين;إعراب;": {
+        "path": "dict.html",
+        "action": "sen-cmp",
+	    "data": "pos:2"
+    },
+    "Scripts;خط الإملائي;خط العروضي": {
+        "path": "dict.html",
+        "action": "sentence",
+	    "data": "pos:3"
+    },
+    "Affirmative sentence;إيجابي;": {
+        "path": "dict.html",
+        "action": "sen-cmp",
+        "data": "pos:6"
+    },
+	"Negative sentence;نفي;": {
+        "path": "dict.html",
+        "action": "sen-cmp",
+        "data": "pos:6"
+    },
+	"Interrogative sentence;استفهامي;": {
+        "path": "dict.html",
+        "action": "sen-cmp",
+        "data": "pos:6"
+    },
+    "Emphasis;توكيد اللفظي;توكيد اللمعنوي;": {
+        "path": "dict.html",
+        "action": "sen-cmp",
+        "data": "pos:7"
+    },
     "Parts of Speech;أقسام الكلام":{
         "path": "dict.html",
         "action": "sentence",
 	    "data": "pos:0"
     },
-    "Words with or without Erab;مُعرب;مبني;محل له من العراب": {
+    "Noun Case;النَّحْو;الإِعْرَاب لِلأَسْمَاءِ;": {
         "path": "dict.html",
         "action": "sentence",
 	    "data": "pos:1"
     },
-    "Erab vs Tashkeel;علاماتُ التَّشكِيل;إعراب;": {
+    "Mood;الاشْتِقَاق;الإِعْرَاب لِلأَفْعَال": {
         "path": "dict.html",
         "action": "sentence",
 	    "data": "pos:2"
     },
-    "Erab vs Tanween;التنوين;إعراب;": {
+    "Declarative Sentence;جملة خبرية": {
         "path": "dict.html",
         "action": "sentence",
 	    "data": "pos:3"
     },
-    "Noun Case;النَّحْو;": {
+    "Non-Declarative Sentence;جملة إنشائية": {
         "path": "dict.html",
         "action": "sentence",
 	    "data": "pos:4"
     },
-    "Verb Mood;الاشْتِقَاق;": {
-        "path": "dict.html",
-        "action": "sentence",
-	    "data": "pos:4"
-    },
-    "Noun Case Erab;الإِعْرَاب لِلأَسْمَاءِ;": {
-        "path": "dict.html",
-        "action": "sentence",
-	    "data": "pos:4"
-    },
-    "Mood Erabs;الإِعْرَاب لِلأَفْعَال;": {
-        "path": "dict.html",
-        "action": "sentence",
-	    "data": "pos:4"
-    },
-    "Scripts;خط الإملائي;خط العروضي": {
+    "Primary Sentence;جملة الإبتدائية": {
         "path": "dict.html",
         "action": "sentence",
 	    "data": "pos:5"
     },
-    "Sentence types;جملة خبرية;جملة إنشائية": {
+    "Interjection;الجملة الاعتراضية": {
         "path": "dict.html",
         "action": "sentence",
 	    "data": "pos:6"
     },
-    "Sentence Erab;اعتراضية;جملة الإبتدائية": {
-        "path": "dict.html",
-        "action": "sentence",
-	    "data": "pos:7"
-    },
-    "Affirmative sentence;إيجابي;": {
-        "path": "dict.html",
-        "action": "sentence",
-        "data": "pos:8"
-    },
-	"Negative sentence;نفي;": {
-        "path": "dict.html",
-        "action": "sentence",
-        "data": "pos:8"
-    },
-	"Interrogative sentence;استفهامي;": {
-        "path": "dict.html",
-        "action": "sentence",
-        "data": "pos:8"
-    },
-    "Emphasis;توكيد اللفظي;توكيد اللمعنوي;": {
-        "path": "dict.html",
-        "action": "sentence",
-        "data": "pos:9"
-    },
     "Possesive Construction;إضافة;المركب الإضافي;مُضاف;مُضاف إليه": {
         "path": "dict.html",
         "action": "sentence",
-        "data": "pos:10"
+        "data": "pos:7"
     },
     "Adjectival Construction;المركب التوصيفي;نعت;منعوت;": {
         "path": "dict.html",
         "action": "sentence",
-        "data": "pos:11"
+        "data": "pos:8"
     },
     "Demonstrative Phrase;المركب الإشاري;المشار إليه;اسم الإشارة;ضَمِير الفَصْل;": {
         "path": "dict.html",
         "action": "sentence",
-        "data": "pos:12"
+        "data": "pos:9"
     },
     "Exceptions;الاستثناء;تام مثبت;تام منفي;ناقص منفي": {
         "path": "dict.html",
         "action": "sentence",
-        "data": "pos:13"
+        "data": "pos:10"
     },
     "Hamza;همزة القطع;همزة الوصل;": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:0"
+	    "data": "pos:0"
     },
     "Ha;هاء السكت;هاء الضمير;": {
         "path": "dict.html",

@@ -285,12 +285,13 @@ function handleParams() {
 			break;
 
 		case 'sentence':
+		case 'sen-cmp':
 			var data = params["data"];
 			if (data.startsWith("pos:")) {
 				var index = parseInt(data.substring(4));
-				showSentenceComparisions(index);
+				showSentenceComparisions(index, action);
 			} else {
-				showSentenceComparisions(0);
+				showSentenceComparisions(0, action);
 			}
 			break;
 
@@ -820,7 +821,8 @@ function listSearchIndex(indexKey='') {
 					<option value="adv">Adverb</option>
 					<option value="pronoun">Pronoun</option>
 					<option value="prep">Preposition</option>
-					<option value="sentence">Sentence</option>
+					<option value="sen-cmp">Sentence</option>
+					<option value="sentence">Grammar</option>
 					<option value="Vocab">Vocabulary</option>
 					<option value="Chart">Charts</option>
 				</select>`;
@@ -886,7 +888,7 @@ function getIndexEntryIcon(path, action){
 	{
 		case 'cmp':
 		case 'noun-cmp':
-		case 'sentence':
+		case 'sen-cmp':
 			return `<img src="images/cmp.png" style="${style}"/>`;
 		
 		case 'noun-plural':
@@ -986,8 +988,8 @@ function showComparisions(inp) {
 	cmpAPIObj.addComparisionList($(".dictionary"), inp, false);
 }
 
-function showSentenceComparisions(inp) {
-	cmpAPIObj.addComparisionList($(".dictionary"), inp, true, "sentence");
+function showSentenceComparisions(inp, type) {
+	cmpAPIObj.addComparisionList($(".dictionary"), inp, true, type);
 }
 
 function showVerbComparisions(inp) {

@@ -677,7 +677,7 @@
         }
     },
     {
-        "compareType":"sentence",
+        "compareType":"sen-cmp",
         "topics": [
             "المعرب",
             "المبني"
@@ -716,7 +716,7 @@
         }
     },
     {
-        "compareType":"sentence",
+        "compareType":"sen-cmp",
         "topics": [
             "علاماتُ التَّشكِيل",
             "إعراب"
@@ -746,7 +746,7 @@
         }
     },
     {
-        "compareType":"sentence",
+        "compareType":"sen-cmp",
         "topics":[
             "التنوين",
             "الاعراب"
@@ -786,8 +786,7 @@
     {
         "compareType":"sentence",
         "topics":[
-            "النَّحْو (Case)",
-            "الاشْتِقَاق (Mood)"
+            "النَّحْو (Case)"
         ],
         "notes": "",
         "ar": [
@@ -806,22 +805,35 @@
                 "<b>المَرْفُوع</b>:<br/>Nominatove case<br/>جَاءَ المُعَلِّمُ (The teacher came)<br/><br/><b>المَنْصُوب</b>:<br/>Accusative case<br/>رَأَيْتُ المُعَلِّمَ  (I saw the teacher)<br/><br/><b>المَجْرُور</b>:<br/>Genitive / Possesive<br/>كِتَابُ المُعَلِّمِ (Techaer's book)<br/>",
                 "Nominative:<br/>إِذَا   جَآءَ   نَصۡرُ   ٱللَّهِ   وَٱلۡفَتۡحُ [110:1]<br/><br/>Accusative:<br/>إِنَّآ   أَعۡطَيۡنَٰكَ   ٱلۡكَوۡثَرَ [108:1]<br/><br/>Genitive:<br/>بِسۡمِ   ٱللَّهِ   ٱلرَّحۡمَٰنِ   ٱلرَّحِيمِ [1:1]"
                 
-            ],
+            ]
+        }
+    },
+    {
+        "compareType":"sentence",
+        "topics":[
+            "الاشْتِقَاق (Mood)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "الاعراب",
+            "مِثال"
+        ],
+        "en": [
+            "Definition",
+            "Erab Types",
+            "Example"
+        ],
+        "features":{
             "الاشْتِقَاق (Mood)": [
                 "<p style=\"direction:ltr;\">Applies to: Verbs<br/> Function: Shows the speaker’s perspective, intent, or attitude toward the action.<br/><br/>The Question it Answers:<br/> Is this a fact?<br/> A command?<br/> A wish?<br/> A hypothetical situation?</p>",
                 "<b>المَرْفُوع</b>:<br/>Indicative mood<br/>يَذْهَبُ (he goes)<br/><br/><b>المَنْصُوب</b>:<br/>Subjunctive mood<br/>أَنْ يَذْهَبَ (to go)<br/><br/><b>المَجْرُوم</b>:<br/>Jussive / Imperative<br/>لَمْ يَذْهَبْ (He did not go)<br/>",
                 "Indicative:<br/>يَقُولُ   أَهۡلَكۡتُ   مَالٗا   لُّبَدًا [90:6]<br/><br/>Subjunctive:<br/>لَن تَنَالُواْ ٱلۡبِرَّ حَتَّىٰ تُنفِقُواْ مِمَّا تُحِبُّونَۚ [3:92]<br/><br/>Jussive/Imperative:<br/>لَمۡ   يَلِدۡ   وَلَمۡ   يُولَدۡ [112:3]<br/>"
             ]
-        },
-        "features_links":{
-            "اسماء الافعال": "'dict.html','masdar','pos:3'",
-            "مُعرب": "'dict.html','noun-cmp','pos:0'",
-            "مُنصرِف": "'dict.html','noun-cmp','pos:3'",
-            "جمع المؤنث السالم": "'dict.html','noun-cmp','pos:6'"
         }
     },     
     {
-        "compareType":"sentence",
+        "compareType":"sen-cmp",
         "topics":[
             "خط الإملائي",
             "خط العروضي"
@@ -855,8 +867,7 @@
     {
         "compareType": "sentence",
         "topics": [
-            "جملة خبرية",
-            "جملة إنشائية"
+            "جملة خبرية (Declarative)"
         ],
         "notes": "",
         "ar": [
@@ -870,13 +881,32 @@
             "Example"
         ],
         "features": {
-            "جملة خبرية": [
+            "جملة خبرية (Declarative)": [
                 "Nominal senteces providing some news<br/> can be affirmative, negative",
                 "<b>مُبتدا + خبر</b><br/>(<b>مُبتدا</b>) Starts with a topic<br/>(<b>خبر</b>) followed by the information",
                 "<b>الحَمدُ لِلَّهِ </b><br/> (مُبتدا)(خبر)<br/><br/>إِنَّ مَعَ ٱلۡعُسۡرِ يُسۡرٗا ٦ [94:6]<br/><br/>مُّحَمَّدٞ   رَّسُولُ   ٱللَّهِۚ  [48:29]<br/><br/>قَدۡ   أَفۡلَحَ   مَن   تَزَكَّىٰ [87:14]<br/><br/>وأيم الله إنك لا تقول الحقيقة<br/>&nbsp",
                 "When used as adverb (ظرف), erab is Fataha(َ ) "
-            ],
-            "جملة إنشائية": [
+            ]
+        }
+    },
+    {
+        "compareType": "sentence",
+        "topics": [
+            "جملة إنشائية (Non-Declarative)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "بناء",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Construct",
+            "Example"
+        ],
+        "features": {
+            "جملة إنشائية (Non-Declarative)": [
                 "Nominal senteces informing about some action<br/> can be command or interrogative or vocative",
                 "<b>مُسنَد + مُسنَد إليهِ</b><br/>(<b>مُسنَد</b>) Starts with subject<br/>(<b>مُسنَد إليهِ</b>) followed by the predicate",
                 "<b>(هُوَ) خَلَقَ الإنسان </b><br/> (مُسنَد) (مُسنَد إليه)<br/><br/>أَلَّا تَعۡبُدُوٓاْ إِلَّا ٱللَّهَۚ [11:2]<br/><br/>قَالَ يَٰٓـَٔادَمُ أَنۢبِئۡهُم بِأَسۡمَآئِهِمۡۖ [2:33]<br/><br/>وَلَا    تُفۡسِدُواْ فِي ٱلۡأَرۡضِ بَعۡدَ إِصۡلَٰحِهَا [7:56]<br/>&nbsp"
@@ -886,8 +916,7 @@
     {
         "compareType": "sentence",
         "topics": [
-            "الجملة الإبتدائية",
-            "الجملة الاعتراضية"
+            "الجملة الإبتدائية (Primary)"
         ],
         "notes": "<p style=\"direction:ltr\">Both الجملة الإبتدائية/ الاستئنافية and الجملة الاعتراضية have no grammatical position (لا محل لها من الإعراب)</p>",
         "ar": [
@@ -901,12 +930,31 @@
             "Example"
         ],
         "features": {
-            "الجملة الإبتدائية": [
+            "الجملة الإبتدائية (Primary)": [
                 "<p style=\"direction:ltr\">Initial Sentence is any sentence that opens a speech or a text, whether it is nominal or verbal.</p>",
                 "(جملة اسمية)في ابتداء الكلام:<br/>هَٰذَا بَلَٰغٞ لِّلنَّاسِ<br/><br/>(جملة فعلية)في ابتداء الكلام:<br/>اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ [96:1]<br/><br/>حرف استفتاح:<br/><b>أَلَآ</b> إِنَّهُمۡ هُمُ ٱلۡمُفۡسِدُونَ [2:12]<br/><br/>المقطعات:<br/>كهيعص [19:1]",
                 "<p>ٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَٰلَمِينَ ٢ [1:2]<br/><br/>ٱللَّهُ نُورُ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضِۚ [24:35]</p>"
-            ],
-            "الجملة الاعتراضية": [
+            ]
+        }
+    },
+    {
+        "compareType": "sentence",
+        "topics": [
+            "الجملة الاعتراضية (Interjection)"
+        ],
+        "notes": "<p style=\"direction:ltr\">Both الجملة الإبتدائية/ الاستئنافية and الجملة الاعتراضية have no grammatical position (لا محل لها من الإعراب)</p>",
+        "ar": [
+            "تعريف",
+            "بناء",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Construct",
+            "Example"
+        ],
+        "features": {
+            "الجملة الاعتراضية (Interjection)": [
                 "<p style=\"direction:ltr\">An interjection is a phrase inserted into the middle of a sentence<br/> between two related elements (such as مبتدأ وخبر، فعل وفاعل) to emphasize meaning or express a wish.</p>",
                 ":بين المبتدأ والخبر<br/>الشمسُ -أصلحك الله- طالعةٌ<br/><br/>:بين الفعل والفاعل<br/>جاء -أظن- محمدٌ<br/><br/>:بين الفعل والمفعول<br/>سمعت -والله- الحقَ<br/><br/>:للدعاء<br/>إنّ -حفظك الله- الحقَ منتصرٌ",
                 "<p>وَقَالُواْ ٱتَّخَذَ ٱلرَّحۡمَٰنُ وَلَدٗاۗ <b>سُبۡحَٰنَهُۥۚ</b> بَلۡ عِبَادٞ مُّكۡرَمُونَ ٢٦ [21:26]<br/><br/>وَإِنَّهُۥ لَقَسَمٞ <b>لَّوۡ تَعۡلَمُونَ</b> عَظِيمٌ ٧٦ [56:76]<br/><br/>ذَٰلِكَ ٱلۡكِتَٰبُ <b>لَا رَيۡبَۛ فِيهِۛ</b> هُدٗى لِّلۡمُتَّقِينَ ٢ [2:2]</p>"
@@ -914,7 +962,7 @@
         }
     },
     {
-        "compareType": "sentence",
+        "compareType": "sen-cmp",
         "topics": [
             "إيجابي",
             "نفي",
@@ -945,7 +993,7 @@
         }
     },
     {
-        "compareType": "sentence",
+        "compareType": "sen-cmp",
         "topics": [
             "توكيد اللفظي",
             "توكيد اللمعنوي"

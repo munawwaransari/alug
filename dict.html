@@ -245,7 +245,8 @@
 					<b>تحليل</b>
 				</button>
 				<div class="dropdown-content">
-				    <a href="#" onclick="showSentenceComparisions(0);toggleDropdownContent($(this).parent().prev());">Compare</a>
+				    <a href="#" onclick="showSentenceComparisions(0, 'sen-cmp');toggleDropdownContent($(this).parent().prev());">Compare</a>
+				    <a href="#" onclick="showSentenceComparisions(0, 'sentence');toggleDropdownContent($(this).parent().prev());">Grammar</a>
 					<a href="#" onclick="analyzeSelectedWord();toggleDropdownContent($(this).parent().prev());">Analyze</a>
 					<a href="#" onclick="analyzeSelectedWordOld();toggleDropdownContent($(this).parent().prev());">Conjugate</a>
 					<a href="#" onclick="lookupEx('https://context.reverso.net/translation/arabic-english/');toggleDropdownContent($(this).parent().prev());">
