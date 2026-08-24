@@ -962,11 +962,9 @@
         }
     },
     {
-        "compareType": "sen-cmp",
+        "compareType": "sentence",
         "topics": [
-            "إيجابي",
-            "نفي",
-            "استفهامي"
+            "إيجابي (Affirmmative)"
         ],
         "notes": "",
         "ar": [
@@ -978,15 +976,49 @@
             "Example"
         ],
         "features": {
-            "إيجابي": [
+            "إيجابي (Affirmmative)": [
                 "Affirmative sentences",
                 "<u style=\"top:0\">حرف التوكيد+(مُبتدا)(خبر)</u><br/><br/>الرَّجُلُ تَاجِرٌ<br/><br/>أَلَا لِلَّهِ الدِّينُ الْخَالِصُ [39:3]<br/><br/>إِنَّكَ لَمِنَ الْمُرْسَلِينَ [36:3]"
-            ],
-            "نفي": [
+            ]
+        }
+    },
+    {
+        "compareType": "sentence",
+        "topics": [
+            "نفي (Negative)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Example"
+        ],
+        "features": {
+            "نفي (Negative)": [
                 "Negative sentences",
                 "<u style=\"top:0\">حرف النفي+(مُبتدا)(خبر)</u><br/><br/>لَيسَ الرَّجُلُ تَاجِرًا<br/><br/>مَا هَٰذِهِ الْحَيَاةُ الدُّنْيَا إِلَّا لَهْوٌ وَلَعِبٌ [29:64]<br/><br/>إِنْ هُوَ إِلَّا ذِكْرَىٰ لِلْعَالَمِينَ [6:90]"
-            ],
-            "استفهامي": [
+            ]
+        }
+    },
+    {
+        "compareType": "sentence",
+        "topics": [
+            "استفهامي (Interrogative)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Example"
+        ],
+        "features": {
+            "استفهامي (Interrogative)": [
                 "Interrogative sentences",
                 "<u style=\"top:0\">حرف الإستفهام+(مُبتدا)(خبر)</u><br/><br/>اَيُّ الرَّجُلُ تَاجِرٌ؟<br/><br/> مَنِ الَذي تَاجِرٌ؟<br/><br/>اَلَيسَ الرَّجُلُ تَاجِرًا؟<br/><br/>اَاَنتَ تَاجِرٌ؟"
             ]

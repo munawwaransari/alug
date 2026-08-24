@@ -219,25 +219,10 @@
         "action": "sentence",
 	    "data": "pos:3"
     },
-    "Affirmative sentence;إيجابي;": {
-        "path": "dict.html",
-        "action": "sen-cmp",
-        "data": "pos:6"
-    },
-	"Negative sentence;نفي;": {
-        "path": "dict.html",
-        "action": "sen-cmp",
-        "data": "pos:6"
-    },
-	"Interrogative sentence;استفهامي;": {
-        "path": "dict.html",
-        "action": "sen-cmp",
-        "data": "pos:6"
-    },
     "Emphasis;توكيد اللفظي;توكيد اللمعنوي;": {
         "path": "dict.html",
         "action": "sen-cmp",
-        "data": "pos:7"
+        "data": "pos:4"
     },
     "Parts of Speech;أقسام الكلام":{
         "path": "dict.html",
@@ -274,25 +259,40 @@
         "action": "sentence",
 	    "data": "pos:6"
     },
-    "Possesive Construction;إضافة;المركب الإضافي;مُضاف;مُضاف إليه": {
+    "Affirmative sentence;إيجابي;": {
         "path": "dict.html",
         "action": "sentence",
         "data": "pos:7"
     },
-    "Adjectival Construction;المركب التوصيفي;نعت;منعوت;": {
+	"Negative sentence;نفي;": {
         "path": "dict.html",
         "action": "sentence",
         "data": "pos:8"
     },
-    "Demonstrative Phrase;المركب الإشاري;المشار إليه;اسم الإشارة;ضَمِير الفَصْل;": {
+	"Interrogative sentence;استفهامي;": {
         "path": "dict.html",
         "action": "sentence",
         "data": "pos:9"
     },
-    "Exceptions;الاستثناء;تام مثبت;تام منفي;ناقص منفي": {
+    "Possesive Construction;إضافة;المركب الإضافي;مُضاف;مُضاف إليه": {
         "path": "dict.html",
         "action": "sentence",
         "data": "pos:10"
+    },
+    "Adjectival Construction;المركب التوصيفي;نعت;منعوت;": {
+        "path": "dict.html",
+        "action": "sentence",
+        "data": "pos:11"
+    },
+    "Demonstrative Phrase;المركب الإشاري;المشار إليه;اسم الإشارة;ضَمِير الفَصْل;": {
+        "path": "dict.html",
+        "action": "sentence",
+        "data": "pos:12"
+    },
+    "Exceptions;الاستثناء;تام مثبت;تام منفي;ناقص منفي": {
+        "path": "dict.html",
+        "action": "sentence",
+        "data": "pos:13"
     },
     "Hamza;همزة القطع;همزة الوصل;": {
         "path": "dict.html",
