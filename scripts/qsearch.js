@@ -162,7 +162,7 @@ function search(pageNumber){
 	// Save last search for context
 	if(parent && text != parent.states.lastQSearch)
 	{
-		parent.updateStates({ lastQSearch: text });
+		parent.updateStatesKey("lastQSearch", text);
 	}
 
 	var div = $("#searchResult");

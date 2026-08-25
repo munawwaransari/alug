@@ -245,9 +245,9 @@
 					<b>تحليل</b>
 				</button>
 				<div class="dropdown-content">
-				    <a href="#" onclick="showSentenceComparisions(0, 'sen-cmp');toggleDropdownContent($(this).parent().prev());">Compare</a>
-				    <a href="#" onclick="showSentenceComparisions(0, 'sentence');toggleDropdownContent($(this).parent().prev());">Grammar</a>
-					<a href="#" onclick="analyzeSelectedWord();toggleDropdownContent($(this).parent().prev());">Analyze</a>
+				    <a href="#" onclick="handleParams('sen-cmp','pos:0');">Compare</a>
+				    <a href="#" onclick="handleParams('sentence','pos:0');">Grammar</a>
+					<a href="#" onclick="handleParams('analyze','');"">Analyze</a>
 					<a href="#" onclick="analyzeSelectedWordOld();toggleDropdownContent($(this).parent().prev());">Conjugate</a>
 					<a href="#" onclick="lookupEx('https://context.reverso.net/translation/arabic-english/');toggleDropdownContent($(this).parent().prev());">
 						<img src="images/share.png" style="width: 16px; height: 16px;"/>
@@ -267,52 +267,52 @@
 			<div class="dropdown">
 			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">الفعل</button>
 			  <div class="dropdown-content">
-				<a href="#" onclick="showVerbComparisions(0);toggleDropdownContent($(this).parent().prev());">Compare</a>
-				<a href="#" onclick="showObjectEffects('verb','Verb Types', 'انواع لاأفعال', 'verbTypeData');toggleDropdownContent($(this).parent().prev());">Verb Types <sup>(انواع لاأفعال)</sup></a>
-				<a href="#" onclick="showAllVerbTables();toggleDropdownContent($(this).parent().prev());">Verb Forms <sup>(أبواب الفعل)</sup></a>
-				<a href="#" onclick="showTriliteralVerbTable();toggleDropdownContent($(this).parent().prev());">ثلاثي مجرَّد</a>				
-				<a href="#" onclick="showInadequateVerbTable();toggleDropdownContent($(this).parent().prev());">Inadequate <sup>(افعال النَّاقِصة)</sup></a>
-				<a href="#" onclick="showWeakVerbTable();toggleDropdownContent($(this).parent().prev());">Weak Verbs <sup>(افعال المُعتِلَة)</sup></a>
-				<a href="#" onclick="showImperativeTable();toggleDropdownContent($(this).parent().prev());">Imperatives <sup>(الأمر والنهى)</sup></a>
+				<a href="#" onclick="handleParams('verb','pos:0');(0);">Compare</a>
+				<a href="#" onclick="handleParams('verbType');">Verb Types <sup>(انواع لاأفعال)</sup></a>
+				<a href="#" onclick="handleParams('vtab-all');">Verb Forms <sup>(أبواب الفعل)</sup></a>
+				<a href="#" onclick="handleParams('vtab-3');">ثلاثي مجرَّد</a>				
+				<a href="#" onclick="handleParams('vtab-inad');">Inadequate <sup>(افعال النَّاقِصة)</sup></a>
+				<a href="#" onclick="handleParams('vtab-weak');">Weak Verbs <sup>(افعال المُعتِلَة)</sup></a>
+				<a href="#" onclick="handleParams('vtab-imp');">Imperatives <sup>(الأمر والنهى)</sup></a>
 			  </div>
 			</div>
 			
 			<div id="ism" class="dropdown">
 			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">الاِسم</button>
 			  <div class="dropdown-content">
-				<a href="#" onclick="showNounComparisions(0);toggleDropdownContent($(this).parent().prev());">Compare</a>
-				<a href="#" onclick="showCauseAndEffects('Cause & Effect','السبب والنتيجة');toggleDropdownContent($(this).parent().prev());">Cause & Effect</a>
-				<a href="#" onclick="showNounTable('ism','الاسم', 'Noun');toggleDropdownContent($(this).parent().prev());">Noun Patterns</a>
-				<a href="#" onclick="showObjectEffects('ism','المفاعيل', 'Object', 'objectEffectsData');toggleDropdownContent($(this).parent().prev());">Object Effects</a>
-				<a href="#" onclick="showObjectEffects('ism','المصادر', 'Verbal Nouns', 'masdarData');toggleDropdownContent($(this).parent().prev());">Verbal Nouns</a>
-				<a href="#" onclick="showFiveNouns('ism', 'اسماءُ الخَمسة', 'Five Nouns');toggleDropdownContent($(this).parent().prev());">Five Nouns</a>
-				<a href="#" onclick="showPronounInfo('ism', 'ضَمائر', 'Pronouns');toggleDropdownContent($(this).parent().prev());">Pronouns</a>
+				<a href="#" onclick="handleParams('noun','pos:0');">Compare</a>
+				<a href="#" onclick="handleParams('cause-effect');">Cause & Effect</a>
+				<a href="#" onclick="handleParams('noun-pat');">Noun Patterns</a>
+				<a href="#" onclick="handleParams('obj-effect');">Object Effects</a>
+				<a href="#" onclick="handleParams('masdar');">Verbal Nouns</a>
+				<a href="#" onclick="handleParams('five-noun');">Five Nouns</a>
+				<a href="#" onclick="handleParams('pronoun');">Pronouns</a>
 			  </div>
 			</div>
 			
 			<div class="dropdown">
 			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">الحرف</button>
 			  <div class="dropdown-content">
-				<a href="#" onclick="showComparisions(0);toggleDropdownContent($(this).parent().prev());">Compare</a>
-				<a href="#" onclick="showObjectEffects('ism','ظُرُوف', 'Adjectives', 'adjectiveData');toggleDropdownContent($(this).parent().prev());">Adjectives</a>
-				<a href="#" onclick="showObjectEffects('ism','صفات', 'Adverbs', 'adverbData');toggleDropdownContent($(this).parent().prev());">Adverbs</a>
-				<a href="#" onclick="showParticleTable();toggleDropdownContent($(this).parent().prev());">Prepositions</a>
-				<a href="#" onclick="showMetonymies();toggleDropdownContent($(this).parent().prev());">Metonymies</a>
-				<a href="#" onclick="showPrepPhrasesTable();toggleDropdownContent($(this).parent().prev());">Prep. Phrases</a>
+				<a href="#" onclick="handleParams('cmp');">Compare</a>
+				<a href="#" onclick="handleParams('adj')">Adjectives</a>
+				<a href="#" onclick="handleParams('adv');">Adverbs</a>
+				<a href="#" onclick="handleParams('prep');">Prepositions</a>
+				<a href="#" onclick="handleParams('metonymy');">Metonymies</a>
+				<a href="#" onclick="handleParams('prep-ph');">Prep. Phrases</a>
 			  </div>
 			</div>
 			<div class="dropdown">
 			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">فِهرِس</button>
 			  <div class="dropdown-content">
-				<a href="#" onclick="listSearchIndex();toggleDropdownContent($(this).parent().prev());">Index</a>
-				<a href="#" onclick="listSearchIndex('ع');toggleDropdownContent($(this).parent().prev());">مصطلحات</a>
-				<a href="#" onclick="listDefinitions();toggleDropdownContent($(this).parent().prev());">تعريفات</a>
-				<a href="#" onclick="listExamplesFromQuran();toggleDropdownContent($(this).parent().prev());">
+				<a href="#" onclick="handleParams('list-search', '');">Index</a>
+				<a href="#" onclick="handleParams('list-search', 'ع');">مصطلحات</a>
+				<a href="#" onclick="handleParams('defs');">تعريفات</a>
+				<a href="#" onclick="handleParams('q-examples');">
 					<span style="font-size: 12px; margin-top:-4px;">Examples (Quran)</span>
 				</a>
-				<a href="#" onclick="loadArabicLTTable('plural.csv', 'ism','الجمع', 'Plural');toggleDropdownContent($(this).parent().prev());"><sup>Plural</sup></a>
-				<a href="#" onclick="loadArabicLTTable('synonyms.csv', 'ism','المرادفات', 'Synonyms');toggleDropdownContent($(this).parent().prev());"><sup>Synonyms</sup></a>
-				<a href="#" onclick="loadArabicLTTable('antonyms.csv', 'ism','المتضادات', 'Antonyms');toggleDropdownContent($(this).parent().prev());"><sup>Antonyms</sup></a>
+				<a href="#" onclick="handleParams('noun-plural');"><sup>Plural</sup></a>
+				<a href="#" onclick="handleParams('noun-syn');"><sup>Synonyms</sup></a>
+				<a href="#" onclick="handleParams('noun-ant');"><sup>Antonyms</sup></a>
 				<!--<a href="#" onclick="convertHTMLtoPDF('.dictionary', '.nFilter', 'exported.pdf');"><sub>Export to PDF</sub></a>-->
 			  </div>
 			</div>

@@ -81,7 +81,7 @@ window.onload = function () {
 
 function selectAndTrigger(data, filterClass) {
 	var d = data ? data.toLowerCase() : data;
-	if(d.startsWith("pos:")){
+	if(d && d.startsWith("pos:")){
 		var index = parseInt(d.substring(4));
 		setTimeout(function () {
 			selectIndexAndTrigger(index, 'nFilter');
@@ -111,33 +111,53 @@ function loadWord(txt) {
 	analyzeSelectedWord();
 }
 
-function handleParams() {
 
-	var action = params["action"];
+function updateDictStates(context, a, d){
+	var dictState = parent.getStatesFromKey(context);
+	a = a=="undefined" ? undefined: a;
+	d = d=="undefined" ? undefined: d;
+	var action = a!=undefined ? a : dictState["action"];
+	var data = a!=undefined ? d : dictState["data"];
+	var val = { action: action, data:data };
+	parent.updateStatesKey(context, val);
+	return val;
+}
+
+function handleParams(a, d) {
+	var st = updateDictStates("dict.html", 
+							a ?? params["action"], 
+							d ?? params["data"]);
+	var action = st.action, data = st.data;
 	switch (action) {
-
 		case 'defs':	
-			if(params["data"]){
-				var bookmark=params["data"].replace("def:","#bm_"); 
+			if(data){
+				var bookmark=data.replace("def:","#bm_"); 
 				listDefinitions(bookmark);
+			}
+			else{
+				listDefinitions();
 			}
 		break;
 
 		case 'analyze':
-			var word = params["data"];
+			var word = data;
 			if (word && word.trim()) {
 				loadWord(word);
 			}
 			break;
 
+		case 'cause-effect':
+			showCauseAndEffects();	
+			break;
+
 		case 'vtab-all': 
 			var pos = 0;
-			var data = params["data"];
-			if (data.startsWith("pos:")) {
+			if (data && data.startsWith("pos:")) {
 				pos = parseInt(data.substring(4));
 			}			
 			showAllVerbTables(pos); 
 			break;
+
 		case 'vtab-3': showTriliteralVerbTable(); break;
 		case 'vtab-inad': showInadequateVerbTable(); break;
 		case 'vtab-weak': showWeakVerbTable(); break;
@@ -146,7 +166,7 @@ function handleParams() {
 		case 'noun-pat':
 			showNounTable();
 			if (params["data"]) {
-				selectAndTrigger(params["data"], 'nFilter');
+				selectAndTrigger(data, 'nFilter');
 			}
 			break;
 
@@ -156,7 +176,7 @@ function handleParams() {
 
 		case 'pronoun':
 			showPronounInfo('ism', 'ضَمائر', 'Pronouns');
-			var sel = decodeURI(params["data"]);
+			var sel = decodeURI(data);
 			if (sel) {
 				$(".pronounFilter").val(sel);
 				filterPronounView();
@@ -175,8 +195,8 @@ function handleParams() {
 		case 'metonymy':
 			setTimeout(function () {
 				showMetonymies();
-				if (params["data"])
-					selectAndTrigger(params["data"], 'nFilter');
+				if (data)
+					selectAndTrigger(data, 'nFilter');
 			});
 			break;
 
@@ -184,22 +204,22 @@ function handleParams() {
 			setTimeout(function () {
 				showParticleTable();
 				if (params["data"])
-					selectAndTrigger(params["data"], 'nFilter');
+					selectAndTrigger(data, 'nFilter');
 			});
 			break;
 
 		case 'prep-ph':
 			showPrepPhrasesTable();
-			if (params["data"] && params["data"] != '@Key') {
-				if (params["data"].startsWith("pos:")) {
-					var index = parseInt(params["data"].substring(4));
+			if (data && data != '@Key') {
+				if (data.startsWith("pos:")) {
+					var index = parseInt(data.substring(4));
 					setTimeout(function () {
 						selectIndexAndTrigger(index, 'nFilter');
 					}, 150);
 				}
 				else{
 					var table = $('#pTable:visible');
-					const exp = new RegExp("(?:^|[a-z\\s])" + params["data"] + "(?:$|[a-z\\s])", 'ig');
+					const exp = new RegExp("(?:^|[a-z\\s])"+data+"(?:$|[a-z\\s])", 'ig');
 					table.find('tr').filter(function (n, el) {
 						if (!exp.test($(el).text()))
 							$(el).hide();
@@ -212,45 +232,45 @@ function handleParams() {
 		case 'verbType':
 			setTimeout(function () {
 				showObjectEffects('verb','Verb Types', 'انواع لاأفعال', 'verbTypeData');
-				if (params["data"])
-					if (params["data"].startsWith("pos:")) {
-						var index = parseInt(params["data"].substring(4));
+				if (data)
+					if (data.startsWith("pos:")) {
+						var index = parseInt(data.substring(4));
 						setTimeout(function () {
 							selectIndexAndTrigger(index, 'pronounFilter');
 						}, 150);
 					}
 					else
-						selectAndTrigger(params["data"], 'pronounFilter');
+						selectAndTrigger(data, 'pronounFilter');
 			});
 			break;
 
 		case 'masdar':
 			setTimeout(function () {
 				showObjectEffects('ism', 'المصادر', 'Verbal Nouns', 'masdarData');
-				if (params["data"])
-					if (params["data"].startsWith("pos:")) {
-						var index = parseInt(params["data"].substring(4));
+				if (data)
+					if (data.startsWith("pos:")) {
+						var index = parseInt(data.substring(4));
 						setTimeout(function () {
 							selectIndexAndTrigger(index, 'pronounFilter');
 						}, 150);
 					}
 					else
-						selectAndTrigger(params["data"], 'pronounFilter');
+						selectAndTrigger(data, 'pronounFilter');
 			});
 			break;
 
 		case 'obj-effect':
 			setTimeout(function () {
 				showObjectEffects('ism', 'المفاعيل', 'Object', 'objectEffectsData');
-				if (params["data"])
-					if (params["data"].startsWith("pos:")) {
-						var index = parseInt(params["data"].substring(4));
+				if (data)
+					if (data.startsWith("pos:")) {
+						var index = parseInt(data.substring(4));
 						setTimeout(function () {
 							selectIndexAndTrigger(index, 'pronounFilter');
 						}, 150);
 					}
 					else
-						selectAndTrigger(params["data"], 'pronounFilter');
+						selectAndTrigger(data, 'pronounFilter');
 			});
 			break;
 
@@ -262,21 +282,20 @@ function handleParams() {
 					action == 'adj'? 'صفات':'ظُرُوف',
 					action == 'adj'? 'Adjectives' : 'Adverbs', 
 					action == 'adj'? 'adjectiveData': 'adverbData');
-				if (params["data"])
-					if (params["data"].startsWith("pos:")) {
-						var index = parseInt(params["data"].substring(4));
+				if (data)
+					if (data.startsWith("pos:")) {
+						var index = parseInt(data.substring(4));
 						setTimeout(function () {
 							selectIndexAndTrigger(index, 'pronounFilter');
 						}, 150);
 					}
 					else
-						selectAndTrigger(params["data"], 'pronounFilter');
+						selectAndTrigger(data, 'pronounFilter');
 			});
 			break;
 
 		case 'cmp':
-			var data = params["data"];
-			if (data.startsWith("pos:")) {
+			if (data && data.startsWith("pos:")) {
 				var index = parseInt(data.substring(4));
 				showComparisions(index);
 				selectIndexAndTrigger(index, 'nFilter');
@@ -284,10 +303,17 @@ function handleParams() {
 			else showComparisions(0);
 			break;
 
+		case 'verb':
+			if (data && data.startsWith("pos:")) {
+				var index = parseInt(data.substring(4));
+				showVerbComparisions(index);
+			} else {
+				showVerbComparisions(0);
+			}
+			break;
 		case 'sentence':
 		case 'sen-cmp':
-			var data = params["data"];
-			if (data.startsWith("pos:")) {
+			if (data && data.startsWith("pos:")) {
 				var index = parseInt(data.substring(4));
 				showSentenceComparisions(index, action);
 			} else {
@@ -296,8 +322,7 @@ function handleParams() {
 			break;
 
 		case 'noun-cmp':
-			var data = params["data"];
-			if (data.startsWith("pos:")) {
+			if (data && data.startsWith("pos:")) {
 				var index = parseInt(data.substring(4));
 				showNounComparisions(index);
 			} else {
@@ -307,8 +332,7 @@ function handleParams() {
 
 		case 'imp-verb':
 			var pos = 0;
-			var data = params["data"];
-			if (data.startsWith("pos:")) {
+			if (data && data.startsWith("pos:")) {
 				pos = parseInt(data.substring(4));
 			}
 			showImperativeTable(null, pos);
@@ -316,8 +340,7 @@ function handleParams() {
 
 		case 'inad-verb':
 			var pos = 0;
-			var data = params["data"];
-			if (data.startsWith("pos:")) {
+			if (data && data.startsWith("pos:")) {
 				pos = parseInt(data.substring(4));
 			}
 			showInadequateVerbTable(null, pos);
@@ -325,8 +348,7 @@ function handleParams() {
 
 		case 'weak-verb':
 			var pos = 0;
-			var data = params["data"];
-			if (data.startsWith("pos:")) {
+			if (data && data.startsWith("pos:")) {
 				pos = parseInt(data.substring(4));
 			}
 			showWeakVerbTable(null, pos);
@@ -337,6 +359,13 @@ function handleParams() {
 			toggleDropdownContent($(this).parent().prev());
 			break;
 
+		case 'list-search':
+			if(data){
+				listSearchIndex(data);	
+			}else{
+				listSearchIndex('');
+			}
+			break;
 		default:
 			listSearchIndex();
 			toggleDropdownContent($(this).parent().prev());

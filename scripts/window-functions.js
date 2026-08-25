@@ -22,7 +22,19 @@ window.dashboard = {
 };
 window.topics = alug_chapters;
 window.updateStates = function (s) { $.extend(states, s); };
-
+window.getStatesFromKey = (k) => { return states[k]==undefined ? {} : states[k]; }
+window.updateStatesKey = (k, v) => {    
+    if(states[k] == undefined){
+        states[k] = v;
+    }
+    else if(typeof v == 'string')
+    {
+        if(states[k] != v) states[k] = v;
+    }
+    else if(typeof v == 'object'){
+        $.extend(states[k], v);
+    }
+};
 window.isLangSupported = function (lang) {
     return lang === "en-US" ||
         lang === "ar-SA" ||
