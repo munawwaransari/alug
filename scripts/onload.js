@@ -383,13 +383,13 @@ function showClock(){
 }
 
 var showChartEvtCount=0;
-function showChart(sel, evt){
+function showChart(sel){
 	if(showChartEvtCount > 0){
 		return; //skip
 	}
 	showChartEvtCount++;
 	var name = $('#sel'+sel).val();
-	console.log(`showChart: ${name}, src:${evt}`);
+	console.log(`showChart: ${name}`);
 	$('.reading-pane').attr("src","");
 	var path = "";
 	switch (sel){
@@ -593,12 +593,11 @@ function updateToolDescription(id, opt){
 						`<span class="menuitem" 
 							onclick="toggleMenu(['Vocab','Chart','Misc','TTS'],'sel${key}', true)">
 							${key}:
-							<select id="sel${key}" onchange="showChart('${key}')">`;
+							<select id="sel${key}" style="display:none" onchange="showChart('${key}')">`;
 						for(const [k,v]of Object.entries(value))
 							menu += `<option value="${v}">${k}</option>`;
 						menu += '</select></span>';
 					}
-					
 					$("#sel"+key).hide();
 				}
 				menu = menu + '</div>';
@@ -647,11 +646,11 @@ function updateToolDescription(id, opt){
 	}
 }
 
-function toggleMenu(items, key, show){
+function toggleMenu(items, key){
 	items.every(function(mi){
 		if("sel"+mi == key){
 			$("#sel"+mi).show();
-			if(show == true) showChart(mi);
+			showChart(mi);
 		}else{
 			$("#sel"+mi).hide();
 		}
