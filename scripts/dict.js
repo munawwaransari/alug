@@ -112,6 +112,25 @@ function loadWord(txt) {
 }
 
 
+function handleDictBack(){
+	if(parent){
+		var st = parent.getStatesFromKey("dict.html");
+		if(st.prevState && st.prevState.length > 0){
+			var ps = st.prevState.pop();
+			handleParams(ps.action, ps.data);
+		}
+	}
+}
+
+function updateStateIndex(lst){
+	if(lst){
+		var st = parent.getStatesFromKey('dict.html');
+		if(st.action){
+			updateDictStates('dict.html', st.action, `pos:${$(lst).prop('selectedIndex')}`);
+		}
+	}
+}
+
 function updateDictStates(context, a, d){
 	var dictState = parent.getStatesFromKey(context);
 	a = a=="undefined" ? undefined: a;
@@ -163,6 +182,7 @@ function handleParams(a, d) {
 		case 'vtab-weak': showWeakVerbTable(); break;
 		case 'vtab-imp': showImperativeTable(); break;
 
+		case 'noun':
 		case 'noun-pat':
 			showNounTable();
 			if (params["data"]) {
@@ -393,7 +413,9 @@ function showAllVerbTables(ii){
 		// Add filter drop down
 		if (filters.length > 0) {
 			$(".dictionary").prepend($(getListButtinWithSelect(`
-				<select class="nFilter" onchange="filterMTableRows('vTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val())">
+				<select class="nFilter" 	
+					onchange="updateStateIndex(this);
+						filterMTableRows('vTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val())">
 				<option value="all">Show All</option>
 				${
 					filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
@@ -626,9 +648,10 @@ function loadExamplesFromData(dict, qselect, data, prefix) {
 			values.every(function (ex, i) {
 				if (/\[\d+\:\d+\]/ig.test(ex)) {
 					div += `<p style="font-size:10px;">${
-						replaceQLink(value+'').replaceAll(']', ']<br/><br/>')
+						replaceQLink(ex+'').replaceAll(']', ']<br/><br/>')
 					}</p>`;
 				}
+				return true;
 			});
 			
 			if (div !== '') {
@@ -706,6 +729,8 @@ function listExamplesFromQuran(selText) {
 	loadExamplesFromData(dict, qselect, showWeakVerbTable(1), "Weak Verbs");
 	loadExamplesFromData(dict, qselect, showInadequateVerbTable(1), "Inadequate Verbs");
 	loadExamplesFromData(dict, qselect, get_ce_examples());
+	if(posAPIObj)
+		loadExamplesFromData(dict, qselect, posAPIObj.getMetonymies(1));
 
 	if(selText){
 		setTimeout(function(){
@@ -1366,7 +1391,9 @@ function showInadequateVerbTable(d, ii) {
 	// Add filter drop down
 	if (filters.length > 0) {
 		$(".dictionary").prepend($(getListButtinWithSelect(`
-			<select class="nFilter" onchange="filterMTableRows('mTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val())">
+			<select class="nFilter" 
+				onchange="updateStateIndex(this);
+					filterMTableRows('mTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val())">
 			<option value="all">Show All</option>
 			${
 				filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
@@ -1485,7 +1512,8 @@ function showWeakVerbTable(d, ii) {
 	if (filters.length > 0) {
 		$(".dictionary").prepend($(getListButtinWithSelect(`
 			<select class="nFilter" 
-				onchange="filterMTableRows('mTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val());
+				onchange="updateStateIndex(this);
+					filterMTableRows('mTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val());
 				          var d =$('#wvTitle');
 						  d.remove();
 						  $('.nFilterBtn').after(d); 
@@ -1627,7 +1655,9 @@ function showImperativeTable(d, ii) {
 	// Add filter drop down
 	if (filters.length > 0) {
 		container.prepend($(getListButtinWithSelect(`
-			<select class="nFilter" onchange="filterMTableRows('mTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val())">
+			<select class="nFilter" 
+				onchange="updateStateIndex(this);
+					filterMTableRows('mTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val())">
 			<option value="all">Show All</option>
 			${
 				filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
@@ -1640,5 +1670,4 @@ function showImperativeTable(d, ii) {
 		$('.nFilter').prop('selectedIndex', ii);
 		filterMTableRows('mTable', ii, $('.nFilter').val());
 	}
-
 }

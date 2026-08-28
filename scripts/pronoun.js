@@ -8,7 +8,7 @@ function showPronounInfo(k, v1, v2){
 	updateState(k, {ar: v1, en: v2});
 	
 	container.append($(`
-		<select class="pronounFilter" onchange="filterPronounView()">
+		<select class="pronounFilter" onchange="updateStateIndex(this);filterPronounView()">
 			<option value="all">Show All</option>
 			<option value="Subjective Pronouns">Subjective Pronouns</option>
 			<option value="Objective Pronouns">Objective Pronouns</option>

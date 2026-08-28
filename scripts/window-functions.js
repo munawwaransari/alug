@@ -32,6 +32,11 @@ window.updateStatesKey = (k, v) => {
         if(states[k] != v) states[k] = v;
     }
     else if(typeof v == 'object'){
+        //update previous value
+        if(v.prevState == undefined)
+            v.prevState = [];
+        v.prevState = v.prevState.filter(x => x.action != states[k].action); 
+        v.prevState.push({action: states[k].action, data: states[k].data});
         $.extend(states[k], v);
     }
 };

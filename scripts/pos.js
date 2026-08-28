@@ -1005,12 +1005,20 @@ class posAPI {
 		}
 	}
 
-	getMetonymies(){
+	getMetonymies(d){
 		var res = [];
 		for (const keyVal of Object.entries(posAPI.posRules)){
 			if(keyVal[0] === "Metonymies"){
 				res = posAPI.posRules[keyVal[0]];
 			}
+		}
+
+		if(d){ //return data when inline call
+			return Object.assign({}, ...$.map(res, function(value) {
+				var obj = {};
+				obj[value.ar] = value.words.map(x=>x.examples).flat();
+				return obj;
+			}));
 		}
 		return res;
 	}

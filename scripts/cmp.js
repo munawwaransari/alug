@@ -23,7 +23,8 @@ class cmpAPI {
 		var api = this;
 		var first = null, index = 0, indexValue = inp;
 		var sel = `
-		<select class="nFilter" onchange="loadComparision()">
+		<select class="nFilter" 
+			onchange="updateStateIndex(this);loadComparision()">
 		${
 			cmpAPI.cmpData.map(
 				function(cEntry){

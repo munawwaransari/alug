@@ -3688,7 +3688,7 @@
             "Instead of worrying|بدلاً من القلق",
             "Instead of quarreling, try to be silent|بدلا من الشجار حاول ان تكون صامتا",
             "The point is that we need to focus on quality rather than quantity|المسالة هي اننا بحاجة إلى التركيز على الجُودة بدلاً من الكَمية",
-            "K|to come into being/to happen/to start|يأتي على",
+            "K|toloadExamplesFromDataloadExamplesFromDataloadExamplesFromDataloadExamplesFromData come into being/to happen/to start|يأتي على",
             "It comes at regular intervals|إنه يأتي على فترات منتظمة",
             "A time will come upon my nation|الزمان سيأتي على امتي ",
             "The disease comes upon a person's health and gradually weakens their body|المرضُ يأتي على صحة الإنسان ويُضعف جسده تدريجياً",
@@ -3698,7 +3698,7 @@
             "It points to the enormous potential that exists in this industry|يشير الى الامكانيات الهائلة الموجودة في هذه الصناعة",
             "K|without|دون",
             "Without proper support|بدون الدعم المناسب",
-            "She worked without salary for two weeks|عملت بدون راتب لمدة اسبوعين",
+            "She worked without salary for two weeks|عملت بدون راloadExamplesFromDataتب لمدة اسبوعين",
             "They had been managing without a manager for months|لقد كانوا يدبرون امورهم بدون مدير لشهور",
             "K|to expresses/covey|ان تعبر عن",
             "express yourself|تعبر عن نفسك",
@@ -3919,7 +3919,7 @@
         },
         {
             "ar": "المجاز المرسل",
-            "en": "Synecdoche", 
+            "en": "Synecdoche (Loose)", 
             "words": [
                 {
                     "ar": "",
@@ -3949,6 +3949,50 @@
                         "فَلۡيَدۡعُ   نَادِيَهُۥ   ١٧ [96:17]",
                         "فَمَا   بَكَتۡ   عَلَيۡهِمُ   ٱلسَّمَآءُ   وَٱلۡأَرۡضُ [44:29]",
                         "<br/>المَدْرَسَةُ ذَهَبَتْ إِلَى رِحْلَةٍ<br/>(The school went on a trip)<br/>=>The students of the school went on a trip"
+                    ]
+                }
+            ]
+        },
+        {
+            "ar": "المجاز العَقلي",
+            "en": "Synecdoche (Conceptual)", 
+            "words": [
+                {
+                    "ar": "",
+                    "en": "Causality<br/>(Attributed to the cause)",
+                    "structure": "السببية",
+                    "examples": [
+                        "<br/>بَنَى المَلِكُ القلعةَ<br/>(The king build the castle)<br/>=> king ordered or caused it",
+                        "وَقَالَ فِرۡعَوۡنُ يَٰهَٰمَٰنُ ٱبۡنِ لِي صَرۡحٗا[40:36]"
+                    ]
+                },
+                {
+                    "ar": "",
+                    "en": "Temporality<br/>Attributed to time",
+                    "structure": "الزمانية",
+                    "examples": [
+                        "<br/>صَامَ نَهَارُهُ وَقَامَ لَيْلُهُ<br/>(His days fasted and his nights stood in prayer)",
+                        "وُجُوهٞ   يَوۡمَئِذٍ   خَٰشِعَةٌ [88:2]",
+                        "فَكَيۡفَ تَتَّقُونَ إِن كَفَرۡتُمۡ يَوۡمٗا يَجۡعَلُ ٱلۡوِلۡدَٰنَ شِيبًا [73:17]"
+                    ]
+                },
+                {
+                    "ar": "",
+                    "en": "Spatiality<br/>(Attributed to location)",
+                    "structure": "المكانية",
+                    "examples": [
+                        "<br/>جَرَى النَّهْرُ <br/>(The river ran)<br/>=>water in the river ran",
+                        "وَجَعَلۡنَا   ٱلۡأَنۡهَٰرَ   تَجۡرِي   مِن   تَحۡتِهِمۡ [6:6]"
+                    ]
+                },
+                {
+                    "ar": "",
+                    "en": "Infinitive<br/>(Attributed to verbal noun)",
+                    "structure": "المصدرية",
+                    "examples": [
+                        "<br/>جَدَّ جِدُّهُ<br/>(The matter became serious)",
+                        "فَإِذَا   نُفِخَ   فِي   ٱلصُّورِ   نَفۡخَةٞ   وَٰحِدَةٞ [69:13]",
+                        "كـَلَّآۖ   إِذَا   دُكَّتِ   ٱلۡأَرۡضُ   دَكّٗا   دَكّٗا [89:21]"
                     ]
                 }
             ]

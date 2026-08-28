@@ -668,10 +668,15 @@
         "action": "metonymy",
         "data": "pos:4"
     },
-    "Synecdoche;المجاز المرسل":{
+    "Synecdoche (Loose);المجاز المرسل":{
         "path": "dict.html",
         "action": "metonymy",
         "data": "pos:5"
+    },
+    "Synecdoche (Conceptual);المجاز العَقلي":{
+        "path": "dict.html",
+        "action": "metonymy",
+        "data": "pos:6"
     },
     "Triptote;المعرب":
     {
