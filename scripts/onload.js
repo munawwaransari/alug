@@ -313,13 +313,6 @@ function toggleAutoplay(){
 	console.log('autoplay :' + autoplay);
 }
 
-function toggleMenu(){
-	
-	toggleIcon("#topics");
-	menuOption = !menuOption;
-	$(".menu-container").toggle();
-}
-
 function toggleIcon(id){
 	[id+'_1', id+'_2'].forEach(function(id){
 		$(id).toggle();	
@@ -383,16 +376,20 @@ function loadQuranSearch(text, sval = ''){
 }
 
 function showClock(){
-	console.log("showChart: "+ name);
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
 		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "clock.html"));
 	}, 5);
 }
 
-function showChart(sel){
+var showChartEvtCount=0;
+function showChart(sel, evt){
+	if(showChartEvtCount > 0){
+		return; //skip
+	}
+	showChartEvtCount++;
 	var name = $('#sel'+sel).val();
-	console.log("showChart: "+ name);
+	console.log(`showChart: ${name}, src:${evt}`);
 	$('.reading-pane').attr("src","");
 	var path = "";
 	switch (sel){
@@ -404,7 +401,8 @@ function showChart(sel){
 	}
 	setTimeout(function(){
 		$('.reading-pane').attr('src', encodeURI(getLocationPath() +  path));
-	}, 5);
+		showChartEvtCount--;
+	}, 15);
 }
 
 //ref: https://stackoverflow.com/questions/7434685/how-can-i-be-notified-when-an-element-is-added-to-the-page
@@ -591,12 +589,11 @@ function updateToolDescription(id, opt){
 						menu +=
 						`<span class="menuitem" onclick="${value}">${key}</span>`;
 					else{
-						var onAction = `showChart('${key}')`;
 						menu += 
 						`<span class="menuitem" 
-							onclick="toggleMenu(['Vocab','Chart','Misc','TTS'],'sel${key}')">
+							onclick="toggleMenu(['Vocab','Chart','Misc','TTS'],'sel${key}', true)">
 							${key}:
-							<select id="sel${key}" onchange="${onAction}">`;
+							<select id="sel${key}" onchange="showChart('${key}')">`;
 						for(const [k,v]of Object.entries(value))
 							menu += `<option value="${v}">${k}</option>`;
 						menu += '</select></span>';
@@ -650,11 +647,11 @@ function updateToolDescription(id, opt){
 	}
 }
 
-function toggleMenu(items, key){
+function toggleMenu(items, key, show){
 	items.every(function(mi){
 		if("sel"+mi == key){
 			$("#sel"+mi).show();
-			showChart(mi);
+			if(show == true) showChart(mi);
 		}else{
 			$("#sel"+mi).hide();
 		}
