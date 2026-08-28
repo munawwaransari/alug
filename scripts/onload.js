@@ -383,13 +383,15 @@ function showClock(){
 }
 
 var showChartEvtCount=0;
-function showChart(sel){
+function showChart(sel, selValue){
 	if(showChartEvtCount > 0){
 		return; //skip
 	}
 	showChartEvtCount++;
-	var name = $('#sel'+sel).val();
+	var name = selValue ?? $('#sel'+sel).val();
 	console.log(`showChart: ${name}`);
+	// Save context
+	parent.updateStatesKey('Ain', {action: sel, data: name});
 	$('.reading-pane').attr("src","");
 	var path = "";
 	switch (sel){
@@ -591,7 +593,7 @@ function updateToolDescription(id, opt){
 					else{
 						menu += 
 						`<span class="menuitem" 
-							onclick="toggleMenu(['Vocab','Chart','Misc','TTS'],'sel${key}', true)">
+							onclick="toggleMenu(['Vocab','Chart','Misc','TTS'],'sel${key}')">
 							${key}:
 							<select id="sel${key}" style="display:none" onchange="showChart('${key}')">`;
 						for(const [k,v]of Object.entries(value))
@@ -604,8 +606,14 @@ function updateToolDescription(id, opt){
 				toolMessage.append(menu);
 				
 				setTimeout(function(){
-					var sel = opt && opt["alpha-selection"] ?  opt["alpha-selection"] : 'selVocab';
-					toggleMenu(['Vocab', 'Chart', 'Misc', 'TTS'], sel);
+					var st = parent.getStatesFromKey('Ain');
+					if(st.action != undefined){
+						toggleMenu(['Vocab', 'Chart', 'Misc', 'TTS'], "sel"+st.action, st.data);
+					}else{
+						var sel = opt && opt["alpha-selection"] ?  opt["alpha-selection"] : 'selVocab';
+						toggleMenu(['Vocab', 'Chart', 'Misc', 'TTS'], sel);
+					}
+					
 				},10);
 
 			}else{
@@ -646,11 +654,14 @@ function updateToolDescription(id, opt){
 	}
 }
 
-function toggleMenu(items, key){
+function toggleMenu(items, key, value){
 	items.every(function(mi){
 		if("sel"+mi == key){
 			$("#sel"+mi).show();
-			showChart(mi);
+			if(value){
+				$("#sel"+mi).val(value);
+			}
+			showChart(mi, value);
 		}else{
 			$("#sel"+mi).hide();
 		}
