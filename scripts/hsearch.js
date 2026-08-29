@@ -55,15 +55,47 @@ function loadHadithCollections(data){
 	});
 }
 
-function loadHadithResults(container, res){
-	if(res && res.hadiths){
-		res.hadiths.every((h)=>{
+function hsearch(txt, page=1){
 
+	var limit = 10;
+	var collection = $("#hadith-options").val();
+	var text = txt ?? $("#hsearchText").val().trim();
+	if(text){
+		var container = $("#hsearchResult .container");		
+		container.html("<br/>Loading....");
+		var searchUri = `https://ummahapi.com/api/hadith/search?q=${text}&collection=${collection}&limit=${limit}&page=${page}`;
+		loadJsonData(searchUri)
+		.then((data)=>{
+			//update nav
+			loadHadithResults(container, data.data, collection, page, text);
+		})
+		.catch((err)=>{
+			container.html(`<p style="color:red>${err}</b>`);
+		});
+	}
+}
+
+function loadHadithResults(container, res, col, page, txt){
+	if(res && res.hadiths){
+
+		var nav = $("#hsearchResult .nav");
+		nav.empty();
+		container.empty();
+		var navHtml= `<br/><span>Page ${page} of ${res.total_found}</span>`;
+		if(res.total_found > res.limit){
+			navHtml += `&nbsp;<span><a href="#" onclick="hsearch('${txt}', ${page+1})">Next Page</a></span>`;
+		}
+		nav.html(navHtml);
+
+		res.hadiths.every((h)=>{
 			var hdiv=`
 			<div class="hadithDiv" id="${h.id}">
 				<div>${h.english}</div>
 				<div>${h.arabic}</div>
-				<div>[${h.collection_name} #${h.hadithnumber}]</div>
+				<div><!--<a href="#" onclick="openExternalhadithLink('${col}',${h.hadithnumber})">-->
+				[${h.collection_name} #${h.hadithnumber}]
+				<!--</a>-->
+				</div>
 			</div>`;
 			container.append($(hdiv));
 			return true;
@@ -71,23 +103,8 @@ function loadHadithResults(container, res){
 	}
 }
 
-function hsearch(txt){
-
-	var limit = 10;
-	var collection = $("#hadith-options").val();
-	var text = txt ?? $("#hsearchText").val().trim();
-	if(text){
-		var container = $("#hsearchResult");
-		container.html("<br/>Loading....");
-		var searchUri = `https://ummahapi.com/api/hadith/search?q=${text}&collection=${collection}&limit=${limit}`;
-		loadJsonData(searchUri)
-		.then((data)=>{
-			//$("#hsearchResult").html(JSON.stringify(data.data));
-			container.html("<br/>");
-			loadHadithResults(container, data.data);
-		})
-		.catch((err)=>{
-			container.html(`<p style="color:red>${err}</b>`);
-		});
-	}
+function openExternalhadithLink(collection, number){	
+	var link = `https://sunnah.com/${collection}/${number}`;
+	var w = parent.window ? parent.window : window;
+	w.open(link, '_blank');
 }
