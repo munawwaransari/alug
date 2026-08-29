@@ -102,7 +102,8 @@ function selectAndTrigger(data, filterClass) {
 
 function selectIndexAndTrigger(index, filterClass) {
 	const select = document.getElementsByClassName(filterClass)[0];
-	$("." + filterClass).val(select.options[index].value);
+	var i = index < select.options.length ? index : 0;
+	$("." + filterClass).val(select.options[i].value);
 	$("." + filterClass).trigger('onchange');
 }
 
