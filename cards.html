@@ -589,13 +589,11 @@
 	function playAllCards(elem){
 		
 		var state = $(elem).html().trim();
-		console.log('state='+state);
 		if(state == '⏹'){ // stop
 			stopPlayCards(elem);
 			return;
 		}
 
-		console.log('Playing cards...');
 		$(elem).html('⏹'); //stop
 		var cards = $(".flip-card").sort((a,b) => $(a).attr('number') >= $(b).attr('number'));
 		
@@ -620,7 +618,7 @@
 						}
 					}
 				}
-				//console.log(`index: ${index}; text=${text}`);
+
 				if(text == undefined || text == "undefined" || text == ""){
 					return;
 				}

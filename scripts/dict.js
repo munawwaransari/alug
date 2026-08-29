@@ -117,7 +117,7 @@ function handleDictBack(){
 		var st = parent.getStatesFromKey("dict.html");
 		if(st.prevState && st.prevState.length > 0){
 			var ps = st.prevState.pop();
-			handleParams(ps.action, ps.data);
+			handleParams(null, ps.action, ps.data);
 		}
 	}
 }
@@ -142,17 +142,16 @@ function updateDictStates(context, a, d){
 	return val;
 }
 
-function handleParams(a, d) {
+function handleParams(el, a, d) {
 	var st = updateDictStates("dict.html", 
 							a ?? params["action"], 
 							d ?? params["data"]);
-	var action = st.action, data = st.data;
+	var action = st.action, data = st.data == "undefined" ? undefined : st.data;
 
 	switch (action) {
 		case 'defs':	
 			if(data){
-				var bookmark=data.replace("def:","#bm_"); 
-				listDefinitions(bookmark);
+				listDefinitions(data);
 			}
 			else{
 				listDefinitions();
@@ -389,8 +388,11 @@ function handleParams(a, d) {
 			break;
 		default:
 			listSearchIndex();
-			toggleDropdownContent($(this).parent().prev());
 			break;
+	}
+
+	if(el){
+		toggleDropdownContent($(el).parent().prev());
 	}
 }
 
@@ -824,7 +826,14 @@ function listDefinitions(bk){
 			);
 
 			if(bk){
-				window,open(bk, '_self');
+				if(bk.startsWith("pos")){
+					var index = parseInt(bk.split(":")[1]);
+					defSelect.find(`option:eq(${index})`).prop('selected', true);
+					defSelect.trigger('change');
+				}else{
+					var bkId = bk.startsWith("#") ? bk : `#bm_${bk}`;
+					window.open(bkId, '_self');
+				}
 			}
 	});
 }

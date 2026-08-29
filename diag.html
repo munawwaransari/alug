@@ -77,22 +77,5 @@
 		headNode.style.color = 'red';
 		document.body.appendChild(headNode);
 	}
-	
-	function openUrl(){
-		loadHiddenHtml('https://www.almaany.com/quran/30/5/7', function(html){
-			console.log(html);
-		});
-	}
-	function loadHiddenHtml(url, callback){
-		console.log('Opening...:'+ url);
-		let handle = window.open(url, '_blank');
-		if(handle){
-			handle.addEventListener('load', function() {
-				if(callback)
-					callback(handle.document.body.innerHTML);
-				console.log('...done!');
-			});
-		}
-	}
 	</script>
 </html>

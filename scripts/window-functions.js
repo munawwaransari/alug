@@ -91,7 +91,6 @@ window.playText = function (txt, lang, options) {
             lang = "en-US";
             txt = options["en-US"];
         }
-        console.log("current lang:" + $("#languages").val());
         setPlayLang(lang);
     }
     if (txt != undefined) {
