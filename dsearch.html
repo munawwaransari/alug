@@ -81,7 +81,7 @@
 	<script>
 	function showArabicKeyboard(keybd){
 		setTimeout(function(){
-			console.log("Opening keyboard: " + keybd);
+			//console.log("Opening keyboard: " + keybd);
 			window.open("keybd.html?layout="+keybd, "name", "top=0,left=0,width=600px,height=266px");
 		}, 10);
 	}
@@ -114,7 +114,7 @@
 		}
 
 		SearchDictionary(searchParams, function(data){
-			console.log(data);
+			//console.log(data);
 			data.forEach(function(res){
 				if(res){
 					div.append(res);

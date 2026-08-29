@@ -6,7 +6,7 @@ function showObjectEffects(k, v1, v2, dataName){
 	updateState(k, {ar: v1, en: v2});
 	var container = $(".dictionary");
 	container.html("Loading...");
-	ensureJsonData({name: dataName})
+	ensureDataLoaded({name: dataName})
 	.then((data) => {
 		container.empty();
 		createSelectionFilters(container, data, dataName);

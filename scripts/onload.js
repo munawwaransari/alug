@@ -743,10 +743,10 @@ function loadHandwriting(){
 }
 
 async function getiSearchSuggesstions(txt, callback){
-	ensureJsonData({name:'isearchData'})
+	ensureDataLoaded({name:'isearchData'})
 	.then((data) => {
 		// Merge definitions data
-		ensureJsonData({name: 'def-data'})
+		ensureDataLoaded({name: 'def-data'})
 		.then((data2) => {			
 			var txt_lc = txt ? txt.toLowerCase().trim() : '';
 			handleiSearchData(txt_lc, callback);		
@@ -887,7 +887,7 @@ function getDefaultActions(txt){
 }
 
 function genAndDownloadSitemap(){
-	ensureJsonData({name:'isearchData'})
+	ensureDataLoaded({name:'isearchData'})
 	.then((data) => {
 		var siteMap = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 		siteMap += getDefaultSiteMapUrls();

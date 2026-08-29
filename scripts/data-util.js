@@ -15,7 +15,7 @@ function getParamValue(paramName) {
     return params.get(paramName) ?? undefined;
 }
 
-async function ensureJsonData(d)
+async function ensureDataLoaded(d)
 {
 	return new Promise((resolve, reject) => {
 		if (parent.dataCache === undefined || parent.dataCache[d.name] === undefined) {
@@ -46,7 +46,7 @@ async function ensureJsonData(d)
 					reject(err);
 				});
 			}
-			else if(extension == "ttf"){
+			else if(extension == "ttf" || extension == "csv"){
 				loadHtmlData(loc)
 				.then((data) => {
 					parent.dataCache[d.name].data = data;
@@ -1484,8 +1484,11 @@ function init_data_cache(){
 			path: "data/grmr/pronouns.json"
 		},
 		"API_POS": {
+		},
+		"all-words-csv":{
+			path: "data/arabiclt/all-words.csv"
 		}
-	};
+	}
 }
 
 function convertHTMLtoPDF(selector, filter, pdfFileName) {
@@ -1498,7 +1501,7 @@ function convertHTMLtoPDF(selector, filter, pdfFileName) {
 			format: 'a4'
 		});
 
-		ensureJsonData({name: "noto-sans-font"})
+		ensureDataLoaded({name: "noto-sans-font"})
 		.then((font) => {
 			doc.addFileToVFS('NotoSansArabic.ttf', font);
 			doc.addFont('NotoSansArabic.ttf', 'NotoSans', 'normal');
@@ -1559,7 +1562,7 @@ function convertHTMLtoImage(selector, filters, imgFileName){
 			 format: 'a4'
 		});
 
-		ensureJsonData({name: "noto-sans-font"})
+		ensureDataLoaded({name: "noto-sans-font"})
 		.then((font) => {
 			doc.addFileToVFS('NotoSansArabic.ttf', font);
 			doc.addFont('NotoSansArabic.ttf', 'NotoSans', 'normal');
@@ -2013,10 +2016,7 @@ function listListItems(el, listId, page, action){
 		list.each(function(index, element) {
 			var value = $(this).val();  // Get option value
 			var text = $(this).text();  // Get visible text
-			
-			if(text && text.trim() === 'Show All') return true; // Skip
-			
-			console.log(`val:${value}, text=${text}, index: ${index}`);
+			if(text && text.trim() === 'Show All') return true; // Skip			
 			var txt = text.replace(/\(.*\)/ig,'');
 			sortedList.push(txt);
 			lookupText[txt] = {val: text, pos: index};
@@ -2358,7 +2358,7 @@ function getPosLookups(){
 	return new Promise(function(resolve, reject){
 		var lookups = {};
 		var w = $(".word-ar.sel-word:first").text().trim();	
-		ensureJsonData({name: "posRulesData"})
+		ensureDataLoaded({name: "posRulesData"})
 		.then((data1)=>{
 
 			var apiObj = parent.dataCache["API_POS"].data;
@@ -2385,7 +2385,7 @@ function getPosLookups(){
 			}
 			
 			// get pronoun lookup
-			ensureJsonData({name: "pronouns"})
+			ensureDataLoaded({name: "pronouns"})
 			.then((data)=>{
 				lookups.pronouns = [
 					...new Set(data.pronouns.map(x => x.names).flat()

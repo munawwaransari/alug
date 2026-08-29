@@ -8,7 +8,7 @@ class posAPI {
 	constructor(path, callback)
 	{
 		var cb = callback;
-		ensureJsonData({name: "posRulesData"})
+		ensureDataLoaded({name: "posRulesData"})
 		.then((data, isFromCache) => 
 		{
 			posAPI.posRules = data;

@@ -65,8 +65,8 @@ window.onload = function () {
 		return condition;
 	});
 
-	ensureJsonData({name: "mappingsData"});
-	ensureJsonData({name: "ai-prompts"});
+	ensureDataLoaded({name: "mappingsData"});
+	ensureDataLoaded({name: "ai-prompts"});
 
 	$("#wordSearchText").keyup(function (event) {
 		if (event.keyCode === 13) {
@@ -396,7 +396,7 @@ function handleParams(a, d) {
 
 function showAllVerbTables(ii){
 
-	ensureJsonData({name: "verb-examples"})
+	ensureDataLoaded({name: "verb-examples"})
 	.then((data) => {
 		var filters = [];
 		var flag = undefined;
@@ -463,11 +463,11 @@ function analyzeSelectedWord(w) {
 	data => {
 		var word = data.word;
 		if(data.nouns.length > 0){
-			console.log("pos: taking noun");
+			//console.log("pos: taking noun");
 			word = data.nouns[0];
 		}
 		else if(data.verbs.length > 0){
-			console.log("pos: taking verb");
+			//console.log("pos: taking verb");
 			word = data.verbs[0];
 		}
 		posSearchObj.searchAndAddHtml(word, $(".dictionary"));
@@ -705,7 +705,7 @@ function listExamplesFromQuran(selText) {
 	btnDiv.css('width', '280px');
 
 	loadExamplesFromCmpData(dict, qselect);
-	ensureJsonData({ name: "verb-examples" })
+	ensureDataLoaded({ name: "verb-examples" })
 		.then((data) => {
 			const exData = Object.fromEntries(
 				Object.entries(data).map(([key, value]) => [
@@ -717,15 +717,15 @@ function listExamplesFromQuran(selText) {
 			);
 			loadExamplesFromObjectEffectData(dict, qselect, exData);
 		});
-	ensureJsonData({ name: "objectEffectsData" })
+	ensureDataLoaded({ name: "objectEffectsData" })
 		.then((data) => {
 			loadExamplesFromObjectEffectData(dict, qselect, data);
 		});
-	ensureJsonData({ name: "adverbData" })
+	ensureDataLoaded({ name: "adverbData" })
 		.then((data) => {
 			loadExamplesFromObjectEffectData(dict, qselect, data);
 		});
-	ensureJsonData({ name: "def-data" })
+	ensureDataLoaded({ name: "def-data" })
 		.then((data) => {
 			loadExamplesFromDefinitions(dict, qselect, data);
 		});
@@ -774,7 +774,7 @@ function handleFilterIndex(val){
 
 function listDefinitions(bk){
 	var container = $(".dictionary");
-	ensureJsonData({name:'def-data'})
+	ensureDataLoaded({name:'def-data'})
 	.then((data) => {
 		container.empty(); 
 		container.append($(`
@@ -830,7 +830,7 @@ function listDefinitions(bk){
 }
 
 function listSearchIndex(indexKey='') {
-	ensureJsonData({name:'isearchData'})
+	ensureDataLoaded({name:'isearchData'})
 	.then((data) => {
 		$(".dictionary").empty();
 		$(".dictionary").append('<div style="margin-top: 40px;"></div>');
@@ -980,7 +980,8 @@ async function getSuggesstions(txt, callback) {
 	if (file.length > 0) {
 		var fileUrl = getLocationPath() + 'data/ar.dic/' + file[0][1] + '.json';
 		console.log('getting suggestions: ' + file[0][1] + '.json');
-		loadJsonData(fileUrl).then((data) => {
+		//loadJsonData(fileUrl).then((data) => {
+		ensureDataLoaded({name: fileUrl}).then((data) => {
 			// update global var for suggestions
 			var suggestionsList = data.filter(function (w) {
 				return w.startsWith(txt);
@@ -1145,7 +1146,7 @@ function showCauseAndEffects(inp) {
 	});
 
 	svgImg.on("click", function (e) {
-		console.log("on:" + activeSvgArea);
+		//console.log("on:" + activeSvgArea);
 		if (activeSvgArea) {
 			var exDiv = $("#ceExamples");
 			exDiv.empty();

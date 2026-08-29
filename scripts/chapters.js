@@ -14,7 +14,7 @@ function openChapter(chapter, file, page, lang){
 		}, 5);
 	}
 	else{
-		console.log(`opening '${abs_path}'`);
+		//console.log(`opening '${abs_path}'`);
 		$('.reading-pane').attr("src","");
 		setTimeout(function(){
 			$('.reading-pane').attr('src', encodeURI(abs_path));
@@ -59,7 +59,7 @@ function autoplayAudio(chapter, page, lang){
 }
 
 function openQuizV2(chapter, file, topic, lang) {
-	console.log(`Quiz file: ${file}`);
+	//console.log(`Quiz file: ${file}`);
 	var loaction = window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1);
 	var data_path = `${getLocationPath()}data/km/${topic}_quiz.json`;
 

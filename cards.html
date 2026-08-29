@@ -186,7 +186,7 @@
 			addImagePreviewer("cardContainer", 'bottom');
 			reloadCardData();
 		}
-		ensureJsonData({name: "ai-prompts"});
+		ensureDataLoaded({name: "ai-prompts"});
 
 		function reloadCardData(){
 			var dataParam = decodeURI(getParamValue("data"));
@@ -579,7 +579,6 @@
 
 	var playCardTimer = undefined;
 	function stopPlayCards(elem){
-			console.log('Stopping cards...');
 			$(elem).html('▶');
 			if(playCardTimer !== undefined)
 				clearInterval(playCardTimer);
@@ -621,7 +620,7 @@
 						}
 					}
 				}
-				console.log(`index: ${index}; text=${text}`);
+				//console.log(`index: ${index}; text=${text}`);
 				if(text == undefined || text == "undefined" || text == ""){
 					return;
 				}

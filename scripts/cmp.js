@@ -8,7 +8,7 @@ class cmpAPI {
 	constructor(path, callback)
 	{
 		var cb = callback;
-		ensureJsonData({name: "cmpData"})
+		ensureDataLoaded({name: "cmpData"})
 		.then((data, isFromCache) => {
 				cmpAPI.cmpData = data;
 				if(cb) cb("loaded", false, isFromCache);

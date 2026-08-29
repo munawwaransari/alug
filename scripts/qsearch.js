@@ -26,8 +26,8 @@ window.onload = function(){
 		$("img[src='images/kybd.jpg']").hide();
 	}
 
-	ensureJsonData({name:"similarAyahData"});
-	ensureJsonData({name: "ai-prompts"});
+	ensureDataLoaded({name:"similarAyahData"});
+	ensureDataLoaded({name: "ai-prompts"});
 
 	//Fill Juz select options
 	var jOptions = $("#juz-options");
@@ -99,7 +99,7 @@ Loads all words of Quran
 */
 async function loadQList(){
 	$("#hd-loading").show();
-	ensureJsonData({ name: "qfllistData" }).then((data) => {
+	ensureDataLoaded({ name: "qfllistData" }).then((data) => {
 		loadWordsFrom(data);
 		$("#hd-loading").hide();
 	});		
@@ -1100,7 +1100,7 @@ Loads Quran surah index
 var surah_order = false, surah_disp_mode='table';
 function listSurahs(loadMushaf, index, page){
 	$("#qari").hide();
-	ensureJsonData({name: 'qsurahData', file: 'qsurah.json'})
+	ensureDataLoaded({name: 'qsurahData', file: 'qsurah.json'})
 	.then((data) => {	
 		if(data){
 			//Load Topicsa
@@ -1569,7 +1569,7 @@ function toggleMakkiMadni(){
 }
 
 function getAyahTransliteration(verseKey, cb){	
-	ensureJsonData({name:"transliterationData", file: 'en-wbw-ayah.json'})
+	ensureDataLoaded({name:"transliterationData", file: 'en-wbw-ayah.json'})
 	.then((data) => {
 		if(cb) cb(data[verseKey]);
 	});
