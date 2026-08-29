@@ -2071,7 +2071,6 @@ function getActionTitle(action){
 
 function getActionFromCompareType(compareType){
 	return compareType == 'noun'? 'noun-cmp': 
-	compareType == 'verb'? 'vtab-all':
 	compareType == 'adjectiveData'? 'adj':
 	compareType == 'adverbData'? 'adv':
 	compareType == 'objectEffectsData'? 'obj-effect':
