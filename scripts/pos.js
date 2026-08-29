@@ -707,7 +707,10 @@ class posAPI {
 					var entryName = mKeyVal[0];
 					if(entryName.startsWith('Form ')){
 						var matchInfo = mKeyVal[1];
-						res[entryName] = matchInfo.xforms;
+						res[entryName] = {
+							xform: matchInfo.xforms,
+							nuance: matchInfo.nuance
+						};
 					}
 				}
 			}
@@ -733,8 +736,8 @@ class posAPI {
 		var vTable = $(`
 			<table id="vTable${key[1]}" class="vTable">
 			${ title ? 
-				`<tr><td colspan="4">${title}${getPinIcon(`vTable${key[1]}`,' tbody:first',parent.document)}</td></tr>
-				 <tr><td id="tdForm${key[1]}" colspan="4">
+				`<tr><td colspan="5">${title}${getPinIcon(`vTable${key[1]}`,' tbody:first',parent.document)}</td></tr>
+				 <tr><td id="tdForm${key[1]}" colspan="5">
 				 	<a style="text-decoration:none" href="#" 
 					onclick="$('#vTable${key[1]} tr[id*=_ex]').toggle();
 					         $('#vTable${key[1]} tr[id*=_notes]').toggle();
@@ -750,6 +753,7 @@ class posAPI {
 			}
 			<tr>
 				<th style="font-size: 14px;">Form</th>
+				<th>Nuance</th>
 				<th>المعروف</th>
 				<th>المجهول</th>
 				<th>الاسم</th>
@@ -760,7 +764,8 @@ class posAPI {
 		var index = 0;
 		for (const keyVal of Object.entries(res)){
 			var entryName = keyVal[0];
-			var xform = keyVal[1];
+			var xform = keyVal[1].xform;
+			var nuance = keyVal[1].nuance;
 			if(xform){
 				var ap = xform.filter(x=>x.en==="active participle")
 									   .map(x=>x.form);
@@ -787,6 +792,12 @@ class posAPI {
 					<tr id="form${formNumber}">
 						<td>
 						${cmpLink.replaceAll('\$', formNumber).replaceAll('@', index)}
+						</td>
+						<td>
+						${ 
+							nuance && nuance.length >0 ? 
+							nuance.filter(x=>x[0] != '#').map(x=>`<sub>${x}</sub>`).join('<br/>'):'-'
+						}
 						</td>
 						<td>
 							${cmpLink.replaceAll('\$',pst[0]+' - '+ prt[0]).replaceAll('@', index)}
@@ -832,14 +843,14 @@ class posAPI {
 				if(notes){
 					row += `<tr id="form${formNumber}_notes">
 					<td><a style="text-decoration:none;" href="#">[↑]</a></td>
-					<td colspan="3" style="font-size:14px;background-color:#ffffe0;direction:ltr">
+					<td colspan="4" style="font-size:14px;background-color:#ffffe0;direction:ltr">
 					${notes.map(x => x).join("<br/>")}
 					</td></tr>`;
 				}
 				var examples = exData[exKey] ? exData[exKey].examples : undefined;
 				if(examples){
 					row += `<tr id="form${formNumber}_ex">
-					<td colspan="4" style="background-color:#F5F5F5"><u style="font-size:12px;">Examples</u><br/>
+					<td colspan="5" style="background-color:#F5F5F5"><u style="font-size:12px;">Examples</u><br/>
 					${
 						examples.map(x => replaceQLink(x)).join("<br/>")
 					}
@@ -895,7 +906,7 @@ class posAPI {
 				if(values.notes){
 					row = `
 						<tr style="font-size:18px;">
-							<td style="background-color:#F6F6BA;" colspan="2">
+							<td style="background-color:#F6F6BA;" colspan="3">
 								${values.notes}
 							</td>
 							<td>${values.ar}<br/>${values.en}</td>

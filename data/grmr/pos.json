@@ -1904,6 +1904,7 @@
         "matches": {
             "Form I": {
                 "ignore": false,
+                "nuance":["non-causative"],
                 "rootExp": "[ناتي]?[َُ]?((([\\u0621-\\u064A]))[َُِّْ]*([\\u0621-\\u064A])[َُِّْ]*([\\u0621-\\u064A]))[ًٌٍَُِّْ]*",
                 "xforms": [
                     {
@@ -1973,6 +1974,7 @@
             },
             "Form II": {
                 "ignore": false,
+                "nuance":["causative", "intensive"],
                 "rootExp": "[ناتي]?[َُ]?((([\\u0621-\\u064A]))[َُِّْ]*([\\u0621-\\u064A])[َُِّّْ]*([\\u0621-\\u064A]))[ًٌٍَُِّْ]*",
                 "xforms": [
                     {
@@ -2051,6 +2053,7 @@
             },
             "Form III": {
                 "ignore": false,
+                "nuance":["associative","one-way transitive"],
                 "xforms": [
                     {
                         "form": "مُفَاعِلَة",
@@ -2128,6 +2131,7 @@
             },
             "Form IV": {
                 "ignore": false,
+                "nuance":["causative"],
                 "xforms": [
                     {
                         "form": "اِفعَال",
@@ -2205,6 +2209,7 @@
             },
             "Form V": {
                 "ignore": false,
+                "nuance":["reflexive","#Form II"],
                 "xforms": [
                     {
                         "form": "تَفَعُّل",
@@ -2282,6 +2287,7 @@
             },
             "Form VI": {
                 "ignore": false,
+                "nuance":["reciprocal","#Form III"],
                 "xforms": [
                     {
                         "form": "تَفَاعُل",
@@ -2359,6 +2365,7 @@
             },
             "Form VII": {
                 "ignore": false,
+                "nuance":["passive","anti-causative"],
                 "xforms": [
                     {
                         "form": "اِنفِعَال",
@@ -2409,6 +2416,7 @@
             },
             "Form VIII": {
                 "ignore": false,
+                "nuance":["causative","reflexive", "intensive"],
                 "xforms": [
                     {
                         "form": "اِفتِعَال",
@@ -2486,6 +2494,7 @@
             },
             "Form IX": {
                 "ignore": false,
+                "nuance": ["color & defect"], 
                 "xforms": [
                     {
                         "form": "اِفعِلَال",
@@ -2518,6 +2527,7 @@
             },
             "Form X": {
                 "ignore": false,
+                "nuance":["requestive","considerative"],
                 "xforms": [
                     {
                         "form": "اِستِفعَال",
@@ -2599,6 +2609,7 @@
         "matches": {
             "Form I (Quad)": {
                 "ignore": false,
+                "nuance":["causative"],
                 "rootExp": "[ناتي]?[َُ]?((([\\u0621-\\u064A]))[َُِّْ]*([\\u0621-\\u064A])[َُِّْ]*([\\u0621-\\u064A]))[ًٌٍَُِّْ]*",
                 "xforms": [
                     {
@@ -2668,6 +2679,7 @@
             },
             "Form II (Quad)": {
                 "ignore": false,
+                "nuance":["reflexive"],
                 "rootExp": "[ناتي]?[َُ]?((([\\u0621-\\u064A]))[َُِّْ]*([\\u0621-\\u064A])[َُِّْ]*([\\u0621-\\u064A]))[ًٌٍَُِّْ]*",
                 "xforms": [
                     {
@@ -2737,6 +2749,7 @@
             },
             "Form III (Quad)": {
                 "ignore": false,
+                "nuance":["requestive"],
                 "rootExp": "[ناتي]?[َُ]?((([\\u0621-\\u064A]))[َُِّْ]*([\\u0621-\\u064A])[َُِّْ]*([\\u0621-\\u064A]))[ًٌٍَُِّْ]*",
                 "xforms": [
                     {
@@ -2806,6 +2819,7 @@
             },
             "Form IV (Quad)": {
                 "ignore": false,
+                "nuance":["passive"],
                 "rootExp": "[ناتي]?[َُ]?((([\\u0621-\\u064A]))[َُِّْ]*([\\u0621-\\u064A])[َُِّْ]*([\\u0621-\\u064A]))[ًٌٍَُِّْ]*",
                 "xforms": [
                     {
@@ -2861,6 +2875,7 @@
         "matches": {
             "Form XI": {
                 "ignore": false,
+                "nuance": ["intensive","color & defect"],
                 "rootExp": "[ناتي]?[َُ]?((([\\u0621-\\u064A]))[َُِّْ]*([\\u0621-\\u064A])[َُِّْ]*([\\u0621-\\u064A]))[ًٌٍَُِّْ]*",
                 "xforms": [
                     {
@@ -2912,6 +2927,7 @@
             },
             "Form XII": {
                 "ignore": false,
+                "nuance": ["intensive","hyperbolic"],
                 "rootExp": "[ناتي]?[َُ]?((([\\u0621-\\u064A]))[َُِّْ]*([\\u0621-\\u064A])[َُِّْ]*([\\u0621-\\u064A]))[ًٌٍَُِّْ]*",
                 "xforms": [
                     {
@@ -2963,6 +2979,7 @@
             },
             "Form XIII": {
                 "ignore": false,
+                "nuance": ["intensive","specialized action"],
                 "rootExp": "[ناتي]?[َُ]?((([\\u0621-\\u064A]))[َُِّْ]*([\\u0621-\\u064A])[َُِّْ]*([\\u0621-\\u064A]))[ًٌٍَُِّْ]*",
                 "xforms": [
                     {
@@ -3032,6 +3049,7 @@
             },
             "Form XIV": {
                 "ignore": false,
+                "nuance": ["intensive","quasi-reflexive"],
                 "rootExp": "[ناتي]?[َُ]?((([\\u0621-\\u064A]))[َُِّْ]*([\\u0621-\\u064A])[َُِّْ]*([\\u0621-\\u064A]))[ًٌٍَُِّْ]*",
                 "xforms": [
                     {

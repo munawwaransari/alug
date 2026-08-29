@@ -2043,12 +2043,28 @@ function getListButtinWithSelect(sel, filterClass, compareType) {
 	<div class="nFilterDiv">
 		${sel}
 		<br style="height:1px;padding:0;margin:0;"/>
-		<button class="nFilterBtn"
-				onclick="listListItems('.dictionary',
-										'.${filterClass} option', 
-										'dict.html', 
-										'${getActionFromCompareType(compareType)}')"
+		<div class="nFilterBtn" style="width:10%">
+		<button onclick=" 
+			var prevOpt = $('.${filterClass} option:selected').prev();
+			if (prevOpt.length > 0) {
+				prevOpt.prop('selected', true);
+				prevOpt.trigger('change');
+			}" 
+		style="float:left">&#x25C0</button>
+		<button style="width:80%"
+		onclick="listListItems('.dictionary',
+			  			       '.${filterClass} option', 
+							   'dict.html', 
+							   '${getActionFromCompareType(compareType)}')"
 			>List</button>
+		<button onclick=" 
+			var nextOpt = $('.${filterClass} option:selected').next();
+			if (nextOpt.length > 0) {
+				nextOpt.prop('selected', true);
+				nextOpt.trigger('change');
+			}" 
+			style="float:right;width:10%">&#x25B6</button>
+		</div>
 	</div>`;
 }
 

@@ -1616,7 +1616,7 @@ function showImperativeTable(d, ii) {
 				<th colspan="2" class="engText">Imperative<br/>الأمر/النهي</th>
 			</tr>`;
 		var entryName = keyVal[0];
-		var xform = keyVal[1];
+		var xform = keyVal[1].xform;
 		if (xform) {
 			var pa = xform.filter(x => x.en === "present (active)")
 				.map(x => x.form)
