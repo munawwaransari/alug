@@ -677,71 +677,72 @@ function loadExamplesFromData(dict, qselect, data, prefix) {
 function listExamplesFromQuran(selText) {
 	var dict = $(".dictionary");
 	dict.empty();
+
 	// Add select
 	var qselect = `
-		<select class="qs1" style="text-align:center;"
-			onchange=" 
-			$('div [id*=qid_]').hide();
-			$('div [id*=qid_]').nextAll('br').hide();
-			if($(this).val() == 'ALL'){ 
-				$('div [id*=qid_]').show()
-				$('div [id*=qid_]').nextAll('br').show();
-			}else{
-				var id = arRemovePunct($(this).val()).replaceAll(' ','_');
-				$('div [id=qid_'+id+']').show();
-				$('div [id=qid_'+id+']').nextAll('br').show();
-			}
-			">
-			<option value="ALL">ALL</option>
-		</select>
-		`;
-	var qSelectDiv = getListButtinWithSelect(qselect, 
-							'qs1', '', 
-							"\"listQListItems('.dictionary', '.qs1')\"");
+			<select class="qs1" style="text-align:center;"
+				onchange=" 
+				$('div [id*=qid_]').hide();
+				$('div [id*=qid_]').nextAll('br').hide();
+				if($(this).val() == 'ALL'){ 
+					$('div [id*=qid_]').show()
+					$('div [id*=qid_]').nextAll('br').show();
+				}else{
+					var id = arRemovePunct($(this).val()).replaceAll(' ','_');
+					$('div [id=qid_'+id+']').show();
+					$('div [id=qid_'+id+']').nextAll('br').show();
+				}
+				">
+				<option value="ALL">ALL</option>
+			</select>
+			`;
+	var qSelectDiv = getListButtinWithSelect(qselect,
+		'qs1', '',
+		"\"listQListItems('.dictionary', '.qs1')\"");
 	dict.append(qSelectDiv);
 	qselect = $('.nFilterDiv .qs1');
 	var btnDiv = $('.nFilterDiv .nFilterBtn');
 	btnDiv.css('width', '280px');
 
 	loadExamplesFromCmpData(dict, qselect);
-	ensureJsonData({name:"verb-examples"})
-	.then((data) => {
-		const exData = Object.fromEntries(
-			Object.entries(data).map(([key, value]) => [
-				key.replace("V1_", "Trilateral ")
-				   .replace("V1_", "Quadlateral ")
-				   .replace("V1_", "Extended"), 
-				value]
-			)
-		);
-		loadExamplesFromObjectEffectData(dict, qselect, exData);
-	});
-	ensureJsonData({name:"objectEffectsData"})
-	.then((data) => {
-		loadExamplesFromObjectEffectData(dict, qselect, data);
-	});
-	ensureJsonData({name:"adverbData"})
-	.then((data) => {
-		loadExamplesFromObjectEffectData(dict, qselect, data);
-	});
-	ensureJsonData({name:"def-data"})
-	.then((data) => {
-		loadExamplesFromDefinitions(dict, qselect, data);
-	});
+	ensureJsonData({ name: "verb-examples" })
+		.then((data) => {
+			const exData = Object.fromEntries(
+				Object.entries(data).map(([key, value]) => [
+					key.replace("V1_", "Trilateral ")
+						.replace("V1_", "Quadlateral ")
+						.replace("V1_", "Extended"),
+					value]
+				)
+			);
+			loadExamplesFromObjectEffectData(dict, qselect, exData);
+		});
+	ensureJsonData({ name: "objectEffectsData" })
+		.then((data) => {
+			loadExamplesFromObjectEffectData(dict, qselect, data);
+		});
+	ensureJsonData({ name: "adverbData" })
+		.then((data) => {
+			loadExamplesFromObjectEffectData(dict, qselect, data);
+		});
+	ensureJsonData({ name: "def-data" })
+		.then((data) => {
+			loadExamplesFromDefinitions(dict, qselect, data);
+		});
 	loadExamplesFromData(dict, qselect, showImperativeTable(1), "Imperative - Form");
 	loadExamplesFromData(dict, qselect, showWeakVerbTable(1), "Weak Verbs");
 	loadExamplesFromData(dict, qselect, showInadequateVerbTable(1), "Inadequate Verbs");
 	loadExamplesFromData(dict, qselect, get_ce_examples());
-	if(posAPIObj)
+	if (posAPIObj)
 		loadExamplesFromData(dict, qselect, posAPIObj.getMetonymies(1));
 
-	if(selText){
-		setTimeout(function(){
-			$("#qs1").val(selText);
-			if($("#qs1").val() !== ''){
-				$("#qs1").trigger('change');
+	if (selText) {
+		setTimeout(function () {
+			$(".qs1").val(selText);
+			if ($(".qs1").val() !== '') {
+				$(".qs1").trigger('change');
 			}
-		},40);
+		}, 40);
 	}
 }
 
