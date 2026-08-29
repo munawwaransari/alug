@@ -1308,8 +1308,8 @@
         ],
         "features": {
             "فَاعَلَ - يُفَاعِلُ (Form III)": [
-				"<p style=\"direction: ltr\";padding:0;margin:0;>Indicates a reciprocal or associative action (suggesting a mutual or competitive performance). e.g. to face, to fight, to struggle etc.</p>",
-                "<p style=\"direction: ltr; margin-top:0;padding:0;\"><b><u>Reciprocal/Reflexive (مُطَاوِع)</u></b><br/><br/>قَاتَلَ - يُقَاتِلُ => to fight<br/>(قَتَلَ - يَقتُلُ => to kill)<br/><br/>حَافَظَ - يُحافِظُ => to guard<br/>(حَفِظَ - يَحفَظُ => to remember)</br><br/><b><u>Associative (ارتباطي)</u></b><br/><br/>كَاتَبَ - يُكاتِبُ => to correspond<br/>(كَتَبَ - يَكتُبُ => to write)<br/><br/>عَامَلَ - يُعَامِلُ=> to treat/deal with<br/>(عَمَلَ - يَعمَلُ => to work)</p><br/>",
+				"<p style=\"direction: ltr\";padding:0;margin:0;>Indicates a associative action (initated by the subject of the action). e.g. to face, to fight, to struggle etc.</p>",
+                "<p style=\"direction: ltr; margin-top:0;padding:0;\"><b><u>One-Way / Associative (تَرَابُطِيّ)</u></b><br/><br/>قَاتَلَ - يُقَاتِلُ => to fight<br/>(قَتَلَ - يَقتُلُ => to kill)<br/><br/>حَافَظَ - يُحافِظُ => to guard<br/>(حَفِظَ - يَحفَظُ => to remember)</br><br/>كَاتَبَ - يُكاتِبُ => to correspond<br/>(كَتَبَ - يَكتُبُ => to write)<br/><br/>عَامَلَ - يُعَامِلُ=> to treat/deal with<br/>(عَمَلَ - يَعمَلُ => to work)</p><br/>",
 				"وَلَا <b>تُقَٰتِلُوهُمۡ</b> عِندَ ٱلۡمَسۡجِدِ ٱلۡحَرَامِ حَتَّىٰ <b>يُقَٰتِلُوكُمۡ</b> فِيهِۖ [2:191]<br/><br/>وَهُمۡ عَلَىٰ صَلَاتِهِمۡ <b>يُحَافِظُونَ</b> [6:92]<br/><br/>وَمَن <b>جَٰهَدَ</b> فَإِنَّمَا <b>يُجَٰهِدُ</b> لِنَفۡسِهِۦٓۚ [29:6]<br/><br/>"
 			]
         }
@@ -1357,7 +1357,7 @@
         "features": {
             "تَفَعَّلَ - يَتَفَعَّلُ (Form V)": [
 				"<p style=\"direction: ltr\";padding:0;margin:0;>Makes the Form II Reflexive. Indicates a reflexive or passive action. e.g. to learn (from someone), to ponder (get thoughts), etc.</p>",
-				"<p st  yle=\"direction: ltr; margin-top:0;padding:0;\"><u>Reflexive/Passive</u><br/><div>تَدَبَّرَ - يَتَدَبَرُ => to ponder</div><div>تَذَكَّرَ - يَتَذَكَّرُ =>to remeber</div><br/><div>تَقَبَّلَ - يَتَقَبِّلُ => to accept</div><div>(كَثَرَ - يَكثَرُ => to increase)</div><br/><div>تَقَبَّلَ - يَتَقَبَّلُ => to accept</div><div>تَذَكَّرَ - يّتَذَكَّرُ => to remember</div><br/>",
+				"<p style=\"direction: ltr; margin-top:0;padding:0;\"><b><u>Reflexive (مُطَاوِع) of Form II</u></b><br/><div>تَدَبَّرَ - يَتَدَبَرُ => to ponder<br/>to manage <= دَبَّر (II)<br/><br/>تَذَكَّرَ - يَتَذَكَّرُ =>to remeber<br/>to remind <= ذَكَّرَ (II)<br/><br/>تَقَبَّلَ - يَتَقَبِّلُ => to accept<br/>(كَثَرَ - يَكثَرُ => to increase)</br><br/>تَقَبَّلَ - يَتَقَبَّلُ => to accept/tolerate<br/>to touch/kiss <= قَبَّلَ (II)<br/></p><br/>",
 				"أَفَلَا <b>يَتَدَبَّرُونَ</b> ٱلۡقُرۡءَانَ [47:24]<br/><br/>رَبَّنَا <b>تَقَبَّلۡ</b> مِنَّآۖ [2:127]<br/><br/>وَ<b>يَتَفَكَّرُونَ</b> فِي خَلۡقِ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضِ [3:191]<br/><br/>أَفَلَا <b>تَذَكَّرُونَ</b> ٣٠ [11:30]<br/><br/>"
 			]
         }
@@ -1380,9 +1380,9 @@
         ],
         "features": {
             "تَفَاعَلَ - يَتَفَاعِلَ (Form VI)": [
-				"<p style=\"direction: ltr\";padding:0;margin:0;>Makes the Form III Reflexive. Indicates a reflexive reciprocal or mutual/associative action. e.g. to quarrel, to resemble, etc.</p>",
-				"<p st  yle=\"direction: ltr; margin-top:0;padding:0;\"><u>Reflexive/Reciprocal</u><br/><div> تَنَازَعَ - يَتَنَازَعُ => to dispute (with one another)</div><div>(نَزَعَ = يَنزَعُ => to eradicate )</div><br/><div>تَكَاثَرَ - يَتَكَاثِرُ => to proliferate</div><div>(كَثَرَ - يَكثَرُ => to increase)</div><br/></p><p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Reflexive/Associative</u><div>تَقَابَلَ - يَتَقَابِلُ => to meet/face someone</div><div>تَمَاثَلَ - يَتَمَاثِلُ => to resemble</div><div>نَزَلَ - يَنزِلُ => to descend</div><br/>",
-				"وَأَطِيعُواْ ٱللَّهَ وَرَسُولَهُۥ وَلَا <b>تَنَٰزَعُواْ</b> [8:46]<br/><br/>ٱعۡلَمُوٓاْ أَنَّمَا ٱلۡحَيَوٰةُ ٱلدُّنۡيَا لَعِبٞ وَلَهۡوٞ وَزِينَةٞ وَ<b>تَفَاخُرُۢ</b> بَيۡنَكُمۡ وَ<b>تَكَاثُرٞ</b> فِي ٱلۡأَمۡوَٰلِ وَٱلۡأَوۡلَٰدِۖ [57:20]<br/><br/>"
+				"<p style=\"direction: ltr\";padding:0;margin:0;>Makes the Form III mutual & reciprocal (تبادلي). e.g. to quarrel, to resemble, etc.</p>",
+				"<p style=\"direction: ltr; margin-top:0;padding:0;\"><b><u>Mutual / Reciprocal of Form III</u></b><br/><br/><br/>تَنَازَعَ - يَتَنَازَعُ => to dispute with one another<br/>to dispute <= نَازَعَ (III)<br/><br/>تَكَاثَرَ - يَتَكَاثِرُ => to proliferate (arms race)<br/><br/>to outnumber <= كَاثَرَ (III)<br/><br/>تَقَابَلَ - يَتَقَابِلُ => to meet/face one another<br/>to meet/receive <= قَابَلَ (III)<br/><br/>تَمَاثَلَ - يَتَمَاثِلُ => to resemble/copy each other<br/>to resemble <= مَاثَلَ (III)<br/></p><br/>",
+				"وَأَطِيعُواْ ٱللَّهَ وَرَسُولَهُۥ وَلَا <b>تَنَٰزَعُواْ</b> [8:46]<br/><br/>ٱعۡلَمُوٓاْ أَنَّمَا ٱلۡحَيَوٰةُ ٱلدُّنۡيَا لَعِبٞ وَلَهۡوٞ وَزِينَةٞ وَ<b>تَفَاخُرُۢ</b> بَيۡنَكُمۡ وَ<b>تَكَاثُرٞ</b> فِي ٱلۡأَمۡوَٰلِ وَٱلۡأَوۡلَٰدِۖ [57:20]<br/><br/>ٱتَّقُواْ ٱللَّهَ ٱلَّذِي <b>تَسَآءَلُونَ</b> بِهِۦ [4:1]<br/>"
 			]
         }
 	},
@@ -1405,7 +1405,7 @@
         "features": {
             "اِنفَعَلَ - يَنفَعِلُ (Form VII)": [
 				"<p style=\"direction: ltr;padding:0;margin:0;\">[1] Indicates passive action on oneself (in this sense similar to passive verb form فُعِلَ - بُفعَلُ).<br/><br/>[2] Makes a transitive action reflexive (as if the subject becomes the object of the action)</p><br/>",
-				"<p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Transitive Reflexive/Passive</u></p><div>اِنخفَضَ - يَنخَفِض => to lower oneself</div><div>(خُفِضَ - يُخفَضُ => be reduced)</div><br/><div>اِندَفَعَ - يَندَفِعُ => to rush (push oneself)</div><div>(دُفِعَ - يُندَفَعُ => be pushed)</div><br/><div>اِنفَطَرَ - يَنفَطِرُ => to get broken</div><div>(فُطِرَ - يَفطَرُ => be broken)</div><br/><div>اِنقَلَبَ - يَنقَلِبُ => to return</div></p>",
+				"<p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Passive / Anticausative (مُطَاوِع)</u></p><div>اِنخفَضَ - يَنخَفِض => to lower oneself</div><div>(خُفِضَ - يُخفَضُ => be reduced)</div><br/><div>اِندَفَعَ - يَندَفِعُ => to rush (push oneself)</div><div>(دُفِعَ - يُندَفَعُ => be pushed)</div><br/><div>اِنفَطَرَ - يَنفَطِرُ => to get broken</div><div>(فُطِرَ - يَفطَرُ => be broken)</div><br/><div>اِنقَلَبَ - يَنقَلِبُ => to return</div></p>",
 				"وَإذَا <b>انقَلَبُوا</b> إلَى أَهلِهِم <b>انقَلَبُوا</b> فَكِهين [83:31]<br/><br/>إِذِا السَّمآءُ <b>النشَقَّت</b> [84:1]<br/><br/>وَ إِذَا النُّجُومُ <b>انكَدَرَت</b> [81:2]<br/><br/>إِذَا السَّمآءُ <b>انفَطَرَت</b> [82:1]<br/><br/>"
 			]
         }
@@ -1429,7 +1429,7 @@
         "features": {
             "اِفتَعَلَ - يَفتَعِلَ (Form VIII)": [
 				" <p style=\"direction: ltr;padding:0;margin:0;\">Indicates causative/reflexive action. It intesifies the meaning when compared to form I (فَعلَ - يَفْعلُ). e.g. to listen, to gather, to organize, etc.<br/></p><br/>",
-				"<p style=\"direction: ltr; margin-top:0;padding:0;margin-top:0;\"><u>Reflexive/Intensive</u></p><div>إستَمِعَ - يَستَمِعُ => to listen</div><div>(سَمَعَ - يَسمَعُ => to hear)</div><br/><div>اِجتَهَدَ - يَجتَهِدُ => to endeavor</div><div>(جَهَدَ - يَجهَدُ => to make effort)</div></p><p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Causative</u></p><div>إِفتَحَ - يَفتَحُ => to open</div><br/><div>اِنتَثَرَ - يَنتَثِرُ => to scatter</div><div>(نَثَرَ - يَنثِرُ => to disperse)</div><br/><div>اِجتَمَعَ - يَجتَمِعُ => to gather</div><div>(جَمَعَ - يَجمَعُ => to collect)</div></p>",
+				"<p style=\"direction: ltr; margin-top:0;padding:0;margin-top:0;\"><b><u>Reflexive/Intensive</u></b><br/><br/>إستَمِعَ - يَستَمِعُ => to listen<br/>(سَمَعَ - يَسمَعُ => to hear)<br/><br/>اِجتَهَدَ - يَجتَهِدُ => to endeavor<br/>(جَهَدَ - يَجهَدُ => to make effort)<br/><br/><b><u>Causative</u></b><br/><br/>فَتَحَ - يَفتَحُ => to inaugrate<br/>(نَثَرَ - يَنثِرُ => to disperse)<br/><br/>اِنتَثَرَ - يَنتَثِرُ => to scatter<br/>(نَثَرَ - يَنثِرُ => to disperse)<br/><br/>اِجتَمَعَ - يَجتَمِعُ => to gather<br/>(جَمَعَ - يَجمَعُ => to collect)</p>",
 				"وَإِذَا قُرِئَ ٱلۡقُرۡءَانُ <b>فَٱسۡتَمِعُواْ</b> لَهُ [7:204]<br/><br/>فَإِذَا قُضِيَتِ ٱلصَّلَوٰةُ <b>فَٱنتَشِرُواْ</b> فِي ٱلۡأَرۡضِ [62:10]<br/><br/>أَنِ ٱعۡبُدُواْ ٱللَّهَ وَ<b>ٱجۡتَنِبُواْ</b> ٱلطَّٰغُوتَۖ [16:36]<br/><br/>"
 			]
         }

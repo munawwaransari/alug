@@ -848,5 +848,40 @@
         "path": "dict.html",
         "action": "vtab-all",
         "data": "pos:3"
+    },
+    "Non-Causative;Form I;غير سببي":{
+        "path": "dict.html",
+        "action": "verb",
+        "data": "pos:0"
+    },
+    "Causative;Intensive;Form II;Form IV;Form VIII;السببية":{
+        "path": "dict.html",
+        "action": "verb",
+        "data": "pos:1"
+    },
+    "Associative;Form III;تَرَابُطِيّ":{
+        "path": "dict.html",
+        "action": "verb",
+        "data": "pos:2"
+    },
+    "Reflexive;Form V;Form VIII;مُطَاوِع":{
+        "path": "dict.html",
+        "action": "verb",
+        "data": "pos:4"
+    },
+    "Reciprocal;Form VI;":{
+        "path": "dict.html",
+        "action": "verb",
+        "data": "pos:5"
+    },
+    "Anticausative;Passive;Form VII;":{
+        "path": "dict.html",
+        "action": "verb",
+        "data": "pos:6"
+    },
+    "Considerative;Requestive;Form X;":{
+        "path": "dict.html",
+        "action": "verb",
+        "data": "pos:9"
     }
 }
