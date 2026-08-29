@@ -1260,8 +1260,8 @@
         ],
         "features": {
             "فَعلَ - يَفْعلُ (Form I)": [
-                "<p style=\"direction: ltr\";padding:0;margin:0;>Indicates basic sense about the action. Generally used for physical actions by someone/something doing on its own. e.g. to rain, to eat, to run, to witness, etc.</p>",
-                "<p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Transitive (متعدي)</u><br/><div>حَشَرَ - يَحشُرُ => to gather</div><div>رَفَعَ - يَرفَعُ => to raise</div><div>أَمَرَ - يَأمٌرُ => to order</div><br/><u>Intransitive (لازم)</u></p><div>فَقِهَ - يَفقَهُون => to comprehend</div><div>نَفَق - يَنفِقُ => to run out</div><div>نَزَلَ - يَنزِلُ => to descend</div><br/>",
+                "<p style=\"direction: ltr\";padding:0;margin:0;>Indicates basic sense about the action. The action or state remains with the subject. Generally used for physical actions by someone/something doing on its own. e.g. to rain, to eat, to run, to witness, etc.</p>",
+                "<p style=\"direction: ltr; margin-top:0;padding:0;\"><b><u>Non-Causative (غير سببي)</u></b><br/><div>حَشَرَ - يَحشُرُ => to gather</div><div>رَفَعَ - يَرفَعُ => to raise</div><div>أَمَرَ - يَأمٌرُ => to order</div></p><div>فَقِهَ - يَفقَهُون => to comprehend</div><div>نَفَق - يَنفِقُ => to run out</div><div>نَزَلَ - يَنزِلُ => to descend</div><br/>",
 				"وَ يَومَ<b> نَحشُرُهُم</b> جَمِيعًا [6:22]<br/><br/>اَللهُ الَّذِى <b>رَفَعَ</b> السَّماواتِ بِغَيرِعَمَدٍ [13:2]<br/><br/>ذَلِكَ بَأَنَّهُم قَومٌ لَّا <b>يَفقَهُونَ</b> [5:58]<br/><br/>وَالأمرُ إلَيكِ فَانظُرِي مَاذَا <b>تَأمُرِينَ</b> [27:33]<br/><br/>"
             ]
         }
@@ -1309,7 +1309,7 @@
         "features": {
             "فَاعَلَ - يُفَاعِلُ (Form III)": [
 				"<p style=\"direction: ltr\";padding:0;margin:0;>Indicates a reciprocal or associative action (suggesting a mutual or competitive performance). e.g. to face, to fight, to struggle etc.</p>",
-                "<p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Reciprocal</u><br/><div>قَاتَلَ - يُقَاتِلُ => to fight</div><div>(قَتَلَ - يَقتُلُ => to kill)</div><br/><div>حَافَظَ - يُحافِظُ => to guard</div><div>(حَفِظَ - يَحفَظُ => to remember)</div><br/></p><p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Associative</u><div>فَقِهَ - يَفقَهُون => to comprehend</div><div>نَفَق - يَنفِقُ => to run out</div><div>نَزَلَ - يَنزِلُ => to descend</div><br/>",
+                "<p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Reciprocal</u><br/><div>قَاتَلَ - يُقَاتِلُ => to fight</div><div>(قَتَلَ - يَقتُلُ => to kill)</div><br/><div>حَافَظَ - يُحافِظُ => to guard<br/>(حَفِظَ - يَحفَظُ => to remember)</div><br/></p><p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Associative</u><div>كَاتَبَ - يُكاتِبُ => to correspond<br/>(كَتَبَ - يَكتُبُ => to write)</div><br/><div>عَامَلَ - يُعَامِلُ=> to treat/deal with<br/>(عَمَلَ - يَعمَلُ => to work)</div><br/>",
 				"وَلَا <b>تُقَٰتِلُوهُمۡ</b> عِندَ ٱلۡمَسۡجِدِ ٱلۡحَرَامِ حَتَّىٰ <b>يُقَٰتِلُوكُمۡ</b> فِيهِۖ [2:191]<br/><br/>وَهُمۡ عَلَىٰ صَلَاتِهِمۡ <b>يُحَافِظُونَ</b> [6:92]<br/><br/>وَمَن <b>جَٰهَدَ</b> فَإِنَّمَا <b>يُجَٰهِدُ</b> لِنَفۡسِهِۦٓۚ [29:6]<br/><br/>"
 			]
         }
