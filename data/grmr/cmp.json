@@ -1264,6 +1264,9 @@
                 "<p style=\"direction: ltr; margin-top:0;padding:0;\"><b><u>Non-Causative (غير سببي)</b></u><br/><div>حَشَرَ - يَحشُرُ => to gather</div><div>رَفَعَ - يَرفَعُ => to raise</div><div>أَمَرَ - يَأمٌرُ => to order</div></p><div>فَقِهَ - يَفقَهُون => to comprehend</div><div>نَفَق - يَنفِقُ => to run out</div><div>نَزَلَ - يَنزِلُ => to descend</div><br/>",
 				"وَ يَومَ<b> نَحشُرُهُم</b> جَمِيعًا [6:22]<br/><br/>اَللهُ الَّذِى <b>رَفَعَ</b> السَّماواتِ بِغَيرِعَمَدٍ [13:2]<br/><br/>ذَلِكَ بَأَنَّهُم قَومٌ لَّا <b>يَفقَهُونَ</b> [5:58]<br/><br/>وَالأمرُ إلَيكِ فَانظُرِي مَاذَا <b>تَأمُرِينَ</b> [27:33]<br/><br/>"
             ]
+        },
+        "features_links":{
+            "Non-Causative (غير سببي)": "'dict.html','verbType','pos:5'"
         }
     },
 	{
@@ -1288,6 +1291,9 @@
                 "<p style=\"direction: ltr; margin-top:0;padding:0;\"><b><u>Causative (السببية)</u></b><br/><div>عَلّمَ - يُعَلِّمُ => to teach<br/>(عَلِمَ - يَعلَمُ => to know)<br/><br/>قَدَّرَ - يَقَدِّرُ => to estimate/judge <br/>(قَدِرَ - يَقدِرُ => to have ability/power)<br/><br/><b><u>Intensive (قوي)</u></b><br/><br/>كَذََبَ - يُكَذِّبُ => to accuse of lying<br/>(كَذَبَ - يَكذِبُ => to lie)<br/><br/>قَطَّعَ - يُقَطِّعُ => to cut into pieces<br/>(قَطَعَ - يَقطَعُ => to cut)</p><br/>",
 				"ٱلَّذِي <b>عَلَّمَ</b> بِٱلۡقَلَمِ ٤ [96:4]<br/><br/>فَإِن <b>كَذَّبُوكَ</b> فَقَدۡ <b>كُذِّبَ</b> رُسُلٞ مِّن قَبۡلِكَ [3:184]<br/><br/>ثُمَّ قُتِلَ كَيۡفَ <b>قَدَّرَ</b> ٢٠ [74:20]<br/><br/>يَوۡمَئِذٖ <b>تُحَدِّثُ</b> أَخۡبَارَهَا ٤ [99:4]<br/><br/>"
 			]
+        },
+        "features_links":{
+            "Causative (السببية)": "'dict.html','verbType','pos:5'"
         }
     },
 	{
@@ -1308,10 +1314,13 @@
         ],
         "features": {
             "فَاعَلَ - يُفَاعِلُ (Form III)": [
-				"<p style=\"direction: ltr\";padding:0;margin:0;>Indicates a associative action (initated by the subject of the action). e.g. to face, to fight, to struggle etc.</p>",
+				"<p style=\"direction: ltr\";padding:0;margin:0;>Indicates an associative action (initated by the subject of the action). e.g. to face, to fight, to struggle etc.</p>",
                 "<p style=\"direction: ltr; margin-top:0;padding:0;\"><b><u>One-Way / Associative (تَرَابُطِيّ)</u></b><br/><br/>قَاتَلَ - يُقَاتِلُ => to fight<br/>(قَتَلَ - يَقتُلُ => to kill)<br/><br/>حَافَظَ - يُحافِظُ => to guard<br/>(حَفِظَ - يَحفَظُ => to remember)</br><br/>كَاتَبَ - يُكاتِبُ => to correspond<br/>(كَتَبَ - يَكتُبُ => to write)<br/><br/>عَامَلَ - يُعَامِلُ=> to treat/deal with<br/>(عَمَلَ - يَعمَلُ => to work)</p><br/>",
 				"وَلَا <b>تُقَٰتِلُوهُمۡ</b> عِندَ ٱلۡمَسۡجِدِ ٱلۡحَرَامِ حَتَّىٰ <b>يُقَٰتِلُوكُمۡ</b> فِيهِۖ [2:191]<br/><br/>وَهُمۡ عَلَىٰ صَلَاتِهِمۡ <b>يُحَافِظُونَ</b> [6:92]<br/><br/>وَمَن <b>جَٰهَدَ</b> فَإِنَّمَا <b>يُجَٰهِدُ</b> لِنَفۡسِهِۦٓۚ [29:6]<br/><br/>"
 			]
+        },
+        "features_links":{
+            "One-Way / Associative (تَرَابُطِيّ)": "'dict.html','verbType','pos:5'"
         }
     },
 	{
@@ -1336,6 +1345,9 @@
                 "<p style=\"direction: ltr; margin-top:0;padding:0;\"><b><u>Causative (السببية)</u></b><br/>(Mostly transitive / مُتَعدِّي)<br/><br/>أَنزَلَ - يُنزِلَ => to send/bring down<br/>أَنفَقَ - يُنفِقُ => to spend<br/>أَفَقَهَ - يُفقِهُون => to educate/instruct<br/>أَقبَلَ - يُقبِلُ => to advance/apporach<br/>أَطعَمَ - يُطعِمُ => to feed<br/>أَلقَي - يُلقِي => to cast/thorw<br/><br/><u>Rarely Intransitive / لازِم</u><br/><br/>أَمْسَى (to enter evening)<br/><br/>أَشْرَقَ (to shine)<br/><br/>أَبْحَرَ (to sail)</p><br/>",
 				"وَ<b>أَنزَلَ</b> مِنَ السّمَاءِ مَاءَ [2:22]<br/><br/>وَالَّذِينَ <b>يُنفِقُونَ</b> أَموَالَهُم رَئَاءَ النَّاسِ [4:38]<br/><br/><b>وَاَقبَلُواْ</b> عَلَيهِم [12:71]<br/><br/>وَ هُوَ <b>يُطعِمُ</b> وَ لَايُطعَمُ [6:14]<br/><br/>فَيَنسَخُ اللهُ مَا <b>يُلقِي</b> الشَّيطانُ [22:52]<br/><br/>"
             ]
+        },
+        "features_links":{
+            "Causative (السببية)": "'dict.html','verbType','pos:5'"
         }
     },
 	{
@@ -1360,6 +1372,9 @@
 				"<p style=\"direction: ltr; margin-top:0;padding:0;\"><b><u>Reflexive (مُطَاوِع) of Form II</u></b><br/><div>تَدَبَّرَ - يَتَدَبَرُ => to ponder<br/>to manage <= دَبَّر (II)<br/><br/>تَذَكَّرَ - يَتَذَكَّرُ =>to remeber<br/>to remind <= ذَكَّرَ (II)<br/><br/>تَقَبَّلَ - يَتَقَبِّلُ => to accept<br/>(كَثَرَ - يَكثَرُ => to increase)</br><br/>تَقَبَّلَ - يَتَقَبَّلُ => to accept/tolerate<br/>to touch/kiss <= قَبَّلَ (II)<br/></p><br/>",
 				"أَفَلَا <b>يَتَدَبَّرُونَ</b> ٱلۡقُرۡءَانَ [47:24]<br/><br/>رَبَّنَا <b>تَقَبَّلۡ</b> مِنَّآۖ [2:127]<br/><br/>وَ<b>يَتَفَكَّرُونَ</b> فِي خَلۡقِ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضِ [3:191]<br/><br/>أَفَلَا <b>تَذَكَّرُونَ</b> ٣٠ [11:30]<br/><br/>"
 			]
+        },
+        "features_links":{
+            "Reflexive (مُطَاوِع)": "'dict.html','verbType','pos:5'"
         }
     },
 	{
@@ -1384,6 +1399,9 @@
 				"<p style=\"direction: ltr; margin-top:0;padding:0;\"><b><u>Mutual / Reciprocal of Form III</u></b><br/><br/><br/>تَنَازَعَ - يَتَنَازَعُ => to dispute with one another<br/>to dispute <= نَازَعَ (III)<br/><br/>تَكَاثَرَ - يَتَكَاثِرُ => to proliferate (arms race)<br/><br/>to outnumber <= كَاثَرَ (III)<br/><br/>تَقَابَلَ - يَتَقَابِلُ => to meet/face one another<br/>to meet/receive <= قَابَلَ (III)<br/><br/>تَمَاثَلَ - يَتَمَاثِلُ => to resemble/copy each other<br/>to resemble <= مَاثَلَ (III)<br/></p><br/>",
 				"وَأَطِيعُواْ ٱللَّهَ وَرَسُولَهُۥ وَلَا <b>تَنَٰزَعُواْ</b> [8:46]<br/><br/>ٱعۡلَمُوٓاْ أَنَّمَا ٱلۡحَيَوٰةُ ٱلدُّنۡيَا لَعِبٞ وَلَهۡوٞ وَزِينَةٞ وَ<b>تَفَاخُرُۢ</b> بَيۡنَكُمۡ وَ<b>تَكَاثُرٞ</b> فِي ٱلۡأَمۡوَٰلِ وَٱلۡأَوۡلَٰدِۖ [57:20]<br/><br/>ٱتَّقُواْ ٱللَّهَ ٱلَّذِي <b>تَسَآءَلُونَ</b> بِهِۦ [4:1]<br/>"
 			]
+        },
+        "features_links":{
+            "Mutual / Reciprocal": "'dict.html','verbType','pos:5'"
         }
 	},
 	{
@@ -1408,6 +1426,9 @@
 				"<p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Passive / Anticausative (مُطَاوِع)</u></p><div>اِنخفَضَ - يَنخَفِض => to lower oneself</div><div>(خُفِضَ - يُخفَضُ => be reduced)</div><br/><div>اِندَفَعَ - يَندَفِعُ => to rush (push oneself)</div><div>(دُفِعَ - يُندَفَعُ => be pushed)</div><br/><div>اِنفَطَرَ - يَنفَطِرُ => to get broken</div><div>(فُطِرَ - يَفطَرُ => be broken)</div><br/><div>اِنقَلَبَ - يَنقَلِبُ => to return</div></p>",
 				"وَإذَا <b>انقَلَبُوا</b> إلَى أَهلِهِم <b>انقَلَبُوا</b> فَكِهين [83:31]<br/><br/>إِذِا السَّمآءُ <b>النشَقَّت</b> [84:1]<br/><br/>وَ إِذَا النُّجُومُ <b>انكَدَرَت</b> [81:2]<br/><br/>إِذَا السَّمآءُ <b>انفَطَرَت</b> [82:1]<br/><br/>"
 			]
+        },
+        "features_links":{
+            "Passive / Anticausative (مُطَاوِع)": "'dict.html','verbType','pos:5'"
         }
     },
 	{
@@ -1480,6 +1501,9 @@
 				"<p style=\"direction: ltr; margin-top:0;padding:0;margin-top:0;\"><u>Considerative</u></p><div>اِستَوقَدَ - يَستَوقِدُ => to kindle</div><div>(وَقَدَ - يَوقِدُ => to burn/ignite)</div><br/><div>اِستَكبَرَ - يَستَكبِر => to be arrogant</div><div>(كَبُرَ - يَكبُرُ => to be big)</div></p><p style=\"direction: ltr; margin-top:0;padding:0;\"><u>Requestive</u></p><div>اِستَعمَلَ - يَستَعمِلَ => to make use of</div><div>(عَمَلَ - يَعمَلُ => to work)</div><br/><div>اِستَسقَي - يَستَسقِي => to beg/pray for water</div><div>(سَقَي - يَسقِي => to water)</div></p>",
 				"إِلَّآ إِبۡلِيسَ أَبَىٰ وَ<b>ٱسۡتَكۡبَرَ</b> [2:34]<br/><br/>وَإِذِ <b>ٱسۡتَسۡقَىٰ</b> مُوسَىٰ لِقَوۡمِهِ [2:60]<br/><br/>فَقَدِ <b>ٱسۡتَمۡسَكَ</b> بِٱلۡعُرۡوَةِ ٱلۡوُثۡقَىٰ [2:256]<br/><br/><b>فَٱسۡتَغۡفَرُواْ</b> لِذُنُوبِهِمۡ [3:135]<br/>"
 			]
+        },
+        "features_links":{
+            "Considerative": "'dict.html','verbType','pos:5'"
         }
     },
     {
