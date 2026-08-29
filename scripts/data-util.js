@@ -2038,32 +2038,34 @@ function listListItems(el, listId, page, action){
 	}
 }
 
-function getListButtinWithSelect(sel, filterClass, compareType) {
+function getListButtinWithSelect(sel, filterClass, compareType, filterBtnClickHandler) {
 	return `
 	<div class="nFilterDiv">
 		${sel}
 		<br style="height:1px;padding:0;margin:0;"/>
-		<div class="nFilterBtn" style="width:10%">
-		<button onclick=" 
-			var prevOpt = $('.${filterClass} option:selected').prev();
-			if (prevOpt.length > 0) {
-				prevOpt.prop('selected', true);
-				prevOpt.trigger('change');
-			}" 
-		style="float:left">&#x25C0</button>
-		<button style="width:80%"
-		onclick="listListItems('.dictionary',
-			  			       '.${filterClass} option', 
-							   'dict.html', 
-							   '${getActionFromCompareType(compareType)}')"
-			>List</button>
-		<button onclick=" 
-			var nextOpt = $('.${filterClass} option:selected').next();
-			if (nextOpt.length > 0) {
-				nextOpt.prop('selected', true);
-				nextOpt.trigger('change');
-			}" 
-			style="float:right;width:10%">&#x25B6</button>
+		<div class="nFilterBtn">
+			<button onclick=" 
+				var prevOpt = $('.${filterClass} option:selected').prev();
+				if (prevOpt.length > 0) {
+					prevOpt.prop('selected', true);
+					prevOpt.trigger('change');
+				}" 
+			style="width:10%;float:left">&#x25C0</button>
+			<button style="width:80%"
+				${filterBtnClickHandler == undefined ?
+				`onclick="listListItems('.dictionary',
+									'.${filterClass} option', 
+									'dict.html', 
+									'${getActionFromCompareType(compareType)}')"`:
+				`onclick=${filterBtnClickHandler}`}
+				>List</button>
+			<button onclick=" 
+				var nextOpt = $('.${filterClass} option:selected').next();
+				if (nextOpt.length > 0) {
+					nextOpt.prop('selected', true);
+					nextOpt.trigger('change');
+				}" 
+				style="float:right;width:10%">&#x25B6</button>
 		</div>
 	</div>`;
 }

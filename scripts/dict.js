@@ -147,6 +147,7 @@ function handleParams(a, d) {
 							a ?? params["action"], 
 							d ?? params["data"]);
 	var action = st.action, data = st.data;
+
 	switch (action) {
 		case 'defs':	
 			if(data){
@@ -198,7 +199,7 @@ function handleParams(a, d) {
 			showPronounInfo('ism', 'ضَمائر', 'Pronouns');
 			var sel = decodeURI(data);
 			if (sel) {
-				$(".pronounFilter").val(sel);
+				$(".pronounFilter").val(sel == "undefined" ? 'all': sel);
 				filterPronounView();
 			}
 			break;
@@ -677,8 +678,8 @@ function listExamplesFromQuran(selText) {
 	var dict = $(".dictionary");
 	dict.empty();
 	// Add select
-	var qselect = $(`
-		<select id="qs1" style="text-align:center;"
+	var qselect = `
+		<select class="qs1" style="text-align:center;"
 			onchange=" 
 			$('div [id*=qid_]').hide();
 			$('div [id*=qid_]').nextAll('br').hide();
@@ -691,14 +692,16 @@ function listExamplesFromQuran(selText) {
 				$('div [id=qid_'+id+']').nextAll('br').show();
 			}
 			">
+			<option value="ALL">ALL</option>
 		</select>
-		`);
-	qselect.append('<option value="ALL">ALL</option>');
-	dict.append(qselect);
-	dict.prepend($(`
-		<button class="nFilterBtn" 
-			style="width:100%;"
-			onclick="listQListItems('.dictionary', '#qs1')">List</button>`));
+		`;
+	var qSelectDiv = getListButtinWithSelect(qselect, 
+							'qs1', '', 
+							"\"listQListItems('.dictionary', '.qs1')\"");
+	dict.append(qSelectDiv);
+	qselect = $('.nFilterDiv .qs1');
+	var btnDiv = $('.nFilterDiv .nFilterBtn');
+	btnDiv.css('width', '280px');
 
 	loadExamplesFromCmpData(dict, qselect);
 	ensureJsonData({name:"verb-examples"})
