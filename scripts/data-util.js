@@ -26,8 +26,10 @@ async function ensureDataLoaded(d)
 			resolve(parent.dataCache[d.name].data, true);
 		}
 		else {
-			var loc = getLocationPath() + parent.dataCache[d.name].path;
-			var extension = loc.split('.').pop().toLowerCase();
+			var resPath =  parent.dataCache[d.name].path;
+			var isCustomPath = resPath.startsWith("http");  
+			var loc = isCustomPath ? resPath: getLocationPath()+resPath;
+			var extension = isCustomPath ? "json" : loc.split('.').pop().toLowerCase();
 			if (extension === "zip") {
 				loadZipData(loc, d.file)
 					.then((data) => {
@@ -500,7 +502,9 @@ function toggleQHead(){
 		$("#imgQHead").prop('src', 'images/up.png');
 		$("#divQHead").show();
 	}
-	changeDisplayLayout();
+	if(typeof changeDisplayLayout === "function"){
+		changeDisplayLayout();
+	}
 }
 
 function playVerse(url, verseKey, cb){
@@ -1487,6 +1491,9 @@ function init_data_cache(){
 		},
 		"all-words-csv":{
 			path: "data/arabiclt/all-words.csv"
+		},
+		"hadith-collecions":{
+			path: "https://ummahapi.com/api/hadith/collections"
 		}
 	}
 }

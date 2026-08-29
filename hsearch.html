@@ -1,0 +1,86 @@
+<!--
+	Author: munawwar_ali@yahoo.com	
+//-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="#" />
+	<link rel="stylesheet" type="text/css" href="styles/autoc-styles.css" media="screen">
+	<title>Search Hadith</title>
+	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+	<script src="scripts/autocomplete.js"></script>
+	<script src="scripts/data-util.js"></script>
+	<script src="scripts/hsearch.js"></script>
+	<style>
+		#hsearchText {
+			width: 100px !important;
+			font-size: 18px !important;
+		}
+
+		#hadith-options{
+			height: 34px;
+			width: 280px;
+		}
+
+		input[type="reset"]+input[type="text"]:empty {
+			display: none;
+		}
+
+		input[type="reset"] {
+			background-image: url(images/cleartxt.png );
+			background-position: center center;
+			background-repeat: no-repeat;
+			border: none;
+			background-color: transparent;
+			cursor: pointer;
+			position: relative;
+			top: -20px;
+			left: -26px;
+		}
+
+		.hadithDiv {
+			padding: 6px;
+		}
+
+		.hadithDiv div{
+			padding-bottom: 6px;
+		}
+	</style>
+</head>
+
+<body>
+	<script src="scripts/require.js"></script>	
+	<div class="containerHead" onclick="toggleQHead()" style="display:flex">
+		<img id="imgQHead" style="position:absolute;z-index:999;margin-bottom:6px;margin:auto;height:10px;" 
+			 src="images/up.png">
+	</div>
+	<div id="divQHead">
+		<div style="text-align:center;display:inline-block;width:100%;">
+			<div class="autocomplete">
+				<img src="images/kybd.jpg" style="cursor: pointer; margin-top: 10px; margin-left:-24px"
+					onclick="showArabicKeyboard('arabic')" />
+				<input type="reset" value="" alt="clear" title="Clear" onclick="$('#hsearchText').val('');" />
+				<input id="hsearchText" style="width:50px;">
+				<span style="display:inline-flex;flex-direction:row;justify-content:center;">
+					<button class="dropbtn" style="margin-left:6px;margin-right:4px;" id="hSearch" 
+							onclick="hsearch();">Search</button>
+					<span style="display:inline-block; height:auto;">
+						<select id="hadith-options"></select>
+					</span>
+					<span class="dropdown" style="display:inline-block">
+						<button class="dropbtn" style="margin-left:6px;padding:8px;" data-value="Powered by">ꗝ️</button>
+						<div class="dropdown-content" style="font-size:10px;left:0">
+							<a href='https://ummahapi.com/api/docs'
+								onclick="window.open(this.href, '_blank'); return false;">Ummah API</a>
+						</div>
+					</span>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div id="hsearchResult" style="width: 100%;text-align: center;"></div>
+</body>
+</html>

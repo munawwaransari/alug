@@ -361,6 +361,16 @@ function loadGrammarView(params){
 	}, 5);
 }
 
+function loadHadithSearch(text, sval = ''){
+	console.log("loadHadithSearch");
+	$('.reading-pane').attr("src","");
+	setTimeout(function(){
+
+		//get lang pram value
+		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "hsearch.html?search="+text+"&lang=en"));
+	}, 5);
+}
+
 function loadQuranSearch(text, sval = ''){
 	
 	console.log("loadQuranSearch");
@@ -621,6 +631,12 @@ function updateToolDescription(id, opt){
 		}
 		break;
 		
+		case "hsearch":
+		{
+			toolMessage.html($('<p Style="padding:0;margin:0;"><b>Hadith search</b></p>'));
+		}
+		break;
+
 		case "qsearch":
 		{
 			toolMessage.html($('<p Style="padding:0;margin:0;"><b>Quran search</b></p>'));

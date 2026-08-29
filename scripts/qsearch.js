@@ -1262,16 +1262,6 @@ async function  getTopicSuggesstions(val, callback){
 	}
 	callback(suggesstions);
 }
-/*
- Redirects to Hadith list at sunnah.com
-*/
-function searchHadith(){
-	
-	const text = document.getElementById("searchText").value;
-	var searchUrl = encodeURI("https://sunnah.com/search?q="+text);
-	var w = parent.window ? parent.window : windwo;
-	w.open(searchUrl, '_blank');
-}
 
 /*
  Loads and plays mp3 from everyayah.com
