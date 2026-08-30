@@ -125,7 +125,7 @@ function loadHadithResults(i, col){
 	<div class="hadithDiv" id="${h.id}">
 		<div style="width: 100%; padding:10px;">
 		<a href="#" onclick="openExternalhadithLink('${col}',${h.hadithnumber})">
-		[${h.collection_name} Hadith # ${h.hadithnumber}]
+		[${h.collection_name} Hadith &nbsp; #${h.hadithnumber} &nbsp; Grade: ${h.grade}]
 		</a></div>
 		<div style="padding:10px;background-color:#F6F0c2;">${h.english}</div>
 		<div style="padding:10px;background-color:#E8EEF4;">${h.arabic}</div>
