@@ -117,6 +117,10 @@ function loadHadithResults(i, col){
 	// Update hadith
 	var container = $("#hsearchResult .container");
 	var h = res.data.hadiths[index];
+	if(h.em == undefined){
+		h.em = 'em';
+		h.english = h.english.replaceAll(res.searchText, `<em>${res.searchText}</em>`); 
+	}
 	container.html(`
 	<div class="hadithDiv" id="${h.id}">
 		<div style="width: 100%; padding:10px;">
