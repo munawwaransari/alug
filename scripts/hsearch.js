@@ -2,6 +2,7 @@
 //	Author: munawwar_ali@yahoo.com
 //
 
+var last_Hadith_Result = {};
 window.onload = function(){
 	
 	$("#hd-loading").show();
@@ -55,19 +56,39 @@ function loadHadithCollections(data){
 	});
 }
 
-function hsearch(txt, page=1){
+function hsearch(txt){
 
 	var limit = 10;
 	var collection = $("#hadith-options").val();
 	var text = txt ?? $("#hsearchText").val().trim();
 	if(text){
+		
+		// Reuse last search
+		if(last_Hadith_Result[collection] &&
+		   last_Hadith_Result[collection].searchText == text)
+		{
+			loadHadithResults(0, collection);
+			return;
+		}
+
+		last_Hadith_Result[collection] = undefined;
 		var container = $("#hsearchResult .container");		
 		container.html("<br/>Loading....");
-		var searchUri = `https://ummahapi.com/api/hadith/search?q=${text}&collection=${collection}&limit=${limit}&page=${page}`;
+		var searchUri = `https://ummahapi.com/api/hadith/search?q=${text}&collection=${collection}&limit=${limit}`;
 		loadJsonData(searchUri)
 		.then((data)=>{
 			//update nav
-			loadHadithResults(container, data.data, collection, page, text);
+			if(data.data && data.data.total_found == 0){
+				container.html(`<br/><p>No hadith found mathcing the text '${text}'</b>`);
+			}else{
+				last_Hadith_Result.lastCollection = collection;
+				last_Hadith_Result[collection] = {
+					index: 0,
+					searchText: text,
+					data: data.data
+				};
+				loadHadithResults(0, collection);
+			}
 		})
 		.catch((err)=>{
 			container.html(`<p style="color:red>${err}</b>`);
@@ -75,36 +96,41 @@ function hsearch(txt, page=1){
 	}
 }
 
-function loadHadithResults(container, res, col, page, txt){
-	if(res && res.hadiths){
-
-		var nav = $("#hsearchResult .nav");
-		nav.empty();
-		container.empty();
-		var navHtml= `<br/><span>Page ${page} of ${res.total_found}</span>`;
-		if(res.total_found > res.limit){
-			navHtml += `&nbsp;<span><a href="#" onclick="hsearch('${txt}', ${page+1})">Next Page</a></span>`;
-		}
-		nav.html(navHtml);
-
-		res.hadiths.every((h)=>{
-			var hdiv=`
-			<div class="hadithDiv" id="${h.id}">
-				<div>${h.english}</div>
-				<div>${h.arabic}</div>
-				<div><!--<a href="#" onclick="openExternalhadithLink('${col}',${h.hadithnumber})">-->
-				[${h.collection_name} #${h.hadithnumber}]
-				<!--</a>-->
-				</div>
-			</div>`;
-			container.append($(hdiv));
-			return true;
-		});
+function loadHadithResults(i, col){
+	var res = last_Hadith_Result[col];
+	var index = res.index + i;
+	if(index < 0 || index >= res.data.total_found){
+		return;
 	}
+
+	// Update Nav
+	var nav = $("#hsearchResult .nav");
+	nav.html(`<br/>
+	<div style="padding:10px;background-color:#9DBF6C;">
+			<b>
+			<a href="#" onclick="loadHadithResults(-1, '${col}')">Prev</a>&nbsp;&nbsp;
+			<span>Hadith ${index+1} of ${res.data.total_found}</span>&nbsp;&nbsp;
+			<a href="#" onclick="loadHadithResults(+1, '${col}')">Next</a>&nbsp;&nbsp;
+			</b>
+	</div>`);
+
+	// Update hadith
+	var container = $("#hsearchResult .container");
+	var h = res.data.hadiths[index];
+	container.html(`
+	<div class="hadithDiv" id="${h.id}">
+		<div style="width: 100%; padding:10px;">
+		<a href="#" onclick="openExternalhadithLink('${col}',${h.hadithnumber})">
+		[${h.collection_name} Hadith # ${h.hadithnumber}]
+		</a></div>
+		<div style="padding:10px;background-color:#F6F0c2;">${h.english}</div>
+		<div style="padding:10px;background-color:#E8EEF4;">${h.arabic}</div>
+	</div>`);
+	res.index = index;
 }
 
-function openExternalhadithLink(collection, number){	
-	var link = `https://sunnah.com/${collection}/${number}`;
+function openExternalhadithLink(collection, number){
+	var link = `https://sunnah.com/search?q=${number}&collection[0]=${collection}`;
 	var w = parent.window ? parent.window : window;
 	w.open(link, '_blank');
 }
