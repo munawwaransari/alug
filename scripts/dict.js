@@ -108,8 +108,10 @@ function selectIndexAndTrigger(index, filterClass) {
 }
 
 function loadWord(txt) {
-	$("#wordSearchText").val(txt);
-	analyzeSelectedWord();
+	if(txt){
+		$("#wordSearchText").val(txt);
+		analyzeSelectedWord(txt);
+	}
 }
 
 
@@ -160,10 +162,9 @@ function handleParams(el, a, d) {
 		break;
 
 		case 'analyze':
-			var word = data;
-			if (word && word.trim()) {
-				loadWord(word);
-			}
+			var word = (!data || data == "") ? $("#wordSearchText").val(): data;
+			st.data = word;
+			loadWord(word ? word.trim(): undefined);
 			break;
 
 		case 'cause-effect':
