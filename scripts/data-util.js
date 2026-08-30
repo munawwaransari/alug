@@ -18,30 +18,37 @@ function getParamValue(paramName) {
 async function ensureDataLoaded(d)
 {
 	return new Promise((resolve, reject) => {
-		if (parent.dataCache === undefined || parent.dataCache[d.name] === undefined) {
+		if (parent.dataCache === undefined) { // || parent.dataCache[d.name] === undefined) {
 			console.log("Error: Invalid cache state for: " + d.name);
 			reject("Invalid cache state for: " + d.name);
 		}
-		if (parent.dataCache[d.name].data) {
+		else if (parent.dataCache[d.name] && parent.dataCache[d.name].data) {
 			resolve(parent.dataCache[d.name].data, true);
 		}
 		else {
-			var resPath =  parent.dataCache[d.name].path;
+			var resPath =  parent.dataCache[d.name] ? 
+					parent.dataCache[d.name].path :   // take registered path
+					d.name;							  // else take value as is
 			var isCustomPath = resPath.startsWith("http");  
 			var loc = isCustomPath ? resPath: getLocationPath()+resPath;
 			var extension = isCustomPath ? "json" : loc.split('.').pop().toLowerCase();
 			if (extension === "zip") {
 				loadZipData(loc, d.file)
 					.then((data) => {
-						// Load Surah names
-						parent.dataCache[d.name].data = data;
+						// Cache data if key registered
+						if(parent.dataCache[d.name]){
+							parent.dataCache[d.name].data = data;
+						}
 						resolve(data, false); 
 					});
 			}
 			else if (extension === "json") {
 				loadJsonData(loc)
 				.then((data) => {
-					parent.dataCache[d.name].data = data;
+					// Cache data if key registered
+					if(parent.dataCache[d.name]){
+						parent.dataCache[d.name].data = data;
+					}
 					resolve(data, false); 
 				})
 				.catch((err) => {
@@ -51,7 +58,10 @@ async function ensureDataLoaded(d)
 			else if(extension == "ttf" || extension == "csv"){
 				loadHtmlData(loc)
 				.then((data) => {
-					parent.dataCache[d.name].data = data;
+					// Cache data if key registered
+					if(parent.dataCache[d.name]){
+						parent.dataCache[d.name].data = data;
+					}
 					resolve(data, false); 
 				})
 				.catch((err) => {
