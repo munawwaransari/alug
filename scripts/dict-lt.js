@@ -29,10 +29,7 @@ function loadArabicLTTable(csv, key, v1, v2){
 	}
 	
 	if(loadRequired){
-		var w = parent ? parent.window: window;
-		var loc =  getLocationPath(); //w.location.href.substring(0,window.location.href.lastIndexOf("/")+1);
-		var path = encodeURI(loc + 'data/arabiclt/' + csv);
-		loadHtmlData(path).then((data) => loadCsvTable(data));
+		ensureDataLoaded({name:csv, file:csv}).then((data) => loadCsvTable(data));
 	}else if(table && table.length > 0){
 		addAsHtmlTable($(".dictionary"), table, table[0].split(","));
 	}else{
@@ -123,5 +120,6 @@ function addAsHtmlTable(container, table, columns){
 }
 
 function filterTable(wordColumn){
-	filterTableRows('.csvTable', wordColumn, $("#txtFilter").val());
+	filterTableRows(-1, '.csvTable', wordColumn, $("#txtFilter").val());
+	$(".csvTable tr th").parent().show()
 }

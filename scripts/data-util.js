@@ -126,7 +126,10 @@ async function loadZipData(url, file)
 							if(file.endsWith(".json")){
 								var zdata = JSON.parse(data);
 								resolve(zdata); 	
-							}						
+							}
+							else{
+								resolve(data); 						
+							}
 						})
 				.catch(function(err){
 					console.error("Error reading zip file: ", err);
@@ -208,7 +211,7 @@ function filterMTableRows(match, index, text){
 	}
 }
 
-function filterTableRows(table, column, searchText, allText, useInclude) {
+function filterTableRows(hideCol, table, column, searchText, allText, useInclude) {
     const rows = $(`${table} tr`);
     const cells = rows.find('td, th');
     
@@ -241,7 +244,7 @@ function filterTableRows(table, column, searchText, allText, useInclude) {
     });
 
     // 5. Specific Column Logic (if needed to hide the matching cell specifically)
-    if (column > 0) {
+    if (hideCol > 0) {
         $(`${table} tr td:contains('${txt}')`).hide();
 		$(`${table} tr th:nth-child(${column})`).hide();
     }
@@ -1499,8 +1502,17 @@ function init_data_cache(){
 		},
 		"API_POS": {
 		},
-		"all-words-csv":{
-			path: "data/arabiclt/all-words.csv"
+		"all-words.csv":{
+			path: "data/arabiclt/all-words.zip"
+		},
+		"antonyms.csv":{
+			path: "data/arabiclt/antonyms.zip"
+		},
+		"synonyms.csv":{
+			path: "data/arabiclt/synonyms.zip"
+		},
+		"plural.csv":{
+			path: "data/arabiclt/plural.zip"
 		},
 		"hadith-collecions":{
 			path: "https://ummahapi.com/api/hadith/collections"

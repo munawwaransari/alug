@@ -687,7 +687,7 @@ class posAPI {
 		// Add filter drop down
 		if (filters.length > 0) {
 			container.prepend($(getListButtinWithSelect(`
-				<select class="nFilter" onchange="filterTableRows('#nTable', 4, $('.nFilter').val().replace(' - ',''), 'all')">
+				<select class="nFilter" onchange="filterTableRows(4, '#nTable', 4, $('.nFilter').val().replace(' - ',''), 'all')">
   				<option value="all">Show All</option>
   				${
 					filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
@@ -945,7 +945,7 @@ class posAPI {
 		if(filters.length > 0){
 			var sel = `
 				<select class="nFilter"
-							onchange="filterTableRows('#pTable', 3, $('.nFilter').val().replace(' - ',''), 'all')">
+							onchange="filterTableRows(3, '#pTable', 3, $('.nFilter').val().replace(' - ',''), 'all')">
 						<option value="all">Show All</option>
 						${
 							filters.map((n) => {
@@ -1091,7 +1091,7 @@ class posAPI {
 		if(filters.length > 0){
 			var sel = `
 				<select class="nFilter" 
-					  	onchange="filterTableRows('#pTable', -1, $('.nFilter').val(), 'all', true)">
+					  	onchange="filterTableRows(-1, '#pTable', -1, $('.nFilter').val(), 'all', true)">
 					  	<option value="all">Show All</option>
 						${
 							filters.map((n) => {

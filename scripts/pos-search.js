@@ -11,8 +11,7 @@ class posSearch {
 		var cb = callback;
 		var thisInstance = this;
 		
-		ensureDataLoaded({name: "all-words-csv"})
-		//loadHtmlData(`${path}data/arabiclt/all-words.csv`)
+		ensureDataLoaded({name: "all-words.csv", file: "all-words.csv"})
 		.then((data) =>	
 		{
 			var csvData = loadCsvTable(data, false);
