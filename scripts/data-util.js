@@ -2466,24 +2466,57 @@ function removeSuffix(word, suffix){
 	return word;
 }
 
-function saveLastQStates(text, stateName="lastQSearch"){
+function saveLastQStates(text){
 	
-	if(parent && text != parent.states[stateName])
+	const stateName = "lastQSearch";
+	if(text != parent.states[stateName]?.search)
 	{
-		var st = {
-			search: text ?? parent.states[stateName]?.search
-		}
-		switch(stateName){
-			case "lastQSearch":
-				var newSet = $("[data]").map((i,x)=> $(x).attr('data')).toArray();
-				var oldSet = parent.states[stateName]?.["trans"];
-				st["trans"] = newSet.length == 0 ? oldSet : newSet;
-				break;
+		parent.updateStatesKey(stateName, {
+			search: text ?? parent.states[stateName]?.search,
+			trans: $("[data]").map((i,x)=> $(x).attr('data')).toArray()
+		});
 
-			case "lastHSearch":
-				st["book"] = $("#hadith-options").val() ?? parent.states[stateName]?.book;
-				break;
+	}
+	else if(parent.states[stateName]?.search)
+	{
+		var newSet = $("[data]").map((i,x)=> $(x).attr('data')).toArray();
+		var oldSet = parent.states[stateName]?.["trans"];
+		parent.updateStatesKey(stateName, {
+			trans: newSet.length == 0 ? oldSet : newSet
+		});
+	}
+}
+
+function saveLastHStates(text){
+	
+	const stateName = "lastHSearch";
+	if(text != parent.states[stateName]?.search)
+	{
+		parent.updateStatesKey(stateName, {
+			search: text ?? parent.states[stateName]?.search,
+			book: $("#hadith-options").val()
+		});
+		//delete parent.states[stateName]?.book;
+	}
+	else if(parent.states[stateName]?.search)
+	{
+		parent.updateStatesKey(stateName, {
+			book: $("#hadith-options").val() ?? parent.states[stateName]?.book
+		});
+	}
+}
+
+function cleanupEmptyDivs(div){
+		//Remove empty divs (if any) to avoid extra space
+	let count = div.children().length;
+	let $lastChild = div.children().last();
+	// Loop backwards, removing the element if it is a div and is empty
+	while ($lastChild && count > 0) {
+		let $prev = $lastChild.prev();
+		if($prev.is('div:empty')){
+			$lastChild.remove();
 		}
-		parent.updateStatesKey(stateName, st);
+		$lastChild = $prev;
+		count--;
 	}
 }

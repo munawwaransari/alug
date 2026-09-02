@@ -68,7 +68,7 @@ function hsearch(txt){
 	var text = txt ?? $("#hsearchText").val().trim();
 	if(text){
 		
-		saveLastQStates(text, "lastHSearch");
+		saveLastHStates(text);
 
 		// Reuse last search
 		if(last_Hadith_Result[collection] &&

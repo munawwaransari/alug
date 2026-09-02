@@ -301,25 +301,7 @@ function search(pageNumber){
 										bgColor: '#F6F0c2',
 										direction: 'ltr'
 									}
-								);	
-								
-								// Get translation for last selected language
-								if(parent.states.lastQSearch && parent.states.lastQSearch["trans"]){
-									
-									
-									var lastLanguages = parent.states.lastQSearch["trans"];
-									var keys = verseKey.split(":");
-									var langDivName = `#div${keys[0]}_${keys[1]}_`;
-									lastLanguages.every((lastlang)=>{
-										if(lastlang != '' && lastlang != undefined && lastlang != 'undefined'){
-											var langDiv = $(`${langDivName}${lastlang}`);
-											if(langDiv.length > 0){
-												langDiv.trigger('click');
-											}
-										}
-										return true;
-									});
-								}
+								);									
 							});
 							return true;
 						}
@@ -467,8 +449,9 @@ function getVerseTafsir(id, verseKey){
 		if(elem)
 			elem.parentNode.removeChild(elem);
 
+		//cleanupEmptyDivs(container);
 		container.append($('<div id="'+childId+'" style="'+style+'padding-top:14px;">'+data.text+'</div>'));
-		
+
 		alink.removeClass('blink');
 		$(window).scrollTop(scrollPosition);
 	});
@@ -476,9 +459,9 @@ function getVerseTafsir(id, verseKey){
 
 function getVerseTranslation(dataAttr, id, verseKey, sfx = '_en', lang = window.QuranJS.Language.ENGLISH){
 
+	console.log(`getVerseTranslation: id=${id}, vrese:${verseKey}, sfx:${sfx}, lang:${lang}`);
 	var id2 = id.replace('div','vdiv-')
 	           .replace('_', '-');
-	var div = $("div#"+id2).last();
 	var alink = $("#"+id+sfx);
 	alink.addClass('blink');
 	SearchQuran(window.QuranJS.Verses.findByKey, { 
@@ -514,18 +497,23 @@ function getVerseTranslation(dataAttr, id, verseKey, sfx = '_en', lang = window.
 			if(last_verse_trans_langs.indexOf(lang) === -1){
 				last_verse_trans_langs.push(lang);
 			}
-			displayVerse(div, ayahText, verseKey, { 
-				words: data.words,
-				bgColor: sfx === '_en' ? '#F6F0F2' : '#E8EEF4',
-				keepFocus: true,
-				dataAttr: dataAttr,
-				direction: (sfx === '_ar' || sfx === '_ur') ? 'rtl' : 'ltr'
-			});
-			
-			var scrollPosition = $(div).offset().top; // ?? $(window).scrollTop();
-			alink.remove();
-			$(window).scrollTop(scrollPosition);
-			saveLastQStates();
+			setTimeout(() => {
+				var div = $("div#"+id2).last();
+				displayVerse(div, ayahText, verseKey, { 
+					words: data.words,
+					bgColor: sfx === '_en' ? '#F6F0F2' : '#E8EEF4',
+					keepFocus: true,
+					dataAttr: dataAttr,
+					direction: (sfx === '_ar' || sfx === '_ur') ? 'rtl' : 'ltr'
+				});
+				
+				saveLastQStates();
+				alink.remove();
+				var scrollPosition = $(div).offset()?.top; // ?? $(window).scrollTop();
+				if(scrollPosition !== undefined && scrollPosition === null){
+					$(window).scrollTop(scrollPosition);
+				}
+			}, 20);
 		}
 	});
 }
@@ -608,7 +596,8 @@ function displayVerse(div, verse, verseKey, options){
 	`:'';
 	divHtml += '</div>';
 	div.append($(divHtml));
-	
+	cleanupEmptyDivs(div);
+
 	if(options.keepFocus){
 		var elem = $("#vdiv-"+verseKeys[0]+'-'+verseKeys[1]);
 		if(elem.length > 0){
@@ -1215,8 +1204,18 @@ function onVerseLoaded(chapter, verse){
 		stopPlayVerse();
 	}
 
-	if (last_verse_trans_langs) {
-		last_verse_trans_langs.forEach(function (lang) {
+	if (last_verse_trans_langs || parent.states.lastQSearch) {
+		var languages = last_verse_trans_langs ?? [];
+		if(parent.states.lastQSearch["trans"]){
+			languages = [...languages, ...parent.states.lastQSearch["trans"]];
+			languages = [...new Set(languages)]; // Remove duplicates
+		}
+
+		if(languages  && languages.length > 0){
+			parent.states.lastQSearch["trans"] = languages;
+		}
+
+		languages.forEach(function (lang) {
 			var vKey = `${chapter}:${verse}`;
 			var vId = `div${chapter}_${verse}`;
 			setTimeout(function () {
@@ -2314,8 +2313,9 @@ function redirectHadith(verseKey){
 			.trim();
 			selWord = selWord == "" ? undefined : selWord;	
 		}
-		parent.redirect('hsearch.html', '', 
-			selWord ?? 
-			verseKey.replace(':','.'));
+		else{
+			selWord = verseKey.replace(':','.');
+		}
+		parent.redirect('hsearch.html', '', selWord);
 	}
 }
