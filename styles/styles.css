@@ -88,12 +88,14 @@ body, .toolDiv {
 }
 
 .desktop img {
-	width: 32px;
-	height: auto;
+	width: auto;
+	height: 32px;
+	padding:6px;
 }
 .mobile img {
-	width: 36px;
-	height: auto;
+	width: auto;
+	height: 32px;
+	padding:6px;
 }
 
 .tool{
