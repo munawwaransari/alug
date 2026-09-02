@@ -30,13 +30,14 @@ window.onload = function(){
 		loadHadithCollections(data.data.collections);
 		$("#hd-loading").hide();
 
-		var collection = decodeURI(getParamValue("book"));	
+		var collection = decodeURI(getParamValue("action"));	
 		if(collection && collection != 'undefined'){
 			$("#hadith-options").val(collection);
 		}
 
-		var searchVal = decodeURI(getParamValue("search"));	
+		var searchVal = decodeURI(getParamValue("data"));	
 		if(searchVal && searchVal != 'undefined'){
+			$("#hsearchText").val(searchVal);
 			hsearch(searchVal);
 		}
 		else if (parent && parent.states.lastHSearch){
@@ -59,7 +60,7 @@ function loadHadithCollections(data){
 function hsearch(txt){
 
 	var limit = 10;
-	var collection = $("#hadith-options").val();
+	var collection = $("#hadith-options").val() ?? $("#hadith-options").text();
 	var text = txt ?? $("#hsearchText").val().trim();
 	if(text){
 		

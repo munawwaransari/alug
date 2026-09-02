@@ -80,7 +80,8 @@ window.onload = function(){
 		}
 	}
 	else if (parent && parent.states.lastQSearch){
-		$("#searchText").val(parent.states.lastQSearch);
+		$("#searchText").val(parent.states.lastQSearch["search"]);
+		parent.states.lastQSearch["redirect"] = true;
 		search();
 		loadStatus = "search";
 	}	
@@ -162,7 +163,7 @@ function search(pageNumber){
 	// Save last search for context
 	if(parent && text != parent.states.lastQSearch)
 	{
-		parent.updateStatesKey("lastQSearch", text);
+		parent.updateStatesKey("lastQSearch", {search: text, trans: $("[data]").first().attr('data')});
 	}
 
 	var div = $("#searchResult");
@@ -304,7 +305,21 @@ function search(pageNumber){
 										bgColor: '#F6F0c2',
 										direction: 'ltr'
 									}
-								);								
+								);	
+								
+								// Get translation for last selected language
+								var redirect = parent.states.lastQSearch ? parent.states.lastQSearch["redirect"] : false;	
+								if(redirect == true){
+									//parent.states.lastQSearch["redirect"] = undefined;
+									var lastLang = parent.states.lastQSearch["trans"];
+									if(lastLang != '' && lastLang != undefined && lastLang != 'undefined'){
+										var keys = verseKey.split(":");
+										getVerseTranslation(lastLang, 
+											`div${keys[0]}_${keys[1]}`, 
+											verseKey ,
+											`_${lastLang}`);
+									}
+								}
 							});
 							return true;
 						}
@@ -739,6 +754,9 @@ function getVerseLinkOptions(verseKey){
 					<a 	href="#" 
 						title="Reload verse" 
 						onclick="reloadVerse('${verseKey}')">Research</a>
+					<a 	href="#" 
+						title="Search verse in hadith" 
+						onclick="redirectHadith('${verseKey}');">Search in Hadith</a>
 					<a 	title="Click to view in tanzil.com"
 						href="https://tanzil.net/#${verseKey}"
 						onclick="
@@ -2279,4 +2297,24 @@ function  expandSurahInfoInto(elem, targetElem){
 	$("#divOntology").attr("convert","pdf");
 	$(targetElem).attr('srcdoc', content);
 	$(targetElem).parent().show();
+}
+
+
+function redirectHadith(verseKey){
+	if(parent){
+		var selWord = $(".word-en.sel-word-en");
+		if(selWord.length > 0)
+		{
+			selWord = selWord.text()
+			.toLowerCase()
+			.replaceAll(/\(.*\)/ig, '')
+			.replaceAll(/\s?(a|the|was|were|should|would|can|could|may|might|be|to|of|you|he|she|they|them|him|her|they|us|so|do|did|not|did'nt)\s+/ig, '')
+			.trim();
+
+			selWord = selWord == "" ? undefined : selWord;	
+		}
+		parent.redirect('hsearch.html', '', 
+			selWord ?? 
+			verseKey.replace(':','.'));
+	}
 }
