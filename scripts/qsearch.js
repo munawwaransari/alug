@@ -81,7 +81,6 @@ window.onload = function(){
 	}
 	else if (parent && parent.states.lastQSearch){
 		$("#searchText").val(parent.states.lastQSearch["search"]);
-		parent.states.lastQSearch["redirect"] = true;
 		search();
 		loadStatus = "search";
 	}	
@@ -161,10 +160,7 @@ function search(pageNumber){
 	const text = arRemovePunct(document.getElementById("searchText").value);
 
 	// Save last search for context
-	if(parent && text != parent.states.lastQSearch)
-	{
-		parent.updateStatesKey("lastQSearch", {search: text, trans: $("[data]").first().attr('data')});
-	}
+	saveLastQStates(text);
 
 	var div = $("#searchResult");
 	div.empty();
@@ -308,17 +304,21 @@ function search(pageNumber){
 								);	
 								
 								// Get translation for last selected language
-								var redirect = parent.states.lastQSearch ? parent.states.lastQSearch["redirect"] : false;	
-								if(redirect == true){
-									//parent.states.lastQSearch["redirect"] = undefined;
-									var lastLang = parent.states.lastQSearch["trans"];
-									if(lastLang != '' && lastLang != undefined && lastLang != 'undefined'){
-										var keys = verseKey.split(":");
-										getVerseTranslation(lastLang, 
-											`div${keys[0]}_${keys[1]}`, 
-											verseKey ,
-											`_${lastLang}`);
-									}
+								if(parent.states.lastQSearch && parent.states.lastQSearch["trans"]){
+									
+									
+									var lastLanguages = parent.states.lastQSearch["trans"];
+									var keys = verseKey.split(":");
+									var langDivName = `#div${keys[0]}_${keys[1]}_`;
+									lastLanguages.every((lastlang)=>{
+										if(lastlang != '' && lastlang != undefined && lastlang != 'undefined'){
+											var langDiv = $(`${langDivName}${lastlang}`);
+											if(langDiv.length > 0){
+												langDiv.trigger('click');
+											}
+										}
+										return true;
+									});
 								}
 							});
 							return true;
@@ -525,6 +525,7 @@ function getVerseTranslation(dataAttr, id, verseKey, sfx = '_en', lang = window.
 			var scrollPosition = $(div).offset().top; // ?? $(window).scrollTop();
 			alink.remove();
 			$(window).scrollTop(scrollPosition);
+			saveLastQStates();
 		}
 	});
 }
@@ -2306,11 +2307,11 @@ function redirectHadith(verseKey){
 		if(selWord.length > 0)
 		{
 			selWord = selWord.text()
+			.trim()
 			.toLowerCase()
 			.replaceAll(/\(.*\)/ig, '')
-			.replaceAll(/\s?(a|the|was|were|should|would|can|could|may|might|be|to|of|you|he|she|they|them|him|her|they|us|so|do|did|not|did'nt)\s+/ig, '')
+			.replaceAll(/(the|and|did|not|did'nt|be|is|was|were|am|will|would|shall|should|can|could|may|might|to|on|in|of|me|you|us|he|hin|she|her|they|them|an|for|or|so|do|a|i)\s+/ig, '')
 			.trim();
-
 			selWord = selWord == "" ? undefined : selWord;	
 		}
 		parent.redirect('hsearch.html', '', 

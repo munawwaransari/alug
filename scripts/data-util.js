@@ -2465,3 +2465,25 @@ function removeSuffix(word, suffix){
 	}
 	return word;
 }
+
+function saveLastQStates(text, stateName="lastQSearch"){
+	
+	if(parent && text != parent.states[stateName])
+	{
+		var st = {
+			search: text ?? parent.states[stateName]?.search
+		}
+		switch(stateName){
+			case "lastQSearch":
+				var newSet = $("[data]").map((i,x)=> $(x).attr('data')).toArray();
+				var oldSet = parent.states[stateName]?.["trans"];
+				st["trans"] = newSet.length == 0 ? oldSet : newSet;
+				break;
+
+			case "lastHSearch":
+				st["book"] = $("#hadith-options").val() ?? parent.states[stateName]?.book;
+				break;
+		}
+		parent.updateStatesKey(stateName, st);
+	}
+}

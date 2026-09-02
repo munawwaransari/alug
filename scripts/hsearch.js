@@ -34,15 +34,19 @@ window.onload = function(){
 		if(collection && collection != 'undefined'){
 			$("#hadith-options").val(collection);
 		}
+		else if (parent && parent.states.lastHSearch && parent.states.lastHSearch.book){
+			$("#hadith-options").val(parent.states.lastHSearch.book);
+		}
 
 		var searchVal = decodeURI(getParamValue("data"));	
 		if(searchVal && searchVal != 'undefined'){
 			$("#hsearchText").val(searchVal);
 			hsearch(searchVal);
 		}
-		else if (parent && parent.states.lastHSearch){
-			hsearch(parent.states.lastHSearch);
-		}	
+		else if (parent && parent.states.lastHSearch && parent.states.lastHSearch.search){
+			$("#hsearchText").val(parent.states.lastHSearch.search);
+			hsearch(parent.states.lastHSearch.search);
+		}
 	});		
 };
 
@@ -64,6 +68,8 @@ function hsearch(txt){
 	var text = txt ?? $("#hsearchText").val().trim();
 	if(text){
 		
+		saveLastQStates(text, "lastHSearch");
+
 		// Reuse last search
 		if(last_Hadith_Result[collection] &&
 		   last_Hadith_Result[collection].searchText == text)
@@ -120,7 +126,9 @@ function loadHadithResults(i, col){
 	var h = res.data.hadiths[index];
 	if(h.em == undefined){
 		h.em = 'em';
-		h.english = h.english.replaceAll(res.searchText, `<em>${res.searchText}</em>`); 
+		var regex = new RegExp(res.searchText, 'ig');
+		var replaceText = res.searchText == "allah" ? "Allāh" : res.searchText;
+		h.english = h.english.replaceAll(regex, `<${h.em}>${replaceText}</${h.em}>`); 
 	}
 	container.html(`
 	<div class="hadithDiv" id="${h.id}">
