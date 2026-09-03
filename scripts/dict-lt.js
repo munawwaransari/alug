@@ -7,8 +7,6 @@ var synonymsCSV = undefined;
 var antonymsCSV = undefined;
 
 function loadArabicLTTable(csv, key, v1, v2){
-	updateState(key, {ar: v1, en: v2});
-	
 	var loadRequired = false; 
 	var table;
 	switch(csv){
@@ -205,7 +203,6 @@ function showPrepPhrasesTable() {
 }
 
 function showNounTable(k, v1, v2) {
-	//updateState(k, { ar: v1, en: v2 });
 	var nTable = posAPIObj.getNounInfo();
 	posAPIObj.addNounInfoHtml($(".dictionary"), nTable);
 }
@@ -699,7 +696,7 @@ function showCauseAndEffects(inp) {
 	var html = `
 	<div style="font-size:12px;width:100%;background-color:yellow;text-align:center;">
 		Click or tap on a block to see examples ( See: 
-		<a href="#" onclick="showObjectEffects('ism','المفاعيل', 'Object', 'objectEffectsData')">Object Effects</a> )
+		<a href="#" onclick="showObjectEffects('objectEffectsData')">Object Effects</a> )
 	</div>
 	<div style="width:100%;display:flex;flex-diection:column;text-align:center;">
 		<img id="svgImg1" style="margin:auto;current:arrow;" src="images/ce.svg"></img>

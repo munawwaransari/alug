@@ -28,9 +28,9 @@
 		font-size: 18px;
 		width: 300px;
 		margin: auto;
-		align: center;
+		text-align: center;
 		padding: 12px;
-		margin-botton: 10px;
+		margin-bottom: 10px;
 	}
 	
 	.index, .index2 {
@@ -239,26 +239,28 @@
 			
 			<div class="dropdown">
 				<button id="SearchD" 
+						default_tag="analyze"
 						class="dropbtn" 
 						title="Analyze" 
 						onclick="toggleDropdownContent(this, true)"
-						style="background-color:#4B5AC5;top:-8px; height: 30px;">
+						style="top:-8px; height: 30px;">
 					<b>تحليل</b>
 				</button>
 				<div class="dropdown-content">
-				    <a href="#" onclick="handleDictParams(this, 'sen-cmp','pos:0');">Compare</a>
-				    <a href="#" onclick="handleDictParams(this, 'sentence','pos:0');">Grammar</a>
-					<a href="#" onclick="handleDictParams(this, 'analyze','');"">Analyze</a>
-					<a href="#" onclick="analyzeSelectedWordOld();toggleDropdownContent($(this).parent().prev());">Conjugate</a>
-					<a href="#" onclick="lookupEx('https://context.reverso.net/translation/arabic-english/');toggleDropdownContent($(this).parent().prev());">
+				    <a href="#" action_tag="sen-cmp" onclick="handleDictParams(this, 'sen-cmp','pos:0');">Compare</a>
+				    <a href="#" action_tag="grammar" onclick="handleDictParams(this, 'grammar','pos:0');">Grammar</a>
+					<a href="#" action_tag="cause-effect" onclick="handleDictParams(this, 'cause-effect');"><sub>Cause & Effect</sub></a>
+					<a href="#" action_tag="analyze" onclick="handleDictParams(this, 'analyze','');"">Analyze</a>
+					<a href="#" action_tag="conjugate" onclick="analyzeSelectedWordOld();toggleDropdownContent($(this).parent().prev());">Conjugate</a>
+					<a href="#" onclick="lookupEx('https://context.reverso.net/translation/arabic-english/');">
 						<img src="images/share.png" style="width: 16px; height: 16px;"/>
 						<span style="font-size: 12px; margin-top:-4px;">Reverso</span>
 					</a>
-					<a href="#" onclick="lookupEx('https://www.almaany.com/ar/dict/ar-$/');toggleDropdownContent($(this).parent().prev());">
+					<a href="#" onclick="lookupEx('https://www.almaany.com/ar/dict/ar-$/');">
 						<img src="images/share.png" style="width: 16px; height: 16px;"/>
 						<span style="font-size: 12px; margin-top:-4px;">Almaany</span>
 					</a>
-					<a href="#" onclick="lookupEx('https://glosbe.com/ar/$/');toggleDropdownContent($(this).parent().prev());">
+					<a href="#" onclick="lookupEx('https://glosbe.com/ar/$/');">
 						<img src="images/share.png" style="width: 16px; height: 16px;"/>
 						<span style="font-size: 12px; margin-top:-4px;">Glosbe</span>
 					</a>
@@ -266,54 +268,53 @@
 			</div>
 
 			<div class="dropdown">
-			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">الفعل</button>
+			  <button default_tag="vtab-all" class="dropbtn" onclick="toggleDropdownContent(this, true)">الفعل</button>
 			  <div class="dropdown-content">
-				<a href="#" onclick="handleDictParams(this, 'verb','pos:0');(0);">Compare</a>
-				<a href="#" onclick="handleDictParams(this, 'verbType');">Verb Types <sup>(انواع لاأفعال)</sup></a>
-				<a href="#" onclick="handleDictParams(this, 'vtab-all','pos:0');">Verb Forms <sup>(أبواب الفعل)</sup></a>
-				<a href="#" onclick="handleDictParams(this, 'vtab-3');">ثلاثي مجرَّد</a>				
-				<a href="#" onclick="handleDictParams(this, 'vtab-inad');">Inadequate <sup>(افعال النَّاقِصة)</sup></a>
-				<a href="#" onclick="handleDictParams(this, 'vtab-weak');">Weak Verbs <sup>(افعال المُعتِلَة)</sup></a>
-				<a href="#" onclick="handleDictParams(this, 'vtab-imp');">Imperatives <sup>(الأمر والنهى)</sup></a>
+				<a href="#" action_tag="verb-cmp" onclick="handleDictParams(this, 'verb-cmp','pos:0');(0);">Compare</a>
+				<a href="#" action_tag="verb-type" onclick="handleDictParams(this, 'verb-type');">Verb Types <sup>(انواع لاأفعال)</sup></a>
+				<a href="#" action_tag="vtab-all" onclick="handleDictParams(this, 'vtab-all','pos:0');">Verb Forms <sup>(أبواب الفعل)</sup></a>
+				<a href="#" action_tag="vtab-3" onclick="handleDictParams(this, 'vtab-3');">ثلاثي مجرَّد</a>				
+				<a href="#" action_tag="vtab-inad" onclick="handleDictParams(this, 'vtab-inad');">Inadequate <sup>(افعال النَّاقِصة)</sup></a>
+				<a href="#" action_tag="vtab-weak" onclick="handleDictParams(this, 'vtab-weak');">Weak Verbs <sup>(افعال المُعتِلَة)</sup></a>
+				<a href="#" action_tag="vtab-imp" onclick="handleDictParams(this, 'vtab-imp');">Imperatives <sup>(الأمر والنهى)</sup></a>
 			  </div>
 			</div>
 			
 			<div id="ism" class="dropdown">
-			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">الاِسم</button>
+			  <button default_tag="noun-pat" class="dropbtn" onclick="toggleDropdownContent(this, true)">الاِسم</button>
 			  <div class="dropdown-content">
-				<a href="#" onclick="handleDictParams(this, 'noun-cmp','pos:0');">Compare</a>
-				<a href="#" onclick="handleDictParams(this, 'cause-effect');">Cause & Effect</a>
-				<a href="#" onclick="handleDictParams(this, 'noun-pat');">Noun Patterns</a>
-				<a href="#" onclick="handleDictParams(this, 'obj-effect');">Object Effects</a>
-				<a href="#" onclick="handleDictParams(this, 'masdar');">Verbal Nouns</a>
-				<a href="#" onclick="handleDictParams(this, 'five-noun');">Five Nouns</a>
-				<a href="#" onclick="handleDictParams(this, 'pronoun');">Pronouns</a>
+				<a href="#" action_tag="noun-cmp" onclick="handleDictParams(this, 'noun-cmp','pos:0');">Compare</a>
+				<a href="#" action_tag="noun-pat" onclick="handleDictParams(this, 'noun-pat');">Noun Patterns</a>
+				<a href="#" action_tag="obj-effect" onclick="handleDictParams(this, 'obj-effect');">Object Effects</a>
+				<a href="#" action_tag="masdar" onclick="handleDictParams(this, 'masdar');">Verbal Nouns</a>
+				<a href="#" action_tag="adj" onclick="handleDictParams(this, 'adj')">Adjectives</a>
+				<a href="#" action_tag="metonymy" onclick="handleDictParams(this, 'metonymy');">Metonymies</a>
+				<a href="#" action_tag="five-noun" onclick="handleDictParams(this, 'five-noun');">Five Nouns</a>
+				<a href="#" action_tag="pronoun" onclick="handleDictParams(this, 'pronoun');">Pronouns</a>
 			  </div>
 			</div>
 			
 			<div class="dropdown">
-			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">الحرف</button>
+			  <button default_tag="prep" class="dropbtn" onclick="toggleDropdownContent(this, true)">الحرف</button>
 			  <div class="dropdown-content">
-				<a href="#" onclick="handleDictParams(this, 'cmp');">Compare</a>
-				<a href="#" onclick="handleDictParams(this, 'adj')">Adjectives</a>
-				<a href="#" onclick="handleDictParams(this, 'adv');">Adverbs</a>
-				<a href="#" onclick="handleDictParams(this, 'prep');">Prepositions</a>
-				<a href="#" onclick="handleDictParams(this, 'metonymy');">Metonymies</a>
-				<a href="#" onclick="handleDictParams(this, 'prep-ph');">Prep. Phrases</a>
+				<a href="#" action_tag="cmp" onclick="handleDictParams(this, 'cmp');">Compare</a>
+				<a href="#" action_tag="adv" onclick="handleDictParams(this, 'adv');">Adverbs</a>
+				<a href="#" action_tag="prep" onclick="handleDictParams(this, 'prep');">Prepositions</a>
+				<a href="#" action_tag="prep-ph" onclick="handleDictParams(this, 'prep-ph');">Prep. Phrases</a>
 			  </div>
 			</div>
 			<div class="dropdown">
-			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">فِهرِس</button>
+			  <button default_tag="list-search" class="dropbtn active" onclick="toggleDropdownContent(this, true)">فِهرِس</button>
 			  <div class="dropdown-content">
-				<a href="#" onclick="handleDictParams(this, 'list-search', '');">Index</a>
-				<a href="#" onclick="handleDictParams(this, 'list-search', 'ع');">مصطلحات</a>
-				<a href="#" onclick="handleDictParams(this, 'defs');">تعريفات</a>
-				<a href="#" onclick="handleDictParams(this, 'q-examples');">
+				<a href="#" action_tag="list-search" onclick="handleDictParams(this, 'list-search', '');">Index</a>
+				<a href="#" action_tag="list-search-2" onclick="handleDictParams(this, 'list-search-2', 'ع');">مصطلحات</a>
+				<a href="#" action_tag="defs" onclick="handleDictParams(this, 'defs');">تعريفات</a>
+				<a href="#" action_tag="q-examples" onclick="handleDictParams(this, 'q-examples');">
 					<span style="font-size: 12px; margin-top:-4px;">Examples (Quran)</span>
 				</a>
-				<a href="#" onclick="handleDictParams(this, 'noun-plural');"><sup>Plural</sup></a>
-				<a href="#" onclick="handleDictParams(this, 'noun-syn');"><sup>Synonyms</sup></a>
-				<a href="#" onclick="handleDictParams(this, 'noun-ant');"><sup>Antonyms</sup></a>
+				<a href="#" action_tag="noun-plural" onclick="handleDictParams(this, 'noun-plural');"><sup>Plural</sup></a>
+				<a href="#" action_tag="noun-syn" onclick="handleDictParams(this, 'noun-syn');"><sup>Synonyms</sup></a>
+				<a href="#" action_tag="noun-ant" onclick="handleDictParams(this, 'noun-ant');"><sup>Antonyms</sup></a>
 				<!--<a href="#" onclick="convertHTMLtoPDF('.dictionary', '.nFilter', 'exported.pdf');"><sub>Export to PDF</sub></a>-->
 			  </div>
 			</div>

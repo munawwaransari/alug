@@ -147,9 +147,12 @@ function searchWord() {
 }
 
 function loadWord(txt) {
-	if(txt){
+	if(txt && txt !== ''){
 		$("#wordSearchText").val(txt);
 		analyzeSelectedWord(txt);
+	}
+	else{
+		$(".dictionary").html("No word specified!");
 	}
 }
 
@@ -163,7 +166,20 @@ function handleDictBack(){
 	}
 }
 
-function handleDictParams(el, a, d) {
+function handleDictParams(el, a, d){
+	if(a === undefined || a === 'undefined' || el === undefined){
+		// let is take data from prev state, as element and action is not available
+		handleDictActions();
+	}
+	else if(a && a !== 'undefined' && el !== undefined){
+		ensureDataLoaded({name: "action-tags"})
+		.then(() => {
+			handleDictActions(el || $(`#[action_tag=${actionTag}]`)[0], a, d)
+		});
+	}
+}
+
+function handleDictActions(el, a, d) {
 	var st = updateDictStates("dict.html", 
 							a ?? params["action"], 
 							d ?? params["data"]);
@@ -188,19 +204,6 @@ function handleDictParams(el, a, d) {
 		case 'cause-effect':
 			showCauseAndEffects();	
 			break;
-
-		case 'vtab-all': 
-			var pos = 0;
-			if (data && data.startsWith("pos:")) {
-				pos = parseInt(data.substring(4));
-			}			
-			showAllVerbTables(pos); 
-			break;
-
-		case 'vtab-3': showTriliteralVerbTable(); break;
-		case 'vtab-inad': showInadequateVerbTable(); break;
-		case 'vtab-weak': showWeakVerbTable(); break;
-		case 'vtab-imp': showImperativeTable(); break;
 
 		case 'noun':
 		case 'noun-pat':
@@ -269,9 +272,20 @@ function handleDictParams(el, a, d) {
 			}
 			break;
 
-		case 'verbType':
+		case 'vtab-all': 
+			var pos = 0;
+			if (data && data.startsWith("pos:")) {
+				pos = parseInt(data.substring(4));
+			}			
+			showAllVerbTables(pos); 
+			break;
+		case 'vtab-3': showTriliteralVerbTable(); break;
+		case 'vtab-inad': showInadequateVerbTable(); break;
+		case 'vtab-weak': showWeakVerbTable(); break;
+		case 'vtab-imp': showImperativeTable(); break;
+		case 'verb-type':
 			setTimeout(function () {
-				showObjectEffects('verb','Verb Types', 'انواع لاأفعال', 'verbTypeData');
+				showObjectEffects('verbTypeData');
 				if (data)
 					if (data.startsWith("pos:")) {
 						var index = parseInt(data.substring(4));
@@ -301,7 +315,7 @@ function handleDictParams(el, a, d) {
 
 		case 'obj-effect':
 			setTimeout(function () {
-				showObjectEffects('ism', 'المفاعيل', 'Object', 'objectEffectsData');
+				showObjectEffects('objectEffectsData');
 				if (data)
 					if (data.startsWith("pos:")) {
 						var index = parseInt(data.substring(4));
@@ -318,10 +332,7 @@ function handleDictParams(el, a, d) {
 		case 'adv':
 			
 			setTimeout(function () {
-				showObjectEffects('ism', 
-					action == 'adj'? 'صفات':'ظُرُوف',
-					action == 'adj'? 'Adjectives' : 'Adverbs', 
-					action == 'adj'? 'adjectiveData': 'adverbData');
+				showObjectEffects(action == 'adj'? 'adjectiveData': 'adverbData');
 				if (data)
 					if (data.startsWith("pos:")) {
 						var index = parseInt(data.substring(4));
@@ -343,7 +354,7 @@ function handleDictParams(el, a, d) {
 			else showComparisions(0);
 			break;
 
-		case 'verb':
+		case 'verb-cmp':
 			if (data && data.startsWith("pos:")) {
 				var index = parseInt(data.substring(4));
 				showVerbComparisions(index);
@@ -351,7 +362,7 @@ function handleDictParams(el, a, d) {
 				showVerbComparisions(0);
 			}
 			break;
-		case 'sentence':
+		case 'grammar':
 		case 'sen-cmp':
 			if (data && data.startsWith("pos:")) {
 				var index = parseInt(data.substring(4));
@@ -399,20 +410,35 @@ function handleDictParams(el, a, d) {
 			toggleDropdownContent($(this).parent().prev());
 			break;
 
+		case 'list-search-2':
 		case 'list-search':
+		default:
 			if(data){
 				listSearchIndex(data);	
 			}else{
-				listSearchIndex('');
+				listSearchIndex();
 			}
-			break;
-		default:
-			listSearchIndex();
 			break;
 	}
 
-	if(el){
-		toggleDropdownContent($(el).parent().prev());
+	if(action && parent.dataCache
+		 && parent.dataCache["action-tags"] 
+		 && parent.dataCache["action-tags"].data)
+	{
+		var element = el ?? $(`[action_tag=${action}]`)[0];
+		var actionTitle = parent.dataCache["action-tags"].data[action].ar;
+		if(actionTitle){
+			var current = $(".dropbtn.active");
+			var currentAction = current.attr('default_tag');
+			if(currentAction){
+				var defaultTitle = parent.dataCache["action-tags"].data[currentAction].default;
+				current.text(defaultTitle);
+			}
+			current.removeClass("active");
+			$(element).parent().prev().addClass("active"); 
+			$(element).parent().prev().text(actionTitle);
+		}
+		toggleDropdownContent($(element).parent().prev());
 	}
 }
 
@@ -857,15 +883,15 @@ function listSearchIndex(indexKey='') {
 				Topic: <select style="width:40;" onchange="handleFilterAction($(this).prev().val(), $(this).val());">
 					<option value="">All</option>
 					<option value="cmp">Comparison</option>
-					<option value="masdar">Verbal Noun</option>
-					<option value="noun-cmp">Noun</option>
+					<option value="sen-cmp">Sentence Comparison</option>
+					<option value="noun-cmp">Noun Comparison</option>
 					<option value="noun-pat">Noun Patternns</option>
+					<option value="masdar">Verbal Noun</option>
 					<option value="adj">Adjective</option>
 					<option value="adv">Adverb</option>
 					<option value="pronoun">Pronoun</option>
 					<option value="prep">Preposition</option>
-					<option value="sen-cmp">Sentence</option>
-					<option value="sentence">Grammar</option>
+					<option value="grammar">Grammar</option>
 					<option value="Vocab">Vocabulary</option>
 					<option value="Chart">Charts</option>
 				</select>`;

@@ -1,0 +1,166 @@
+{
+    "list-search": {
+        "en": "List Search",
+        "ar": "فهرِس",
+        "default": "فهرِس"
+    },
+    "list-search-2": {
+        "en": "List Search",
+        "ar": "مصطلحات",
+        "default": "فهرِس"
+    },
+    "defs": {
+        "en": "Definitions",
+        "ar": "التعريفات",
+        "default": "فهرِس"
+    },
+    "q-examples": {
+        "en": "Quran Examples",
+        "ar": "القرآن",
+        "default": "فهرِس"
+    },
+    "noun-plural": {
+        "en": "Plural Nouns",
+        "ar": "البحث (جمع)",
+        "default": "فهرِس"
+    },
+    "noun-syn": {
+        "en": "Synonyms",
+        "ar": "البحث (مرادفات)",
+        "default": "فهرِس"
+    },
+    "noun-ant": {
+        "en": "Antonyms",
+        "ar": "البحث (أضداد)",
+        "default": "فهرِس"
+    },
+
+    "cmp": {
+        "en": "Comparisons",
+        "ar": "مقارنة الحروف",
+        "default": "الحرف"
+    },
+    "adv": {
+        "en": "Adverbs",
+        "ar": "الظروف",
+        "default": "الحرف"
+    },
+    "prep": {
+        "en": "Prepositions",
+        "ar": "حروف",
+        "default": "حروف"
+    },
+    "prep-ph": {
+        "en": "Prepositional Phrases",
+        "ar": "العبارات",
+        "default": "حروف"
+    },
+
+    "noun-cmp": {
+        "en": "Noun Comparisons",
+        "ar": "مقارنة الأسماء",
+        "default": "الأسماء"
+    },
+    "noun-pat": {
+        "en": "Noun Patterns",
+        "ar": "أنماط الأسماء",
+        "default": "الأسماء"
+    },
+    "obj-effect": {
+        "en": "Object Effects",
+        "ar": "المفعول به",
+        "default": "الأسماء"
+    },
+    "masdar": {
+        "en": "Verbal Nouns",
+        "ar": "المصدر",
+        "default": "الأسماء"
+    },
+    "adj": {
+        "en": "Adjectives",
+        "ar": "الصفات",
+        "default": "الأسماء"
+    },
+    "metonymy": {
+        "en": "Metonymy",
+        "ar": "الكناية",
+        "default": "الأسماء"
+    },
+    "five-noun": {
+        "en": "Five Nouns",
+        "ar": "الأسماء الخمسة",
+        "default": "الأسماء"
+    },
+    "pronoun": {
+        "en": "Pronouns",
+        "ar": "الضمائر",
+        "default": "الأسماء"
+    },
+
+    "verb": {
+        "en": "Verb Comparisons",
+        "ar": "مقارنات",
+        "default": "الأفعال"
+    },
+    "verb-cmp": {
+        "en": "Verb Comparisons",
+        "ar": "مقارنات",
+        "default": "الأفعال"
+    },
+    "verb-type": {
+        "en": "Verb Types",
+        "ar": "أنواع الأفعال",
+        "default": "الأفعال"
+    },
+    "vtab-all": {   
+        "en": "Verb Tables",
+        "ar": "أبواب الأفعال",
+        "default": "أفعال"
+    },
+    "vtab-3": {
+        "en": "Triliteral Verb Table",
+        "ar": "ثلاثي مُجرّد",
+        "default": "الأفعال"
+    },
+    "vtab-inad": {
+        "en": "Inadequate Verb Table",
+        "ar": "افعال النَّاقِصة",
+        "default": "الأفعال"
+    },
+    "vtab-weak": {
+        "en": "Weak Verb Table",
+        "ar": "افعال المُعتِلَة",
+        "default": "الأفعال"
+    },
+    "vtab-imp": {
+        "en": "Imperative Verb Table",
+        "ar": "الأمر والنهى",
+        "default": "الأفعال"
+    },
+
+    "sen-cmp": {
+        "en": "Sentence Comparisons",
+        "ar": "مقارنات",
+        "default": "تحليل"
+    },
+    "grammar": {
+        "en": "Grammar",
+        "ar": "النحو",
+        "default": "تحليل"
+    },
+    "cause-effect": {
+        "en": "Cause & Effect",
+        "ar": "السبب",
+        "default": "الأسماء"
+    },
+   "analyze": {
+        "en": "Analyze Word",
+        "ar": "تحليل",
+        "default": "تحليل"
+    },
+    "conjugate": {
+        "en": "Conjugate Word",
+        "ar": "تحليل",
+        "default": "تحليل"
+    }
+}

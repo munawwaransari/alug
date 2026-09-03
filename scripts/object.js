@@ -2,8 +2,7 @@
 //	Author: munawwar_ali@yahoo.com
 //
 
-function showObjectEffects(k, v1, v2, dataName){
-	updateState(k, {ar: v1, en: v2});
+function showObjectEffects(dataName){
 	var container = $(".dictionary");
 	container.html("Loading...");
 	ensureDataLoaded({name: dataName})

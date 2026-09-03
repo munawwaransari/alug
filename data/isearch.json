@@ -216,7 +216,7 @@
     },
     "Scripts;خط الإملائي;خط العروضي": {
         "path": "dict.html",
-        "action": "sentence",
+        "action": "sen-cmp",
 	    "data": "pos:3"
     },
     "Emphasis;توكيد اللفظي;توكيد اللمعنوي;": {
@@ -226,92 +226,92 @@
     },
     "Grammar;النَّحْو;": {
         "path": "dict.html",
-        "action": "sentence",
+        "action": "grammar",
 	    "data": "pos:0"
     },
     "Noun Case;الإِعْرَاب لِلأَسْمَاءِ;": {
         "path": "dict.html",
-        "action": "sentence",
+        "action": "grammar",
 	    "data": "pos:0"
     },
     "Mood;الاشْتِقَاق;الإِعْرَاب لِلأَفْعَال": {
         "path": "dict.html",
-        "action": "sentence",
+        "action": "grammar",
 	    "data": "pos:0"
     },
     "Morphology;الصرف;": {
         "path": "dict.html",
-        "action": "sentence",
+        "action": "grammar",
 	    "data": "pos:1"
     },
     "Rhetoric;البلاغة;": {
         "path": "dict.html",
-        "action": "sentence",
+        "action": "grammar",
 	    "data": "pos:2"
     },
     "Parts of Speech;أقسام الكلام":{
         "path": "dict.html",
-        "action": "sentence",
+        "action": "grammar",
 	    "data": "pos:3"
     },
     "Types of Sentences;أقسام الجُمُل;الاسم الصريح;الاسم المؤول;الفعل الصريح;الفعل المقدر":{
         "path": "dict.html",
-        "action": "sentence",
+        "action": "grammar",
 	    "data": "pos:4"
     },
     "Declarative Sentence;جملة خبرية": {
         "path": "dict.html",
-        "action": "sentence",
+        "action": "grammar",
 	    "data": "pos:5"
     },
     "Non-Declarative Sentence;جملة إنشائية": {
         "path": "dict.html",
-        "action": "sentence",
+        "action": "grammar",
 	    "data": "pos:6"
     },
     "Initial Sentence;جملة الإبتدائية;الاستئنافية": {
         "path": "dict.html",
-        "action": "sentence",
+        "action": "grammar",
 	    "data": "pos:7"
     },
     "Parenthetical;الجملة الاعتراضية": {
         "path": "dict.html",
-        "action": "sentence",
+        "action": "grammar",
 	    "data": "pos:8"
     },
     "Affirmative sentence;إيجابي;": {
         "path": "dict.html",
-        "action": "sentence",
+        "action": "grammar",
         "data": "pos:9"
     },
 	"Negative sentence;نفي;": {
         "path": "dict.html",
-        "action": "sentence",
+        "action": "grammar",
         "data": "pos:10"
     },
 	"Interrogative sentence;استفهامي;": {
         "path": "dict.html",
-        "action": "sentence",
+        "action": "grammar",
         "data": "pos:11"
     },
     "Possesive Construction;إضافة;المركب الإضافي;مُضاف;مُضاف إليه": {
         "path": "dict.html",
-        "action": "sentence",
+        "action": "grammar",
         "data": "pos:12"
     },
     "Adjectival Construction;المركب التوصيفي;نعت;منعوت;": {
         "path": "dict.html",
-        "action": "sentence",
+        "action": "grammar",
         "data": "pos:13"
     },
     "Demonstrative Phrase;المركب الإشاري;المشار إليه;اسم الإشارة;ضَمِير الفَصْل;": {
         "path": "dict.html",
-        "action": "sentence",
+        "action": "grammar",
         "data": "pos:14"
     },
     "Exceptions;الاستثناء;تام مثبت;تام منفي;ناقص منفي": {
         "path": "dict.html",
-        "action": "sentence",
+        "action": "grammar",
         "data": "pos:15"
     },
     "Hamza;همزة القطع;همزة الوصل;": {
@@ -813,25 +813,25 @@
     "Verb Type by Tense;الزمان":
     {
         "path": "dict.html",
-        "action": "verbType",
+        "action": "verb-type",
         "data": "pos:1"
     },
     "Verb Type by definitiveness of the action;Intransitive;Transitiveاللزوم والتعدي;الفعل اللازم;الفعل المتعدي":
     {
         "path": "dict.html",
-        "action": "verbType",
+        "action": "verb-type",
         "data": "pos:2"
     },
     "Verb Type by Transmutability;Conjugatable;Rigid;Frozen;التصرف والجمود;الأفعال المتصرفة;الأفعال الجامدة":
     {
         "path": "dict.html",
-        "action": "verbType",
+        "action": "verb-type",
         "data": "pos:3"
     },
     "Verb Type by sincerity of Action or voice;Active Voice;Passive Voice;المعلوم والمجهول;المبني للمعلوم;المبني للمجهول":
     {
         "path": "dict.html",
-        "action": "verbType",
+        "action": "verb-type",
         "data": "pos:4"
     },
     "Trilateral Verbs;Form I;Form II;Form III;Form IV;Form V;Form VI;Form VII;Form VIII;Form IX;Form X;ابواب الفعل المزيد":{

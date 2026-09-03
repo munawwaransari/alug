@@ -359,7 +359,7 @@ function playCard(text, altText){
 
 function lookupEx(site, txt, errorText){
 	
-	if(errorText && (txt === undefined || txt === "")){
+	if(errorText){
 		alert(errorText);
 		return;
 	}
@@ -372,8 +372,8 @@ function lookupEx(site, txt, errorText){
 		var url = site+removePunctuations(word);
 		w.open(url, "_blank");
 	}
-	else if(errorText){
-		alert(errorText);
+	else{
+		alert("Enter a valid arabic word!");
 	}
 }
 
@@ -1516,6 +1516,9 @@ function init_data_cache(){
 		},
 		"hadith-collecions":{
 			path: "https://ummahapi.com/api/hadith/collections"
+		},
+		"action-tags":{
+			path: "data/grmr/action-tags.json"
 		}
 	}
 }
@@ -2122,7 +2125,7 @@ function getActionFromCompareType(compareType){
 	compareType == 'adverbData'? 'adv':
 	compareType == 'objectEffectsData'? 'obj-effect':
 	compareType == 'masdarData'? 'masdar':
-	compareType == 'verbTypeData'? 'verbType':
+	compareType == 'verbTypeData'? 'verb-type':
 	compareType ?? 'cmp';
 }
 

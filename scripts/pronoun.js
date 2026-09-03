@@ -4,9 +4,7 @@
 
 function showPronounInfo(k, v1, v2){
 	var container = $(".dictionary");
-	container.empty();
-	updateState(k, {ar: v1, en: v2});
-	
+	container.empty();	
 	container.append($(`
 		<select class="pronounFilter" onchange="updateStateIndex(this);filterPronounView()">
 			<option value="all">Show All</option>
@@ -246,9 +244,7 @@ function getPronoun(val1, val2){
 
 function showFiveNouns(k, v1, v2){
 	var container = $(".dictionary");
-	container.empty();
-	updateState(k, {ar: v1, en: v2});		
-	
+	container.empty();	
 	var fiveNouns = ['اَب', 'اَخ', 'حَم', 'فَم', 'ذُو'];
 	var fiveNouns_opposite = ['اُم', 'اُخت', 'حماة', 'فَمة', 'ذات'];
 	var fiveNouns_plural = ['آبَاء', 'إِخْوَان/إِخْوَة', 'أَحْمَاء', 'أَفْوَاه', 'ذَوُون/ذَوِين/ذَوَات'];

@@ -42,7 +42,7 @@ class cmpAPI {
 		</select>`;
 
 		if(first === null && cmpAPI.cmpData.length > 0){
-			first = cmpAPI.cmpData["topics"].join(' vs ')
+			first = cmpAPI.cmpData["topics"]?.join(' vs ')
 		}
 
 		container.empty();
