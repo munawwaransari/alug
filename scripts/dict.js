@@ -226,9 +226,8 @@ function handleDictActions(el, a, d) {
 
 		case 'analyze':
 		case 'conjugate':
-			var word = (!data || data == "" || data == "undefined") ? 
-					   $("#wordSearchText").val() ?? $("#wordSearchText").text(): 
-			           data.startsWith("pos:") ? undefined: data;
+			var txt = $("#wordSearchText").val() ?? $("#wordSearchText").text();
+			var word = txt ?? (data?.startsWith("pos:") ? undefined: data);
 			st.data = word;
 			if(action == 'analyze')
 				loadWord(word ? word.trim(): undefined);
