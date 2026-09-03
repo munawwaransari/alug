@@ -171,23 +171,33 @@ function postHandleDictParams(el, action){
 		&& parent.dataCache["action-tags"] 
 		&& parent.dataCache["action-tags"].data)
 	{
-		var element = el ?? $(`[action_tag=${action}]`)[0];
-		var arTitle = parent.dataCache["action-tags"].data[action].ar;
-		var enTitle = parent.dataCache["action-tags"].data[action].en;
-		if(arTitle){
-			var current = $(".dropbtn.active");
-			var currentAction = current.attr('default_tag');
-			if(currentAction){
-				var defaultTitle = parent.dataCache["action-tags"].data[currentAction].default;
-				current.text(defaultTitle);
+		// Update Previous Title button
+		var prev = $(".dropbtn.active");
+		if(prev.length > 0){
+			var prevAction = prev.attr('default_tag');
+			if(prevAction){
+				var defaultTitle = parent.dataCache["action-tags"].data[prevAction]?.default;
+				if(defaultTitle) prev.text(defaultTitle);
 			}
-			current.removeClass("active");
-			var prev = $(element).parent().prev();
-			prev.addClass("active"); 
-			prev.text(arTitle);
-			prev.attr('title', enTitle);
+			prev.removeClass("active");
+			//toggleDropdownContent(prev);
 		}
-		toggleDropdownContent($(element).parent().prev());
+
+		// Update Current Title button
+		var curElement = el ?? $(`[action_tag=${action}]`)[0];
+		if(curElement !== undefined){
+			var current = $(curElement).parent().prev();
+			if(current.prop('tagName') !== 'INPUT'){
+				var arTitle = parent.dataCache["action-tags"].data[action]?.ar;
+				var enTitle = parent.dataCache["action-tags"].data[action]?.en;
+				if(arTitle){
+					$(current).addClass("active"); 
+					$(current).text(arTitle);
+					$(current).attr('title', enTitle);
+				}
+			}
+			toggleDropdownContent(current);		
+		}
 	}
 }
 
@@ -219,11 +229,15 @@ function handleDictActions(el, a, d) {
 				listDefinitions();
 			}
 		break;
-
 		case 'analyze':
-			var word = (!data || data == "") ? $("#wordSearchText").val(): data;
+		case 'conjugate':
+			var word = (!data || data == "") ? $("#wordSearchText").val(): 
+			           data.startsWith("pos:") ? undefined: data;
 			st.data = word;
-			loadWord(word ? word.trim(): undefined);
+			if(action == 'analyze')
+				loadWord(word ? word.trim(): undefined);
+			else
+				analyzeSelectedWordOld(word);
 			break;
 
 		case 'cause-effect':
@@ -325,7 +339,7 @@ function handleDictActions(el, a, d) {
 
 		case 'masdar':
 			setTimeout(function () {
-				showObjectEffects('ism', 'المصادر', 'Verbal Nouns', 'masdarData');
+				showObjectEffects('masdarData');
 				if (data)
 					if (data.startsWith("pos:")) {
 						var index = parseInt(data.substring(4));

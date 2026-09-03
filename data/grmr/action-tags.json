@@ -66,11 +66,6 @@
         "ar": "أنماط الأسماء",
         "default": "الأسماء"
     },
-    "obj-effect": {
-        "en": "Object Effects",
-        "ar": "المفعول به",
-        "default": "الأسماء"
-    },
     "masdar": {
         "en": "Verbal Nouns",
         "ar": "المصدر",
@@ -141,26 +136,22 @@
     "sen-cmp": {
         "en": "Sentence Comparisons",
         "ar": "مقارنات",
-        "default": "تحليل"
+        "default": "النحو"
     },
     "grammar": {
         "en": "Grammar",
         "ar": "النحو",
-        "default": "تحليل"
+        "default": "النحو"
     },
     "cause-effect": {
         "en": "Cause & Effect",
-        "ar": "السبب",
-        "default": "الأسماء"
+        "ar": "السبب والنتيجة",
+        "default": "النحو"
     },
-   "analyze": {
-        "en": "Analyze Word",
-        "ar": "تحليل",
-        "default": "تحليل"
-    },
-    "conjugate": {
-        "en": "Conjugate Word",
-        "ar": "تحليل",
-        "default": "تحليل"
+    "obj-effect": {
+        "en": "Object Effects",
+        "ar": "المفعول به",
+        "default": "النحو"
     }
+
 }

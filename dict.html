@@ -233,25 +233,15 @@
 </head>
   <body>
     <div style="float:right">
-		<div  class="autocomplete">
+		<div class="autocomplete">
 			<input type="reset" value="" alt="clear" title="Clear" onclick="$('#wordSearchText').val('');"/>
-			<input id="wordSearchText" onchange="searchWord()" style="width:70px;"/>
 			
 			<div class="dropdown">
-				<button id="SearchD" 
-						default_tag="analyze"
-						class="dropbtn" 
-						title="Analyze" 
-						onclick="toggleDropdownContent(this, true)"
-						style="top:-8px; height: 30px;">
-					<b>تحليل</b>
-				</button>
+				<input id="wordSearchText" style="width:70px;"
+					onchange="searchWord()" onclick="toggleDropdownContent(this);"/>
 				<div class="dropdown-content">
-				    <a href="#" action_tag="sen-cmp" onclick="handleDictParams(this, 'sen-cmp','pos:0');">Compare</a>
-				    <a href="#" action_tag="grammar" onclick="handleDictParams(this, 'grammar','pos:0');">Grammar</a>
-					<a href="#" action_tag="cause-effect" onclick="handleDictParams(this, 'cause-effect');"><sub>Cause & Effect</sub></a>
-					<a href="#" action_tag="analyze" onclick="handleDictParams(this, 'analyze','');"">Analyze</a>
-					<a href="#" action_tag="conjugate" onclick="analyzeSelectedWordOld();toggleDropdownContent($(this).parent().prev());">Conjugate</a>
+					<a href="#" action_tag="analyze" onclick="handleDictParams(this,'analyze');"">Analyze</a>
+					<a href="#" action_tag="conjugate" onclick="handleDictParams(this,'conjugate');">Conjugate</a>
 					<a href="#" onclick="lookupEx('https://context.reverso.net/translation/arabic-english/');">
 						<img src="images/share.png" style="width: 16px; height: 16px;"/>
 						<span style="font-size: 12px; margin-top:-4px;">Reverso</span>
@@ -264,6 +254,18 @@
 						<img src="images/share.png" style="width: 16px; height: 16px;"/>
 						<span style="font-size: 12px; margin-top:-4px;">Glosbe</span>
 					</a>
+				</div>
+			</div>
+
+			<div class="dropdown">
+				<button id="SearchD" default_tag="grammar" class="dropbtn"  title="Analyze"  onclick="toggleDropdownContent(this, true)" style="top:-8px; height: 30px;">
+					<b>النحو</b>
+				</button>
+				<div class="dropdown-content">
+				    <a href="#" action_tag="sen-cmp" onclick="handleDictParams(this, 'sen-cmp','pos:0');">Compare</a>
+				    <a href="#" action_tag="grammar" onclick="handleDictParams(this, 'grammar','pos:0');">Grammar</a>
+					<a href="#" action_tag="cause-effect" onclick="handleDictParams(this, 'cause-effect');"><sub>Cause & Effect</sub></a>
+					<a href="#" action_tag="obj-effect" onclick="handleDictParams(this, 'obj-effect');"><sub>Object Effects</sub></a>
 				</div>
 			</div>
 
@@ -285,7 +287,6 @@
 			  <div class="dropdown-content">
 				<a href="#" action_tag="noun-cmp" onclick="handleDictParams(this, 'noun-cmp','pos:0');">Compare</a>
 				<a href="#" action_tag="noun-pat" onclick="handleDictParams(this, 'noun-pat');">Noun Patterns</a>
-				<a href="#" action_tag="obj-effect" onclick="handleDictParams(this, 'obj-effect');">Object Effects</a>
 				<a href="#" action_tag="masdar" onclick="handleDictParams(this, 'masdar');">Verbal Nouns</a>
 				<a href="#" action_tag="adj" onclick="handleDictParams(this, 'adj')">Adjectives</a>
 				<a href="#" action_tag="metonymy" onclick="handleDictParams(this, 'metonymy');">Metonymies</a>

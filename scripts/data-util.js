@@ -419,10 +419,12 @@ function loadAllVoices(sel, voicesAll ){
 
 function toggleDropdownContent(elem, state){
 	if(state){
-		$(elem).next().addClass("dropdown-content");
+		if($(elem).prop('tagName') !== 'INPUT')
+			$(elem).next().addClass("dropdown-content");
 		$(elem).next().show();
 	}else{
-		$(elem).next().toggleClass("dropdown-content");
+		if($(elem).prop('tagName') !== 'INPUT')
+			$(elem).next().toggleClass("dropdown-content");
 		$(elem).next().toggle();
 	}
 }
