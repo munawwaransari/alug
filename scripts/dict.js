@@ -166,6 +166,31 @@ function handleDictBack(){
 	}
 }
 
+function postHandleDictParams(el, action){
+	if(action && parent.dataCache
+		&& parent.dataCache["action-tags"] 
+		&& parent.dataCache["action-tags"].data)
+	{
+		var element = el ?? $(`[action_tag=${action}]`)[0];
+		var arTitle = parent.dataCache["action-tags"].data[action].ar;
+		var enTitle = parent.dataCache["action-tags"].data[action].en;
+		if(arTitle){
+			var current = $(".dropbtn.active");
+			var currentAction = current.attr('default_tag');
+			if(currentAction){
+				var defaultTitle = parent.dataCache["action-tags"].data[currentAction].default;
+				current.text(defaultTitle);
+			}
+			current.removeClass("active");
+			var prev = $(element).parent().prev();
+			prev.addClass("active"); 
+			prev.text(arTitle);
+			prev.attr('title', enTitle);
+		}
+		toggleDropdownContent($(element).parent().prev());
+	}
+}
+
 function handleDictParams(el, a, d){
 	if(a === undefined || a === 'undefined' || el === undefined){
 		// let is take data from prev state, as element and action is not available
@@ -421,25 +446,7 @@ function handleDictActions(el, a, d) {
 			break;
 	}
 
-	if(action && parent.dataCache
-		 && parent.dataCache["action-tags"] 
-		 && parent.dataCache["action-tags"].data)
-	{
-		var element = el ?? $(`[action_tag=${action}]`)[0];
-		var actionTitle = parent.dataCache["action-tags"].data[action].ar;
-		if(actionTitle){
-			var current = $(".dropbtn.active");
-			var currentAction = current.attr('default_tag');
-			if(currentAction){
-				var defaultTitle = parent.dataCache["action-tags"].data[currentAction].default;
-				current.text(defaultTitle);
-			}
-			current.removeClass("active");
-			$(element).parent().prev().addClass("active"); 
-			$(element).parent().prev().text(actionTitle);
-		}
-		toggleDropdownContent($(element).parent().prev());
-	}
+	postHandleDictParams(el, action);
 }
 
 function handleCompareCheck() {
