@@ -209,10 +209,9 @@ function handleDictParams(el, a, d){
 }
 
 function handleDictActions(el, a, d) {
-	var st = updateDictStates("dict.html", 
-							a ?? params["action"], 
-							d ?? params["data"]);
-	var action = st.action, data = st.data == "undefined" ? undefined : st.data;
+	var st = parent.getStatesFromKey("dict.html");
+	var action = a ?? st.action;
+	var data = d ?? (st.data == "undefined" ? undefined : st.data);
 
 	switch (action) {
 		case 'defs':	
@@ -226,13 +225,14 @@ function handleDictActions(el, a, d) {
 
 		case 'analyze':
 		case 'conjugate':
-			var txt = $("#wordSearchText").val() ?? $("#wordSearchText").text();
-			var word = txt ?? (data?.startsWith("pos:") ? undefined: data);
-			st.data = word;
+			var txt = $("#wordSearchText").val().trim() ?? 
+			          $("#wordSearchText").text().trim();
+			var word = txt !== '' ? txt : (data?.startsWith("pos:") ? undefined: data);
+			data = word;
 			if(action == 'analyze')
-				loadWord(word ? word.trim(): undefined);
+				loadWord(data);
 			else
-				analyzeSelectedWordOld(word ? word.trim(): undefined);
+				analyzeSelectedWordOld(data);
 			break;
 
 		case 'cause-effect':
@@ -455,6 +455,7 @@ function handleDictActions(el, a, d) {
 			break;
 	}
 
+	parent.updateStatesKey("dict.html", {action: action, data: data});
 	postHandleDictParams(el, action);
 }
 
@@ -520,10 +521,10 @@ function analyzeSelectedWord(w) {
 	});
 }
 
-function analyzeSelectedWordOld() {
-
-	var word = $("#wordSearchText").val();
-
+function analyzeSelectedWordOld(sel) {
+	var word = sel ?? $("#wordSearchText").val();
+	if(sel)
+		$("#wordSearchText").val(sel);
 	var res = posAPIObj.analyzeWord(word, true);
 	posAPIObj.addHtml($(".dictionary"), res, true);
 }
@@ -532,7 +533,6 @@ function loadExamplesFromCmpData(dict, qselect) {
 	if (!cmpAPI || !cmpAPI.cmpData || !cmpAPI.cmpData.length) {
 		return;
 	}
-
 	var examples = {};
 	cmpAPI.cmpData.forEach(function (item) {
 		var features = item && item.features;
