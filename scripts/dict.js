@@ -229,15 +229,17 @@ function handleDictActions(el, a, d) {
 				listDefinitions();
 			}
 		break;
+
 		case 'analyze':
 		case 'conjugate':
-			var word = (!data || data == "") ? $("#wordSearchText").val(): 
+			var word = (!data || data == "" || data == "undefined") ? 
+					   $("#wordSearchText").val() ?? $("#wordSearchText").text(): 
 			           data.startsWith("pos:") ? undefined: data;
 			st.data = word;
 			if(action == 'analyze')
 				loadWord(word ? word.trim(): undefined);
 			else
-				analyzeSelectedWordOld(word);
+				analyzeSelectedWordOld(word ? word.trim(): undefined);
 			break;
 
 		case 'cause-effect':
