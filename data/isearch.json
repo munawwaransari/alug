@@ -3,6 +3,21 @@
         "path": "dict.html",
         "action": "vtab-all"
     },
+    "Trilateral Verbs;Form I;Form II;Form III;Form IV;Form V;Form VI;Form VII;Form VIII;Form IX;Form X;ابواب الفعل المزيد":{
+        "path": "dict.html",
+        "action": "vtab-all",
+        "data": "pos:1"
+    },
+    "Quadrilateral Verbs;ابواب الفعل الرباعي":{
+        "path": "dict.html",
+        "action": "vtab-all",
+        "data": "pos:2"
+    },
+    "Extended Verbs;Form XI;Form XII;Form XIII;Form XIV;Form XV":{
+        "path": "dict.html",
+        "action": "vtab-all",
+        "data": "pos:3"
+    },
     "Trilateral verbs;ثلاثي مجرد": {
         "path": "dict.html",
         "action": "vtab-3"
@@ -19,13 +34,13 @@
         "path": "dict.html",
         "action": "vtab-imp"
     },
-    "Noun patterns;اسم;": {
-        "path": "dict.html",
-        "action": "noun-pat"
-    },
 	"Five Nouns;اسماءُ الخَمسة;": {
         "path": "dict.html",
         "action": "five-noun"
+    },
+    "Noun patterns;اسم;": {
+        "path": "dict.html",
+        "action": "noun-pat"
     },
     "Noun of the instrument;اسم الآلة": {
         "path": "dict.html",
@@ -459,6 +474,30 @@
         "action": "masdar",
         "data": "pos:19"
     },
+    "Auditory Verbal Noun;Masdar;مصدر سماعي":
+    {
+        "path": "dict.html",
+        "action": "masdar",
+        "data": "pos:20"
+    },
+    "Standard Verbal Noun;Masdar;مصدر قياسي":
+    {
+        "path": "dict.html",
+        "action": "masdar",
+        "data": "pos:21"
+    },
+    "Verbal Noun - Meemi;Masdar;المصدر الميمي":
+    {
+        "path": "dict.html",
+        "action": "masdar",
+        "data": "pos:22"
+    },
+    "Verbal Noun - Implied;Masdar;المصدر مؤول":
+    {
+        "path": "dict.html",
+        "action": "masdar",
+        "data": "pos:23"
+    },
     "Direct Object;المفعُول بِهِ;": {
         "path": "dict.html",
         "action": "obj-effect",
@@ -538,111 +577,6 @@
         "path": "dict.html",
         "action": "adv",
         "data": "pos:3"
-    },
-    "Synonyms (Cards);Vocabulary;مرادفات;": {
-        "path": "cards.html",
-        "action": "Vocab",
-        "data": "synonym"
-    },
-    "Genres (Cards);Vocabulary;الأجناس;": {
-        "path": "cards.html",
-        "action": "Vocab",
-        "data": "genres"
-    },
-    "Actions (Cards);Vocabulary;حركات;": {
-        "path": "cards.html",
-        "action": "Vocab",
-        "data": "actions"
-    },
-    "Homonyms (Cards);Vocabulary;متجانسات;متجانسة;": {
-        "path": "cards.html",
-        "action": "Vocab",
-        "data": "homonym"
-    },
-    "Antonyms (Cards);Vocabulary;متضادات;متضاد;": {
-        "path": "cards.html",
-        "action": "Vocab",
-        "data": "antonym"
-    },
-    "Hyperbole (Cards);Charts;Vocabulary;مبالغة": {
-        "path": "cards.html",
-        "action": "Vocab",
-        "data": "hyperbole"
-    },
-    "Tajweed (Cards);Charts;Vocabulary;تجويد": {
-        "path": "cards.html",
-        "action": "Vocab",
-        "data": "tajweed"
-    },
-    "Greetings (Cards);Charts;Vocabulary;تحيات;تحية;": {
-        "path": "cards.html",
-        "action": "Vocab",
-        "data": "greetings"
-    },
-    "Colors (Cards);Coluors;Charts;Vocabulary;ألوان;لون": {
-        "path": "cards.html",
-        "action": "Vocab",
-        "data": "colors"
-    },
-    "Pronouns (Cards);Charts;Vocabulary;ضمير;ضمائر": {
-        "path": "cards.html",
-        "action": "Vocab",
-        "data": "pronouns"
-    },
-    "Alphabets (Charts);Cards;Vocabulary;الأبجدية": {
-        "path": "charts.html",
-        "action": "Chart",
-        "data": "alphabets"
-    },
-	"Synonyms (Charts);Cards;Vocabulary;مرادفات;": {
-        "path": "charts.html",
-        "action": "Chart",
-        "data": "synonym"
-    },
-	"Homonyms (Charts);Cards;Vocabulary;متجانسات;متجانسة;": {
-        "path": "charts.html",
-        "action": "Chart",
-        "data": "homonym"
-    },
-	"Antonyms (Charts);Cards;Vocabulary;متضادات;متضاد;": {
-        "path": "charts.html",
-        "action": "Chart",
-        "data": "antonym"
-    },
-	"Jar (Charts);Cards;Vocabulary;حرف الجر;حروف الجر;": {
-        "path": "charts.html",
-        "action": "Chart",
-        "data": "jarr"
-    },
-	"Verbs (Charts);Cards;Vocabulary;افعال;فعل;": {
-        "path": "charts.html",
-        "action": "Chart",
-        "data": "verbs"
-    },
-	"Verb Forms (Charts);Cards;Vocabulary;اوزان;وزن;": {
-        "path": "charts.html",
-        "action": "Chart",
-        "data": "verb-forms"
-    },
-	"Imperative (Charts);Cards;Vocabulary;أمر;نهي;": {
-        "path": "charts.html",
-        "action": "Chart",
-        "data": "imperative"
-    },
-	"Clock (Charts);Time;Cards;Vocabulary;ساعة;وقت;": {
-        "path": "clock.html",
-        "action": "Misc",
-        "data": "clock"
-    },
-	"Calendar (Charts);Time;Cards;Vocabulary;تقويم;": {
-        "path": "calendar.html",
-        "action": "Misc",
-        "data": "calendar"
-    },
-	"Numbers (Charts);Numbers;Cards;Vocabulary;أرقام;اعداد;عدد;رقم;": {
-        "path": "number.html",
-        "action": "Misc",
-        "data": "number"
     },
     "Metonymymy of number;كنايات العدد":
     {
@@ -780,30 +714,6 @@
         "action": "noun-cmp",
         "data": "pos:16"
     },
-    "Auditory Verbal Noun;Masdar;مصدر سماعي":
-    {
-        "path": "dict.html",
-        "action": "masdar",
-        "data": "pos:20"
-    },
-    "Standard Verbal Noun;Masdar;مصدر قياسي":
-    {
-        "path": "dict.html",
-        "action": "masdar",
-        "data": "pos:21"
-    },
-    "Verbal Noun - Meemi;Masdar;المصدر الميمي":
-    {
-        "path": "dict.html",
-        "action": "masdar",
-        "data": "pos:22"
-    },
-    "Verbal Noun - Implied;Masdar;المصدر مؤول":
-    {
-        "path": "dict.html",
-        "action": "masdar",
-        "data": "pos:23"
-    },
     "Quranic Examples;أمثلة من القرآن":
     {
         "path": "dict.html",
@@ -833,21 +743,6 @@
         "path": "dict.html",
         "action": "verb-type",
         "data": "pos:4"
-    },
-    "Trilateral Verbs;Form I;Form II;Form III;Form IV;Form V;Form VI;Form VII;Form VIII;Form IX;Form X;ابواب الفعل المزيد":{
-        "path": "dict.html",
-        "action": "vtab-all",
-        "data": "pos:1"
-    },
-    "Quadrilateral Verbs;ابواب الفعل الرباعي":{
-        "path": "dict.html",
-        "action": "vtab-all",
-        "data": "pos:2"
-    },
-    "Extended Verbs;Form XI;Form XII;Form XIII;Form XIV;Form XV":{
-        "path": "dict.html",
-        "action": "vtab-all",
-        "data": "pos:3"
     },
     "Non-Causative;Form I;غير سببي":{
         "path": "dict.html",
@@ -883,5 +778,110 @@
         "path": "dict.html",
         "action": "verb",
         "data": "pos:9"
+    },
+    "Synonyms (Cards);Vocabulary;مرادفات;": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "synonym"
+    },
+    "Genres (Cards);Vocabulary;الأجناس;": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "genres"
+    },
+    "Actions (Cards);Vocabulary;حركات;": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "actions"
+    },
+    "Homonyms (Cards);Vocabulary;متجانسات;متجانسة;": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "homonym"
+    },
+    "Antonyms (Cards);Vocabulary;متضادات;متضاد;": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "antonym"
+    },
+    "Hyperbole (Cards);Charts;Vocabulary;مبالغة": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "hyperbole"
+    },
+    "Tajweed (Cards);Charts;Vocabulary;تجويد": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "tajweed"
+    },
+    "Greetings (Cards);Charts;Vocabulary;تحيات;تحية;": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "greetings"
+    },
+    "Colors (Cards);Coluors;Charts;Vocabulary;ألوان;لون": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "colors"
+    },
+    "Pronouns (Cards);Charts;Vocabulary;ضمير;ضمائر": {
+        "path": "cards.html",
+        "action": "Vocab",
+        "data": "pronouns"
+    },
+    "Alphabets (Charts);Cards;Vocabulary;الأبجدية": {
+        "path": "charts.html",
+        "action": "Chart",
+        "data": "alphabets"
+    },
+	"Synonyms (Charts);Cards;Vocabulary;مرادفات;": {
+        "path": "charts.html",
+        "action": "Chart",
+        "data": "synonym"
+    },
+	"Homonyms (Charts);Cards;Vocabulary;متجانسات;متجانسة;": {
+        "path": "charts.html",
+        "action": "Chart",
+        "data": "homonym"
+    },
+	"Antonyms (Charts);Cards;Vocabulary;متضادات;متضاد;": {
+        "path": "charts.html",
+        "action": "Chart",
+        "data": "antonym"
+    },
+	"Jar (Charts);Cards;Vocabulary;حرف الجر;حروف الجر;": {
+        "path": "charts.html",
+        "action": "Chart",
+        "data": "jarr"
+    },
+	"Verbs (Charts);Cards;Vocabulary;افعال;فعل;": {
+        "path": "charts.html",
+        "action": "Chart",
+        "data": "verbs"
+    },
+	"Verb Forms (Charts);Cards;Vocabulary;اوزان;وزن;": {
+        "path": "charts.html",
+        "action": "Chart",
+        "data": "verb-forms"
+    },
+	"Imperative (Charts);Cards;Vocabulary;أمر;نهي;": {
+        "path": "charts.html",
+        "action": "Chart",
+        "data": "imperative"
+    },
+	"Clock (Charts);Time;Cards;Vocabulary;ساعة;وقت;": {
+        "path": "clock.html",
+        "action": "Misc",
+        "data": "clock"
+    },
+	"Calendar (Charts);Time;Cards;Vocabulary;تقويم;": {
+        "path": "calendar.html",
+        "action": "Misc",
+        "data": "calendar"
+    },
+	"Numbers (Charts);Numbers;Cards;Vocabulary;أرقام;اعداد;عدد;رقم;": {
+        "path": "number.html",
+        "action": "Misc",
+        "data": "number"
     }
 }

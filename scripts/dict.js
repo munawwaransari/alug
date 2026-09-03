@@ -202,16 +202,10 @@ function postHandleDictParams(el, action){
 }
 
 function handleDictParams(el, a, d){
-	if(a === undefined || a === 'undefined' || el === undefined){
-		// let is take data from prev state, as element and action is not available
-		handleDictActions();
-	}
-	else if(a && a !== 'undefined' && el !== undefined){
-		ensureDataLoaded({name: "action-tags"})
-		.then(() => {
-			handleDictActions(el || $(`#[action_tag=${actionTag}]`)[0], a, d)
-		});
-	}
+	ensureDataLoaded({name: "action-tags"})
+	.then(() => {
+		handleDictActions(el || a ? $(`#[action_tag=${a}]`)[0]:undefined, a, d)
+	});
 }
 
 function handleDictActions(el, a, d) {
