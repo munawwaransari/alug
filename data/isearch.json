@@ -1,19 +1,19 @@
 {
-   "All verbs;forms": {
+    "All verbs;forms": {
         "path": "dict.html",
         "action": "vtab-all"
     },
-    "Trilateral Verbs;Form I;Form II;Form III;Form IV;Form V;Form VI;Form VII;Form VIII;Form IX;Form X;ابواب الفعل المزيد":{
+    "Trilateral Verbs;Form I;Form II;Form III;Form IV;Form V;Form VI;Form VII;Form VIII;Form IX;Form X;ابواب الفعل المزيد": {
         "path": "dict.html",
         "action": "vtab-all",
         "data": "pos:1"
     },
-    "Quadrilateral Verbs;ابواب الفعل الرباعي":{
+    "Quadrilateral Verbs;ابواب الفعل الرباعي": {
         "path": "dict.html",
         "action": "vtab-all",
         "data": "pos:2"
     },
-    "Extended Verbs;Form XI;Form XII;Form XIII;Form XIV;Form XV":{
+    "Extended Verbs;Form XI;Form XII;Form XIII;Form XIV;Form XV": {
         "path": "dict.html",
         "action": "vtab-all",
         "data": "pos:3"
@@ -34,7 +34,7 @@
         "path": "dict.html",
         "action": "vtab-imp"
     },
-	"Five Nouns;اسماءُ الخَمسة;": {
+    "Five Nouns;اسماءُ الخَمسة;": {
         "path": "dict.html",
         "action": "five-noun"
     },
@@ -77,7 +77,7 @@
         "action": "noun-pat",
         "data": "@key"
     },
-    "Four-letter Noun;اسم الرباعي":{
+    "Four-letter Noun;اسم الرباعي": {
         "path": "dict.html",
         "action": "noun-pat",
         "data": "@key"
@@ -217,22 +217,22 @@
     "Words with or without Erab;مُعرب;مبني;محل له من العراب": {
         "path": "dict.html",
         "action": "sen-cmp",
-	    "data": "pos:0"
+        "data": "pos:0"
     },
     "Erab vs Tashkeel;علاماتُ التَّشكِيل;إعراب;": {
         "path": "dict.html",
         "action": "sen-cmp",
-	    "data": "pos:1"
+        "data": "pos:1"
     },
     "Erab vs Tanween;التنوين;إعراب;": {
         "path": "dict.html",
         "action": "sen-cmp",
-	    "data": "pos:2"
+        "data": "pos:2"
     },
     "Scripts;خط الإملائي;خط العروضي": {
         "path": "dict.html",
         "action": "sen-cmp",
-	    "data": "pos:3"
+        "data": "pos:3"
     },
     "Emphasis;توكيد اللفظي;توكيد اللمعنوي;": {
         "path": "dict.html",
@@ -242,69 +242,69 @@
     "Grammar;النَّحْو;": {
         "path": "dict.html",
         "action": "grammar",
-	    "data": "pos:0"
+        "data": "pos:0"
     },
     "Noun Case;الإِعْرَاب لِلأَسْمَاءِ;": {
         "path": "dict.html",
         "action": "grammar",
-	    "data": "pos:0"
+        "data": "pos:0"
     },
     "Mood;الاشْتِقَاق;الإِعْرَاب لِلأَفْعَال": {
         "path": "dict.html",
         "action": "grammar",
-	    "data": "pos:0"
+        "data": "pos:0"
     },
     "Morphology;الصرف;": {
         "path": "dict.html",
         "action": "grammar",
-	    "data": "pos:1"
+        "data": "pos:1"
     },
     "Rhetoric;البلاغة;": {
         "path": "dict.html",
         "action": "grammar",
-	    "data": "pos:2"
+        "data": "pos:2"
     },
-    "Parts of Speech;أقسام الكلام":{
+    "Parts of Speech;أقسام الكلام": {
         "path": "dict.html",
         "action": "grammar",
-	    "data": "pos:3"
+        "data": "pos:3"
     },
-    "Types of Sentences;أقسام الجُمُل;الاسم الصريح;الاسم المؤول;الفعل الصريح;الفعل المقدر":{
+    "Types of Sentences;أقسام الجُمُل;الاسم الصريح;الاسم المؤول;الفعل الصريح;الفعل المقدر": {
         "path": "dict.html",
         "action": "grammar",
-	    "data": "pos:4"
+        "data": "pos:4"
     },
     "Declarative Sentence;جملة خبرية": {
         "path": "dict.html",
         "action": "grammar",
-	    "data": "pos:5"
+        "data": "pos:5"
     },
     "Non-Declarative Sentence;جملة إنشائية": {
         "path": "dict.html",
         "action": "grammar",
-	    "data": "pos:6"
+        "data": "pos:6"
     },
     "Initial Sentence;جملة الإبتدائية;الاستئنافية": {
         "path": "dict.html",
         "action": "grammar",
-	    "data": "pos:7"
+        "data": "pos:7"
     },
     "Parenthetical;الجملة الاعتراضية": {
         "path": "dict.html",
         "action": "grammar",
-	    "data": "pos:8"
+        "data": "pos:8"
     },
     "Affirmative sentence;إيجابي;": {
         "path": "dict.html",
         "action": "grammar",
         "data": "pos:9"
     },
-	"Negative sentence;نفي;": {
+    "Negative sentence;نفي;": {
         "path": "dict.html",
         "action": "grammar",
         "data": "pos:10"
     },
-	"Interrogative sentence;استفهامي;": {
+    "Interrogative sentence;استفهامي;": {
         "path": "dict.html",
         "action": "grammar",
         "data": "pos:11"
@@ -332,124 +332,124 @@
     "Hamza;همزة القطع;همزة الوصل;": {
         "path": "dict.html",
         "action": "cmp",
-	    "data": "pos:0"
+        "data": "pos:0"
     },
     "Ha;هاء السكت;هاء الضمير;": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:1"
+        "data": "pos:1"
     },
     "Alif Laam;جنسية;عهدية;": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:2"
+        "data": "pos:2"
     },
     "Baa;باء القسم;باء التأكيد;باء السببية": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:3"
+        "data": "pos:3"
     },
     "Taa;تاء المربوطة;تاء المفتوحة;تاء الفاعل": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:4"
+        "data": "pos:4"
     },
     "Seen;سينُ الاستقبال;سينُ الطلب": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:5"
+        "data": "pos:5"
     },
     "Kaaf;كاف التشبيه;كاف الخطاب": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:6"
+        "data": "pos:6"
     },
-	"واؤ;العطف;المعِيَّة;واؤ الحال": {
+    "واؤ;العطف;المعِيَّة;واؤ الحال": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:7"
+        "data": "pos:7"
     },
     "Wao of Ishba;واؤ الجمع;واؤ الاشباع": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:8"
+        "data": "pos:8"
     },
     "Faa;فاء الإستئناف": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:9"
+        "data": "pos:9"
     },
     "Faa of Conjunction;فاء العاطفة": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:10"
+        "data": "pos:10"
     },
     "Faa of Explanation;فاء الفصيحة": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:10"
+        "data": "pos:10"
     },
     "Faa (Superfluous);فاء الزائدة": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:10"
+        "data": "pos:10"
     },
     "Laam of Causation;لام التعليل": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:11"
+        "data": "pos:11"
     },
     "Laam of Negation;لام النفي": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:11"
+        "data": "pos:11"
     },
     "Laam of Exclusion;لام الحجود": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:11"
+        "data": "pos:11"
     },
     "Laam of Emphasis;لام الإبتداء": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:12"
+        "data": "pos:12"
     },
     "Laam (Sliding);لام المزحلقة": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:12"
+        "data": "pos:12"
     },
     "Nun of Emphasis;نون التوكيد": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:13"
+        "data": "pos:13"
     },
     "Faa;نون النسوة": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:13"
+        "data": "pos:13"
     },
     "Ya;ياء المخاطبة;ياء المتكلم": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:14"
+        "data": "pos:14"
     },
     "Vocative or Oath;النِّداء;ترخِيم;القسم": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:15"
+        "data": "pos:15"
     },
     "Until;حتي;": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:16"
+        "data": "pos:16"
     },
     "That;أن المخففة;أنّ الثقيلة": {
         "path": "dict.html",
         "action": "cmp",
-	"data": "pos:17"
+        "data": "pos:17"
     },
-	"Verbal Nouns;اسم فعل مضارع;اسم فعل ماضٍ;اسم فعل أمر;اسماء الأفعال;هَيْهاتَ;شَتّانَ;سُرْعَانَ;صَهْ;حَيَّ;هَلُمَّ;مَهْ;أُفٍّ;وَيْ;قَطْ": {
+    "Verbal Nouns;اسم فعل مضارع;اسم فعل ماضٍ;اسم فعل أمر;اسماء الأفعال;هَيْهاتَ;شَتّانَ;سُرْعَانَ;صَهْ;حَيَّ;هَلُمَّ;مَهْ;أُفٍّ;وَيْ;قَطْ": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:1"
@@ -474,26 +474,22 @@
         "action": "masdar",
         "data": "pos:19"
     },
-    "Auditory Verbal Noun;Masdar;مصدر سماعي":
-    {
+    "Auditory Verbal Noun;Masdar;مصدر سماعي": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:20"
     },
-    "Standard Verbal Noun;Masdar;مصدر قياسي":
-    {
+    "Standard Verbal Noun;Masdar;مصدر قياسي": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:21"
     },
-    "Verbal Noun - Meemi;Masdar;المصدر الميمي":
-    {
+    "Verbal Noun - Meemi;Masdar;المصدر الميمي": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:22"
     },
-    "Verbal Noun - Implied;Masdar;المصدر مؤول":
-    {
+    "Verbal Noun - Implied;Masdar;المصدر مؤول": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:23"
@@ -503,32 +499,32 @@
         "action": "obj-effect",
         "data": "pos:1"
     },
-	"Absolute Effect;المفعول المطلق;": {
+    "Absolute Effect;المفعول المطلق;": {
         "path": "dict.html",
         "action": "obj-effect",
         "data": "pos:2"
     },
-	"Causal Object;المفعول له;مفعول ألجله": {
+    "Causal Object;المفعول له;مفعول ألجله": {
         "path": "dict.html",
         "action": "obj-effect",
         "data": "pos:3"
     },
-	"Comitative Object;المفعُول مَعَهُ;": {
+    "Comitative Object;المفعُول مَعَهُ;": {
         "path": "dict.html",
         "action": "obj-effect",
         "data": "pos:4"
     },
-	"Adverb (as Object);المفعول فيه": {
+    "Adverb (as Object);المفعول فيه": {
         "path": "dict.html",
         "action": "obj-effect",
         "data": "pos:5"
     },
-	"Adjectives;السمات الأساسية;الصفات الجوهرية أو الحالات;/الفاعل المتكرر;الصفة": {
+    "Adjectives;السمات الأساسية;الصفات الجوهرية أو الحالات;/الفاعل المتكرر;الصفة": {
         "path": "dict.html",
         "action": "adj",
         "data": "pos:1"
     },
-	"Colors and Physical Defects;العيوب المادية;الألوان;اَفعَلْ;فَعْلاء": {
+    "Colors and Physical Defects;العيوب المادية;الألوان;اَفعَلْ;فَعْلاء": {
         "path": "dict.html",
         "action": "adj",
         "data": "pos:2"
@@ -568,213 +564,187 @@
         "action": "adv",
         "data": "pos:4"
     },
-	"Distinction;Distinctive;of Number;of Quality;of Quantity;التمييز;مميز العدد;مميزة الكمية;مميزة الجودة": {
+    "Distinction;Distinctive;of Number;of Quality;of Quantity;التمييز;مميز العدد;مميزة الكمية;مميزة الجودة": {
         "path": "dict.html",
         "action": "adv",
         "data": "pos:5"
     },
-	"Exclusion;Exceptions;المستثنى;أداةُ الإستِثناء;": {
+    "Exclusion;Exceptions;المستثنى;أداةُ الإستِثناء;": {
         "path": "dict.html",
         "action": "adv",
         "data": "pos:3"
     },
-    "Metonymymy of number;كنايات العدد":
-    {
+    "Metonymymy of number;كنايات العدد": {
         "path": "dict.html",
         "action": "metonymy",
         "data": "pos:1"
     },
-    "Metonymymy of attribute;كنايات عَنْ صِفَة":
-    {
+    "Metonymymy of attribute;كنايات عَنْ صِفَة": {
         "path": "dict.html",
         "action": "metonymy",
         "data": "pos:2"
     },
-    "Metonymymy of trait;كنايات عَنْ مَوْصُوف":
-    {
+    "Metonymymy of trait;كنايات عَنْ مَوْصُوف": {
         "path": "dict.html",
         "action": "metonymy",
         "data": "pos:3"
     },
-    "Metonymymy of connection;كنايات عَنْ نِسْبَة":
-    {
+    "Metonymymy of connection;كنايات عَنْ نِسْبَة": {
         "path": "dict.html",
         "action": "metonymy",
         "data": "pos:4"
     },
-    "Synecdoche (Loose);المجاز المرسل":{
+    "Synecdoche (Loose);المجاز المرسل": {
         "path": "dict.html",
         "action": "metonymy",
         "data": "pos:5"
     },
-    "Synecdoche (Conceptual);المجاز العَقلي":{
+    "Synecdoche (Conceptual);المجاز العَقلي": {
         "path": "dict.html",
         "action": "metonymy",
         "data": "pos:6"
     },
-    "Triptote;المعرب":
-    {
+    "Triptote;المعرب": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:0"
     },
-    "Declinable Noun Endings;الصحيح;المنقوص;المقصور;الممدود;مُعرب":
-    {
+    "Declinable Noun Endings;الصحيح;المنقوص;المقصور;الممدود;مُعرب": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:1"
     },
-    "Diptote;غير المنصرف":
-    {
+    "Diptote;غير المنصرف": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:2"
     },
-    "Indeclinable;المبني":
-    {
+    "Indeclinable;المبني": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:3"
     },
-    "Indefinite Noun;اسم النكرة":
-    {
+    "Indefinite Noun;اسم النكرة": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:4"
     },
-    "Definite Noun;اسم المعرفة":
-    {
+    "Definite Noun;اسم المعرفة": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:5"
     },
-    "Sound Plural;الجمع السالم":
-    {
+    "Sound Plural;الجمع السالم": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:6"
     },
-    "Broken Plural;الجمع التكسير":
-    {
+    "Broken Plural;الجمع التكسير": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:7"
     },
-    "Generic Noun;اسم الجنس;إنفرادي":
-    {
+    "Generic Noun;اسم الجنس;إنفرادي": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:8"
     },
-    "Collection Noun;جمعي;اسم الجنس":
-    {
+    "Collection Noun;جمعي;اسم الجنس": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:9"
     },
-    "Indeclinable Noun;Proper Noun;اسم الجامد;اسم العَلم;اسم الذات;اسم المعنى;":
-    {
+    "Indeclinable Noun;Proper Noun;اسم الجامد;اسم العَلم;اسم الذات;اسم المعنى;": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:10"
     },
-    "Derived Noun;اسم المشتق":
-    {
+    "Derived Noun;اسم المشتق": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:11"
     },
-    "Active Voice;الفاعل":
-    {
+    "Active Voice;الفاعل": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:12"
     },
-    "Passive Voice;نائب الفاعل":
-    {
+    "Passive Voice;نائب الفاعل": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:13"
     },
-    "Predicate;مسند":
-    {
+    "Predicate;مسند": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:14"
     },
-    "Subject;مسند اليه":
-    {
+    "Subject;مسند اليه": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:15"
     },
-    "Exceptional Patterns;أسماء استثنائية":
-    {
+    "Exceptional Patterns;أسماء استثنائية": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:16"
     },
-    "Quranic Examples;أمثلة من القرآن":
-    {
+    "Quranic Examples;أمثلة من القرآن": {
         "path": "dict.html",
         "action": "q-examples",
         "data": ""
     },
-    "Verb Type by Tense;الزمان":
-    {
+    "Verb Type by Tense;الزمان": {
         "path": "dict.html",
         "action": "verb-type",
         "data": "pos:1"
     },
-    "Verb Type by definitiveness of the action;Intransitive;Transitiveاللزوم والتعدي;الفعل اللازم;الفعل المتعدي":
-    {
+    "Verb Type by definitiveness of the action;Intransitive;Transitiveاللزوم والتعدي;الفعل اللازم;الفعل المتعدي": {
         "path": "dict.html",
         "action": "verb-type",
         "data": "pos:2"
     },
-    "Verb Type by Transmutability;Conjugatable;Rigid;Frozen;التصرف والجمود;الأفعال المتصرفة;الأفعال الجامدة":
-    {
+    "Verb Type by Transmutability;Conjugatable;Rigid;Frozen;التصرف والجمود;الأفعال المتصرفة;الأفعال الجامدة": {
         "path": "dict.html",
         "action": "verb-type",
         "data": "pos:3"
     },
-    "Verb Type by sincerity of Action or voice;Active Voice;Passive Voice;المعلوم والمجهول;المبني للمعلوم;المبني للمجهول":
-    {
+    "Verb Type by sincerity of Action or voice;Active Voice;Passive Voice;المعلوم والمجهول;المبني للمعلوم;المبني للمجهول": {
         "path": "dict.html",
         "action": "verb-type",
         "data": "pos:4"
     },
-    "Non-Causative;Form I;غير سببي":{
+    "Non-Causative;Form I;غير سببي": {
         "path": "dict.html",
         "action": "verb",
         "data": "pos:0"
     },
-    "Causative;Intensive;Form II;Form IV;Form VIII;السببية":{
+    "Causative;Intensive;Form II;Form IV;Form VIII;السببية": {
         "path": "dict.html",
         "action": "verb",
         "data": "pos:1"
     },
-    "Associative;Form III;تَرَابُطِيّ":{
+    "Associative;Form III;تَرَابُطِيّ": {
         "path": "dict.html",
         "action": "verb",
         "data": "pos:2"
     },
-    "Reflexive;Form V;Form VIII;مُطَاوِع":{
+    "Reflexive;Form V;Form VIII;مُطَاوِع": {
         "path": "dict.html",
         "action": "verb",
         "data": "pos:4"
     },
-    "Reciprocal;Form VI;":{
+    "Reciprocal;Form VI;": {
         "path": "dict.html",
         "action": "verb",
         "data": "pos:5"
     },
-    "Anticausative;Passive;Form VII;":{
+    "Anticausative;Passive;Form VII;": {
         "path": "dict.html",
         "action": "verb",
         "data": "pos:6"
     },
-    "Considerative;Requestive;Form X;":{
+    "Considerative;Requestive;Form X;": {
         "path": "dict.html",
         "action": "verb",
         "data": "pos:9"
@@ -834,52 +804,52 @@
         "action": "Chart",
         "data": "alphabets"
     },
-	"Synonyms (Charts);Cards;Vocabulary;مرادفات;": {
+    "Synonyms (Charts);Cards;Vocabulary;مرادفات;": {
         "path": "charts.html",
         "action": "Chart",
         "data": "synonym"
     },
-	"Homonyms (Charts);Cards;Vocabulary;متجانسات;متجانسة;": {
+    "Homonyms (Charts);Cards;Vocabulary;متجانسات;متجانسة;": {
         "path": "charts.html",
         "action": "Chart",
         "data": "homonym"
     },
-	"Antonyms (Charts);Cards;Vocabulary;متضادات;متضاد;": {
+    "Antonyms (Charts);Cards;Vocabulary;متضادات;متضاد;": {
         "path": "charts.html",
         "action": "Chart",
         "data": "antonym"
     },
-	"Jar (Charts);Cards;Vocabulary;حرف الجر;حروف الجر;": {
+    "Jar (Charts);Cards;Vocabulary;حرف الجر;حروف الجر;": {
         "path": "charts.html",
         "action": "Chart",
         "data": "jarr"
     },
-	"Verbs (Charts);Cards;Vocabulary;افعال;فعل;": {
+    "Verbs (Charts);Cards;Vocabulary;افعال;فعل;": {
         "path": "charts.html",
         "action": "Chart",
         "data": "verbs"
     },
-	"Verb Forms (Charts);Cards;Vocabulary;اوزان;وزن;": {
+    "Verb Forms (Charts);Cards;Vocabulary;اوزان;وزن;": {
         "path": "charts.html",
         "action": "Chart",
         "data": "verb-forms"
     },
-	"Imperative (Charts);Cards;Vocabulary;أمر;نهي;": {
+    "Imperative (Charts);Cards;Vocabulary;أمر;نهي;": {
         "path": "charts.html",
         "action": "Chart",
         "data": "imperative"
     },
-	"Clock (Charts);Time;Cards;Vocabulary;ساعة;وقت;": {
+    "Clock (Charts);Time;Cards;Vocabulary;ساعة;وقت;": {
         "path": "clock.html",
         "action": "Misc",
         "data": "clock"
     },
-	"Calendar (Charts);Time;Cards;Vocabulary;تقويم;": {
+    "Calendar (Charts);Time;Cards;Vocabulary;تقويم;": {
         "path": "calendar.html",
         "action": "Misc",
         "data": "calendar"
     },
-	"Numbers (Charts);Numbers;Cards;Vocabulary;أرقام;اعداد;عدد;رقم;": {
+    "Numbers (Charts);Numbers;Cards;Vocabulary;أرقام;اعداد;عدد;رقم;": {
         "path": "number.html",
         "action": "Misc",
         "data": "number"
