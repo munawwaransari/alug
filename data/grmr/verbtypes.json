@@ -102,13 +102,13 @@
         ],
         "examples": [
             "<p id=\"Non_Causative\" style=\"padding:0;margin:0\"><b>Non-Causative</b><br/>The action or state remains with the subject<br/><a href=\"#\" onclick=\"showVerbComparisions(0);\">Form I</a></p>",
-            "<p id=\"Causative\" style=\"padding:0;margin:0\"><b>Causative</b><br/>a causative (genrally consistent) or intensive action<br/><a href=\"#\" onclick=\"showVerbComparisions(1);\">Form II</a><br/><a href=\"#\" onclick=\"showVerbComparisions(3);\">Form IV</a><br/><a href=\"#\" onclick=\"showVerbComparisions(7);\">Form VIII</a><br/><a href=\"#\" onclick=\"handleParams(null, 'vtab-all','pos:2');\">Qaudrilateral Form I</a></p>",
+            "<p id=\"Causative\" style=\"padding:0;margin:0\"><b>Causative</b><br/>a causative (genrally consistent) or intensive action<br/><a href=\"#\" onclick=\"showVerbComparisions(1);\">Form II</a><br/><a href=\"#\" onclick=\"showVerbComparisions(3);\">Form IV</a><br/><a href=\"#\" onclick=\"showVerbComparisions(7);\">Form VIII</a><br/><a href=\"#\" onclick=\"handleDictParams(null, 'vtab-all','pos:2');\">Qaudrilateral Form I</a></p>",
             "<p id=\"Associative\" style=\"padding:0;margin:0\"><b>Associative</b><br/>One-way associative action (initated by the subject of the action)<br/><a href=\"#\" onclick=\"showVerbComparisions(2);\">Form III</a></p>",
-            "<p id=\"Reflexive\" style=\"padding:0;margin:0\"><b>Reflexive</b><br/>the action reflects back to the subject/doer<br/><a href=\"#\" onclick=\"showVerbComparisions(4);\">Form V</a><br/><a href=\"#\" onclick=\"handleParams(null, 'vtab-all','pos:2');\">Qaudrilateral Form II</a></p>",
+            "<p id=\"Reflexive\" style=\"padding:0;margin:0\"><b>Reflexive</b><br/>the action reflects back to the subject/doer<br/><a href=\"#\" onclick=\"showVerbComparisions(4);\">Form V</a><br/><a href=\"#\" onclick=\"handleDictParams(null, 'vtab-all','pos:2');\">Qaudrilateral Form II</a></p>",
             "<p id=\"Reciprocal\" style=\"padding:0;margin:0\"><b>Reciprocal</b><br/>a mutual action (affecting both the subject & the object)<br/><a href=\"#\" onclick=\"showVerbComparisions(5);\">Form VI</a></p>",
-            "<p id=\"Passive\" style=\"padding:0;margin:0\"><b>Passive</b><br/>subject becomes the object<br/><a href=\"#\" onclick=\"showVerbComparisions(6);\">Form VII</a><br/><a href=\"#\" onclick=\"handleParams(null, 'vtab-all','pos:2');\">Qaudrilateral Form IV</a></p>",
+            "<p id=\"Passive\" style=\"padding:0;margin:0\"><b>Passive</b><br/>subject becomes the object<br/><a href=\"#\" onclick=\"showVerbComparisions(6);\">Form VII</a><br/><a href=\"#\" onclick=\"handleDictParams(null, 'vtab-all','pos:2');\">Qaudrilateral Form IV</a></p>",
             "<p id=\"Requestive\" style=\"padding:0;margin:0\"><b>Requestive</b><br/>action requesting or desiring somthing<br/><a href=\"#\" onclick=\"showVerbComparisions(9);\">Form X</a></p>",
-            "<p id=\"Cohesive\" style=\"padding:0;margin:0\"><b>Requestive</b><br/>usually describes a crowd or a massive volume of things compressing together<br/><a href=\"#\" onclick=\"handleParams(null, 'vtab-all','pos:2');\">Qaudrilateral Form III</a></p>"
+            "<p id=\"Cohesive\" style=\"padding:0;margin:0\"><b>Requestive</b><br/>usually describes a crowd or a massive volume of things compressing together<br/><a href=\"#\" onclick=\"handleDictParams(null, 'vtab-all','pos:2');\">Qaudrilateral Form III</a></p>"
         ],
         "em": [
             "","كَتَبَ", "شَرَحَ", "", "أُكِلَ", "فُتِحَ"

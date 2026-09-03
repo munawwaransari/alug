@@ -28,11 +28,11 @@ window.onload = function () {
 
 			if (params.action && params.action !== 'cmp') {
 				if(posSearchObj){
-					handleParams();
+					handleDictParams();
 				}
 				else{
 					setTimeout(function(){
-						handleParams();
+						handleDictParams();
 					}, 500);
 				}
 			}
@@ -46,11 +46,11 @@ window.onload = function () {
 		}
 		if (params.action === 'cmp') {
 			if(cmpAPIObj){
-				handleParams();
+				handleDictParams();
 			}
 			else{
 				setTimeout(function(){
-					handleParams();
+					handleDictParams();
 				}, 500);
 			}
 		}
@@ -158,12 +158,12 @@ function handleDictBack(){
 		var st = parent.getStatesFromKey("dict.html");
 		if(st.prevState && st.prevState.length > 0){
 			var ps = st.prevState.pop();
-			handleParams(null, ps.action, ps.data);
+			handleDictParams(null, ps.action, ps.data);
 		}
 	}
 }
 
-function handleParams(el, a, d) {
+function handleDictParams(el, a, d) {
 	var st = updateDictStates("dict.html", 
 							a ?? params["action"], 
 							d ?? params["data"]);

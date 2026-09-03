@@ -246,9 +246,9 @@
 					<b>تحليل</b>
 				</button>
 				<div class="dropdown-content">
-				    <a href="#" onclick="handleParams(this, 'sen-cmp','pos:0');">Compare</a>
-				    <a href="#" onclick="handleParams(this, 'sentence','pos:0');">Grammar</a>
-					<a href="#" onclick="handleParams(this, 'analyze','');"">Analyze</a>
+				    <a href="#" onclick="handleDictParams(this, 'sen-cmp','pos:0');">Compare</a>
+				    <a href="#" onclick="handleDictParams(this, 'sentence','pos:0');">Grammar</a>
+					<a href="#" onclick="handleDictParams(this, 'analyze','');"">Analyze</a>
 					<a href="#" onclick="analyzeSelectedWordOld();toggleDropdownContent($(this).parent().prev());">Conjugate</a>
 					<a href="#" onclick="lookupEx('https://context.reverso.net/translation/arabic-english/');toggleDropdownContent($(this).parent().prev());">
 						<img src="images/share.png" style="width: 16px; height: 16px;"/>
@@ -268,52 +268,52 @@
 			<div class="dropdown">
 			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">الفعل</button>
 			  <div class="dropdown-content">
-				<a href="#" onclick="handleParams(this, 'verb','pos:0');(0);">Compare</a>
-				<a href="#" onclick="handleParams(this, 'verbType');">Verb Types <sup>(انواع لاأفعال)</sup></a>
-				<a href="#" onclick="handleParams(this, 'vtab-all','pos:0');">Verb Forms <sup>(أبواب الفعل)</sup></a>
-				<a href="#" onclick="handleParams(this, 'vtab-3');">ثلاثي مجرَّد</a>				
-				<a href="#" onclick="handleParams(this, 'vtab-inad');">Inadequate <sup>(افعال النَّاقِصة)</sup></a>
-				<a href="#" onclick="handleParams(this, 'vtab-weak');">Weak Verbs <sup>(افعال المُعتِلَة)</sup></a>
-				<a href="#" onclick="handleParams(this, 'vtab-imp');">Imperatives <sup>(الأمر والنهى)</sup></a>
+				<a href="#" onclick="handleDictParams(this, 'verb','pos:0');(0);">Compare</a>
+				<a href="#" onclick="handleDictParams(this, 'verbType');">Verb Types <sup>(انواع لاأفعال)</sup></a>
+				<a href="#" onclick="handleDictParams(this, 'vtab-all','pos:0');">Verb Forms <sup>(أبواب الفعل)</sup></a>
+				<a href="#" onclick="handleDictParams(this, 'vtab-3');">ثلاثي مجرَّد</a>				
+				<a href="#" onclick="handleDictParams(this, 'vtab-inad');">Inadequate <sup>(افعال النَّاقِصة)</sup></a>
+				<a href="#" onclick="handleDictParams(this, 'vtab-weak');">Weak Verbs <sup>(افعال المُعتِلَة)</sup></a>
+				<a href="#" onclick="handleDictParams(this, 'vtab-imp');">Imperatives <sup>(الأمر والنهى)</sup></a>
 			  </div>
 			</div>
 			
 			<div id="ism" class="dropdown">
 			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">الاِسم</button>
 			  <div class="dropdown-content">
-				<a href="#" onclick="handleParams(this, 'noun-cmp','pos:0');">Compare</a>
-				<a href="#" onclick="handleParams(this, 'cause-effect');">Cause & Effect</a>
-				<a href="#" onclick="handleParams(this, 'noun-pat');">Noun Patterns</a>
-				<a href="#" onclick="handleParams(this, 'obj-effect');">Object Effects</a>
-				<a href="#" onclick="handleParams(this, 'masdar');">Verbal Nouns</a>
-				<a href="#" onclick="handleParams(this, 'five-noun');">Five Nouns</a>
-				<a href="#" onclick="handleParams(this, 'pronoun');">Pronouns</a>
+				<a href="#" onclick="handleDictParams(this, 'noun-cmp','pos:0');">Compare</a>
+				<a href="#" onclick="handleDictParams(this, 'cause-effect');">Cause & Effect</a>
+				<a href="#" onclick="handleDictParams(this, 'noun-pat');">Noun Patterns</a>
+				<a href="#" onclick="handleDictParams(this, 'obj-effect');">Object Effects</a>
+				<a href="#" onclick="handleDictParams(this, 'masdar');">Verbal Nouns</a>
+				<a href="#" onclick="handleDictParams(this, 'five-noun');">Five Nouns</a>
+				<a href="#" onclick="handleDictParams(this, 'pronoun');">Pronouns</a>
 			  </div>
 			</div>
 			
 			<div class="dropdown">
 			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">الحرف</button>
 			  <div class="dropdown-content">
-				<a href="#" onclick="handleParams(this, 'cmp');">Compare</a>
-				<a href="#" onclick="handleParams(this, 'adj')">Adjectives</a>
-				<a href="#" onclick="handleParams(this, 'adv');">Adverbs</a>
-				<a href="#" onclick="handleParams(this, 'prep');">Prepositions</a>
-				<a href="#" onclick="handleParams(this, 'metonymy');">Metonymies</a>
-				<a href="#" onclick="handleParams(this, 'prep-ph');">Prep. Phrases</a>
+				<a href="#" onclick="handleDictParams(this, 'cmp');">Compare</a>
+				<a href="#" onclick="handleDictParams(this, 'adj')">Adjectives</a>
+				<a href="#" onclick="handleDictParams(this, 'adv');">Adverbs</a>
+				<a href="#" onclick="handleDictParams(this, 'prep');">Prepositions</a>
+				<a href="#" onclick="handleDictParams(this, 'metonymy');">Metonymies</a>
+				<a href="#" onclick="handleDictParams(this, 'prep-ph');">Prep. Phrases</a>
 			  </div>
 			</div>
 			<div class="dropdown">
 			  <button class="dropbtn" onclick="toggleDropdownContent(this, true)">فِهرِس</button>
 			  <div class="dropdown-content">
-				<a href="#" onclick="handleParams(this, 'list-search', '');">Index</a>
-				<a href="#" onclick="handleParams(this, 'list-search', 'ع');">مصطلحات</a>
-				<a href="#" onclick="handleParams(this, 'defs');">تعريفات</a>
-				<a href="#" onclick="handleParams(this, 'q-examples');">
+				<a href="#" onclick="handleDictParams(this, 'list-search', '');">Index</a>
+				<a href="#" onclick="handleDictParams(this, 'list-search', 'ع');">مصطلحات</a>
+				<a href="#" onclick="handleDictParams(this, 'defs');">تعريفات</a>
+				<a href="#" onclick="handleDictParams(this, 'q-examples');">
 					<span style="font-size: 12px; margin-top:-4px;">Examples (Quran)</span>
 				</a>
-				<a href="#" onclick="handleParams(this, 'noun-plural');"><sup>Plural</sup></a>
-				<a href="#" onclick="handleParams(this, 'noun-syn');"><sup>Synonyms</sup></a>
-				<a href="#" onclick="handleParams(this, 'noun-ant');"><sup>Antonyms</sup></a>
+				<a href="#" onclick="handleDictParams(this, 'noun-plural');"><sup>Plural</sup></a>
+				<a href="#" onclick="handleDictParams(this, 'noun-syn');"><sup>Synonyms</sup></a>
+				<a href="#" onclick="handleDictParams(this, 'noun-ant');"><sup>Antonyms</sup></a>
 				<!--<a href="#" onclick="convertHTMLtoPDF('.dictionary', '.nFilter', 'exported.pdf');"><sub>Export to PDF</sub></a>-->
 			  </div>
 			</div>
