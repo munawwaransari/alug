@@ -204,7 +204,7 @@ function postHandleDictParams(el, action){
 function handleDictParams(el, a, d){
 	ensureDataLoaded({name: "action-tags"})
 	.then(() => {
-		handleDictActions(el || a ? $(`#[action_tag=${a}]`)[0]:undefined, a, d)
+		handleDictActions(el || $(`[action_tag=${a}]`)[0], a, d)
 	});
 }
 
