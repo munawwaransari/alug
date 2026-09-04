@@ -434,20 +434,25 @@
         "action": "cmp",
         "data": "pos:14"
     },
-    "Vocative or Oath;النِّداء;ترخِيم;القسم": {
+    "Kana;كان الناسخة;كان الزائدة": {
         "path": "dict.html",
         "action": "cmp",
         "data": "pos:15"
     },
-    "Until;حتي;": {
+    "That;أن المخففة;أنّ الثقيلة": {
         "path": "dict.html",
         "action": "cmp",
         "data": "pos:16"
     },
-    "That;أن المخففة;أنّ الثقيلة": {
+    "Vocative or Oath;النِّداء;ترخِيم;القسم": {
         "path": "dict.html",
         "action": "cmp",
         "data": "pos:17"
+    },
+    "Until;حتي;": {
+        "path": "dict.html",
+        "action": "cmp",
+        "data": "pos:18"
     },
     "Verbal Nouns;اسم فعل مضارع;اسم فعل ماضٍ;اسم فعل أمر;اسماء الأفعال;هَيْهاتَ;شَتّانَ;سُرْعَانَ;صَهْ;حَيَّ;هَلُمَّ;مَهْ;أُفٍّ;وَيْ;قَطْ": {
         "path": "dict.html",

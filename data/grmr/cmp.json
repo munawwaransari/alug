@@ -434,6 +434,64 @@
     {
         "compareType":"cmp",
         "topics": [
+            "كان الناسخة",
+            "كان الزائدة"
+        ],
+        "ar": [
+            "تعريف",
+            "بناء",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Construct",
+            "Example"
+        ],
+        "features": {
+            "كان الناسخة": [
+                "<p style=\"direction:ltr;\">كان الناسخة (The Copular/Incomplete Kana) changes the grammatical case of the sentence it enters.</p>",
+                "<p>Sentence gernally starts with it<br/>كان + اسمُ كان (مرفُوع) + خبرُ كان (منصُوب)</p>",
+                "وَكَانَ   ٱللَّهُ   غَفُورٗا   رَّحِيمًا [4:96]<br/><br/>,وَكَانَ   حَقًّا   عَلَيۡنَا   نَصۡرُ   ٱلۡمُؤۡمِنِينَ [30:47]<br/><br/> وَكَانَ   عِندَ   رَبِّهِۦ   مَرۡضِيّٗا [19:55]<br/><br/>"
+          ],
+            "كان الزائدة": [
+                "<p style=\"direction:ltr;\">كان الزائدة (The Redundant/Extra Kana) is purely decorative and has no grammatical effect on the words around it.</p>",
+                "<p>Inserted anywhere in the sentence<br/>e.g ماكان, إنْ كان, مَن كان  etc.</p>",
+                "فَيَنظُرُواْ   كَيۡفَ   كَانَ   عَٰقِبَةُ   ٱلَّذِينَ   مِن   قَبۡلِهِمۡ [35:44]<br/><br/>قَالُواْ   كَيۡفَ   نُكَلِّمُ   مَن   كَانَ   فِي   ٱلۡمَهۡدِ   صَبِيّٗا [19:29]<br/><br/>فَمَآ   أَغۡنَىٰ   عَنۡهُم   مَّا   كَانُواْ   يَكۡسِبُونَ [40:82]<br/><br/>"
+            ]
+        }
+    },
+    {
+        "compareType":"cmp",
+        "topics": [
+            "أن المخففة",
+            "أنّ الثقيلة"
+        ],
+        "ar": [
+            "تعريف",
+            "بناء",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Construct",
+            "Example"
+        ],
+        "features": {
+            "أن المخففة": [
+                "<div style=\"direction:ltr;\">Used in the sense of أنّ الثقيلة with future sentences</div>",
+                "<div style=\"direction:ltr;\">Case 1 => أن + فعل المضارع<br/>When used with فعل المضارع, the فعل is منصوب<br/><br/>Case 2 => أن + س/سوف + فعل المضارع<br/>When used with فعل المضارع المستقبل , the فعل is مرفوع</div>",
+                "فعل المضارع المستقبل <br/>عَلِمَ أَن سَيَكُونُ مِنكُم مَّرۡضَىٰ [73:20]<br/><br/>فعل المضارع<br/>وَيُمۡسِكُ ٱلسَّمَآءَ أَن تَقَعَ عَلَى ٱلۡأَرۡضِ إِلَّا بِإِذۡنِهِۦٓۚ [22:65]"
+            ],
+            "أنّ الثقيلة": [
+                "<div style=\"direction:ltr;\">Used for certainty and strong probablity in nominal sentences</div>",
+                "<div style=\"direction:ltr;\">جملة الاسمية<br/>Makes the مبتدا in accusative case (منصوب)",
+                "جملة الاسمية<br/>أَلَمۡ تَعۡلَمۡ أَنَّ ٱللَّهَ يَعۡلَمُ مَا فِي ٱلسَّمَآء وَٱلۡأَرۡضِۚ [22:70]<br/><br/>أَنَّ غَضَبَ ٱللَّهِ عَلَيۡهَآ [24:9]"
+            ]
+        }
+    },
+    {
+        "compareType":"cmp",
+        "topics": [
             "القسم",
             "النِّداء",
             "ترخِيم"
@@ -496,35 +554,6 @@
             ]
         },
         "notes": "<div style=\"direction:ltr;\">When حَتَّىٰ is followed by إذا, it takes a فعل الماضي<br/>  حتّي + إذا + فعل الماضي <br/>e.g.حَتَّىٰٓ إِذَآ أَدۡرَكَهُ ٱلۡغَرَقُ [10:90]</div>&nbsp;"
-    },
-    {
-        "compareType":"cmp",
-        "topics": [
-            "أن المخففة",
-            "أنّ الثقيلة"
-        ],
-        "ar": [
-            "تعريف",
-            "بناء",
-            "مثال"
-        ],
-        "en": [
-            "Definition",
-            "Construct",
-            "Example"
-        ],
-        "features": {
-            "أن المخففة": [
-                "<div style=\"direction:ltr;\">Used in the sense of أنّ الثقيلة with future sentences</div>",
-                "<div style=\"direction:ltr;\">Case 1 => أن + فعل المضارع<br/>When used with فعل المضارع, the فعل is منصوب<br/><br/>Case 2 => أن + س/سوف + فعل المضارع<br/>When used with فعل المضارع المستقبل , the فعل is مرفوع</div>",
-                "فعل المضارع المستقبل <br/>عَلِمَ أَن سَيَكُونُ مِنكُم مَّرۡضَىٰ [73:20]<br/><br/>فعل المضارع<br/>وَيُمۡسِكُ ٱلسَّمَآءَ أَن تَقَعَ عَلَى ٱلۡأَرۡضِ إِلَّا بِإِذۡنِهِۦٓۚ [22:65]"
-            ],
-            "أنّ الثقيلة": [
-                "<div style=\"direction:ltr;\">Used for certainty and strong probablity in nominal sentences</div>",
-                "<div style=\"direction:ltr;\">جملة الاسمية<br/>Makes the مبتدا in accusative case (منصوب)",
-                "جملة الاسمية<br/>أَلَمۡ تَعۡلَمۡ أَنَّ ٱللَّهَ يَعۡلَمُ مَا فِي ٱلسَّمَآء وَٱلۡأَرۡضِۚ [22:70]<br/><br/>أَنَّ غَضَبَ ٱللَّهِ عَلَيۡهَآ [24:9]"
-            ]
-        }
     },
     {
         "compareType":"cmp",

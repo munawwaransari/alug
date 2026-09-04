@@ -182,7 +182,6 @@ function postHandleDictParams(el, action){
 				if(defaultTitle) prev.text(defaultTitle);
 			}
 			prev.removeClass("active");
-			//toggleDropdownContent(prev);
 		}
 
 		// Update Current Title button
