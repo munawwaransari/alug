@@ -2307,7 +2307,7 @@ function redirectHadith(verseKey){
 			.trim()
 			.toLowerCase()
 			.replaceAll(/\(.*\)/ig, '')
-			.replaceAll(/(the|and|did|not|did'nt|be|is|was|were|am|will|would|shall|should|can|could|may|might|to|on|in|of|me|you|us|he|him|his|she|her|they|them|and|an|for|or|so|do|a|i)\s+/ig, '')
+			.replaceAll(/((^|\s+)(the|and|did|not|did'nt|be|is|was|were|am|will|would|shall|should|can|could|may|might|to|on|in|of|me|you|us|he|him|his|she|her|they|them|and|an|for|or|so|do|a|i)(\s+|$))+/ig, '')
 			.trim();
 			selWord = selWord == "" ? undefined : selWord;	
 		}

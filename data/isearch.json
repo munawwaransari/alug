@@ -419,40 +419,45 @@
         "action": "cmp",
         "data": "pos:12"
     },
+    "Negation particles;ما;لَمْ;لا;لَيسَ;لَن": {
+        "path": "dict.html",
+        "action": "cmp",
+        "data": "pos:13"
+    },
     "Nun of Emphasis;نون التوكيد": {
-        "path": "dict.html",
-        "action": "cmp",
-        "data": "pos:13"
-    },
-    "Faa;نون النسوة": {
-        "path": "dict.html",
-        "action": "cmp",
-        "data": "pos:13"
-    },
-    "Ya;ياء المخاطبة;ياء المتكلم": {
         "path": "dict.html",
         "action": "cmp",
         "data": "pos:14"
     },
-    "Kana;كان الناسخة;كان الزائدة": {
+    "Faa;نون النسوة": {
+        "path": "dict.html",
+        "action": "cmp",
+        "data": "pos:14"
+    },
+    "Ya;ياء المخاطبة;ياء المتكلم": {
         "path": "dict.html",
         "action": "cmp",
         "data": "pos:15"
     },
-    "That;أن المخففة;أنّ الثقيلة": {
+    "Kana;كان الناسخة;كان الزائدة": {
         "path": "dict.html",
         "action": "cmp",
         "data": "pos:16"
     },
-    "Vocative or Oath;النِّداء;ترخِيم;القسم": {
+    "That;أن المخففة;أنّ الثقيلة": {
         "path": "dict.html",
         "action": "cmp",
         "data": "pos:17"
     },
-    "Until;حتي;": {
+    "Vocative or Oath;النِّداء;ترخِيم;القسم": {
         "path": "dict.html",
         "action": "cmp",
         "data": "pos:18"
+    },
+    "Until;حتي;": {
+        "path": "dict.html",
+        "action": "cmp",
+        "data": "pos:19"
     },
     "Verbal Nouns;اسم فعل مضارع;اسم فعل ماضٍ;اسم فعل أمر;اسماء الأفعال;هَيْهاتَ;شَتّانَ;سُرْعَانَ;صَهْ;حَيَّ;هَلُمَّ;مَهْ;أُفٍّ;وَيْ;قَطْ": {
         "path": "dict.html",

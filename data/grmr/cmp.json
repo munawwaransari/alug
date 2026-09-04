@@ -348,6 +348,53 @@
     {
         "compareType":"cmp",
         "topics": [
+            "ما",
+            "لَمْ",
+            "لا",
+            "لَيسَ",
+            "لَن"
+        ],
+        "ar": [
+            "معنى",
+            "بناء",
+            "مثال"
+        ],
+        "en": [
+            "Meaning",
+            "Construct",
+            "Example"
+        ],
+        "features": {
+           "ما": [
+                "not<br/>(past)",
+                "مَا<br/>+</br/>فعل ماضٍ",
+                "مَا ذَهَبَ<br/>(He went not)"
+            ],
+            "لَمْ": [
+                "did not<br/>(past)",
+                "لَمْ<br/>+</br/>فعل مضارع",
+                "لَم يَذهَبْ<br/>(He did not go)"
+            ],
+            "لا": [
+                "not<br/>(imperative)",
+                "لا<br/>+</br/>صيغة الأمر",
+                "لا تذهَبْ<br/>(Do not go!)"
+            ],
+            "لَيسَ": [
+                "is/am not<br/>(state)",
+                "لَيسَ<br/>+</br/>اسم/مصدر",
+                "لَيْسَ ذَهَابً<br/>(its not a<br/> departure)"
+            ],
+            "لَن": [
+                "will not<br/>(future)",
+                "لَن<br/>+</br/>فعل مستقبل",
+                "لَن يَذهَبُ<br/>(He will not go)"
+            ]
+        }
+    },
+    {
+        "compareType":"cmp",
+        "topics": [
             "لام الإبتداء (التوكيد)",
             "لام الخبر (المزحلقة)"
         ],
