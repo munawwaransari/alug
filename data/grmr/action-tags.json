@@ -94,12 +94,12 @@
 
     "verb": {
         "en": "Verb Comparisons",
-        "ar": "مقارنات",
+        "ar": "مقارنة",
         "default": "الأفعال"
     },
     "verb-cmp": {
         "en": "Verb Comparisons",
-        "ar": "مقارنات",
+        "ar": "مقارنة الأفعال",
         "default": "الأفعال"
     },
     "verb-type": {
