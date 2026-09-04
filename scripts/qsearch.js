@@ -2100,11 +2100,9 @@ function createGridView(data, div){
 			
 			var clearStyle = '';
 			var box = $("div[class*=juz]");
-			console.log("box.length = " + box.length);
 			if( box.length > 0){
 				var divWidth = box.first().width();
 				var count= $(document).width() / divWidth;
-				console.log("mCount = " + mCount);
 				clearStyle = mCount % count ? 'clear:both;' : '';
 			}
 			

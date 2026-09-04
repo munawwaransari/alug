@@ -61,8 +61,6 @@ window.getLangOption = function () {
 }
 
 window.openInline = function (url, playOptions) {
-    console.log("openInline");
-    var flag = autoplay;
     var po = playOptions;
     $('.reading-pane').attr("src", "");
     setTimeout(function () {
@@ -184,9 +182,7 @@ window.playAudio = function (mpegUrl, cb) {
 
     var promise = audio.play();
     if (promise !== undefined) {
-        promise.then(_ => {
-            console.log("Autoplay started!");
-        }).catch(error => {
+        promise.catch(error => {
             console.log("Autoplay was prevented.");
         });
     }

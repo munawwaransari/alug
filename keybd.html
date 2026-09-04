@@ -31,7 +31,6 @@
 
 		const keyboard = new Keyboard({
 		  onChange: input => onChange(input),
-		  onKeyPress: button => onKeyPress(button),
 		  useMouseEvents: true,
 		  arabicLayout,
 		  modules: [
@@ -44,18 +43,8 @@
 
 	function onChange(input){
 	  document.querySelector(".input").value = input;
-	  //console.log("Input changed", input);
 	}
 
-	function onKeyPress(button){
-	  //console.log("Button pressed", button);
-		//if(button == "Clear"){
-		//	const inputElements = document.getElementsByTagName('input');
-		//	inputElements[0].value = '';
-		//	keyboard.clearInput();
-		//}	
-	}
-	
 	function copyText(){
 		var inp = document.getElementsByTagName("input")[0];
 	    inp.select();

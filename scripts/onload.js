@@ -2,7 +2,8 @@
 //	Author: munawwar_ali@yahoo.com
 //
 
-const RETRY_DELAY = 400;
+const RETRY_DELAY = 500;
+const MAX_RETRY = 5; 
 var loadRetryCount = 5; 
 var lastiSearchSuggestionInput;
 var dataCache = init_data_cache();
@@ -81,7 +82,7 @@ $(document).ready(function()
 	nodeInserted("#languages");
 	$(document).on("nodeInserted",function(e,q){
 		isLangLoaded = true;
-		console.log('lang node inserted.')
+		//console.log('lang node inserted.')
 		if (q === "#languages"){
 			$("#languages").parent().hide();
 			loadVoiceOptions(true, false);
@@ -174,7 +175,6 @@ $(document).ready(function()
 	document.getElementById('lang-options').addEventListener('change', function(){
 		langOption = this.value;
 		$("#languages").val(langOption);
-		console.log("lang option changed: "+ langOption);
 		if(states.action == "quiz"){
 			setTimeout(function(){
 				openQuizV2(states.chapter, states.file, states.topic);
@@ -321,7 +321,6 @@ function toggleIcon(id){
 };
 
 function loadResources(){
-	console.log("loadResources");
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
 		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "dresources.html"));
@@ -329,7 +328,6 @@ function loadResources(){
 }
 
 function loadQuizResources(){
-	console.log("loadQuizResources");
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
 		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "quizres.html"));
@@ -337,8 +335,6 @@ function loadQuizResources(){
 }
 
 function loadDictionarySearch(text){
-
-	console.log("loadDictionarySearch");
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
 		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "dsearch.html?search="+text));
@@ -346,8 +342,6 @@ function loadDictionarySearch(text){
 }
 
 function loadGrammarView(params){
-
-	console.log("loadGrammarView");
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
 		var path = "dict.html?";
@@ -362,7 +356,6 @@ function loadGrammarView(params){
 }
 
 function loadHadithSearch(text, sval = ''){
-	console.log("loadHadithSearch");
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
 
@@ -372,8 +365,6 @@ function loadHadithSearch(text, sval = ''){
 }
 
 function loadQuranSearch(text, sval = ''){
-	
-	console.log("loadQuranSearch");
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
 
@@ -424,7 +415,8 @@ function nodeInserted(elementQuerySelector){
 			location.reload();
 			return false;
 		}
-		console.log('Retrying: remaing attempts:'+loadRetryCount);
+		if(loadRetryCount < MAX_RETRY-1)
+			console.log('Retrying: remaing attempts:'+loadRetryCount);
 		setTimeout(function(){
             nodeInserted(elementQuerySelector);
         },RETRY_DELAY);
@@ -750,7 +742,6 @@ function autoplayAudio(chapter, page){
 }
 
 function loadHandwriting(){
-	console.log("loadHandwriting");
 	$('.reading-pane').attr("src","");
 	setTimeout(function(){
 		$('.reading-pane').attr('src', encodeURI(getLocationPath() + "draw.html"));

@@ -14,7 +14,6 @@ function openChapter(chapter, file, page, lang){
 		}, 5);
 	}
 	else{
-		//console.log(`opening '${abs_path}'`);
 		$('.reading-pane').attr("src","");
 		setTimeout(function(){
 			$('.reading-pane').attr('src', encodeURI(abs_path));

@@ -513,11 +513,9 @@ function analyzeSelectedWord(w) {
 	data => {
 		var word = data.word;
 		if(data.nouns.length > 0){
-			//console.log("pos: taking noun");
 			word = data.nouns[0];
 		}
 		else if(data.verbs.length > 0){
-			//console.log("pos: taking verb");
 			word = data.verbs[0];
 		}
 		posSearchObj.searchAndAddHtml(word, $(".dictionary"));

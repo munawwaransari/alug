@@ -145,7 +145,6 @@ async function loadZipData(url, file)
 
 function showArabicKeyboard(keybd){
 	setTimeout(function(){
-		console.log("Opening keyboard: " + keybd);
 		window.open("keybd.html?layout="+keybd, "name", "top=0,left=0,width=600px,height=266px");
 	}, 10);
 }
@@ -159,7 +158,7 @@ const MOBILE_WIDTH = 480;
 
 function getDeviceType() {
 	var device_width = window.innerWidth * window.devicePixelRatio;
-    var device_height = window.innerHeight * window.devicePixelRatio;
+    //var device_height = window.innerHeight * window.devicePixelRatio;
 
     if (device_width <= MOBILE_WIDTH) {
         return "mobile";
@@ -418,15 +417,33 @@ function loadAllVoices(sel, voicesAll ){
 }
 
 function toggleDropdownContent(elem, state){
+	var next = $(elem).next();
 	if(state){
 		if($(elem).prop('tagName') !== 'INPUT')
-			$(elem).next().addClass("dropdown-content");
-		$(elem).next().show();
+			next.addClass("dropdown-content");
+		next.show();
 	}else{
 		if($(elem).prop('tagName') !== 'INPUT')
-			$(elem).next().toggleClass("dropdown-content");
-		$(elem).next().toggle();
+			next.toggleClass("dropdown-content");
+		next.toggle();
 	}
+
+	// Fix: Check is multiple sub menus became visible
+	setTimeout(()=>{
+		try
+		{
+			if(next.is(":visible")){
+				var allVisibleSubmenus = $(".autocomplete").find(".dropdown-content[display!=none]");
+				if(allVisibleSubmenus.length > 1){
+					allVisibleSubmenus.hide();
+					next.show();
+				}
+			}
+		}
+		catch(err){
+			console.log("Error hiding submenu: "+ err);
+		}
+	}, 30);
 }
 
 function getDurationString(given_seconds){
@@ -1837,7 +1854,6 @@ function openGoogleAISearch(prompt, useSelLang){
 }
 
 function loadPuterSearch(prompt){
-	console.log("loadPuterSearch");
 	if(parent.redirect){
 		parent.redirect(
 			"ai.html", 
@@ -1848,7 +1864,6 @@ function loadPuterSearch(prompt){
 }
 
 function loaDashboard(){
-	console.log("loadPuterSearch");
 	if(parent.redirect){
 		parent.redirect(
 			"dashboard.html", 

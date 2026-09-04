@@ -32,7 +32,6 @@ function prepareQuestion(obj, ch){
 	}
 	switch(obj.input){
 		case 'text':
-			console.log("keyboard: " + obj.keyboard);
 			var k = (obj.keyboard) ? `
 				<img src="images/kybd.jpg" 
 					 style="cursor: pointer; margin-top: 10px; margin-left:4px" 
@@ -110,7 +109,6 @@ openGoogleAISearch(prompt, true);
 
 function showKeyboard(keybd){
 	setTimeout(function(){
-		console.log("Opening keyboard: " + keybd);
 		window.open("keybd.html?layout="+keybd, "name", "top=0,left=0,width=600px,height=266px");
 	}, 10);
 }

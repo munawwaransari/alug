@@ -738,7 +738,6 @@ function showCauseAndEffects(inp) {
 	});
 
 	svgImg.on("click", function (e) {
-		//console.log("on:" + activeSvgArea);
 		if (activeSvgArea) {
 			var exDiv = $("#ceExamples");
 			exDiv.empty();
