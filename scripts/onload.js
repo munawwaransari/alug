@@ -855,12 +855,14 @@ function isearch(txt){
 	}
 	
 	if(!obj){
-		var res = Object.keys(dataCache["isearchData"].data).reduce(function (filtered, key) {
+		var objKeys = [];
+		Object.keys(dataCache["isearchData"].data).reduce(function (filtered, key) {
 			if (arRemovePunct(key).startsWith(data)){
-				objKey = key;
+				objKeys.push(key);
 				return key;
 			}
 		}, {});
+		var objKey = objKeys.filter(x => x.startsWith(`${data};`))
 		if(objKey === undefined) return;
 		var obj = dataCache["isearchData"].data[objKey];
 		if(obj.data && obj.data !== '@key')

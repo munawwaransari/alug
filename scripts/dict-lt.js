@@ -208,7 +208,7 @@ function showNounTable(k, v1, v2) {
 }
 
 function showComparisions(inp) {
-	cmpAPIObj.addComparisionList($(".dictionary"), inp, false);
+	cmpAPIObj.addComparisionList($(".dictionary"), inp, false, 'cmp');
 }
 
 function showSentenceComparisions(inp, type) {
@@ -220,7 +220,7 @@ function showVerbComparisions(inp) {
 }
 
 function showNounComparisions(inp) {
-	cmpAPIObj.addComparisionList($(".dictionary"), inp, true, "noun");
+	cmpAPIObj.addComparisionList($(".dictionary"), inp, true, 'noun');
 }
 
 function showTriliteralVerbTable() {
@@ -696,7 +696,7 @@ function showCauseAndEffects(inp) {
 	var html = `
 	<div style="font-size:12px;width:100%;background-color:yellow;text-align:center;">
 		Click or tap on a block to see examples ( See: 
-		<a href="#" onclick="showObjectEffects('objectEffectsData')">Object Effects</a> )
+		<a href="#" onclick="showObjectEffects('obj-effect')">Object Effects</a> )
 	</div>
 	<div style="width:100%;display:flex;flex-diection:column;text-align:center;">
 		<img id="svgImg1" style="margin:auto;current:arrow;" src="images/ce.svg"></img>

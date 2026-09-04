@@ -1,5 +1,6 @@
 [
     {
+        "compareType":"cmp",
         "topics": [
             "همزة القطع",
             "همزة الوصل"
@@ -40,6 +41,7 @@
         }
     },
     {
+        "compareType":"cmp",
         "topics": [
             "هاء السكت",
             "هاء الضمير"
@@ -68,6 +70,7 @@
         }
     },
     {
+        "compareType":"cmp",
         "topics": [
             "ال العهدية",
             "ال الجنسية"
@@ -93,6 +96,7 @@
         "notes": ""
     },
     {
+        "compareType":"cmp",
         "topics": [
             "باء القسم",
             "باء التأكيد",
@@ -123,6 +127,7 @@
         "notes": "<div style=\"direction:ltr;\">The letter ب (Baa) can function in many ways, primarily as a preposition (Harf Jarr) with varied meanings or as a prefix indicating specific grammatical functions </div><br/>Examples<br/>باء الاستعانة - For Seeking Help<br/> كتبتُ بِالقلمِ <br/>(I wrote with the pen)<br/><br/>باء الإلصاق - For Attachment<br/>أمسكتُ بِيدِه <br/>(I held his hand - attached to his hand)<br/><br/>باء المصاحبة - For Companionship)<br/> اِشْتَرِ السلعةَ بِمتاعِها <br/>(Buy the item with its accessories)"
     },
     {
+        "compareType":"cmp",
         "topics": [
             "تاء المربوطة",
             "تاء المفتوحة",
@@ -153,6 +158,7 @@
         "notes": "<div style=\"direction:ltr\">There are two taa’s that can be additional to the verb :<br/><br/>تاء الفاعل المتحركة Taa’ul Faa’il Al-Mutaharrika which is a pronoun that it added to the verb to mark the subject. For example : أكل akala (he ate), أكلت akaltu (I ate)<br/><br/>تاء التأنيث الساكنة  Taa'ut-Ta'neeth Ass-Saakinah it is not a pronoun, but it is a letter (حرف) added to the past tense of the verb to mark that the subject is feminine such as أكل akala (he ate); أكلت akalat (she ate)</div>"
     },
     {
+        "compareType":"cmp",
         "topics": [
             "سينُ الاستقبال",
             "سينُ الطلب"
@@ -178,6 +184,7 @@
         "notes": "<div style=\"direction:ltr\">سينُ الاستقبال is the short form of سوف. Sometimes both are differentiated in terms of time - س for near future, and سوف for far future</div>"
     },
     {
+        "compareType":"cmp",
         "topics": [
             "كاف التشبيه",
             "كاف الخطاب"
@@ -202,6 +209,7 @@
         }
     },
     {
+        "compareType":"cmp",
         "topics": [
             "واؤ العطف",
             "واؤ المعِيَّة",
@@ -231,6 +239,7 @@
         }
     },
     {
+        "compareType":"cmp",
         "topics": [
             "واؤ الجمع",
             "واؤ الاشباع"
@@ -256,6 +265,7 @@
         }
     },
     {
+        "compareType":"cmp",
         "topics": [
             "فاء الإستئناف",
             "فاء العاطفة"
@@ -281,6 +291,7 @@
         }
     },
     {
+        "compareType":"cmp",
         "topics": [
             "فاء الفصيحة",
             "فاء الزائدة"
@@ -306,6 +317,7 @@
         }
     },
     {
+        "compareType":"cmp",
         "topics": [
             "لام التعليل",
             "لام النفي/لام الحجود"
@@ -334,6 +346,7 @@
         }
     },
     {
+        "compareType":"cmp",
         "topics": [
             "لام الإبتداء (التوكيد)",
             "لام الخبر (المزحلقة)"
@@ -363,6 +376,7 @@
         "notes": "Both are open lam (لَـ) used for emphasis, but the difference between them lies in their position in the sentence and their relationship to the emphatic particle إنَّ"
     },
     {
+        "compareType":"cmp",
         "topics": [
             "نون التوكيد",
             "نون النسوة"
@@ -387,6 +401,7 @@
         }
     },
     {
+        "compareType":"cmp",
         "topics": [
             "ياء المخاطبة",
             "ياء المتكلم",
@@ -417,6 +432,7 @@
         }
     },
     {
+        "compareType":"cmp",
         "topics": [
             "القسم",
             "النِّداء",
@@ -456,6 +472,7 @@
         }
     },
     {
+        "compareType":"cmp",
         "topics": [
             "حتي (مستقبل)",
             "حتي (حال)"
@@ -481,6 +498,7 @@
         "notes": "<div style=\"direction:ltr;\">When حَتَّىٰ is followed by إذا, it takes a فعل الماضي<br/>  حتّي + إذا + فعل الماضي <br/>e.g.حَتَّىٰٓ إِذَآ أَدۡرَكَهُ ٱلۡغَرَقُ [10:90]</div>&nbsp;"
     },
     {
+        "compareType":"cmp",
         "topics": [
             "أن المخففة",
             "أنّ الثقيلة"
@@ -509,6 +527,7 @@
         }
     },
     {
+        "compareType":"cmp",
         "topics": [
             "إذ",
             "إذا"
@@ -538,6 +557,7 @@
         }
     },
     {
+        "compareType":"cmp",
         "topics": [
             "إِنَّ / أَنَّ",
             "أَن"
@@ -571,6 +591,7 @@
         }
     },
     {
+        "compareType":"cmp",
         "topics": [
             "ثُمَّ",
             "ثَمَّ"
@@ -595,6 +616,7 @@
         }
     },
     {
+        "compareType":"cmp",
         "topics": [
             "قَبْلِ",
             "قَبْلُ",

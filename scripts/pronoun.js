@@ -7,7 +7,7 @@ function showPronounInfo(k, v1, v2){
 	container.empty();	
 	container.append($(`
 		<select class="pronounFilter" onchange="updateStateIndex(this);filterPronounView()">
-			<option value="all">Show All</option>
+			<option value="all" selected>Show All</option>
 			<option value="Subjective Pronouns">Subjective Pronouns</option>
 			<option value="Objective Pronouns">Objective Pronouns</option>
 			<option value="Demonstrative Pronouns">Demonstrative Pronouns</option>
@@ -28,8 +28,9 @@ function showPronounInfo(k, v1, v2){
 	addRelativePronouns(container);
 }
 
-function filterPronounView(){
-	var val = $(".pronounFilter").val();
+function filterPronounView(index=0){
+	var val = $(`.pronounFilter option`).get(index).value;
+	$(`.pronounFilter`).val(val);
 	var lstButton = $(".nFilterBtn");
 	var lst = $(".pronounFilter");
 

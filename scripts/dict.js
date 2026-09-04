@@ -11,7 +11,9 @@ var params = { "action": undefined, data: undefined };
 window.onload = function () {
 
 	params["action"] = decodeURI(getParamValue('action'));
+	params["action"] = params["action"] == "undefined" ? undefined : params["action"];
 	params["data"] = arRemovePunct(decodeURI(getParamValue('data')));
+	params["data"] = params["data"] == "undefined" ? undefined : params["data"];
 
 	posAPIObj = new posAPI(getLocationPath(), function (msg, err) {
 		if (err) {
@@ -25,17 +27,17 @@ window.onload = function () {
 			}
 
 			parent.dataCache["API_POS"].data = posAPIObj;
-
-			if (params.action && params.action !== 'cmp') {
-				if(posSearchObj){
-					handleDictParams();
-				}
-				else{
-					setTimeout(function(){
-						handleDictParams();
-					}, 500);
-				}
-			}
+			handleDictParams(undefined, params["action"], params["data"]);
+			// if (params.action && params.action !== 'cmp') {
+			// 	if(posSearchObj){
+			// 		handleDictParams(undefined, params["action"], params["data"]);
+			// 	}
+			// 	else{
+			// 		setTimeout(function(){
+			// 			handleDictParams(undefined, params["action"], params["data"]);
+			// 		}, 500);
+			// 	}
+			// }
 		});
 	});
 
@@ -254,8 +256,10 @@ function handleDictActions(el, a, d) {
 		case 'pronoun':
 			showPronounInfo('ism', 'ضَمائر', 'Pronouns');
 			var sel = decodeURI(data);
-			if (sel) {
-				$(".pronounFilter").val(sel == "undefined" ? 'all': sel);
+			if (sel?.startsWith("pos:")) {
+				var index = parseInt(data.substring(4));
+				filterPronounView(index);
+			}else{
 				filterPronounView();
 			}
 			break;
@@ -319,7 +323,7 @@ function handleDictActions(el, a, d) {
 		case 'vtab-imp': showImperativeTable(); break;
 		case 'verb-type':
 			setTimeout(function () {
-				showObjectEffects('verbTypeData');
+				showObjectEffects('verb-type');
 				if (data)
 					if (data.startsWith("pos:")) {
 						var index = parseInt(data.substring(4));
@@ -334,7 +338,7 @@ function handleDictActions(el, a, d) {
 
 		case 'masdar':
 			setTimeout(function () {
-				showObjectEffects('masdarData');
+				showObjectEffects('masdar');
 				if (data)
 					if (data.startsWith("pos:")) {
 						var index = parseInt(data.substring(4));
@@ -349,7 +353,7 @@ function handleDictActions(el, a, d) {
 
 		case 'obj-effect':
 			setTimeout(function () {
-				showObjectEffects('objectEffectsData');
+				showObjectEffects('obj-effect');
 				if (data)
 					if (data.startsWith("pos:")) {
 						var index = parseInt(data.substring(4));
@@ -366,7 +370,7 @@ function handleDictActions(el, a, d) {
 		case 'adv':
 			
 			setTimeout(function () {
-				showObjectEffects(action == 'adj'? 'adjectiveData': 'adverbData');
+				showObjectEffects(action);
 				if (data)
 					if (data.startsWith("pos:")) {
 						var index = parseInt(data.substring(4));
@@ -763,11 +767,11 @@ function listExamplesFromQuran(selText) {
 			);
 			loadExamplesFromObjectEffectData(dict, qselect, exData);
 		});
-	ensureDataLoaded({ name: "objectEffectsData" })
+	ensureDataLoaded({ name: "obj-effect" })
 		.then((data) => {
 			loadExamplesFromObjectEffectData(dict, qselect, data);
 		});
-	ensureDataLoaded({ name: "adverbData" })
+	ensureDataLoaded({ name: "adv" })
 		.then((data) => {
 			loadExamplesFromObjectEffectData(dict, qselect, data);
 		});

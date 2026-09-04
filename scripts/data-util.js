@@ -1448,10 +1448,10 @@ function shareExternal(title, parameters){
 
 function init_data_cache(){
 	return {
-		"adjectiveData": {
+		"adj": {
 			path: "data/grmr/adjective.json"
 		},
-		"adverbData": {
+		"adv": {
 			path: "data/grmr/adverb.json"
 		},
 		"isearchData": {
@@ -1460,13 +1460,13 @@ function init_data_cache(){
 		"mappingsData": {
 			path: "data/ar.dic/mapping.json"
 		},
-		"masdarData": {
+		"masdar": {
 			path: "data/grmr/masdar.json"
 		},
-		"verbTypeData": {
+		"verb-type": {
 			path: "data/grmr/verbtypes.json"
 		},
-		"objectEffectsData": {
+		"obj-effect": {
 			path: "data/grmr/objecteffects.json"
 		},
 		"qsurahData": {
@@ -2088,9 +2088,7 @@ function getListButtinWithSelect(sel, filterClass, compareType, filterBtnClickHa
 			<button style="width:80%"
 				${filterBtnClickHandler == undefined ?
 				`onclick="listListItems('.dictionary',
-									'.${filterClass} option', 
-									'dict.html', 
-									'${getActionFromCompareType(compareType)}')"`:
+					'.${filterClass} option', 'dict.html', '${compareType}')"`:
 				`onclick=${filterBtnClickHandler}`}
 				>List</button>
 			<button onclick=" 
@@ -2121,15 +2119,10 @@ function getActionTitle(action){
 	action;
 }
 
-function getActionFromCompareType(compareType){
-	return compareType == 'noun'? 'noun-cmp': 
-	compareType == 'adjectiveData'? 'adj':
-	compareType == 'adverbData'? 'adv':
-	compareType == 'objectEffectsData'? 'obj-effect':
-	compareType == 'masdarData'? 'masdar':
-	compareType == 'verbTypeData'? 'verb-type':
-	compareType ?? 'cmp';
-}
+// function getActionFromCompareType(compareType){
+// 	return compareType == 'noun'? 'noun-cmp': 
+// 	compareType;
+// }
 
 function getFreeImageSource(keyword, url="https://loremflickr.com/360/480/"){
 	return `${url}${keyword}`;

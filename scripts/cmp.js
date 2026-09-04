@@ -28,8 +28,8 @@ class cmpAPI {
 		${
 			cmpAPI.cmpData.map(
 				function(cEntry){
-					if ((showComparison && cEntry.compareType === compareType) || 
-						(!showComparison && cEntry.compareType === undefined)){
+					if (cEntry.compareType === compareType)
+					{
 						var val = cEntry["topics"].join(' vs ');
 						var selected = index === indexValue ? ' selected ' : '';
 						if(index === indexValue)
@@ -92,6 +92,9 @@ class cmpAPI {
 		}	
 		
 		selArray.every(function(sel1, index){
+			if(sel1 === undefined)
+				return false;
+			
 			var id = selArray.length > 1 ? index+1 : '';
 			sel = sel1;
 

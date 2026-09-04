@@ -85,27 +85,27 @@
     "Pronouns;ضمير;ضمائر": {
         "path": "dict.html",
         "action": "pronoun",
-        "data": "all"
+        "data": "pos:0"
     },
     "Subjective Pronouns;ضمائر المنفصلة": {
         "path": "dict.html",
         "action": "pronoun",
-        "data": "@key"
+        "data": "pos:1"
     },
     "Objective Pronouns;ضمائر المتصلة": {
         "path": "dict.html",
         "action": "pronoun",
-        "data": "@key"
+        "data": "pos:2"
     },
     "Demonstrative Pronouns;اسماء الإشارة;": {
         "path": "dict.html",
         "action": "pronoun",
-        "data": "@key"
+        "data": "pos:3"
     },
     "Relative Pronouns;اسماء الموصول": {
         "path": "dict.html",
         "action": "pronoun",
-        "data": "@key"
+        "data": "pos:4"
     },
     "Plural;جمع": {
         "path": "dict.html",
