@@ -10,7 +10,6 @@
   <script src="scripts/jquery/jquery-3.7.1.min.js"></script>
   <script src="scripts/require.js"></script>
   <script src="scripts/data-util.js"></script>
-  <script src="https://js.puter.com/v2/"></script>
   <script type="importmap">
   {
     "imports": {
@@ -36,7 +35,7 @@
 
     window.onload = function () {
       toggleHead($('#pHead'), $('#pHeadImg'));
-      loadModels();
+      refreshModels();
       updateOptions();
       var p = getParamValue("data");
       document.getElementById('prompt').value = p;
@@ -49,7 +48,7 @@
     }
 
     function run_ai(){
-      var genai = $("#optionsGenAI").val();
+      var genai = $("#selAiProvider").val();
       var flags = {};
       flags["IMAGE"] = $("#chkPartImage").is(":checked");
       flags["HTML"] = $("#chkPartHTML").is(":checked");
@@ -124,7 +123,7 @@ Tell me what you’d like to do, or paste any details you have.`;
           }
           break;
 
-          case "gemini":
+          case "google":
           {
             response = await window.runGeminiGenAISearch(
               $('#apiKey').val(),
@@ -136,12 +135,9 @@ Tell me what you’d like to do, or paste any details you have.`;
           }
           break;
 
-          case "puter": 
           default:
           {
-            response = model == 'default' ?
-              await puter.ai.chat(inputPrompt) :
-              await puter.ai.chat(inputPrompt, { model: model });
+            response = "Provider is not added yet."
           }
           break;
         }
@@ -218,47 +214,56 @@ Tell me what you’d like to do, or paste any details you have.`;
       }
     }
 
-    function updateModelOptions(models) {
-      var sel = $("#selModels")[0];
-      models.forEach(model => {
-        var option = document.createElement("option");
-        option.text = model.id;
-        option.value = model.id;
-        if (model.id == 'default')
-          option.selected = true;
-        sel.add(option);
-      });
+    function addOptionToSelection(sel, val, txt, selected){
+        const supportedProviders = ["openai", "google", "google-ai"];
+
+        var existing = sel?.querySelector(`option[value="${val}"]`);
+        if(existing == null){
+          var option = document.createElement("option");
+          option.value = val.trim();
+          option.text = txt.trim();
+          option.selected = selected ? 'selected' : undefined;
+          if(supportedProviders.filter(x=> x.toLowerCase() == val).length > 0){
+            sel.prepend(option);
+          }else{
+            sel.add(option);
+          }
+        }
     }
 
-    function loadModels() {
+    function refreshModels() {
+        ensureDataLoaded("ai-models")
+        .then((models)=>{
+          if($("#selModels option").length == 0){
+            //First time load
+            var selProviders = $("#selAiProvider");
+            models.data?.forEach(model => {
+              var tokModels = model.id.split("/");
+              var tokProviders = model.name.split(":");
+              if(tokModels[0][0] !== '~')
+                addOptionToSelection(selProviders[0], tokModels[0], tokProviders[0]);
+            });
 
-      var models = parent.dataCache["models"];
-      if (models != undefined) {
-        updateModelOptions(models);
-      } else {
-        puter.ai.listModels()
-          .then(models => {
-            models.push({ id: "default", name: "Default" });
-            parent.dataCache["models"] = models;
-            updateModelOptions(models);
-          })
-          .catch(err => {
-            console.error("Error loading models: ", err);
+            // Add default entry
+            addOptionToSelection(selProviders[0], 'google-ai', '(Browser) Google AI', true);
+          }
+          
+          var selectedProvider = $("#selAiProvider").val();
+          var selModels = $("#selModels")[0];
+          selModels.options.length = 0;
+          var providerModels = models.data?.filter(x=>x.id.startsWith(selectedProvider));
+          providerModels?.forEach(model => {
+            var tokModels = model.id.split("/");
+            var tokProviders = model.name.split(":");
+            if(tokProviders.length == 1){
+              tokProviders.push(model.name);
+            }
+            addOptionToSelection(selModels, tokModels[1], tokProviders[1]);
           });
-      }
-
-      puter.ai.listModels().then(models => {
-
-        var sel = $("#selModels")[0];
-        models.forEach(model => {
-          var option = document.createElement("option");
-          option.text = model.id;
-          option.value = model.id;
-          sel.add(option);
+        })
+        .catch(err => {
+            console.error("Error loading models: ", err);
         });
-      }).catch(err => {
-        console.error("Error loading models: ", err);
-      });
     }
 
     function updateOptions() {
@@ -284,9 +289,16 @@ Tell me what you’d like to do, or paste any details you have.`;
       }
     }
 
-    function playResponse() {
+    function playResponse(el) {
+      if(el && $(el).attr('stat-play') === '1'){
+        if (parent.stopAudio)
+          parent.stopAudio();
+        $(el).attr('stat-play', '0');
+        return;  
+      }
 
       if (parent.playTextAll) {
+        $(el).attr('stat-play', '1');
         const inputPrompt = document.getElementById('prompt').value;
         var lang = 'en-US'
         if (inputPrompt.includes('Target Language:ur'))
@@ -329,13 +341,8 @@ Tell me what you’d like to do, or paste any details you have.`;
   <div id="pHead" style="display:block;padding-bottom:10px;width:100%">
     <label id="pLastRun" style="float:right;margin-right:10px;"></label>
     <div style="margin-left:10px;padding-bottom:6px;padding-top:6px;display:inline-block">
-      Gen AI:
-      <select id="optionsGenAI">
-        <option value="google-ai">Google AI (Browser)</option>
-        <option value="openai">Open AI</option>
-        <option value="gemini">Gemini</option>
-        <option value="puter">Puter</option>
-      </select>
+      Provider:
+      <select id="selAiProvider" onchange="refreshModels();"></select>
       <button style="margin:auto;margin-left:10px;text-align:left;" onclick="run_ai()">Run</button>
       <span>
 				<input id="chkPartImage" type="Checkbox" checked>
@@ -346,13 +353,13 @@ Tell me what you’d like to do, or paste any details you have.`;
         <label>HTML</label>
       </span>
     </div>
-    <div style="margin-left:10px;padding-bottom:6px;padding-top:10px;">
-      API KEY:
-      <input id="apiKey" type="password" maxlength="128"/>
-    </div>
     <div style="margin-left:10px;padding-bottom:6px;padding-top:6px;">
       Models:
       <select id="selModels"></select>
+    </div>
+    <div style="margin-left:10px;padding-bottom:6px;padding-top:10px;">
+      API KEY:
+      <input id="apiKey" type="password" maxlength="128"/>
     </div>
     <div style="margin-left:10px;padding-bottom:6px;">
       Prompts:
@@ -370,7 +377,7 @@ Tell me what you’d like to do, or paste any details you have.`;
   </div>
   <img src="images/speech-enabled.png" 
         style="margin:auto;margin-left: 10px;width:18px;" 
-        onclick="playResponse()" />
+        onclick="playResponse(this)" />
   <div id="output" style="display:block;left:0;">&nbsp;</div>
 </body>
 

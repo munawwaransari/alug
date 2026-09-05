@@ -474,7 +474,7 @@ function updateToolDescription(id, opt){
 		var sdiv = $(`
 			<div  style="width:100%">AI Search</div>`);
 			toolMessage.html(sdiv);
-			loadPuterSearch();
+			loadAiSearch();
 		break;
 
 		case 'dbrd':

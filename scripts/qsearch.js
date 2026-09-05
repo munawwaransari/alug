@@ -819,7 +819,7 @@ function getGoogleAIOptions(verseKey, verseKeys){
 				<div class="dropdown-content" 
 					 style="z-index:999999;padding:2px;">
 				${	
-					getPromptsForVerse(verseKeys[0], verseKeys[1], $('sel-word').length > 0 ? $('sel-word')[0].text : '', 'google')
+					getPromptsForVerse(verseKeys[0], verseKeys[1], $('sel-word').length > 0 ? $('sel-word')[0].text : '', 'google-ai')
 				}
 				</div>
 			</span>

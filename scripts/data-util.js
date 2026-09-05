@@ -15,8 +15,9 @@ function getParamValue(paramName) {
     return params.get(paramName) ?? undefined;
 }
 
-async function ensureDataLoaded(d)
+async function ensureDataLoaded(inp)
 {
+	var d = (typeof inp == "string") ? {'name': inp} : inp;
 	return new Promise((resolve, reject) => {
 		if (parent.dataCache === undefined) { // || parent.dataCache[d.name] === undefined) {
 			console.log("Error: Invalid cache state for: " + d.name);
@@ -1538,6 +1539,9 @@ function init_data_cache(){
 		},
 		"action-tags":{
 			path: "data/grmr/action-tags.json"
+		},
+		"ai-models":{
+			path: "https://openrouter.ai/api/v1/models"
 		}
 	}
 }
@@ -1775,7 +1779,7 @@ function cropCanvas(source, sx, sy, width, height) {
     return croppedCanvas;
 }
 
-function getPromptsForVerse(chapter, verse, target = 'puter') {
+function getPromptsForVerse(chapter, verse, target = 'google') {
 	var selLang = parent.getLang ? parent.getLang() ?? 'EN' : 'EN';
 	var selWord = "${$('.sel-word').first().text()}";
 	var prompts = getPromptFromKey(
@@ -1797,7 +1801,7 @@ function getPromptsForVerse(chapter, verse, target = 'puter') {
 	var verse_hadith_reference_prompt = prompts[4];
 	var verse_to_image_prompt = prompts[5];
 	var verse_translate_prompt = prompts[6];
-	var target_function = target == 'puter' ? 'loadPuterSearch' : 'openGoogleAISearch';
+	var target_function = target === 'google' ? 'loadAiSearch' : 'openGoogleAISearch';
 	return`
 		<a href="#" onclick="${target_function}(\`${word_promtp}\`)">Describe word</a>
 		<a href="#" onclick="${target_function}(\`${word_conjugation_prompt}\`)">Conjugate word</a>
@@ -1853,7 +1857,7 @@ function openGoogleAISearch(prompt, useSelLang){
 	window.open(url, '_blank');
 }
 
-function loadPuterSearch(prompt){
+function loadAiSearch(prompt){
 	if(parent.redirect){
 		parent.redirect(
 			"ai.html", 
