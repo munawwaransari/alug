@@ -115,7 +115,6 @@ Tell me what you’d like to do, or paste any details you have.`;
           'flags': flags,
           'prompt': document.getElementById('prompt').value.trim()
         })
-        //.catch(err => response = err);
 
         outputDiv.innerHTML = aiResponseToHTML(response);
         const end = performance.now();
@@ -123,8 +122,9 @@ Tell me what you’d like to do, or paste any details you have.`;
         clearInterval(timer);
       }
       catch (err) {
-        mDiv.innerText = 'Last run: Error';
-        outputDiv.innerText = `Error: ${err.message}`;
+        mDiv.innerHTML = 'Last run: <b style="color:red">Error</b>';
+        outputDiv.innerHTML = `<div><b style="color:red">Error:</b> ${err.message}</div>
+            <div>Cause: ${err.cause}</div>`;
         clearInterval(timer);
       }
     }
@@ -319,7 +319,7 @@ Tell me what you’d like to do, or paste any details you have.`;
       <select id="selAiProvider" onchange="refreshModels();"></select>
       <button style="margin:auto;margin-left:10px;text-align:left;" onclick="run_ai()">Run</button>
       <span>
-				<input id="chkPartImage" type="Checkbox" checked>
+				<input id="chkPartImage" type="Checkbox">
         <label>Image</label>
       </span>
       <span>

@@ -12,7 +12,7 @@ window.runAISearch = function (name, options){
                     resolve(runGeminiAISearch(options));
                     break;
                 
-                case "openapi":
+                case "openai":
                     resolve(runOpenAISearch(options));
                     break;
 
