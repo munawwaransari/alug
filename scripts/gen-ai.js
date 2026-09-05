@@ -61,7 +61,7 @@ window.runOpenAISearch = function (apiKey, aimodel, flags, prompt, useSelLang){
 
         try {
             const openai = new OpenAI({ 
-                dangerouslyAllowBrowser: true,
+                //dangerouslyAllowBrowser: true,
                 apiKey: apiKey 
             });
 
