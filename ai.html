@@ -14,7 +14,7 @@
   {
     "imports": {
       "@google/generative-ai": "https://esm.run/@google/generative-ai",
-      "openai": "https://esm.run/openai"
+      "@openai": "https://esm.run/openai"
     }
   }
   </script>
@@ -109,41 +109,15 @@ Tell me what you’d like to do, or paste any details you have.`;
       try {
         var model = $('#selModels').val();
         var response = '';
-        switch(genai){
-
-          case "openai":
-          {
-            response = await window.runOpenAISearch(
-              $('#apiKey').val(),
-              $('#selModels').val(),
-              flags,
-              document.getElementById('prompt').value.trim()
-            )
-            .catch(err => response = err);
-          }
-          break;
-
-          case "google":
-          {
-            response = await window.runGeminiGenAISearch(
-              $('#apiKey').val(),
-              $('#selModels').val(),
-              flags,
-              document.getElementById('prompt').value.trim()
-            )
-            .catch(err => response = err);
-          }
-          break;
-
-          default:
-          {
-            response = "Provider is not added yet."
-          }
-          break;
-        }
+        response = await window.runAISearch(genai, {
+          'apiKey': $('#apiKey').val(),
+          'aimodel': $('#selModels').val(),
+          'flags': flags,
+          'prompt': document.getElementById('prompt').value.trim()
+        })
+        //.catch(err => response = err);
 
         outputDiv.innerHTML = aiResponseToHTML(response);
-
         const end = performance.now();
         mDiv.innerText = `Last run took: ${((end - start) / 1000).toFixed(2)} seconds`;
         clearInterval(timer);
