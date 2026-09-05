@@ -11,17 +11,8 @@ window.runAISearch = function (name, options){
                 case "google":
                     resolve(runGeminiAISearch(options));
                     break;
-                
-                case "openai":
-                    resolve(runOpenAISearch(options));
-                    break;
-
-                case "anthropic":
-                    resolve(runAnthropicAISearch(options));
-                    break;
-
                 default:
-                    reject("Providei is not integrated yet!");
+                    resolve(runOpenAISearch(options));
                     break;
             }
         } 
@@ -44,23 +35,45 @@ async function runGeminiAISearch(options){
         });
 }
 
+
 //opeai
 async function runOpenAISearch(options){	
-    const openai = new OpenAI({ 
-        dangerouslyAllowBrowser: true,
-        apiKey: options.apiKey
-    });
-
+    var openaiConfig = {
+        apiKey: options.apiKey,
+        dangerouslyAllowBrowser: true
+    };
+    if(options.flags["PROXY"]==true){
+        console.log("Using proxy: openrouter.ai");
+        openaiConfig.baseURL= 'https://openrouter.ai/api/v1';
+        openaiConfig.fetch = (url, o) => {
+            return fetch('https://openrouter.ai/api/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    Authorization: `Bearer ${options.apiKey}`,
+                    'HTTP-Referer': url,
+                    'Content-Type': 'application/json',
+                },
+                body: o.body
+            })
+            .catch(err =>{
+                var div = document.getElementById('output');
+                div.innerHTML = `<div><b style="color:red">Error:</b>${err.toString()}</div>`;
+            })
+        }
+    }
+    const openai = new OpenAI(openaiConfig);
+    
     if(options.flags["IMAGE"] == true){
         return("TODO: Image call");
     }
     const completion = await openai.chat.completions.create({
-        model: options.aimodel,
+        model: options.flags["PROXY"]==true ? `${options.aiprovider}/${options.aimodel}`:
+               options.aimodel,
         messages: [
             {"role": "user", "content": options.prompt}
         ]
     });
-    return chatCompletion.choices[0].message.content;
+    return completion.choices[0].message.content;
 }
 
 function handleAIArgs(options){

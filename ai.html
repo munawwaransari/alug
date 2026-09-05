@@ -52,6 +52,7 @@
       var flags = {};
       flags["IMAGE"] = $("#chkPartImage").is(":checked");
       flags["HTML"] = $("#chkPartHTML").is(":checked");
+      flags["PROXY"] = $("#chkPartProxy").is(":checked");
 
       if(genai == "google-ai"){
         openGoogleAISearch(document.getElementById('prompt').value.trim());
@@ -107,11 +108,11 @@ Tell me what you’d like to do, or paste any details you have.`;
       }, 1000);
 
       try {
-        var model = $('#selModels').val();
         var response = '';
         response = await window.runAISearch(genai, {
           'apiKey': $('#apiKey').val(),
           'aimodel': $('#selModels').val(),
+          'aiprovider': $('#selAiProvider').val(),
           'flags': flags,
           'prompt': document.getElementById('prompt').value.trim()
         })
@@ -123,8 +124,7 @@ Tell me what you’d like to do, or paste any details you have.`;
       }
       catch (err) {
         mDiv.innerHTML = 'Last run: <b style="color:red">Error</b>';
-        outputDiv.innerHTML = `<div><b style="color:red">Error:</b> ${err.message}</div>
-            <div>Cause: ${err.cause}</div>`;
+        outputDiv.innerHTML = `<div><b style="color:red">Error:</b> ${err.toString()}`;
         clearInterval(timer);
       }
     }
@@ -205,23 +205,38 @@ Tell me what you’d like to do, or paste any details you have.`;
         }
     }
 
+    function updateUIStates(selProvider){
+        if(selProvider.selectedIndex == 0){
+          $("#apiKey").parent().hide();
+          $("#selModels").parent().hide();
+        }
+        else{
+          $("#apiKey").parent().show();
+          $("#selModels").parent().show();
+        }
+        if(selProvider.selectedIndex > 1){
+          $("#chkPartProxy").prop('checked', true);
+        }else{
+          $("#chkPartProxy").prop('checked',false)
+        }
+    }
+
     function refreshModels() {
         ensureDataLoaded("ai-models")
         .then((models)=>{
+          var selProviders = $("#selAiProvider");
           if($("#selModels option").length == 0){
             //First time load
-            var selProviders = $("#selAiProvider");
             models.data?.forEach(model => {
               var tokModels = model.id.split("/");
               var tokProviders = model.name.split(":");
               if(tokModels[0][0] !== '~')
                 addOptionToSelection(selProviders[0], tokModels[0], tokProviders[0]);
             });
-
             // Add default entry
             addOptionToSelection(selProviders[0], 'google-ai', '(Browser) Google AI', true);
           }
-          
+          updateUIStates(selProviders[0]);
           var selectedProvider = $("#selAiProvider").val();
           var selModels = $("#selModels")[0];
           selModels.options.length = 0;
@@ -326,12 +341,16 @@ Tell me what you’d like to do, or paste any details you have.`;
 				<input id="chkPartHTML" type="Checkbox" checked>
         <label>HTML</label>
       </span>
+      <span>
+				<input id="chkPartProxy" type="Checkbox">
+        <label>Proxy</label>
+      </span>
     </div>
     <div style="margin-left:10px;padding-bottom:6px;padding-top:6px;">
       Models:
       <select id="selModels"></select>
     </div>
-    <div style="margin-left:10px;padding-bottom:6px;padding-top:10px;">
+    <div style="display:none;margin-left:10px;padding-bottom:6px;padding-top:10px;">
       API KEY:
       <input id="apiKey" type="password" maxlength="128"/>
     </div>
