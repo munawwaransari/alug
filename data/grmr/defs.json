@@ -12,12 +12,12 @@
     "فصحى":{
         "en": "Modern Standard Arabic (MSA)",
         "def": "Fusha is most commonly called Modern Standard Arabic (MSA). Depending on the specific historical era or context you are referring to, it can also be translated as:<br/><br/><b>Literary Arabic:</b><br/>This is a broad term used to describe the formal, written language used in literature, journalism, and official documents.<br/><br/><b>Classical Arabic:</b><br/> This refers specifically to the older, traditional form of Fusha found in the Quran and ancient poetry.<br/><br/><b>Standard Arabic:</b><br/> A general term used in linguistics to distinguish it from the spoken regional dialects.",
-        "ref": ["الازدواجية اللغوية"]
+        "ref": ["الازدواجية اللغوية", "البلاغة"]
     },
     "البلاغة":{
         "en": "Rhetoric",
         "def": "The art of using language effectively and persuasively, focusing on the style, structure, and impact of words and sentences.",
-        "ref": ["علم المعاني", "علم البيان", "علم البديع"]
+        "ref": ["علم المعاني", "علم البيان", "علم البديع", "فصحى"]
     },
     "علم المعاني":{
         "en": "Science of Meanings",
@@ -206,8 +206,8 @@
     },
     "الفصل": {
         "ar": "عطف الجمل بالواو",
-        "en": "Conjoining Sentences with 'و'",
-        "def": "Conjoining sentences with the conjunction 'و' (and) can affect the meaning and interpretation of the sentence",
+        "en": "Conjoining Sentences with (و)",
+        "def": "Conjoining sentences with the conjunction (و) (and) can affect the meaning and interpretation of the sentence",
         "examples":[
             "فَلۡيَضۡحَكُواْ   قَلِيلٗا   وَلۡيَبۡكُواْ   كَثِيرٗا [9:82]"
         ]
@@ -215,7 +215,7 @@
     "الوصل": {
         "ar": "ترك العطف",
         "en": "Omit conjunction",
-        "def": "Omitting the conjunction 'و' (and) can affect the meaning and interpretation of the sentence",
+        "def": "Omitting the conjunction (و) (and) can affect the meaning and interpretation of the sentence",
         "examples": [
             "يُدَبِّرُ   ٱلۡأَمۡرَ   يُفَصِّلُ   ٱلۡأٓيَٰتِ [13:2]"
         ]
