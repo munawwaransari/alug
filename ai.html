@@ -6,7 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="#" />
   <title>AI Workspace</title>
-  <style></style>
+  <style>
+    #pHead table{
+      display: grid;
+      grid-template-columns: repeat(5, 20%); 
+      width: 100%;
+      padding:0;
+      margin:0;
+    }
+
+    #pHead tbody, tr {
+      display: contents;
+      padding: 0;
+    }
+
+    #pHead tr td {
+      padding: 0;
+    }
+
+    #pHead table tr td:first-child {
+      text-align: right;
+    }
+    #pHead table tr td:last-child {
+      text-align: center;
+      display: inline-block;
+      text-align: left;
+      margin-bottom: 6px;
+    }
+
+    #pHead table tr td select {
+      width: 80%;
+    }
+    #pHead table tr td input {
+      width: 78%;
+    }
+  </style>
   <script src="scripts/jquery/jquery-3.7.1.min.js"></script>
   <script src="scripts/require.js"></script>
   <script src="scripts/data-util.js"></script>
@@ -207,12 +241,12 @@ Tell me what you’d like to do, or paste any details you have.`;
 
     function updateUIStates(selProvider){
         if(selProvider.selectedIndex == 0){
-          $("#apiKey").parent().hide();
-          $("#selModels").parent().hide();
+          $("#apiKey").prop('disabled', true);
+          $("#selModels").prop('disabled', true);
         }
         else{
-          $("#apiKey").parent().show();
-          $("#selModels").parent().show();
+          $("#apiKey").prop('disabled', false);
+          $("#selModels").prop('disabled', false);
         }
         if(selProvider.selectedIndex > 1){
           $("#chkPartProxy").prop('checked', true);
@@ -327,47 +361,74 @@ Tell me what you’d like to do, or paste any details you have.`;
     onclick="toggleHead($('#pHead'), $('#pHeadImg'))">
     <img id="pHeadImg" src="images/up.png" width="12px;" alt="toggle" />
   </div>
-  <div id="pHead" style="display:block;padding-bottom:10px;width:100%">
+  <div id="pHead" style="display:block;padding:0;padding-bottom:10px;width:100%">
     <label id="pLastRun" style="float:right;margin-right:10px;"></label>
-    <div style="margin-left:10px;padding-bottom:6px;padding-top:6px;display:inline-block">
-      Provider:
-      <select id="selAiProvider" onchange="refreshModels();"></select>
-      <button style="margin:auto;margin-left:10px;text-align:left;" onclick="run_ai()">Run</button>
-      <span>
-				<input id="chkPartImage" type="Checkbox">
-        <label>Image</label>
-      </span>
-      <span>
-				<input id="chkPartHTML" type="Checkbox" checked>
-        <label>HTML</label>
-      </span>
-      <span>
-				<input id="chkPartProxy" type="Checkbox">
-        <label>Proxy</label>
-      </span>
-    </div>
-    <div style="margin-left:10px;padding-bottom:6px;padding-top:6px;">
-      Models:
-      <select id="selModels"></select>
-    </div>
-    <div style="display:none;margin-left:10px;padding-bottom:6px;padding-top:10px;">
-      API KEY:
-      <input id="apiKey" type="password" maxlength="128"/>
-    </div>
-    <div style="margin-left:10px;padding-bottom:6px;">
-      Prompts:
-      <select id="selPrompts" onchange="$('#prompt').val(decodeUnicode(this.value))"></select>
-      <button onclick="addPrompt()">+</button>
-      <button onclick="removePrompt(this)">-</button>
-    </div>
-    <textarea id="prompt" rows="4" cols="1" style="margin:auto;
+    <table>
+      <tbody>
+        <tr>
+          <td>Providers:</td>
+          <td style="grid-column: span 3; height: fit-content;">
+            <div>
+              <!--Providers & Model Selection-->          
+              <select id="selAiProvider" onchange="refreshModels();"></select>
+              <button onclick="run_ai()">Run</button>
+            </div>
+          </td>
+          <td>
+            <input id="chkPartImage" type="Checkbox" style="width: fit-content;">
+            <label>Image</label>
+          </td>
+        </tr>
+        <tr>
+          <td>Model:</td>
+          <td style="grid-column: span 3; height: fit-content;">
+            <div>
+              <select id="selModels"></select>
+            </div>
+          </td>
+          <td>
+            <input id="chkPartHTML" type="Checkbox" checked style="width: fit-content;">
+            <label>HTML</label>
+          </td>
+        </tr>
+        <tr>
+          <td>Api Key:</td>
+          <td style="grid-column: span 3; height: fit-content;">
+            <div>
+              <input id="apiKey" type="password" maxlength="128" />
+            </div>
+          </td>
+          <td>
+            <input id="chkPartProxy" type="Checkbox" style="width: fit-content;">
+            <label>Proxy</label>
+          </td>
+        </tr>
+        <tr>
+          <td>Prompts:</td>
+          <td style="grid-column: span 3; height: fit-content;">
+            <div>
+              <select id="selPrompts" style="width:150px;"
+                onchange="$('#prompt').val(decodeUnicode(this.value))"></select>
+              <button onclick="addPrompt()">+</button>
+              <button onclick="removePrompt(this)">-</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="grid-column: span 5; height: fit-content;">
+            <textarea id="prompt" rows="4" cols="1" style="margin:auto;
              margin-left:10px;
              display:block;
              width:90%;
              text-align:left;">
-      Your prompt here
-    </textarea>
+            Your prompt here
+            </textarea>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+  <br/>
   <img src="images/speech-enabled.png" 
         style="margin:auto;margin-left: 10px;width:18px;" 
         onclick="playResponse(this)" />
