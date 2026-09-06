@@ -214,30 +214,25 @@
         "action": "prep",
         "data": "حروف مشبة بِالفعل (ظَنَّ)"
     },
-    "Words with or without Erab;مُعرب;مبني;محل له من العراب": {
+    "Erab vs Tashkeel;علاماتُ التَّشكِيل;إعراب;": {
         "path": "dict.html",
         "action": "sen-cmp",
         "data": "pos:0"
     },
-    "Erab vs Tashkeel;علاماتُ التَّشكِيل;إعراب;": {
+    "Erab vs Tanween;التنوين;إعراب;": {
         "path": "dict.html",
         "action": "sen-cmp",
         "data": "pos:1"
     },
-    "Erab vs Tanween;التنوين;إعراب;": {
+    "Scripts;خط الإملائي;خط العروضي": {
         "path": "dict.html",
         "action": "sen-cmp",
         "data": "pos:2"
     },
-    "Scripts;خط الإملائي;خط العروضي": {
-        "path": "dict.html",
-        "action": "sen-cmp",
-        "data": "pos:3"
-    },
     "Emphasis;توكيد اللفظي;توكيد اللمعنوي;": {
         "path": "dict.html",
         "action": "sen-cmp",
-        "data": "pos:4"
+        "data": "pos:3"
     },
     "Grammar;النَّحْو;": {
         "path": "dict.html",
@@ -614,7 +609,7 @@
         "action": "metonymy",
         "data": "pos:6"
     },
-    "Triptote;المعرب": {
+    "Triptote;المعرب;محل له من العراب": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:0"
@@ -629,7 +624,7 @@
         "action": "noun-cmp",
         "data": "pos:2"
     },
-    "Indeclinable;المبني": {
+    "Indeclinable;المبني;لا محل له من العراب": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:3"

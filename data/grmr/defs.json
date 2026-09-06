@@ -1,8 +1,18 @@
 {
+    "الازدواجية اللغوية":{
+        "en": "Digloassia",
+        "def": "العامية (al-Ammiyyah) and الفصحى (al-Fusha) represent the two main sides of Arabic diglossia, meaning they are two distinct varieties of the same language used in different social situations.",
+        "ref": ["العامية", "فصحى"]
+    },
+    "العامية":{
+        "en": "Colloquial Arabic",
+        "def": "Fusha is most commonly called Modern Standard Arabic (MSA). Depending on the specific historical era or context you are referring to, it can also be translated as:<br/><br/><b>Literary Arabic:</b><br/>This is a broad term used to describe the formal, written language used in literature, journalism, and official documents.<br/><br/><b>Classical Arabic:</b><br/> This refers specifically to the older, traditional form of Fusha found in the Quran and ancient poetry.<br/><br/><b>Standard Arabic:</b><br/> A general term used in linguistics to distinguish it from the spoken regional dialects.",
+        "ref": ["الازدواجية اللغوية"]
+    },
     "فصحى":{
         "en": "Modern Standard Arabic (MSA)",
         "def": "Fusha is most commonly called Modern Standard Arabic (MSA). Depending on the specific historical era or context you are referring to, it can also be translated as:<br/><br/><b>Literary Arabic:</b><br/>This is a broad term used to describe the formal, written language used in literature, journalism, and official documents.<br/><br/><b>Classical Arabic:</b><br/> This refers specifically to the older, traditional form of Fusha found in the Quran and ancient poetry.<br/><br/><b>Standard Arabic:</b><br/> A general term used in linguistics to distinguish it from the spoken regional dialects.",
-        "ref": ["علم المعاني", "علم البيان", "علم البديع"]
+        "ref": ["الازدواجية اللغوية"]
     },
     "البلاغة":{
         "en": "Rhetoric",
