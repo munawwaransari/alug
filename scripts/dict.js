@@ -809,10 +809,6 @@ function listDefinitions(bk){
 										 {useId: true, useRowIndex: true});">
 		</select>`,
 		'defFilter','defs'));
-		// container.append($(`
-		// 	<select id="defFilter" 
-		// 			style="text-align: center;text-align-last: center;padding:6px;"
-		// 	        onchange="window.open(this.value, '_self')"></select>`));
 		var defSelect = $(".defFilter");
 		
 		container.append($(`<table id="defTable" 
@@ -838,9 +834,11 @@ function listDefinitions(bk){
 				<p style="direction:ltr;padding:2px;">${entry.def}</p>
 				${entry.ref ? ':<u>References</u><br/>' : ''}
 				${entry.ref ? `
-					<div style="text-align:center;display:inline-flex;padding-bottom:6px;">
-					${entry.ref.map(ex => `<a style="padding-left:20px;padding-right:20px;" href="#bm_${ex}" >${ex}</a>`).join('<br/>')}
-					</div>`: ''}
+				<div style="text-align:center;display:inline-flex;padding-bottom:6px;">
+					${entry.ref.map(ex => `
+						<a style="padding-left:20px;padding-right:20px;" 
+							href="#" onclick="changeDefIndex('${ex}');">${ex}</a>`).join('')}
+				</div>`: ''}
 				<div style="background-color:lightgray;">${entry.examples ? entry.examples.map(ex => `${replaceQLink(ex)}</br/>`).join(''): ''}</div>
 				${entry.types ? '<ul>' : ''}
 				${entry.types ? entry.types.map(t => `
@@ -1079,4 +1077,10 @@ function loadComparision() {
 	var comppSel = $("select option[class='.cmpVerb']");
 	var verbCompare = comppSel.length > 0 ? comppSel.val() : '';
 	cmpAPIObj.addComparisionTable(".dictionary", $(".dictionary select").val(), verbCompare);
+}
+
+function changeDefIndex(val){
+	var refIndex = $(`.defFilter option[value="#bm_${val}"]`).index();
+	$('.defFilter').prop('selectedIndex', refIndex);
+	$('.defFilter').trigger('change');
 }
