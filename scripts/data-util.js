@@ -211,7 +211,7 @@ function filterMTableRows(match, index, text){
 	}
 }
 
-function filterTableRows(hideCol, table, column, searchText, allText, useInclude) {
+function filterTableRows(hideCol, table, column, searchText, options) {
     const rows = $(`${table} tr`);
     const cells = rows.find('td, th');
     
@@ -219,7 +219,7 @@ function filterTableRows(hideCol, table, column, searchText, allText, useInclude
     let txt = searchText ? removeAlPrefix(removePunctuations(searchText)) : searchText;
     
     // 2. Quick Reset for "Show All"
-    if (txt === allText) {
+    if (txt === 'all') {
 		rows.show();
         cells.show();
         return;
@@ -227,20 +227,27 @@ function filterTableRows(hideCol, table, column, searchText, allText, useInclude
 
     // 3. Clean quotes and Prepare Search
     txt = txt.replace(/^'|'$/g, '').trim();
-    const method = useInclude ? 'includes' : 'startsWith';
+    const method = options?.useInclude ? 'includes' : 'startsWith';
+	const matchId = options?.useId ? true : false;
 
     // 4. Single Pass Filtering
     rows.each(function() {
         const row = $(this);
-        const targetCell = column > 0 
-            ? row.find(`td:nth-child(${column}), th:nth-child(${column})`) 
-            : row.find('td');
-
-        const cellText = targetCell.text().trim();
-        const isMatch = cellText[method](txt);
-
-        // Toggle visibility of the entire row based on match
-        row.toggle(isMatch);
+		if(options?.useRowIndex == true && matchId){
+			var id = row.find('td')[0].id;
+			const isMatch = id[method](txt);
+			// Toggle visibility of the entire row based on match
+			row.toggle(isMatch);
+		}
+		else{
+			const targetCell = column > 0 
+				? row.find(`td:nth-child(${column}), th:nth-child(${column})`) 
+				: row.find('td');
+			const cellText = matchId ? targetCell.attr('id') :targetCell.text().trim();
+			const isMatch = cellText[method](txt);
+			// Toggle visibility of the entire row based on match
+			row.toggle(isMatch);
+		}
     });
 
     // 5. Specific Column Logic (if needed to hide the matching cell specifically)

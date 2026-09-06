@@ -797,12 +797,23 @@ function listDefinitions(bk){
 	var container = $(".dictionary");
 	ensureDataLoaded({name:'def-data'})
 	.then((data) => {
-		container.empty(); 
-		container.append($(`
-			<select id="defFilter" 
+		container.empty();
+		//Add filters
+		container.prepend(getListButtinWithSelect(
+		`<select class="defFilter" 
 					style="text-align: center;text-align-last: center;padding:6px;"
-			        onchange="window.open(this.value, '_self')"></select>`));
-		var defSelect = $("#defFilter");
+					onchange="updateStateIndex(this);
+						filterTableRows(-1, '#defTable', 
+										 $('.defFilter').prop('selectedIndex'), 
+										 $('.defFilter').val().slice(1),
+										 {useId: true, useRowIndex: true});">
+		</select>`,
+		'defFilter','defs'));
+		// container.append($(`
+		// 	<select id="defFilter" 
+		// 			style="text-align: center;text-align-last: center;padding:6px;"
+		// 	        onchange="window.open(this.value, '_self')"></select>`));
+		var defSelect = $(".defFilter");
 		
 		container.append($(`<table id="defTable" 
 				style="text-align:center;"><tbody></tbody></table>`));
@@ -813,7 +824,7 @@ function listDefinitions(bk){
 				var entry = data[key];
 				table.append($(
 				`<tr><td id="bm_${key}" style="border:none; border-bottom: 2px solid black;">
-				<a href="#defFilter">[&#8593]</a>&nbsp;&nbsp;
+				<a href=".defFilter">[&#8593]</a>&nbsp;&nbsp;
 				<b style="background-color:#F0F0A0">${key} (${entry.en})</b>
 				&nbsp;&nbsp<a href="#" 
 				   onclick="openGoogleAISearch(
@@ -824,7 +835,7 @@ function listDefinitions(bk){
 												"find out types"}',
 									        '${entry.def})']}, 
 									true));">[AI]</a>
-				<p style="directoin:ltr;padding:2px;">${entry.def}</p>
+				<p style="direction:ltr;padding:2px;">${entry.def}</p>
 				${entry.ref ? ':<u>References</u><br/>' : ''}
 				${entry.ref ? `
 					<div style="text-align:center;display:inline-flex;padding-bottom:6px;">
