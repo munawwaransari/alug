@@ -229,100 +229,105 @@
         "action": "sen-cmp",
         "data": "pos:2"
     },
-    "Emphasis;توكيد اللفظي;توكيد اللمعنوي;": {
+        "Grammar;النَّحْو;": {
         "path": "dict.html",
         "action": "sen-cmp",
         "data": "pos:3"
     },
-    "Grammar;النَّحْو;": {
-        "path": "dict.html",
-        "action": "grammar",
-        "data": "pos:0"
-    },
     "Noun Case;الإِعْرَاب لِلأَسْمَاءِ;": {
         "path": "dict.html",
-        "action": "grammar",
-        "data": "pos:0"
+        "action": "sen-cmp",
+        "data": "pos:3"
     },
     "Mood;الاشْتِقَاق;الإِعْرَاب لِلأَفْعَال": {
         "path": "dict.html",
-        "action": "grammar",
-        "data": "pos:0"
+        "action": "sen-cmp",
+        "data": "pos:3"
     },
     "Morphology;الصرف;": {
         "path": "dict.html",
-        "action": "grammar",
-        "data": "pos:1"
+        "action": "sen-cmp",
+        "data": "pos:4"
     },
     "Rhetoric;البلاغة;": {
         "path": "dict.html",
-        "action": "grammar",
-        "data": "pos:2"
+        "action": "sen-cmp",
+        "data": "pos:5"
     },
     "Parts of Speech;أقسام الكلام": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:3"
+        "data": "pos:0"
     },
     "Types of Sentences;أقسام الجُمُل;الاسم الصريح;الاسم المؤول;الفعل الصريح;الفعل المقدر": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:4"
+        "data": "pos:1"
     },
     "Declarative Sentence;جملة خبرية": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:5"
+        "data": "pos:2"
     },
     "Non-Declarative Sentence;جملة إنشائية": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:6"
+        "data": "pos:3"
     },
     "Initial Sentence;جملة الإبتدائية;الاستئنافية": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:7"
+        "data": "pos:4"
     },
     "Parenthetical;الجملة الاعتراضية": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:8"
+        "data": "pos:5"
     },
     "Affirmative sentence;إيجابي;": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:9"
+        "data": "pos:6"
     },
     "Negative sentence;نفي;": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:10"
+        "data": "pos:7"
     },
     "Interrogative sentence;استفهامي;": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:11"
+        "data": "pos:8"
     },
     "Possesive Construction;إضافة;المركب الإضافي;مُضاف;مُضاف إليه": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:12"
+        "data": "pos:9"
     },
     "Adjectival Construction;المركب التوصيفي;نعت;منعوت;": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:13"
+        "data": "pos:10"
     },
     "Demonstrative Phrase;المركب الإشاري;المشار إليه;اسم الإشارة;ضَمِير الفَصْل;": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:14"
+        "data": "pos:11"
     },
     "Exceptions;الاستثناء;تام مثبت;تام منفي;ناقص منفي": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:15"
+        "data": "pos:12"
+    },
+    "Verbal emphasis;توكيد اللفظي;": {
+        "path": "dict.html",
+        "action": "grammar",
+        "data": "pos:13"
+    },
+    "Emphatic apposition;توكيد اللمعنوي;": {
+        "path": "dict.html",
+        "action": "grammar",
+        "data": "pos:14"
     },
     "Hamza;همزة القطع;همزة الوصل;": {
         "path": "dict.html",

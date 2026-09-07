@@ -800,8 +800,40 @@
             "جمع المؤنث السالم": "'dict.html','noun-cmp','pos:6'"
         }
     },
+        {
+        "compareType":"sen-cmp",
+        "topics":[
+            "خط الإملائي",
+            "خط العروضي"
+        ],
+        "notes": "The Uthmani script (Rasm Uthmānī) integrates both orthographic and prosodic features within its unique writing system<br/><br/>The Quran's script was preserved through a dual system of intensive oral memorization by the Prophet's companions and written recording on various materials (bones, palm leaves, etc.) during his lifetime, followed by the first official compilation into a single book (mus-haf) under Caliph Abu Bakr and standardized copies distributed under Caliph Uthman, ensuring textual consistency alongside the living oral tradition",
+        "ar": [
+            "تعريف",
+            "استعمال",
+            "مِثال"
+        ],
+        "en": [
+            "Definition",
+            "Usage",
+            "Example"
+        ],
+        "features":{
+            "خط الإملائي": [
+                "Orthographic Script: This is the standard script and follows the rules of formal writing",
+                "What is written is drawn",
+                "هذا is written هذا<br/>كتابٌ is written كتابٌ<br/>ما اسمُك is written ما اسمُك<br/>"
+                
+            ],
+            "خط العروضي": [
+
+                "Prosodic Script: This is the phonetic script and used in poetry to maintain meter and rhyme",
+                "What is pronounced is written, what is not pronounced is deleted, and the doubled letter is separated",
+                "هاذا is written هذا<br/>كتابٌ is written كتابُن<br/>ما اسمُك is written مسمُك<br/>"
+            ]
+        }
+    },
     {
-        "compareType":"grammar",
+        "compareType":"sen-cmp",
         "topics":[
             "العلم النَّحْو (Grammar)"
         ],
@@ -840,7 +872,7 @@
         }
     },
     {
-        "compareType":"grammar",
+        "compareType":"sen-cmp",
         "topics":[
             "العلم الصرف (Morphology)"
         ],
@@ -880,7 +912,7 @@
         }
     },
     {
-        "compareType":"grammar",
+        "compareType":"sen-cmp",
         "topics":[
             "العلم البلاغة (Rhetoric)"
         ],
@@ -977,7 +1009,7 @@
             "أقسام الجُمُل (Sentence types)": [
                 "<p style=\"direction:ltr\">A nominal sentence manly consists of المبتدأ followed by الخبر<br/><br/>A sentence is considered nominal sentence if it starts with any of the following:<br/><b>الاسم الصريح</b> - Explicit noun <br/>e.g. العَلمُ نافع<br/><b>الاسم المؤول</b> - Interpreted noun <br/>e.g. أَن تَصُومُوا (صِيامُكُم) خيرٌ لكُم<br/><b>حرف بعده اسم</b> - Noun after Harf <br/>e.g. لعلّ الجيش ينتصر</p>",
                 "<p style=\"direction:ltr\">A verbal sentence manly consists of الفعل (verb), الفاعل (subject) and المفعول به (object)<br/><br/>A sentence is considered verbal sentence if it starts with any of the following:<br/><b>الفعل الصريح</b> - Explicit verb <br/>e.g. فَهِمَ الطَّالِبُ الدَّرْسَ<br/><b>الفعل المقدر</b> - Implied verb <br/>e.g. يَٰمَرۡيَمُ ٱقۡنُتِي لِرَبِّكِ [3:43]<br/><b>حرف بعده فعل</b> - Verb after Harf <br/>e.g. هَلۡ أَتَىٰكَ حَدِيثُ ٱلۡغَٰشِيَةِ [88:1]</p>",
-                "<p style=\"direction:ltr\">Sentences can also be classified based on their usage:<br/>جملة خبرية (Declarative)<br/>جملة إنشائية (Non-Declarative)<br/>جملة الإبتدائية (Initiating)<br/>جملة الاعتراضية (Parenthetical)<br/>إيجابي (Affirmmative)<br/>نفي (Negative)<br/>استفهامي (Interrogative)</p>"
+                "<p style=\"direction:ltr\">Sentences can also be classified based on their usage:<br/>جملة خبرية (Declarative)<br/>جملة إنشائية (Non-Declarative)<br/>جملة الإبتدائية (Initiating)<br/>جملة الاعتراضية (Parenthetical)<br/>إيجابي (Affirmative)<br/>نفي (Negative)<br/>استفهامي (Interrogative)</p>"
             ]
         },
         "features_links":{
@@ -985,41 +1017,9 @@
             "جملة إنشائية (Non-Declarative)":  "'dict.html','grammar','pos:6'",
             "جملة الإبتدائية (Initiating)":  "'dict.html','grammar','pos:7'",
             "جملة الاعتراضية (Parenthetical)":  "'dict.html','grammar','pos:8'",
-            "إيجابي (Affirmmative)":  "'dict.html','grammar','pos:9'",
+            "إيجابي (Affirmative)":  "'dict.html','grammar','pos:9'",
             "نفي (Negative)":  "'dict.html','grammar','pos:10'",
             "استفهامي (Interrogative)":  "'dict.html','grammar','pos:11'"
-        }
-    },
-    {
-        "compareType":"sen-cmp",
-        "topics":[
-            "خط الإملائي",
-            "خط العروضي"
-        ],
-        "notes": "The Uthmani script (Rasm Uthmānī) integrates both orthographic and prosodic features within its unique writing system<br/><br/>The Quran's script was preserved through a dual system of intensive oral memorization by the Prophet's companions and written recording on various materials (bones, palm leaves, etc.) during his lifetime, followed by the first official compilation into a single book (mus-haf) under Caliph Abu Bakr and standardized copies distributed under Caliph Uthman, ensuring textual consistency alongside the living oral tradition",
-        "ar": [
-            "تعريف",
-            "استعمال",
-            "مِثال"
-        ],
-        "en": [
-            "Definition",
-            "Usage",
-            "Example"
-        ],
-        "features":{
-            "خط الإملائي": [
-                "Orthographic Script: This is the standard script and follows the rules of formal writing",
-                "What is written is drawn",
-                "هذا is written هذا<br/>كتابٌ is written كتابٌ<br/>ما اسمُك is written ما اسمُك<br/>"
-                
-            ],
-            "خط العروضي": [
-
-                "Prosodic Script: This is the phonetic script and used in poetry to maintain meter and rhyme",
-                "What is pronounced is written, what is not pronounced is deleted, and the doubled letter is separated",
-                "هاذا is written هذا<br/>كتابٌ is written كتابُن<br/>ما اسمُك is written مسمُك<br/>"
-            ]
         }
     },
     {
@@ -1122,7 +1122,7 @@
     {
         "compareType": "grammar",
         "topics": [
-            "إيجابي (Affirmmative)"
+            "إيجابي (Affirmative)"
         ],
         "notes": "",
         "ar": [
@@ -1134,7 +1134,7 @@
             "Example"
         ],
         "features": {
-            "إيجابي (Affirmmative)": [
+            "إيجابي (Affirmative)": [
                 "Affirmative sentences",
                 "<u style=\"top:0\">حرف التوكيد+(مُبتدا)(خبر)</u><br/><br/>الرَّجُلُ تَاجِرٌ<br/><br/>أَلَا لِلَّهِ الدِّينُ الْخَالِصُ [39:3]<br/><br/>إِنَّكَ لَمِنَ الْمُرْسَلِينَ [36:3]"
             ]
@@ -1179,32 +1179,6 @@
             "استفهامي (Interrogative)": [
                 "Interrogative sentences",
                 "<u style=\"top:0\">حرف الإستفهام+(مُبتدا)(خبر)</u><br/><br/>اَيُّ الرَّجُلُ تَاجِرٌ؟<br/><br/> مَنِ الَذي تَاجِرٌ؟<br/><br/>اَلَيسَ الرَّجُلُ تَاجِرًا؟<br/><br/>اَاَنتَ تَاجِرٌ؟"
-            ]
-        }
-    },
-    {
-        "compareType": "sen-cmp",
-        "topics": [
-            "توكيد اللفظي",
-            "توكيد اللمعنوي"
-        ],
-        "notes": "",
-        "ar": [
-            "تعريف",
-            "مثال"
-        ],
-        "en": [
-            "Definition",
-            "Example"
-        ],
-        "features": {
-            "توكيد اللفظي": [
-                "Repitition of the same word or phrase to emphasize the certainty of the statement",
-                "<u style=\"top:0\">(تكرار الاسم)</u><br/>كـَلَّآۖ إِذَا دُكَّتِ ٱلۡأَرۡضُ <b>دَكّٗا دَكّٗا</b> ٢١ [89:21]<br/><br/><u style=\"top:0\">تكرار الفعل / الجملة</u><br/>كـَلَّا سَوۡفَ تَعۡلَمُونَ ٣ ثُمَّ كـَلَّا سَوۡفَ تَعۡلَمُونَ ٤ [102:3]<br/>&nbsp;"
-            ],
-            "توكيد اللمعنوي": [
-                "Emphasizing the certainty of the statement by using specific words<br/>(نفس, عين, جميع, كِلا, كِلتا)",
-                "وَيُحَذِّرُكُمُ ٱللَّهُ نَفۡسَهُۥۗ [3:30]<br/><br/><br/>فَسَجَدَ ٱلۡمَلَٰٓئِكَةُ كُلُّهُمۡ أَجۡمَعُونَ ٣٠ [15:30]<br/><br/><br/>كِلۡتَا ٱلۡجَنَّتَيۡنِ ءَاتَتۡ أُكُلَهَا [18:33]<br/>&nbsp;"
             ]
         }
     },
@@ -1298,6 +1272,48 @@
                 "<p style=\"direction:ltr;\">The excluded noun can be منصوب or بدل of the noun excluded<br/><br/>وَلَا يَلۡتَفِتۡ مِنكُمۡ أَحَدٌ إِلَّا ٱمۡرَأَتَكَۖ [11:81]<br/><br/>وَمَا هُم بِضَآرِّينَ بِهِۦ مِنۡ أَحَدٍ إِلَّا بِإِذۡنِ ٱللَّهِۚ [2:102]<br/><br/>وَلَا يَزِيدُ ٱلۡكَٰفِرِينَ كُفۡرُهُمۡ إِلَّا خَسَارٗا [35:39]<br/><br/>وَمَا يُهۡلِكُنَآ إِلَّا ٱلدَّهۡرُۚ [45:24]...</p>",
                 "<p style=\"direction:ltr;\">المستثنى منه is omitted and the sentence is negative<br/><br/>لَا تَعۡبُدُونَ إِلَّا ٱللَّهَ [2:83]<br/><br/>وَمَا مُحَمَّدٌ إِلَّا رَسُولٞ [3:144]</p>",
                 "<p style=\"direction:ltr;\"><b>غَيْر and سِوَى</b>:<br/><br/>غَيۡرِ ٱلۡمَغۡضُوبِ عَلَيۡهِمۡ وَلَا ٱلضَّآلِّينَ [1:7]<br/><br/>فَمَنِ اضْطُرَّ فِي مَخْمَصَةٍ غَيْرَ مُتَجَانِفٍ لِإِثْمٍ [5:3]<br/><br/><b>خَلا , عَدَا, and حَاشَا</b>:<br/><br/>قُلۡنَ حَاشَ لِلَّهِ مَا عَلِمۡنَا عَلَيۡهِ مِن سُوٓءٖۚ [12:51]<br/><br/></p>"
+            ]
+        }
+    },
+    {
+        "compareType": "grammar",
+        "topics": [
+            "توكيد اللفظي (Verbal emphasis)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Example"
+        ],
+        "features": {
+            "توكيد اللفظي (Verbal emphasis)": [
+                "Repitition of the same word or phrase to emphasize the certainty of the statement",
+                "<u style=\"top:0\">(تكرار الاسم)</u><br/>كـَلَّآۖ إِذَا دُكَّتِ ٱلۡأَرۡضُ <b>دَكّٗا دَكّٗا</b> ٢١ [89:21]<br/><br/><u style=\"top:0\">تكرار الفعل / الجملة</u><br/>كـَلَّا سَوۡفَ تَعۡلَمُونَ ٣ ثُمَّ كـَلَّا سَوۡفَ تَعۡلَمُونَ ٤ [102:3]<br/>&nbsp;"
+            ]
+        }
+    },
+    {
+        "compareType": "grammar",
+        "topics": [
+            "توكيد اللمعنوي (Emphatic apposition)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "مثال"
+        ],
+        "en": [
+            "Definition",
+            "Example"
+        ],
+        "features": {
+            "توكيد اللمعنوي (Emphatic apposition)": [
+                "Emphasizing the certainty of the statement by using specific words<br/>(نفس, عين, جميع, كِلا, كِلتا)",
+                "وَيُحَذِّرُكُمُ ٱللَّهُ نَفۡسَهُۥۗ [3:30]<br/><br/>فَسَجَدَ ٱلۡمَلَٰٓئِكَةُ كُلُّهُمۡ أَجۡمَعُونَ ٣٠ [15:30]<br/><br/>كِلۡتَا ٱلۡجَنَّتَيۡنِ ءَاتَتۡ أُكُلَهَا [18:33]<br/>&nbsp;"
             ]
         }
     },
