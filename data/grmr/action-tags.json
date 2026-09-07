@@ -132,10 +132,14 @@
         "ar": "الأمر والنهى",
         "default": "الأفعال"
     },
-
-    "sen-cmp": {
-        "en": "Sentence Comparisons",
-        "ar": "مقارنات",
+    "lang": {
+        "en": "Language",
+        "ar": "لغة",
+        "default": "النحو"
+    },
+    "script": {
+        "en": "Script",
+        "ar": "كتابة",
         "default": "النحو"
     },
     "grammar": {

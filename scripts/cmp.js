@@ -157,7 +157,12 @@ class cmpAPI {
 								if(cmp["features_links"]){
 									var res = cmp["features"][topic][f];
 									Object.keys(cmp["features_links"]).every((key)=>{
-										res = res.replace(key, `<a href="#" onclick="parent.redirect(${cmp["features_links"][key]});">${key}</a>`);
+										var isExternal = cmp["features_links"][key].startsWith("http");
+										if(isExternal){
+											res = res.replace(key, `<a href="#" onclick="window.open('${cmp["features_links"][key]}', '_blank');">${key}</a>`);
+										}else{
+											res = res.replace(key, `<a href="#" onclick="parent.redirect(${cmp["features_links"][key]});">${key}</a>`);
+										}
 										return true;
 									});
 									return `<td>${replaceQLink(res)}</td>`;

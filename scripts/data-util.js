@@ -2130,13 +2130,15 @@ function getListButtinWithSelect(sel, filterClass, compareType, filterBtnClickHa
 
 function getActionTitle(action){
 	return  action == 'masdar'? 'Verbal Nouns':
+	action == 'lang' ? 'Language':
+	action == 'script' ? 'Script':
+	action == 'grammar' ? 'Grammar':
 	action == 'vtab-all' ? 'Verbs':
 	action == 'verb-type' ? 'Verb Types':
 	action == 'obj-effect' ? 'Object Effects':				 
 	action == 'cmp'? 'Particles' : 
 	action == 'noun-pat'? 'Noun Patterns' : 
 	action == 'noun-cmp'? 'Nouns' : 
-	action == 'sen-cmp' ? 'General':
 	action == 'defs'? 'Definitions' : 
 	action == 'adj'? 'Adjectives' : 
 	action == 'adv'? 'Adverbs' : 
@@ -2145,7 +2147,6 @@ function getActionTitle(action){
 	action == 'imp-verb'? 'Imperatives' : 
 	action == 'weak-verb'? 'Weak Verbs' :
 	action == 'inad-verb' ? 'Inadequate Verbs':
-	action == 'grammar' ? 'Grammar':
 	action;
 }
 

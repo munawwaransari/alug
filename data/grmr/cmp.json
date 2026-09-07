@@ -733,7 +733,7 @@
         }
     },
     {
-        "compareType":"sen-cmp",
+        "compareType":"script",
         "topics": [
             "علاماتُ التَّشكِيل",
             "إعراب"
@@ -763,7 +763,7 @@
         }
     },
     {
-        "compareType":"sen-cmp",
+        "compareType":"script",
         "topics":[
             "التنوين",
             "الاعراب"
@@ -801,7 +801,7 @@
         }
     },
         {
-        "compareType":"sen-cmp",
+        "compareType":"script",
         "topics":[
             "خط الإملائي",
             "خط العروضي"
@@ -833,7 +833,7 @@
         }
     },
     {
-        "compareType":"sen-cmp",
+        "compareType":"lang",
         "topics":[
             "العلم النَّحْو (Grammar)"
         ],
@@ -872,7 +872,7 @@
         }
     },
     {
-        "compareType":"sen-cmp",
+        "compareType":"lang",
         "topics":[
             "العلم الصرف (Morphology)"
         ],
@@ -912,29 +912,20 @@
         }
     },
     {
-        "compareType":"sen-cmp",
+        "compareType":"lang",
         "topics":[
             "العلم البلاغة (Rhetoric)"
         ],
         "notes": "",
         "ar": [
-            "تعريف",
-            "الجذر",
-            "الوزن",
-            "مِثال"
+            "تعريف"
         ],
         "en": [
-            "Definition",
-            "Root System",
-            "The Scale",
-            "Example"
+            "Definition"
         ],
         "features":{
             "العلم البلاغة (Rhetoric)": [
-                "<p style=\"direction:ltr;\">ʿIlm al-Balāghah (علم البلاغة) is the science of Arabic rhetoric, eloquence, and stylistics. It is the study of how to express meanings clearly, beautifully, and effectively, ensuring that the speech perfectly suits the psychological state of the listener and the context of the situation.<br/><br/>Concepts:<br/>ʿIlm al-Bayān (علم البيان), Metaphor (الاستعارة), Simile (التشبيه), علم البديع, Metonymy (كناية), Synechdoche (المجاز)<br/></p>",
-                "<p style=\"direction:ltr;\">Most Arabic words trace back to a three-letter root (radical) that carries a core conceptual meaning. Sarf dictates how it shifts across tenses, voices, and actions:<br/><br/><b>ك - ت - ب</b><br/><b> (K-T-B, associated with writing)</b><br/>كَتَبَ (he wrote)<br/>كَاتِبٌ (A writer)<br/>مَكْتُوبٌ (something written)<br/></p>",
-                "<p style=\"direction:ltr;\">Arab grammarians use the template root ف ع ل (Fa-‘a-la) as a universal measuring scale to analyze word structures, vowels, and added letters<br/><br/><b>ع - ل - م</b><br/><b> (K-T-B, associated with knowing)</b><br/>عَلِمَ (He knew)<br/>عَلَّمَ (He tought)<br/>اَعَلَمُ (I know)<br/></p>",
-                "<p style=\"direction:ltr;\">Noun of place<br/>Comparative Noun<br/>Diminutive<br/>Hyperbole<br/>Active Participle<br/>Passive Participle<br/>Four-letter Nouns</p>"
+                "<p style=\"direction:ltr;\">ʿIlm al-Balāghah (علم البلاغة) is the science of Arabic rhetoric, eloquence, and stylistics. It is the study of how to express meanings clearly, beautifully, and effectively, ensuring that the speech perfectly suits the psychological state of the listener and the context of the situation.<br/><br/>Concepts:<br/>ʿIlm al-Bayān (علم البيان), Metaphor (الاستعارة), Simile (التشبيه), علم البديع, Metonymy (كناية), Synechdoche (المجاز)<br/></p>"
             ]
         },
         "features_links": {
@@ -944,6 +935,52 @@
            "علم البديع": "'dict.html','defs','def:علم البديع'",
            "Metonymy (كناية)": "'dict.html','metonymy','all'",
            "Synechdoche (المجاز)": "'dict.html','metonymy','pos:5'"
+        }
+    },
+    {
+        "compareType":"lang",
+        "topics":[
+            "فصحي",
+            "عامية"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "النطاق الجغرافي",
+            "مِثال",
+            "مِثال",
+            "مِثال"
+        ],
+        "en": [
+            "Definition",
+            "Geographic Scope",
+            "Example",
+            "Example",
+            "Example"
+        ],
+        "features":{
+            "فصحي": [
+                "<p style=\"direction:ltr;\">Standard Arabic (MSA) is the formal, standardized version of the Arabic language used in writing, literature, news, and official communication across the Arab world<br/></p>",
+                "<p style=\"direction:ltr;\"><b>Universal</b>: It is identical and understood by educated speakers in all Arab nations.<br/></p>",
+                "<p style=\"direction:ltr;\">ماذا تريد؟ (What do you want?)<br/></p>",
+                "<p style=\"direction:ltr;\">انظر (Look!)<br/></p>",
+                "<p style=\"direction:ltr;\">لا أعرف  (I don't know)<br/></p>"
+            ],
+            "عامية": [
+                "<p style=\"direction:ltr;\">Colloquial Arabic refers to the regional spoken dialects used by people in their daily lives, which vary significantly from country to country.<br/></p>",
+                "<p style=\"direction:ltr;\"><b>Regional</b>: It is divided into dialect groups (e.g., Levantine, Egyptian, Gulf, North African).<br/></p>",
+                "<p style=\"direction:ltr;\">عايز إيه؟ (Egyptian)<br/>شو بدك؟ (Levantine)<br/>وش تبي؟ (Gulf)<br/></p>",
+                "<p style=\"direction:ltr;\">بص (Egyptian)<br/>تطلع (Levantine)<br/>شوف (Gulf)<br/></p>",
+                "<p style=\"direction:ltr;\">مش عارف (Egyptian)<br/>ما بعرف (Levantine)<br/>ما نعرفش (Gulf)<br/></p>"
+            ]
+        },
+        "features_links": {
+           "Standard Arabic": "'dict.html','defs','def:فصحي'",
+           "Colloquial Arabic": "'dict.html','defs','def:عامية'",
+           "Levantine": "https://openarabic.org/levantine-arabic-resources/",
+           "Egyptian": "https://egyptianarabic.com/",
+           "Gulf": "https://www.qasidonline.com/gulf-dialect-khaleeji",
+           "North African": "https://www.academia.edu/1223329/Arabic_in_the_North_African_Region"
         }
     },
     {

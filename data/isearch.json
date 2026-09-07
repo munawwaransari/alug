@@ -216,43 +216,43 @@
     },
     "Erab vs Tashkeel;علاماتُ التَّشكِيل;إعراب;": {
         "path": "dict.html",
-        "action": "sen-cmp",
+        "action": "script",
         "data": "pos:0"
     },
     "Erab vs Tanween;التنوين;إعراب;": {
         "path": "dict.html",
-        "action": "sen-cmp",
+        "action": "script",
         "data": "pos:1"
     },
     "Scripts;خط الإملائي;خط العروضي": {
         "path": "dict.html",
-        "action": "sen-cmp",
+        "action": "script",
         "data": "pos:2"
     },
-        "Grammar;النَّحْو;": {
+    "Grammar;النَّحْو;": {
         "path": "dict.html",
-        "action": "sen-cmp",
-        "data": "pos:3"
+        "action": "lang",
+        "data": "pos:0"
     },
     "Noun Case;الإِعْرَاب لِلأَسْمَاءِ;": {
         "path": "dict.html",
-        "action": "sen-cmp",
-        "data": "pos:3"
+        "action": "lang",
+        "data": "pos:0"
     },
     "Mood;الاشْتِقَاق;الإِعْرَاب لِلأَفْعَال": {
         "path": "dict.html",
-        "action": "sen-cmp",
-        "data": "pos:3"
+        "action": "lang",
+        "data": "pos:0"
     },
     "Morphology;الصرف;": {
         "path": "dict.html",
-        "action": "sen-cmp",
-        "data": "pos:4"
+        "action": "lang",
+        "data": "pos:1"
     },
     "Rhetoric;البلاغة;": {
         "path": "dict.html",
-        "action": "sen-cmp",
-        "data": "pos:5"
+        "action": "lang",
+        "data": "pos:2"
     },
     "Parts of Speech;أقسام الكلام": {
         "path": "dict.html",

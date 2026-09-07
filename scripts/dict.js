@@ -399,8 +399,9 @@ function handleDictActions(el, a, d) {
 				showVerbComparisions(0);
 			}
 			break;
+		case 'script':
+		case 'lang':
 		case 'grammar':
-		case 'sen-cmp':
 			if (data && data.startsWith("pos:")) {
 				var index = parseInt(data.substring(4));
 				showSentenceComparisions(index, action);
@@ -911,7 +912,9 @@ function listSearchIndex(indexKey='') {
 				Topic: <select style="width:40;" onchange="handleFilterAction($(this).prev().val(), $(this).val());">
 					<option value="">All</option>
 					<option value="cmp">Comparison</option>
-					<option value="sen-cmp">Sentence Comparison</option>
+					<option value="script">Script</option>
+					<option value="lang">Language</option>
+					<option value="grammar">Grammar</option>
 					<option value="noun-cmp">Noun Comparison</option>
 					<option value="noun-pat">Noun Patternns</option>
 					<option value="masdar">Verbal Noun</option>
@@ -919,7 +922,6 @@ function listSearchIndex(indexKey='') {
 					<option value="adv">Adverb</option>
 					<option value="pronoun">Pronoun</option>
 					<option value="prep">Preposition</option>
-					<option value="grammar">Grammar</option>
 					<option value="Vocab">Vocabulary</option>
 					<option value="Chart">Charts</option>
 				</select>`;
@@ -985,7 +987,9 @@ function getIndexEntryIcon(path, action){
 	{
 		case 'cmp':
 		case 'noun-cmp':
-		case 'sen-cmp':
+		case 'script':
+		case 'lang':
+		case 'grammar':
 			return `<img src="images/cmp.png" style="${style}"/>`;
 		
 		case 'noun-plural':
