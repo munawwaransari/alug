@@ -2135,6 +2135,7 @@ function getActionTitle(action){
 	action == 'noun-pat'? 'Noun Patterns' : 
 	action == 'noun-cmp'? 'Nouns' : 
 	action == 'cmp'? 'Particles' : 
+	action == 'defs'? 'Definitions' : 
 	action == 'adj'? 'Adjectives' : 
 	action == 'adv'? 'Adverbs' : 
 	action == 'prep'? 'Prepositions' : 

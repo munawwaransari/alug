@@ -817,9 +817,10 @@ function listDefinitions(bk){
 		Object.keys(data)
 		      .sort()
 			  .forEach(function(key) {
+				var key_id = key.replaceAll(' ','_');
 				var entry = data[key];
 				table.append($(
-				`<tr><td id="bm_${key}" style="border:none; border-bottom: 2px solid black;">
+				`<tr><td id="bm_${key_id}" style="border:none; border-bottom: 2px solid black;">
 				<a href=".defFilter">[&#8593]</a>&nbsp;&nbsp;
 				<b style="background-color:#F0F0A0">${key} (${entry.en})</b>
 				&nbsp;&nbsp<a href="#" 
@@ -849,7 +850,7 @@ function listDefinitions(bk){
 					`).join(''): ''}
 				${entry.types ? '</ul>' : ''}
 				</td></tr>`));
-				defSelect.append($(`<option value="#bm_${key}">${key} (${entry.en})</option>`)) 
+				defSelect.append($(`<option value="#bm_${key_id}">${key} (${entry.en})</option>`)) 
 			  }
 			);
 
@@ -859,8 +860,9 @@ function listDefinitions(bk){
 					defSelect.find(`option:eq(${index})`).prop('selected', true);
 					defSelect.trigger('change');
 				}else{
-					var bkId = bk.startsWith("#") ? bk : `#bm_${bk}`;
-					window.open(bkId, '_self');
+					bk = bk.startsWith("def:") ? bk.substring(4): bk;
+					var bkId 	= bk.startsWith("#bm_") ? bk.substring(4) : bk;
+					changeDefIndex(bkId);
 				}
 			}
 	});
@@ -1080,7 +1082,7 @@ function loadComparision() {
 }
 
 function changeDefIndex(val){
-	var refIndex = $(`.defFilter option[value="#bm_${val}"]`).index();
+	var refIndex = $(`.defFilter option[value="#bm_${val.replaceAll(' ','_')}"]`).index();
 	$('.defFilter').prop('selectedIndex', refIndex);
 	$('.defFilter').trigger('change');
 }
