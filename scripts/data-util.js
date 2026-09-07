@@ -2131,10 +2131,12 @@ function getListButtinWithSelect(sel, filterClass, compareType, filterBtnClickHa
 function getActionTitle(action){
 	return  action == 'masdar'? 'Verbal Nouns':
 	action == 'vtab-all' ? 'Verbs':
+	action == 'verb-type' ? 'Verb Types':
 	action == 'obj-effect' ? 'Object Effects':				 
+	action == 'cmp'? 'Particles' : 
 	action == 'noun-pat'? 'Noun Patterns' : 
 	action == 'noun-cmp'? 'Nouns' : 
-	action == 'cmp'? 'Particles' : 
+	action == 'sen-cmp' ? 'General':
 	action == 'defs'? 'Definitions' : 
 	action == 'adj'? 'Adjectives' : 
 	action == 'adv'? 'Adverbs' : 
@@ -2143,13 +2145,9 @@ function getActionTitle(action){
 	action == 'imp-verb'? 'Imperatives' : 
 	action == 'weak-verb'? 'Weak Verbs' :
 	action == 'inad-verb' ? 'Inadequate Verbs':
+	action == 'grammar' ? 'Grammar':
 	action;
 }
-
-// function getActionFromCompareType(compareType){
-// 	return compareType == 'noun'? 'noun-cmp': 
-// 	compareType;
-// }
 
 function getFreeImageSource(keyword, url="https://loremflickr.com/360/480/"){
 	return `${url}${keyword}`;

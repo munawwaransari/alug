@@ -1122,7 +1122,7 @@
     {
         "compareType": "grammar",
         "topics": [
-            "إيجابي (Affirmative)"
+            "إيجابي (Affirmative Sentence)"
         ],
         "notes": "",
         "ar": [
@@ -1134,7 +1134,7 @@
             "Example"
         ],
         "features": {
-            "إيجابي (Affirmative)": [
+            "إيجابي (Affirmative Sentence)": [
                 "Affirmative sentences",
                 "<u style=\"top:0\">حرف التوكيد+(مُبتدا)(خبر)</u><br/><br/>الرَّجُلُ تَاجِرٌ<br/><br/>أَلَا لِلَّهِ الدِّينُ الْخَالِصُ [39:3]<br/><br/>إِنَّكَ لَمِنَ الْمُرْسَلِينَ [36:3]"
             ]
@@ -1143,7 +1143,7 @@
     {
         "compareType": "grammar",
         "topics": [
-            "نفي (Negative)"
+            "نفي (Negative Sentence)"
         ],
         "notes": "",
         "ar": [
@@ -1155,7 +1155,7 @@
             "Example"
         ],
         "features": {
-            "نفي (Negative)": [
+            "نفي (Negative Sentence)": [
                 "Negative sentences",
                 "<u style=\"top:0\">حرف النفي+(مُبتدا)(خبر)</u><br/><br/>لَيسَ الرَّجُلُ تَاجِرًا<br/><br/>مَا هَٰذِهِ الْحَيَاةُ الدُّنْيَا إِلَّا لَهْوٌ وَلَعِبٌ [29:64]<br/><br/>إِنْ هُوَ إِلَّا ذِكْرَىٰ لِلْعَالَمِينَ [6:90]"
             ]
@@ -1164,7 +1164,7 @@
     {
         "compareType": "grammar",
         "topics": [
-            "استفهامي (Interrogative)"
+            "استفهامي (Interrogative Sentence)"
         ],
         "notes": "",
         "ar": [
@@ -1176,7 +1176,7 @@
             "Example"
         ],
         "features": {
-            "استفهامي (Interrogative)": [
+            "استفهامي (Interrogative Sentence)": [
                 "Interrogative sentences",
                 "<u style=\"top:0\">حرف الإستفهام+(مُبتدا)(خبر)</u><br/><br/>اَيُّ الرَّجُلُ تَاجِرٌ؟<br/><br/> مَنِ الَذي تَاجِرٌ؟<br/><br/>اَلَيسَ الرَّجُلُ تَاجِرًا؟<br/><br/>اَاَنتَ تَاجِرٌ؟"
             ]
