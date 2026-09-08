@@ -1689,7 +1689,7 @@
         "features_links":{
             "الفعل المضارع": "'dict.html','verb-type','pos:1'",
             "جمع التكسير": "'dict.html','noun-pat'",
-            "اسماء الخمسة": "'dict.html','five-noun'",
+            "اسماء الخمسة": "'dict.html','five-nouns'",
             "الماضي": "'dict.html','verb-type','pos:1'",
             "الأمر": "'dict.html','vtab-imp'",
             "الحروف":"'dict.html','prep','all'",
@@ -1778,7 +1778,7 @@
         "features_links":{
             "الفعل المضارع": "'dict.html','verb-type','pos:1'",
             "جمع التكسير": "'dict.html','noun-pat'",
-            "اسماء الخمسة": "'dict.html','five-noun'",
+            "اسماء الخمسة": "'dict.html','five-nouns'",
             "الماضي": "'dict.html','verb-type','pos:1'",
             "الأمر": "'dict.html','vtab-imp'",
             "الحروف":"'dict.html','prep','all'",

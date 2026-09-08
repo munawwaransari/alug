@@ -81,7 +81,7 @@
         "ar": "الكناية",
         "default": "الأسماء"
     },
-    "five-noun": {
+    "five-nouns": {
         "en": "Five Nouns",
         "ar": "الأسماء الخمسة",
         "default": "الأسماء"
@@ -115,6 +115,11 @@
     "vtab-3": {
         "en": "Triliteral Verb Table",
         "ar": "ثلاثي مُجرّد",
+        "default": "الأفعال"
+    },
+    "five-verbs": {
+        "en": "Five Verbs",
+        "ar": "الأفعال الخمسة",
         "default": "الأفعال"
     },
     "vtab-inad": {

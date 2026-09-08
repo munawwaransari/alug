@@ -1549,6 +1549,9 @@ function init_data_cache(){
 		},
 		"ai-models":{
 			path: "https://openrouter.ai/api/v1/models"
+		},
+		"the-five":{
+			path: "data/grmr/thefive.json"
 		}
 	}
 }

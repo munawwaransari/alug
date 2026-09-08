@@ -193,13 +193,17 @@
         "Provide at least 5 or more advanced contextual examples (incorporating verses from the Quran or classical literature) that cover all grammatical nuances, structural variations, and idiomatic implications.",
         "Translate all Arabic example sentences accurately into the target language, including word-for-word grammatical breakdowns (I'rab) and exact phonetic transliterations in brackets."
     ],
-    "FiveNouns": [
+    "five-nouns": [
         "Context: Arabic Morpho-Syntax and Irregular Declensions (Al-Asma' al-Khamsah)",
         "Provide a highly structured, analytical breakdown detailing the linguistic rules governing the Five Nouns (Al-Asma' al-Khamsah), explicitly specifying the 3 mandatory conditions (Shuroot) required for them to be expressed with long vowels (Waw, Alif, Ya) instead of short vowels.",
         "Give clear, contextual example sentences for every single one of the five nouns, exhaustively covering all three grammatical states: Nominative (Marfu' with Waw), Accusative (Mansub with Alif), and Genitive (Majrur with Ya).",
         "Translate all generated example sentences into the specified target language, providing phonetic transliterations and a clear structural analysis of the inflected case endings for each noun."
     ],
-
+    "five-verbs": [
+        "Context: Arabic Morpho-Syntax and Declensions (Five Verbs)",
+        "Provide a highly structured, analytical breakdown detailing the linguistic rules governing the Five Verbs.",
+        "Translate all generated example sentences into the specified target language, providing phonetic transliterations and a clear structural analysis of the inflected case endings for each noun."
+    ],
     "Definitions":[
         "Context: Arabic Grammar and Rhetroric",
         "Topic: @0",

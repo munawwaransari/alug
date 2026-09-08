@@ -248,8 +248,9 @@ function handleDictActions(el, a, d) {
 			}
 			break;
 
-		case 'five-noun':
-			showFiveNouns('ism', 'اسماءُ الخَمسة', 'Five Nouns');
+		case 'five-verbs':
+		case 'five-nouns':
+			showFive(action);
 			break;
 
 		case 'pronoun':
