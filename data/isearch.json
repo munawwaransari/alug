@@ -731,7 +731,7 @@
     },
     "Five Verbs;الأفعال الخَمسة;": {
         "path": "dict.html",
-        "action": "five-nouns"
+        "action": "five-verbs"
     },
     "Verb Type by Tense;الزمان": {
         "path": "dict.html",
