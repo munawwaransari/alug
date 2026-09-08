@@ -148,7 +148,9 @@ class cmpAPI {
 			var featureCount = cmp["ar"].length;
 			var rows = "";
 			for(var f=0; f < featureCount; f++){
-				rows += `<tr><td style="font-weight:bold;font-size:14px;background-color:#D2ECAD;" colspan="${topics.length}">
+				rows += `<tr><td style="font-weight:bold;font-size:14px;background-color:#D2ECAD;cursor:pointer;" 
+				                 colspan="${topics.length}"
+								 onclick="$(this).parent().next('tr').toggle()">
 							( ${cmp["ar"][f]} ) ${cmp["en"][f]}
 						</td></tr>
 						<tr>

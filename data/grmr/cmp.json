@@ -750,9 +750,9 @@
         ],
         "features": {
             "علاماتُ التَّشكِيل": [
-                "<p style=\"direction:ltr;\"><b>علاماتُ التَّشكِيل </b>are optionallly used on any letter of a word to indicate its correct pronunciation<br/><b> ضَمَّة ( ُ )، فَتَحَة ( َ )، كَسَرَة ( ِ )،<br/> سُكُون ( ْ )، شَدَّة ( ّ )،مَدَّة (~)،</b></p>",
-                "<p style=\"direction:ltr;\">optional and used on any letter except last letter of a word<br/></p>",
-                "<p style=\"direction:ltr;\">زَيْد --> letters ز and ي have diacritics <br/>فَتَحة and سُكُون respectively <br/><br/>يَضْرِبْ --> letter ب is having سُكُون as erab <br/>making it مَجزُوم<br/></p>"
+                "<p style=\"direction:ltr;\"><b>علاماتُ التَّشكِيل </b>are optionallly used on any letter of a word to indicate its correct pronunciation<br/><b>ضَمَّة ( -ُ )</b> => (u as in s<b>u</b>per)<br/><b>فَتَحَة ( -َ )</b> => (a as in m<b>u</b>st)<br/><b>كَسَرَة ( -ِ )</b> => (i as in b<b>i</b>n)<br/><b>سُكُون ( -ْ )</b> => (no vowel as in ba<b>t</b>)<br/><b>شَدَّة ( -ّ )</b> => (double consonant as in a<b>dd</b>)<br/><b>مَدَّة ( ~ )</b> => (long vowel as in appl<b>au</b>se)</p>",
+                "<p style=\"direction:ltr;\"><b>Pronunciation</b>: Used as diacritics; optional<br/><b>Morphology</b>: Follow a fixed pattern (وَزَن) of the word.<br/><b>Erab</b>: (mostly on the last letter of the word); serves a grammatical purpose.<br/></p>",
+                "<p style=\"direction:ltr;\"><b>Pronunciation:</b><br/>زَيْد --> letters ز and ي have diacritics<br/><br/><b>Morphology:</b><br/>فَاعِلْ (template for active participle)<br/>افعِلْ (template for command)<br/></br><b>Erab:</b><br/>مُحَمَّدًا (Accusative case)</p>"
             ]
         }
     },
