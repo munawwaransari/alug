@@ -214,20 +214,30 @@
         "action": "prep",
         "data": "حروف مشبة بِالفعل (ظَنَّ)"
     },
-    "Erab vs Tashkeel;علاماتُ التَّشكِيل;إعراب;": {
+    "Diacritics;علاماتُ التَّشكِيل;": {
         "path": "dict.html",
         "action": "script",
         "data": "pos:0"
     },
-    "Erab vs Tanween;التنوين;إعراب;": {
+    "Nunation;التنوين;": {
         "path": "dict.html",
         "action": "script",
         "data": "pos:1"
     },
-    "Scripts;خط الإملائي;خط العروضي": {
+    "Gramamr Markers;إعراب;": {
         "path": "dict.html",
         "action": "script",
         "data": "pos:2"
+    },
+    "Orthographic Script;خط الإملائي": {
+        "path": "dict.html",
+        "action": "script",
+        "data": "pos:3"
+    },
+    "Prosodic Script;خط العروضي": {
+        "path": "dict.html",
+        "action": "script",
+        "data": "pos:4"
     },
     "Grammar;النَّحْو;": {
         "path": "dict.html",
