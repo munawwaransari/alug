@@ -28,8 +28,9 @@ function showPronounInfo(k, v1, v2){
 	addRelativePronouns(container);
 }
 
-function filterPronounView(index=0){
-	var val = $(`.pronounFilter option`).get(index).value;
+function filterPronounView(i=0){
+	var index = (i > 0) ? i : $('.pronounFilter').prop('selectedIndex') ?? 0;
+	var val = $('.pronounFilter option').get(index).value;
 	$(`.pronounFilter`).val(val);
 	var lstButton = $(".nFilterBtn");
 	var lst = $(".pronounFilter");
