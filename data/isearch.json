@@ -224,60 +224,60 @@
         "action": "script",
         "data": "pos:1"
     },
-    "Gramamr Markers;إعراب;": {
-        "path": "dict.html",
-        "action": "script",
-        "data": "pos:2"
-    },
-    "Apparent Erab;الإعراب الظاهري;": {
-        "path": "dict.html",
-        "action": "script",
-        "data": "pos:2"
-    },
-    "Estimated Erab;الإعراب المقدر;": {
-        "path": "dict.html",
-        "action": "script",
-        "data": "pos:2"
-    },
-    "Erab by position;الإعراب المحلي;": {
-        "path": "dict.html",
-        "action": "script",
-        "data": "pos:2"
-    },
     "Orthographic Script;خط الإملائي": {
         "path": "dict.html",
         "action": "script",
-        "data": "pos:3"
+        "data": "pos:2"
     },
     "Prosodic Script;خط العروضي": {
         "path": "dict.html",
         "action": "script",
-        "data": "pos:4"
+        "data": "pos:3"
+    },
+        "Grammar Markers;إعراب;": {
+        "path": "dict.html",
+        "action": "lang",
+        "data": "pos:0"
+    },
+    "Apparent Erab;الإعراب الظاهري;": {
+        "path": "dict.html",
+        "action": "lang",
+        "data": "pos:0"
+    },
+    "Estimated Erab;الإعراب المقدر;": {
+        "path": "dict.html",
+        "action": "lang",
+        "data": "pos:0"
+    },
+    "Erab by position;الإعراب المحلي;": {
+        "path": "dict.html",
+        "action": "lang",
+        "data": "pos:0"
     },
     "Grammar;النَّحْو;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:0"
+        "data": "pos:1"
     },
     "Noun Case;الإِعْرَاب لِلأَسْمَاءِ;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:0"
+        "data": "pos:1"
     },
     "Mood;الاشْتِقَاق;الإِعْرَاب لِلأَفْعَال": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:0"
+        "data": "pos:1"
     },
     "Morphology;الصرف;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:1"
+        "data": "pos:2"
     },
     "Rhetoric;البلاغة;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:2"
+        "data": "pos:3"
     },
     "Parts of Speech;أقسام الكلام": {
         "path": "dict.html",
