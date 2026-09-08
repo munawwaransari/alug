@@ -219,12 +219,27 @@
         "action": "script",
         "data": "pos:0"
     },
-    "Nunation;التنوين;": {
+    "Nunation;التنوين;نُون الإعراب": {
         "path": "dict.html",
         "action": "script",
         "data": "pos:1"
     },
     "Gramamr Markers;إعراب;": {
+        "path": "dict.html",
+        "action": "script",
+        "data": "pos:2"
+    },
+    "Apparent Erab;الإعراب الظاهري;": {
+        "path": "dict.html",
+        "action": "script",
+        "data": "pos:2"
+    },
+    "Estimated Erab;الإعراب المقدر;": {
+        "path": "dict.html",
+        "action": "script",
+        "data": "pos:2"
+    },
+    "Erab by position;الإعراب المحلي;": {
         "path": "dict.html",
         "action": "script",
         "data": "pos:2"

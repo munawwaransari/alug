@@ -750,40 +750,45 @@
         ],
         "features": {
             "علاماتُ التَّشكِيل": [
-                "<b>علاماتُ التَّشكِيل </b>are optionallly used on any letter of a word to indicate its correct pronunciation<br/><b> ضَمَّة ( ُ )، فَتَحَة ( َ )، كَسَرَة ( ِ )،<br/> سُكُون ( ْ )، شَدَّة ( ّ )،مَدَّة (~)،</b>",
-                "optional and used on any letter except last letter of a word<br/><br/>",
-                "زَيْد --> letters ز and ي have diacritics <br/>فَتَحة and سُكُون respectively <br/><br/>يَضْرِبْ --> letter ب is having سُكُون as erab <br/>making it مَجزُوم<br/>"
+                "<p style=\"direction:ltr;\"><b>علاماتُ التَّشكِيل </b>are optionallly used on any letter of a word to indicate its correct pronunciation<br/><b> ضَمَّة ( ُ )، فَتَحَة ( َ )، كَسَرَة ( ِ )،<br/> سُكُون ( ْ )، شَدَّة ( ّ )،مَدَّة (~)،</b></p>",
+                "<p style=\"direction:ltr;\">optional and used on any letter except last letter of a word<br/></p>",
+                "<p style=\"direction:ltr;\">زَيْد --> letters ز and ي have diacritics <br/>فَتَحة and سُكُون respectively <br/><br/>يَضْرِبْ --> letter ب is having سُكُون as erab <br/>making it مَجزُوم<br/></p>"
             ]
         }
     },
     {
         "compareType":"script",
         "topics":[
-            "التنوين (Nunation)"
+            "التنوين و نُون الإعراب (Nunation)"
         ],
         "notes": "",
         "ar": [
             "تعريف",
             "أنواع",
-            "مِثال"
+            "نُون الإعراب",
+            "حذف نون الإعراب"
         ],
         "en": [
             "Definition",
             "Types",
-            "Example"
+            "Noon of Erab",
+            "Dropping of Noon of Erab"
         ],
         "features":{
-            "التنوين (Nunation)": [
-                "Adds an \"n\" sound to the end of an indefinite Arabic noun, written as double vowels (-un , -an, -in)",
-                "<b>تنوين التمكين</b>:<br/> added to inflected (مُعرب) & fully flexible (مُنصرِف)<br/><br/><b>تنوين التنكير</b>:<br/>indicates indifinnite (نكرة) meaning<br/><br/><b>تنوين المقابلة</b>:<br/>exclusively at the end of Sound Feminine Plurals (جمع المؤنث السالم)<br/><br/><b>تنوين العوض</b>:<br/>The tanwin is then added to act as a placeholder, signaling that something has been omitted<br/><br/>",
-                "تنوين التمكين:<br/>رَجُلٌ, كِتَابًا, قَلَمٍ<br/><br/>تنوين التنكير:<br/>صهٍ (اسماء الافعال),هيهاتَ, حيثُ, كيف<br/><br/>تنوين المقابلة:<br/>مُؤْمِنَات,صَابِرَات,الـمُسْلِمَاتُ<br/><br/>تنوين العوض:<br/>وَأَنْتُمْ حِينَئِذٍ تَنْظُرُونَ [56:84] <br/>وَكُلّٞ   فِي   فَلَكٖ   يَسۡبَحُونَ [36:40]<br/>"
+            "التنوين و نُون الإعراب (Nunation)": [
+                "<p style=\"direction:ltr\">Adds an \"n\" sound to the end of an indefinite Arabic noun, written as double vowels (-un , -an, -in)</p>",
+                "<b>تنوين التمكين</b>:<br/> added to inflected (مُعرب) & fully flexible (مُنصرِف)<br/>e.g. رَجُلٌ, كِتَابًا, قَلَمٍ<br/><br/><b>تنوين التنكير</b>:<br/>indicates indifinnite (نكرة) meaning<br/>e.g. صهٍ (اسماء الافعال),هيهاتَ, حيثُ, كيف<br/><br/><b>تنوين المقابلة</b>:<br/>exclusively at the end of Sound Feminine Plurals (جمع المؤنث السالم)<br/>e.g. مُؤْمِنَات,صَابِرَات,الـمُسْلِمَاتُ<br/><br/><b>تنوين العوض</b>:<br/>The tanwin is then added to act as a placeholder, signaling that something has been omitted<br/>وَأَنْتُمْ حِينَئِذٍ تَنْظُرُونَ [56:84] <br/>وَكُلّٞ   فِي   فَلَكٖ   يَسۡبَحُونَ [36:40]<br/>",
+                "<p style=\"direction:rtl\">The hidden noon in tanween<br/>un- => ( -ٌ ) => ( -ُن )<br/>an- => ( -ً ) => ( -َن )<br/>an- => ( -ٍ ) => ( -ِن )<br/></p><p style=\"direction:ltr\">Tanween is used only if the noun case is مَرفُوع and singular مُفرد. <br/><br/>For Dual and Plural, the noon of Erabi is explicit<br/>e.g. طَالِبان, مُعَلِّمُونَ</p>",
+                "<p style=\"direction:ltr\">The Noon of Erab is dropped if the noun has لام التعريف or it is مُضاف<br/>e.g. Singular (Proper):<br/>العَالِمُ (عَالِمٌ), العَالِمَ (عَالِمً), العَالِمِ (عَالِمٍ)<br/>Singular (مُضاف):<br/>عِالِمُ الغَيبِ, عِالِمَ الغَيبِ, عِالِمِ الغَيبِ<br/>Dual/Plural (مُضاف):<br/>مهندسو الشركة<br/><br/>When verb, the Noon of Erab is dropped in some cases (e.g. مَنصُوب, مَجزُوم):<br/>e.g. لم يكتبوا<br/></p><p style=\"direction:ltr\">See also: نون النسوة , نون التوكيد</p>"
             ]
         },
         "features_links":{
             "اسماء الافعال": "'dict.html','masdar','pos:3'",
             "مُعرب": "'dict.html','noun-cmp','pos:0'",
             "مُنصرِف": "'dict.html','noun-cmp','pos:3'",
-            "جمع المؤنث السالم": "'dict.html','noun-cmp','pos:6'"
+            "جمع المؤنث السالم": "'dict.html','noun-cmp','pos:6'",
+            "نون النسوة": "'dict.html','cmp','pos:14'",
+            "نون التوكيد": "'dict.html','cmp','pos:14'"
         }
     },
     {
@@ -794,21 +799,30 @@
         "notes": "",
         "ar": [
             "تعريف",
-            "أنواع",
-            "مِثال"
+            "حالات",
+            "العامِل",
+            "أنواع"
         ],
         "en": [
             "Definition",
-            "Types",
-            "Example"
+            "Cases",
+            "Erab agent",
+            "Types"
         ],
         "features":{
             "الاعراب (Gramamr Markers)": [
                 "<p style=\"direction:ltr;\">إعراب </b>are used as grammatical notions on nouns and verbs to identify cases and states.</p>",
-                "<p style=\"direction:ltr\"><b>الرفع</b>:<br/>Nominative case<br/>علامات: الضَّمَّة, الأَلِف (مثنى), الوَاو (جمع)<br/><br/><b>النصب</b>:<br/>Accusative case<br/>علامات: الفَتْحَة, اليَاء (مثنى;جمع المذكر), الكَسْرَة (جمع المؤنث), حَذْف النُّون, إِنَّ وَأَخَوَاتُهَا, أَدَوَات النَّصْب<br/><br/><b>الجر</b>:<br/>Genitive case<br/>علامات: الكَسْرَة, اليَاء (مثنى;جمع المذكر), الفَتْحَة (غير منصرف)<br/><br/><b>الجزم</b>:<br/>Jussive case<br/>علامات: السُّكُون, حَذْف حَرْف العِلَّة(ا , و , ي), حَذْف النُّون</p>",
-                "<b>الرفع</b>:<br/>الطَّالِبُ, الطَّالِبَانِ, الطَّالِبُونَ<br/><br/><b>النصب</b>:<br/>كِتَاباً, قَلَمَيْنِ, المُعَلِّمِينَ, أَبَاكَ, إِنَّ اللهَ<br/><br/><b>الجر</b>:<br/>بِالقَلَمِ, الرَّجُلَيْنِ, مُهَنْدِسِينَ, كِتَابُ طَالِبٍ <br/><br/><b>الجزم</b>:<br/>لَمْ يَذْهَبْ, لَا تَحْزَنْ, إِنْ تَدْرُسْ<br/>"
+                "<p style=\"direction:ltr\"><b>الرفع</b>:<br/>Nominative case<br/>علامات: الضَّمَّة, الأَلِف (مثنى), الوَاو (جمع)<br/>الطَّالِبُ, الطَّالِبَانِ, الطَّالِبُونَ<br/><br/><b>النصب</b>:<br/>Accusative case<br/>علامات: الفَتْحَة, اليَاء (مثنى;جمع المذكر), الكَسْرَة (جمع المؤنث), حَذْف النُّون, إِنَّ وَأَخَوَاتُهَا, أَدَوَات النَّصْب<br/>كِتَاباً, قَلَمَيْنِ, المُعَلِّمِينَ, أَبَاكَ, إِنَّ اللهَ<br/><br/><b>الجر</b>:<br/>Genitive case<br/>علامات: الكَسْرَة, اليَاء (مثنى;جمع المذكر), الفَتْحَة (غير منصرف)<br/>بِالقَلَمِ, الرَّجُلَيْنِ, مُهَنْدِسِينَ, كِتَابُ طَالِبٍ <br/><br/><b>الجزم</b>:<br/>Jussive case<br/>علامات: السُّكُون, حَذْف حَرْف العِلَّة(ا , و , ي), حَذْف النُّون<br/>لَمْ يَذْهَبْ, لَا تَحْزَنْ, إِنْ تَدْرُسْ<br/></p>",
+                "<p style=\"direction:ltr\">العامِل is the cause behind the grammatical change at the end of a word. Without an Aamil, a word cannot enter a state of Raf', Nasb, Jar, Jazm, or shift between them.<br/><br/>العَوَامِل اللَّفْظِيَّة:<br/>Verbs (الأَفْعَال), Prepositions (حُرُوفُ الجَرّ), Accusative Particles (إِنَّ وَأَخَوَاتُهَا), Jussive Tools (أَدَوَاتُ الجَزْم)<br/><br/>Other agents:<br/>subject (مُبتدا) of a sentence, فعل مُجرَّد (Abstract Verb)</p>",
+                "<p style=\"direction:ltr\"><b>Apparent (الإعراب الظاهري)</b>:<br/>grammatical sign is explicitly written and clearly pronounced<br/>e.g. يَاكُلُ زَيدُ الخُبزَ<br/>يَاكُلُ (nominatve verb)<br/>زَيدُ (nominative subject)<br/>الخُبزَ (Accusative object)<br/><br/><b>Estimated (الإعراب المقدر):</b><br/>the grammatical vowel is completely hidden<br/>e.g. words ending with Yaa(ي)<br/> زُرْتُ المُسْتَشْفَى<br/>المُسْتَشْفَى (مَنْصُوبٌ وَعَلَامَةُ نَصْبِهِ الفَتْحَةُ المُقَدَّرَة)<br/><br/><b>By Position (الإعراب المحلي)</b>:<br/> exclusively to Mabni (مبني) words<br/>e.g. هَذِهِ تُفَّاحة<br/>هَذِهِ=>فِي مَحلِّ رفع <br/></p>"
 
             ]
+        },
+        "features_links":{
+            "Verbs (الأَفْعَال)":"'dict.html','vtab-all','pos:0'", 
+            "Prepositions (حُرُوفُ الجَرّ)":"'dict.html','prep','pos:0'",
+            "Accusative Particles (إِنَّ وَأَخَوَاتُهَا)":"'dict.html','prep','pos:3'",
+            "Jussive Tools (أَدَوَاتُ الجَزْم)": "'dict.html','prep','pos:2'"
         }
     },
     {
