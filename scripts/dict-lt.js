@@ -123,25 +123,15 @@ function filterTable(wordColumn){
 }
 
 async function getSuggesstions(txt, callback) {
-
-	var file = Object.entries(parent.dataCache["mappingsData"].data)
-					 .filter(function ([key, value]) {
-		return txt.startsWith(key);
+	var regEx = new RegExp(`^|[\\b,;)(]${txt}[\\u0621-\\u064A]*`, 'g');
+	ensureDataLoaded({name: 'all-words.csv', file: "all-words.csv"}).then((data) => {
+		var suggestionsList = data.match(regEx)
+		                          ?.map(x=>x.replaceAll(/[(),;\b]+/g, ''))
+								  ?.filter(x=>x != '');
+		if (callback) {
+			callback([...new Set(suggestionsList)]);
+		}
 	});
-	if (file.length > 0) {
-		var fileUrl = getLocationPath() + 'data/ar.dic/' + file[0][1] + '.json';
-		console.log('getting suggestions: ' + file[0][1] + '.json');
-		//loadJsonData(fileUrl).then((data) => {
-		ensureDataLoaded({name: fileUrl}).then((data) => {
-			// update global var for suggestions
-			var suggestionsList = data.filter(function (w) {
-				return w.startsWith(txt);
-			});
-			if (callback) {
-				callback(suggestionsList);
-			}
-		});
-	}
 }
 
 function showAllVerbTables(ii){

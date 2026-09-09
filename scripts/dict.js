@@ -67,7 +67,7 @@ window.onload = function () {
 		return condition;
 	});
 
-	ensureDataLoaded({name: "mappingsData"});
+	ensureDataLoaded({name: "all-words.csv", file: "all-words.csv"});
 	ensureDataLoaded({name: "ai-prompts"});
 
 	$("#wordSearchText").keyup(function (event) {
