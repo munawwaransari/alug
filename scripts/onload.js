@@ -82,7 +82,6 @@ $(document).ready(function()
 	nodeInserted("#languages");
 	$(document).on("nodeInserted",function(e,q){
 		isLangLoaded = true;
-		//console.log('lang node inserted.')
 		if (q === "#languages"){
 			$("#languages").parent().hide();
 			loadVoiceOptions(true, false);
@@ -715,7 +714,7 @@ function checkBrowserSupport(){
 function autoplayAudio(chapter, page){
 	var lang = parent ? parent.getLangOption() : "en-US";
 	var url = getLocationPath() + 'data/audio/'+ lang + '_' + chapter + '_autoplay.json';
-	console.log('Loding play file: ' + url);
+	//console.log('Loding play file: ' + url);
 	loadJsonData(url).then((data) => {
 		var sections = jQuery.map(data, function(obj) {
 			if(obj.pageNo === page)

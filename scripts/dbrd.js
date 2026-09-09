@@ -97,12 +97,10 @@ function editCardText(el){
         elem.html(`<textarea 
             onblur="
                 var text = $(this).val();
-                //console.log('text:'+ text);
                 if(text != ''){
                     $(this).parent().html(text);
                     parent.dashboard.cards['${id}'].html = text;      
                 }
-                //console.log('remove');
                 $(this).parent().remove($(this))">
             ${elemHtml}</textarea>`);
     }

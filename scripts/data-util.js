@@ -525,9 +525,7 @@ function onDurationClick(id, e){
 	var max = prog.width(); //Get width element
     var pos = e.pageX - prog.offset().left; //Position cursor
     var perc = pos / max;
-	if(perc > 1) perc = 1;
-	var value = Math.round(prog.attr('max') * perc)
-    //console.log('range at: ' + value);
+	var value = Math.round(prog.attr('max') * (perc > 1 ? 1 : prec))
 	if(parent && parent.changeAudioTime){
 		parent.changeAudioTime(null, value);
 	}
@@ -2049,7 +2047,6 @@ function listQListItems(el, listId){
 				onclick="listExamplesFromQuran('${value}');">
 			${text}
 			</div>`;
-			//console.log('Index: ' + index + ' | Value: ' + value + ' | Text: ' + text);
 		});
 		container += '</div>';
 		div.append($(container));

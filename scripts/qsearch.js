@@ -628,16 +628,7 @@ function selectWordInAyah(id) {
     });
 
 	//////////////////////////////////////////////////////////////////
-	processSelectedWordPos($(".word-ar.sel-word:first").text().trim(),
-	data => 
-	{
-		console.log(`prefix: ${JSON.stringify(data.prefixes)}`); 
-		console.log(`suffix: ${JSON.stringify(data.suffixes)}`); 
-		console.log(`verb: ${JSON.stringify(data.verbs)}`); 
-		console.log(`noun: ${JSON.stringify(data.nouns)}`); 
-		console.log(`pronoun: ${JSON.stringify(data.pronouns)}`); 
-		console.log(`particle: ${JSON.stringify(data.particles)}`); 
-	});
+	processSelectedWordPos($(".word-ar.sel-word:first").text().trim());
 }
 
 function getWordSpans(verse, words, vId){

@@ -45,7 +45,6 @@ function autoplayAudio(chapter, page, lang){
 		$('#playSections').find('option').remove().end();
 		if(sections){
 			sections.forEach(function(sect){
-				//console.log(sect.play);
 				$('#playSections').append(`<option value="${sect.play}">${sect.topic}</option>`);					
 			});
 			
