@@ -263,15 +263,6 @@ function handleDictActions(el, a, d) {
 				filterPronounView();
 			}
 			break;
-		case 'noun-plural':
-			loadArabicLTTable('plural.csv', 'ism', 'الجمع', 'Plural');
-			break;
-		case 'noun-syn':
-			loadArabicLTTable('synonyms.csv', 'ism', 'المرادفات', 'Synonyms');
-			break;
-		case 'noun-ant':
-			loadArabicLTTable('antonyms.csv', 'ism', 'المتضادات', 'Antonyms');
-			break;
 
 		case 'metonymy':
 			setTimeout(function () {
@@ -992,12 +983,6 @@ function getIndexEntryIcon(path, action){
 		case 'lang':
 		case 'grammar':
 			return `<img src="images/cmp.png" style="${style}"/>`;
-		
-		case 'noun-plural':
-		case 'noun-syn':
-		case 'noun-ant':
-			return `<img src="images/tab.png" style="${style}"/>`;
-
 		default:
 			break
 	}

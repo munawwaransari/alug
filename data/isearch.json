@@ -107,18 +107,6 @@
         "action": "pronoun",
         "data": "pos:4"
     },
-    "Plural;جمع": {
-        "path": "dict.html",
-        "action": "noun-plural"
-    },
-    "Synonyms;مرادفات;": {
-        "path": "dict.html",
-        "action": "noun-syn"
-    },
-    "Antonyms;متضادات": {
-        "path": "dict.html",
-        "action": "noun-ant"
-    },
     "Prepositions;حروف;حرف": {
         "path": "dict.html",
         "action": "prep",

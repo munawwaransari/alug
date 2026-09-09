@@ -1532,15 +1532,6 @@ function init_data_cache(){
 		"all-words.csv":{
 			path: "data/arabiclt/all-words.zip"
 		},
-		"antonyms.csv":{
-			path: "data/arabiclt/antonyms.zip"
-		},
-		"synonyms.csv":{
-			path: "data/arabiclt/synonyms.zip"
-		},
-		"plural.csv":{
-			path: "data/arabiclt/plural.zip"
-		},
 		"hadith-collecions":{
 			path: "https://ummahapi.com/api/hadith/collections"
 		},

@@ -2,57 +2,11 @@
 //	Author: munawwar_ali@yahoo.com
 //
 
-var pluralCSV = undefined;
-var synonymsCSV = undefined;
-var antonymsCSV = undefined;
-
-function loadArabicLTTable(csv, key, v1, v2){
-	var loadRequired = false; 
-	var table;
-	switch(csv){
-		case 'plural.csv':
-			loadRequired = (pluralCSV == undefined);
-			table = pluralCSV;
-		break;
-		
-		case 'synonyms.csv':
-			loadRequired = (synonymsCSV == undefined);
-			table = synonymsCSV;
-		break;
-		
-		case 'antonyms.csv':
-			loadRequired = (antonymsCSV == undefined);
-			table = antonymsCSV;
-		break;
-	}
-	
-	if(loadRequired){
-		ensureDataLoaded({name:csv, file:csv}).then((data) => loadCsvTable(data));
-	}else if(table && table.length > 0){
-		addAsHtmlTable($(".dictionary"), table, table[0].split(","));
-	}else{
-		console.log('Error: something went wrogn with the csv table');
-	}
-}
-
 function loadCsvTable(data, addHtml = true){
 	var table = [];
 	var columns, tableData;
 	if(data.length > 1){
 		tableData = data.split('\n');
-		var headings = tableData[0];
-		columns = headings.split(",");
-		if(headings.includes('PLURAL'))
-			pluralCSV = tableData;
-		else if(headings.includes('SYNO_SET'))
-			synonymsCSV = tableData;
-		else if(headings.includes('ANTO_SET'))
-			antonymsCSV = tableData;
-		else{
-			console.log('Error: invalid or unsupported csv data');
-			return false;
-		}
-		
 		if(addHtml)
 			addAsHtmlTable($(".dictionary"), tableData, columns);
 	}

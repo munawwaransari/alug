@@ -19,22 +19,6 @@
         "ar": "القرآن",
         "default": "فهرِس"
     },
-    "noun-plural": {
-        "en": "Plural Nouns",
-        "ar": "البحث (جمع)",
-        "default": "فهرِس"
-    },
-    "noun-syn": {
-        "en": "Synonyms",
-        "ar": "البحث (مرادفات)",
-        "default": "فهرِس"
-    },
-    "noun-ant": {
-        "en": "Antonyms",
-        "ar": "البحث (أضداد)",
-        "default": "فهرِس"
-    },
-
     "cmp": {
         "en": "Comparisons",
         "ar": "مقارنة الحروف",
