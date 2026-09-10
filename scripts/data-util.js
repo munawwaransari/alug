@@ -257,6 +257,32 @@ function filterTableRows(hideCol, table, column, searchText, options) {
     }
 }
 
+function filterTitleBox(sel){
+	var text = $(sel).val();
+	if(text === " "){
+		$(".TitleBox").show();
+		return;
+	}
+	var filteredDivs = $(".TitleBox").filter(function() {
+		if(text == "ا"){
+			return $(this).text().trim().startsWith("ا")||
+				   $(this).text().trim().startsWith("أ")||
+				   $(this).text().trim().startsWith("إ")||
+				   $(this).text().trim().startsWith("ء");	
+		}else if(text == "ي"){
+			return $(this).text().trim().startsWith("ى")||
+				   $(this).text().trim().startsWith("ي")||
+				   $(this).text().trim().startsWith("ئ");
+		}else if(text == "و"){
+			return $(this).text().trim().startsWith("ؤ")||
+				   $(this).text().trim().startsWith("و");
+		}
+		return $(this).text().trim().startsWith(text);
+	});
+	$(".TitleBox").hide();
+	filteredDivs.show();
+}
+
 function isOS(os){
 	return navigator.userAgent.includes(os+";") || 
 	navigator.userAgent.includes(os);
@@ -2029,13 +2055,24 @@ function getRandomIndices(arr){
 	return indices;
 }
 
+function getArabicAlphList(){
+	var alpha = " ابتثجحخدذرزسشصضطظعغفقكلمنهوي";
+	var options = '';
+	for (const char of alpha) {
+		options+= `<option value="${char}">${char}</option>`;
+	}
+	return `<select onchange="filterTitleBox(this)">${options}</select>`;
+}
+
 function listQListItems(el, listId){
 	if(listId){
 		var list = $(listId+" option");
 		var div = $(el);
 		div.empty();
 		var container = '<div style="width:90%;display: flex; flex-wrap: wrap;gap: 10px;">';
-		container += `<div style="width:100%; height:50px;">&nbsp;</div>`;
+		container += `<div style="height:20px;width:100%;padding:10px;text-align:center;vertical-align:middle">&nbsp;
+			<b>${getArabicAlphList()}&nbsp;Quranic examples&nbsp;</b>
+		</div>`;
 		list.each(function(index, element) {
 			var value = $(this).val();  // Get option value
 			var text = $(this).text();  // Get visible text
@@ -2043,7 +2080,7 @@ function listQListItems(el, listId){
 			if(text && text.trim() === 'ALL') return true; // Skip
 			
 			container += `
-			<div style="height: fit-content;width: 160px; padding:10px;cursor:pointer;border: 1px solid #ccc;border-radius: 5px;box-shadow: 2px 2px 5px rgba(0,0,0,0.1);"
+			<div class="TitleBox" style="height: fit-content;width: 160px; padding:10px;cursor:pointer;border: 1px solid #ccc;border-radius: 5px;box-shadow: 2px 2px 5px rgba(0,0,0,0.1);"
 				onclick="listExamplesFromQuran('${value}');">
 			${text}
 			</div>`;
@@ -2061,7 +2098,7 @@ function listListItems(el, listId, page, action){
 		var container = `
 		<div style="width:90%;display: flex; flex-wrap: wrap;gap: 10px;">
 		<div style="height:20px;width:100%;padding:10px;text-align:center;vertical-align:middle">
-			<b>${getActionTitle(action)}</b>
+			<b>${getArabicAlphList()}&nbsp;${getActionTitle(action)}&nbsp;</b>
 		</div>`;
 		var sortedList = [], lookupText={};
 		list.each(function(index, element) {
@@ -2077,7 +2114,7 @@ function listListItems(el, listId, page, action){
 			var txt = lookupText[text].val;
 			var pos = lookupText[text].pos;
 			container += `
-			<div style="height: fit-content;width: 160px; padding:10px;cursor:pointer;border: 1px solid #ccc;border-radius: 5px;box-shadow: 2px 2px 5px rgba(0,0,0,0.1);"
+			<div class="TitleBox" style="height: fit-content;width: 160px; padding:10px;cursor:pointer;border: 1px solid #ccc;border-radius: 5px;box-shadow: 2px 2px 5px rgba(0,0,0,0.1);"
 				onclick="if(parent) {
 						parent.redirect('${page}', '${action}', 'pos:${pos}');
 					}">

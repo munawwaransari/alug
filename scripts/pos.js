@@ -1078,7 +1078,7 @@ class posAPI {
 				}
 				var row = "";;
 				row = row + '<tr>';
-				row = row + `<td>${k!==arText ? arText.replace(k,`<em>${k}</em>`):arText}<br/>${enText}
+				row = row + `<td>${k!==arText ? arText.replace(k,`<em>${k}</em>`):arText}<br/><span style="direction:ltr;">${enText}</span>
 					${id==true?`
 					<br/><a href="#" style="font-size:11px" 
 					     onclick="openGoogleAISearch(
