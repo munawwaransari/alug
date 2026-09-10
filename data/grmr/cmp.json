@@ -844,6 +844,33 @@
     {
         "compareType":"lang",
         "topics":[
+            "الجذر والوزن (Root & Pattern)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "الجذر",
+            "الجذر الصحيح والجذر المعتل",
+            "الوزن"
+        ],
+        "en": [
+            "Definition",
+            "Type of Roots",
+            "Regular vs Weak Roots",
+            "The Pattern"
+        ],
+        "features":{
+            "الجذر والوزن (Root & Pattern)": [
+                "<p style=\"direction:ltr;\">Arabic is a non-concatenative (root-and-pattern) language. Instead of just adding prefixes or suffixes to a fixed word, Arabic creates new words by fitting a root into a specific morphological template or pattern (الوزن - al-Wazn).</p>",
+                "<p style=\"direction:ltr\">The Root (الجذر) is usually represented by the placeholders ف - ع - ل (F-ʿ-L), corresponding to the first, second, and third radical letters.<br/><br/>Types of Roots based on Letter Count:<br/><br/><b>Triliteral Roots (الجذر الثلاثي)</b>:<br/> Makes up roughly 99% of Arabic vocabulary.<br/>Examples:<br/>س-ل-م (peace/safety),<br/>ق-ر-أ (reading).<br/><br/><b>Quadriliteral Roots (الجذر الرباعي)</b>:<br/>Contains four fundamental consonants. They cannot be stripped down further without losing their core meaning.<br/>Examples:<br/>ت-ر-ج-م (translating → تَرْجَمَ),<br/>د-ح-ر-ج (rolling → دَحْرَجَ).<br/><br/><b>Quinquiliteral Roots (الجذر الخماسي)</b>:<br/>Extremely rare, restricted only to a few ancient nouns.<br/>Example:<br/>س-ف-ر-ج-ل (quince → سَفَرْجَل)</p>",
+                "<p style=\"direction:ltr\"><b>Sound/Strong Roots (الجذر الصحيح)</b>:<br/>Contain only regular, stable consonants (like ك-ت-ب). They follow predictable pattern rules perfectly.<br/><br/><b>Weak Roots (الجذر المعتل)</b>:<br/>Contain one or more vowels or glottal stops (و، ي، ا). These letters change, merge, or disappear depending on the pattern.<br/>Example:<br/> The root ق - و - ل (speaking) becomes قَالَ (Qāla - He said) in the past tense, hiding the middle و.</p>",
+                "<p style=\"direction:ltr\">A template of vowels and extra letters (like م، ت، ا، و، ي) wrapped around the root to determine the part of speech, tense, or specific nuance (e.g., location, tool, profession, or intensifier).<br/><br/>In Arabic lexicography, roots are abstract, but you cannot easily speak or write them without vowels. To solve this, Arab grammarians chose the Form 1, Past Tense, 3rd-Person Singular Masculine verb (فَعَلَ) as the standard way to represent the base word.<br/><br/>A single triliteral root doesn't just create one verb; it anchors an entire system of conjugations. From the root ش - ر - ب, you get a massive family of triliteral verbs:<br/>يَشْرَبُ (Yashrabu) — He drinks (Present tense)<br/>اِشْرَبْ (Ishrab) — Drink! (Command)<br/>شَرِبْتُ (Sharibtu) — I drank (Past tense with attached pronoun)</p>"
+            ]
+        }
+    },
+    {
+        "compareType":"lang",
+        "topics":[
             "الاعراب (Grammar Markers)"
         ],
         "notes": "",

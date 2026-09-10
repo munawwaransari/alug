@@ -222,50 +222,55 @@
         "action": "script",
         "data": "pos:3"
     },
-        "Grammar Markers;إعراب;": {
+    "Root and Pattern;الجذر;الوزن;": {
         "path": "dict.html",
         "action": "lang",
         "data": "pos:0"
+    },
+    "Grammar Markers;إعراب;": {
+        "path": "dict.html",
+        "action": "lang",
+        "data": "pos:1"
     },
     "Apparent Erab;الإعراب الظاهري;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:0"
+        "data": "pos:1"
     },
     "Estimated Erab;الإعراب المقدر;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:0"
+        "data": "pos:1"
     },
     "Erab by position;الإعراب المحلي;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:0"
+        "data": "pos:1"
     },
     "Grammar;النَّحْو;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:1"
+        "data": "pos:2"
     },
     "Noun Case;الإِعْرَاب لِلأَسْمَاءِ;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:1"
+        "data": "pos:2"
     },
     "Mood;الاشْتِقَاق;الإِعْرَاب لِلأَفْعَال": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:1"
+        "data": "pos:2"
     },
     "Morphology;الصرف;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:2"
+        "data": "pos:3"
     },
     "Rhetoric;البلاغة;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:3"
+        "data": "pos:4"
     },
     "Parts of Speech;أقسام الكلام": {
         "path": "dict.html",
