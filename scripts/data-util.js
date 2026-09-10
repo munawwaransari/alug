@@ -257,8 +257,8 @@ function filterTableRows(hideCol, table, column, searchText, options) {
     }
 }
 
-function filterTitleBox(sel){
-	var text = $(sel).val();
+function filterTitleBox(sel, val){
+	var text = val ?? $(sel).val();
 	if(text === " "){
 		$(".TitleBox").show();
 		return;
@@ -2061,7 +2061,8 @@ function getArabicAlphList(){
 	for (const char of alpha) {
 		options+= `<option value="${char}">${char}</option>`;
 	}
-	return `<select onchange="filterTitleBox(this)">${options}</select>`;
+	return `<sub style="top:-4px;position:relative;">Filter:</sub><select onchange="filterTitleBox(this)">${options}</select>
+	&nbsp;<button onclick="filterTitleBox(this), ' '">All</button>`;
 }
 
 function listQListItems(el, listId){
@@ -2070,8 +2071,8 @@ function listQListItems(el, listId){
 		var div = $(el);
 		div.empty();
 		var container = '<div style="width:90%;display: flex; flex-wrap: wrap;gap: 10px;">';
-		container += `<div style="height:20px;width:100%;padding:10px;text-align:center;vertical-align:middle">&nbsp;
-			<b>${getArabicAlphList()}&nbsp;Quranic examples&nbsp;</b>
+		container += `<div style="direction:ltr;height:20px;width:100%;padding:10px;text-align:center;vertical-align:middle">
+		<b>Quranic examples</b>&nbsp;${getArabicAlphList()}
 		</div>`;
 		list.each(function(index, element) {
 			var value = $(this).val();  // Get option value
@@ -2097,8 +2098,8 @@ function listListItems(el, listId, page, action){
 		div.empty();
 		var container = `
 		<div style="width:90%;display: flex; flex-wrap: wrap;gap: 10px;">
-		<div style="height:20px;width:100%;padding:10px;text-align:center;vertical-align:middle">
-			<b>${getArabicAlphList()}&nbsp;${getActionTitle(action)}&nbsp;</b>
+		<div style="direction:ltr;height:20px;width:100%;padding:10px;text-align:center;vertical-align:middle">
+			<b>${getActionTitle(action)}</b>&nbsp;${getArabicAlphList()}
 		</div>`;
 		var sortedList = [], lookupText={};
 		list.each(function(index, element) {
