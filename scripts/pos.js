@@ -1058,6 +1058,7 @@ class posAPI {
 			</table>`);
 		container.append(nTable);
 		
+		var k="";
 		for (const keyVal of res){
 			var id = false;
 			var text = keyVal;
@@ -1068,6 +1069,7 @@ class posAPI {
 			var keys =  text.split("|");	
 			var enText = keys[0];
 			var arText = keys[1];
+			if(id == true) k = arText;
 			if(text){							   
 				if(id == true){
 					if(filters.indexOf(text) === -1){
@@ -1076,7 +1078,7 @@ class posAPI {
 				}
 				var row = "";;
 				row = row + '<tr>';
-				row = row + `<td>${arText}<br/>${enText}
+				row = row + `<td>${k!==arText ? arText.replace(k,`<em>${k}</em>`):arText}<br/>${enText}
 					${id==true?`
 					<br/><a href="#" style="font-size:11px" 
 					     onclick="openGoogleAISearch(
