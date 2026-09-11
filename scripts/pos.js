@@ -1042,7 +1042,7 @@ class posAPI {
 			<table id="pTable" class="pTable">
 				<tr>
 					<th style="font-size: 22px;directoin:rtl;">
-						Prepositional Phrases
+						${getActionTitle(title)}
 					</th>
 				</tr>
 			</table>`);
