@@ -2175,6 +2175,8 @@ function getActionTitle(action){
 	action == 'adj'? 'Adjectives' : 
 	action == 'adv'? 'Adverbs' : 
 	action == 'prep'? 'Prepositions' : 
+	action == 'proverb-ph'? 'Proverbs' : 
+	action == 'tease-ph'? 'Teasers' : 
 	action == 'prep-ph'? 'Prepositional Phrases' : 
 	action == 'imp-verb'? 'Imperatives' : 
 	action == 'weak-verb'? 'Weak Verbs' :

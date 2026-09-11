@@ -141,10 +141,10 @@ function showParticleTable() {
 	posAPIObj.addParticleInfoHtml($(".dictionary"), pTable);
 }
 
-function showPrepPhrasesTable() {
+function showPrepPhrasesTable(title) {
 	ensureDataLoaded({name: 'phrases'})
 	.then((data) => {
-		posAPIObj.addPrepPhrasesInfoHtml($(".dictionary"), data["prepphrases"]);
+		posAPIObj.addPrepPhrasesInfoHtml($(".dictionary"), data[title], title);
 	});
 }
 

@@ -19,6 +19,22 @@
         "ar": "القرآن",
         "default": "فهرِس"
     },
+    "prep-ph": {
+        "en": "Prepositional Phrases",
+        "ar": "العبارات",
+        "default": "فهرِس"
+    },
+    "proverb-ph": {
+        "en": "Proverbs",
+        "ar": "الأمثال",
+        "default": "فهرِس"
+    },
+    "tease-ph": {
+        "en": "Teasers",
+        "ar": "إعلانات تشويقية",
+        "default": "فهرِس"
+    },
+
     "cmp": {
         "en": "Comparisons",
         "ar": "مقارنة الحروف",
@@ -32,11 +48,6 @@
     "prep": {
         "en": "Prepositions",
         "ar": "حروف",
-        "default": "حروف"
-    },
-    "prep-ph": {
-        "en": "Prepositional Phrases",
-        "ar": "العبارات",
         "default": "حروف"
     },
 

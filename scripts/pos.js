@@ -1034,7 +1034,7 @@ class posAPI {
 		return res;
 	}
 
-	addPrepPhrasesInfoHtml(container, res){
+	addPrepPhrasesInfoHtml(container, res, title){
 		var api = this;
 		container.empty();
 		var filters = [];
@@ -1088,12 +1088,18 @@ class posAPI {
 						${
 							filters.map((n) => {
 								var keys =  n.split("|");	
-								return `<option value="${keys[1]}"><b>${keys[1]} - ${keys[0]}</b></option>`
+								var tt = `${keys[1]} - ${keys[0]}`
+								if(tt.length > 50){
+									tt = tt.slice(0, 50)+"...";
+								}else{
+									tt =  `${keys[1]} - ${keys[0]}`;
+								}
+								return `<option value="${keys[1]}"><b>${tt}</b></option>`
 							})
 						}
 				</select>
 			`;
-			container.prepend($(getListButtinWithSelect(sel, 'nFilter', 'prep-ph')));
+			container.prepend($(getListButtinWithSelect(sel, 'nFilter', title)));
 			$('.nFilterBtn').css('width', $('.nFilter').css('width'));
 		}
 	}

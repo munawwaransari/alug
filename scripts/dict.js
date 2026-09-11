@@ -280,8 +280,10 @@ function handleDictActions(el, a, d) {
 			});
 			break;
 
+		case 'tease-ph':
+		case 'proverb-ph':
 		case 'prep-ph':
-			showPrepPhrasesTable();
+			showPrepPhrasesTable(action);
 			if (data && data != '@Key') {
 				if (data.startsWith("pos:")) {
 					var index = parseInt(data.substring(4));

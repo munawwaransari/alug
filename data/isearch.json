@@ -117,6 +117,16 @@
         "action": "prep-ph",
         "data": "@Key"
     },
+    "Proverbs;الأمثال": {
+        "path": "dict.html",
+        "action": "proverb-ph",
+        "data": "@Key"
+    },
+    "Teasers;إعلانات تشويقية": {
+        "path": "dict.html",
+        "action": "tease-ph",
+        "data": "@Key"
+    },
     "حرف الجر - Preposition;Jar;جر;": {
         "path": "dict.html",
         "action": "prep",

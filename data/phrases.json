@@ -1,5 +1,5 @@
 {
-    "prepphrases": [
+    "prep-ph": [
         "K|to|ان",
         "K|on/at|على",
         "to be|ان يكون",
@@ -237,5 +237,25 @@
         "K|I think that|أعتقد أن",
         "I think this book is very useful|أعتقد أن هذا الكتاب مفيد جداً",
         "I think the food is ready|أعتقد أن الطعام جاهز"
+    ],
+
+    "proverb-ph":[
+        "K|If speech is of silver, then silence is of gold|إذا كان الكلام من فضة فالسكوت من ذهب",
+        "K|A believer is not bitten from the same snake hole twice|لا يلدغ المؤمن من جحر مرتين",
+        "K|The winds blow contrary to the ships' desires|تجري الرياح بما لا تشتهي السفن",
+        "K|The winds blow contrary to what the ships wish for|اعرف جارك قبل دارك|Know your neighbor before you know your house.",
+        "K|The rope of a lie is short|حبل الكذب قصير",
+        "K|He who strives finds, and he who sows harvests|من جد وجد ومن زرع حصد",
+        "K|A wise enemy is better than a foolish friend|عدو عاقل خير من صديق جاهل",
+        "K|The sea is salty, and people are driven by self-interest; to your face, they act like the downtrodden, but behind your back, they wield knives|البحر مالح والناس مصالح بوجهك مساكين وبظهرك سكاكين"
+    ],
+
+    "tease-ph":[
+        "K|?What is the thing that decreases the more it increases|ما هو الشيء الذي كلما زاد نقص؟|Age (or time)",
+        "K|It walks and stops but has no legs, and it crosses the sea without|يمشي ويقف وليس له أرجل، ويعبر البحر ولا يبتل|The clouds (or a shadow)",
+        "K|?It speaks all the languages of the world, what is it|يتحدث جميع لغات العالم فما هو؟|An echo",
+        "K|?A white land with black seeds, guarded by thoughts. What is it|أرض بيضاء زرعها أسود وحارسها يدعى الفكر؟| A book (or writing on paper)",
+        "K|?What is something you put your hand into, but you cannot see it|ما هو الشيء الذي يدخل يدك فيه، ولكن لا يمكنك رؤيته؟|Your pocket",
+        "K|?What is the thing that solidifies when you boil it|ما هو الشيء الذي إذا غليته جمد؟|An egg"
     ]
 }
