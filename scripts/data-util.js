@@ -1567,6 +1567,9 @@ function init_data_cache(){
 		},
 		"the-five":{
 			path: "data/grmr/thefive.json"
+		},
+		'phrases':{
+			path: "data/phrases.json"
 		}
 	}
 }

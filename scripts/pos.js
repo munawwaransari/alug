@@ -1034,16 +1034,6 @@ class posAPI {
 		return res;
 	}
 
-	getPerpPhraseInfo(){
-		var res = [];
-		for (const keyVal of Object.entries(posAPI.posRules)){
-			if(keyVal[0] === "PrepPhrases"){
-				res = keyVal[1]["phrases"];
-			}
-		}
-		return res;
-	}
-
 	addPrepPhrasesInfoHtml(container, res){
 		var api = this;
 		container.empty();

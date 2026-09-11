@@ -142,8 +142,10 @@ function showParticleTable() {
 }
 
 function showPrepPhrasesTable() {
-	var pTable = posAPIObj.getPerpPhraseInfo();
-	posAPIObj.addPrepPhrasesInfoHtml($(".dictionary"), pTable);
+	ensureDataLoaded({name: 'phrases'})
+	.then((data) => {
+		posAPIObj.addPrepPhrasesInfoHtml($(".dictionary"), data["prepphrases"]);
+	});
 }
 
 function showNounTable(k, v1, v2) {
