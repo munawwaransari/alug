@@ -472,13 +472,21 @@ function handleCompareCheck() {
 }
 
 function handleFilterAction(val, action){
-	if (action !== ''){
+	if (action === 'learning'){
+		// Add order
+		$('div[data_order]').css('order', function() {
+			return $(this).attr('data_order'); 
+		});
+	}
+	else if(action !== ''){
 		handleFilterIndex(val);
 		$("div[data_action]:not([data_action*='"+action+"'])").hide();
+		$('div[data_order]').css('order','');//remove order
 	}
 	else{
 		$("div[data_action]").show();
 		handleFilterIndex(val);
+		$('div[data_order]').css('order','');//remove order
 	}
 }
 
@@ -894,7 +902,7 @@ function listSearchIndex(indexKey='') {
 			}, {});
 
 		// Add Alphabetic index
-		var iDiv = "<div style='text-align:left;padding:4px;'>";
+		var iDiv = "<div style='direction:ltr;text-align:left;padding:4px;'>";
 		$.each([" عABCDEFGHIJKLMNOPQRSTUVWXYZ"],
 			function (index, value) {
 				iDiv += '<select style="width:40;" onchange="handleFilterIndex($(this).val())" >';
@@ -905,6 +913,7 @@ function listSearchIndex(indexKey='') {
 				iDiv += `
 				Topic: <select style="width:40;" onchange="handleFilterAction($(this).prev().val(), $(this).val());">
 					<option value="">All</option>
+					<option value="learning">Learning</option>
 					<option value="cmp">Comparison</option>
 					<option value="script">Script</option>
 					<option value="lang">Language</option>
@@ -920,9 +929,14 @@ function listSearchIndex(indexKey='') {
 					<option value="Chart">Charts</option>
 				</select>`;
 			});
-
-		var div = $("<div style='direction:ltr;width:100%;height=100%;'></div>");
-		div.append($(iDiv));
+		$(".dictionary").append($(iDiv));
+ 
+		var div = $(`<div style="display:grid;
+			                     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+								 gap: 4px;
+								 direction:ltr;
+								 width:100%;
+								 height=100%;"></div>`);
 		$.each(enSortedData, function (key, value) {
 			div.append(getIndexEntry(null, key, value, 'id', 
 				'cursor:pointer;margin:0;padding:0;padding-left:10px;padding-top:14px;width:220px;display:inline-block;float:left;'));
@@ -960,7 +974,9 @@ function getIndexEntry(keys, key, value, id, style){
 	}`;
 	var icon = getIndexEntryIcon(value.path, value.action);
 	return `
-		<div id="${id}_${key[0]}" data_action="${value.action}"
+		<div id="${id}_${key[0]}" 
+		    data_action="${value.action}"
+			data_order=${value.order}
 			style="${style}">
 			${icon}<a href="#" onclick="${link}">${key}</a>
 		</div>
