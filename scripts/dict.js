@@ -418,7 +418,7 @@ function handleDictActions(el, a, d) {
 			if (data && data.startsWith("pos:")) {
 				pos = parseInt(data.substring(4));
 			}
-			showImperativeTable(null, pos);
+			showImperativeTable(pos);
 			break;
 
 		case 'inad-verb':
@@ -426,7 +426,7 @@ function handleDictActions(el, a, d) {
 			if (data && data.startsWith("pos:")) {
 				pos = parseInt(data.substring(4));
 			}
-			showInadequateVerbTable(null, pos);
+			showInadequateVerbTable(pos);
 			break;
 
 		case 'weak-verb':
@@ -434,7 +434,7 @@ function handleDictActions(el, a, d) {
 			if (data && data.startsWith("pos:")) {
 				pos = parseInt(data.substring(4));
 			}
-			showWeakVerbTable(null, pos);
+			showWeakVerbTable(pos);
 			break;
 
 		case 'q-examples':
@@ -724,6 +724,17 @@ function loadExamplesFromData(dict, qselect, data, prefix) {
 	}
 }
 
+function extractExamples(d){
+	if(d){ //return data when inline call
+		return Object.assign({}, ...$.map(d, function(value, key) {
+			var obj = {};
+			obj[key] = value.examples;
+			return obj;
+		}));
+	}
+	return d;
+}
+
 function listExamplesFromQuran(selText) {
 	var dict = $(".dictionary");
 	dict.empty();
@@ -779,10 +790,13 @@ function listExamplesFromQuran(selText) {
 		.then((data) => {
 			loadExamplesFromDefinitions(dict, qselect, data);
 		});
-	loadExamplesFromData(dict, qselect, showImperativeTable(1), "Imperative - Form");
-	loadExamplesFromData(dict, qselect, showWeakVerbTable(1), "Weak Verbs");
-	loadExamplesFromData(dict, qselect, showInadequateVerbTable(1), "Inadequate Verbs");
-	loadExamplesFromData(dict, qselect, get_ce_examples());
+	ensureDataLoaded({ name: "ex-data" })
+	.then((data)=>{
+		loadExamplesFromData(dict, qselect, data["imperative"], "Imperative - Form");
+		loadExamplesFromData(dict, qselect, extractExamples(data["weak-verb"]), "Weak Verbs");
+		loadExamplesFromData(dict, qselect, extractExamples(data["inad-verb"]), "Inadequate Verbs");
+		loadExamplesFromData(dict, qselect, data["objects"]);
+	});
 	if (posAPIObj)
 		loadExamplesFromData(dict, qselect, posAPIObj.getMetonymies(1));
 
@@ -1041,46 +1055,6 @@ function OpenInChatGPT() {
 			break;
 	}
 	parent ? parent.window.open(url + prompt, '_blank') : window.open(url + prompt, '_blank');
-}
-
-function get_ce_examples() {
-	return {
-		"Causal Object": [
-			"قُل لَّوۡ أَنتُمۡ تَمۡلِكُونَ خَزَآئِنَ رَحۡمَةِ رَبِّيٓ إِذٗا لَّأَمۡسَكۡتُمۡ <b>خَشۡيَةَ</b> ٱلۡإِنفَاقِۚ [17:100]",
-			"وَعَلَّمۡنَٰهُ صَنۡعَةَ لَبُوسٖ لَّكُمۡ <b>لِتُحۡصِنَكُم</b> مِّنۢ بَأۡسِكُمۡۖ [21:80]",
-			"وَكَذَٰلِكَ بَعَثۡنَٰهُمۡ <b>لِيَتَسَآءَلُواْ</b> بَيۡنَهُمۡۚ [18:19]"
-		],
-		"Comitative Object": [
-			"فَأَجۡمِعُوٓاْ أَمۡرَكُمۡ وَ<b>شُرَكَآءَكُمۡ</b> [10:71]"
-		],
-		"Adverbial Object": [
-			"خَٰلِدِينَ فِيهَآ <b>أَبَدًاۚ</b> [9:22]",
-			"وَٱذۡكُرِ ٱسۡمَ رَبِّكَ <b>بُكۡرَةٗ</b> وَ<b>أَصِيلٗا</b> ٢٥ [76:25]",
-			"وَأَقِمِ  ٱلصَّلَوٰةَ <b>طَرَفَيِ</b> ٱلنَّهَارِ وَ<b>زُلَفٗا</b> مِّنَ ٱلَّيۡلِۚ [11:114]"
-
-		],
-		"Direct Object": [
-			"كَذَٰلِكَ يَضۡرِبُ ٱللَّهُ <b>ٱلۡأَمۡثَالَ</b> ١٧[13:17]",
-			"لَّقَدۡ أَنزَلۡنَآ <b>ءَايَٰتٖ مُّبَيِّنَٰتٖۚ</b> [24:46]",
-			"وَٱذۡكُرۡ <b>إِسۡمَٰعِيلَ وَٱلۡيَسَعَ وَذَاٱلۡكِفۡلِ</b>ۖ [38:48]"
-		],
-		"Absolute Effect": [
-			"وَتُحِبُّونَ ٱلۡمَالَ <b>حُبّٗا جَمّٗا</b> ٢٠ [89:20]",
-			"كـَلَّآۖ إِذَا دُكَّتِ ٱلۡأَرۡضُ <b>دَكّٗا دَكّٗا</b> ٢١ [89:21]",
-			"وَجَآءَ رَبُّكَ وَٱلۡمَلَكُ <b>صَفّٗا صَفّٗا</b> ٢٢ [89:22]",
-			"وَسِعَ رَبِّي كُلَّ شَيۡءٍ <b>عِلۡمًاۚ</b> [6:80]"
-		],
-		"Circumstantial": [
-			"فَلَمَّا رَءَا ٱلۡقَمَرَ <b>بَازِغٗا</b> قَالَ هَٰذَا رَبِّيۖ  [6:77]",
-			"فَخَرَجَ مِنۡهَا <b>خَآئِفٗا</b> يَتَرَقَّبُۖ [28:21]",
-			"إِن جَعَلَ ٱللَّهُ عَلَيۡكُمُ ٱلَّيۡلَ <b>سَرۡمَدًا</b> إِلَىٰ يَوۡمِ ٱلۡقِيَٰمَةِ [28:71]"
-		],
-		"Disambiguitive": [
-			"فَسَوَّاهُنَّ سَبْعَ سَمَاوَاتٍ [2:29]",
-			"وَالَّذِينَ آمَنُوا أَشَدُّ حُبًّا لِّلَّهِ [2:165]",
-			"إِنِّي رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًا [12:4]"
-		]
-	};
 }
 
 function loadComparision() {

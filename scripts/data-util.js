@@ -1570,6 +1570,9 @@ function init_data_cache(){
 		},
 		'phrases':{
 			path: "data/phrases.json"
+		},
+		'ex-data':{
+			path: 'data/ex.json'
 		}
 	}
 }
