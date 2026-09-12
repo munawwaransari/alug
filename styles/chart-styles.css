@@ -1,0 +1,65 @@
+.chart {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    direction: rtl;
+}
+
+.chartTile {
+    width: 180px;
+    height: auto;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.chartTile:hover {
+    box-shadow: 0 4px 8px 0 #6D7E55;
+}
+
+.image-preview {
+    display: block;
+    /* Enables flexbox */
+    justify-content: center;
+    /* Centers horizontally */
+    align-items: center;
+    /* Centers vertically */
+    z-index: 1;
+    border: 4px solid blueviolet;
+    background-color: aliceblue;
+    width: 90%;
+    margin-left: 1%;
+    position: absolute;
+}
+
+.image-preview .image-prev:hover,
+.image-preview .image-next:hover {
+    color: white;
+    font-weight: bolder;
+
+}
+
+.ioverlay-bottom {
+    position: absolute;
+    background-color: white;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    width: 80%;
+    height: 56px;
+    margin-bottom: 14px;
+    z-Index: 1;
+    bottom: 0;
+}
+
+.ioverlay-top {
+    position: absolute;
+    background-color: white;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    width: 80%;
+    height: 56px;
+    margin-bottom: 14px;
+    z-Index: 1;
+    top: 100px;
+}
