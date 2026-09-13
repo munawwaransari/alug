@@ -304,7 +304,6 @@ function handleDictActions(el, a, d) {
 			break;
 
 		case 'verb':
-		case 'vtab-all': 
 			var pos = 0;
 			var data2 = data.split(" ");
 			if (data2[0].startsWith("pos:")) {
@@ -316,10 +315,10 @@ function handleDictActions(el, a, d) {
 			else showAllVerbTables(pos); 
 			break;
 
-		case 'vtab-3': showTriliteralVerbTable(); break;
-		case 'vtab-inad': showInadequateVerbTable(); break;
-		case 'vtab-weak': showWeakVerbTable(); break;
-		case 'vtab-imp': showImperativeTable(); break;
+		case 'verb-3': showTriliteralVerbTable(); break;
+		case 'verb-inad': showInadequateVerbTable(); break;
+		case 'verb-weak': showWeakVerbTable(); break;
+		case 'verb-imp': showImperativeTable(); break;
 		case 'verb-type':
 			setTimeout(function () {
 				showObjectEffects('verb-type');
@@ -936,6 +935,7 @@ function listSearchIndex(indexKey='', topic) {
 					<option value="noun-cmp">Noun Comparison</option>
 					<option value="noun-pat">Noun Patternns</option>
 					<option value="masdar">Verbal Noun</option>
+					<option value="verb">Verb</option>
 					<option value="adj">Adjective</option>
 					<option value="adv">Adverb</option>
 					<option value="pronoun">Pronoun</option>

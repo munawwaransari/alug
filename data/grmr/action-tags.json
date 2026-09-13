@@ -81,12 +81,6 @@
         "ar": "الضمائر",
         "default": "الأسماء"
     },
-
-    "verb": {
-        "en": "Verb Comparisons",
-        "ar": "مقارنة",
-        "default": "الأفعال"
-    },
     "verb-cmp": {
         "en": "Verb Comparisons",
         "ar": "مقارنة الأفعال",
@@ -97,12 +91,12 @@
         "ar": "أنواع الأفعال",
         "default": "الأفعال"
     },
-    "vtab-all": {   
+    "verb": {   
         "en": "Verb Tables",
         "ar": "أبواب الأفعال",
         "default": "أفعال"
     },
-    "vtab-3": {
+    "verb-3": {
         "en": "Triliteral Verb Table",
         "ar": "ثلاثي مُجرّد",
         "default": "الأفعال"
@@ -112,17 +106,17 @@
         "ar": "الأفعال الخمسة",
         "default": "الأفعال"
     },
-    "vtab-inad": {
+    "verb-inad": {
         "en": "Inadequate Verb Table",
         "ar": "افعال النَّاقِصة",
         "default": "الأفعال"
     },
-    "vtab-weak": {
+    "verb-weak": {
         "en": "Weak Verb Table",
         "ar": "افعال المُعتِلَة",
         "default": "الأفعال"
     },
-    "vtab-imp": {
+    "verb-imp": {
         "en": "Imperative Verb Table",
         "ar": "الأمر والنهى",
         "default": "الأفعال"

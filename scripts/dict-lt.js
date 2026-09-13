@@ -116,7 +116,7 @@ function showAllVerbTables(ii, bk){
 					filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
 				}
 				</select>
-			`, 'nFilter', 'vtab-all')));
+			`, 'nFilter', 'verb')));
 			$('.nFilterBtn').css('width', $('.nFilter').css('width'));
 		}
 		if(ii){

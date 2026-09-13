@@ -177,7 +177,7 @@
                 "سَأَذْهَبُ/سَوفَ أَذْهَبُ (I will go)<br/><br/>سَنُرِيهِمۡ ءَايَٰتِنَا فِي ٱلۡأٓفَاقِ وَفِيٓ أَنفُسِهِمۡ [41:53]<br/><br/>ثُمَّ كـَلَّا سَوۡفَ تَعۡلَمُونَ ٤ [102:4]"
             ],
             "سينُ الطلب": [
-                "The letter is seen often within the combination ista استفعل<br/> It changes the meaning to \"seeking\", \"asking for\", or \"deeming\" something to be a certain way<br/>See <a href=\"#\" onclick=\"if (parent.redirect) parent.redirect('dict.html','vtab-all')\">Verbs</a>",
+                "The letter is seen often within the combination ista استفعل<br/> It changes the meaning to \"seeking\", \"asking for\", or \"deeming\" something to be a certain way<br/>See <a href=\"#\" onclick=\"if (parent.redirect) parent.redirect('dict.html','verb')\">Verbs</a>",
                 "مَثَلُهُمۡ كَمَثَلِ ٱلَّذِي ٱسۡتَوۡقَدَ نَارٗا [2:17]<br/><br/> وَإِذِ ٱسۡتَسۡقَىٰ مُوسَىٰ لِقَوۡمِهِۦ [2:60]<br/><br/>فَٱسۡتَغۡفَرُواْ ٱللَّهَ [4:64]"
             ]
         },
@@ -865,11 +865,11 @@
             ]
         },
         "features_links":{
-            "Verb Form I": "'dict.html','vtab-3','pos:0'",
+            "Verb Form I": "'dict.html','verb-3','pos:0'",
             "Verb types": "'dict.html','verb-type','pos:0'",
-            "Weak verbs": "'dict.html','vtab-weak','pos:0'",
-            "Verb forms": "'dict.html','vtab-all','pos:0'",
-            "Imperatives": "'dict.html','vtab-imp','pos:0'",
+            "Weak verbs": "'dict.html','verb-weak','pos:0'",
+            "Verb forms": "'dict.html','verb','pos:0'",
+            "Imperatives": "'dict.html','verb-imp','pos:0'",
             "Five verbs": "'dict.html','five-pat','pos:0'",
             "Noun patterns": "'dict.html','noun-pat','pos:0'",
             "Five nouns": "'dict.html','five-nouns','pos:0'"
@@ -903,7 +903,7 @@
             ]
         },
         "features_links":{
-            "Verbs (الأَفْعَال)":"'dict.html','vtab-all','pos:0'", 
+            "Verbs (الأَفْعَال)":"'dict.html','verb','pos:0'", 
             "Prepositions (حُرُوفُ الجَرّ)":"'dict.html','prep','pos:0'",
             "Accusative Particles (إِنَّ وَأَخَوَاتُهَا)":"'dict.html','prep','pos:3'",
             "Jussive Tools (أَدَوَاتُ الجَزْم)": "'dict.html','prep','pos:2'",
@@ -978,9 +978,9 @@
         },
         "features_links": {
             "Noun Patterns": "'dict.html','noun-pat','pos:0'",
-            "Trilateral Verbs": "'dict.html','vtab-all','pos:1'",
-            "Qaudrilateral Verbs": "'dict.html','vtab-all','pos:2'",
-            "Extended Verbs": "'dict.html','vtab-all','pos:3'",
+            "Trilateral Verbs": "'dict.html','verb','pos:1'",
+            "Qaudrilateral Verbs": "'dict.html','verb','pos:2'",
+            "Extended Verbs": "'dict.html','verb','pos:3'",
             "Noun of place": "'dict.html','noun-pat','pos:3'",
             "Comparative Noun": "'dict.html','noun-pat','pos:4'",
             "Diminutive": "'dict.html','noun-pat','pos:5'",
@@ -1094,10 +1094,10 @@
             "Adjectives": "'dict.html','adj','pos:0'",
             "Adverbs": "'dict.html','adv','pos:0'",
             "Verb Types": "'dict.html','verb-type','pos:0'",
-            "Verb Forms": "'dict.html','vtab-all','pos:0'",
-            "Imperatives": "'dict.html','vtab-imp','pos:0'",
-            "Weak Verbs": "'dict.html','vtab-weak','pos:0'",
-            "Inadequate Verbs": "'dict.html','vtab-inad','pos:0'",
+            "Verb Forms": "'dict.html','verb','pos:0'",
+            "Imperatives": "'dict.html','verb-imp','pos:0'",
+            "Weak Verbs": "'dict.html','verb-weak','pos:0'",
+            "Inadequate Verbs": "'dict.html','verb-inad','pos:0'",
             "Harf Types": "'dict.html','cmp','pos:0'",
             "حروفُ مَشبة بِالفعل": "'dict.html','prep','pos:3'",
             "Prepositions": "'dict.html','prep','pos:0'",
@@ -1725,7 +1725,7 @@
             "جمع التكسير": "'dict.html','noun-pat'",
             "اسماء الخمسة": "'dict.html','five-nouns'",
             "الماضي": "'dict.html','verb-type','pos:1'",
-            "الأمر": "'dict.html','vtab-imp'",
+            "الأمر": "'dict.html','verb-imp'",
             "الحروف":"'dict.html','prep','all'",
             "الأسماء الموصولة": "'dict.html','pronoun','Relative Pronouns'",
             "ضمائر المنفصلة": "'dict.html','pronoun','Subjective Pronouns'",
@@ -1814,7 +1814,7 @@
             "جمع التكسير": "'dict.html','noun-pat'",
             "اسماء الخمسة": "'dict.html','five-nouns'",
             "الماضي": "'dict.html','verb-type','pos:1'",
-            "الأمر": "'dict.html','vtab-imp'",
+            "الأمر": "'dict.html','verb-imp'",
             "الحروف":"'dict.html','prep','all'",
             "الأسماء الموصولة": "'dict.html','pronoun','Relative Pronouns'",
             "ضمائر المنفصلة": "'dict.html','pronoun','Subjective Pronouns'",

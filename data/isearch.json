@@ -221,7 +221,7 @@
     },
     "Quadrilateral Verbs;ابواب الفعل الرباعي": {
         "path": "dict.html",
-        "action": "vtab-all",
+        "action": "verb",
         "data": "pos:2",
         "order": 38
     },
@@ -257,7 +257,7 @@
     },
     "All verbs;forms": {
         "path": "dict.html",
-        "action": "vtab-all",
+        "action": "verb",
         "order": 44
     },
     "Associative;Form III;تَرَابُطِيّ": {
@@ -274,7 +274,7 @@
     },
     "Extended Verbs;Form XI;Form XII;Form XIII;Form XIV;Form XV": {
         "path": "dict.html",
-        "action": "vtab-all",
+        "action": "verb",
         "data": "pos:3%20formXI",
         "order": 47
     },
@@ -286,12 +286,12 @@
     },
     "Imperative;أمر;نهي;": {
         "path": "dict.html",
-        "action": "vtab-imp",
+        "action": "verb-imp",
         "order": 49
     },
     "Inadequate verbs;توقيت;Timing;تحويل;Transition;نفي;Negation;استمرار;Continuation;": {
         "path": "dict.html",
-        "action": "vtab-inad",
+        "action": "verb-inad",
         "order": 50
     },
     "Jussive Markers;جوازم الفعل": {
@@ -308,13 +308,13 @@
     },
     "Trilateral Verbs;Form I;Form II;Form III;Form IV;Form V;Form VI;Form VII;Form VIII;Form IX;Form X;ابواب الفعل المزيد": {
         "path": "dict.html",
-        "action": "vtab-all",
+        "action": "verb",
         "data": "pos:1",
         "order": 53
     },
     "Trilateral verbs;ثلاثي مجرد": {
         "path": "dict.html",
-        "action": "vtab-3",
+        "action": "verb-3",
         "order": 54
     },
     "Verb Type by definitiveness of the action;Intransitive;Transitiveاللزوم والتعدي;الفعل اللازم;الفعل المتعدي": {
@@ -325,7 +325,7 @@
     },
     "Weak Verbs;مِثال;أَجوَف;نَاقِص;لَفِيف;مَهمُوز;": {
         "path": "dict.html",
-        "action": "vtab-weak",
+        "action": "verb-weak",
         "order": 56
     },
     "حروف مشبة بالفعل (كانَ)": {
@@ -702,7 +702,7 @@
     },
     "Anticausative;Passive;Form VII;": {
         "path": "dict.html",
-        "action": "vtab-all",
+        "action": "verb",
         "data": "pos:1%20formVII",
         "order": 119
     },

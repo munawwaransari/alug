@@ -2168,7 +2168,7 @@ function getActionTitle(action){
 	action == 'lang' ? 'Language':
 	action == 'script' ? 'Script':
 	action == 'grammar' ? 'Grammar':
-	action == 'vtab-all' ? 'Verbs':
+	action == 'verb' ? 'Verbs':
 	action == 'verb-type' ? 'Verb Types':
 	action == 'obj-effect' ? 'Object Effects':				 
 	action == 'cmp'? 'Particles' : 
