@@ -88,7 +88,7 @@ async function getSuggesstions(txt, callback) {
 	});
 }
 
-function showAllVerbTables(ii){
+function showAllVerbTables(ii, bk){
 
 	ensureDataLoaded({name: "verb-examples"})
 	.then((data) => {
@@ -122,6 +122,10 @@ function showAllVerbTables(ii){
 		if(ii){
 			$('.nFilter').prop('selectedIndex', ii);
 			filterMTableRows('vTable', ii, $('.nFilter').val());
+		}
+		if(bk){
+			var bkElem=$(`a[href='#${bk}']`);
+			if(bkElem.length > 0) bkElem[0].click();
 		}
 	});
 }

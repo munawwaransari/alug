@@ -54,7 +54,6 @@
 					<b>النحو</b>
 				</button>
 				<div class="dropdown-content">
-					<a href="#" action_tag="defs" onclick="handleDictParams(this, 'defs');"><sub>تعريفات</sub></a>
 				    <a href="#" action_tag="script" onclick="handleDictParams(this, 'script','pos:0');"><sub>Script</sub></a>
 				    <a href="#" action_tag="lang" onclick="handleDictParams(this, 'lang','pos:0');"><sub>Language</sub></a>
 				    <a href="#" action_tag="grammar" onclick="handleDictParams(this, 'grammar','pos:0');"><sub>Grammar</sub></a>
@@ -102,8 +101,9 @@
 			  <button default_tag="list-search" class="dropbtn active" onclick="toggleDropdownContent(this, true)">فِهرِس</button>
 			  <div class="dropdown-content">
 				<a href="#" action_tag="list-search" onclick="handleDictParams(this, 'list-search');"><sub>Index</sub></a>
+				<a href="#" action_tag="defs" onclick="handleDictParams(this, 'defs');"><sub>Terminology</sub></a>
 				<a href="#" action_tag="q-examples" onclick="handleDictParams(this, 'q-examples');">
-					<span style="font-size: 12px; margin-top:-4px;"><sub>Examples (Quran)</sub></span>
+					<span style="font-size: 14px; margin-top:-4px;"><sub>Examples (Quran)</sub></span>
 				</a>
 				<a href="#" action_tag="prep-ph" onclick="handleDictParams(this, 'prep-ph');"><sub>Prep. Phrases</sub></a>
 				<a href="#" action_tag="proverb-ph" onclick="handleDictParams(this, 'proverb-ph');"><sub>Proverbs</sub></a>

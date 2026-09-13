@@ -263,19 +263,19 @@
     "Associative;Form III;تَرَابُطِيّ": {
         "path": "dict.html",
         "action": "verb",
-        "data": "pos:2",
+        "data": "pos:2%20formIII",
         "order": 45
     },
     "Causative;Intensive;Form II;Form IV;Form VIII;السببية": {
         "path": "dict.html",
         "action": "verb",
-        "data": "pos:1",
+        "data": "pos:1%20formIV",
         "order": 46
     },
     "Extended Verbs;Form XI;Form XII;Form XIII;Form XIV;Form XV": {
         "path": "dict.html",
         "action": "vtab-all",
-        "data": "pos:3",
+        "data": "pos:3%20formXI",
         "order": 47
     },
     "Imperative (Charts);Cards;Vocabulary;أمر;نهي;": {
@@ -702,8 +702,8 @@
     },
     "Anticausative;Passive;Form VII;": {
         "path": "dict.html",
-        "action": "verb",
-        "data": "pos:6",
+        "action": "vtab-all",
+        "data": "pos:1%20formVII",
         "order": 119
     },
     "Antonyms (Cards);Vocabulary;متضادات;متضاد;": {
@@ -763,7 +763,7 @@
     "Considerative;Requestive;Form X;": {
         "path": "dict.html",
         "action": "verb",
-        "data": "pos:9",
+        "data": "pos:9%20formX",
         "order": 129
     },
     "Declinable Noun Endings;الصحيح;المنقوص;المقصور;الممدود;مُعرب": {
@@ -924,13 +924,13 @@
     "Reciprocal;Form VI;": {
         "path": "dict.html",
         "action": "verb",
-        "data": "pos:5",
+        "data": "pos:5%20formVI",
         "order": 156
     },
     "Reflexive;Form V;Form VIII;مُطَاوِع": {
         "path": "dict.html",
         "action": "verb",
-        "data": "pos:4",
+        "data": "pos:4%20formV",
         "order": 157
     },
     "Relative Adjective;النسبة": {

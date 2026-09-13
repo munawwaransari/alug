@@ -303,13 +303,19 @@ function handleDictActions(el, a, d) {
 			}
 			break;
 
+		case 'verb':
 		case 'vtab-all': 
 			var pos = 0;
-			if (data && data.startsWith("pos:")) {
-				pos = parseInt(data.substring(4));
-			}			
-			showAllVerbTables(pos); 
+			var data2 = data.split(" ");
+			if (data2[0].startsWith("pos:")) {
+				var index = parseInt(data2[0].substring(4));
+				setTimeout(function () {
+					showAllVerbTables(pos, data2[1]);
+				}, 150);
+			}
+			else showAllVerbTables(pos); 
 			break;
+
 		case 'vtab-3': showTriliteralVerbTable(); break;
 		case 'vtab-inad': showInadequateVerbTable(); break;
 		case 'vtab-weak': showWeakVerbTable(); break;
