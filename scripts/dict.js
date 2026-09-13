@@ -442,14 +442,11 @@ function handleDictActions(el, a, d) {
 			toggleDropdownContent($(this).parent().prev());
 			break;
 
-		case 'list-search-2':
 		case 'list-search':
 		default:
 			var st = parent.getStatesFromKey('lastIndexSearch');
 			if(st && (st.id || st.topic))
 				listSearchIndex(st.id, st.topic);	
-			else if(action == 'list-search-2')
-				listSearchIndex('ع');
 			else
 				listSearchIndex('');
 			break;
