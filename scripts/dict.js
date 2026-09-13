@@ -445,11 +445,13 @@ function handleDictActions(el, a, d) {
 		case 'list-search-2':
 		case 'list-search':
 		default:
-			if(data){
-				listSearchIndex(data);	
-			}else{
-				listSearchIndex();
-			}
+			var st = parent.getStatesFromKey('lastIndexSearch');
+			if(st && (st.id || st.topic))
+				listSearchIndex(st.id, st.topic);	
+			else if(action == 'list-search-2')
+				listSearchIndex('ع');
+			else
+				listSearchIndex('');
 			break;
 	}
 
@@ -471,16 +473,16 @@ function handleCompareCheck() {
 	}
 }
 
-function handleFilterAction(val, action){
-	if (action === 'learning'){
+function handleFilterAction(val, topic){
+	if (topic === 'learning'){
 		// Add order
 		$('div[data_order]').css('order', function() {
 			return $(this).attr('data_order'); 
 		});
 	}
-	else if(action !== ''){
+	else if(topic !== ''){
 		handleFilterIndex(val);
-		$("div[data_action]:not([data_action*='"+action+"'])").hide();
+		$("div[data_action]:not([data_action*='"+topic+"'])").hide();
 		$('div[data_order]').css('order','');//remove order
 	}
 	else{
@@ -488,6 +490,7 @@ function handleFilterAction(val, action){
 		handleFilterIndex(val);
 		$('div[data_order]').css('order','');//remove order
 	}
+	saveLastSearchIndex(val.replace('id_',''), topic);
 }
 
 function handleFilterIndex(val){
@@ -503,6 +506,7 @@ function handleFilterIndex(val){
 		else
 			$("div [id="+val+"]").show();
 	}
+	saveLastSearchIndex(val.replace('id_','', $("#selIndexTopic").val()));
 }
 
 function checkWord(w) {
@@ -822,7 +826,7 @@ function listDefinitions(bk){
 					onchange="updateStateIndex(this);
 						filterTableRows(-1, '#defTable', 
 										 $('.defFilter').prop('selectedIndex'), 
-										 $('.defFilter').val().slice(1),
+										 $('.defFilter').val()?.slice(1),
 										 {useId: true, useRowIndex: true});">
 		</select>`,
 		'defFilter','defs'));
@@ -885,7 +889,7 @@ function listDefinitions(bk){
 	});
 }
 
-function listSearchIndex(indexKey='') {
+function listSearchIndex(indexKey='', topic) {
 	ensureDataLoaded({name:'isearchData'})
 	.then((data) => {
 		$(".dictionary").empty();
@@ -919,13 +923,13 @@ function listSearchIndex(indexKey='') {
 		var iDiv = "<div style='direction:ltr;text-align:left;padding:4px;'>";
 		$.each([" عABCDEFGHIJKLMNOPQRSTUVWXYZ"],
 			function (index, value) {
-				iDiv += '<select style="width:40;" onchange="handleFilterIndex($(this).val())" >';
+				iDiv += '<select id="selIndex" style="width:40;" onchange="handleFilterIndex($(this).val())" >';
 				for (const charValue of value) {
 					iDiv += "<option value=id_" + charValue + ">" + charValue + "</option>";
 				};
 				iDiv += "</select>";
 				iDiv += `
-				Topic: <select style="width:40;" onchange="handleFilterAction($(this).prev().val(), $(this).val());">
+				Topic: <select id="selIndexTopic" style="width:40;" onchange="handleFilterAction($(this).prev().val(), $(this).val());">
 					<option value="">All</option>
 					<option value="learning">Learning</option>
 					<option value="cmp">Comparison</option>
@@ -970,7 +974,16 @@ function listSearchIndex(indexKey='') {
 			return sortElements[key];
 		}));
 		$(".dictionary").append(div);
-		handleFilterIndex('id_'+indexKey)
+		if(topic){
+			$('#selIndexTopic').val(topic);
+			$('#selIndexTopic').trigger('change');
+		}
+		if(indexKey !== ''){
+			$("#selIndex").val('id_'+indexKey);
+			$("#selIndex").trigger('change');
+		}else{
+			handleFilterIndex('id_'+indexKey);
+		}
 	});
 }
 

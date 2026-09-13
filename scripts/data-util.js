@@ -219,7 +219,7 @@ function filterTableRows(hideCol, table, column, searchText, options) {
     let txt = searchText ? removeAlPrefix(removePunctuations(searchText)) : searchText;
     
     // 2. Quick Reset for "Show All"
-    if (txt === 'all') {
+    if (txt===undefined || txt === '' || txt === 'all') {
 		rows.show();
         cells.show();
         return;
@@ -2525,6 +2525,21 @@ function removeSuffix(word, suffix){
 		return w.replace(new RegExp(makeErabOptional(suffix, 'sfx'),"g"), '');
 	}
 	return word;
+}
+
+function saveLastSearchIndex(id, topic){
+	
+	const stateName = "lastIndexSearch";
+	if(topic != parent.states[stateName]?.topic ||
+	   id != parent.states[stateName]?.id
+	 )
+	{
+		parent.updateStatesKey(stateName, {
+			id: id ?? parent.states[stateName]?.id,
+			topic: topic ?? parent.states[stateName]?.topic
+		});
+
+	}
 }
 
 function saveLastQStates(text){
