@@ -289,60 +289,39 @@ class posAPI {
 		}
 	}
 	
+	#buildConjLink()
+	{
+		return `<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
+	}
+
+	#buildConjRow(label, values)
+	{
+		const link = this.#buildConjLink();
+		const cells = values.map((value) => `<td>${link.replaceAll('$', value)}</td>`).join('');
+		return `<tr><td>${label}</td>${cells}</tr>`;
+	}
+
 	#prepareConjVerbRows(conjugations)
 	{
-		var alink = `
-		<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
-		return `<tr><td>غائب (مذكّر)</td>
-					<td>${alink.replaceAll('$',conjugations[0])}</td>
-					<td>${alink.replaceAll('$',conjugations[1])}</td>
-					<td>${alink.replaceAll('$',conjugations[2])}</td>
-				</tr>
-				<tr><td>غائب (مؤنّث)</td>
-					<td>${alink.replaceAll('$',conjugations[3])}</td>
-					<td>${alink.replaceAll('$',conjugations[4])}</td>
-					<td>${alink.replaceAll('$',conjugations[5])}</td>
-				</tr>
-				<tr><td>حاضر (مذكّر)</td>
-					<td>${alink.replaceAll('$',conjugations[6])}</td>
-					<td>${alink.replaceAll('$',conjugations[7])}</td>
-					<td>${alink.replaceAll('$',conjugations[8])}</td>
-				</tr>
-				<tr><td>حاضر (مؤنّث)</td>
-					<td>${alink.replaceAll('$',conjugations[9])}</td>
-					<td>${alink.replaceAll('$',conjugations[10])}</td>
-					<td>${alink.replaceAll('$',conjugations[11])}</td>
-				</tr>
-				<tr><td>مُتكلّم</td>
-					<td>${alink.replaceAll('$',conjugations[12])}</td>
-					<td>${alink.replaceAll('$',conjugations[13])}</td>
-					<td>${alink.replaceAll('$',conjugations[14])}</td>
-				</tr>`;
+		return [
+			this.#buildConjRow('غائب (مذكّر)', [conjugations[0], conjugations[1], conjugations[2]]),
+			this.#buildConjRow('غائب (مؤنّث)', [conjugations[3], conjugations[4], conjugations[5]]),
+			this.#buildConjRow('حاضر (مذكّر)', [conjugations[6], conjugations[7], conjugations[8]]),
+			this.#buildConjRow('حاضر (مؤنّث)', [conjugations[9], conjugations[10], conjugations[11]]),
+			this.#buildConjRow('مُتكلّم', [conjugations[12], conjugations[13], conjugations[14]])
+		].join('');
 	}
 	
 	#prepareConjNounRows(conjugations, xform)
 	{
-		var alink = `
-		<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
 		if(xform.gender === undefined){
-			return `<tr><td>مذكّر</td>
-						<td>${alink.replaceAll('$',conjugations[0])}</td>
-						<td>${alink.replaceAll('$',conjugations[1])}</td>
-						<td>${alink.replaceAll('$',conjugations[2])}</td>
-					</tr>
-					<tr><td>مؤنّث</td>
-						<td>${alink.replaceAll('$',conjugations[3])}</td>
-						<td>${alink.replaceAll('$',conjugations[4])}</td>
-						<td>${alink.replaceAll('$',conjugations[5])}</td>
-					</tr>`;
-		}else{
-			var g = xform.gender == "m" ? "مذكّر" :"مؤنّث";
-			return `<tr><td>${g}</td>
-						<td>${alink.replaceAll('$',conjugations[0])}</td>
-						<td>${alink.replaceAll('$',conjugations[1])}</td>
-						<td>${alink.replaceAll('$',conjugations[2])}</td>
-					</tr>`;
+			return [
+				this.#buildConjRow('مذكّر', [conjugations[0], conjugations[1], conjugations[2]]),
+				this.#buildConjRow('مؤنّث', [conjugations[3], conjugations[4], conjugations[5]])
+			].join('');
 		}
+		var g = xform.gender == "m" ? "مذكّر" :"مؤنّث";
+		return this.#buildConjRow(g, [conjugations[0], conjugations[1], conjugations[2]]);
 	}
 	
 	#newConjugation(container, currentTable, index, conjugations, xform)
@@ -379,7 +358,7 @@ class posAPI {
 				<span style="padding:4px;">
 					<a style="font-size:14px;margin:auto; padding-left:10px;" href="#1" '+
 		   			   onclick="toggleConjugationTable(
-					   	'#conj-#{currentTable}',
+					   	'#conj-${currentTable}',
 						'${index}');">Hide ('${xform.en}')
 					</a>
 				</span>`

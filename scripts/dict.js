@@ -28,16 +28,6 @@ window.onload = function () {
 
 			parent.dataCache["API_POS"].data = posAPIObj;
 			handleDictParams(undefined, params["action"], params["data"]);
-			// if (params.action && params.action !== 'cmp') {
-			// 	if(posSearchObj){
-			// 		handleDictParams(undefined, params["action"], params["data"]);
-			// 	}
-			// 	else{
-			// 		setTimeout(function(){
-			// 			handleDictParams(undefined, params["action"], params["data"]);
-			// 		}, 500);
-			// 	}
-			// }
 		});
 	});
 
@@ -127,6 +117,18 @@ function triggerPosIndex(data, filterClass, callback, delay = 150) {
 		return true;
 	}
 	return false;
+}
+
+function handlePosIndexedAction(data, onIndexed, onDefault, filterClass) {
+	var index = getPosIndex(data);
+	if (data && data.startsWith('pos:')) {
+		onIndexed(index);
+		if (filterClass) {
+			selectIndexAndTrigger(index, filterClass);
+		}
+		return;
+	}
+	onDefault();
 }
 
 function selectAndTrigger(data, filterClass) {
@@ -351,40 +353,32 @@ function handleDictActions(el, a, d) {
 			break;
 
 		case 'cmp':
-			if (data && data.startsWith("pos:")) {
-				var index = parseInt(data.substring(4));
+			handlePosIndexedAction(data, function (index) {
 				showComparisions(index);
-				selectIndexAndTrigger(index, 'nFilter');
-			}
-			else showComparisions(0);
+			}, function () {
+				showComparisions(0);
+			}, 'nFilter');
 			break;
 
 		case 'verb-cmp':
-			if (data && data.startsWith("pos:")) {
-				var index = parseInt(data.substring(4));
-				showVerbComparisions(index);
-			} else {
+			handlePosIndexedAction(data, showVerbComparisions, function () {
 				showVerbComparisions(0);
-			}
+			});
 			break;
 		case 'script':
 		case 'lang':
 		case 'grammar':
-			if (data && data.startsWith("pos:")) {
-				var index = parseInt(data.substring(4));
+			handlePosIndexedAction(data, function (index) {
 				showSentenceComparisions(index, action);
-			} else {
+			}, function () {
 				showSentenceComparisions(0, action);
-			}
+			});
 			break;
 
 		case 'noun-cmp':
-			if (data && data.startsWith("pos:")) {
-				var index = parseInt(data.substring(4));
-				showNounComparisions(index);
-			} else {
+			handlePosIndexedAction(data, showNounComparisions, function () {
 				showNounComparisions(0);
-			}
+			});
 			break;
 
 		case 'imp-verb':
