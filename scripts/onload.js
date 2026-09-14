@@ -610,7 +610,7 @@ function updateToolDescription(id, opt){
 					if(st.action != undefined){
 						toggleMenu(['Vocab', 'Chart', 'Misc', 'TTS'], "sel"+st.action, st.data);
 					}else{
-						var sel = opt && opt["alpha-selection"] ?  opt["alpha-selection"] : 'selVocab';
+						var sel = opt && opt["alpha-selection"] ?  opt["alpha-selection"] : 'selChart';
 						toggleMenu(['Vocab', 'Chart', 'Misc', 'TTS'], sel);
 					}
 					
