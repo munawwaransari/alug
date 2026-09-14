@@ -1428,7 +1428,13 @@ function getPlayControlsHtml(id, options, symbol){
 function playTafsir(verseKey){
 	var isPlayTafsir = $("#chkTafsir").prop('checked');
 	if(isPlayTafsir && parent.playText){
-		
+	
+		//check if tasfir view visible
+		var tv=$("div[id*=_tafsir]");
+		if(tv.length == 0 || tv.is(":visible") == false){
+			changeTafsir();
+		}
+
 		var opt = $("#tafsir-options").val();
 		if(opt !== null && opt !== "none"){
 			stopPlayVerse();

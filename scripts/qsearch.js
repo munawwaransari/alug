@@ -144,6 +144,19 @@ function loadWordsFrom(data){
 }
 
 var last_verse_trans_langs = [];
+
+function isVerseKey(value){
+	return /^\d{1,3}:\d{1,3}$/.test(String(value || '').trim());
+}
+
+function isPageKey(value){
+	return /^\d{1,3}$/.test(String(value || '').trim());
+}
+
+function normalizeSearchText(value){
+	return arRemovePunct(String(value || '')).trim();
+}
+
 /* 
 Search Quran using QuranJS API  
 */
@@ -157,7 +170,7 @@ function search(pageNumber){
 	togglePlayControls(false);
 	$("#qari").show();
 	stopPlayVerse();
-	const text = arRemovePunct(document.getElementById("searchText").value);
+	const text = normalizeSearchText(document.getElementById("searchText").value);
 
 	// Save last search for context
 	saveLastQStates(text);
@@ -165,17 +178,17 @@ function search(pageNumber){
 	var div = $("#searchResult");
 	div.empty();
 	
-	var ctx = window.QuranJS.Search.search;
-	var opt = { language: window.QuranJS.Language.ENGLISH, size: 10};
+	let ctx = window.QuranJS.Search.search;
+	let opt = { language: window.QuranJS.Language.ENGLISH, size: 10};
 	if(pageNumber)
 		opt.page = pageNumber;
 	
 	// check if verse key
-	if(text.trim().match(/^\d{1,3}\:\d{1,3}$/g)){
+	if(isVerseKey(text)){
 		ctx = window.QuranJS.Verses.findByKey;
 		opt = { words: 1};
 	}
-	else if(text.trim().match(/^\d{1,3}$/g)){
+	else if(isPageKey(text)){
 		ctx = window.QuranJS.Verses.findByPage;
 		opt = { words: 1};
 	}
@@ -399,16 +412,13 @@ function searchVerseKey(page, ayahText, verseKey){
 }
 
 function changeTafsir(){
-	
-	//stopPlayVerse();
-	$("#chkTafsir").prop('checked', '')
+	$("#chkTafsir").prop('checked', '');
 
-	const text = arRemovePunct(document.getElementById("searchText").value);
-	if(text.trim().match(/^\d{1,3}\:\d{1,3}$/g)){
-		var verse = text.trim().split(":");
+	const text = normalizeSearchText(document.getElementById("searchText").value);
+	if(isVerseKey(text)){
+		var verse = text.split(":");
 		var divTafsir = $(`#div${verse[0]}_${verse[1]}`);
 		if(divTafsir.length > 0){
-			var isTafsirEnabled = $("#chkTafsir").prop('checked');
 			$(`#${divTafsir[0].id}_tafsir`).html('');
 
 			if($("#tafsir-options").val() !== "none"){
@@ -416,13 +426,10 @@ function changeTafsir(){
 			}
 		}
 	}
-	else {
-		// when searched by page
-		if(text.trim().match(/^\d{1,3}$/g)){
-			var div = $(`a:contains("Research")`);
-			if(div){
-				div.trigger('click');
-			}
+	else if(isPageKey(text)){
+		var div = $(`a:contains("Research")`);
+		if(div.length > 0){
+			div.trigger('click');
 		}
 	}
 }
@@ -692,28 +699,18 @@ function getReferences(){
 }
 
 function getSimilarAyahReferences(verseKey){
-	var ayah = [];
-	var similar_ayah = parent.dataCache["similarAyahData"].data;
-	if(similar_ayah){
-		if(similar_ayah[verseKey]){
-			similar_ayah[verseKey].every(function(entry){
-				ayah.push(entry.matched_ayah_key);
-				return true;
-			});
-		}
-		else{
-			var searchDict = Object.entries(similar_ayah).filter(([id, entry]) =>  entry.some((v) => v.matched_ayah_key === verseKey));
-			if(searchDict){
-				Object.keys(searchDict).every(function(key){
-					ayah.push(searchDict[key][0]);
-					return true;
-				});
-			}	
-		}
-	}
-	else{
+	var similarAyah = parent.dataCache && parent.dataCache["similarAyahData"] ? parent.dataCache["similarAyahData"].data : null;
+	if(!similarAyah){
 		return "";
 	}
+
+	var ayah = similarAyah[verseKey] ?
+		similarAyah[verseKey].map((entry) => entry.matched_ayah_key) :
+		Object.values(similarAyah)
+			.flat()
+			.filter((entry) => entry && entry.matched_ayah_key === verseKey)
+			.map((entry) => entry.matched_ayah_key);
+
 	return ayah.map((a) => `
 		<a 	href="#" title="See Also" 
 			onclick="reloadVerse('${a}')">See also ${a}</a>`)
