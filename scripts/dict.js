@@ -25,8 +25,6 @@ window.onload = function () {
 				console.log("Failed to initialize pos search api");
 				return;
 			}
-
-			parent.dataCache["API_POS"].data = posAPIObj;
 			handleDictParams(undefined, params["action"], params["data"]);
 		});
 	});
@@ -38,11 +36,11 @@ window.onload = function () {
 		}
 		if (params.action === 'cmp') {
 			if(cmpAPIObj){
-				handleDictParams();
+				handleDictParams(undefined, params["action"], params["data"]);
 			}
 			else{
 				setTimeout(function(){
-					handleDictParams();
+					handleDictParams(undefined, params["action"], params["data"]);
 				}, 500);
 			}
 		}
@@ -117,18 +115,6 @@ function triggerPosIndex(data, filterClass, callback, delay = 150) {
 		return true;
 	}
 	return false;
-}
-
-function handlePosIndexedAction(data, onIndexed, onDefault, filterClass) {
-	var index = getPosIndex(data);
-	if (data && data.startsWith('pos:')) {
-		onIndexed(index);
-		if (filterClass) {
-			selectIndexAndTrigger(index, filterClass);
-		}
-		return;
-	}
-	onDefault();
 }
 
 function selectAndTrigger(data, filterClass) {
@@ -353,32 +339,40 @@ function handleDictActions(el, a, d) {
 			break;
 
 		case 'cmp':
-			handlePosIndexedAction(data, function (index) {
+			if (data && data.startsWith("pos:")) {
+				var index = parseInt(data.substring(4));
 				showComparisions(index);
-			}, function () {
-				showComparisions(0);
-			}, 'nFilter');
+				//selectIndexAndTrigger(index, 'nFilter');
+			}
+			else showComparisions(0);
 			break;
 
 		case 'verb-cmp':
-			handlePosIndexedAction(data, showVerbComparisions, function () {
+			if (data && data.startsWith("pos:")) {
+				var index = parseInt(data.substring(4));
+				showVerbComparisions(index);
+			} else {
 				showVerbComparisions(0);
-			});
+			}
 			break;
 		case 'script':
 		case 'lang':
 		case 'grammar':
-			handlePosIndexedAction(data, function (index) {
+			if (data && data.startsWith("pos:")) {
+				var index = parseInt(data.substring(4));
 				showSentenceComparisions(index, action);
-			}, function () {
+			} else {
 				showSentenceComparisions(0, action);
-			});
+			}
 			break;
 
 		case 'noun-cmp':
-			handlePosIndexedAction(data, showNounComparisions, function () {
+			if (data && data.startsWith("pos:")) {
+				var index = parseInt(data.substring(4));
+				showNounComparisions(index);
+			} else {
 				showNounComparisions(0);
-			});
+			}
 			break;
 
 		case 'imp-verb':

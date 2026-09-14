@@ -1557,8 +1557,6 @@ function init_data_cache(){
 		"pronouns":{
 			path: "data/grmr/pronouns.json"
 		},
-		"API_POS": {
-		},
 		"all-words.csv":{
 			path: "data/arabiclt/all-words.zip"
 		},
