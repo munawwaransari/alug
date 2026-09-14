@@ -296,13 +296,15 @@ function handleDictActions(el, a, d) {
 					}, 150);
 				}
 				else{
-					var table = $('#pTable:visible');
-					const exp = new RegExp("(?:^|[a-z\\s])"+data+"(?:$|[a-z\\s])", 'ig');
-					table.find('tr').filter(function (n, el) {
-						if (!exp.test($(el).text()))
-							$(el).hide();
-					});
-					$(".nFilter").hide();
+					setTimeout(function () {
+						var table = $('#pTable:visible');
+						const exp = new RegExp("(?:^|[a-z\\s])"+data+"(?:$|[a-z\\s])", 'ig');
+						table.find('tr').filter(function (n, el) {
+							if (!exp.test($(el).text()))
+								$(el).hide();
+						});
+						$(".nFilter").hide();
+					},150);
 				}
 			}
 			break;

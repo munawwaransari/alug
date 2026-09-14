@@ -838,6 +838,15 @@ function isearch(txt){
 				"data": data
 			}
 		}
+		else if(key.startsWith('...Proverb ')){
+			action = 'proverb-ph';
+			data = key.replace('...Proverb ','');
+			obj = {
+				"path": "dict.html",
+				"action": action,
+				"data": data
+			}
+		}
 		
 		if(!action){
 			return;
@@ -889,6 +898,7 @@ function getDefaultActions(txt){
 		}
 		res.push('...QuranSearch '+t);
 		res.push('...Phrase '+t+ ' ');
+		res.push('...Proverb '+t+ ' ');
 	}
 	return res;
 }
