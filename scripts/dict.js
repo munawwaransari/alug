@@ -109,15 +109,31 @@ function updateDictStates(context, a, d){
 	return val;
 }
 
+function getPosIndex(data, fallback = 0) {
+	if (!data || !data.startsWith('pos:')) {
+		return fallback;
+	}
+	var index = parseInt(data.substring(4), 10);
+	return Number.isFinite(index) ? index : fallback;
+}
+
+function triggerPosIndex(data, filterClass, callback, delay = 150) {
+	var index = getPosIndex(data);
+	if (data && data.startsWith('pos:')) {
+		setTimeout(function () {
+			if (callback) callback(index);
+			else if (filterClass) selectIndexAndTrigger(index, filterClass);
+		}, delay);
+		return true;
+	}
+	return false;
+}
+
 function selectAndTrigger(data, filterClass) {
 	var d = data ? data.toLowerCase() : data;
-	if(d && d.startsWith("pos:")){
-		var index = parseInt(d.substring(4));
-		setTimeout(function () {
-			selectIndexAndTrigger(index, 'nFilter');
-		}, 150);
+	if (triggerPosIndex(d, 'nFilter')) {
 		return;
-	} 
+	}
 
 	const select = document.getElementsByClassName(filterClass)[0];
 	if(select){
@@ -132,8 +148,8 @@ function selectAndTrigger(data, filterClass) {
 
 function selectIndexAndTrigger(index, filterClass) {
 	const select = document.getElementsByClassName(filterClass)[0];
-	var i = index < select.options.length ? index : 0;
-	$("." + filterClass).val(select.options[i].value);
+	var i = index < select?.options.length ? index : 0;
+	$("." + filterClass).val(select?.options[i].value);
 	$("." + filterClass).trigger('onchange');
 }
 
@@ -320,64 +336,17 @@ function handleDictActions(el, a, d) {
 		case 'verb-weak': showWeakVerbTable(); break;
 		case 'verb-imp': showImperativeTable(); break;
 		case 'verb-type':
-			setTimeout(function () {
-				showObjectEffects('verb-type');
-				if (data)
-					if (data.startsWith("pos:")) {
-						var index = parseInt(data.substring(4));
-						setTimeout(function () {
-							selectIndexAndTrigger(index, 'pronounFilter');
-						}, 150);
-					}
-					else
-						selectAndTrigger(data, 'pronounFilter');
-			});
-			break;
-
 		case 'masdar':
-			setTimeout(function () {
-				showObjectEffects('masdar');
-				if (data)
-					if (data.startsWith("pos:")) {
-						var index = parseInt(data.substring(4));
-						setTimeout(function () {
-							selectIndexAndTrigger(index, 'pronounFilter');
-						}, 150);
-					}
-					else
-						selectAndTrigger(data, 'pronounFilter');
-			});
-			break;
-
 		case 'obj-effect':
-			setTimeout(function () {
-				showObjectEffects('obj-effect');
-				if (data)
-					if (data.startsWith("pos:")) {
-						var index = parseInt(data.substring(4));
-						setTimeout(function () {
-							selectIndexAndTrigger(index, 'pronounFilter');
-						}, 150);
-					}
-					else
-						selectAndTrigger(data, 'pronounFilter');
-			});
-			break;
-
 		case 'adj':
 		case 'adv':
-			
 			setTimeout(function () {
 				showObjectEffects(action);
-				if (data)
-					if (data.startsWith("pos:")) {
-						var index = parseInt(data.substring(4));
-						setTimeout(function () {
-							selectIndexAndTrigger(index, 'pronounFilter');
-						}, 150);
-					}
-					else
+				if (data) {
+					if (!triggerPosIndex(data, 'pronounFilter')) {
 						selectAndTrigger(data, 'pronounFilter');
+					}
+				}
 			});
 			break;
 
@@ -419,27 +388,16 @@ function handleDictActions(el, a, d) {
 			break;
 
 		case 'imp-verb':
-			var pos = 0;
-			if (data && data.startsWith("pos:")) {
-				pos = parseInt(data.substring(4));
-			}
-			showImperativeTable(pos);
-			break;
-
 		case 'inad-verb':
-			var pos = 0;
-			if (data && data.startsWith("pos:")) {
-				pos = parseInt(data.substring(4));
-			}
-			showInadequateVerbTable(pos);
-			break;
-
 		case 'weak-verb':
-			var pos = 0;
-			if (data && data.startsWith("pos:")) {
-				pos = parseInt(data.substring(4));
+			var pos = getPosIndex(data);
+			if (action === 'imp-verb') {
+				showImperativeTable(pos);
+			} else if (action === 'inad-verb') {
+				showInadequateVerbTable(pos);
+			} else {
+				showWeakVerbTable(pos);
 			}
-			showWeakVerbTable(pos);
 			break;
 
 		case 'q-examples':
