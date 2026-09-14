@@ -1047,7 +1047,14 @@ class posAPI {
 				}
 				var row = "";;
 				row = row + '<tr>';
-				row = row + `<td>${k!==arText ? arText.replace(k,`<em>${k}</em>`):arText}<br/><span style="direction:ltr;">${enText}</span>
+				row = row + `<td>
+				${k!==arText ? arText.replace(k,`<em>${k}</em>`):arText}<br/>
+				<span style="direction:ltr;">${enText}</span>
+				${title=='tease-ph' ? `<br/><sub>
+								<a style="cursor:pointer;" 
+					                onclick="$(this).next().toggle()">Answer<br/>
+								</a>
+					            <span style="display:none;"><b>${keys[2]}</b></span></sub>`:''}
 					${id==true?`
 					<br/><a href="#" style="font-size:11px" 
 					     onclick="openGoogleAISearch(

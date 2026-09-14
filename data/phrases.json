@@ -248,12 +248,11 @@
         "K|A believer is not bitten from the same snake hole twice|لا يُلدَغُ المُؤمنُ مِن جُحرِ مرَّتَين",
         "K|The winds blow contrary to the ships' desires|تجري الرياح بما لا تشتهي السفن",
         "K|One hand cannnot clap|يَدٌ واحِدَةُ لا تُصَفِّقُ",
-        "K|The winds blow contrary to what the ships wish for|اعرف جارك قبل دارك|Know your neighbor before you know your house.",
+        "K|Know your neighbor before you know your house|اعرف جارك قبل دارك",
         "K|An ounce of prevention is worth a pound of cure|دِرهَمُ وِقايَةٍ خَيرٌ مِن قِنطارِ عِلاجٍ",
         "K|The rope of a lie is short|حبل الكذب قصير",
         "K|Patience is the key to relief|الصَّبرُ مِفتاحُ الفَرِج",
         "K|As you sow, so shall you reap|كَما تُدينُ تُدانُ",
-        "K|(Check your) neighbor before (buying) a house.|الجار قْبَلْ الدّار",
         "K|If you have no shame, do whatever you want|إذَا لَم تَستَحِ فَافعَل ما شِئتَ",
         "K|The tongue is the key to the heart|اللِسانُ مِفتاحَ القَلب",
         "K|He who strives finds, and he who sows harvests|من جد وجد ومن زرع حصد",
@@ -269,11 +268,17 @@
     ],
 
     "tease-ph":[
-        "K|?What is the thing that decreases the more it increases|ما هو الشيء الذي كلما زاد نقص؟|Age (or time)",
-        "K|It walks and stops but has no legs, and it crosses the sea without|يمشي ويقف وليس له أرجل، ويعبر البحر ولا يبتل|The clouds (or a shadow)",
-        "K|?It speaks all the languages of the world, what is it|يتحدث جميع لغات العالم فما هو؟|An echo",
-        "K|?A white land with black seeds, guarded by thoughts. What is it|أرض بيضاء زرعها أسود وحارسها يدعى الفكر؟| A book (or writing on paper)",
-        "K|?What is something you put your hand into, but you cannot see it|ما هو الشيء الذي يدخل يدك فيه، ولكن لا يمكنك رؤيته؟|Your pocket",
-        "K|?What is the thing that solidifies when you boil it|ما هو الشيء الذي إذا غليته جمد؟|An egg"
+        "K|?What is the thing that decreases the more it increases|ما هو الشيء الذي كلما زاد نقص؟|(age or time) العمر أو الزمن",
+        "K|It walks and stops but has no legs, and it crosses the sea without getting wet|يمشي ويقف وليس له أرجل، ويعبر البحر ولا يبتل|(the clouds or a shadow) السحاب أو ظل",
+        "K|?It speaks all the languages of the world, what is it|يتحدث جميع لغات العالم فما هو؟|(an echo) صدى",
+        "K|?A white land with black seeds, guarded by thoughts. What is it|أرض بيضاء زرعها أسود وحارسها يدعى الفكر؟| (a book or writing on paper) كتاب (أو كتابة على الورق)",
+        "K|?What is something you put your hand into, but you cannot see it|ما هو الشيء الذي يدخل يدك فيه، ولكن لا يمكنك رؤيته؟| (your pocket) جيبك",
+        "K|?What is the thing that solidifies when you boil it|ما هو الشيء الذي إذا غليته جمد؟|(an egg) بيضة",
+        "K|?What has legs but doesn’t walk|ما هو الشيء الذي له أرجل ولا يمشي؟|(a table) طاولة",
+        "K|?What can you catch but not throw|ماالشيء الذي يمكنك إمساكه ولا يمكنك رميه؟| (a cold) زكام",
+        "K|?What has a face but no eyes|له وجه ولا عينين فماذا يكون؟|(the clock) الساعة",
+        "K|?What can fill a room but take up no space|يملأ الغرفة ولا يشغل مساحة؟| (light) ضوء",
+        "K|?What has keys but can’t open locks|ما هو الشيء الذي له مفاتيح ولا يفتح الأقفال؟| (the piano) البيانو",
+        "K|?What has teeth but cannot bite|ما هو الشيء الذي له أسنان ولا يعض؟| (a comb) مشط"
     ]
 }
