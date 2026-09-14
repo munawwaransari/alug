@@ -295,10 +295,11 @@ function handleDictActions(el, a, d) {
 						selectIndexAndTrigger(index, 'nFilter');
 					}, 150);
 				}
-				else{
+				else if(action !== "tease-ph"){
+					var dat = arRemovePunct(data);
+					data = 'pos:0';
 					setTimeout(function () {
 						var table = $('#pTable:visible');
-						var dat = arRemovePunct(data);
 						const exp1 = new RegExp("(?:^|[a-z\\s])"+dat+"(?:$|[a-z\\s])", 'ig');
 						const exp2 = new RegExp("(?:^|[a-z\\s])"+'ال'+dat, 'ig');
 						table.find('tr').filter(function (n, el) {
