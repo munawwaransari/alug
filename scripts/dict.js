@@ -298,9 +298,9 @@ function handleDictActions(el, a, d) {
 				else{
 					setTimeout(function () {
 						var table = $('#pTable:visible');
-						const exp = new RegExp("(?:^|[a-z\\s])"+data+"(?:$|[a-z\\s])", 'ig');
+						const exp = new RegExp("(?:^|[a-z\\s])"+arRemovePunct(data)+"(?:$|[a-z\\s])", 'ig');
 						table.find('tr').filter(function (n, el) {
-							if (!exp.test($(el).text()))
+							if (!exp.test(arRemovePunct($(el).text())))
 								$(el).hide();
 						});
 						$(".nFilter").hide();
