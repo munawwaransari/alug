@@ -5,22 +5,28 @@
         "data": "pos:0",
         "order": 1
     },
-    "Nunation;التنوين;نُون الإعراب": {
+    "Elocution;التجويد;التفخيم;الترقيق;الاستعلاء;الاستفال;": {
         "path": "dict.html",
         "action": "script",
         "data": "pos:1",
         "order": 2
     },
-    "Orthographic Script;خط الإملائي": {
+    "Nunation;التنوين;نُون الإعراب": {
         "path": "dict.html",
         "action": "script",
         "data": "pos:2",
+        "order": 2
+    },
+    "Orthographic Script;خط الإملائي": {
+        "path": "dict.html",
+        "action": "script",
+        "data": "pos:3",
         "order": 3
     },
     "Prosodic Script;خط العروضي": {
         "path": "dict.html",
         "action": "script",
-        "data": "pos:3",
+        "data": "pos:4",
         "order": 4
     },
     "Demonstrative Pronouns;اسماء الإشارة;": {
@@ -981,7 +987,7 @@
         "data": "synonym",
         "order": 165
     },
-    "Tajweed (Cards);Charts;Vocabulary;تجويد": {
+    "Elocution / Tajweed (Cards);Charts;Vocabulary;تجويد": {
         "path": "cards.html",
         "action": "Vocab",
         "data": "tajweed",

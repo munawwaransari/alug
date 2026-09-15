@@ -2600,3 +2600,40 @@ function cleanupEmptyDivs(div){
 		count--;
 	}
 }
+
+function getTajweedTable(){
+	return `
+	<table style="direction:ltr;font-size:14pt;">
+	  <tbody>
+	     <tr><th>إظهار</th><th>إخفاء</th><th>إدغام</th></tr>
+		 <tr>
+		   <td><span style="font-size:16pt">ء , هـ , ع , ح , غ , خ<br/>(حُرُوف الحَلْق)</span></td>
+		   <td><span style="font-size:16pt">ت, ث, ج, د, ذ, ز, س, ش, ص, ض, ط, ظ, ف, ق, ك</span>
+		   </td>
+		   <td><span style="font-size:16pt">ي, ر, م, ل, و, ن</span><br/>
+			   (grouped in the phrase يَرْمَلُونَ)
+		   </td>
+		</tr>
+		<tr>
+		    <td rowspan="2"><b>No Ghunna</b>:<br/>Noon Sakinah (نْ) or Tanween (ً ٌ ٍ) is pronounced clearly and distinctly from the top of the throat, without any extra nasal sound (Ghunnah)<br/>e.g. مَنْ آمَنَ, مِنْ هَادٍ</td>
+			<td><b>(Heavy Ghunnah)</b>:<br/>when the Noon Sakinah (نْ) or Tanween (ً ٌ ٍ) is followed by <br/>
+			<span style="font-size:16pt">ص, ض, ط, ظ, ق</span><br/>
+			e.g. مِنْ قَبْلِ, مِنْ طِينٍ
+			</td>
+			<td><b>إدغام بغنة (Nasal sound)</b>:<br/>
+		       when the Noon Sakinah (نْ) or Tanween (ً ٌ ٍ) is followed by any of the four letters in the word (يَنْمُو) e.g. مَن يَقُولُ, مِن مَّاءٍ,<br/>
+			   وُجُوهٞ يَوۡمَئِذٍ خَٰشِعَةٌ [88:2]
+			</td>
+		</tr>
+		<tr>
+			<td><b>Light Ghunna</b>: when the Noon Sakinah (نْ) or Tanween (ً ٌ ٍ) is followed by 
+			    <span style="font-size:16pt">ت ك ف ش س ز د ج ث</span><br/>
+				e.g. مِنْ تَحْتِهَا, أَنْتُمْ 
+			</td>
+		    <td><b>إدغام بغير غنة (No nasal sound)</b>:<br/>
+			    when followed by Lam (ل) or Raa (ر) e.g. <br/>مِن لَّدُنْهُ, مِن رَّبِّهِمْ
+			</td>
+		</tr>
+		<tbody>
+		</table>`;
+}

@@ -759,6 +759,33 @@
     {
         "compareType":"script",
         "topics":[
+            "التجويد (Elocution)"
+        ],
+        "notes": "",
+        "ar": [
+            "التفخيم",
+            "الترقيق",
+            "الف / را / لام",
+            "إظهار vs إخفاء vs إدغام"
+        ],
+        "en": [
+            "Heavy, thick, or full-mouthed pronunciation",
+            "Light, thin, or flat pronunciation",
+            "Conditional pronunciation",
+            "Assimilation vs Concealment vs Clarity"
+        ],
+        "features":{
+            "التجويد (Elocution)": [
+                "<p style=\"direction:ltr\"><b>Definition:</b><br/>Tafkhim is the elevation of the back of the tongue toward the roof of the mouth (known as الاستعلاء), causing the sound to reverberate and fill the mouth.<br/><br/><b>Letters:</b><br/><span style=\"font-size:16pt\">خ، ص، ض، ط، ظ، غ، ق</span> <br/>(grouped in the phrase خُصَّ ضَغْطٍ قِظْ)</p>",
+                "<p style=\"direction:ltr\"><b>Definition:</b><br/>Tarqeeq is the lowering the back of the tongue away from the roof of the mouth (known as الاستفال), causing the sound to be flat.<br/><br/><b>Letters:</b><br/>All letters excluding the heavy letters</p>",
+                "<p style=\"direction:ltr\"><b>الف</b>:<br/>Heavy when preceeded by a heavy letter, otherwise light.<br/><br/><b>را</b>:<br>Heavy when has a Fathah (ـَ) or a Dammah (ـُ), otherwise light.<br/><br/><b>*اللام</b>:<br/>Heavy when it is preceded by a Fathah (ـَ) or a Dammah (ـُ)<br/><sub>* Applies exclusively to the letter ل (called التغليظ), primarily in the Majestic Name of Allah (لفظ الجلالة - Allah / Allahumma)</sub><br/>",
+                "script:getTajweedTable()"
+            ]
+        }
+    },
+    {
+        "compareType":"script",
+        "topics":[
             "التنوين و نُون الإعراب (Nunation)"
         ],
         "notes": "",

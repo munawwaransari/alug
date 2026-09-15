@@ -156,8 +156,8 @@ class cmpAPI {
 						<tr>
 						${
 							topics.map((topic) => {
+								var res = cmp["features"][topic][f];
 								if(cmp["features_links"]){
-									var res = cmp["features"][topic][f];
 									Object.keys(cmp["features_links"]).every((key)=>{
 										var isExternal = cmp["features_links"][key].startsWith("http");
 										if(isExternal){
@@ -168,6 +168,8 @@ class cmpAPI {
 										return true;
 									});
 									return `<td>${replaceQLink(res)}</td>`;
+								}else if(res.startsWith("script:")){
+									return `<td>${replaceQLink(eval(res.substring(7)))}</td>`;
 								}else{
 									return `<td>${replaceQLink(cmp["features"][topic][f])}</td>`
 								}
