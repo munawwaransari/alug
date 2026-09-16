@@ -323,7 +323,8 @@ function showWeakVerbTable(ii) {
 		var nawaqis = data["weak-verb"];
 		$(".dictionary").empty();
 		var filters = [];
-		$(".dictionary").append('<div id="wvTitle" style="margin-top:10px; width:100%; text-align:center"><b>(الأفعال الناقصة) Weak Verbs</b><br/>حرف العِلَّت When root of a word has one or more </div>');
+		$(".dictionary").append(`<div style="direction:ltr;text-align:center;" id="wvTitle" style="margin-top:10px; width:100%; text-align:center"><b>(الأفعال الناقصة) Weak Verbs</b><br/>حرف العِلَّت When root of a word has one or more
+			<br/>Note that مَهمُوز is not a weak verb</div>`);
 		var index = 0;
 		$.each(nawaqis, (k, v)=>{
 			index++;
