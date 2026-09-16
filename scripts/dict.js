@@ -20,11 +20,13 @@ window.onload = function () {
 			console.log("Failed to initialize pos api");
 			return;
 		}
+		parent.dataCache["API_POS"] = posAPIObj;
 		posSearchObj = new posSearch(getLocationPath(), function (msg, err) {
 			if (err) {
 				console.log("Failed to initialize pos search api");
 				return;
 			}
+			parent.dataCache["API_POS_SEARCH"] = posSearchObj;
 			handleDictParams(undefined, params["action"], params["data"]);
 		});
 	});

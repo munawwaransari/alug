@@ -2455,7 +2455,7 @@ function getPosLookups(){
 		ensureDataLoaded({name: "posRulesData"})
 		.then((data1)=>{
 
-			var apiObj = parent.dataCache["API_POS"].data;
+			var apiObj = parent.dataCache["API_POS"];
 			lookups.apiObj = apiObj;
 
 			if(apiObj){
