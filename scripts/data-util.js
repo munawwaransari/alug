@@ -78,7 +78,7 @@ async function ensureDataLoaded(inp)
 
 async function loadJsonData(url)
 {
-	console.log('Fetching JSON data: '+ url);
+	console.log('Fetching JSON: '+ url);
 	const fetchUrl = new URL(url);
 	fetchUrl.searchParams.set('nocache', Date.now());
 	try {
@@ -95,7 +95,7 @@ async function loadJsonData(url)
 
 async function loadHtmlData(url)
 {
-	console.log('Fetching Html/text data: '+ url);
+	console.log('Fetching Html/text: '+ url);
 	const fetchUrl = new URL(url);
 	try {
 		const response = await fetch(fetchUrl);
@@ -1600,7 +1600,7 @@ function convertHTMLtoPDF(selector, filter, pdfFileName) {
 			doc.text(5,5,'https://munawwaransari.github.io/alug/');
 			doc.setFontSize(12);
 			
-			console.log(`query selctor: '${selector}'`);
+			//console.log(`query selctor: '${selector}'`);
 			var elementHTML = document.querySelector(selector);
 			if(selector.includes("iframe")){
 				try
@@ -1699,8 +1699,8 @@ function convertHTMLtoImage(selector, filters, imgFileName){
 					const imgProps = doc.getImageProperties(img);
 
 					// log page sizes
-					console.log(`convertElementToImage: page Size = ${doc.internal.pageSize.getWidth()} x ${doc.internal.pageSize.getHeight()}`);
-					console.log(`convertElementToImage: image size = ${imgProps.width} x ${imgProps.height}`);
+					//console.log(`convertElementToImage: page Size = ${doc.internal.pageSize.getWidth()} x ${doc.internal.pageSize.getHeight()}`);
+					//console.log(`convertElementToImage: image size = ${imgProps.width} x ${imgProps.height}`);
 
 					doc.setFontSize(8);
 					doc.text(doc.internal.pageSize.getWidth() - 120,
@@ -1764,7 +1764,7 @@ function convertElementToImage(element, opt, cb) {
 			const img = new Image();
 			img.src = canvas.toDataURL("image/png"); 
 			if(opt && opt.crop){
-				console.log(`crop options: id:${opt.eId}, opt.useX: ${opt.useX}, opt.useY: ${opt.useY}`);
+				//console.log(`crop options: id:${opt.eId}, opt.useX: ${opt.useX}, opt.useY: ${opt.useY}`);
 				img.onload = () => {
 					const cropped = cropCanvas(img, 
 						opt.useX ? opt.cropRect.x : 0, 
@@ -2256,7 +2256,7 @@ function processSelectedWordPos(word, cb){
 		var w = word;	
 		var w2 = apiObj.removeDiacritics(w);
 		
-		console.log(`w:${w}, w2:${w2}`);
+		//console.log(`w:${w}, w2:${w2}`);
 		var pronouns = [], nouns = [], verbs = [], particles = [], prefixes = [], suffixes = [];
 
 		var res = procObviousNounEndings(w, w2, apiObj);
@@ -2270,7 +2270,7 @@ function processSelectedWordPos(word, cb){
 			if(prefixes.length > 0){
 				w = removePrefix(w, prefixes[0]);
 				w2 = apiObj.removeDiacritics(w);
-				console.log(`w:${w}, w2:${w2}`);
+				//console.log(`w:${w}, w2:${w2}`);
 
 				if(prefixes.filter(x => x == 'ف' || x == 'ب' || x == 'ل').length > 0){
 					res = procObviousPronouns(w, w2, apiObj, lookups);
@@ -2410,7 +2410,7 @@ function procObviousPronouns(w, w2, apiObj, lookups){
 	if(pr.length > 0){
 		w = removeSuffix(w2, apiObj.removeDiacritics(pr[0]));
 		w2 = apiObj.removeDiacritics(w);
-		console.log(`w:${w}, w2:${w2}`);
+		//console.log(`w:${w}, w2:${w2}`);
 	}
 
 	return {w:w, w2:w2, res: pr};
@@ -2423,7 +2423,7 @@ function procObviousParticles(w, w2, apiObj, lookups){
 	if(part.length > 0){
 		w = removeWord(w, part[0]);
 		w2 = apiObj.removeDiacritics(w);
-		console.log(`w:${w}, w2:${w2}`);
+		//console.log(`w:${w}, w2:${w2}`);
 	}
 	return {w:w, w2:w2, res: part};
 }
@@ -2435,7 +2435,7 @@ function procObviousNounEndings(w, w2, apiObj){
 	if(nounEndings.length > 0){
 		w = removePrefix(w, nounEndings[0]);
 		w2 = apiObj.removeDiacritics(w);
-		console.log(`w:${w}, w2:${w2}`);
+		//console.log(`w:${w}, w2:${w2}`);
 
 		nouns.push(w);
 		if(nounEndings[0].endsWith("\u064E\u06E2ا") || nounEndings[0].endsWith("ًا"))

@@ -466,7 +466,7 @@ function getVerseTafsir(id, verseKey){
 
 function getVerseTranslation(dataAttr, id, verseKey, sfx = '_en', lang = window.QuranJS.Language.ENGLISH){
 
-	console.log(`getVerseTranslation: id=${id}, vrese:${verseKey}, sfx:${sfx}, lang:${lang}`);
+	//console.log(`getVerseTranslation: id=${id}, vrese:${verseKey}, sfx:${sfx}, lang:${lang}`);
 	var id2 = id.replace('div','vdiv-')
 	           .replace('_', '-');
 	var alink = $("#"+id+sfx);

@@ -18,12 +18,12 @@ function handleTouch(elem, startX, endX, onSwipeLeft, onSwipeRight) {
 		if (finalTouchX - initialTouchX < 0) {
 			if(onSwipeLeft){
 				onSwipeLeft(); 
-				console.log('swipe left');
+				//console.log('swipe left');
 			}
         } else {
 			if(onSwipeRight){
 				onSwipeRight(); 
-				console.log('swipe right');
+				//console.log('swipe right');
 			}
         }
 		swipeElem.addEventListener('touchstart', handleTouchStart);

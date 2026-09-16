@@ -23,7 +23,7 @@ function getPrayerAPI(cType, city){
 function showPrayerTimings(container, cType, city){
 	if(city){
 		var url = getPrayerAPI(cType, city);
-		console.log('Loading prayr times for '+ cType + ' for city' + city);
+		//console.log('Loading prayr times for '+ cType + ' for city' + city);
 		loadJsonData(url).then((data) => {
 			if(data === undefined || data.data === undefined){
 				console.log('Unable to load prayer timings for city: ' + city);

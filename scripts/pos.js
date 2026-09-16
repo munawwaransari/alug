@@ -173,7 +173,7 @@ class posAPI {
 		}
 		var patternRoot = this.#P2Root(pInfo.form, pInfo);
 		if(!patternRoot){
-			console.log("Error: patternRoot is null; word: ("+ word + "), pattern:(" + pattern + ") options:" + options);
+			//console.log("Error: patternRoot is null; word: ("+ word + "), pattern:(" + pattern + ") options:" + options);
 		}
 		var xPatttern = this.#replaceKalimaWithXyz(pattern, patternRoot);
 		return this.#replaceXyzWithKalima(xPatttern, root);
