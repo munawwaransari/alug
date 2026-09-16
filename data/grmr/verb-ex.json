@@ -1,6 +1,6 @@
 {
     "V1_I": {
-        "name_ar": "Trilateral Verb (From I)",
+        "name_ar": "Triliteral Verb (From I)",
         "notes": [
             "Generally used for physical actions by someone/something doing on its own",
             "indicates basic sense of action (transitive or intransitive)"
@@ -13,7 +13,7 @@
         ]
     },
     "V1_II": {
-        "name_ar": "Trilateral Verb (From II)",
+        "name_ar": "Triliteral Verb (From II)",
         "notes": [
             "Makes a verb strong or intensive"
         ],
@@ -27,7 +27,7 @@
         ]
     },
     "V1_III": {
-        "name_ar": "Trilateral Verb (From III)",
+        "name_ar": "Triliteral Verb (From III)",
         "notes": [
             "shows an action done with someone else"
         ],
@@ -41,7 +41,7 @@
         ]
     },
     "V1_IV": {
-        "name_ar": "Trilateral Verb (From IV)",
+        "name_ar": "Triliteral Verb (From IV)",
         "notes": [
             "makes an intransitive verb transitive"
         ],
@@ -54,7 +54,7 @@
         ]
     },
     "V1_V": {
-        "name_ar": "Trilateral Verb (From V)",
+        "name_ar": "Triliteral Verb (From V)",
         "notes": [
             "Makes the Form II Reflexive",
             "Shows the result of Form II or doing something to oneself."
@@ -70,7 +70,7 @@
         ]
     },
     "V1_VI": {
-        "name_ar": "Trilateral Verb (From VI)",
+        "name_ar": "Triliteral Verb (From VI)",
         "notes": [
             "shows a mutual or shared action between two or more people"
         ],
@@ -83,7 +83,7 @@
         ]
     },
     "V1_VII": {
-        "name_ar": "Trilateral Verb (From VII)",
+        "name_ar": "Triliteral Verb (From VII)",
         "notes": [
             "shows passiveness or that something happened to the object by itself"
         ],
@@ -97,7 +97,7 @@
         ]
     },
     "V1_VIII": {
-        "name_ar": "Trilateral Verb (From VIII)",
+        "name_ar": "Triliteral Verb (From VIII)",
         "notes": [
             "often means doing an action for oneself or taking care of something"
         ],
@@ -112,7 +112,7 @@
         ]
     },
     "V1_IX": {
-        "name_ar": "Trilateral Verb (From IX)",
+        "name_ar": "Triliteral Verb (From IX)",
         "notes": [
             "used for colors and physical traits"
         ],
@@ -125,7 +125,7 @@
         ]
     },
     "V1_X": {
-        "name_ar": "Trilateral Verb (From X)",
+        "name_ar": "Triliteral Verb (From X)",
         "notes": [
             "used to ask for something or find something"
         ],
@@ -139,7 +139,7 @@
         ]
     },
     "V2_I": {
-        "name_ar": "Quadrilateral Verb (From I)",
+        "name_ar": "Quadriliteral Verb (From I)",
         "notes":[
             "Many of these verbs mimic repetitive physical sounds or distinct motions"
         ],
@@ -151,7 +151,7 @@
         ]
     },
     "V2_II": {
-        "name_ar": "Quadrilateral Verb (From II)",
+        "name_ar": "Quadriliteral Verb (From II)",
         "notes":[
             "Reflexive",
             "Indicates that the subject undergoes the effect of the base verb"
@@ -162,7 +162,7 @@
         ]
     },
     "V2_III":{
-        "ar_name": "Quadrilateral Verb (From III)",
+        "ar_name": "Quadriliteral Verb (From III)",
         "notes":[
             "Strictly Intransitive",
             "Intense Reflexive State or Aggregation"
@@ -173,7 +173,7 @@
         ]
     },
     "V2_IV":{
-        "ar_name": "Quadrilateral Verb (From IV)",
+        "ar_name": "Quadriliteral Verb (From IV)",
         "notes":[
             "Intensification of State",
             "Inherent Intransitivity",

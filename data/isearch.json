@@ -5,7 +5,7 @@
         "data": "pos:0",
         "order": 1
     },
-    "Elocution;التجويد;التفخيم;الترقيق;الاستعلاء;الاستفال;": {
+    "Elocution;التجويد;التفخيم;الترقيق;الاستعلاء;الاستفال;قَلْقَلَة;": {
         "path": "dict.html",
         "action": "script",
         "data": "pos:1",
@@ -225,7 +225,7 @@
         "data": "@key",
         "order": 37
     },
-    "Quadrilateral Verbs;ابواب الفعل الرباعي": {
+    "Quadriliteral Verbs;ابواب الفعل الرباعي": {
         "path": "dict.html",
         "action": "verb",
         "data": "pos:2",
@@ -312,13 +312,13 @@
         "data": "pos:0",
         "order": 52
     },
-    "Trilateral Verbs;Form I;Form II;Form III;Form IV;Form V;Form VI;Form VII;Form VIII;Form IX;Form X;ابواب الفعل المزيد": {
+    "Triliteral Verbs;Form I;Form II;Form III;Form IV;Form V;Form VI;Form VII;Form VIII;Form IX;Form X;ابواب الفعل المزيد": {
         "path": "dict.html",
         "action": "verb",
         "data": "pos:1",
         "order": 53
     },
-    "Trilateral verbs;ثلاثي مجرد": {
+    "Triliteral verbs;ثلاثي مجرد": {
         "path": "dict.html",
         "action": "verb-3",
         "order": 54
@@ -861,7 +861,7 @@
         "data": "pos:16",
         "order": 144
     },
-    "Masdar - Quadrilateral;مصادر;": {
+    "Masdar - Quadriliteral;مصادر;": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:11",
@@ -873,7 +873,7 @@
         "data": "pos:19",
         "order": 146
     },
-    "Masdar - Trilateral;مصادر;": {
+    "Masdar - Triliteral;مصادر;": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:4",

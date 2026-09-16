@@ -101,7 +101,8 @@ function getPosIndex(data, fallback = 0) {
 	if (!data || !data.startsWith('pos:')) {
 		return fallback;
 	}
-	var index = parseInt(data.substring(4), 10);
+	var data2 = data.includes(" ") ? data.split(" ")[0] : data;
+	var index = parseInt(data2.substring(4), 10);
 	return Number.isFinite(index) ? index : fallback;
 }
 
@@ -314,12 +315,12 @@ function handleDictActions(el, a, d) {
 			break;
 
 		case 'verb':
-			var pos = 0;
-			var data2 = data.split(" ");
-			if (data2[0].startsWith("pos:")) {
-				var index = parseInt(data2[0].substring(4));
+			var pos = getPosIndex(data);
+			var data2 = data.startsWith("pos:") && data.includes(" ") ? 
+					data.split(" ") : data;
+			if (data.startsWith("pos:")) {
 				setTimeout(function () {
-					showAllVerbTables(pos, data2[1]);
+					showAllVerbTables(pos, data2.length > 1 ? data2[1] : undefined);
 				}, 150);
 			}
 			else showAllVerbTables(pos); 
@@ -722,7 +723,7 @@ function listExamplesFromQuran(selText) {
 		.then((data) => {
 			const exData = Object.fromEntries(
 				Object.entries(data).map(([key, value]) => [
-					key.replace("V1_", "Trilateral ")
+					key.replace("V1_", "Triliteral ")
 						.replace("V1_", "Quadlateral ")
 						.replace("V1_", "Extended"),
 					value]

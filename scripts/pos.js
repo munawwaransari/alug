@@ -704,7 +704,7 @@ class posAPI {
 			container.empty();
 		}
 
-		var title = key == 'V1' ? 'Trilateral Verbs (المزيد)' : 
+		var title = key == 'V1' ? 'Triliteral Verbs (المزيد)' : 
 			key == 'V2' ? 'Qaudrilateral Verbs (الرباعي)' :
 			key == 'V3' ? 'Extended Verbs' :  '';;
 

@@ -98,7 +98,7 @@ function showAllVerbTables(ii, bk){
 			showVerbTable(data, k, flag);
 			flag = 1
 			
-			var title = k == 'V1' ? 'Trilateral Verbs (المزيد)' : 
+			var title = k == 'V1' ? 'Triliteral Verbs (المزيد)' : 
 			k == 'V2' ? 'Qaudrilateral Verbs (الرباعي)' :
 			k == 'V3' ? 'Extended Verbs' :  '';;
 
@@ -119,7 +119,7 @@ function showAllVerbTables(ii, bk){
 			`, 'nFilter', 'verb')));
 			$('.nFilterBtn').css('width', $('.nFilter').css('width'));
 		}
-		if(ii){
+		if(ii !== undefined){
 			$('.nFilter').prop('selectedIndex', ii);
 			filterMTableRows('vTable', ii, $('.nFilter').val());
 		}
