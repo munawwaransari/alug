@@ -46,9 +46,9 @@
         ],
         "construct_en": [
             "Masculine pattern: أَفْعَل (Af'al)",
-            "Feminine pattern: فَعْلاء (Fa'laa)<br/><br/>See also: <a href=\"#\" onclick=\"parent.redirect('dict.html', 'verb', 'pos:3%20formXI')\">Extended verb form XI</a>"
+            "Feminine pattern: فَعْلاء (Fa'laa)<br/>"
         ],
-        "notes": "<p style=\"direction:ltr;width:90%\">Adjectives indicating colors, physical defects, or adornments follow the أَفْعَل (Af'al) pattern. Their feminine counterparts follow the فَعْلاء (Fa'laa) pattern.</p>",
+        "notes": "<p style=\"direction:ltr;width:90%\">Adjectives indicating colors, physical defects, or adornments follow the أَفْعَل (Af'al) pattern. Their feminine counterparts follow the فَعْلاء (Fa'laa) pattern.<br/><br/>See also: <a href=\"#\" onclick=\"parent.redirect('dict.html', 'verb', 'pos:3%20formXI')\">Extended verb form XI</a></p>",
         "examples": [
             "إِنَّهَا   بَقَرَةٞ   صَفۡرَآءُ [2:69]",
             "قَالَ   رَبِّ   لِمَ   حَشَرۡتَنِيٓ   أَعۡمَىٰ [20:125]"
@@ -75,7 +75,7 @@
             "Masculine pattern: أَفْعَل (Af'al)",
             "Feminine pattern: فُعلَي (Fu'laa)"
         ],
-        "notes": "<p style=\"direction:ltr;width:90%\">Elevated Adjectives follow the أَفْعَل (Af'al) pattern. Their feminine counterparts follow the فُعلَي (Fu'laa) pattern.</p>",
+        "notes": "<p style=\"direction:ltr;width:90%\">Elevated Adjectives follow the أَفْعَل (Af'al) pattern. Their feminine counterparts follow the فُعلَي (Fu'laa) pattern.<br/><br/>See also: <a href=\"#\" onclick=\"parent.redirect('dict.html', 'noun-pat', 'pos:6')\">Hyperbole (اسمُ المُبالغة)</a></p>",
         "examples": [
             "وَصَدَّقَ   بِٱلۡحُسۡنَىٰ   ٦ [92:6]",
             "ٱلَّذِيٓ   أَحۡسَنَ   كُلَّ   شَيۡءٍ   خَلَقَهُۥۖ [32:7]",
