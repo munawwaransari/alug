@@ -52,11 +52,9 @@
 				darwAlphabet(div, cdata);
 				break;
 			case 'actions':
-				darwSynonym(div, cdata, true);
-				break;
 			case 'genres':
 			case "synonym":
-				darwSynonym(div, cdata);
+				darwSynonym(div, cdata, name == 'actions');
 				break;
 			case "antonym":
 				darwAntonyms(div, cdata);
@@ -121,7 +119,7 @@
 		} 
 		
 		function darwHomonymn(div, h){             
-		  if(h.images){
+		  if(h.en.length > 1){
 		    var fdiv = `
 			<div class="flip-card">
                 <div class="flip-card-inner">
@@ -210,6 +208,9 @@
 		
 		function darwSynonym(div, syn, addSuffix) {
 
+			if(syn.ar === undefined || syn.ar === 'undefined'){
+				syn.ar = syn.names[0] ?? '';
+			}
 			var adiv = `
 		  	<div class="alpha-box" style="align-content: center;">
 				<div class="center">${syn.en}<br/>
