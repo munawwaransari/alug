@@ -54,7 +54,7 @@
 			case 'actions':
 			case 'genres':
 			case "synonym":
-				darwSynonym(div, cdata, name == 'actions');
+				darwSynonym(div, cdata)
 				break;
 			case "antonym":
 				darwAntonyms(div, cdata);
@@ -206,7 +206,7 @@
 		    div.append($(fdiv));
 		} 
 		
-		function darwSynonym(div, syn, addSuffix) {
+		function darwSynonym(div, syn) {
 
 			if(syn.ar === undefined || syn.ar === 'undefined'){
 				syn.ar = syn.names[0] ?? '';
@@ -232,7 +232,7 @@
 							style="top:18%; width:96%; height:80%" 
 							title="${syn.ar}"
 							class="alpha-image" 
-							src="${getFreeImageSource(addSuffix ? syn.en[0].replace(/y$/ig,"ie")+"s" : syn.en)}">
+							src="${getFreeImageSource(syn.en)}">
 						</img>
 						<span style="top:10px; margin-bottom:0">
 							<a href="#" style="text-decoration:none; cursor:pointer;"

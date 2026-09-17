@@ -2192,7 +2192,9 @@ function getActionTitle(action){
 }
 
 function getFreeImageSource(keyword, url="https://loremflickr.com/360/480/"){
-	return `${url}${keyword}`;
+	return Array.isArray(keyword) == true ?
+	  `${url}${keyword.join(",")}`: 	  
+	  `${url}${keyword}`;
 }
 
 function delSelectedCardFromDashboard(){

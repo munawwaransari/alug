@@ -62,7 +62,7 @@
         },
 		{
             "names": ["عِبادة", "إبادة"],
-			"en": ["Worship,Pray", "Genocide"],
+			"en": ["Worship,Pray", "Bombing,Genocide"],
 			"ur": ["عبادت", "تباہی"]
         },
 		{
@@ -77,7 +77,7 @@
         },
 		{
             "names": ["سمين", "ثمين"],
-			"en": ["Fat,heavy", "Costly,Cheap"],
+			"en": ["Fat,heavy", "Costly"],
 			"ur": ["موٹا", "مہنگا"]
         }
     ]
