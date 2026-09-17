@@ -199,6 +199,26 @@
 			"en": "Lavender",
 			"ur": "اسطوخودوس",
             "color": "#E6E6FA"
+        },
+        {
+            "names": [
+                "قرمزي",
+                "قرمزية"
+            ],
+            "ar": "",
+			"en": "<sub>Crimson/Burgundy</sub>",
+			"ur": "گہرا سرخ",
+            "color": "#DC143C"
+        },
+        {
+            "names": [
+                "زيتوني",
+                "زيتونية"
+            ],
+            "ar": "",
+			"en": "<sub>Olive Green</sub>",
+			"ur": "زيتوني",
+            "color": "#808000"
         }
     ]
 }
