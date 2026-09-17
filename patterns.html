@@ -69,7 +69,7 @@
 					var verbInfo = posAPIInstance.getVerbInfo();
 					patterns["verb"] = [];
 					for(const [key, val] of Object.entries(verbInfo)){
-						for(const [key2, val2] of Object.entries(val)){
+						for(const [key2, val2] of Object.entries(val.xform)){
 							if(val2.pos === "verb"){
 								patterns["verb"].push(val2.form);
 								patternsInfo[val2.form] = val2;
