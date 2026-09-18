@@ -39,8 +39,7 @@
 		<script>			
 			var sel = {};
 			var pat_kalimas = [];
-			var patterns = {};
-			var patternsInfo = {};
+			var posTitles = {};
 			var posAPIInstance;
 			window.onload = function(){
 				posAPIInstance = new posAPI(getLocationPath(), function(msg, err){
@@ -49,91 +48,128 @@
 						return;
 					}
 					setTimeout(function(){
-						getPatterns();
-						loadPatterns();
+						getPatternsFromNounInfo("Triliteral", posAPIInstance.getNounInfo());
+						getPatternsFromverbInfo("Triliteral", posAPIInstance.getVerbInfo("V1"));
+						getPatternsFromverbInfo("Extended", posAPIInstance.getVerbInfo("V2"));
+						getPatternsFromverbInfo("Quadriliteral", posAPIInstance.getVerbInfo("V3"));
+						loadPosTitles();
 					},500);
-				});
-				
-				function getPatterns(){
-					var nounInfo = posAPIInstance.getNounInfo();
-					patterns["noun"] = [];
-					for(const [key, val] of Object.entries(nounInfo)){
-						val.xforms.map(function(x){
-							if(x.form !== 'فعل'){
-								patterns["noun"].push(x.form);
-								patternsInfo[x.form] = x;
-							}
-						});;
-					}
-					
-					var verbInfo = posAPIInstance.getVerbInfo();
-					patterns["verb"] = [];
-					for(const [key, val] of Object.entries(verbInfo)){
-						for(const [key2, val2] of Object.entries(val.xform)){
-							if(val2.pos === "verb"){
-								patterns["verb"].push(val2.form);
-								patternsInfo[val2.form] = val2;
-							}
-							else if(val2.pos === "noun"){
-								patterns["noun"].push(val2.form);
-								patternsInfo[val2.form] = val2;
-							}
+				});				
+			}
+
+			function getPatternsFromNounInfo(posTitle, nounInfo){
+				var nounInfo = posAPIInstance.getNounInfo();
+				for(const [key, val] of Object.entries(nounInfo)){
+					val.xforms.map(function(x){
+						if(x.form !== 'فعل'){
+							updatePosTitles(posTitles, posTitle, x);
 						}
-					}
-					
-					//sort
-					patterns["noun"].sort();
-					patterns["verb"].sort();
+					});;
 				}
 			}
+
+			function getPatternsFromverbInfo(posTitle, verbInfo){
+				for(const [key, val] of Object.entries(verbInfo)){
+					for(const [key2, val2] of Object.entries(val.xform)){
+						if(val2.pos === "verb"){
+							updatePosTitles(posTitles, posTitle, val2);
+						}
+						else if(val2.pos === "noun"){
+							updatePosTitles(posTitles, posTitle, val2);
+						}
+					}
+				}
+			}
+
+			function updatePosTitles(posTitles, key, val){
+				if(posTitles[key] == undefined)
+					posTitles[key] = {};
+				var enVal = val.en ?? "noun";
+				var enValTitle = toTitleCase(enVal);
+				if(posTitles[key][enVal] == undefined)
+					posTitles[key][enVal] = {
+						title: toTitleCase(enVal),
+						patterns: [],
+						patternsInfo: {}
+					};
+				if(posTitles[key][enVal].title !== enValTitle)
+					posTitles[key][enVal].title = enValTitle;
+				posTitles[key][enVal].patterns.push(val.form);
+				posTitles[key][enVal].patternsInfo[val.form] = val;
+			}
 			
+			function loadPosTitles(){
+				var root = $("#roots option:selected").text();
+				var posSelect = $("#pos");
+				posSelect.empty();
+				Object.keys(posTitles[root]).sort().every((k)=>{
+					posSelect.append($(`<option value="${k}">${posTitles[root][k].title}</option>`));
+					return true;
+				});
+				posSelect.trigger("change");
+			}
+
 			function loadPatterns(){
+				var rootTxt = $("#roots option:selected").text();
 				$("#patterns").empty();
+				$("#patterns").append('<option value="all">Show All</option>');
 				var pos = $("#pos").val();
-				if(patterns[pos]){
-					patterns[pos].every(function(n, i){
-						$("#patterns").append('<option value="'+n+'">'+n+'</option>');
-						return true;
-					});
-				}				
-				loadPatternKalimas();
+				var patterns= posTitles[rootTxt][pos].patterns;
+				patterns?.every(function(n, i){
+					$("#patterns").append('<option value="'+n+'">'+n+'</option>');
+					return true;
+				});
+				$("#patterns").trigger("change");
 			}	
 			
 			function loadPatternKalimas(){
-				var pat = posAPIInstance.removeDiacritics($("#patterns").val());
+				var root = $("#roots").val();
+				var patSelection = $("#patterns").val();
+				var pat = patSelection == 'all' ? 
+					$("#roots").val() : arRemovePunct($("#patterns").val());
 				pat_kalimas = [];
 				$("#pDiv").empty();
 				for(var i=0; i < pat.length; i++){
 					
 					id = pat[i] === 'ف' ? "fa_kalima" :
+						 pat[i] === 'ع' && $("#ain_kalima").length > 0? "ain2_kalima" :
 						 pat[i] === 'ع' ? "ain_kalima" :
-						 pat[i] === 'ل' ? "laam_kalima" : 
-						 "additional_" + i;
-					
+						 pat[i] === 'ل' && $("#laam_kalima").length == 0 ? "laam_kalima" : 
+						 (i+1) === pat.length ? "laam2_kalima" : "extra_kalima_"+i;
 					
 					//Add pattern letter
-					$("#pDiv").append('<select id="'+id+'" class="kalima" onchange="applyPattern(this.id)"/></select>');
+					$("#pDiv").append(`
+					<select id="${id}" class="kalima" 
+					        onchange="applyPatterBasedOnSelection()"
+				            ${id.startsWith('extra_') ? ' disabled ':''}/></select>`);
 					loadKalimaLists("#"+id);
 					
 					//select value
-					var val = getKalimaSelection(id, pat[i]);
-					$("#"+id).val(val);
-					
-					//Disable additional pattern elements
-					if(id.includes("kalima") === false){
-						$("#"+id).attr('disabled', 'disabled');
-					}
+					var val = getKalimaSelection(id, pat[i]=='x' ? 'ل':pat[i]);
+					$("#"+id).val(val);					
 				}
-				
-				applyPattern();
+				applyPatterBasedOnSelection(patSelection);
 			}
 			
+			function applyPatterBasedOnSelection(patSelection){
+				$("#display").empty();
+				var sel = patSelection ?? $("#patterns").val();
+				if(sel !== 'all'){
+					applyPattern(sel);
+				}
+				else{
+					$("#patterns option[value!=all]")
+					.each((i,o)=>{
+						applyPattern(o.value)	
+					})
+				}
+			}
+
 			function getKalimaSelection(id, val){
 				var v = val;
 				if(id.includes("kalima") && sel[id] !== undefined){
 						v = sel[id];		
-				}
-				
+				}	
 				return v;
 			}
 			
@@ -145,17 +181,16 @@
 				});
 			}
 			
-			function applyPattern(id){
+			function applyPattern(pattern){
+				var rootTxt = $("#roots option:selected").text();
+				var pos = $("#pos").val();
 				var root = $('#fa_kalima').val()+$('#ain_kalima').val()+$('#laam_kalima').val();
-				var pInfo = patternsInfo[$("#patterns").val()];
-				if(pInfo.pos === undefined){
-					pInfo.pos = $("#pos").val();
-				}
+				var pInfo = posTitles[rootTxt][pos].patternsInfo[pattern];
 				var word = posAPIInstance.applyPattern(root, pInfo);
-				$("#display").html(word);
-				
-				//update selection
-				if(id) sel[id] = $('#'+id).val();
+				$("#display").append(`
+				<span style="display:inline-flex;margin:10px;border:2px solid gainsboro;">
+					${word}
+				</span>`);
 			}
 			
 			var letters = [    "ء",    "ا",    "ب",    "ت",    "ث",    "ج",    "ح",    "خ",    "د",    "ذ",    "ر",    "ز",    "س",    "ش",    "ص",    "ض",    "ط",    "ظ",    "ع",    "غ",    "ف",    "ق",    "ك",    "ل",    "م",    "ن",    "و",    "ه",    "ي"];
@@ -163,12 +198,16 @@
 	</head>
 	<body style="display:flex;justify-content: center;flex-direction: column;">
 		<div class="pDiv">
-			<select id="pos" onchange="loadPatterns();">
-				<option value="noun">(اسم) Noun</option>
-				<option value="verb">(فعل) Verb</option>
+			<label class="enText">Root:</label>
+			<select id="roots" onchange="loadPosTitles();">
+				<option value="فعل">Triliteral</option>
+				<option value="فعلx">Extended</option>
+				<option value="فعلx">Quadriliteral</option>
 			</select>
-		</div>
-		<div class="pDiv">
+			&nbsp;
+			<label class="enText">Category:</label>
+			<select id="pos" onchange="loadPatterns();"></select>
+			&nbsp;
 			<label class="enText">Patterns:</label>
 			<select id="patterns" class="arText" onchange="loadPatternKalimas()" ></select>
 		</div>
