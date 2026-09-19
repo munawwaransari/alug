@@ -48,7 +48,7 @@
 						return;
 					}
 					setTimeout(function(){
-						getPatternsFromNounInfo("Triliteral", posAPIInstance.getNounInfo());
+						getPatternsFromNounInfo(posAPIInstance.getNounInfo());
 						getPatternsFromverbInfo("Triliteral", posAPIInstance.getVerbInfo("V1"));
 						getPatternsFromverbInfo("Extended", posAPIInstance.getVerbInfo("V2"));
 						getPatternsFromverbInfo("Quadriliteral", posAPIInstance.getVerbInfo("V3"));
@@ -57,12 +57,19 @@
 				});				
 			}
 
-			function getPatternsFromNounInfo(posTitle, nounInfo){
+			function isQuadriliteralRoot(root){
+				var r = [...arRemovePunct(root)];
+				return r.filter((x) => x=='ل').length > 1 || 
+					   r.filter((x) => x=='ع').length > 1; 
+			}
+
+			function getPatternsFromNounInfo(nounInfo){
 				var nounInfo = posAPIInstance.getNounInfo();
 				for(const [key, val] of Object.entries(nounInfo)){
 					val.xforms.map(function(x){
 						if(x.form !== 'فعل'){
-							updatePosTitles(posTitles, posTitle, x);
+							var isQuadriliteral = isQuadriliteralRoot(x.form);
+							updatePosTitles(posTitles, isQuadriliteral ? "Quadriliteral":"Triliteral", x);
 						}
 					});;
 				}
@@ -184,7 +191,11 @@
 			function applyPattern(pattern){
 				var rootTxt = $("#roots option:selected").text();
 				var pos = $("#pos").val();
-				var root = $('#fa_kalima').val()+$('#ain_kalima').val()+$('#laam_kalima').val();
+				var root = $('#fa_kalima').val()+
+						   $('#ain_kalima').val()+
+						   ($('#ain2_kalima').length > 0 ? $('#ain2_kalima').val(): '')+
+						   $('#laam_kalima').val()+
+						   ($('#laam2_kalima').length > 0 ? $('#laam2_kalima').val(): '');
 				var pInfo = posTitles[rootTxt][pos].patternsInfo[pattern];
 				var word = posAPIInstance.applyPattern(root, pInfo);
 				$("#display").append(`

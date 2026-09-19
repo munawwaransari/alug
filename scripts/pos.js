@@ -112,7 +112,7 @@ class posAPI {
 		var illlatRules = posAPI.posRules["illat"];
 		var flag, applied = [];
 		var w = pattern;
-		
+
 		if(illlatRules && illlatRules.length > 0){
 			illlatRules.every(function(rule)
 			{
@@ -173,9 +173,9 @@ class posAPI {
 		}
 		var patternRoot = this.#P2Root(pInfo.form, pInfo);
 		if(!patternRoot){
-			//console.log("Error: patternRoot is null; word: ("+ word + "), pattern:(" + pattern + ") options:" + options);
+			console.log("Error: patternRoot is null; word: ("+ word + "), pattern:(" + pattern + ") options:" + options);
 		}
-		var xPatttern = this.#replaceKalimaWithXyz(pattern, patternRoot);
+		var xPatttern = this.#replaceKalimaWithXyz(pattern, patternRoot ?? root);
 		return this.#replaceXyzWithKalima(xPatttern, root);
 	}
 
@@ -185,13 +185,13 @@ class posAPI {
 		var outPattern = pattern;
 		if(root){
 			for(let i=0; i < root.length; i++){
-				outPattern = outPattern.replace(root[i], xyz[i]);
-			
-				if(i == root.length-1){
-					if(outPattern.includes('p')){
-						outPattern.replace('p', xyz[i]);
-					}
-				}
+				outPattern = outPattern.replaceAll(root[i], xyz[i]);
+				// Workaround for quadriliteral roots
+				// if(i == root.length-1){
+				// 	if(outPattern.includes('p')){
+				// 		outPattern.replace('p', xyz[i]);
+				// 	}
+				// }
 			}
 		}
 		return outPattern;
@@ -203,9 +203,17 @@ class posAPI {
 		var outPattern = pattern;
 		if(root){
 			for(let i=0; i < root.length; i++){
-				outPattern = outPattern.replace(xyz[i], root[i]);
+				outPattern = outPattern.replaceAll(xyz[i], root[i]);
+				// Workaround for quadriliteral roots
+				// if(i == root.length-1){
+				// 	if(outPattern.includes('p')){
+				// 		outPattern.replace('p', xyz[i]);
+				// 	}
+				// }
 			}
 		}
+		if(root.length > 3)
+			return outPattern;
 		return this.#removeRedundantErabs(outPattern, true);
 	}
 	
