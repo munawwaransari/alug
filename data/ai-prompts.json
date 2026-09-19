@@ -213,5 +213,15 @@
         "Give clear, contextual example sentences for every single one of the type",
         "Give example passages with translation from Hadith, History and other wellknow Arabic sources",
         "Translate all generated example sentences into the specified target language"
+    ],
+    "Patterns":[
+        "Context: Arabic Grammar Morphology",
+        "Root: @0",
+        "Words: @1",
+        "For all the words given, provide the morphological patter represented by each.",
+        "Correct any mistake in the word or is pattern incorrectly used",
+        "Provide a highly structured, analytical breakdown detailing the linguistic rules governing the pattern",
+        "Give clear, contextual example sentences for every word provided",
+        "Translate all generated example sentences into the specified target language"
     ]
 }

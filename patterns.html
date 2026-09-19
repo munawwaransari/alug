@@ -159,17 +159,30 @@
 			}
 			
 			function applyPatterBasedOnSelection(patSelection){
+				var root = '';
 				$("#display").empty();
 				var sel = patSelection ?? $("#patterns").val();
 				if(sel !== 'all'){
-					applyPattern(sel);
+					root = applyPattern(sel);
 				}
 				else{
 					$("#patterns option[value!=all]")
 					.each((i,o)=>{
-						applyPattern(o.value)	
+						root = applyPattern(o.value)	
 					})
 				}
+
+				//Add Google AI Search with prompt
+				$("#display").append(`
+					<div style="margin-bottom:0">
+						<a href="#" style="text-decoration:none; cursor:pointer;"
+							onclick="openGoogleAISearch(
+								getPromptFromKey(['Patterns'], 
+									{'0': ['${root}', \`${$("#display span").text()}\`]}, true));">
+							More
+						</a>
+					</div>
+				`);
 			}
 
 			function getKalimaSelection(id, val){
@@ -202,6 +215,7 @@
 				<span style="display:inline-flex;margin:10px;border:2px solid gainsboro;">
 					${word}
 				</span>`);
+				return root;
 			}
 			
 			var letters = [    "ء",    "ا",    "ب",    "ت",    "ث",    "ج",    "ح",    "خ",    "د",    "ذ",    "ر",    "ز",    "س",    "ش",    "ص",    "ض",    "ط",    "ظ",    "ع",    "غ",    "ف",    "ق",    "ك",    "ل",    "م",    "ن",    "و",    "ه",    "ي"];
