@@ -29,6 +29,12 @@
         "data": "pos:4",
         "order": 4
     },
+    "Aesthetics;Calligraphy;Naskh;Kufic;Thulth;Diwani;خط;نسخ;ثلث;كوفي;ديواني;محقَّق": {
+        "path": "dict.html",
+        "action": "script",
+        "data": "pos:5",
+        "order": 4
+    },
     "Demonstrative Pronouns;اسماء الإشارة;": {
         "path": "dict.html",
         "action": "pronoun",

@@ -872,6 +872,38 @@
         }
     },
     {
+        "compareType":"script",
+        "topics":[
+            "الجماليات (Aesthetics)"
+        ],
+        "ar": [
+            "الخط العربي",
+            "خط النسخ",
+            "خط الثلث",
+            "خط الكوفي",
+            "خط الديواني",
+            "خط المحقَّق"
+        ],
+        "en": [
+            "Calligraphy",
+            "Naskh",
+            "Thuluth",
+            "Kufi",
+            "Diwani",
+            "Muhaqqaq"
+        ],
+        "features":{
+            "الجماليات (Aesthetics)": [
+                "<p style=\"direction:ltr\">Calligraphic scripts are stylistic variations of the alphabet. It manipulates the geometry, proportions, and curves of the characters for visual harmony, artistic beauty, or ease of manual writing.</p>",
+                "<p style=\"direction:ltr\">Naskh is used as the primary text style for handwritten and printed copies of the holy book due to its clarity.</p><br/><img style=\"width:60%;\" src=\"https://upload.wikimedia.org/wikipedia/commons/2/27/Basmala.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original\"></img><br/><sub>source: wikipedia.org</sub>",
+                "<p style=\"direction:ltr\">Formulated in the 7th century and perfected during the Ottoman era, it replaced the rigid, geometric Kufic script with large, sweeping, and highly expressive cursive forms.</p><br/><img style=\"width:60%;\" src=\"https://www.arabic-calligraphy.com/wp-content/uploads/2024/07/Thuluth1.jpg\"></img><br/><sub>source: www.arabic-calligraphy.com</sub>", 
+                "<p style=\"direction:ltr\">Kufic script is the oldest documented calligraphic form of Arabic script. Originating in the 7th century in the city of Kufa, Iraq, it served as the primary script used to record early copies of the Quran.</p><br/><img style=\"width:60%;\" src=\"https://static.wixstatic.com/media/7335d9_9e5eb615e1fb4ad3b35df4e335f0d5a8~mv2.jpeg/v1/fill/w_740,h_542,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7335d9_9e5eb615e1fb4ad3b35df4e335f0d5a8~mv2.jpeg\"></img><br/><sub>source: www.baytalfann.com</sub>",
+                "<p style=\"direction:ltr\">Diwani calligraphy is a cursive style of Arabic calligraphy developed during the early Ottoman Empire (16th century). It was primarily used for royal decrees, chancery documents, and official state correspondence due to its complex and highly decorative nature.</p><br/><img style=\"width:60%;\" src=\"https://freeislamiccalligraphy.com/wp-content/uploads/2022/12/Al-Isra_-17_23.png\"></img><br/><sub>source: freeislamiccalligraphy.com</sub>",
+                "<p style=\"direction:ltr\">Developed around the 10th century and refined during the Abbasid and Mamluk eras, it was widely revered as one of the most majestic, legible, and beautiful calligraphic styles specifically reserved for monumental tasks.</p><br/><img style=\"width:60%;\" src=\"https://media.mutualart.com/Images/2022_10/25/21/215517057/muhaqqaq-KVLK9-570.Jpeg\"></img><br/><sub>source: media.mutualart.com</sub>"
+            ]
+        }
+    },
+    {
         "compareType":"lang",
         "topics":[
             "الجذر والوزن (Root & Pattern)"
