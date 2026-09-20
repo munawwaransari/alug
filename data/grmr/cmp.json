@@ -752,7 +752,7 @@
         ],
         "features": {
             "علاماتُ التَّشكِيل (Diacritics)": [
-                "<p style=\"direction:ltr;\"><b>علاماتُ التَّشكِيل </b>are optionallly used on any letter of a word to indicate its correct pronunciation<br/><b>ضَمَّة ( -\u064f )</b> => (u as in s<b>u</b>per)<br/><b>فَتَحَة ( -\u064e )</b> => (a as in m<b>u</b>st)<br/><b>كَسَرَة ( -\u0650 )</b> => (i as in b<b>i</b>n)<br/><b>سُكُون ( -\u0652 )</b> => (no vowel as in ba<b>t</b>)<br/><b>شَدَّة ( -\u0651 )</b> => (double consonant as in a<b>dd</b>)<br/><b>مَدَّة ( -\u0653 )</b> => (long vowel as in appl<b>au</b>se)</p>",
+                "<p style=\"direction:ltr;\"><b>علاماتُ التَّشكِيل </b>are optionallly used on any letter of a word to indicate its correct pronunciation<br/><b>ضَمَّة ( \u064f )</b> => (u as in s<b>u</b>per)<br/><b>فَتَحَة ( \u064e )</b> => (a as in m<b>u</b>st)<br/><b>كَسَرَة ( \u0650 )</b> => (i as in b<b>i</b>n)<br/><b>سُكُون ( \u0652 )</b> => (no vowel as in ba<b>t</b>)<br/><b>شَدَّة ( \u0651 )</b> => (double consonant as in a<b>dd</b>)<br/><b>مَدَّة ( \u0653 )</b> => (long vowel as in appl<b>au</b>se)</p>",
                 "<p style=\"direction:ltr;\"><b>Pronunciation</b>: Used as diacritics; optional<br/><b>Morphology</b>: Follow a fixed pattern (وَزَن) of the word.<br/><b>Erab</b>: (mostly on the last letter of the word); serves a grammatical purpose.<br/></p>",
                 "<p style=\"direction:ltr;\"><b>Pronunciation:</b><br/>زَيْد --> letters ز and ي have diacritics<br/><br/><b>Morphology:</b><br/>فَاعِلْ (template for active participle)<br/>افعِلْ (template for command)<br/></br><b>Erab:</b><br/>مُحَمَّدًا (Accusative case)</p>",
                 "script:getDiacriticsTable()"
