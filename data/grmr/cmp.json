@@ -735,24 +735,27 @@
     {
         "compareType":"script",
         "topics": [
-            "علاماتُ التَّشكِيل"
+            "علاماتُ التَّشكِيل (Diacritics)"
         ],
         "notes": null,
         "ar": [
             "تعريف",
             "استعمال",
-            "مِثال"
+            "مِثال",
+            "يونيكود"
         ],
         "en": [
             "Definition",
             "Usage",
-            "Example"
+            "Example",
+            "Unicode"
         ],
         "features": {
-            "علاماتُ التَّشكِيل": [
+            "علاماتُ التَّشكِيل (Diacritics)": [
                 "<p style=\"direction:ltr;\"><b>علاماتُ التَّشكِيل </b>are optionallly used on any letter of a word to indicate its correct pronunciation<br/><b>ضَمَّة ( -ُ )</b> => (u as in s<b>u</b>per)<br/><b>فَتَحَة ( -َ )</b> => (a as in m<b>u</b>st)<br/><b>كَسَرَة ( -ِ )</b> => (i as in b<b>i</b>n)<br/><b>سُكُون ( -ْ )</b> => (no vowel as in ba<b>t</b>)<br/><b>شَدَّة ( -ّ )</b> => (double consonant as in a<b>dd</b>)<br/><b>مَدَّة ( ~ )</b> => (long vowel as in appl<b>au</b>se)</p>",
                 "<p style=\"direction:ltr;\"><b>Pronunciation</b>: Used as diacritics; optional<br/><b>Morphology</b>: Follow a fixed pattern (وَزَن) of the word.<br/><b>Erab</b>: (mostly on the last letter of the word); serves a grammatical purpose.<br/></p>",
-                "<p style=\"direction:ltr;\"><b>Pronunciation:</b><br/>زَيْد --> letters ز and ي have diacritics<br/><br/><b>Morphology:</b><br/>فَاعِلْ (template for active participle)<br/>افعِلْ (template for command)<br/></br><b>Erab:</b><br/>مُحَمَّدًا (Accusative case)</p>"
+                "<p style=\"direction:ltr;\"><b>Pronunciation:</b><br/>زَيْد --> letters ز and ي have diacritics<br/><br/><b>Morphology:</b><br/>فَاعِلْ (template for active participle)<br/>افعِلْ (template for command)<br/></br><b>Erab:</b><br/>مُحَمَّدًا (Accusative case)</p>",
+                "script:getDiacriticsTable()"
             ]
         }
     },
@@ -895,7 +898,7 @@
         "features":{
             "الجماليات (Aesthetics)": [
                 "<p style=\"direction:ltr\">Calligraphic scripts are stylistic variations of the alphabet. It manipulates the geometry, proportions, and curves of the characters for visual harmony, artistic beauty, or ease of manual writing.</p>",
-                "<p style=\"direction:ltr\">Naskh is used as the primary text style for handwritten and printed copies of the holy book due to its clarity.</p><br/><img style=\"width:60%;\" src=\"https://upload.wikimedia.org/wikipedia/commons/2/27/Basmala.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original\"></img><br/><sub>source: wikipedia.org</sub>",
+                "<p style=\"direction:ltr\">Naskh is used as the primary text style for handwritten and printed copies of the Quran due to its clarity.</p><br/><img style=\"width:60%;\" src=\"https://upload.wikimedia.org/wikipedia/commons/2/27/Basmala.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original\"></img><br/><sub>source: wikipedia.org</sub>",
                 "<p style=\"direction:ltr\">Formulated in the 7th century and perfected during the Ottoman era, it replaced the rigid, geometric Kufic script with large, sweeping, and highly expressive cursive forms.</p><br/><img style=\"width:60%;\" src=\"https://www.arabic-calligraphy.com/wp-content/uploads/2024/07/Thuluth1.jpg\"></img><br/><sub>source: www.arabic-calligraphy.com</sub>", 
                 "<p style=\"direction:ltr\">Kufic script is the oldest documented calligraphic form of Arabic script. Originating in the 7th century in the city of Kufa, Iraq, it served as the primary script used to record early copies of the Quran.</p><br/><img style=\"width:60%;\" src=\"https://static.wixstatic.com/media/7335d9_9e5eb615e1fb4ad3b35df4e335f0d5a8~mv2.jpeg/v1/fill/w_740,h_542,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7335d9_9e5eb615e1fb4ad3b35df4e335f0d5a8~mv2.jpeg\"></img><br/><sub>source: www.baytalfann.com</sub>",
                 "<p style=\"direction:ltr\">Diwani calligraphy is a cursive style of Arabic calligraphy developed during the early Ottoman Empire (16th century). It was primarily used for royal decrees, chancery documents, and official state correspondence due to its complex and highly decorative nature.</p><br/><img style=\"width:60%;\" src=\"https://freeislamiccalligraphy.com/wp-content/uploads/2022/12/Al-Isra_-17_23.png\"></img><br/><sub>source: freeislamiccalligraphy.com</sub>",

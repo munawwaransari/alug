@@ -2603,6 +2603,40 @@ function cleanupEmptyDivs(div){
 	}
 }
 
+function getDiacriticsTable(){
+	var diacritics=[
+		{code:'U+064B',glyph:'\u064b', desc:'ARABIC FATHATAN'},
+		{code:'U+064C',glyph:'\u064c', desc:'ARABIC DAMMATAN'},
+		{code:'U+064D',glyph:'\u064d', desc:'ARABIC KASRATAN'},
+		{code:'U+064E',glyph:'\u064e', desc:'ARABIC FATHA'},
+		{code:'U+064F',glyph:'\u064f', desc:'ARABIC DAMMA'},
+		{code:'U+0650',glyph:'\u0650', desc:'ARABIC KASRA'},
+		{code:'U+0651',glyph:'\u0651', desc:'ARABIC SHADDA'},
+		{code:'U+0652',glyph:'\u0652', desc:'ARABIC SUKUN'},
+		{code:'U+0653',glyph:'\u0653', desc:'ARABIC MADDAH ABOVE'},
+		{code:'U+0654',glyph:'\u0654', desc:'ARABIC HAMZA ABOVE'},
+		{code:'U+0655',glyph:'\u0655', desc:'ARABIC HAMZA BELOW	'}
+	];
+	return `
+	<table style="direction:ltr;font-size:14pt;width:100%;height:auto;">
+	  <tbody>
+	     <tr><th>Code</th><th>Glyph</th><th>Unicode Name</th></tr>
+		 ${
+			diacritics.map((x)=>{
+				return `
+				<tr>
+					<td>${x.code}</td>
+					<td style=\"font-size:50px;\">
+						<span style=\"color:lightgray;\">-</span>
+						<span style=\"color:black;left:-10px;margin-left:-28px;\">${x.glyph}</span></td>
+					<td>${x.desc}</td>
+				</tr>`
+			}).join('')
+		 }
+	  </tobdy>
+	</table>`;
+}
+
 function getTajweedTable(){
 	return `
 	<table style="direction:ltr;font-size:14pt;">
