@@ -790,6 +790,7 @@
             "التفخيم",
             "الترقيق",
             "الف / را / لام",
+            "التفخيم vs الترقيق vs الهمس",
             "قَلْقَلَة",
             "إظهار vs إخفاء vs إدغام"
         ],
@@ -797,16 +798,18 @@
             "Heavy, thick, or full-mouthed pronunciation",
             "Light, thin, or flat pronunciation",
             "Conditional pronunciation",
+            "Velarization vs Attenuation vs Aspiration",
             "Echoing",
             "Assimilation vs Concealment vs Clarity"
         ],
         "features":{
             "التجويد (Elocution)": [
-                "<p style=\"direction:ltr\"><b>Definition:</b><br/>Tafkhim is the elevation of the back of the tongue toward the roof of the mouth (known as الاستعلاء), causing the sound to reverberate and fill the mouth.<br/><br/><b>Letters:</b><br/><span style=\"font-size:16pt\">خ، ص، ض، ط، ظ، غ، ق</span> <br/>(grouped in the phrase خُصَّ ضَغْطٍ قِظْ)</p>Video link for practice",
-                "<p style=\"direction:ltr\"><b>Definition:</b><br/>Tarqeeq is the lowering the back of the tongue away from the roof of the mouth (known as الاستفال), causing the sound to be flat.<br/><br/><b>Letters:</b><br/>All letters excluding the heavy letters</p>",
+                "<p style=\"direction:ltr\"><b>Definition:</b><br/>Tafkhim (velarization) is the elevation of the back of the tongue toward the roof of the mouth (known as الاستعلاء), causing the sound to reverberate and fill the mouth.<br/><br/><b>Letters:</b><br/><span style=\"font-size:16pt\">خ، ص، ض، ط، ظ، غ، ق</span> <br/>(grouped in the phrase خُصَّ ضَغْطٍ قِظْ)</p>Video link for practice",
+                "<p style=\"direction:ltr\"><b>Definition:</b><br/>Tarqeeq (attenuation) is the lowering the back of the tongue away from the roof of the mouth (known as الاستفال), causing the sound to be flat.<br/><br/><b>Letters:</b><br/>All letters excluding the heavy letters</p>",
                 "<p style=\"direction:ltr\"><b>الف</b>:<br/>Heavy when preceeded by a heavy letter, otherwise light.<br/><br/><b>را</b>:<br>Heavy when has a Fathah (ـَ) or a Dammah (ـُ), otherwise light.<br/><br/><b>*اللام</b>:<br/>Heavy when it is preceded by a Fathah (ـَ) or a Dammah (ـُ)<br/><sub>* Applies exclusively to the letter ل (called التغليظ), primarily in the Majestic Name of Allah (لفظ الجلالة - Allah / Allahumma)</sub><br/>",
+                "script: getTajweedTable(1);",
                 "<p style=\"direction:ltr\">Qalqalah is the vibration or bouncing sound made at the articulation point of a letter when it has a Sukun.<br/><br/><b>Qalqalah letters</b>: ق, ط , ب , ج , د<br/>(grouped in the phrase قُطْبُ جَدٍّ)</b><br/><br/><b>القلقلة الكبرى (Strong)</b>:<br/>when the Qalqalah letter is at the very end of a word or verse, and it has a Shaddah (ـّ).<br/>e.g. الْحَقُّ<br/><br/><b>قلقالة وسطى (Medium)</b>:<br/>when the Qalqalah letter is at the end of a word or verse, but it does not have a Shaddah.<br/>e.g. الْفَلَقِ<br/><br/><b>قلقلة صغرى (Light)</b>:<br/> when the Qalqalah letter is in the middle of a word<br/>e.g. قَدْ أَفْلَحَ , يَجْعَلُونَ<br/></p>",
-                "script: getTajweedTable();"
+                "script: getTajweedTable(2);"
             ]
         },
         "features_links":{

@@ -2637,7 +2637,26 @@ function getDiacriticsTable(){
 	</table>`;
 }
 
-function getTajweedTable(){
+function getTajweedTable(n){
+	if(n===1)
+	return `
+	<table style="direction:ltr;font-size:14pt;">
+	  <tbody>
+	     <tr><th>التفخيم</th><th>الترقيق</th><th>الهمس</th></tr>
+		 <tr>
+		   <td><span style="font-size:16pt">Heavy letters: خ, ص, ض, غ ,ط ,ق ,ظ</span></td>
+		   <td><span style="font-size:16pt">All remaining letters except the heavy ones and the conditional ones</span></td>
+		   <td><span style="font-size:16pt">ف ,ح ,ث ,ه, ش ,خ ,ص ,س ,ك ,ت</span></td>
+		</tr>
+		<tr>
+		    <td>The back of the tongue elevates, directing sound pressure to the roof of the mouth to create a deep echo.</td>
+			<td>The tongue remains flat and lowered, allowing the sound to escape without a hollow echo.</td>
+			<td>The vocal cords relax, allowing a continuous stream of breath to flow out with the letter.</td>
+		</tr>
+		<tbody>
+		</table>`;
+
+	if(n===2)
 	return `
 	<table style="direction:ltr;font-size:14pt;">
 	  <tbody>
