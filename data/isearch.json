@@ -544,12 +544,6 @@
         "data": "pos:11",
         "order": 90
     },
-    "Noun Case;الإِعْرَاب لِلأَسْمَاءِ;": {
-        "path": "dict.html",
-        "action": "lang",
-        "data": "pos:2",
-        "order": 91
-    },
     "Prepositions;حروف;حرف": {
         "path": "dict.html",
         "action": "prep",
@@ -604,29 +598,23 @@
         "data": "pos:7",
         "order": 100
     },
-    "Apparent Erab;الإعراب الظاهري;": {
+    "MSA and Colloqual Arabic;فصحي;عامية;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:1",
-        "order": 101
+        "data": "pos:0",
+        "order": 109
     },
-    "Erab by position;الإعراب المحلي;": {
+    "Rhetoric;البلاغة;": {
         "path": "dict.html",
         "action": "lang",
         "data": "pos:1",
-        "order": 102
+        "order": 108
     },
-    "Estimated Erab;الإعراب المقدر;": {
+    "Noun Case;الإِعْرَاب لِلأَسْمَاءِ;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:1",
-        "order": 103
-    },
-    "Grammar Markers;إعراب;": {
-        "path": "dict.html",
-        "action": "lang",
-        "data": "pos:1",
-        "order": 104
+        "data": "pos:2",
+        "order": 91
     },
     "Grammar;النَّحْو;": {
         "path": "dict.html",
@@ -646,17 +634,35 @@
         "data": "pos:3",
         "order": 107
     },
-    "Rhetoric;البلاغة;": {
-        "path": "dict.html",
-        "action": "lang",
-        "data": "pos:4",
-        "order": 108
-    },
     "Root and Pattern;الجذر;الوزن;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:0",
+        "data": "pos:4",
         "order": 109
+    },
+    "Apparent Erab;الإعراب الظاهري;": {
+        "path": "dict.html",
+        "action": "lang",
+        "data": "pos:5",
+        "order": 101
+    },
+    "Erab by position;الإعراب المحلي;": {
+        "path": "dict.html",
+        "action": "lang",
+        "data": "pos:5",
+        "order": 102
+    },
+    "Estimated Erab;الإعراب المقدر;": {
+        "path": "dict.html",
+        "action": "lang",
+        "data": "pos:5",
+        "order": 103
+    },
+    "Grammar Markers;إعراب;": {
+        "path": "dict.html",
+        "action": "lang",
+        "data": "pos:5",
+        "order": 104
     },
     "Phrases;عبارات": {
         "path": "dict.html",

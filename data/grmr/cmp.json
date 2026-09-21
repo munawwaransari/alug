@@ -912,71 +912,73 @@
     {
         "compareType":"lang",
         "topics":[
-            "الجذر والوزن (Root & Pattern)"
+            "فصحي",
+            "عامية"
         ],
         "notes": "",
         "ar": [
             "تعريف",
-            "الجذر",
-            "الوزن"
+            "النطاق الجغرافي",
+            "مِثال",
+            "مِثال",
+            "مِثال"
         ],
         "en": [
             "Definition",
-            "Type of Roots",
-            "The Pattern"
+            "Geographic Scope",
+            "Example",
+            "Example",
+            "Example"
         ],
         "features":{
-            "الجذر والوزن (Root & Pattern)": [
-                "<p style=\"direction:ltr;\">Arabic creates new words by fitting a root into a specific morphological template or pattern (الوزن - al-Wazn). The root (الجذر) is usually represented by the placeholders ف - ع - ل, corresponding to the first, second, and third radical letters.<br/><br/><b>Strong roots (الجذر الصحيح)</b>:<br/>Contain only regular, stable consonants (like ك-ت-ب). They follow predictable pattern rules perfectly. e.g when past tense pattern فَعَلَ is applied on root ك-ت-ب (writing), it becomes كَتَبَ (He wrote).<br/><br/><b>Weak roots (الجذر المعتل)</b>:<br/>Contain one or more vowels or glottal stops (و، ي، ا). These letters change, merge, or disappear depending on the pattern;  e.g when past tense pattern فَعَلَ is applied on root ق - و - ل (speaking), it becomes قَالَ (instead of قَوَلَ)</p>",
-                "<p style=\"direction:ltr\"><b>Triliteral Roots (الجذر الثلاثي)</b>:<br/> Makes up roughly 99% of Arabic vocabulary.<br/>e.g. س-ل-م (peace/safety), ق-ر-أ (reading).<br/><br/><b>Quadriliteral Roots (الجذر الرباعي)</b>:<br/>Contains four fundamental consonants.<br/>e.g. ت-ر-ج-م (translating → تَرْجَمَ), د-ح-ر-ج (rolling → دَحْرَجَ).<br/><br/><b>Quinquiliteral Roots (الجذر الخماسي)</b>:<br/>Extremely rare, restricted only to a few ancient nouns.<br/>e.g. س-ف-ر-ج-ل (quince → سَفَرْجَل)<br/><br/>See Weak verbs, Verb forms</p>",
-                "<p style=\"direction:ltr\">A template of vowels and extra letters (like م، ت، ا، و، ي) wrapped around the root to determine the part of speech, tense, or specific nuance (e.g., location, tool, profession, or intensifier).<br/><br/>In Arabic lexicography, roots are abstract, but you cannot easily speak or write them without vowels. To solve this, Arab grammarians chose the Form 1, Past Tense, 3rd-Person Singular Masculine verb (فَعَلَ) as the standard way to represent the base word.<br/><br/>See Verb Form I<br/><br/>A single triliteral root doesn't just create one verb; it anchors an entire system of conjugations. From the root ش - ر - ب, you get a massive family of triliteral verbs:<br/>يَشْرَبُ (Yashrabu) — He drinks (Present tense)<br/>اِشْرَبْ (Ishrab) — Drink! (Command)<br/>شَرِبْتُ (Sharibtu) — I drank (Past tense with attached pronoun)<br/><br/>See Verb forms, Imperatives, Five verbs, Noun patterns, Five nouns</p>"
+            "فصحي": [
+                "<p style=\"direction:ltr;\">Standard Arabic (MSA) is the formal, standardized version of the Arabic language used in writing, literature, news, and official communication across the Arab world<br/></p>",
+                "<p style=\"direction:ltr;\"><b>Universal</b>: It is identical and understood by educated speakers in all Arab nations.<br/></p>",
+                "<p style=\"direction:ltr;\">ماذا تريد؟ (What do you want?)<br/></p>",
+                "<p style=\"direction:ltr;\">انظر (Look!)<br/></p>",
+                "<p style=\"direction:ltr;\">لا أعرف  (I don't know)<br/></p>"
+            ],
+            "عامية": [
+                "<p style=\"direction:ltr;\">Colloquial Arabic refers to the regional spoken dialects used by people in their daily lives, which vary significantly from country to country.<br/></p>",
+                "<p style=\"direction:ltr;\"><b>Regional</b>: It is divided into dialect groups (e.g., Levantine, Egyptian, Gulf, North African).<br/></p>",
+                "<p style=\"direction:ltr;\">عايز إيه؟ (Egyptian)<br/>شو بدك؟ (Levantine)<br/>وش تبي؟ (Gulf)<br/></p>",
+                "<p style=\"direction:ltr;\">بص (Egyptian)<br/>تطلع (Levantine)<br/>شوف (Gulf)<br/></p>",
+                "<p style=\"direction:ltr;\">مش عارف (Egyptian)<br/>ما بعرف (Levantine)<br/>ما نعرفش (Gulf)<br/></p>"
             ]
         },
-        "features_links":{
-            "Verb Form I": "'dict.html','verb-3','pos:0'",
-            "Verb types": "'dict.html','verb-type','pos:0'",
-            "Weak verbs": "'dict.html','verb-weak','pos:0'",
-            "Verb forms": "'dict.html','verb','pos:0'",
-            "Imperatives": "'dict.html','verb-imp','pos:0'",
-            "Five verbs": "'dict.html','five-pat','pos:0'",
-            "Noun patterns": "'dict.html','noun-pat','pos:0'",
-            "Five nouns": "'dict.html','five-nouns','pos:0'"
+        "features_links": {
+           "Standard Arabic": "'dict.html','defs','def:فصحي'",
+           "Colloquial Arabic": "'dict.html','defs','def:عامية'",
+           "Levantine": "https://openarabic.org/levantine-arabic-resources/",
+           "Egyptian": "https://egyptianarabic.com/",
+           "Gulf": "https://www.qasidonline.com/gulf-dialect-khaleeji",
+           "North African": "https://www.academia.edu/1223329/Arabic_in_the_North_African_Region"
         }
     },
     {
         "compareType":"lang",
         "topics":[
-            "الاعراب (Grammar Markers)"
+            "العلم البلاغة (Rhetoric)"
         ],
         "notes": "",
         "ar": [
-            "تعريف",
-            "حالات",
-            "العامِل",
-            "أنواع"
+            "تعريف"
         ],
         "en": [
-            "Definition",
-            "Cases",
-            "Erab agent",
-            "Types"
+            "Definition"
         ],
         "features":{
-            "الاعراب (Grammar Markers)": [
-                "<p style=\"direction:ltr;\">إعراب </b>are used as grammatical notions on nouns and verbs to identify cases and states.</p>",
-                "<p style=\"direction:ltr\"><b>الرفع</b>:<br/>Nominative case<br/>علامات: الضَّمَّة, الأَلِف (مثنى), الوَاو (جمع)<br/>الطَّالِبُ, الطَّالِبَانِ, الطَّالِبُونَ<br/><br/><b>النصب</b>:<br/>Accusative case<br/>علامات: الفَتْحَة, اليَاء (مثنى;جمع المذكر), الكَسْرَة (جمع المؤنث), حَذْف النُّون, إِنَّ وَأَخَوَاتُهَا, أَدَوَات النَّصْب<br/>كِتَاباً, قَلَمَيْنِ, المُعَلِّمِينَ, أَبَاكَ, إِنَّ اللهَ<br/><br/><b>الجر</b>:<br/>Genitive case<br/>علامات: الكَسْرَة, اليَاء (مثنى;جمع المذكر), الفَتْحَة (غير منصرف)<br/>بِالقَلَمِ, الرَّجُلَيْنِ, مُهَنْدِسِينَ, كِتَابُ طَالِبٍ <br/><br/><b>الجزم</b>:<br/>Jussive case<br/>علامات: السُّكُون, حَذْف حَرْف العِلَّة(ا , و , ي), حَذْف النُّون<br/>لَمْ يَذْهَبْ, لَا تَحْزَنْ, إِنْ تَدْرُسْ<br/></p>",
-                "<p style=\"direction:ltr\">العامِل is the cause behind the grammatical change at the end of a word. Without an Aamil, a word cannot enter a state of Raf', Nasb, Jar, Jazm, or shift between them.<br/><br/>العَوَامِل اللَّفْظِيَّة:<br/>Verbs (الأَفْعَال), Prepositions (حُرُوفُ الجَرّ), Accusative Particles (إِنَّ وَأَخَوَاتُهَا), Jussive Tools (أَدَوَاتُ الجَزْم)<br/><br/>Other agents:<br/>subject (مُبتدا) of a sentence, فعل مُجرَّد (Abstract Verb)</p>",
-                "<p style=\"direction:ltr\"><b>Apparent (الإعراب الظاهري)</b>:<br/>grammatical sign is explicitly written and clearly pronounced<br/>e.g. يَاكُلُ زَيدُ الخُبزَ<br/>يَاكُلُ (nominatve verb)<br/>زَيدُ (nominative subject)<br/>الخُبزَ (Accusative object)<br/><br/><b>Estimated (الإعراب المقدر):</b><br/>the grammatical vowel is completely hidden<br/>e.g. words ending with Yaa(ي)<br/> زُرْتُ المُسْتَشْفَى<br/>المُسْتَشْفَى (مَنْصُوبٌ وَعَلَامَةُ نَصْبِهِ الفَتْحَةُ المُقَدَّرَة)<br/>في المُسْتَشْفَى<br/>المُسْتَشْفَى (مَجرُور وَعَلَامَةُ جَرِّهِ الْكَسْرَةُ الْمُقَدَّرَةُ)<br/><br/><b>By Position (الإعراب المحلي)</b>:<br/> exclusively to Mabni (مبني) words (أَسْمَاء الإِشَارَة, الضَّمَائِرُ الْمُتَّصِلَة, الْجُمْلَةُ الْخَبَرِيَّة, etc.)<br/>e.g. هَذِهِ تُفَّاحة<br/>هَذِهِ=>فِي مَحَلِّ رَفْعٍ مُبْتَدَأٌ<br/>قَرَأْتُ الدَّرْسَ<br/>قَرَأْتُ=>فِي مَحَلِّ رَفْعٍ فَاعِل</p>"
-
+            "العلم البلاغة (Rhetoric)": [
+                "<p style=\"direction:ltr;\">ʿIlm al-Balāghah (علم البلاغة) is the science of Arabic rhetoric, eloquence, and stylistics. It is the study of how to express meanings clearly, beautifully, and effectively, ensuring that the speech perfectly suits the psychological state of the listener and the context of the situation.<br/><br/>Concepts:<br/>ʿIlm al-Bayān (علم البيان), Metaphor (الاستعارة), Simile (التشبيه), علم البديع, Metonymy (كناية), Synechdoche (المجاز)<br/></p>"
             ]
         },
-        "features_links":{
-            "Verbs (الأَفْعَال)":"'dict.html','verb','pos:0'", 
-            "Prepositions (حُرُوفُ الجَرّ)":"'dict.html','prep','pos:0'",
-            "Accusative Particles (إِنَّ وَأَخَوَاتُهَا)":"'dict.html','prep','pos:3'",
-            "Jussive Tools (أَدَوَاتُ الجَزْم)": "'dict.html','prep','pos:2'",
-            "الضَّمَائِرُ الْمُتَّصِلَة":"'dict.html','pronoun','pos:2'",
-            "أَسْمَاء الإِشَارَة":"'dict.html','pronoun','pos:3'"
+        "features_links": {
+           "ʿIlm al-Bayān (علم البيان)": "'dict.html','defs','def:علم البيان'",
+           "Metaphor (الاستعارة)": "'dict.html','defs','def:الاستعارة'",
+           "Simile (التشبيه)": "'dict.html','defs','def:التشبيه'",
+           "علم البديع": "'dict.html','defs','def:علم البديع'",
+           "Metonymy (كناية)": "'dict.html','metonymy','all'",
+           "Synechdoche (المجاز)": "'dict.html','metonymy','pos:5'"
         }
     },
     {
@@ -1061,73 +1063,71 @@
     {
         "compareType":"lang",
         "topics":[
-            "العلم البلاغة (Rhetoric)"
+            "الجذر والوزن (Root & Pattern)"
         ],
         "notes": "",
         "ar": [
-            "تعريف"
+            "تعريف",
+            "الجذر",
+            "الوزن"
         ],
         "en": [
-            "Definition"
+            "Definition",
+            "Type of Roots",
+            "The Pattern"
         ],
         "features":{
-            "العلم البلاغة (Rhetoric)": [
-                "<p style=\"direction:ltr;\">ʿIlm al-Balāghah (علم البلاغة) is the science of Arabic rhetoric, eloquence, and stylistics. It is the study of how to express meanings clearly, beautifully, and effectively, ensuring that the speech perfectly suits the psychological state of the listener and the context of the situation.<br/><br/>Concepts:<br/>ʿIlm al-Bayān (علم البيان), Metaphor (الاستعارة), Simile (التشبيه), علم البديع, Metonymy (كناية), Synechdoche (المجاز)<br/></p>"
+            "الجذر والوزن (Root & Pattern)": [
+                "<p style=\"direction:ltr;\">Arabic creates new words by fitting a root into a specific morphological template or pattern (الوزن - al-Wazn). The root (الجذر) is usually represented by the placeholders ف - ع - ل, corresponding to the first, second, and third radical letters.<br/><br/><b>Strong roots (الجذر الصحيح)</b>:<br/>Contain only regular, stable consonants (like ك-ت-ب). They follow predictable pattern rules perfectly. e.g when past tense pattern فَعَلَ is applied on root ك-ت-ب (writing), it becomes كَتَبَ (He wrote).<br/><br/><b>Weak roots (الجذر المعتل)</b>:<br/>Contain one or more vowels or glottal stops (و، ي، ا). These letters change, merge, or disappear depending on the pattern;  e.g when past tense pattern فَعَلَ is applied on root ق - و - ل (speaking), it becomes قَالَ (instead of قَوَلَ)</p>",
+                "<p style=\"direction:ltr\"><b>Triliteral Roots (الجذر الثلاثي)</b>:<br/> Makes up roughly 99% of Arabic vocabulary.<br/>e.g. س-ل-م (peace/safety), ق-ر-أ (reading).<br/><br/><b>Quadriliteral Roots (الجذر الرباعي)</b>:<br/>Contains four fundamental consonants.<br/>e.g. ت-ر-ج-م (translating → تَرْجَمَ), د-ح-ر-ج (rolling → دَحْرَجَ).<br/><br/><b>Quinquiliteral Roots (الجذر الخماسي)</b>:<br/>Extremely rare, restricted only to a few ancient nouns.<br/>e.g. س-ف-ر-ج-ل (quince → سَفَرْجَل)<br/><br/>See Weak verbs, Verb forms</p>",
+                "<p style=\"direction:ltr\">A template of vowels and extra letters (like م، ت، ا، و، ي) wrapped around the root to determine the part of speech, tense, or specific nuance (e.g., location, tool, profession, or intensifier).<br/><br/>In Arabic lexicography, roots are abstract, but you cannot easily speak or write them without vowels. To solve this, Arab grammarians chose the Form 1, Past Tense, 3rd-Person Singular Masculine verb (فَعَلَ) as the standard way to represent the base word.<br/><br/>See Verb Form I<br/><br/>A single triliteral root doesn't just create one verb; it anchors an entire system of conjugations. From the root ش - ر - ب, you get a massive family of triliteral verbs:<br/>يَشْرَبُ (Yashrabu) — He drinks (Present tense)<br/>اِشْرَبْ (Ishrab) — Drink! (Command)<br/>شَرِبْتُ (Sharibtu) — I drank (Past tense with attached pronoun)<br/><br/>See Verb forms, Imperatives, Five verbs, Noun patterns, Five nouns</p>"
             ]
         },
-        "features_links": {
-           "ʿIlm al-Bayān (علم البيان)": "'dict.html','defs','def:علم البيان'",
-           "Metaphor (الاستعارة)": "'dict.html','defs','def:الاستعارة'",
-           "Simile (التشبيه)": "'dict.html','defs','def:التشبيه'",
-           "علم البديع": "'dict.html','defs','def:علم البديع'",
-           "Metonymy (كناية)": "'dict.html','metonymy','all'",
-           "Synechdoche (المجاز)": "'dict.html','metonymy','pos:5'"
+        "features_links":{
+            "Verb Form I": "'dict.html','verb-3','pos:0'",
+            "Verb types": "'dict.html','verb-type','pos:0'",
+            "Weak verbs": "'dict.html','verb-weak','pos:0'",
+            "Verb forms": "'dict.html','verb','pos:0'",
+            "Imperatives": "'dict.html','verb-imp','pos:0'",
+            "Five verbs": "'dict.html','five-pat','pos:0'",
+            "Noun patterns": "'dict.html','noun-pat','pos:0'",
+            "Five nouns": "'dict.html','five-nouns','pos:0'"
         }
     },
     {
         "compareType":"lang",
         "topics":[
-            "فصحي",
-            "عامية"
+            "الاعراب (Grammar Markers)"
         ],
         "notes": "",
         "ar": [
             "تعريف",
-            "النطاق الجغرافي",
-            "مِثال",
-            "مِثال",
-            "مِثال"
+            "حالات",
+            "العامِل",
+            "أنواع"
         ],
         "en": [
             "Definition",
-            "Geographic Scope",
-            "Example",
-            "Example",
-            "Example"
+            "Cases",
+            "Erab agent",
+            "Types"
         ],
         "features":{
-            "فصحي": [
-                "<p style=\"direction:ltr;\">Standard Arabic (MSA) is the formal, standardized version of the Arabic language used in writing, literature, news, and official communication across the Arab world<br/></p>",
-                "<p style=\"direction:ltr;\"><b>Universal</b>: It is identical and understood by educated speakers in all Arab nations.<br/></p>",
-                "<p style=\"direction:ltr;\">ماذا تريد؟ (What do you want?)<br/></p>",
-                "<p style=\"direction:ltr;\">انظر (Look!)<br/></p>",
-                "<p style=\"direction:ltr;\">لا أعرف  (I don't know)<br/></p>"
-            ],
-            "عامية": [
-                "<p style=\"direction:ltr;\">Colloquial Arabic refers to the regional spoken dialects used by people in their daily lives, which vary significantly from country to country.<br/></p>",
-                "<p style=\"direction:ltr;\"><b>Regional</b>: It is divided into dialect groups (e.g., Levantine, Egyptian, Gulf, North African).<br/></p>",
-                "<p style=\"direction:ltr;\">عايز إيه؟ (Egyptian)<br/>شو بدك؟ (Levantine)<br/>وش تبي؟ (Gulf)<br/></p>",
-                "<p style=\"direction:ltr;\">بص (Egyptian)<br/>تطلع (Levantine)<br/>شوف (Gulf)<br/></p>",
-                "<p style=\"direction:ltr;\">مش عارف (Egyptian)<br/>ما بعرف (Levantine)<br/>ما نعرفش (Gulf)<br/></p>"
+            "الاعراب (Grammar Markers)": [
+                "<p style=\"direction:ltr;\">إعراب </b>are used as grammatical notions on nouns and verbs to identify cases and states.</p>",
+                "<p style=\"direction:ltr\"><b>الرفع</b>:<br/>Nominative case<br/>علامات: الضَّمَّة, الأَلِف (مثنى), الوَاو (جمع)<br/>الطَّالِبُ, الطَّالِبَانِ, الطَّالِبُونَ<br/><br/><b>النصب</b>:<br/>Accusative case<br/>علامات: الفَتْحَة, اليَاء (مثنى;جمع المذكر), الكَسْرَة (جمع المؤنث), حَذْف النُّون, إِنَّ وَأَخَوَاتُهَا, أَدَوَات النَّصْب<br/>كِتَاباً, قَلَمَيْنِ, المُعَلِّمِينَ, أَبَاكَ, إِنَّ اللهَ<br/><br/><b>الجر</b>:<br/>Genitive case<br/>علامات: الكَسْرَة, اليَاء (مثنى;جمع المذكر), الفَتْحَة (غير منصرف)<br/>بِالقَلَمِ, الرَّجُلَيْنِ, مُهَنْدِسِينَ, كِتَابُ طَالِبٍ <br/><br/><b>الجزم</b>:<br/>Jussive case<br/>علامات: السُّكُون, حَذْف حَرْف العِلَّة(ا , و , ي), حَذْف النُّون<br/>لَمْ يَذْهَبْ, لَا تَحْزَنْ, إِنْ تَدْرُسْ<br/></p>",
+                "<p style=\"direction:ltr\">العامِل is the cause behind the grammatical change at the end of a word. Without an Aamil, a word cannot enter a state of Raf', Nasb, Jar, Jazm, or shift between them.<br/><br/>العَوَامِل اللَّفْظِيَّة:<br/>Verbs (الأَفْعَال), Prepositions (حُرُوفُ الجَرّ), Accusative Particles (إِنَّ وَأَخَوَاتُهَا), Jussive Tools (أَدَوَاتُ الجَزْم)<br/><br/>Other agents:<br/>subject (مُبتدا) of a sentence, فعل مُجرَّد (Abstract Verb)</p>",
+                "<p style=\"direction:ltr\"><b>Apparent (الإعراب الظاهري)</b>:<br/>grammatical sign is explicitly written and clearly pronounced<br/>e.g. يَاكُلُ زَيدُ الخُبزَ<br/>يَاكُلُ (nominatve verb)<br/>زَيدُ (nominative subject)<br/>الخُبزَ (Accusative object)<br/><br/><b>Estimated (الإعراب المقدر):</b><br/>the grammatical vowel is completely hidden<br/>e.g. words ending with Yaa(ي)<br/> زُرْتُ المُسْتَشْفَى<br/>المُسْتَشْفَى (مَنْصُوبٌ وَعَلَامَةُ نَصْبِهِ الفَتْحَةُ المُقَدَّرَة)<br/>في المُسْتَشْفَى<br/>المُسْتَشْفَى (مَجرُور وَعَلَامَةُ جَرِّهِ الْكَسْرَةُ الْمُقَدَّرَةُ)<br/><br/><b>By Position (الإعراب المحلي)</b>:<br/> exclusively to Mabni (مبني) words (أَسْمَاء الإِشَارَة, الضَّمَائِرُ الْمُتَّصِلَة, الْجُمْلَةُ الْخَبَرِيَّة, etc.)<br/>e.g. هَذِهِ تُفَّاحة<br/>هَذِهِ=>فِي مَحَلِّ رَفْعٍ مُبْتَدَأٌ<br/>قَرَأْتُ الدَّرْسَ<br/>قَرَأْتُ=>فِي مَحَلِّ رَفْعٍ فَاعِل</p>"
+
             ]
         },
-        "features_links": {
-           "Standard Arabic": "'dict.html','defs','def:فصحي'",
-           "Colloquial Arabic": "'dict.html','defs','def:عامية'",
-           "Levantine": "https://openarabic.org/levantine-arabic-resources/",
-           "Egyptian": "https://egyptianarabic.com/",
-           "Gulf": "https://www.qasidonline.com/gulf-dialect-khaleeji",
-           "North African": "https://www.academia.edu/1223329/Arabic_in_the_North_African_Region"
+        "features_links":{
+            "Verbs (الأَفْعَال)":"'dict.html','verb','pos:0'", 
+            "Prepositions (حُرُوفُ الجَرّ)":"'dict.html','prep','pos:0'",
+            "Accusative Particles (إِنَّ وَأَخَوَاتُهَا)":"'dict.html','prep','pos:3'",
+            "Jussive Tools (أَدَوَاتُ الجَزْم)": "'dict.html','prep','pos:2'",
+            "الضَّمَائِرُ الْمُتَّصِلَة":"'dict.html','pronoun','pos:2'",
+            "أَسْمَاء الإِشَارَة":"'dict.html','pronoun','pos:3'"
         }
     },
     {
