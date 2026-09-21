@@ -933,7 +933,7 @@
     {
         "compareType":"lang",
         "topics":[
-            "تاريخ اللغة العربية (Arabic Language History)"
+            "تاريخ اللغة العربية (History)"
         ],
         "ar":[
             "المؤسسون",
@@ -948,12 +948,17 @@
             "10th – 12th Century"
         ],
         "features":{
-            "تاريخ اللغة العربية (Arabic Language History)":[
+            "تاريخ اللغة العربية (History)":[
                 "<p style=\"direction:ltr;\">System of colored dots for short vowels (tashkeel) and early concepts of grammar were created.<br/><br/><b>Abu al-Aswad al-Du'ali</b> (d. 688 CE):<br/> Fi al-Nahw  (في النحو)</p>",
                 "<p style=\"direction:ltr;\">The Basran school was characterized by a highly logical, analytical approach. They sought strict, universal rules for the language.<br/><br/><b>Al-Khalil ibn Ahmad al-Farahidi</b> (718–786 CE):<br/>First Arabic dictionary (كتاب العين)<br/><br/><b>Sibawayh</b> (760–796 CE):<br/>Al-Kitab (The Book)<br/></p>",
                 "<p style=\"direction:ltr;\">The Kufan school took a more pragmatic approach. They accepted poetic anomalies, regional dialects, and rare text usages as valid grammar rules rather than forcing them into strict formulas.<br/><br/><b>Abu Ja'far al-Ru'asi</b> (d. ~787 CE):<br/>The Decisive book (كتاب الفيصل)<br/><br/><b>Al-Farra'</b> (761–822 CE):<br/>معاني القُرآن</p>",
                 "<p style=\"direction:ltr;\">Scholars began blending the strict rules of Basra with the flexibility of Kufa, creating a unified framework for Arabic linguistics.<br/><br/><b>Ibn Jinni</b> (941–1002 CE):<br/>The Characteristics (الخصائص)<br/>سر صناعة الإعراب<br/><br/><b>Al-Zamakhshari</b> (1075–1144 CE):<br/>The Detailed Exposition of Grammar (المفصل في صنعة لإعراب)<br/>The Foundation of Rhetoric (اساس البلاغة)</p>"
             ]
+        },
+        "features_links":{
+            "The Detailed Exposition of Grammar (المفصل في صنعة لإعراب)": "https://usul.ai/t/mufassal-fi-suncat-icrab",
+            "سر صناعة الإعراب": "https://archive.org/details/sir-sina3at-ali3rab",
+            "The Foundation of Rhetoric (اساس البلاغة)": "https://archive.org/details/asas-al-balagah-1-2"
         }
     },
     {
