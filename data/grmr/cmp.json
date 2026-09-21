@@ -933,6 +933,32 @@
     {
         "compareType":"lang",
         "topics":[
+            "تاريخ اللغة العربية (Arabic Language History)"
+        ],
+        "ar":[
+            "المؤسسون",
+            "المدرسة البصرية",
+            "المدرسة الكوفية",
+            "كبار الأساتذة المتأخرون"
+        ],
+        "en":[
+            "7th Century - The Founders",
+            "8th to 9th Century - The Basra School",
+            "8th to 9th Century - The Kufan School",
+            "10th – 12th Century"
+        ],
+        "features":{
+            "تاريخ اللغة العربية (Arabic Language History)":[
+                "<p style=\"direction:ltr;\">System of colored dots for short vowels (tashkeel) and early concepts of grammar were created.<br/><br/><b>Abu al-Aswad al-Du'ali</b> (d. 688 CE):<br/> Fi al-Nahw  (في النحو)</p>",
+                "<p style=\"direction:ltr;\">The Basran school was characterized by a highly logical, analytical approach. They sought strict, universal rules for the language.<br/><br/><b>Al-Khalil ibn Ahmad al-Farahidi</b> (718–786 CE):<br/>First Arabic dictionary (كتاب العين)<br/><br/><b>Sibawayh</b> (760–796 CE):<br/>Al-Kitab (The Book)<br/></p>",
+                "<p style=\"direction:ltr;\">The Kufan school took a more pragmatic approach. They accepted poetic anomalies, regional dialects, and rare text usages as valid grammar rules rather than forcing them into strict formulas.<br/><br/><b>Abu Ja'far al-Ru'asi</b> (d. ~787 CE):<br/>The Decisive book (كتاب الفيصل)<br/><br/><b>Al-Farra'</b> (761–822 CE):<br/>معاني القُرآن</p>",
+                "<p style=\"direction:ltr;\">Scholars began blending the strict rules of Basra with the flexibility of Kufa, creating a unified framework for Arabic linguistics.<br/><br/><b>Ibn Jinni</b> (941–1002 CE):<br/>The Characteristics (الخصائص)<br/>سر صناعة الإعراب<br/><br/><b>Al-Zamakhshari</b> (1075–1144 CE):<br/>The Detailed Exposition of Grammar (المفصل في صنعة لإعراب)<br/>The Foundation of Rhetoric (اساس البلاغة)</p>"
+            ]
+        }
+    },
+    {
+        "compareType":"lang",
+        "topics":[
             "فصحي",
             "عامية"
         ],
