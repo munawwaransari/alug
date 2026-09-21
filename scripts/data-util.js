@@ -2676,7 +2676,7 @@ function getTajweedTable(){
 
 function getArabicLettersInfo(){
  return `
- <ul style="direction:ltr;list-style: none;">
+ <ul style="direction:ltr;list-style: none;font-size:14px;">
    <li>Unicode Block (U+0600 to U+06FF)</li>
    <li>Written and read horizontally from right to left.</li>
    <li>Cursive and ligature based: e.g (لا) and (لله)</li>
