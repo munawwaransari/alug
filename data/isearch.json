@@ -1,8 +1,14 @@
 {
-    "Diacritics;علاماتُ التَّشكِيل;": {
+    "Alphabets (Writing);الحروف الهجائية":{
         "path": "dict.html",
         "action": "script",
         "data": "pos:0",
+        "order": 1
+    },
+    "Diacritics;علاماتُ التَّشكِيل;": {
+        "path": "dict.html",
+        "action": "script",
+        "data": "pos:1",
         "order": 1
     },
     "Elocution;التجويد;التفخيم;الترقيق;الاستعلاء;الاستفال;قَلْقَلَة;": {

@@ -2674,6 +2674,18 @@ function getTajweedTable(){
 		</table>`;
 }
 
+function getArabicLettersInfo(){
+ return `
+ <ul style="direction:ltr;list-style: none;">
+   <li>Unicode Block (U+0600 to U+06FF)</li>
+   <li>Written and read horizontally from right to left.</li>
+   <li>Cursive and ligature based: e.g (لا) and (لله)</li>
+   <li>Letter shapes change based on position e.g. (\uFEB3), (ـسـ), (\uFEB2)</li>
+   <li>Short vowels: optional diacritic marks ( \u064f ), ( \u064e ), ( \u0650 ), etc.</li>
+   <li>Non-joining Letters (break ligature): ا, د, ذ, ر, ز, و</li>
+ </ul>`;
+}
+
 function toTitleCase(str) {
     return str.replace(/\w\S*/g, function(txt) {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();

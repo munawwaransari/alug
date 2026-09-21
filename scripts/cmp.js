@@ -157,21 +157,22 @@ class cmpAPI {
 						${
 							topics.map((topic) => {
 								var res = cmp["features"][topic][f];
-								if(cmp["features_links"]){
-									Object.keys(cmp["features_links"]).every((key)=>{
-										var isExternal = cmp["features_links"][key].startsWith("http");
-										if(isExternal){
-											res = res.replace(key, `<a href="#" onclick="window.open('${cmp["features_links"][key]}', '_blank');">${key}</a>`);
-										}else{
-											res = res.replace(key, `<a href="#" onclick="parent.redirect(${cmp["features_links"][key]});">${key}</a>`);
-										}
-										return true;
-									});
-									return `<td>${replaceQLink(res)}</td>`;
-								}else if(res.startsWith("script:")){
-									return `<td>${replaceQLink(eval(res.substring(7)))}</td>`;
-								}else{
-									return `<td>${replaceQLink(cmp["features"][topic][f])}</td>`
+								if(res.startsWith("script:")){
+									return `<td>${eval(res.substring(7))}</td>`;
+								}
+								else {
+									if(cmp["features_links"]){
+										Object.keys(cmp["features_links"]).every((key)=>{
+											var isExternal = cmp["features_links"][key].startsWith("http");
+											if(isExternal){
+												res = res.replace(key, `<a href="#" onclick="window.open('${cmp["features_links"][key]}', '_blank');">${key}</a>`);
+											}else{
+												res = res.replace(key, `<a href="#" onclick="parent.redirect(${cmp["features_links"][key]});">${key}</a>`);
+											}
+											return true;
+										});
+									}
+									return `<td>${replaceQLink(res)}</td>`
 								}
 							})
 						}
