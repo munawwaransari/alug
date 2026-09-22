@@ -158,7 +158,7 @@ class cmpAPI {
 							topics.map((topic) => {
 								var res = cmp["features"][topic][f];
 								if(res.startsWith("script:")){
-									return `<td>${eval(res.substring(7))}</td>`;
+									return `<td style="align-content:baseline">${eval(res.substring(7))}</td>`;
 								}
 								else {
 									if(cmp["features_links"]){

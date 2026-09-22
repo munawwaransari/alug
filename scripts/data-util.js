@@ -2705,6 +2705,39 @@ function getArabicLettersInfo(){
  </ul>`;
 }
 
+function getArabicLanguageInfo(n){
+  if(n=='MSA')
+	return `
+	<table style="direction:ltr;font-size:14pt;">
+		<tbody>
+		<tr><td><b>Case Endings</b></td></tr>
+		<tr><td>MSA uses short vowels at the end of words to show grammatical function e.g.<br/> الولدُ ياكلُ التفاحاتةَ <br/>(al-walad<b>u</b> yakul<b>u</b> al-tuffaha<b>ta</b>)</td></tr>
+		<tr><td><b>Future Tense Markers</b></td></tr>
+		<tr><td>MSA adds the prefix سـ or the particle سَوفَ e.g.<br/> سَاُسافِرُ / سَوفَ اُسافِرُ</td>
+		<tr><td><b>Present Continuous Marker</b></td></tr>
+		<tr><td>MSA uses the standard present tense verb e.g. يَدرُسُ (He studies or he is studying)</td></tr>
+		<tr><td><b>The Letter Qaf (ق)</b></td></tr>
+		<tr><td>In MSA, the letter Qaf is pronounced deep in the throat as a hard /q/ e.g. قُل (qul).</td></tr>
+		</tbody>
+	</table>
+    `;
+//else
+	return `
+	<table style="direction:ltr;font-size:14pt;align-content:baseline;">
+		<tbody>
+		<tr><td><b>Case Endings</b></td></tr>
+		<tr><td>Colloquial Arabic always ending words on a silent consonant sound (sukun) e.g.<br/> الولد بياكل التفاحاتة <br/>(al-walad bi-yakul al-tuffaha)</td></tr>
+		<tr><td><b>Future Tense Markers</b></td></tr>
+		<tr><td>Colloquial dialects substitute this with regional prefixes e.g.<br/> رح أسافر / رايح أسافر / هسافر</td>
+		<tr><td><b>Present Continuous Marker</b></td></tr>
+		<tr><td>Colloquial dialects add a specific prefix—usually \uFE91 e.g. بِيِدْرُس / قَاعِد يِدْرِس / عَم يِدْرُس</td></tr>
+		<tr><td><b>The Letter Qaf (ق)</b></td></tr>
+		<tr><td>It is heavily modified, most commonly into a glottal stop or /g/ sound e.g. ئول (ool) ; قول (ool / gool)</td></tr>
+		</tbody>
+	</table>
+	`;
+}
+
 function toTitleCase(str) {
     return str.replace(/\w\S*/g, function(txt) {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();

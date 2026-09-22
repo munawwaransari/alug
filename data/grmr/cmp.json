@@ -967,38 +967,34 @@
     {
         "compareType":"lang",
         "topics":[
-            "فصحي",
-            "عامية"
+            "فصحي (MSA)",
+            "عامية (Colloqual)"
         ],
-        "notes": "",
+        "notes": "<p style=\"direction:ltr;\">Modern Standard Arabic (MSA) emerged through a collective cultural and literary renaissance called the <a alt=\"Nahdha\" href=\"https://en.wikipedia.org/wiki/Nahda\">النّهضة (the Arabic Awakening)</a> during the late 19th and early 20th centuries.</p>",
         "ar": [
             "تعريف",
-            "النطاق الجغرافي",
             "مِثال",
-            "مِثال",
-            "مِثال"
+            "الفِعْلُ فِي حَالَةِ التَّثْنِيَةِ",
+            "استعمال"
         ],
         "en": [
             "Definition",
-            "Geographic Scope",
             "Example",
-            "Example",
-            "Example"
+            "Dual Verb",
+            "Usage"
         ],
         "features":{
-            "فصحي": [
-                "<p style=\"direction:ltr;\">Standard Arabic (MSA) is the formal, standardized version of the Arabic language used in writing, literature, news, and official communication across the Arab world<br/></p>",
-                "<p style=\"direction:ltr;\"><b>Universal</b>: It is identical and understood by educated speakers in all Arab nations.<br/></p>",
-                "<p style=\"direction:ltr;\">ماذا تريد؟ (What do you want?)<br/></p>",
-                "<p style=\"direction:ltr;\">انظر (Look!)<br/></p>",
-                "<p style=\"direction:ltr;\">لا أعرف  (I don't know)<br/></p>"
+            "فصحي (MSA)": [
+                "<p style=\"direction:ltr;\">Standard Arabic (MSA) is the formal, standardized version of the Arabic language used in writing, literature, news, and official communication across the Arab world<br/><br/><b>Universal</b>: It is identical and understood by educated speakers in all Arab nations.<br/></p>",
+                "<p style=\"direction:ltr;\">ماذا تريد؟ (What do you want?)<br/>انظر (Look!)<br/>لا أعرف  (I don't know)</p>",
+                "<p style=\"direction:ltr;\">Classical Arabic uses a strict Dual verb ending e.g.<br/>الرجلان ذهبا<br/>البنتان تشربان<br/>أنتما كتبتما</p>",
+                "script: getArabicLanguageInfo('MSA')"
             ],
-            "عامية": [
-                "<p style=\"direction:ltr;\">Colloquial Arabic refers to the regional spoken dialects used by people in their daily lives, which vary significantly from country to country.<br/></p>",
-                "<p style=\"direction:ltr;\"><b>Regional</b>: It is divided into dialect groups (e.g., Levantine, Egyptian, Gulf, North African).<br/></p>",
-                "<p style=\"direction:ltr;\">عايز إيه؟ (Egyptian)<br/>شو بدك؟ (Levantine)<br/>وش تبي؟ (Gulf)<br/></p>",
-                "<p style=\"direction:ltr;\">بص (Egyptian)<br/>تطلع (Levantine)<br/>شوف (Gulf)<br/></p>",
-                "<p style=\"direction:ltr;\">مش عارف (Egyptian)<br/>ما بعرف (Levantine)<br/>ما نعرفش (Gulf)<br/></p>"
+            "عامية (Colloqual)": [
+                "<p style=\"direction:ltr;\">Colloquial Arabic refers to the regional spoken dialects used by people in their daily lives, which vary significantly from country to country.<br/><br/><b>Regional</b>: It is divided into dialect groups (e.g., Levantine, Egyptian, Gulf, North African).<br/></p>",
+                "<p style=\"direction:ltr;\">عايز إيه؟ ;شو بدك؟; وش تبي؟<br/>بص ; تطلع; شوف<br/>مش عارف ; ما بعرف; ما نعرفش</p>",
+                "<p style=\"direction:ltr;\">The concept of a \"dual verb\" does not exist in spoken Arabic e.g.<br/>الراجلين راحوا<br/>البنتين بيشربوا<br/>إنتوا كتبتوا</p>",
+                "script: getArabicLanguageInfo()"
             ]
         },
         "features_links": {
