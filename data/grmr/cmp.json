@@ -1182,6 +1182,42 @@
         }
     },
     {
+        "compareType":"lang",
+        "topics":[
+            "كُنْيَة (Honorific name or technonym)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "الكنية البشرية",
+            "أسماء وكنى الحيوانات",
+            "أسماء وكنى المعاني"
+        ],
+        "en": [
+            "Definition",
+            "Human Kunya",
+            "Kunya of Animals",
+            "Meanings & Abstract Concepts"
+        ],
+        "features":{
+            "كُنْيَة (Honorific name or technonym)": [
+                "<p style=\"direction:ltr;\">a Kunya (كُنْيَة) is a honorific name or technonym that is used as a respectful way to address someone, instead of using their given name (Ism).</p>",
+                "<p style=\"direction:ltr\"><b>Traditional (Based on Eldest Child)</b>:<br/>Parents are called by the name of their firstborn child (traditionally the eldest son, though using a daughter's name is also common). e.g. أَبُو مُحَمَّد (Father of Muhammad), أُمُّ الكُلثُوم (Mother of Kulthum)<br/><br/><b>Metaphorical or Descriptive</b>:<br/>Sometimes, a Kunya is given as a nickname based on a person’s characteristics, a famous incident, or an object they are associated with e.g. أَبُو هُرَيْرَة (Father of the kitten), أَبُو الْهَوْل (Father of terror)<br/><br/><b>Proverbial / Fixed Kunyas</b>:<br/>In Arab culture, certain given names have automatic or historical Kunyas paired with them. e.g.<br/> ابو الحسن (after Ali ibn Abi Talib and his son Hasan)<br/>ابو الخليل (referencing Prophet Ibrahim's title, خليل اللّه)</p>",
+                "<p style=\"direction:ltr\">In classical Arabic culture and poetry, almost every animal was assigned a formal Kunya e.g.<br/>The Lion - <b>أَبُو الْحَارِث</b> (referring to its hunting)<br/>The Rooster - <b>أَبُو الْحَسَن</b> (referring to the rooster's striking feathers)<br/>The Hyena - <b>أُمّ عَامِر</b> (metaphorically to describe treachery)<br/>The Chameleon - <b>أُمّ خِبَيْن</b> (referring to itsblending into its surroundings)</p>",
+                "<p style=\"direction:ltr\">Personified inanimate objects, diseases, hardships, and virtues (used in classical poetry) e.g. <br/>The Mecca - <b>أُمّ الْقُرَى</b> (Mother of Cities)<br/>Alcohol/Wine - <b>أُمّ الْخَبَائِث</b> (Mother of all Evils)<br/>Dawn - <b>أَبُو الْيَقْظَان</b> (Morning or state of alertness)<br/></p>"
+
+            ]
+        },
+        "features_links":{
+            "Verbs (الأَفْعَال)":"'dict.html','verb','pos:0'", 
+            "Prepositions (حُرُوفُ الجَرّ)":"'dict.html','prep','pos:0'",
+            "Accusative Particles (إِنَّ وَأَخَوَاتُهَا)":"'dict.html','prep','pos:3'",
+            "Jussive Tools (أَدَوَاتُ الجَزْم)": "'dict.html','prep','pos:2'",
+            "الضَّمَائِرُ الْمُتَّصِلَة":"'dict.html','pronoun','pos:2'",
+            "أَسْمَاء الإِشَارَة":"'dict.html','pronoun','pos:3'"
+        }
+    },
+    {
         "compareType":"grammar",
         "topics": [
             "أقسام الكلام (Parts of Speech)"

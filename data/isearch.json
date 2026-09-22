@@ -676,6 +676,12 @@
         "data": "pos:6",
         "order": 104
     },
+    "Honorific Names (Kunya);كُنْيَة;أسماء وكنى;": {
+        "path": "dict.html",
+        "action": "lang",
+        "data": "pos:7",
+        "order": 104
+    },
     "Phrases;عبارات": {
         "path": "dict.html",
         "action": "prep-ph",
