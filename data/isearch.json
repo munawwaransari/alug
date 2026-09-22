@@ -89,12 +89,6 @@
         "data": "pos:2",
         "order": 12
     },
-    "Active Voice;الفاعل": {
-        "path": "dict.html",
-        "action": "noun-cmp",
-        "data": "pos:12",
-        "order": 13
-    },
     "Active participle;اسم الفاعل": {
         "path": "dict.html",
         "action": "noun-pat",
@@ -119,35 +113,17 @@
         "data": "pos:3",
         "order": 17
     },
-    "Collection Noun;جمعي;اسم الجنس": {
-        "path": "dict.html",
-        "action": "noun-cmp",
-        "data": "pos:9",
-        "order": 18
-    },
     "Comparative;اسمُ التفضيل": {
         "path": "dict.html",
         "action": "noun-pat",
         "data": "@key",
         "order": 19
     },
-    "Definite Noun;اسم المعرفة": {
-        "path": "dict.html",
-        "action": "noun-cmp",
-        "data": "pos:5",
-        "order": 20
-    },
     "Demonstrative Phrase;المركب الإشاري;المشار إليه;اسم الإشارة;ضَمِير الفَصْل;": {
         "path": "dict.html",
         "action": "grammar",
         "data": "pos:11",
         "order": 21
-    },
-    "Derived Noun;اسم المشتق": {
-        "path": "dict.html",
-        "action": "noun-cmp",
-        "data": "pos:11",
-        "order": 22
     },
     "Diminutive;اسمُ التصغير": {
         "path": "dict.html",
@@ -172,12 +148,6 @@
         "data": "@key",
         "order": 26
     },
-    "Generic Noun;اسم الجنس;إنفرادي": {
-        "path": "dict.html",
-        "action": "noun-cmp",
-        "data": "pos:8",
-        "order": 27
-    },
     "Hyperbole (Cards);Charts;Vocabulary;مبالغة": {
         "path": "cards.html",
         "action": "Vocab",
@@ -189,18 +159,6 @@
         "action": "noun-pat",
         "data": "@key",
         "order": 29
-    },
-    "Indeclinable Noun;Proper Noun;اسم الجامد;اسم العَلم;اسم الذات;اسم المعنى;": {
-        "path": "dict.html",
-        "action": "noun-cmp",
-        "data": "pos:10",
-        "order": 30
-    },
-    "Indefinite Noun;اسم النكرة": {
-        "path": "dict.html",
-        "action": "noun-cmp",
-        "data": "pos:4",
-        "order": 31
     },
     "Noun of place;اسمُ الزمان ومكان": {
         "path": "dict.html",
@@ -224,12 +182,6 @@
         "action": "adj",
         "data": "pos:4",
         "order": 35
-    },
-    "Passive Voice;نائب الفاعل": {
-        "path": "dict.html",
-        "action": "noun-cmp",
-        "data": "pos:13",
-        "order": 36
     },
     "Passive participle;اسم المفعول": {
         "path": "dict.html",
@@ -676,10 +628,16 @@
         "data": "pos:6",
         "order": 104
     },
-    "Honorific Names (Kunya);كُنْيَة;أسماء وكنى;": {
+    "Foreign Words (Arabicized);مُعَرَّب;": {
         "path": "dict.html",
         "action": "lang",
         "data": "pos:7",
+        "order": 104
+    },
+    "Honorific Names (Kunya);كُنْيَة;أسماء وكنى;": {
+        "path": "dict.html",
+        "action": "lang",
+        "data": "pos:8",
         "order": 104
     },
     "Phrases;عبارات": {
@@ -760,12 +718,6 @@
         "data": "pos:20",
         "order": 122
     },
-    "Broken Plural;الجمع التكسير": {
-        "path": "dict.html",
-        "action": "noun-cmp",
-        "data": "pos:7",
-        "order": 123
-    },
     "Calendar (Charts);Time;Cards;Vocabulary;تقويم;": {
         "path": "calendar.html",
         "action": "Misc",
@@ -802,17 +754,107 @@
         "data": "pos:9%20formX",
         "order": 129
     },
+    "Triptote;المعرب;محل له من العراب": {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:0",
+        "order": 169
+    },
     "Declinable Noun Endings;الصحيح;المنقوص;المقصور;الممدود;مُعرب": {
         "path": "dict.html",
         "action": "noun-cmp",
-        "data": "pos:1",
+        "data": "pos:0",
         "order": 130
     },
     "Diptote;غير المنصرف": {
         "path": "dict.html",
         "action": "noun-cmp",
-        "data": "pos:2",
+        "data": "pos:1",
         "order": 131
+    },
+    "Indeclinable;المبني;لا محل له من العراب": {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:2",
+        "order": 141
+    },
+    "Indefinite Noun;اسم النكرة": {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:3",
+        "order": 31
+    },
+    "Definite Noun;اسم المعرفة": {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:4",
+        "order": 20
+    },   
+    "Sound Plural;الجمع السالم": {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:5",
+        "order": 159
+    },
+    "Broken Plural;الجمع التكسير": {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:6",
+        "order": 123
+    },
+    "Generic Noun;اسم الجنس;إنفرادي": {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:7",
+        "order": 27
+    }, 
+    "Collection Noun;جمعي;اسم الجنس": {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:8",
+        "order": 18
+    },
+    "Indeclinable Noun;Proper Noun;اسم الجامد;اسم العَلم;اسم الذات;اسم المعنى;": {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:9",
+        "order": 30
+    },
+    "Derived Noun;اسم المشتق": {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:10",
+        "order": 22
+    },
+    "Active Voice;الفاعل": {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:11",
+        "order": 13
+    },
+    "Passive Voice;نائب الفاعل": {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:12",
+        "order": 36
+    },
+    "Predicate;مسند": {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:13",
+        "order": 154
+    },
+    "Subject;مسند اليه": {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:14",
+        "order": 161
+    },
+    "Exceptional Patterns;أسماء استثنائية": {
+        "path": "dict.html",
+        "action": "noun-cmp",
+        "data": "pos:15",
+        "order": 134
     },
     "Direct Object;المفعُول بِهِ;": {
         "path": "dict.html",
@@ -825,12 +867,6 @@
         "action": "adv",
         "data": "pos:5",
         "order": 133
-    },
-    "Exceptional Patterns;أسماء استثنائية": {
-        "path": "dict.html",
-        "action": "noun-cmp",
-        "data": "pos:16",
-        "order": 134
     },
     "Faa;نون النسوة": {
         "path": "dict.html",
@@ -866,12 +902,6 @@
         "action": "Chart",
         "data": "homonym",
         "order": 140
-    },
-    "Indeclinable;المبني;لا محل له من العراب": {
-        "path": "dict.html",
-        "action": "noun-cmp",
-        "data": "pos:3",
-        "order": 141
     },
     "Kaaf;كاف التشبيه;كاف الخطاب": {
         "path": "dict.html",
@@ -945,12 +975,6 @@
         "data": "number",
         "order": 153
     },
-    "Predicate;مسند": {
-        "path": "dict.html",
-        "action": "noun-cmp",
-        "data": "pos:14",
-        "order": 154
-    },
     "Quranic Examples;أمثلة من القرآن": {
         "path": "dict.html",
         "action": "q-examples",
@@ -975,23 +999,11 @@
         "data": "pos:5",
         "order": 158
     },
-    "Sound Plural;الجمع السالم": {
-        "path": "dict.html",
-        "action": "noun-cmp",
-        "data": "pos:6",
-        "order": 159
-    },
     "Standard Verbal Noun;Masdar;مصدر قياسي": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:21",
         "order": 160
-    },
-    "Subject;مسند اليه": {
-        "path": "dict.html",
-        "action": "noun-cmp",
-        "data": "pos:15",
-        "order": 161
     },
     "Synecdoche (Conceptual);المجاز العَقلي": {
         "path": "dict.html",
@@ -1034,12 +1046,6 @@
         "action": "cmp",
         "data": "pos:17",
         "order": 168
-    },
-    "Triptote;المعرب;محل له من العراب": {
-        "path": "dict.html",
-        "action": "noun-cmp",
-        "data": "pos:0",
-        "order": 169
     },
     "Until;حتي;": {
         "path": "dict.html",
