@@ -2708,7 +2708,7 @@ function getArabicLettersInfo(){
 function getArabicLanguageInfo(n){
   if(n=='MSA')
 	return `
-	<table style="direction:ltr;font-size:14pt;">
+	<table style="width:100%;direction:ltr;font-size:14pt;">
 		<tbody>
 		<tr><td><b>Case Endings</b></td></tr>
 		<tr><td>MSA uses short vowels at the end of words to show grammatical function e.g.<br/> الولدُ ياكلُ التفاحاتةَ <br/>(al-walad<b>u</b> yakul<b>u</b> al-tuffaha<b>ta</b>)</td></tr>
@@ -2723,7 +2723,7 @@ function getArabicLanguageInfo(n){
     `;
 //else
 	return `
-	<table style="direction:ltr;font-size:14pt;align-content:baseline;">
+	<table style="width:100%;direction:ltr;font-size:14pt;align-content:baseline;">
 		<tbody>
 		<tr><td><b>Case Endings</b></td></tr>
 		<tr><td>Colloquial Arabic always ending words on a silent consonant sound (sukun) e.g.<br/> الولد بياكل التفاحاتة <br/>(al-walad bi-yakul al-tuffaha)</td></tr>
