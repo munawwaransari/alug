@@ -1906,7 +1906,7 @@
         "features": {
             "المعرب منصرف (Triptote)": [
                 "<p style=\"direction:ltr\"><b>المعرب (محل له من الإعراب)</b><br/>These are words that change their last vowel or letter when their place in the sentence changes.<br/><br/>These are :<br/>Fully Declinable (مُنصَرِف),<br/>Partially Declinable (ممنوع من الصرف)<br/><br/></p>",
-                "<p style=\"direction:ltr\">Examples:<br/>الاسم المفرد: مثل (محمدٌ، محمدًا، محمدٍ)<br/>جمع التكسير: مثل (رجالٌ، رجالًا، رجالٍ)<br/>جمع المؤنث السالم: مثل (المؤمناتُ، المؤمناتِ) <br/>الفعل المضارع:(يكتبُ، لن يكتبَ، لم يكتبْ)<br/>المثنى  (مثل: الطالبان، الطالبين)<br/>جمع المذكر السالم (مثل: المعلمون، المعلمين)<br/>اسماء الخمسة: (أبوك، أخوك، حموك، فوك، ذو مال)<br/>الأفعال الخمسة (يفعلان, تفعلان, يفعلون, تفعلون, تفعلين)</p>Arabic origin words ending with tanween<p>لَبنٌ (Milk)<br/>(Nominative case)<br/> رفع =>  &nbsp;<span style=\"font-size:40\"> ٌ</span> (تنوين بالضم)</p><p/>(Accusative case)<br/>نصب =>&nbsp;    ً  (تنوين بالفتح)<br/>عَبدًا (Slave)</p><p>(Genitive case)<br/>جر =>&nbsp; ٍ(تنوين بالكسر)<br/>قَاضٍ (Judge)</p>",
+                "<p style=\"direction:ltr\">Examples:<br/>الاسم المفرد: مثل (محمدٌ، محمدًا، محمدٍ)<br/>جمع التكسير: مثل (رجالٌ، رجالًا، رجالٍ)<br/>جمع المؤنث السالم: مثل (المؤمناتُ، المؤمناتِ) <br/>الفعل المضارع:(يكتبُ، لن يكتبَ، لم يكتبْ)<br/>المثنى  (مثل: الطالبان، الطالبين)<br/>جمع المذكر السالم (مثل: المعلمون، المعلمين)<br/>اسماء الخمسة: (أبوك، أخوك، حموك، فوك، ذو مال)<br/>الأفعال الخمسة (يفعلان, تفعلان, يفعلون, تفعلون, تفعلين)</p>",
                 "<table style=\"align-content:center;margin:auto;\"><tr><th>و ل د</th><th>رفع</th><th>نصب</th><th>جر</th></tr><tr><td>(مُفرَد)</td><td>وَلَدٌ</td><td>وَلَدًا</td><td>وَلَدٍ</td></tr><tr><td>(مَثنَي)</td><td>وَلَدَانِ</td><td>وَلَدَينِ</td><td>وَلَدَينِ</td></tr><tr><td>(جمع)</td><td>وَلَدُونَ</td><td>وَلَدِينَ</td><td>وَلَدِينَ</td></tr></table>",
                 "<p style=\"direction: ltr;padding:0;margin:0;\"><b>الاسم الصحيح (Sound/Correct Noun)</b>:<br>Any standard noun that does not end in an alif (ا), ya (ي), or wao (و)<br/>عمل (work)<br/> بيت (house)<br/> قلم (pen)<br/><br/><b>الاسم المنقوص (Defective Noun)</b>:<br/>A noun ending in a long ي preceded by a كسرة<br/>قاضٍ / القاضِي (judge)<br/> محامٍ / المحامِي (lawyer)<br/> داعٍ / الداعِي (inviter)<br/><br/><b>الاسم المقصور (Elongated Noun)</b>:<br/>A noun ending with a long obligatory alif (written as either ا or ى) preceded by a fathah.<br/>هُدى (guidance)<br/> مصطفى (Mustafa)<br/> مستشفى (hospital)<br/><br/><b>الاسم الممدود (Extended Noun)</b>:<br/>A noun ending in a hamza (ء) preceded by an elongated alif (ا)<br/>سماء (sky)<br/> صحراء (desert)<br/> إنشاء (construction)</p>"
 			]
@@ -1938,17 +1938,17 @@
             "غير المنصرف"
         ],
         "en": [
-            "Definition",
+            "Rules",
             "Example",
             "Example of Declension",
-            "Noun Endings Rules"
+            "Noun Endings"
         ],
         "features": {
             "المعرب غير المنصرف (Diptote)":[
-				"Arabized words ending without tanween<p/>زَينَبُ (Zainab)<br/>(Nominative case)<br/>رفع =>&nbsp;   ُ  </p><p>يُوسُفَ (Joseph)<br/>(Accusative case)<br/>نصب =>&nbsp;    َ  (الفتح)<br/><br/>(الضمة)إبراهِيمَ (Abraham)<br/>(Genitive case)<br/>جر =>&nbsp;    َ  (الفتح)</p>",
+				"<p style=\"direction: ltr;padding:0;margin:0;\"><b><u>No Tanween (النَّونِ)</u></b>:<br/> Never takes a double vowel (Tanween) at the end, even when it is indefinite. Only takes a single vowel.<br/><br/><b><u>No Kasrah (الكَسْرَة)</u></b>:<br/>Never takes a Kasrah sound. When the noun is in the genitive case (Majroor), it takes a Fathah instead of a Kasrah.<br/><br/>e.g. زَينَبُ , يُوسُفَ , إبراهِيمَ</p>",
 				"<div style=\"direction:ltr\"><p>Nouns ending with اء e.g. صحراء</p><p>Nouns ending with ان e.g. عَدنَان</p><p>Nouns on pattern فُعَل e.g. عُمَر</p><p>Nouns on pattern مَفَاعِل or مَفَاعِيل e.g. مَسَاجِدُ</p><p>Nouns on pattern اَفعَل e.g. اَحمَد</p><p>Foreign words e.g. مِصر</p><p>Others اَساطِير, طَلحة etc.</p></div>",
                 "<table style=\"align-content:center;margin:auto;\"><tr><th>رفع</th><th>نصب/جر</th></tr><tr><td>زَينَبُ</td><td>زَينَبَ</td></tr><tr><td>مَبَاحِثُ</td><td>مَبَاحِثَ</td></tr></tr><tr><td>فَاطِمَةُ</td><td>فَاطِمَةَ</td></tr></table>",
-                "<p style=\"direction: ltr;padding:0;margin:0;\"><b><u>No Tanween (النَّونِ)</u></b>:<br/> Never takes a double vowel (Tanween) at the end, even when it is indefinite. Only takes a single vowel.<br/><br/><b><u>No Kasrah (الكَسْرَة)</u></b>:<br/>Never takes a Kasrah sound. When the noun is in the genitive case (Majroor), it takes a Fathah instead of a Kasrah.<br/><br/><b>Certain Proper Nouns (الأَعْلَام)</b>:<br/>Includes most prophets' names and modern country/city names e.g. <br/> إِبْرَاهِيمُ, يُوسُفُ, اليَابَانُ, مصر<br/><br/><b>Names ending in Alif and Noon (ان)</b>:<br/>عُثْمَانُ, سُلَيْمَانُ, رَمَضَانُ<br/><br/><b>All female proper names (and male names ending in a feminine Ta Marbuta)</b>:<br/>فَاطِمَةُ, مَرْيَمُ, حَمْزَةُ<br/><br/><b>Colors and Defects on the scale of أَفْعَل</b>:<br/>أَحْمَرُ, أَخْضَرُ, أَخْضَرُ<br/><br/><b>Adjectives on the scale of فَعْلَان</b>:<br/>غَضْبَانُ, عَطْشَانُ<br/><br/><b>Specific Plural Structures (مَفَاعِيل, مَفَاعِل)</b>:<br/>مَسَاجِدُ, مَفَاتِيحُ, قَوَانِينُ</p>"
+                "<p style=\"direction: ltr;padding:0;margin:0;\"><b>Certain Proper Nouns (الأَعْلَام)</b>:<br/>Includes most prophets' names and modern country/city names e.g. <br/> إِبْرَاهِيمُ, يُوسُفُ, اليَابَانُ, مصر<br/><br/><b>Names ending in Alif and Noon (ان)</b>:<br/>عُثْمَانُ, سُلَيْمَانُ, رَمَضَانُ<br/><br/><b>All female proper names (and male names ending in a feminine Ta Marbuta)</b>:<br/>فَاطِمَةُ, مَرْيَمُ, حَمْزَةُ<br/><br/><b>Colors and Defects on the scale of أَفْعَل</b>:<br/>أَحْمَرُ, أَخْضَرُ, أَخْضَرُ<br/><br/><b>Adjectives on the scale of فَعْلَان</b>:<br/>غَضْبَانُ, عَطْشَانُ<br/><br/><b>Specific Plural Structures (مَفَاعِيل, مَفَاعِل)</b>:<br/>مَسَاجِدُ, مَفَاتِيحُ, قَوَانِينُ</p>"
 			]
         }
     },
@@ -1961,18 +1961,21 @@
         "ar": [
             "تعريف",
             "مثال",
-            "مثال الإعراب"
+            "مثال الإعراب",
+            "المبني"
         ],
         "en": [
             "Definition",
             "Example",
-            "Example of Declension"
+            "Example of Declension",
+            "Noun Endings"
         ],
         "features": {
             "المبني (Indeclinable)":[
                 "<p style=\"direction:ltr\"><b>المبني (لا محل له من الإعراب)</b><br/>These words keep one fixed sound at the end no matter what happens in the sentence.<br/><br/>These are (Past Tense Verbs) الافعال الماضي,<br/> (Particles) الحروف,<br/> الأسماء المبنية.</p><p>The ending of the noun does not change regardless of its grammatical case <br/>nominative/رفع, accusative/نصب, genitive/جر<br/><p>هُدَيٰ (Guidance)<br/>هُنَّ (They)<br/>عِيسٰي (Jesus)</p>",
-                "<p style=\"direction:ltr\">Examples:<br/>الماضي: (كَتَبَ, ذَهَبَ)<br/>الأمر: (اِذْهَبْ, اُكْتبي)<br/>الحروف: (مِنْ, إِلَى, فِي, عَنْ, عَلَى)<br/>الأسماء الموصولة: (الذي, اللائي, التي, التي)<br/>ضمائر المنفصلة: (أنتَ, نحن, أنتم)<br/>ضمائر المتصلة: (تاء الفاعل:نجحتُ, واو الجماعة:نجحوا, الغائب:كتابه)<br/>أسماء الإشارة: (هذا, هاتان, هؤلاء)<br/>أسماء الاستفهام: (مَنْ, متى, كيف, أين)<br/>أسماء الشرط: (أينما, ما, مهما)</p><div style=\"direction:ltr\"><p>Nouns ending with ي e.g. موسَي<br/>Pronouns (ضمائر) e.g. هُوَ هُنَّ<br/>Demonstrative pronouns (اسماء الإشارة) e.g. تِلكَ<br/>Interrogative pronouns (اسماء الإستفهام) e.g. مَتَي  مَن<br/>Compound numbers e.g. اَحَدَ عَشَرَ<br/>Past tense verb فعل الماضي e.g. ضَحَكَ</p></div>",
-                "<table style=\"align-content:center;margin:auto;\"><tr><th>رفع/نصب/جر</th></tr><tr><td>إثنا عَشَرَ</td></tr><tr><td>الَّذِي</td><tr><td>يَحيَي</td></tr></table>"
+                "<p style=\"direction:ltr\">Examples:<br/>الماضي: (كَتَبَ, ذَهَبَ)<br/>الأمر: (اِذْهَبْ, اُكْتبي)<br/>الحروف: (مِنْ, إِلَى, فِي, عَنْ, عَلَى)<br/>الأسماء الموصولة: (الذي, اللائي, التي, التي)<br/>ضمائر المنفصلة: (أنتَ, نحن, أنتم)<br/>ضمائر المتصلة: (تاء الفاعل:نجحتُ, واو الجماعة:نجحوا, الغائب:كتابه)<br/>أسماء الإشارة: (هذا, هاتان, هؤلاء)<br/>أسماء الاستفهام: (مَنْ, متى, كيف, أين)<br/>أسماء الشرط: (أينما, ما, مهما)</p><div style=\"direction:ltr\"></div>",
+                "<table style=\"align-content:center;margin:auto;\"><tr><th>رفع/نصب/جر</th></tr><tr><td>إثنا عَشَرَ</td></tr><tr><td>الَّذِي</td><tr><td>يَحيَي</td></tr></table>",
+                "<p style=\"direction:ltr\">Nouns ending with ي e.g. موسَي<br/>Pronouns (ضمائر) e.g. هُوَ هُنَّ<br/>Demonstrative pronouns (اسماء الإشارة) e.g. تِلكَ<br/>Interrogative pronouns (اسماء الإستفهام) e.g. مَتَي  مَن<br/>Compound numbers e.g. اَحَدَ عَشَرَ<br/>Past tense verb فعل الماضي e.g. ضَحَكَ</p>"
             ]
         },
         "features_links":{
