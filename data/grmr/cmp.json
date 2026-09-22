@@ -1151,42 +1151,6 @@
     {
         "compareType":"lang",
         "topics":[
-            "الاعراب (Grammar Markers)"
-        ],
-        "notes": "",
-        "ar": [
-            "تعريف",
-            "حالات",
-            "العامِل",
-            "أنواع"
-        ],
-        "en": [
-            "Definition",
-            "Cases",
-            "Erab agent",
-            "Types"
-        ],
-        "features":{
-            "الاعراب (Grammar Markers)": [
-                "<p style=\"direction:ltr;\">إعراب </b>are used as grammatical notions on nouns and verbs to identify cases and states.</p>",
-                "<p style=\"direction:ltr\"><b>الرفع</b>:<br/>Nominative case<br/>علامات: الضَّمَّة, الأَلِف (مثنى), الوَاو (جمع)<br/>الطَّالِبُ, الطَّالِبَانِ, الطَّالِبُونَ<br/><br/><b>النصب</b>:<br/>Accusative case<br/>علامات: الفَتْحَة, اليَاء (مثنى;جمع المذكر), الكَسْرَة (جمع المؤنث), حَذْف النُّون, إِنَّ وَأَخَوَاتُهَا, أَدَوَات النَّصْب<br/>كِتَاباً, قَلَمَيْنِ, المُعَلِّمِينَ, أَبَاكَ, إِنَّ اللهَ<br/><br/><b>الجر</b>:<br/>Genitive case<br/>علامات: الكَسْرَة, اليَاء (مثنى;جمع المذكر), الفَتْحَة (غير منصرف)<br/>بِالقَلَمِ, الرَّجُلَيْنِ, مُهَنْدِسِينَ, كِتَابُ طَالِبٍ <br/><br/><b>الجزم</b>:<br/>Jussive case<br/>علامات: السُّكُون, حَذْف حَرْف العِلَّة(ا , و , ي), حَذْف النُّون<br/>لَمْ يَذْهَبْ, لَا تَحْزَنْ, إِنْ تَدْرُسْ<br/></p>",
-                "<p style=\"direction:ltr\">العامِل is the cause behind the grammatical change at the end of a word. Without an Aamil, a word cannot enter a state of Raf', Nasb, Jar, Jazm, or shift between them.<br/><br/>العَوَامِل اللَّفْظِيَّة:<br/>Verbs (الأَفْعَال), Prepositions (حُرُوفُ الجَرّ), Accusative Particles (إِنَّ وَأَخَوَاتُهَا), Jussive Tools (أَدَوَاتُ الجَزْم)<br/><br/>Other agents:<br/>subject (مُبتدا) of a sentence, فعل مُجرَّد (Abstract Verb)</p>",
-                "<p style=\"direction:ltr\"><b>Apparent (الإعراب الظاهري)</b>:<br/>grammatical sign is explicitly written and clearly pronounced<br/>e.g. يَاكُلُ زَيدُ الخُبزَ<br/>يَاكُلُ (nominatve verb)<br/>زَيدُ (nominative subject)<br/>الخُبزَ (Accusative object)<br/><br/><b>Estimated (الإعراب المقدر):</b><br/>the grammatical vowel is completely hidden<br/>e.g. words ending with Yaa(ي)<br/> زُرْتُ المُسْتَشْفَى<br/>المُسْتَشْفَى (مَنْصُوبٌ وَعَلَامَةُ نَصْبِهِ الفَتْحَةُ المُقَدَّرَة)<br/>في المُسْتَشْفَى<br/>المُسْتَشْفَى (مَجرُور وَعَلَامَةُ جَرِّهِ الْكَسْرَةُ الْمُقَدَّرَةُ)<br/><br/><b>By Position (الإعراب المحلي)</b>:<br/> exclusively to Mabni (مبني) words (أَسْمَاء الإِشَارَة, الضَّمَائِرُ الْمُتَّصِلَة, الْجُمْلَةُ الْخَبَرِيَّة, etc.)<br/>e.g. هَذِهِ تُفَّاحة<br/>هَذِهِ=>فِي مَحَلِّ رَفْعٍ مُبْتَدَأٌ<br/>قَرَأْتُ الدَّرْسَ<br/>قَرَأْتُ=>فِي مَحَلِّ رَفْعٍ فَاعِل</p>"
-
-            ]
-        },
-        "features_links":{
-            "Verbs (الأَفْعَال)":"'dict.html','verb','pos:0'", 
-            "Prepositions (حُرُوفُ الجَرّ)":"'dict.html','prep','pos:0'",
-            "Accusative Particles (إِنَّ وَأَخَوَاتُهَا)":"'dict.html','prep','pos:3'",
-            "Jussive Tools (أَدَوَاتُ الجَزْم)": "'dict.html','prep','pos:2'",
-            "الضَّمَائِرُ الْمُتَّصِلَة":"'dict.html','pronoun','pos:2'",
-            "أَسْمَاء الإِشَارَة":"'dict.html','pronoun','pos:3'"
-        }
-    },
-    {
-        "compareType":"lang",
-        "topics":[
             "مُعَرَّب (Arabicized Words)"
         ],
         "notes": "<p style=\"direction:ltr;\">Do not confuse this with the exact homograph <a href=\"#\" onclick=\"parent.redirect('dict.html', 'noun-cmp', 'pos:0')\">Mu’rab (مُعْرَب)</a>, which is a completely different grammar term.</p>",
@@ -1238,6 +1202,42 @@
                 "<p style=\"direction:ltr\"><b>Traditional (Based on Eldest Child)</b>:<br/>Parents are called by the name of their firstborn child (traditionally the eldest son, though using a daughter's name is also common). e.g. أَبُو مُحَمَّد (Father of Muhammad), أُمُّ الكُلثُوم (Mother of Kulthum)<br/><br/><b>Metaphorical or Descriptive</b>:<br/>Sometimes, a Kunya is given as a nickname based on a person’s characteristics, a famous incident, or an object they are associated with e.g. أَبُو هُرَيْرَة (Father of the kitten), أَبُو الْهَوْل (Father of terror)<br/><br/><b>Proverbial / Fixed Kunyas</b>:<br/>In Arab culture, certain given names have automatic or historical Kunyas paired with them. e.g.<br/> ابو الحسن (after Ali ibn Abi Talib and his son Hasan)<br/>ابو الخليل (referencing Prophet Ibrahim's title, خليل اللّه)<br/>ابْنِ السَّبِيل (son of the road i.e. traveller)</p>",
                 "<p style=\"direction:ltr\">In classical Arabic culture and poetry, almost every animal was assigned a formal Kunya e.g.<br/>Lion - <b>أَبُو الْحَارِث</b> (referring to its hunting)<br/>Rooster - <b>أَبُو الْحَسَن</b> (referring to the its striking feathers)<br/>Fox - <b>أبو الحُصين</b> (Father of the little fortress)<br/>Hyena - <b>أُمّ عَامِر</b> (metaphorically to describe treachery)<br/>Donkey - <b>أبو صابر</b> (Father of the patient one)<br/>Monkey - <b>أبو قَيْس</b> (the celver one)<br/>Chameleon - <b>أُمّ خِبَيْن</b> (referring to its blending into its surroundings)</p>",
                 "<p style=\"direction:ltr\">Personified inanimate objects, diseases, hardships, and virtues (used in classical poetry) e.g. <br/>The Mecca - <b>أُمّ الْقُرَى</b> (Mother of Cities)<br/>Alcohol/Wine - <b>أُمّ الْخَبَائِث</b> (Mother of all Evils)<br/>Dawn - <b>أَبُو الْيَقْظَان</b> (Morning or state of alertness)<br/>The World - <b>أُمُّ قَشْعَم</b> (iterally means an old carcass or destruction)<br/>Time/Fate - <b>أَبُو المَنَايَا</b> (Father of Deaths)<br/>Death - <b>أَبُو يَحْيَى</b> (Father of Life i.e. eternal afterlife)<br/></p>"
+
+            ]
+        },
+        "features_links":{
+            "Verbs (الأَفْعَال)":"'dict.html','verb','pos:0'", 
+            "Prepositions (حُرُوفُ الجَرّ)":"'dict.html','prep','pos:0'",
+            "Accusative Particles (إِنَّ وَأَخَوَاتُهَا)":"'dict.html','prep','pos:3'",
+            "Jussive Tools (أَدَوَاتُ الجَزْم)": "'dict.html','prep','pos:2'",
+            "الضَّمَائِرُ الْمُتَّصِلَة":"'dict.html','pronoun','pos:2'",
+            "أَسْمَاء الإِشَارَة":"'dict.html','pronoun','pos:3'"
+        }
+    },
+    {
+        "compareType":"grammar",
+        "topics":[
+            "الاعراب (Grammar Markers)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "حالات",
+            "العامِل",
+            "أنواع"
+        ],
+        "en": [
+            "Definition",
+            "Cases",
+            "Erab agent",
+            "Types"
+        ],
+        "features":{
+            "الاعراب (Grammar Markers)": [
+                "<p style=\"direction:ltr;\">إعراب </b>are used as grammatical notions on nouns and verbs to identify cases and states.</p>",
+                "<p style=\"direction:ltr\"><b>الرفع</b>:<br/>Nominative case<br/>علامات: الضَّمَّة, الأَلِف (مثنى), الوَاو (جمع)<br/>الطَّالِبُ, الطَّالِبَانِ, الطَّالِبُونَ<br/><br/><b>النصب</b>:<br/>Accusative case<br/>علامات: الفَتْحَة, اليَاء (مثنى;جمع المذكر), الكَسْرَة (جمع المؤنث), حَذْف النُّون, إِنَّ وَأَخَوَاتُهَا, أَدَوَات النَّصْب<br/>كِتَاباً, قَلَمَيْنِ, المُعَلِّمِينَ, أَبَاكَ, إِنَّ اللهَ<br/><br/><b>الجر</b>:<br/>Genitive case<br/>علامات: الكَسْرَة, اليَاء (مثنى;جمع المذكر), الفَتْحَة (غير منصرف)<br/>بِالقَلَمِ, الرَّجُلَيْنِ, مُهَنْدِسِينَ, كِتَابُ طَالِبٍ <br/><br/><b>الجزم</b>:<br/>Jussive case<br/>علامات: السُّكُون, حَذْف حَرْف العِلَّة(ا , و , ي), حَذْف النُّون<br/>لَمْ يَذْهَبْ, لَا تَحْزَنْ, إِنْ تَدْرُسْ<br/></p>",
+                "<p style=\"direction:ltr\">العامِل is the cause behind the grammatical change at the end of a word. Without an Aamil, a word cannot enter a state of Raf', Nasb, Jar, Jazm, or shift between them.<br/><br/>العَوَامِل اللَّفْظِيَّة:<br/>Verbs (الأَفْعَال), Prepositions (حُرُوفُ الجَرّ), Accusative Particles (إِنَّ وَأَخَوَاتُهَا), Jussive Tools (أَدَوَاتُ الجَزْم)<br/><br/>Other agents:<br/>subject (مُبتدا) of a sentence, فعل مُجرَّد (Abstract Verb)</p>",
+                "<p style=\"direction:ltr\"><b>Apparent (الإعراب الظاهري)</b>:<br/>grammatical sign is explicitly written and clearly pronounced<br/>e.g. يَاكُلُ زَيدُ الخُبزَ<br/>يَاكُلُ (nominatve verb)<br/>زَيدُ (nominative subject)<br/>الخُبزَ (Accusative object)<br/><br/><b>Estimated (الإعراب المقدر):</b><br/>the grammatical vowel is completely hidden<br/>e.g. words ending with Yaa(ي)<br/> زُرْتُ المُسْتَشْفَى<br/>المُسْتَشْفَى (مَنْصُوبٌ وَعَلَامَةُ نَصْبِهِ الفَتْحَةُ المُقَدَّرَة)<br/>في المُسْتَشْفَى<br/>المُسْتَشْفَى (مَجرُور وَعَلَامَةُ جَرِّهِ الْكَسْرَةُ الْمُقَدَّرَةُ)<br/><br/><b>By Position (الإعراب المحلي)</b>:<br/> exclusively to Mabni (مبني) words (أَسْمَاء الإِشَارَة, الضَّمَائِرُ الْمُتَّصِلَة, الْجُمْلَةُ الْخَبَرِيَّة, etc.)<br/>e.g. هَذِهِ تُفَّاحة<br/>هَذِهِ=>فِي مَحَلِّ رَفْعٍ مُبْتَدَأٌ<br/>قَرَأْتُ الدَّرْسَ<br/>قَرَأْتُ=>فِي مَحَلِّ رَفْعٍ فَاعِل</p>"
 
             ]
         },
