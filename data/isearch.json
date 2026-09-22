@@ -814,7 +814,7 @@
         "data": "pos:8",
         "order": 18
     },
-    "Indeclinable Noun;Proper Noun;اسم الجامد;اسم العَلم;اسم الذات;اسم المعنى;": {
+    "Rigid Noun;Proper Noun;اسم الجامد;اسم العَلم;اسم الذات;اسم المعنى;": {
         "path": "dict.html",
         "action": "noun-cmp",
         "data": "pos:9",

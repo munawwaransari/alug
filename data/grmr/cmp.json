@@ -2121,7 +2121,7 @@
     {
         "compareType": "noun",
         "topics": [
-            "الاسم الجامد (Indeclinable nouns)"
+            "الاسم الجامد (Rigid Nouns)"
         ],
         "notes": "<p style=\"direction:ltr\">In Arabic morphology (الصرف), Al-Ism Al-Jamid (الاسم الجامد) is a non-derived noun. It is the root or original noun—meaning it does not originate from a verb, and no other words are formed from it. It is divided into two primary categories:</p>",
         "ar": [
@@ -2131,13 +2131,13 @@
             "اسم المعنى"
         ],
         "en": [
-            "Indeclinable Noun",
+            "Rigid Noun",
             "Examples",
             "Examples",
             "Examples"
         ],
         "features": {
-            "الاسم الجامد (Indeclinable nouns)": [
+            "الاسم الجامد (Rigid Nouns)": [
 				"<p style=\"direction: ltr;padding:0;margin:0;\">There are following primary types of proper nouns<br/><ul><li>اسم العَلم - Proper Nouns</li><li>اسم الذات - Concrete/Physical Nouns</li><li>اسم المعنى - Abstract Nouns</li></ul></p>",
                 "<p style=\"direction: ltr;padding:0;margin:0;\"><u>People (أسماء الأشخاص)</u>:<br/>أحمد (Ahmed)<br/> فاطمة (Fatima)<br/>حسين (Husain)<br/><br/><u>Places (أسماء الأماكن)</u>:<br/>مصر (Egypt)<br/> باريس (Paris)<br/> مكة (Mecca)<br/><br/><u>Rivers and Bodies of Water (أسماء الأنهار والبحار)</u>:<br/> نهر النيل (The Nile River)<br/> المحيط الهادئ (The Pacific Ocean)<br/><br/><u>Months and Days (أسماء الأشهر والأيام)</u>:<br/> يوم الإثنين (Monday)<br/> شهر رمضان (Ramadan)</p><br/>",
                 "<p style=\"direction: ltr;padding:0;margin:0;\">Represents things you can see, touch, or physically experience<br/><br/>كتاب (book)<br/>شجرة (tree)<br/> أسد (lion)<br/></p><br/>",
