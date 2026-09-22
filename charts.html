@@ -22,9 +22,14 @@
 			if(folder){
 				var url = getLocationPath() + 'images/charts/'+folder+'/';
 				loadCharts(url, getMax(folder), true);
-				if(folder === "alphabets"){
+				if(folder === "alphabets" || 
+				   folder === "homonym"   || 
+				   folder === "antonym"){
 					addImagePreviewer("chartContainer", 'bottom');
-				}else{
+				}else if(folder === "imperative"){
+					addImagePreviewer("chartContainer", '');
+				}else 
+				{
 					addImagePreviewer("chartContainer", 'bottom-top');
 				}
 			}
