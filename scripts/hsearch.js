@@ -147,3 +147,22 @@ function openExternalhadithLink(collection, number){
 	var w = parent.window ? parent.window : window;
 	w.open(link, '_blank');
 }
+
+function saveLastHStates(text){
+	
+	const stateName = "lastHSearch";
+	if(text != parent.states[stateName]?.search)
+	{
+		parent.updateStatesKey(stateName, {
+			search: text ?? parent.states[stateName]?.search,
+			book: $("#hadith-options").val()
+		});
+		//delete parent.states[stateName]?.book;
+	}
+	else if(parent.states[stateName]?.search)
+	{
+		parent.updateStatesKey(stateName, {
+			book: $("#hadith-options").val() ?? parent.states[stateName]?.book
+		});
+	}
+}

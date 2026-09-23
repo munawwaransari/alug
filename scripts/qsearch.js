@@ -2305,3 +2305,24 @@ function redirectHadith(verseKey){
 		parent.redirect('hsearch.html', '', selWord);
 	}
 }
+
+function saveLastQStates(text){
+	
+	const stateName = "lastQSearch";
+	if(text != parent.states[stateName]?.search)
+	{
+		parent.updateStatesKey(stateName, {
+			search: text ?? parent.states[stateName]?.search,
+			trans: $("[data]").map((i,x)=> $(x).attr('data')).toArray()
+		});
+
+	}
+	else if(parent.states[stateName]?.search)
+	{
+		var newSet = $("[data]").map((i,x)=> $(x).attr('data')).toArray();
+		var oldSet = parent.states[stateName]?.["trans"];
+		parent.updateStatesKey(stateName, {
+			trans: newSet.length == 0 ? oldSet : newSet
+		});
+	}
+}

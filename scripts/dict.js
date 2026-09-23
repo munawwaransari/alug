@@ -1051,3 +1051,18 @@ function changeDefIndex(val){
 	$('.defFilter').prop('selectedIndex', refIndex);
 	$('.defFilter').trigger('change');
 }
+
+function saveLastSearchIndex(id, topic){
+	
+	const stateName = "lastIndexSearch";
+	if(topic != parent.states[stateName]?.topic ||
+	   id != parent.states[stateName]?.id
+	 )
+	{
+		parent.updateStatesKey(stateName, {
+			id: id ?? parent.states[stateName]?.id,
+			topic: topic ?? parent.states[stateName]?.topic
+		});
+
+	}
+}
