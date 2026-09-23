@@ -2774,6 +2774,83 @@ function getMorphologyChart(){
 </pre></div>`;
 }
 
+function getGrammarChart(){
+	return `
+	<p style=\"direction:ltr;\">علم النحو (Arabic Syntax) is the science of classical Arabic grammar that studies how to connect nouns, verbs, and particles to form correct sentences.</p>
+	<div style="display:flex;justify-content:center;width:100%">
+	<pre style="direction:ltr;
+	            font-family:monospace;
+				font-size:14px;
+				text-align:left;
+				white-space:pre-wrap;
+				word-wrap:break-word;
+				max-width: 100%; ">
+[WORD]
+  └─[Part Of Speech]
+      ├──[اسم]
+      |    ├───[Type]
+      |    |     ├──[مُعرب مُنصَرِف] Declinable
+      |    |     ├──[مُعرب غيرُ مُنصَرِف] Foreign
+      |    |     ├──[مُبني] Indeclinable
+      |    |     └──[Five Nouns]
+      |    ├───[Gender]
+      |    |     ├────[مُذكّر] Masculine
+      |    |     └────[مُؤنّث] Feminine
+      |    ├───[Number]
+      |    |     ├────[مُفرَد] Singular
+      |    |     ├────[مُثنَّي] Dual
+      |    |     └────[جَمع] Plural
+      |    |            ├────[سالِم] Sound
+      |    |            └────[مُكسّر] Broken
+      |    └───[Case Endings]
+      |          ├────[رَفْع] Nominative
+      |          ├────[نَصْب] Accusative
+      |          └────[جَرْ] Genitive
+      ├────[فعل] Verb
+      |     ├───[Case]
+      |     |     ├────[رَفْع] Subjective
+      |     |     ├────[نَصْب] Objective
+      |     |     └────[جَزْم] Jussive
+      |     ├───[Type]
+      |     |     ├────[Tense]
+      |     |     |       ├────[مضارع]
+      |     |     |       └────[ماضي]
+      |     |     ├────[Weak Verbs]
+      |     |     ├────[Inadequate Verbs]
+      |     |     ├────[Transitive/Intransitive]
+      |     |     ├────[Transmutability
+      |     |     └────[Nuances in Meaning
+      |     ├───[Voice]
+      |     |     ├────[معروف] Known/Active
+      |     |     └────[مجهول] Unknown/Passive
+      |     ├───[Conjugation]
+      |     |     ├────[Form I]
+      |     |     ├────[Forms II to X]
+      |     |     ├────[Forms XI to XV]
+      |     |     ├────[Quadriliteral]
+      |     |     └────[Five Verbs]
+      |     └───[Verbal Nouns]
+      └────[حرف]
+            ├───[Particles]
+            ├───[Adverbs]
+            └───[Exceptions & Exclusions]
+[COMPUND]
+  ├─[مركب الاضافي] Possesive Construction
+  ├─[مركب التوصيفي] Adjectival Construction
+  ├─[مركب الجاري] Prepositional Construction
+  └─[مركب الإشاري] Demonstrative Construction
+[PHRASE]
+  ├─[Prepositional Phrases]
+  └─[Proverbs]
+[SENTENCE]
+  ├─[Declarative]
+  ├─[Non-Declarative]
+  ├─[Parenthetical]
+  ├─[Affirmative]
+  ├─[Negative]
+  └─[Interrogative]
+`;
+}
 function toTitleCase(str) {
     return str.replace(/\w\S*/g, function(txt) {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
