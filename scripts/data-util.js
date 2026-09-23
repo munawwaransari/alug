@@ -2744,23 +2744,33 @@ function getArabicLanguageInfo(n){
 function getMorphologyChart(){
 	return `
 	<p style="direction:ltr;">علم الصرف (Arabic Morphology or Sarf) is the foundational Arabic linguistic science that studies the internal structure, patterns, and transformations of individual words.</p>
-	<div style="display:flex;justify-content:center;">
-	<pre style="direction:ltr;font-family:monospace;font-size:14px;text-align:left">
-                        ┌── [Basic: Forms I to X]
-                        ├── [Extended: Forms XI to XV]
-                        ├── [Quadriliteral: Forms I to IV]
-                        │
-         ┌─ [VERB FORMS]┼── [Verbal Noun Forms]
-         │              ├── [Active Participle Forms]
-         │              └── [Passive Participle Forms]
-[ROOT] ──┤
-         │                                      ┌── [Noun of Instrument]
-         │                                      ├── [Noun of Place]]
-         │                                      ├── [Comparative]
-         └─ [NOUN FORMS] ──┼── [Regular Forms]──┼── [Diminutive]
-                           │                    └── [Hyperbole]
-                           ┼── [Irregular Forms]
-                           └── [Four-Letter Nouns]
+	<div style="display:flex;justify-content:center;width:100%">
+	<pre style="direction:ltr;
+	            font-family:monospace;
+				font-size:14px;
+				text-align:left;
+				white-space:pre-wrap;
+				word-wrap:break-word;
+				max-width: 100%; ">
+[ROOT]
+  ├───[Verb Forms]
+  │     ├───[Basic: Forms I to X]	   
+  │     ├───[Extended: Forms XI to XV]
+  │     └───[Quadriliteral: Forms I to IV]
+  │
+  ├───[Verbal Noun Forms]         
+  │     ├── [Active Participle Forms]
+  │     └── [Passive Participle Forms]
+  │
+  └───[Noun Forms]
+        ├───[Irregular Forms]
+        ├───[Four-Letter Nouns]
+        └───[Regular Forms] 
+               ├───[Noun of Instrument]
+               ├───[Noun of Place]
+               ├───[Comparative]
+               ├───[Hyperbole]  
+               └───[Diminutive]      
 </pre></div>`;
 }
 
