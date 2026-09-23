@@ -154,9 +154,13 @@ function copyTextToClipboard(txt){
 	navigator.clipboard.writeText(txt);
 }
 
+function isOS(os){
+	return navigator.userAgent.includes(os+";") || 
+	navigator.userAgent.includes(os);
+}
+
 const PAD_WIDTH = 768;
 const MOBILE_WIDTH = 480;
-
 function getDeviceType() {
 	var device_width = window.innerWidth * window.devicePixelRatio;
     //var device_height = window.innerHeight * window.devicePixelRatio;
@@ -171,30 +175,21 @@ function getDeviceType() {
 }
 
 function arRemovePunct(txt){
-	// Combine all replacements into a single regex for a single pass
-    // 1. [ًٌٍََُِّْٰۡ]+ matches any sequence of diacritics
-    // 2. [ٱإأ] matches various Alifs to normalize to 'ا'
-    // 3. ى is handled separately to map to 'ي'
-	return txt.replaceAll(/[ًٌٍََُِّْٰۡ]/g, '')
+	return removePunctuations(txt)
 				.replaceAll(new RegExp("ٱ", "g"), 'ا')
 				.replaceAll(/[ٱإأ]/g, 'ا')
 				.replaceAll(/ى/g, 'ي');
 }
 
-function replaceWord(w) {
-    const punctuation = "ۡۧ ـ\t ۦۥۣۤۢۡ۠۟۞۝ۜۛۚۙۘۗۖە";
-    return w.text
-        .replace(new RegExp("[" + punctuation + "]+", "g"), '') // Remove punctuation
-        .replace(/[ٱٰ]/g, 'ا')        // Normalize Alif and Dagger Alif to Alif
-        .replace(/ىٰ/g, 'ى')         // Normalize Alif Maqsura with Dagger
-        .replace(/وَال/g, 'ال')      // Strip "Wa" prefix from "Al"
-        .replace(/لِل/g, '');        // Remove "Li" prefix from "Al"
+function removePunctuations(w){
+	var punctuation = /[\u06df\u06e7\u0640\u06e6\u06e5\u06e4\u06e3\u06e2\u06df\u06e0\u0653\u06e1\u06dd\u06de\u06da\u06db\u06d9\u06d8\u06df\u06d7\u06d6\u06c7\u06e2]+/g;
+	return w.replaceAll(punctuation, '');
 }
 
-function removePunctuations(w){
-	//var punctuation = "ۡۧـۦۥۣۤۢۡ۠ٓ۟۞۝ۜۛۚۙۘۡۗۖەۢ";
-	var punctuation = /[\u06df\u06e7\u0640\u06e6\u06e5\u06e4\u06e3\u06e2\u06df\u06e0\u0653\u06e1\u06dd\u06de\u06da\u06db\u06d9\u06d8\u06df\u06d7\u06d6\u06c7\u06e2]+/g;
-	return w.replace(punctuation, '');
+function removeAlPrefix(txt){
+	if(txt.startsWith('ال') && txt.length > 4)
+		return txt.substring(2);
+	return txt;
 }
 
 function filterMTableRows(match, index, text){
@@ -283,11 +278,6 @@ function filterTitleBox(sel, val){
 	filteredDivs.show();
 }
 
-function isOS(os){
-	return navigator.userAgent.includes(os+";") || 
-	navigator.userAgent.includes(os);
-}
-
 function replaceAnalysisLink(val, addBreak){
 	var analysisExp = /([\u0600-\u06ff]+)\s+\-\s+([\u0600-\u06ff]+)/g;
 	var ex = val;
@@ -358,18 +348,6 @@ function padZero(str, len) {
 	return (zeros + str).slice(-len);
 }
 
-function removeAlPrefix(txt){
-	if(txt.startsWith('ال') && txt.length > 4)
-		return txt.substring(2);
-	return txt;
-}
-
-function removeTimePrefix(txt){
-	if(txt[0] === 'و')
-		return txt.substring(2);
-	return txt;
-}
-
 async function tesseract_imageToText(url, lang, callback){
 	var cb = callback;
 	Tesseract.recognize(
@@ -408,19 +386,6 @@ function lookupEx(site, txt, errorText){
 	else{
 		alert("Enter a valid arabic word!");
 	}
-}
-
-function lightenWord(word){
-	if(word){
-		word = word.trim();
-		word = word.replace(/ٰ/g, 'ا'); // replace mad harkat with alif
-		word = word.replace(/(ٓ)([^ا|أ|إ|آ])/g,'ا$2');
-		word = removePunctuations(word);
-		word = removeAlPrefix(word);
-		word = word.replace(/ة$/g, '');
-		word = word.replace(/([ًٌٍَُِّْ])/g, ''); //reove Erab
-	}
-	return word;
 }
 
 function analyzeLocal(txt){

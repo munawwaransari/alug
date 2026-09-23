@@ -20,11 +20,12 @@ class posSearch {
 					var columns = row.replace('\r','')
 									 .replace('\n','')
 									 .replaceAll(' ','').split(',');
-					thisInstance.#addSearchWord(lightenWord(columns[0]), 
-								  lightenWord(columns[1]),
-								  lightenWord(columns[2]),
-								  lightenWord(columns[3]),
-								  lightenWord(columns[4])
+					thisInstance.#addSearchWord(
+						thisInstance.#lightenWord(columns[0]), 
+						thisInstance.#lightenWord(columns[1]),
+						thisInstance.#lightenWord(columns[2]),
+						thisInstance.#lightenWord(columns[3]),
+						thisInstance.#lightenWord(columns[4])
 					);
 				}
 				return true;
@@ -33,6 +34,19 @@ class posSearch {
 		}, error => { if(cb) cb("error", error); });
 	}
 	
+	#lightenWord(word){
+		if(word){
+			word = word.trim();
+			word = word.replace(/ٰ/g, 'ا'); // replace mad harkat with alif
+			word = word.replace(/(ٓ)([^ا|أ|إ|آ])/g,'ا$2');
+			word = removePunctuations(word);
+			word = removeAlPrefix(word);
+			word = word.replace(/ة$/g, '');
+			word = word.replace(/([ًٌٍَُِّْ])/g, ''); //reove Erab
+		}
+		return word;
+	}
+
 	#addSearchWord(word, wordType, plurals, synonyms, antonyms){
 		
 		if(! posSearch.posSearchMetadata[wordType]){
