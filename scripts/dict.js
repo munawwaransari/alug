@@ -852,7 +852,7 @@ function listArabicQuotes(){
 			var q = data[k][0];
 			var a = data[k][1];
 			$(".dictionary").append($(`				
-				<blockquote style="direction:ltr;width:90%;">
+				<blockquote style="direction:ltr;width:90%;padding:10px;background-color:#F4F6F8; border: 2px solid #F4F6F8;border-radius: 20px;">
 				${q}<cite style="float:right"><a href="${a}" target="_blank">${k}</a></cite>
 			</blockquote>`));	
 			return true;
