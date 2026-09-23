@@ -1577,6 +1577,9 @@ function init_data_cache(){
 		},
 		'ex-data':{
 			path: 'data/ex.json'
+		},
+		'ar_quotes':{
+			path: 'data/ar_quotes.json'
 		}
 	}
 }
@@ -2736,6 +2739,29 @@ function getArabicLanguageInfo(n){
 		</tbody>
 	</table>
 	`;
+}
+
+function getMorphologyChart(){
+	return `
+	<p style="direction:ltr;">علم الصرف (Arabic Morphology or Sarf) is the foundational Arabic linguistic science that studies the internal structure, patterns, and transformations of individual words.</p>
+	<div style="display:flex;justify-content:center;">
+	<pre style="direction:ltr;font-family:monospace;font-size:14px;text-align:left">
+                        ┌── [Basic: Forms I to X]
+                        ├── [Extended: Forms XI to XV]
+                        ├── [Quadriliteral: Forms I to IV]
+                        │
+         ┌─ [VERB FORMS]┼── [Verbal Noun Forms]
+         │              ├── [Active Participle Forms]
+         │              └── [Passive Participle Forms]
+[ROOT] ──┤
+         │                                      ┌── [Noun of Instrument]
+         │                                      ├── [Noun of Place]]
+         │                                      ├── [Comparative]
+         └─ [NOUN FORMS] ──┼── [Regular Forms]──┼── [Diminutive]
+                           │                    └── [Hyperbole]
+                           ┼── [Irregular Forms]
+                           └── [Four-Letter Nouns]
+</pre></div>`;
 }
 
 function toTitleCase(str) {

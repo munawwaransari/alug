@@ -1083,35 +1083,35 @@
         "ar": [
             "تعريف",
             "الجذر",
-            "الوزن",
-            "مِثال"
+            "الوزن"
         ],
         "en": [
             "Definition",
             "Root System",
-            "The Scale",
-            "Example"
+            "The Scale"
         ],
         "features":{
             "العلم الصرف (Morphology)": [
-                "<p style=\"direction:ltr;\">علم الصرف (Arabic Morphology or Sarf) is the foundational Arabic linguistic science that studies the internal structure, patterns, and transformations of individual words.<br/><br/>Concepts:<br/>Noun Patterns, Triliteral Verbs, Qaudrilateral Verbs, Extended Verbs<br/></p>",
-                "<p style=\"direction:ltr;\">Most Arabic words trace back to a three-letter root (radical) that carries a core conceptual meaning. Sarf dictates how it shifts across tenses, voices, and actions:<br/><br/><b>ك - ت - ب</b><br/><b> (K-T-B, associated with writing)</b><br/>كَتَبَ (he wrote)<br/>كَاتِبٌ (A writer)<br/>مَكْتُوبٌ (something written)<br/><br/><b>و - ص - ل</b><br/><b> (W-S-L, to arrive / connect)</b><br/>وَصَلَ (past tense)<br/>يَصِلُ (present tense)<br/>صِلْ (command)</p>",
-                "<p style=\"direction:ltr;\">Arab grammarians use the template root ف ع ل (Fa-‘a-la) as a universal measuring scale to analyze word structures, vowels, and added letters<br/><br/><b>ع - ل - م</b><br/><b> (A'-L-M, associated with knowing)</b><br/>عَلِمَ (He knew)<br/>عَلَّمَ (He tought)<br/>اَعَلَمُ (I know)<br/><br/><b>ق - و - ل</b><br/><b> (Q-W-L, to say)</b><br/>قُلْتُ (I said)<br/>يَقُولُ (He says)<br/>قَائِل (speaker)</p>",
-                "<p style=\"direction:ltr;\">Noun of place<br/>Comparative Noun<br/>Diminutive<br/>Hyperbole<br/>Active Participle<br/>Passive Participle<br/>Four-letter Nouns</p>"
+                "script: getMorphologyChart()",
+                "<p style=\"direction:ltr;\">Most Arabic words trace back to a three-letter root (radical) that carries a core conceptual meaning. Sarf dictates how it shifts across tenses, voices, and actions:<br/><br/><b>ك - ت - ب</b><br/><b> (K-T-B, associated with writing)</b><br/><br/><b>و - ص - ل</b><br/><b> (W-S-L, associated with arriving / connecting)</b></p>",
+                "<p style=\"direction:ltr;\">Arab grammarians use the template root ف ع ل (Fa-‘a-la) as a universal measuring scale to analyze word structures, vowels, and added letters<br/><br/><b>ع - ل - م</b><br/><b> (A'-L-M, associated with knowing)</b><br/>الوزن: فَعِلَ => عَلِمَ<br/> الوزن: فَعَّلَ => عَلَّمَ<br/>الوزن: اَفْعَلَ => اَعَلَمُ<br/><br/><b>ق - و - ل</b><br/><b> (Q-W-L, to say)</b><br/>الوزن: فَعَلْتُ => قُلْتُ<br/>الوزن: يَفْعُلُ => يَقُولُ<br/>الوزن: فَاعِلْ => قَائِل</p>"
             ]
         },
         "features_links": {
-            "Noun Patterns": "'dict.html','noun-pat','pos:0'",
-            "Triliteral Verbs": "'dict.html','verb','pos:1'",
-            "Qaudrilateral Verbs": "'dict.html','verb','pos:2'",
-            "Extended Verbs": "'dict.html','verb','pos:3'",
-            "Noun of place": "'dict.html','noun-pat','pos:3'",
-            "Comparative Noun": "'dict.html','noun-pat','pos:4'",
+            "Verbal Noun Forms": "'dict.html','masdar','pos:0'",
+            "Regular Forms": "'dict.html','noun-pat','pos:0'",
+            "Irregular Forms": "'dict.html','noun-pat','pos:0'",
+            "Basic: Forms I to X": "'dict.html','verb','pos:1'",
+            "Quadriliteral: Forms I to IV": "'dict.html','verb','pos:2'",
+            "Extended: Forms XI to XV": "'dict.html','verb','pos:3'",
+            "Noun of Instrument": "'dict.html','noun-pat','pos:2'",
+            "Noun of Place": "'dict.html','noun-pat','pos:3'",
+            "Comparative": "'dict.html','noun-pat','pos:4'",
             "Diminutive": "'dict.html','noun-pat','pos:5'",
             "Hyperbole": "'dict.html','noun-pat','pos:6'",
-            "Active Participle": "'dict.html','noun-pat','pos:7'",
-            "Passive Participle": "'dict.html','noun-pat','pos:8'",
-            "Four-letter Nouns": "'dict.html','noun-pat','pos:9'"
+            "Active Participle Forms": "'dict.html','noun-pat','pos:7'",
+            "Passive Participle Forms": "'dict.html','noun-pat','pos:8'",
+            "Four-Letter Nouns": "'dict.html','noun-pat','pos:9'"
         }
     },
     {

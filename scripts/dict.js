@@ -402,6 +402,10 @@ function handleDictActions(el, a, d) {
 			toggleDropdownContent($(this).parent().prev());
 			break;
 
+		case 'ar_quotes':
+			listArabicQuotes();
+		break;
+		
 		case 'list-search':
 		default:
 			var st = parent.getStatesFromKey('lastIndexSearch');
@@ -837,6 +841,22 @@ function listDefinitions(bk){
 					changeDefIndex(bkId);
 				}
 			}
+	});
+}
+
+function listArabicQuotes(){
+	ensureDataLoaded({name: 'ar_quotes'})
+	.then((data)=>{
+		$(".dictionary").empty();
+		Object.keys(data).every((k)=>{
+			var q = data[k][0];
+			var a = data[k][1];
+			$(".dictionary").append($(`				
+				<blockquote style="direction:ltr;width:90%;">
+				${q}<cite style="float:right"><a href="${a}" target="_blank">${k}</a></cite>
+			</blockquote>`));	
+			return true;
+		});
 	});
 }
 
