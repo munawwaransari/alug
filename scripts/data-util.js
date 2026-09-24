@@ -192,6 +192,11 @@ function removeAlPrefix(txt){
 	return txt;
 }
 
+function filterTable(wordColumn){
+	filterTableRows(-1, '.csvTable', wordColumn, $("#txtFilter").val());
+	$(".csvTable tr th").parent().show()
+}
+
 function filterMTableRows(match, index, text){
 	const tab = $(`table[id*=${match}]`);
 	if(text == 'all'){
@@ -2280,4 +2285,73 @@ function toTitleCase(str) {
     return str.replace(/\w\S*/g, function(txt) {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
+}
+
+function loadCsvTable(data, addHtml = true){
+	var table = [];
+	var columns, tableData;
+	if(data.length > 1){
+		tableData = data.split('\n');
+		if(addHtml)
+			addAsHtmlTable($(".dictionary"), tableData, columns);
+	}
+	return tableData;
+}
+
+function addAsHtmlTable(container, table, columns){
+	var wordColumn = 0;
+	container.empty();
+	//container.append("<p>...Loading...</p>");
+	var headings = "<tr>";
+	columns.every(function(col, i){
+		if(columns[i] == "WORD")
+			wordColumn = i;
+		
+		if(columns[i].includes("ID") || columns[i].includes("VOCALIZED") ||  columns[i].includes("TYPE") )
+				return true;
+			
+		headings+= `<th>${col}</th>`;
+		return true;
+	});
+	headings+='</tr><table>';
+	var htmlTable = $(`<table class="csvTable"><tr>${headings}</tr></table>`);
+	var alink = `<a href="#" style="text-decoration: none" onclick="checkWord('$');">$</a>`
+	var tableRows = "";
+	table.every(function(row, index){
+		if(index === 0) return true;
+		tableRows += "<tr>";
+		row.split(",").every(function(colVal, i){
+			
+			if(i >= columns.length)
+				return true;
+			
+			if(columns[i].includes("ID") || columns[i].includes("VOCALIZED") ||  columns[i].includes("TYPE"))
+				return true;
+			
+			if(columns[i] == 'WORD')
+				tableRows+= `<td>${alink.replaceAll('$', colVal.trim())}</td>`;
+			else
+				tableRows+= `<td>${colVal}</td>`;
+			return true;
+		});
+		tableRows+='</tr>';
+		return true;
+	});
+	
+	
+	container.append(`
+		<input 	id="txtFilter" 
+				style="font-size:18px; max-width=100px;" 
+				onchange="filterTable(${wordColumn});"/>`);
+
+	container.append($(`
+		<a style="font-size:10px; width:100%;text-align:center;" 
+			href="#" onclick="
+				var w = parent ? parent.window: window;
+				w.open('https://github.com/mdanok/ArabicLT','_blank')">
+			Data source: https://github.com/mdanok/ArabicLT
+		</a>`));
+	container.append(htmlTable);
+	$(".csvTable tbody").append($(tableRows));
+	container.find("p").remove();
 }
