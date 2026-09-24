@@ -2164,10 +2164,11 @@ function getActionTitle(action){
 	action;
 }
 
-function getFreeImageSource(keyword, url="https://loremflickr.com/360/480/"){
-	return Array.isArray(keyword) == true ?
-	  `${url}${keyword.join(",")}`: 	  
-	  `${url}${keyword}`;
+function getFreeImageSource(keyword, url="https://loremflickr.com/180/240/", proxy){
+	var imgUrl = Array.isArray(keyword) == true ?
+		`${url}${keyword.join(",")}`: `${url}${keyword}`; 
+	return proxy == undefined ? 
+		imgUrl : `https://corsproxy.io/?${encodeURIComponent(imgUrl)}`;
 }
 
 function delSelectedCardFromDashboard(){
