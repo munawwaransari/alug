@@ -8,7 +8,7 @@
 	{ "char" : "ح", "en": "h",  "name":"الحاء", "number": 8, "class": "lunar", "type": "C", "imageName": "حلو", "enName":"cake,sweet"},
 	{ "char" : "خ", "en": "kh",  "name":"الخاء", "number": 600, "class": "lunar", "type": "C", "imageName": "خبز", "enName": "loaf,bread"},
 	{ "char" : "د", "en": "d",  "name":"الدّال", "number": 4, "class": "solar", "type": "C", "imageName": "ديك", "enName":"rooster,hen"},
-	{ "char" : "ذ", "en": "dz",  "name":"الذّال", "number": 700, "class": "solar", "type": "C", "imageName":"ذئب", "enName":"wolf%2animal"},
+	{ "char" : "ذ", "en": "dz",  "name":"الذّال", "number": 700, "class": "solar", "type": "C", "imageName":"ذئب", "enName":"wolf,animal"},
 	{ "char" : "ر", "en": "r",  "name":"الرّاء", "number": 200, "class": "solar", "type": "C", "imageName":"راس", "enName":"head,face"},
 	{ "char" : "ز", "en": "z",  "name":"الزّاء", "number": 7, "class": "solar", "type": "C", "imageName":"زهرة", "enName":"flower,petal"},
 	{ "char" : "س", "en": "s",  "name":"السِّين", "number": 60, "class": "solar", "type": "C", "imageName":"سمك", "enName":"fish"},
