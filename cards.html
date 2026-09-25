@@ -13,12 +13,65 @@
 	<script src="scripts/require.js"></script>
 	<script src="scripts/data-util.js"></script>
 	<script>
+		var cardImmages = {
+			imageObserver: null,
+			interval: null,
+			requests: {}
+		};
 		var cardsFirstLoad = true;
+		if(parent.dataCache["CardImages"] === undefined) {
+			console.log('dataCache["CardImages"] initialized!');
+			parent.dataCache["CardImages"] = {};
+		};
+		ensureDataLoaded({name: "ai-prompts"});
 		window.onload = () => {
 			addImagePreviewer("cardContainer", 'bottom');
 			reloadCardData();
 		}
-		ensureDataLoaded({name: "ai-prompts"});
+		window.beforeunload = () => {
+			cardImmages.requests = {};
+			if(cardImmages.interval != null){
+				closeInterval(cardImmages.interval);
+				cardImmages.interval = null;
+			}
+		}
+		
+		function handleIntersection(entries, observer) {
+			entries.forEach(entry => {
+				// Check if this specific image is visible in the viewport
+				if (entry.isIntersecting) {
+					const img = $(entry.target);
+					const inumber = img.attr('inumber');
+					const req = cardImmages.requests[inumber];
+					if(req !== undefined && !img.prop('src')){
+						setTimeout(function(){
+							genFreeImage(`img[inumber='${req.inumber}']`,
+								req.key,
+								req.category
+							).then((imgSrc)=> {
+								delete cardImmages.requests[req.inumber];
+								parent.dataCache["CardImages"][req.inumber] = imgSrc;
+								img.prop('src',imgSrc);
+								observer.unobserve(img[0]);
+							});	
+						}, 250);
+					}
+				}
+			});
+		}
+
+		function addImageToObserver(req){
+			var img = $(`img[inumber='${req.inumber}']`);
+			if(img.length > 0){
+				if(parent.dataCache["CardImages"][req.inumber] !== undefined){
+					img.prop('src', parent.dataCache["CardImages"][req.inumber]);
+				}
+				else {
+					cardImmages.requests[req.inumber] = req;
+					cardImmages.imageObserver.observe(img[0]);
+				}
+			}
+		}
 
 		function reloadCardData(){
 			var dataParam = decodeURI(getParamValue("data"));
@@ -37,50 +90,58 @@
 					}
 					if(parent)
 						parent.dataCache["cards-data-first"] = true;
+
+					// Create image Observer
+					cardImmages.imageObserver = new IntersectionObserver(handleIntersection, {
+						root: null,      
+						rootMargin: '0px', 
+						threshold: 0.25 
+					});
+
 					rdata.forEach(function(index){
 						var cdata = data[firstKey][index];
-							darwCard(div, dataParam, cdata);
+						darwCard(div, dataParam, cdata, index);
 					});
 				});
 			}
 		}
 
-		function darwCard(div, name, cdata){
+		function darwCard(div, name, cdata, index){
 		
 		  switch(name){
 			case "alpha":
-				darwAlphabet(div, cdata);
+				drawAlphabet(div, cdata, index);
 				break;
 			case 'actions':
 			case 'genres':
 			case "synonym":
-				darwSynonym(div, cdata)
+				darwSynonym(div, cdata, index)
 				break;
 			case "antonym":
-				darwAntonyms(div, cdata);
+				darwAntonyms(div, cdata, index);
 				break;
 			case "homonym":
-				darwHomonymn(div, cdata);
+				darwHomonymn(div, cdata, index);
 				break;
 			case "hyperbole":
-				darwHyperbole(div, cdata);
+				darwHyperbole(div, cdata, index);
 				break;
 			case "tajweed":
-				darwTajweed(div, cdata);
+				darwTajweed(div, cdata, index);
 				break;
 			case "greetings":
-				darwGreetings(div, cdata);
+				darwGreetings(div, cdata, index);
 				break;
 			case "colors":
-				drawColors(div, cdata);
+				drawColors(div, cdata, index);
 				break;
 			case "pronouns":
-				drawPronouns(div, cdata);
+				drawPronouns(div, cdata, index);
 				break;
 		  }
 		} 
 		
-		function darwAlphabet(div, alpha){
+		function drawAlphabet(div, alpha){
 		
 		  var cls = alpha.type === "C" ? "consonant" : "vowel";
 		  var tooltip = alpha.name+"\n"+cls+"\n"+alpha.class+"\nnumber:"+alpha.number;
@@ -101,8 +162,9 @@
 							 onmouseenter="playCard('${alpha.imageName}')" 
                              style="top:12%; height:80%" 
 							 class="alpha-image" 
-							 title="${alpha.imageName}"
-							 src="${getFreeImageSource(alpha.enName ?? alpha.imageName)}">
+							 loading="lazy"
+							 inumber="alpha-${alpha.number}"
+							 title="${alpha.imageName}">
                         </img>
                         <span style="margin-bottom:0">
 						<a href="#" style="text-decoration:none; cursor:pointer;"
@@ -116,63 +178,76 @@
                 </div>
             </div>`;
 		    div.append($(fdiv));
+			addImageToObserver({
+				inumber: `alpha-${alpha.number}`,
+				key: alpha.enName ?? alpha.imageName,
+				category:  alpha.category
+			});
 		} 
 		
-		function darwHomonymn(div, h){             
-		  if(h.en.length > 1){
-		    var fdiv = `
-			<div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-						<img style="top:24%; width:94%; height:76%" 
-							 title="${h.names[0]}"
-							 class="alpha-image" 
-							 src="${getFreeImageSource(h.en[0])}">
-                        </img>
-						<span style="top:10px; margin-bottom:0; font-size:18px">
-							<a href="#" style="text-decoration:none; cursor:pointer;"
-								onclick="openGoogleAISearch(
-									getPromptFromKey(['Homonyms'], 
-										{'0': ['${h.names[0]}<br/>${h.ur[0]}/${h.en[0]}']}, true));">
-							${h.names[0]}<br/>${h.ur[0]}/${h.en[0]}
-							</a>
-						</span>
-                    </div>
-                    <div class="flip-card-back">
-                        <img ontouchstart="playCard('${h.names[0]}','${h.en[0]}')"
-							 onmouseout="playCard('${h.names[0]}','${h.en[0]}')"
-							 onmouseenter="playCard('${h.names[1]}', '${h.en[1]}')" 
-                             style="top:24%; width:94%; height:76%" 
-							 title="${h.names[1]}"
-							 class="alpha-image" 
-							 src="${getFreeImageSource(h.en[1])}">
-                        </img>
-						<span style="top:10px; margin-bottom:0; font-size:18px">
-							<a href="#" style="text-decoration:none; cursor:pointer;"
-								onclick="openGoogleAISearch(
-									getPromptFromKey(['Homonyms'], 
-										{'0': ['${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}']}, true));">
-							${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}
-							</a>
-						</span>
-                    </div>
-                </div>
-            </div>`;
-		    div.append($(fdiv));
-		  }else{
-		   div.append($(adiv));
-		  }
+		function darwHomonymn(div, h, index) {
+			if (h.en.length > 1) {
+				var fdiv = `
+				<div class="flip-card" number=${index}>
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img style="top:24%; width:94%; height:76%" 
+									title="${h.names[0]}"
+									class="alpha-image"
+									inumber="homonym-${index}"> 
+							</img>
+							<span style="top:10px; margin-bottom:0; font-size:18px">
+								<a href="#" style="text-decoration:none; cursor:pointer;"
+									onclick="openGoogleAISearch(
+										getPromptFromKey(['Homonyms'], 
+											{'0': ['${h.names[0]}<br/>${h.ur[0]}/${h.en[0]}']}, true));">
+								${h.names[0]}<br/>${h.ur[0]}/${h.en[0]}
+								</a>
+							</span>
+						</div>
+						<div class="flip-card-back">
+							<img ontouchstart="playCard('${h.names[0]}','${h.en[0]}')"
+									onmouseout="playCard('${h.names[0]}','${h.en[0]}')"
+									onmouseenter="playCard('${h.names[1]}', '${h.en[1]}')" 
+									style="top:24%; width:94%; height:76%" 
+									title="${h.names[1]}"
+									loading="lazy"
+									class="alpha-image"
+									inumber="homonym-${index}b" >
+							</img>
+							<span style="top:10px; margin-bottom:0; font-size:18px">
+								<a href="#" style="text-decoration:none; cursor:pointer;"
+									onclick="openGoogleAISearch(
+										getPromptFromKey(['Homonyms'], 
+											{'0': ['${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}']}, true));">
+								${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}
+								</a>
+							</span>
+						</div>
+					</div>
+				</div>`;
+				div.append($(fdiv));
+			} else {
+				div.append($(adiv));
+			}
+
+			addImageToObserver({
+				inumber: `homonym-${index}`, key: h.en[0],category: h.category
+			});
+			addImageToObserver({
+				inumber: `homonym-${index}b`, key: h.en[1],category: h.category
+			});
 		} 
 		
-		function darwAntonyms(div, h){             
+		function darwAntonyms(div, h, index){             
 			var fdiv = `
-			<div class="flip-card">
+			<div class="flip-card" number=${index}>
                 <div class="flip-card-inner">
                 	<div class="flip-card-front">
 						<img style="top:24%; width:94%; height:76%" 
-							title="${h.names[0]}"
-							class="alpha-image" 
-							src="${getFreeImageSource(h.en[0])}">
+							title="${h.names[0]}" 
+							class="alpha-image"
+							inumber="antonym-${index}">
                         </img>
 						<span style="top:10px; margin-bottom:0; font-size:18px">
 						<a href="#" style="text-decoration:none; cursor:pointer;"
@@ -189,8 +264,9 @@
 							onmouseenter="playCard('${h.names[1]}', '${h.en[1]}')"
                             style="top:24%; width:94%; height:76%" 
 							title="${h.names[1]}"
+							loading="lazy"
 							class="alpha-image" 
-							src="${getFreeImageSource(h.en[1])}">
+							inumber="antonym-${index}b">
                         </img>
 						<span style="top:10px; margin-bottom:0; font-size:18px">
 						<a href="#" style="text-decoration:none; cursor:pointer;"
@@ -204,9 +280,16 @@
                 </div>
             </div>`;
 		    div.append($(fdiv));
+			
+			addImageToObserver({
+				inumber: `antonym-${index}`, key: h.en[0],category: h.category
+			});
+			addImageToObserver({
+				inumber: `antonym-${index}b`, key: h.en[1],category: h.category
+			});
 		} 
 		
-		function darwSynonym(div, syn) {
+		function darwSynonym(div, syn, index) {
 
 			if(syn.ar === undefined || syn.ar === 'undefined'){
 				syn.ar = syn.names[0] ?? '';
@@ -226,13 +309,14 @@
 			<div class="flip-card">
 				<div class="flip-card-inner">
 					<div class="flip-card-front">${adiv}</div>
-					<div class="flip-card-back">
+					<div class="flip-card-back" number=${index}>
 						<img ontouchstart="playCard('${syn.ar}', '${syn.en}')"
 							onmouseenter="if('${syn.ar}') playCard('${syn.ar}', '${syn.en}')"
 							style="top:18%; width:96%; height:80%" 
 							title="${syn.ar}"
-							class="alpha-image" 
-							src="${getFreeImageSource(syn.en)}">
+							loading="lazy"
+							class="alpha-image"
+							inumber="synonym-${index}">
 						</img>
 						<span style="top:10px; margin-bottom:0">
 							<a href="#" style="text-decoration:none; cursor:pointer;"
@@ -250,6 +334,10 @@
 				</div>
 			</div>`;
 			div.append($(fdiv));
+			
+			addImageToObserver({
+				inumber: `synonym-${index}`, key: syn.en, category: syn.category
+			});
 		}
 
 		function darwHyperbole(div, h){             

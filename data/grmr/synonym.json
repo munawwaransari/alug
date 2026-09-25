@@ -9,7 +9,8 @@
             ],
             "ar": "إنسان. إمرء.بشر.رجُل",
 			"en": "Man,Human",
-			"ur": "انسان"
+			"ur": "انسان",
+			"category": "people"
         },
 		{
             "names": [
@@ -20,7 +21,8 @@
             ],
             "ar": "صبي. فتى.غلام.شاب",
 			"en": "Boy,Child",
-			"ur": "لڑکا"
+			"ur": "لڑکا",
+			"category": "people"
         },
 		{
             "names": [
@@ -31,7 +33,8 @@
             ],
             "ar": "معلم. مدرس.استاذ.مربِّي",
 			"en": "Presenter,Teacher",
-			"ur": "استاد"
+			"ur": "استاد",
+			"category": "people"
         },
 		{
             "names": [
@@ -42,7 +45,8 @@
             ],
             "ar": "طائفة . حزب . فئة .جماعة",
 			"en": "Group,Team,Party",
-			"ur": "جماعت"
+			"ur": "جماعت",
+			"category": "people"
         },
 		{
             "names": [
@@ -53,7 +57,8 @@
             ],
             "ar": "حصة . نصيب .حَظّ .قسمة",
 			"en": "Share,Part,Luck",
-			"ur": "تقسیم"
+			"ur": "تقسیم",
+			"category": "people"
         },
 		{
             "names": [
@@ -64,7 +69,8 @@
             ],
             "ar": "حسام. مُهَنَّد.سيف.مدية",
 			"en": "Sword,Knife",
-			"ur": "تلوار "
+			"ur": "تلوار ",
+			"category": "industry"
         },
 		{
             "names": [
@@ -75,7 +81,8 @@
             ],
             "ar": "اجتماع. لقاء. جلسة.ندوة",
 			"en": "Meeting,Gathering",
-			"ur": "ملاقات"
+			"ur": "ملاقات",
+			"category": "people"
         },
 		{
             "names": [
@@ -86,7 +93,8 @@
             ],
             "ar": "طالب. تلميذ. دارس.تابع",
 			"en": "Learner",
-			"ur": "طالب علم"
+			"ur": "طالب علم",
+			"category": "education"
         },
 		{
             "names": [
@@ -97,7 +105,8 @@
             ],
             "ar": "عمل. شغل. فعل.أثر",
 			"en": "Occupation,Work",
-			"ur": "کام"
+			"ur": "کام",
+			"category": "science"
         },
 		{
             "names": [
@@ -108,7 +117,8 @@
             ],
             "ar": "قرأة. تلاوة. معرفة.دراسة",
 			"en": "Recitation,Study",
-			"ur": "تلاوت"
+			"ur": "تلاوت",
+			"category": "education"
         },
 		{
             "names": [
@@ -119,7 +129,8 @@
             ],
             "ar": "كَلام. قول. حديث.نطق",
 			"en": "Speech,Talk",
-			"ur": "تقریر"
+			"ur": "تقریر",
+			"category": "education"
         },
 		{
             "names": [
@@ -130,7 +141,8 @@
             ],
             "ar": "نار. لهب. حريق.سعير",
 			"en": "Fire",
-			"ur": "آگ"
+			"ur": "آگ",
+			"category": "nature"
         },
 		{
             "names": [
@@ -141,7 +153,8 @@
             ],
             "ar": "ارتباك. تشويش. حيرة.التباس",
 			"en": "Confusion,Doubt",
-			"ur": "شك"
+			"ur": "شك",
+			"category": "people"
         },
 		{
             "names": [
@@ -152,7 +165,8 @@
             ],
             "ar": "فهم. إدراك. إمساك.تعقل",
 			"en": "Prudence,Perception",
-			"ur": "سمجھ"
+			"ur": "سمجھ",
+			"category": "people"
         },
 		{
             "names": [
@@ -163,7 +177,8 @@
             ],
             "ar": "ساخن. حار. حرق.توقيد",
 			"en": "Ignition,Burning",
-			"ur": "گرم/جلن"
+			"ur": "گرم/جلن",
+			"category": "feelings"
         },
 		{
             "names": [
@@ -174,7 +189,8 @@
             ],
             "ar": "مشوق. ممتع. جَذّاب.مرغوب",
 			"en": "Interesting,Attractive",
-			"ur": "دلچسپ/پرکشش"
+			"ur": "دلچسپ/پرکشش",
+			"category": "feelings"
         }
     ]
 }

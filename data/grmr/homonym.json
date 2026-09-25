@@ -3,82 +3,98 @@
         {
             "names": ["عاصف", "آسف"],
 			"en": ["Storm,wind","Sorry,grief"],
-			"ur": ["طوفانی","افسوس"]
+			"ur": ["طوفانی","افسوس"],
+			"category": "people"
         },
 		{
             "names": ["نصب", "نسب"],
 			"en": ["Installation,fix","lineage,family"],
-			"ur": ["سیٹ اپ","نسب نامہ"]
+			"ur": ["سیٹ اپ","نسب نامہ"],
+			"category": "people"
         },
 		{
             "names": ["قضاء", "كذا"],
-			"en": ["Judiciary,justice","So,So"],
-			"ur": ["عدلیہ","فلاں"]
+			"en": ["Judiciary,justice","unknown"],
+			"ur": ["عدلیہ","فلاں"],
+			"category": "education"
         },
 		{
             "names": ["صوم", "ثوم"],
 			"en": ["Fasting,hungry", "Garlic,vegetable"],
-			"ur": ["روزہ","لہسن"]
+			"ur": ["روزہ","لہسن"],
+			"category": "food"
         },
 		{
             "names": ["صورة", "سورة"],
 			"en": ["Image,picture", "Verse,Quranic"],
-			"ur": ["تصویر","سورہ"]
+			"ur": ["تصویر","سورہ"],
+			"category": "education"
         },
 		{
             "names": ["طين", "تِين"],
 			"en": ["clay,pot", "Fig,Fruit"],
-			"ur": ["مٹی","انجیر"]
+			"ur": ["مٹی","انجیر"],
+			"category": "food"
         },
 		{
             "names": ["ضليل", "ذليل"],
 			"en": ["Lost,Stray", "Destitute,Servile"],
-			"ur": ["گمراہ","خدمتگار"]
+			"ur": ["گمراہ","خدمتگار"],
+			"category": "people"
         },
 		{
             "names": ["قلب", "كلب"],
 			"en": ["Heart,center", "Dog,Animal"],
-			"ur": ["دل","کتا"]
+			"ur": ["دل","کتا"],
+			"category": "animals"
         },
 		{
             "names": ["عاقِل", "آكل"],
 			"en": ["Sane,Wise", "Eater,Glutton"],
-			"ur": ["سمجھدار","کھانے والا"]
+			"ur": ["سمجھدار","کھانے والا"],
+			"category": "people"
         },
 		{
             "names": ["شك", "شق"],
 			"en": ["Question,Doubt", "Incision,Cut"],
-			"ur": ["شک","چیرا"]
+			"ur": ["شک","چیرا"],
+			"category": "education"
         },
 		{
             "names": ["نضرة", "نظرة"],
 			"en": ["Fresh,New", "Look,See"],
-			"ur": ["تازگی", "دیکھنا"]
+			"ur": ["تازگی", "دیکھنا"],
+			"category": "science"
         },
 		{
             "names": ["كعبة", "كابة"],
 			"en": ["Mecca", "Depression"],
-			"ur": ["کعبہ", "اداسی"]
+			"ur": ["کعبہ", "اداسی"],
+			"category": "places"
         },
 		{
             "names": ["عِبادة", "إبادة"],
 			"en": ["Worship,Pray", "Bombing,Genocide"],
-			"ur": ["عبادت", "تباہی"]
+			"ur": ["عبادت", "تباہی"],
+			"category": "people"
         },
 		{
             "names": ["عِشاء", "عَشاء"],
 			"en": ["Evening", "Dinner"],
-			"ur": ["شام ", "رات کا کھانا"]
+			"ur": ["شام ", "رات کا کھانا"],
+			"category": "food"
         },
 		{
             "names": ["إبرة", "عبرة"],
 			"en": ["Needle", "Lesson"],
-			"ur": ["سوئی", "سبق"]
+			"ur": ["سوئی", "سبق"],
+			"category": "education"
         },
 		{
             "names": ["سمين", "ثمين"],
-			"en": ["Fat,heavy", "Costly"],
-			"ur": ["موٹا", "مہنگا"]
+			"en": ["Fat,heavy", "Costly,Expensive"],
+			"ur": ["موٹا", "مہنگا"],
+			"category": "industry"
         }
     ]
 }

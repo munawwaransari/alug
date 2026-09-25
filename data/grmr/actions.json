@@ -3,132 +3,158 @@
         {
             "names": ["يَمشِي", "مَشَى"],
 			"en": ["Walking"],
-			"ur": ["چلنا"]
+			"ur": ["چلنا"],
+            "category": "people"
         },
         {
             "names": ["يَركِض", "رَكَضَ", "يَجرِى", "جَرَى"],
 			"en": ["Running"],
-			"ur": ["دوڑنا"]
+			"ur": ["دوڑنا"],
+            "category": "people"
         },
         {
             "names": ["يَطِيرَ", "طَارَ", "", ""],
 			"en": ["Flying"],
-			"ur": ["اڑنا"]
+			"ur": ["اڑنا"],
+            "category": "animals"
         },
         {
             "names": ["يَسبَح", "سَبَحَ", "", ""],
 			"en": ["Swimming"],
-			"ur": ["تیراکی"]
+			"ur": ["تیراکی"],
+            "category": "people"
         },
         {
             "names": ["يَقفُز", "قَفَزَ", "", ""],
 			"en": ["Jumping"],
-			"ur": ["کودنا"]
+			"ur": ["کودنا"],
+            "category": "animals"
         },
         {
             "names": ["يَغطس", "غَطَسَ", "", ""],
 			"en": ["Plunging"],
-			"ur": ["ڈوبکی"]
+			"ur": ["ڈوبکی"],
+            "category": "people"
         },
         {
             "names": ["يَزحَف", "زَحَفَ", "", ""],
 			"en": ["Creeping"],
-			"ur": ["رینگنا "]
+			"ur": ["رینگنا "],
+            "category": "animals"
         },
         {
             "names": ["يَعْدُو", "عَدَا", "", ""],
 			"en": ["Racing"],
-			"ur": ["سرپٹ دوڑنا "]
+			"ur": ["سرپٹ دوڑنا "],
+            "category": "animals"
         },
         {
             "names": ["يُهَرْوِلُ", "هَرْوَلَ", "", ""],
 			"en": ["Jogging", "Trotting"],
-			"ur": ["جاگنگ"]
+			"ur": ["جاگنگ"],
+            "category": "people"
         },
         {
             "names": ["يُرَفْرِفُ", "رَفْرَفَ", "", ""],
 			"en": ["Fluttering"],
-			"ur": ["پھڑپھڑانا"]
+			"ur": ["پھڑپھڑانا"],
+            "category": "animals"
         },
         {
             "names": ["يَطفر", "طَفَرَ", "", ""],
 			"en": ["Leaping"],
-			"ur": ["چھلانگ"]
+			"ur": ["چھلانگ"],
+            "category": "animals"
         },
         {
             "names": ["يَنزَلِقُ", "انزْلَقَ", "", ""],
 			"en": ["Sliding"],
-			"ur": ["پھسلنا"]
+			"ur": ["پھسلنا"],
+            "category": "people"
         },
         {
             "names": ["يَسقُطُ", "سَقَطَ", "", ""],
 			"en": ["Falling"],
-			"ur": ["گرنا"]
+			"ur": ["گرنا"],
+            "category": "people"
         },
         {
             "names": ["يَعثر", "عَثَرَ", "", ""],
 			"en": ["Stumbling"],
-			"ur": ["ٹھوکر"]
+			"ur": ["ٹھوکر"],
+            "category": "people"
         },
         {
             "names": ["يُدَحْرِجُ", "دَحْرَجَ", "", ""],
 			"en": ["Rolling"],
-			"ur": ["لپٹانا"]
+			"ur": ["لپٹانا"],
+            "category": "education"
         },
         {
             "names": ["يَنام", "نَامَ", "", ""],
             "en": ["Dreaming"],
-            "ur": ["سونا"]
+            "ur": ["سونا"],
+            "category": "people"
         },
         {
             "names": ["يَلعب", "لَعِبَ", "", ""],
             "en": ["Playing"],
-            "ur": ["کھیلنا"]
+            "ur": ["کھیلنا"],
+            "category": "people"
         },
         {
             "names": ["يَقِف", "وَقِفَ", "", ""],
             "en": ["Standing"],
-            "ur": ["کھڑا ہونا"]
+            "ur": ["کھڑا ہونا"],
+            "category": "people"
         },
         {
             "names": ["يَركَب", "رَكِبَ", "", ""],
             "en": ["Riding"],
-            "ur": ["سواری کرنا"]
+            "ur": ["سواری کرنا"],
+            "category": "people"
         },
         {
             "names": ["يُغَنِّي", "غَنَّا", "", ""],
             "en": ["Singing"],
-            "ur": ["گانا"]
+            "ur": ["گانا"],
+            "category": "people"
         },
         {
             "names": ["يَبكٍي", "بَكَي", "", ""],
             "en": ["Weeping"],
-            "ur": ["رونا"]
+            "ur": ["رونا"],
+            "category": "people"
         },
         {
             "names": ["يَضحَك", "ضَحَكَ", "", ""],
             "en": ["Laughing"],
-            "ur": ["ہنسنا"]
+            "ur": ["ہنسنا"],
+            "category": "people"
         },
         {
             "names": ["بيَضَعُ", "وَضَعَ", "", ""],
             "en": ["Keeping"],
-            "ur": ["رکھنا"]
+            "ur": ["رکھنا"],
+            "category": "people"
         },
         {
             "names": ["يَبحَث", "بَحَثَ", "", ""],
             "en": ["Searching"],
-            "ur": ["تلاش کرنا"]
+            "ur": ["تلاش کرنا"],
+            "category": "people"
         },
         {
             "names": ["يقود", "قَادَ", "", ""],
             "en": ["Driving"],
-            "ur": ["گاڑی چلانا"]
+            "ur": ["گاڑی چلانا"],
+            "category": "people"
         },
         {
             "names": ["يُساعِدُ", "ساعَدَ", "", ""],
             "en": ["Helping"],
-            "ur": ["مدد کرنا"]
+            "ur": ["مدد کرنا"],
+            "category": "people"
         }
     ]
 }

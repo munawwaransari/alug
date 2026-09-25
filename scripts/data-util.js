@@ -2164,12 +2164,23 @@ function getActionTitle(action){
 	action;
 }
 
-function getFreeImageSource(keyword, url="https://loremflickr.com/180/240/", proxy){
-	var imgUrl = Array.isArray(keyword) == true ?
-		`${url}${keyword.join(",")}`: `${url}${keyword}`; 
-	return proxy == undefined ? 
-		imgUrl : `https://corsproxy.io/?${encodeURIComponent(imgUrl)}`;
-}
+function genFreeImage(img, keyword, category, src='https://pixabay.com/api/') {
+	return new Promise(function(resolve, reject){
+		var url = `${src}?safesearch=true&min_width=240&min_height=180&key=57730103-b9b9c7de7c0cbaf73e8da00e1&orientation=vertical${category !== undefined? `&category=${category}`:''}&q=${keyword}`;
+		loadJsonData(url)
+		.then((data)=> {
+			if(data == undefined){
+				reject('no-data');
+			}
+			else if($(img).length > 0){
+				var imgData = data.hits[0];
+				resolve(imgData.previewURL ?? imdData.userImageURL);
+			}
+			else reject('invalid-id-str');
+		})
+	});
+};
+
 
 function delSelectedCardFromDashboard(){
 	if(parent.dashboard){

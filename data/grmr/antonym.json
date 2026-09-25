@@ -3,72 +3,86 @@
         {
             "names": ["طويل", "قصير"],
 			"en": ["Long","Short"],
-			"ur": ["لمبا","چھوٹا"]
+			"ur": ["لمبا","چھوٹا"],
+			"category": "people"
         },
 		{
             "names": ["نحيل", "سمين"],
 			"en": ["Slim,man","Fat,man"],
-			"ur": ["دُبلا","موٹا"]
+			"ur": ["دُبلا","موٹا"],
+			"category": "people"
         },
 		{
             "names": ["حُلُوٌ", "مُر"],
 			"en": ["Sweeet","Bitter"],
-			"ur": ["میٹھا","تلخ"]
+			"ur": ["میٹھا","تلخ"],
+			"category": "food"
         },
 		{
             "names": ["سريع", "بطيء"],
 			"en": ["Quick,Fast", "Slow,motion"],
-			"ur": ["تیز","سُست"]
+			"ur": ["تیز","سُست"],
+			"category": "animals"
         },
 		{
             "names": ["خفيف", "ثقيل"],
 			"en": ["Light,weigth", "Heavy,weigth"],
-			"ur": ["ہلکا", "بھاری"]
+			"ur": ["ہلکا", "بھاری"],
+			"category": "science"
         },
 		{
             "names": ["بارد", "حار"],
 			"en": ["Cold,temperature", "Hot,temperature"],
-			"ur": ["سرد","گرم"]
+			"ur": ["سرد","گرم"],
+			"category": "food"
         },
 		{
             "names": ["وفير", "نادر"],
 			"en": ["Abundant", "Rare"],
-			"ur": ["وافر","نایاب"]
+			"ur": ["وافر","نایاب"],
+			"category": "nature"
         },
 		{
             "names": ["ضوضاء", "صَمت"],
 			"en": ["Noise", "Silence"],
-			"ur": ["شور","خاموشی"]
+			"ur": ["شور","خاموشی"],
+			"category": "nature"
         },
 		{
             "names": ["زكي", "غبي"],
 			"en": ["Smart", "Stupid"],
-			"ur": ["ہوشیار","بیوقوف"]
+			"ur": ["ہوشیار","بیوقوف"],
+			"category": "people"
         },
 		{
             "names": ["غالي", "رخيص"],
 			"en": ["Expensive", "Cheap"],
-			"ur": ["قیمتی","سستا"]
+			"ur": ["قیمتی","سستا"],
+			"category": "places"
         },
 		{
             "names": ["مُتزوِّج", "اعزب"],
 			"en": ["Married", "Bachelor"],
-			"ur": ["شادی شدہ", "کنوارا"]
+			"ur": ["شادی شدہ", "کنوارا"],
+			"category": "people"
         },
 		{
             "names": ["صعب", "سهل"],
 			"en": ["Difficult,job", "Easy,job"],
-			"ur": ["مشکل", "آسان"]
+			"ur": ["مشکل", "آسان"],
+			"category": "education"
         },
 		{
 			"names": ["غني", "فقير"],
 			"en": ["Rich", "Poor"],
-			"ur": ["امیر", "مفلس"]
+			"ur": ["امیر", "مفلس"],
+			"category": "people"
 		},
 		{
 			"names": ["سعيد", "حزين"],
 			"en": ["Joyful,boy", "Sad,cry"],
-			"ur": ["خوش", "اداس"]
+			"ur": ["خوش", "اداس"],
+			"category": "people"
 		}
     ]
 }
