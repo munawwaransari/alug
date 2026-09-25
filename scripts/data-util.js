@@ -2172,9 +2172,9 @@ function genFreeImage(img, keyword, category, src='https://pixabay.com/api/') {
 			if(data == undefined){
 				reject('no-data');
 			}
-			else if($(img).length > 0){
+			else if($(img).length > 0 && data.hits?.length > 0){
 				var imgData = data.hits[0];
-				resolve(imgData.previewURL ?? imdData.userImageURL);
+				resolve(imgData.previewURL ?? imgData.userImageURL ?? imgData.webformatURL);
 			}
 			else reject('invalid-id-str');
 		})
