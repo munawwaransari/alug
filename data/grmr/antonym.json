@@ -58,7 +58,7 @@
             "names": ["غالي", "رخيص"],
 			"en": ["Expensive", "Cheap"],
 			"ur": ["قیمتی","سستا"],
-			"category": "places"
+			"category": "food"
         },
 		{
             "names": ["مُتزوِّج", "اعزب"],

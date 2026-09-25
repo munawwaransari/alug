@@ -2166,7 +2166,7 @@ function getActionTitle(action){
 
 function genFreeImage(img, keyword, category, src='https://pixabay.com/api/') {
 	return new Promise(function(resolve, reject){
-		var url = `${src}?safesearch=true&min_width=240&min_height=180&key=57730103-b9b9c7de7c0cbaf73e8da00e1&orientation=vertical${category !== undefined? `&category=${category}`:''}&q=${keyword}`;
+		var url = `${src}?safesearch=true&min_width=240&min_height=180&key=57730103-b9b9c7de7c0cbaf73e8da00e1&orientation=vertical${category !== undefined? `&category=${category}`:''}&q=${keyword.toLowerCase()}`;
 		loadJsonData(url)
 		.then((data)=> {
 			if(data == undefined){
@@ -2176,7 +2176,7 @@ function genFreeImage(img, keyword, category, src='https://pixabay.com/api/') {
 				var imgData = data.hits[0];
 				resolve(imgData.previewURL ?? imgData.userImageURL ?? imgData.webformatURL);
 			}
-			else reject('invalid-id-str');
+			else reject('Error generating image');
 		})
 	});
 };
