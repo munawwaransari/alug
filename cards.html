@@ -350,8 +350,8 @@
 					${h.names[0]}<br/><span style="font-size:22px;">${h.en[0]}</span>
                     </div>
                     <div class="flip-card-back">
-						<span style="position:relative; display:flex; align-items:center; font-size:32px">
-							<a href="#" style="text-decoration:none; cursor:pointer;"
+						<span style="position:relative; display:flex; align-items:center; font-size:32px;">
+							<a href="#" style="text-decoration:none; cursor:pointer;color:#E6E6FA;"
 								onclick="openGoogleAISearch(
 								getPromptFromKey(['Hyperboles'], 
 									{'0': ['${h.names[0]}<br/>${h.en[0]}']}, true));">
@@ -377,7 +377,7 @@
                     </div>
                     <div class="flip-card-back">
 						<span style="position:relative; display:flex; align-items:center; font-size:30px">
-							<a href="#" style="text-decoration:none; cursor:pointer;"
+							<a href="#" style="text-decoration:none; cursor:pointer;color:#E6E6FA;"
 							 onclick="${onclick}">
 								${h.names.map((n, i) => `${n}<br/><br/>`).join("")}
 							</a>
@@ -403,7 +403,7 @@
 						</div>
 						<div class="flip-card-back">
 							<span style="position:relative; display:flex; align-items:center; font-size:32px">
-							<a href="#" style="text-decoration:none; cursor:pointer;"
+							<a href="#" style="text-decoration:none; cursor:pointer;color:#E6E6FA;"
 								onclick="openGoogleAISearch(
 								getPromptFromKey(['Greetings'], 
 									{'0': ['${name}', '${h.en[i]}']}, true));">
