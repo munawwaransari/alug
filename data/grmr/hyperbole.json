@@ -4,6 +4,22 @@
             "names": ["فَعَّال", "كذَّاب<br/><br/>نّجَّار<br/><br/>حَلَّاق"],
 			"en": ["Continuous repetition, profession, or extreme habit"]
         },
+        {
+            "names": ["فَعَّالَة", "لَوَّامَة<br/><br/>رَحَّالَة<br/><br/>عَلَّامَة"],
+			"en": ["an intensive feminine suffix for ultimate emphasis or encyclopaedic status"]
+        },
+        {
+            "names": ["فِعِّيل", "قِدِّيس<br/><br/>سِكِّير<br/><br/>صِدِّيق"],
+			"en": ["Indicates a person completely consumed by or deeply rooted in a trait"]
+        },
+        {
+            "names": ["فُعُّول", "قُدُّوس<br/><br/>سُبُّوح<br/><br/>فُرُّوج"],
+			"en": ["used in classical Arabic to describe divine attributes"]
+        },
+        {
+            "names": ["فُعَّال", "كُبَّار<br/><br/>عُجَّاب<br/><br/>طُوَّال"],
+			"en": ["immense structural heavying to a trait, denoting an overwhelming scale of abundance or greatness"]
+        },
 		{
             "names": ["فَعِيل", "خَطِيب<br/><br/>رَقِيب<br/><br/>فَقِير"],
 			"en": ["Permanent or deep possession of a specific quality or action"]
@@ -15,8 +31,24 @@
 		{
             "names": ["فَعُول", "شَكُور<br/><br/>غَفُور<br/><br/>صَبُور"],
 			"en": ["A deep, intrinsic state of doing an action intensely"]
+        },       
+        {
+            "names": ["فُعَلَة", "عُذَرَة<br/><br/>لُمَزَة<br/><br/>هُمَزَة"],
+			"en": ["Often used to describe someone who frequently subjects others to an action"]
         },
-		{
+        {
+            "names": ["فَاعُول", "فَارُوق<br/><br/>نَاطُور<br/><br/>حَاطُوم"],
+			"en": ["implies supreme distinction or an ultimate separation of qualities"]
+        },
+        {
+            "names": ["فُعَال", "كُرَام<br/><br/>شُجَاع<br/><br/>طُوَال"],
+			"en": ["describes a vast, extensive, or sweeping manifestation of a positive virtue"]
+        },
+        {
+            "names": ["تِفْعَال", "تِقْتَال<br/><br/>تِكْذَاب<br/><br/>تِلْعَاب"],
+			"en": ["indicates an endless, exhausting, or non-stop habit of doing an action"]
+        },
+        {
             "names": ["مِفعِيل", "مِسكِين<br/><br/>مِندِيل<br/><br/>مِعطِير"],
 			"en": ["Used to highlight an exaggerated regular habit"]
         },
@@ -29,20 +61,8 @@
 			"en": ["Being so naturally prone to an action it acts as an instrument or habit"]
         },
         {
-            "names": ["فَعَّالَة", "لَوَّامَة<br/><br/>رَحَّالَة<br/><br/>عَلَّامَة"],
-			"en": ["an intensive feminine suffix for ultimate emphasis or encyclopaedic status"]
-        },
-        {
-            "names": ["فِعِّيل", "قِدِّيس<br/><br/>سِكِّير<br/><br/>صِدِّيق"],
-			"en": ["Indicates a person completely consumed by or deeply rooted in a trait"]
-        },
-        {
-            "names": ["فُعَلَة", "عُذَرَة<br/><br/>لُمَزَة<br/><br/>هُمَزَة"],
-			"en": ["Often used to describe someone who frequently subjects others to an action"]
-        },
-        {
-            "names": ["فُعُّول", "قُدُّوس<br/><br/>سُبُّوح<br/><br/>فُرُّوج"],
-			"en": ["used in classical Arabic to describe divine attributes"]
+            "names": ["مِفْعَل", "مِسْعَر<br/><br/>مِطْعَن<br/><br/>تِلْعَاب"],
+			"en": ["acts as the primary catalyst or physical \"tool\" for an intense event"]
         }
     ]
 }
