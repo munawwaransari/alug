@@ -66,7 +66,7 @@
         {
             "names": ["جُند","عَسْكَر","حَشْد","فَيْلَق"],
             "ar": "اِسْم الجَمْع",
-			"en": "Military,Soldier",
+			"en": "Army,Military",
 			"ur": "جَيْش-جُيُوش",
             "category": "people"
         },
@@ -75,7 +75,7 @@
             "ar": "اِسْم الجَمْع",
 			"en": "Mother,Women",
 			"ur": "نِسَاء",
-            "category": "people"
+            "category": "nature"
         },
         {
             "names": ["","شَجَر","Trees","أشجار"],

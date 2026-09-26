@@ -10,7 +10,7 @@
             "names": ["يَركِض", "رَكَضَ", "يَجرِى", "جَرَى"],
 			"en": "Running",
 			"ur": "دوڑنا",
-            "category": "people"
+            "category": "animal"
         },
         {
             "names": ["يَطِيرَ", "طَارَ", "", ""],
@@ -22,7 +22,7 @@
             "names": ["يَسبَح", "سَبَحَ", "", ""],
 			"en": "Swimming",
 			"ur": "تیراکی",
-            "category": "people"
+            "category": "animal"
         },
         {
             "names": ["يَقفُز", "قَفَزَ", "", ""],
