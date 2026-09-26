@@ -100,13 +100,13 @@
 
 					rdata.forEach(function(index){
 						var cdata = data[firstKey][index];
-						darwCard(div, dataParam, cdata, index);
+						drawCard(div, dataParam, cdata, index);
 					});
 				});
 			}
 		}
 
-		function darwCard(div, name, cdata, index){
+		function drawCard(div, name, cdata, index){
 		
 		  switch(name){
 			case "alpha":
@@ -115,22 +115,22 @@
 			case 'actions':
 			case 'genres':
 			case "synonym":
-				darwSynonym(div, cdata, index)
+				drawSynonym(div, cdata, index)
 				break;
 			case "antonym":
-				darwAntonyms(div, cdata, index);
+				drawAntonyms(div, cdata, index);
 				break;
 			case "homonym":
-				darwHomonymn(div, cdata, index);
+				drawHomonymn(div, cdata, index);
 				break;
 			case "hyperbole":
-				darwHyperbole(div, cdata, index);
+				drawHyperbole(div, cdata, index);
 				break;
 			case "tajweed":
-				darwTajweed(div, cdata, index);
+				drawTajweed(div, cdata, index);
 				break;
 			case "greetings":
-				darwGreetings(div, cdata, index);
+				drawGreetings(div, cdata, index);
 				break;
 			case "colors":
 				drawColors(div, cdata, index);
@@ -185,7 +185,7 @@
 			});
 		} 
 		
-		function darwHomonymn(div, h, index) {
+		function drawHomonymn(div, h, index) {
 			if (h.en.length > 1) {
 				var fdiv = `
 				<div class="flip-card" number=${index}>
@@ -239,7 +239,7 @@
 			});
 		} 
 		
-		function darwAntonyms(div, h, index){             
+		function drawAntonyms(div, h, index){             
 			var fdiv = `
 			<div class="flip-card" number=${index}>
                 <div class="flip-card-inner">
@@ -289,7 +289,7 @@
 			});
 		} 
 		
-		function darwSynonym(div, syn, index) {
+		function drawSynonym(div, syn, index) {
 
 			if(syn.ar === undefined || syn.ar === 'undefined'){
 				syn.ar = syn.names[0] ?? '';
@@ -340,19 +340,16 @@
 			});
 		}
 
-		function darwHyperbole(div, h){             
+		function drawHyperbole(div, h){             
 		    var fdiv = `
 			<div class="flip-card" style="border:4px solid transparent;">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front" onmouseenter="playCard('${h.names[0]}')">
-					    <span style="position:relative; display:flex; align-items:center; font-size:34px">
-							${h.names[0]}<br/>${h.en[0]}
-						</span>
+                    <div class="flip-card-front" 
+						 style="position:relative;display:inline-grid;margin:auto;align-items:center;font-size:34px"
+						 onmouseenter="playCard('${h.names[0]}')">
+					${h.names[0]}<br/><span style="font-size:22px;">${h.en[0]}</span>
                     </div>
                     <div class="flip-card-back">
-                        <img style="opacity:0;top:24%; width:94%; height:76%" 
-							 class="alpha-image" src="">
-                        </img>
 						<span style="position:relative; display:flex; align-items:center; font-size:32px">
 							<a href="#" style="text-decoration:none; cursor:pointer;"
 								onclick="openGoogleAISearch(
@@ -367,7 +364,7 @@
 		    div.append($(fdiv));
 		}
 		
-		function darwTajweed(div, h){             
+		function drawTajweed(div, h){             
 		    var prompt = getPromptFromKey(['Tajweed'], {'0': [h.en]}, true);
 			var onclick = `openGoogleAISearch(\`${prompt}\`, true);"`;
 			var fdiv = `
@@ -379,9 +376,6 @@
 						</span>
                     </div>
                     <div class="flip-card-back">
-                        <img style="opacity:0;top:24%; width:94%; height:76%" 
-							 class="alpha-image" src="">
-                        </img>
 						<span style="position:relative; display:flex; align-items:center; font-size:30px">
 							<a href="#" style="text-decoration:none; cursor:pointer;"
 							 onclick="${onclick}">
@@ -394,7 +388,7 @@
 		    div.append($(fdiv));
 		}
 		
-		function darwGreetings(div, h){             
+		function drawGreetings(div, h){             
 
 			h.names.every(function(name, i){			
 				var fdiv = `
@@ -408,9 +402,6 @@
 							</span>
 						</div>
 						<div class="flip-card-back">
-							<img style="opacity:0;top:24%; width:94%; height:76%" 
-							     class="alpha-image" src="">
-							</img>
 							<span style="position:relative; display:flex; align-items:center; font-size:32px">
 							<a href="#" style="text-decoration:none; cursor:pointer;"
 								onclick="openGoogleAISearch(

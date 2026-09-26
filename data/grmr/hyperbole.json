@@ -1,28 +1,48 @@
 {
     "hyperbole": [
         {
-            "names": ["فَعَّال", "فَلَّاح<br/><br/>نّجَّار<br/><br/>حَلَّاق"],
-			"en": ["exaggerated"]
+            "names": ["فَعَّال", "كذَّاب<br/><br/>نّجَّار<br/><br/>حَلَّاق"],
+			"en": ["Continuous repetition, profession, or extreme habit"]
         },
 		{
             "names": ["فَعِيل", "خَطِيب<br/><br/>رَقِيب<br/><br/>فَقِير"],
-			"en": ["persistent"]
+			"en": ["Permanent or deep possession of a specific quality or action"]
         },
 		{
-            "names": ["مِفعِيل", "مِسكِين<br/><br/>مِندِيل<br/><br/>مِعطِير"],
-			"en": ["exaggerated"]
+            "names": ["فَعِل", "فَطِن<br/><br/>قَلِق<br/><br/>حَذِر"],
+			"en": ["A temporary or sharp state of alertness, emotion, or reaction"]
         },
 		{
             "names": ["فَعُول", "شَكُور<br/><br/>غَفُور<br/><br/>صَبُور"],
-			"en": ["persistent"]
+			"en": ["A deep, intrinsic state of doing an action intensely"]
+        },
+		{
+            "names": ["مِفعِيل", "مِسكِين<br/><br/>مِندِيل<br/><br/>مِعطِير"],
+			"en": ["Used to highlight an exaggerated regular habit"]
         },
 		{
             "names": ["مُفَاعِلَة", "مُبَالَغَة<br/><br/>مُرَاقَبَة<br/><br/>مُشَاهِدَة"],
-			"en": ["exaggerated"]
+			"en": ["a particular action or trait with extreme repetition, intensity, or definitiveness"]
         },
 		{
             "names": ["مِفعَال", "مِفتَاح<br/><br/>مِروَاح<br/><br/>مِشكَوة"],
-			"en": ["exaggerated"]
+			"en": ["Being so naturally prone to an action it acts as an instrument or habit"]
+        },
+        {
+            "names": ["فَعَّالَة", "لَوَّامَة<br/><br/>رَحَّالَة<br/><br/>عَلَّامَة"],
+			"en": ["an intensive feminine suffix for ultimate emphasis or encyclopaedic status"]
+        },
+        {
+            "names": ["فِعِّيل", "قِدِّيس<br/><br/>سِكِّير<br/><br/>صِدِّيق"],
+			"en": ["Indicates a person completely consumed by or deeply rooted in a trait"]
+        },
+        {
+            "names": ["فُعَلَة", "عُذَرَة<br/><br/>لُمَزَة<br/><br/>هُمَزَة"],
+			"en": ["Often used to describe someone who frequently subjects others to an action"]
+        },
+        {
+            "names": ["فُعُّول", "قُدُّوس<br/><br/>سُبُّوح<br/><br/>فُرُّوج"],
+			"en": ["used in classical Arabic to describe divine attributes"]
         }
     ]
 }
