@@ -427,17 +427,16 @@
 			});
 		}	
 		
-		function drawColors(div, color){
-		
+		function drawColors(div, color){		
 		  	var tooltip = color.en;		  		             
-			var back= "", backColor = "", backStyle = "";
-			backColor = 'color:'+invertColor(color.color);
-			backStyle = 'style="background-color:'+color.color+';"';
-			back = `
-			<p style="font-size:38px;margin-top:50px;${backColor}">
-				${color.names[1]}
+			var backColor = 'color:'+invertColor(color.color);
+			var backStyle = 'style="background-color:'+color.color+';"';
+			var content = `
+			<p style="font-size:38px;margin:auto;align-content:middle;:50px;${backColor}">
+				XYZ
 				<br/><span style="font-size:28px;${backColor}">${color.en}</span>
 				<br/><span style="font-size:32px;${backColor}">${color.ur}</span>
+				<br/><span style="font-size:18px;${backColor};">(${color.color.replace("#",'')})</span>
 			</p>`;
 							
 			var cdiv = `
@@ -447,13 +446,11 @@
 							ontouchstart="playCard('${color.names[0]}.${color.names[1]}')"
 							onmouseenter="playCard('${color.names[0]}.${color.names[1]}')"
 							${backStyle}>
-						<p style="font-size:38px;margin-top:50px;${backColor};">
-							${color.names[0]}
-							<br/><span style="font-size:28px;${backColor};">${color.en}</span>
-							<br/><span style="font-size:32px;${backColor};">${color.ur}</span>
-						</p>
+						${content.replace('XYZ', color.names[0])}
 					</div>
-					<div class="flip-card-back" ${backStyle}>${back}</div>
+					<div class="flip-card-back" ${backStyle}>
+						${content.replace('XYZ', color.names[1])}
+					</div>
 				</div>
 			</div>`;
 			div.append($(cdiv));
