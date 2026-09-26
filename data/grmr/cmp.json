@@ -1258,11 +1258,43 @@
         ],
         "features":{
             "الاعراب (Grammar Markers)": [
-                "<p style=\"direction:ltr;\">إعراب </b>are used as grammatical notions on nouns and verbs to identify cases and states.</p>",
+                "<p style=\"direction:ltr;\"><b>إعراب </b>are used as grammatical notions on nouns and verbs to identify cases and states.</p>",
                 "<p style=\"direction:ltr\"><b>الرفع</b>:<br/>Nominative case<br/>علامات: الضَّمَّة, الأَلِف (مثنى), الوَاو (جمع)<br/>الطَّالِبُ, الطَّالِبَانِ, الطَّالِبُونَ<br/><br/><b>النصب</b>:<br/>Accusative case<br/>علامات: الفَتْحَة, اليَاء (مثنى;جمع المذكر), الكَسْرَة (جمع المؤنث), حَذْف النُّون, إِنَّ وَأَخَوَاتُهَا, أَدَوَات النَّصْب<br/>كِتَاباً, قَلَمَيْنِ, المُعَلِّمِينَ, أَبَاكَ, إِنَّ اللهَ<br/><br/><b>الجر</b>:<br/>Genitive case<br/>علامات: الكَسْرَة, اليَاء (مثنى;جمع المذكر), الفَتْحَة (غير منصرف)<br/>بِالقَلَمِ, الرَّجُلَيْنِ, مُهَنْدِسِينَ, كِتَابُ طَالِبٍ <br/><br/><b>الجزم</b>:<br/>Jussive case<br/>علامات: السُّكُون, حَذْف حَرْف العِلَّة(ا , و , ي), حَذْف النُّون<br/>لَمْ يَذْهَبْ, لَا تَحْزَنْ, إِنْ تَدْرُسْ<br/></p>",
                 "<p style=\"direction:ltr\">العامِل is the cause behind the grammatical change at the end of a word. Without an Aamil, a word cannot enter a state of Raf', Nasb, Jar, Jazm, or shift between them.<br/><br/>العَوَامِل اللَّفْظِيَّة:<br/>Verbs (الأَفْعَال), Prepositions (حُرُوفُ الجَرّ), Accusative Particles (إِنَّ وَأَخَوَاتُهَا), Jussive Tools (أَدَوَاتُ الجَزْم)<br/><br/>Other agents:<br/>subject (مُبتدا) of a sentence, فعل مُجرَّد (Abstract Verb)</p>",
                 "<p style=\"direction:ltr\"><b>Apparent (الإعراب الظاهري)</b>:<br/>grammatical sign is explicitly written and clearly pronounced<br/>e.g. يَاكُلُ زَيدُ الخُبزَ<br/>يَاكُلُ (nominatve verb)<br/>زَيدُ (nominative subject)<br/>الخُبزَ (Accusative object)<br/><br/><b>Estimated (الإعراب المقدر):</b><br/>the grammatical vowel is completely hidden<br/>e.g. words ending with Yaa(ي)<br/> زُرْتُ المُسْتَشْفَى<br/>المُسْتَشْفَى (مَنْصُوبٌ وَعَلَامَةُ نَصْبِهِ الفَتْحَةُ المُقَدَّرَة)<br/>في المُسْتَشْفَى<br/>المُسْتَشْفَى (مَجرُور وَعَلَامَةُ جَرِّهِ الْكَسْرَةُ الْمُقَدَّرَةُ)<br/><br/><b>By Position (الإعراب المحلي)</b>:<br/> exclusively to Mabni (مبني) words (أَسْمَاء الإِشَارَة, الضَّمَائِرُ الْمُتَّصِلَة, الْجُمْلَةُ الْخَبَرِيَّة, etc.)<br/>e.g. هَذِهِ تُفَّاحة<br/>هَذِهِ=>فِي مَحَلِّ رَفْعٍ مُبْتَدَأٌ<br/>قَرَأْتُ الدَّرْسَ<br/>قَرَأْتُ=>فِي مَحَلِّ رَفْعٍ فَاعِل</p>"
 
+            ]
+        },
+        "features_links":{
+            "Verbs (الأَفْعَال)":"'dict.html','verb','pos:0'", 
+            "Prepositions (حُرُوفُ الجَرّ)":"'dict.html','prep','pos:0'",
+            "Accusative Particles (إِنَّ وَأَخَوَاتُهَا)":"'dict.html','prep','pos:3'",
+            "Jussive Tools (أَدَوَاتُ الجَزْم)": "'dict.html','prep','pos:2'",
+            "الضَّمَائِرُ الْمُتَّصِلَة":"'dict.html','pronoun','pos:2'",
+            "أَسْمَاء الإِشَارَة":"'dict.html','pronoun','pos:3'"
+        }
+    },
+    {
+        "compareType":"grammar",
+        "topics":[
+            "علامات التأنيث (Feminine Markers)"
+        ],
+        "notes": "",
+        "ar": [
+            "نهايات صريحة (المُؤَنَّث)",
+            "بالمعنى والاصطلاح",
+            "استثناءات"
+        ],
+        "en": [
+            "Explicit Endings",
+            "Real Feminine - By Meaning & Convention",
+            "Exceptions"
+        ],
+        "features":{
+            "علامات التأنيث (Feminine Markers)": [
+                "<p style=\"direction:ltr;\"><b>Taa' Marbuutah (التاء المربوطة - ة / ـة)</b>:<br/>This is the default marker added to th end of a masculine noun and adjective to make it feminine e.g.<br/>مُدَرِّسٌ → مُدَرِّسَةٌ,<br/> عالِمٌ → عالِمَة,<br/> سعيد → سعيدة<br/><br/><b>Alif Maqsuurah (ألف التأنيث المقصورة - ى)</b>:<br/>A shortened alif at the end of spebcific adjectives and proper feminine names e.g. كُبْرَى, سَلْمَى;<br/><br/><u>Based on feminine pttern: <b>فَعْلَى</b> x فَعْلَان (masculine)</u><br/>عَطْشَى (x عَطْشَان) - thirsty; كَسْلَى (x كَسْلَان)  - lazy;<br/><br/><u>Based on feminine pttern: <b>فُعلَي</b> x اَفعَل (masculine)</u><br/>صُغرَي</b> (x اًصغَر) - smaller;<br/> عُظمَي (x أَعْظَم) - greater;<br/><br/><b>Alif Mamduudah (ألف التأنيث الممدودة - ء preceded by a long alif -اء)</b>:<br/>An elongated ending common in colors and descriptive traits based on pattern فَعلاء (its masculine being اَفعَل) e.g.<br/>اَحمَر → حَمْرَاء (red),<br/>اَخضَر → خَضراء (green),<br/>اَصفر → صَفراء (yellow),<br/></p>",
+                "<p style=\"direction:ltr\"><b>مُؤنث الحققي - Real Feminine</b>:<br/>Words referencing female humans or animals that have a direct male counterpart e.g.<br/>اب → أُمّ,<br/>ولد → بنت<br/>رَجُل → امْرَأَة<br/>جَمَل → نَاقَة<br/><br/><b>مُؤنث المجازي - Figurative Feminine / مُؤَنَّث سماعي </b>:<br/>Inanimate objects or abstract nouns e.g.<br/>شمس (Sun); أَرْض (Earth);<br/> عَيْن (eye); قَدَم (foot);نَفْس<br/> (soul/self); حَرْب (war);<br/>نَار (fire); رِيح (wind);</p>",
+                "<p style=\"direction:ltr\"><b>مُؤَنَّث لَفْظِي (Grammatically feminine; actully masculine)</b>:<br/>حَمْزَة; طَلْحَة; أُسَامَة; حُذَيْفَة; عُبَيْدَة</p>"
             ]
         },
         "features_links":{
