@@ -4,7 +4,7 @@
             "names": ["عاصف", "آسف"],
 			"en": ["Storm,wind","Sorry,grief"],
 			"ur": ["طوفانی","افسوس"],
-			"category": "people"
+			"category": "nature"
         },
 		{
             "names": ["نصب", "نسب"],
@@ -28,7 +28,7 @@
             "names": ["صورة", "سورة"],
 			"en": ["Image,picture", "Verse,Quranic"],
 			"ur": ["تصویر","سورہ"],
-			"category": "education"
+			"category": "nature"
         },
 		{
             "names": ["طين", "تِين"],
@@ -76,7 +76,7 @@
             "names": ["عِبادة", "إبادة"],
 			"en": ["Worship,Pray", "Bombing,Genocide"],
 			"ur": ["عبادت", "تباہی"],
-			"category": "people"
+			"category": "industry"
         },
 		{
             "names": ["عِشاء", "عَشاء"],
@@ -94,7 +94,7 @@
             "names": ["سمين", "ثمين"],
 			"en": ["Fat,heavy", "Costly,Expensive"],
 			"ur": ["موٹا", "مہنگا"],
-			"category": "industry"
+			"category": "food"
         }
     ]
 }

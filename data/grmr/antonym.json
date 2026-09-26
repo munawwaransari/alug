@@ -4,7 +4,7 @@
             "names": ["طويل", "قصير"],
 			"en": ["Long","Short"],
 			"ur": ["لمبا","چھوٹا"],
-			"category": "people"
+			"category": "nature"
         },
 		{
             "names": ["نحيل", "سمين"],
@@ -46,7 +46,7 @@
             "names": ["ضوضاء", "صَمت"],
 			"en": ["Noise", "Silence"],
 			"ur": ["شور","خاموشی"],
-			"category": "nature"
+			"category": "industry"
         },
 		{
             "names": ["زكي", "غبي"],
