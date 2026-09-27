@@ -62,7 +62,7 @@ class posSearch {
 	}
 	
 	#findWordInfo(word){
-		var w = lightenWord(word);
+		var w = this.#lightenWord(word);
 		var ret = { found: false, info: [] };
 		if(word === "")
 			return ret;
