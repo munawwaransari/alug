@@ -607,7 +607,6 @@ class posAPI {
 	}
 	
 	addNounInfoHtml(container, res){
-		var api = this;
 		container.empty();
 		var filters = [];
 		var nTable = $(`<table id="nTable" class="nTable">
@@ -627,12 +626,15 @@ class posAPI {
 			if(values){							   
 				var row = "";
 				var counter = 0;
-				var rowSpan = values.xforms.length;
-				values.xforms.every(function(xform){
+				var xforms = values.xform ?  values.xform : values.xforms;
+				xforms.every(function(xform){
+					
+					if(values.xform && (!xform.en?.includes("noun"))||(xform["e.g."]==undefined))
+						return true;
 					row = row + '<tr>';
 					row = row + `<td>${alink.replaceAll('\$',xform.form)}</td>`;
-					if(xform.plurals && xform.plurals.length > 0){
-						var plurals = xform.plurals.map(x=>alink.replaceAll('$', x.form)).join('<br/>');
+					if(xform.plurals && xform.plurals?.length > 0){
+						var plurals = xform.plurals?.map(x=>alink.replaceAll('$', x.form)).join('<br/>');
 						row = row + `<td>${plurals}</td>`;
 					}
 					else
@@ -648,21 +650,21 @@ class posAPI {
 					//Add Ai search link
 					var prompt = getPromptFromKey(['Word-Patterns'], 
 									{'0': [
-										values.en,
+										values.en ?? xform.en,
 										xform.form,
-										xform.plurals.map((x)=>x.form).join("\n"),
+										xform.plurals?.map((x)=>x.form).join("\n"),
 
 									]}, false);
 					row = row +`<a href="#" style="cursor:pointer;font-size: 14px;"
 								onclick="openGoogleAISearch(\`${prompt}\`);">More</a></td>`;
 
 					//Add noun type
-					row = row +`<td>${values.ar}<br/>${values.en}</td>`;
+					row = row +`<td>${values.ar ?? xform.ar}<br/>${values.en ?? xform.en}</td>`;
 					row = row +'</tr>';
 					
-					var oval = values.ar+' - '+values.en;
-					if(filters.indexOf(values.ar+' - '+values.en) === -1){
-						filters.push(values.ar+' - '+values.en);
+					var oval = (values.ar ?? xform.ar)+' - '+(values.en ?? xform.en);
+					if(filters.indexOf(oval) === -1){
+						filters.push(oval);
 					}
 					counter++;
 					return true;

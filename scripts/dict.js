@@ -1147,9 +1147,10 @@ function showPrepPhrasesTable(title) {
 	});
 }
 
-function showNounTable(k, v1, v2) {
+function showNounTable() {
 	var nTable = posAPIObj.getNounInfo();
-	posAPIObj.addNounInfoHtml($(".dictionary"), nTable);
+	var vTable = posAPIObj.getVerbInfo();
+	posAPIObj.addNounInfoHtml($(".dictionary"), {...nTable, ...vTable});
 }
 
 function showComparisions(inp) {
