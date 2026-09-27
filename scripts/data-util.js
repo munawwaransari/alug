@@ -427,9 +427,11 @@ function toggleDropdownContent(elem, state){
 			next.addClass("dropdown-content");
 		next.show();
 	}else{
-		if($(elem).prop('tagName') !== 'INPUT')
-			next.toggleClass("dropdown-content");
-		next.toggle();
+		if($(elem).prop('tagName') !== 'INPUT'){
+			next.removeClass("dropdown-content");
+			next.hide();
+		}
+		else next.toggle();
 	}
 
 	// Fix: Check is multiple sub menus became visible
