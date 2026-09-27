@@ -138,11 +138,11 @@
 			case "pronouns":
 				drawPronouns(div, cdata, index);
 				break;
-		  }
-		} 
-		
+		  }		
+		}
+
 		function drawAlphabet(div, alpha){
-		
+		  var wType = alpha.type === "C" ? "حَرف الصَّحِيحَة" : "حَرف العِلَّة";
 		  var cls = alpha.type === "C" ? "consonant" : "vowel";
 		  var tooltip = alpha.name+"\n"+cls+"\n"+alpha.class+"\nnumber:"+alpha.number;
 		  
@@ -150,7 +150,7 @@
 		  	<div title="${tooltip}" class="alpha-box ${alpha.class}">
 				<p class="top-left">${alpha.en}</p>
 				<p style="margin-top:40px;" class="${cls}">${alpha.char}</p><br/>
-				<p class="alpha-name ${cls}">(${alpha.name})</p>
+				<p class="alpha-name ${cls}">(${alpha.name})<br/><sub>${wType}</sub></p>
 			</div>`;
 		             
 		    var fdiv = `
@@ -167,7 +167,7 @@
 							 title="${alpha.imageName}">
                         </img>
                         <span style="margin-bottom:0">
-						<a href="#" style="text-decoration:none; cursor:pointer;"
+						<a href="#" style="text-decoration:none;cursor:pointer;color:#E6E6FA;"
 							onclick="openGoogleAISearch(
 								getPromptFromKey(['Alphabets'], 
 									{'0': ['${alpha.imageName[0]}']}, true));">
@@ -178,11 +178,15 @@
                 </div>
             </div>`;
 		    div.append($(fdiv));
-			addImageToObserver({
-				inumber: `alpha-${alpha.number}`,
-				key: alpha.enName ?? alpha.imageName,
-				category:  alpha.category
-			});
+			if(alpha.char !== 'ا'){
+				addImageToObserver({
+					inumber: `alpha-${alpha.number}`,
+					key: alpha.enName ?? alpha.imageName,
+					category:  alpha.category
+				});
+			}else{
+				$(`img[inumber='alpha-${alpha.number}'`).prop('src', 'images/alif.png');
+			}
 		} 
 		
 		function drawHomonymn(div, h, index) {
@@ -216,7 +220,7 @@
 									inumber="homonym-${index}b" >
 							</img>
 							<span style="top:10px; margin-bottom:0; font-size:18px">
-								<a href="#" style="text-decoration:none; cursor:pointer;"
+								<a href="#" style="text-decoration:none; cursor:pointer;color:#E6E6FA;"
 									onclick="openGoogleAISearch(
 										getPromptFromKey(['Homonyms'], 
 											{'0': ['${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}']}, true));">
@@ -269,7 +273,7 @@
 							inumber="antonym-${index}b">
                         </img>
 						<span style="top:10px; margin-bottom:0; font-size:18px">
-						<a href="#" style="text-decoration:none; cursor:pointer;"
+						<a href="#" style="text-decoration:none; cursor:pointer;color:#E6E6FA;"
 							onclick="openGoogleAISearch(
 								getPromptFromKey(['Antonyms'], 
 									{'0': ['${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}']}, true));">
@@ -319,7 +323,7 @@
 							inumber="synonym-${index}">
 						</img>
 						<span style="top:10px; margin-bottom:0">
-							<a href="#" style="text-decoration:none; cursor:pointer;"
+							<a href="#" style="text-decoration:none; cursor:pointer;color:#E6E6FA;"
 								onclick="openGoogleAISearch(
 								getPromptFromKey(['Synonyms'], 
 									{'0': ['${syn.en}<br/>${syn.ur}', 

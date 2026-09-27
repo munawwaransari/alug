@@ -1,6 +1,6 @@
 {
  "alphabets": [
-	{ "char" : "ا", "en": "a",  "name":"الألِف", "number": 1, "class": "lunar", "type": "V", "imageName": "الأرنب", "enName":"rabbit,bunny", "category": "animals"},
+	{ "char" : "ا", "en": "a",  "name":"الألِف", "number": 1, "class": "lunar", "type": "V", "imageName": "الف وهمزة", "enName":"name,identity", "category": "people"},
 	{ "char" : "ب", "en": "b",  "name":"الباء", "number": 2, "class": "lunar", "type": "C", "imageName": "بطة", "enName":"duck,swan", "category": "animals"},
 	{ "char" : "ت", "en": "t",  "name":"التّاء", "number": 400, "class": "solar", "type": "C", "imageName": "تاج", "enName":"crown,cornet", "category": "fashion"},
 	{ "char" : "ث", "en": "th",  "name":"الثّاء", "number": 500, "class": "solar", "type": "C", "imageName":"ثعلب", "enName":"fox", "category": "animals"},
