@@ -142,7 +142,7 @@
 		}
 
 		function drawAlphabet(div, alpha){
-		  var wType = alpha.type === "C" ? "حَرف الصَّحِيحَة" : "حَرف العِلَّة";
+		  var wType = alpha.type === "C" ? "حَرف الصَّحِيحَة" : alpha.number !== 1 ? "حَرف العِلَّة": "";
 		  var cls = alpha.type === "C" ? "consonant" : "vowel";
 		  var tooltip = alpha.name+"\n"+cls+"\n"+alpha.class+"\nnumber:"+alpha.number;
 		  
@@ -178,14 +178,21 @@
                 </div>
             </div>`;
 		    div.append($(fdiv));
-			if(alpha.char !== 'ا'){
+			if(alpha.number !== 1){
 				addImageToObserver({
 					inumber: `alpha-${alpha.number}`,
 					key: alpha.enName ?? alpha.imageName,
 					category:  alpha.category
 				});
 			}else{
-				$(`img[inumber='alpha-${alpha.number}'`).prop('src', 'images/alif.png');
+				var img = $(`img[inumber='alpha-${alpha.number}'`);
+				if(img.length > 0){
+					img.prop('src', 'images/alif.png');
+					img.css('cursor', 'pointer');
+					img.on('click', function(){
+						parent.redirect('dict.html', 'cmp', 'pos:0');
+					});
+				}
 			}
 		} 
 		
