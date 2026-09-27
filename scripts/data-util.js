@@ -373,12 +373,7 @@ function playCard(text, altText){
 	}
 }
 
-function lookupEx(site, txt, errorText){
-	
-	if(errorText){
-		alert(errorText);
-		return;
-	}
+function lookupEx(site, txt, errorText){	
 	var  word = txt ?? $("#wordSearchText").val();
 	if (word && word.match(/[\u0621-\u064A]+/g)) {		
 		var w = parent ? parent.window : window;
@@ -388,8 +383,9 @@ function lookupEx(site, txt, errorText){
 		var url = site+removePunctuations(word);
 		w.open(url, "_blank");
 	}
-	else{
-		alert("Enter a valid arabic word!");
+	else if(errorText){
+		alert(errorText);
+		return;
 	}
 }
 
