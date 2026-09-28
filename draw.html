@@ -99,11 +99,14 @@
 
 	const animLookup = {
 
+		'ا':'https://www.arabicreadingcourse.com/images/forms/alif-forms.png',
+		'ء':'https://i.pinimg.com/originals/87/e8/79/87e8794e3c7b1dbab8db5b54a411dfe0.gif',
 		'ب':'https://i.pinimg.com/originals/8f/26/45/8f2645251e4c1db5b87a2c3cbd94cbf2.gif',
 		'ت':'https://i.pinimg.com/originals/b6/f0/86/b6f08604c988690a20f602e158ac0b1f.gif',
 		'ث':'https://i.pinimg.com/originals/52/8b/40/528b40276464937fb2abffa9a88ac6ab.gif',
 		'ج':'https://i.pinimg.com/originals/77/f2/4a/77f24a8226187ede04cd389dcc9d0e98.gif',
 		'ح':'https://i.pinimg.com/originals/64/bd/1e/64bd1ecd1075e516263d4dda5b5a730b.gif',
+		'خ':'https://i.pinimg.com/originals/4e/a4/63/4ea463314f00f0e68c1c3b816261a42c.gif',
 		'د':'https://i.pinimg.com/originals/80/ea/3d/80ea3d5ca28f372f30b9609e307b288c.gif',
 		'ذ':'https://i.pinimg.com/originals/8a/9c/8c/8a9c8c3c7b882d960eba3ce903caeae3.gif',
 		'ر':'https://i.pinimg.com/originals/97/08/71/970871e5886b0b4690241117b0e2a814.gif',
@@ -121,7 +124,8 @@
 		'م':'https://i.pinimg.com/originals/8a/19/43/8a19436e5af4e3699a9bcbab6f6d1b85.gif',
 		'ن':'https://i.pinimg.com/originals/78/cb/71/78cb719a5ba8c00f3500ca041c6ea7b8.gif',
 		'و':'https://i.pinimg.com/originals/26/02/3a/26023a15f4a6e307ba48ee886fb23fc5.gif',
-		'ه':'https://i.pinimg.com/originals/f4/b7/e1/f4b7e1c5b01f0087756fab870aca6e93.gif'
+		'ه':'https://i.pinimg.com/originals/f4/b7/e1/f4b7e1c5b01f0087756fab870aca6e93.gif',
+		'ي':'https://i.pinimg.com/736x/76/eb/53/76eb5323088d8b1c7c9eab025983b7eb.jpg'
 	}
 	window.onload = function(){
 		init();
@@ -218,11 +222,9 @@
 			if(chk.checked){
 				practiceMode = true;
 				randomAlpha = Math.floor(Math.random() * alpha.length);
-				//$(`button:contains('${playIcon}')`).show();
 				$("#can-letters").val(alpha[randomAlpha]);
 			}
 			else{
-				//$(`button:contains('${playIcon}')`).hide();
 				$("#can-img").prop('src','');
 				$("#can-img").hide();
 				practiceMode = false;
@@ -248,6 +250,14 @@
 				$("button:contains('Clear')").trigger('click');
 			}
 		});
+	}
+
+	function loadLetter(){
+		var isPlay = $(`button:contains('${playIcon}')`).length == 0;
+		if(isPlay == true){
+			var i = animLookup[$("#can-letters").val()];
+			$("#can-img").prop('src', i ?? '');
+		}
 	}
 	
 	function addButton(name, func, style){
@@ -564,7 +574,7 @@
 	  <div class="can-container">
 		  <canvas id="can"></canvas>
 		  <div class="colors" id="colorSel"></div>
-		  <select id="can-letters" style="float: right;"></select>
+		  <select id="can-letters" style="float: right;" onchange="loadLetter()"></select>
 		  <img id="can-img" style="display:block;width:60%;margin:0;"></img>
 	  </div>
 	  <div id="ocrResult"> </div>
