@@ -85,7 +85,7 @@
 	const playIcon = '\u25b6';//▶
     const stopIcon = '\u23F9';//⏹
 	const brushSizes = [8, 12, 16, 20];
-	const colors = "green,white,black".split(",");
+	const colors = "green,blue,white,black".split(",");
 	var currentColor = "blue";
 	var currentWidth = 14;
 	var currentSelectBrush;
@@ -193,12 +193,12 @@
 		});
 		
 		//*** Add Clear Buttons
-		addButton('Clr',  function() {
+		addButton('Clear',  function() {
 			location.reload();
 		});
 		
 		//*** Add Convert Buttons
-		addButton('Ocr', function() {
+		addButton('OCR', function() {
 			$("#ocrResult").html('Converting...');
 			var img = document.getElementById("can-img");
 			if(img.src !== ''){
@@ -237,7 +237,6 @@
 			if(isPlay == true){
 				$(`button:contains('${playIcon}')`).html(stopIcon);
 				var i = animLookup[$("#can-letters").val()];
-					$("#can-letters").val(alpha[randomAlpha]); 
 				$("#can-img").prop('src', i ?? '');
 				$("#can-img").show();
 				$("#can").hide();
@@ -246,6 +245,7 @@
 				$("#can-img").hide();
 				$("#can-img").prop('src', '');
 				$(`button:contains('${stopIcon}')`).html(playIcon);
+				$("button:contains('Clear')").trigger('click');
 			}
 		});
 	}
