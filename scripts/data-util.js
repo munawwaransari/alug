@@ -1486,6 +1486,9 @@ function init_data_cache(){
 		"masdar": {
 			path: "data/grmr/masdar.json"
 		},
+		"noun-verb": {
+			path: "data/grmr/noun-verbs.json"
+		},
 		"verb-type": {
 			path: "data/grmr/verbtypes.json"
 		},

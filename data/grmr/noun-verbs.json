@@ -1,0 +1,112 @@
+[
+    {
+        "name_ar": "اسم فعل ماضٍ",
+        "name_en": "Nouns of action (Past Tense)",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "اسم فعل ماضٍ"
+        ],
+        "construct_en": [
+            "Indicating Past Tense"
+        ],
+        "notes": "<p style=\"direction:ltr\">Indicates the meaning of tense of a verb <br/>See Also: <a href=\"#\" onclick=\"parent.redirect('dict.html','masdar','pos:3');\">اسم فعل أمر</a>, <a href=\"#\" onclick=\"parent.redirect('dict.html','masdar','pos:2');\">اسم فعل مضارع</a></p>",
+        "examples": [
+            "<b>هَيْهاتَ</b><br/><sup>(Alas! / far from possibility)</sup><br/>هَيۡهَاتَ   هَيۡهَاتَ   لِمَا   تُوعَدُونَ   ٣٦ [23:36]<br/><br/><br/><b>شَتّانَ</b><br/><sup>(a vast difference)</sup><br/>شَتّانَ العالمُ والجاهل<br/><br/><b>سُرْعَانَ</b><br/><sup>(Fast)</sup><br/>سُرْعَانَ مَا انْقَضَى الوَقْتُ<br/><br/>"
+        ],
+        "em": [
+            "هَيۡهَاتَ"
+        ]
+    },
+    {
+        "name_ar": "اسم فعل مضارع",
+        "name_en": "Nouns of action (Present Tense)",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "اسم فعل مضارع"
+        ],
+        "construct_en": [
+            "Indicating Present Tense"
+        ],
+        "notes": "<p style=\"direction:ltr;\">Do not confuse قَطْ (enough) with قَطُّ (never)<br/> Do not confuse وَيْ (as if) with وَيْهك (go ahead)<br/>See Also: <a href=\"#\" onclick=\"parent.redirect('dict.html','masdar','pos:3');\">اسم فعل أمر</a>, <a href=\"#\" onclick=\"parent.redirect('dict.html','masdar','pos:1');\">اسم فعل ماضٍ</a></p>",
+        "examples": [
+            "<b>أُفٍّ</b><br/><sup>(Ugh / yuck / pooh)</sup><br/>أُفّٖ   لَّكُمۡ   وَلِمَا   تَعۡبُدُونَ   مِن   دُونِ   ٱللَّهِۚ  [21:67]<br/><br/><br/><b>وَيْ</b><br/><sup>(wow / oh / as if)</sup><br/> وَيْكَأَنَّهُ لا يُفلحُ الظالم<br/><br/><b>قَطْ</b><br/><sup>(Enough)</sup><br/>أعطني درهماً؛ فَقَطْني<br/><br/>"
+        ],
+        "em": [
+            "أُفٍّ",
+            "وَيْ",
+            "قَطْ"
+        ]
+    },
+    {
+        "name_ar": "اسم فعل أمر",
+        "name_en": "Nouns of action (Imperative)",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "اسم فعل أمر"
+        ],
+        "construct_en": [
+            "Indicating Imperative verb."
+        ],
+        "notes": "<p style=\"direction:ltr\">Indicates the meaning of tense of a verb<br/>See Also: <a href=\"#\" onclick=\"parent.redirect('dict.html','masdar','pos:2');\">اسم فعل مضارع</a>, <a href=\"#\" onclick=\"parent.redirect('dict.html','masdar','pos:1');\">اسم فعل ماضٍ</a></p>",
+        "examples": [
+            "<b>صَهٍ / صَهْ</b><br/><sup>(Shut up / Hush)</sup><br/>صَهْ يا رجل<br/><br/><b>هَيَّا</b><br/><sup>(Hurry up!)</sup><br/>هَيَّا بِنَا إِلَى المَدْرَسَةِ<br/><br/><b>هَلُمَّ</b><br/><sup>(Let go)</sup><br/>هَلُمَّ بنا<br/><br/>إِيهِ<br/><sup>(Go on!)</sup><br/><br/><b>مَهْ / مَهٍ</b><br/><sup>(Stop / Hold on)</sup><br/>مَهْ عَنَّا<br/><sup>(Leave us alone)</sup><br/>"
+        ],
+        "em": [
+            "صَهْ",
+            "صَهٍ",
+            "هَيَّا",
+            "هَلُمَّ",
+            "هَاكُمُ",
+            "هَاكَ",
+            "إِيهِ",
+            "مَهْ",
+            "مَهٍ"
+        ]
+    },
+    {
+        "name_ar": "اِسْم الفِعْل المَنْقُول",
+        "name_en": "Transferred",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "اِسْم الفِعْل المَنْقُول"
+        ],
+        "construct_en": [
+            "Used as command"
+        ],
+        "notes": "<p style=\"direction:ltr\">these words originally belonged to other parts of speech but were shifted by Arabs to function as command verbs.</a></p>",
+        "examples": [
+            "<b>أَمَامَكَ</b><br/><sup>(Go forward!)</sup><br/>وَرَاءَكَ<br/><sup>(Go back!)</sup><br/><b>مَكَانَكَ</b><br/><sup>(Freeze!)</sup><br/><b>عِنْدَكَ</b><br/><sup>(Hol on!)</sup><br/><b>عَلَيْكَ</b><br/><sup>(Stick to / make incumbent upon)</sup><br/><b>إِلَيْكَ عَنْ</b><br/><sup>(Keep away from)</sup><br/><b>حَيَّهَلْ / حَيَّ عَلَى</b><br/><sup>(Hasten towards)</sup><br/>بَلْهَ<br/><sup>(Leave it)</sup><br/>"
+        ],
+        "em": [
+            "أَمَامَكَ",
+            "وَرَاءَكَ",
+            "مَكَانَكَ",
+            "عِنْدَكَ",
+            "عَلَيْكَ",
+            "إِلَيْكَ عَنْ",
+            "بَلْهَ",
+            "حَيَّ عَلَى",
+            "حَيَّهَلْ"
+        ]
+    },
+    {
+        "name_ar": "اسم الفعل القياسي",
+        "name_en": "Scalable",
+        "construct_sep": "<br/>",
+		"construct_ar": [
+            "اسم الفعل القياسي"
+        ],
+        "construct_en": [
+            "<b>فَعَالِ</b> Regular pattern"
+        ],
+        "notes": "<p style=\"direction:ltr\">a regular, repeating pattern in Arabic grammar where you can turn almost any standard 3-letter verb (Thulāthī) into an Ism Fi'l Amr by using the weight pattern فَعَالِ (Fa'āli)</a></p>",
+        "examples": [
+            "<b>حَذَارِ</b><br/><sup>(Beware!)</sup><br/><b>تَرَاكِ</b><br/><sup>(Leave it!)</sup><br/><b>سَمَاعِ</b><br/><sup>(Listen up!)</sup>"
+        ],
+        "em": [
+            "حَذَارِ",
+            "تَرَاكِ",
+            "سَمَاعِ"
+        ]
+    }
+]

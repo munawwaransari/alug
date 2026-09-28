@@ -334,6 +334,7 @@ function handleDictActions(el, a, d) {
 		case 'verb-imp': showImperativeTable(); break;
 		case 'verb-type':
 		case 'masdar':
+		case 'noun-verb':
 		case 'obj-effect':
 		case 'adj':
 		case 'adv':

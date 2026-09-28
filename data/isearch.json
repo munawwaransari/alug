@@ -113,6 +113,60 @@
         "data": "pos:3",
         "order": 17
     },
+    "Nouns of action;اسماء الأفعال": {
+        "path": "dict.html",
+        "action": "noun-verb",
+        "data": "pos:1",
+        "order": 42
+    },
+    "Masdar - Triliteral;مصادر;": {
+        "path": "dict.html",
+        "action": "masdar",
+        "data": "pos:1",
+        "order": 147
+    },
+    "Masdar - Quadriliteral;مصادر;": {
+        "path": "dict.html",
+        "action": "masdar",
+        "data": "pos:8",
+        "order": 145
+    },
+    "Masdar - Five-Letter;مصادر;": {
+        "path": "dict.html",
+        "action": "masdar",
+        "data": "pos:13",
+        "order": 144
+    },
+    "Masdar - Six-Letter;مصادر;": {
+        "path": "dict.html",
+        "action": "masdar",
+        "data": "pos:16",
+        "order": 146
+    },
+    "Auditory Verbal Noun;Masdar;مصدر سماعي": {
+        "path": "dict.html",
+        "action": "masdar",
+        "data": "pos:17",
+        "order": 122
+    },
+    "Standard Verbal Noun;Masdar;مصدر قياسي": {
+        "path": "dict.html",
+        "action": "masdar",
+        "data": "pos:18",
+        "order": 160
+    },
+    "Verbal Noun - Meemi;Masdar;المصدر الميمي": {
+        "path": "dict.html",
+        "action": "masdar",
+        "data": "pos:19",
+        "order": 175
+    },
+    "Verbal Noun - Implied;Masdar;المصدر مؤول": {
+        "path": "dict.html",
+        "action": "masdar",
+        "data": "pos:20",
+        "order": 174
+    },
     "Comparative;اسمُ التفضيل": {
         "path": "dict.html",
         "action": "noun-pat",
@@ -200,12 +254,6 @@
         "action": "verb-type",
         "data": "pos:1",
         "order": 41
-    },
-    "Verbal Nouns;اسم فعل مضارع;اسم فعل ماضٍ;اسم فعل أمر;اسماء الأفعال;هَيْهاتَ;شَتّانَ;سُرْعَانَ;صَهْ;حَيَّ;هَلُمَّ;مَهْ;أُفٍّ;وَيْ;قَطْ": {
-        "path": "dict.html",
-        "action": "masdar",
-        "data": "pos:1",
-        "order": 42
     },
     "Accusative Markers;نواصب الفعل": {
         "path": "dict.html",
@@ -718,12 +766,6 @@
         "data": "antonym",
         "order": 121
     },
-    "Auditory Verbal Noun;Masdar;مصدر سماعي": {
-        "path": "dict.html",
-        "action": "masdar",
-        "data": "pos:20",
-        "order": 122
-    },
     "Calendar (Charts);Time;Cards;Vocabulary;تقويم;": {
         "path": "calendar.html",
         "action": "Misc",
@@ -921,30 +963,6 @@
         "data": "pos:16",
         "order": 143
     },
-    "Masdar - Five-Letter;مصادر;": {
-        "path": "dict.html",
-        "action": "masdar",
-        "data": "pos:16",
-        "order": 144
-    },
-    "Masdar - Quadriliteral;مصادر;": {
-        "path": "dict.html",
-        "action": "masdar",
-        "data": "pos:11",
-        "order": 145
-    },
-    "Masdar - Six-Letter;مصادر;": {
-        "path": "dict.html",
-        "action": "masdar",
-        "data": "pos:19",
-        "order": 146
-    },
-    "Masdar - Triliteral;مصادر;": {
-        "path": "dict.html",
-        "action": "masdar",
-        "data": "pos:4",
-        "order": 147
-    },
     "Metonymymy of attribute;كنايات عَنْ صِفَة": {
         "path": "dict.html",
         "action": "metonymy",
@@ -1004,12 +1022,6 @@
         "action": "adj",
         "data": "pos:5",
         "order": 158
-    },
-    "Standard Verbal Noun;Masdar;مصدر قياسي": {
-        "path": "dict.html",
-        "action": "masdar",
-        "data": "pos:21",
-        "order": 160
     },
     "Synecdoche (Conceptual);المجاز العَقلي": {
         "path": "dict.html",
@@ -1076,18 +1088,6 @@
         "action": "verb-type",
         "data": "pos:4",
         "order": 173
-    },
-    "Verbal Noun - Implied;Masdar;المصدر مؤول": {
-        "path": "dict.html",
-        "action": "masdar",
-        "data": "pos:23",
-        "order": 174
-    },
-    "Verbal Noun - Meemi;Masdar;المصدر الميمي": {
-        "path": "dict.html",
-        "action": "masdar",
-        "data": "pos:22",
-        "order": 175
     },
     "Verbs (Charts);Cards;Vocabulary;افعال;فعل;": {
         "path": "charts.html",

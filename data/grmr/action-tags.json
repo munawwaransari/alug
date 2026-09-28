@@ -56,6 +56,11 @@
         "ar": "أنماط الأسماء",
         "default": "الأسماء"
     },
+    "noun-verb": {
+        "en": "Noun of Action",
+        "ar": "اسماء الافعال",
+        "default": "الأسماء"
+    },
     "masdar": {
         "en": "Verbal Nouns",
         "ar": "المصدر",
