@@ -9,8 +9,9 @@
         "construct_en": [
             "Indicating Past Tense"
         ],
+        "notes": "<p style=\"direction:ltr;\">A specific type of word in Arabic that carries the meaning and action of a past tense verb, but does not accept the physical signs or grammatical traits of a regular verb</p>",
         "examples": [
-            "<b>هَيْهاتَ</b><br/><sup>(Alas! / far from possibility)</sup><br/>هَيۡهَاتَ   هَيۡهَاتَ   لِمَا   تُوعَدُونَ   ٣٦ [23:36]<br/><br/><br/><b>شَتّانَ</b><br/><sup>(a vast difference)</sup><br/>شَتّانَ العالمُ والجاهل<br/><br/><b>سُرْعَانَ</b><br/><sup>(Fast)</sup><br/>سُرْعَانَ مَا انْقَضَى الوَقْتُ<br/><br/>"
+            "<b>هَيْهاتَ</b><br/><sup>(Alas! / far from possibility)</sup><br/>هَيۡهَاتَ   هَيۡهَاتَ   لِمَا   تُوعَدُونَ   ٣٦ [23:36]<br/><br/><b>شَتّانَ</b><br/><sup>(a vast difference)</sup><br/>شَتّانَ العالمُ والجاهل<br/><br/><b>سُرْعَانَ</b><br/><sup>(Fast)</sup><br/>سُرْعَانَ مَا انْقَضَى الوَقْتُ<br/><br/>"
         ],
         "em": [
             "هَيۡهَاتَ"
@@ -28,7 +29,7 @@
         ],
         "notes": "<p style=\"direction:ltr;\">Do not confuse قَطْ (enough) with قَطُّ (never)<br/> Do not confuse وَيْ (as if) with وَيْهك (go ahead)</p>",
         "examples": [
-            "<b>أُفٍّ</b><br/><sup>(Ugh / yuck / pooh)</sup><br/>أُفّٖ   لَّكُمۡ   وَلِمَا   تَعۡبُدُونَ   مِن   دُونِ   ٱللَّهِۚ  [21:67]<br/><br/><br/><b>وَيْ</b><br/><sup>(wow / oh / as if)</sup><br/> وَيْكَأَنَّهُ لا يُفلحُ الظالم<br/><br/><b>قَطْ</b><br/><sup>(Enough)</sup><br/>أعطني درهماً؛ فَقَطْني<br/><br/>"
+            "<b>أُفٍّ</b><br/><sup>(Ugh / yuck / pooh)</sup><br/>أُفّٖ   لَّكُمۡ   وَلِمَا   تَعۡبُدُونَ   مِن   دُونِ   ٱللَّهِۚ  [21:67]<br/><br/><b>وَيْ</b><br/><sup>(wow / oh / as if)</sup><br/> وَيْكَأَنَّهُ لا يُفلحُ الظالم<br/><br/><b>قَطْ</b><br/><sup>(Enough)</sup><br/>أعطني درهماً؛ فَقَطْني<br/><br/>"
         ],
         "em": [
             "أُفٍّ",
@@ -46,6 +47,7 @@
         "construct_en": [
             "Indicating Imperative verb."
         ],
+        "notes": "<p style=\"direction:ltr;\">A word that carries the meaning, time, and action of a command verb (فعل أمر), but does not accept the physical signs of a regular command verb</p>",
         "examples": [
             "<b>صَهٍ / صَهْ</b><br/><sup>(Shut up / Hush)</sup><br/>صَهْ يا رجل<br/><br/><b>هَيَّا</b><br/><sup>(Hurry up!)</sup><br/>هَيَّا بِنَا إِلَى المَدْرَسَةِ<br/><br/><b>هَلُمَّ</b><br/><sup>(Let go)</sup><br/>هَلُمَّ بنا<br/><br/><b>إِيهِ</b><br/><sup>(Go on!)</sup><br/><br/><b>مَهْ / مَهٍ</b><br/><sup>(Stop / Hold on)</sup><br/>مَهْ عَنَّا<br/><sup>(Leave us alone)</sup><br/>"
         ],
@@ -63,7 +65,7 @@
     },
     {
         "name_ar": "اِسْم الفِعْل المَنْقُول",
-        "name_en": "Transferred",
+        "name_en": "Nouns of action (Transferred)",
         "construct_sep": "<br/>",
 		"construct_ar": [
             "اِسْم الفِعْل المَنْقُول"
@@ -89,7 +91,7 @@
     },
     {
         "name_ar": "اسم الفعل القياسي",
-        "name_en": "Scalable",
+        "name_en": "Nouns of action (Scalable)",
         "construct_sep": "<br/>",
 		"construct_ar": [
             "اسم الفعل القياسي"
