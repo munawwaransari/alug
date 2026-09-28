@@ -205,7 +205,7 @@
 		addButton('OCR', function() {
 			$("#ocrResult").html('Converting...');
 			var img = document.getElementById("can-img");
-			if(img.src !== ''){
+			if(img.src){
 				runOCR(img.src);
 			}else{
 				canvas.toBlob(function(blob){
@@ -225,7 +225,7 @@
 				$("#can-letters").val(alpha[randomAlpha]);
 			}
 			else{
-				$("#can-img").prop('src','');
+				$("#can-img").removeAttr('src');
 				$("#can-img").hide();
 				practiceMode = false;
 			}
@@ -239,15 +239,15 @@
 			if(isPlay == true){
 				$(`button:contains('${playIcon}')`).html(stopIcon);
 				var i = animLookup[$("#can-letters").val()];
-				$("#can-img").prop('src', i ?? '');
+				$("can").hide();
+				$("#can-img").prop('src', i);
 				$("#can-img").show();
-				$("#can").hide();
 			}else{
-				$("#can").show();
 				$("#can-img").hide();
-				$("#can-img").prop('src', '');
+				$("#can-img").removeAttr('src');
 				$(`button:contains('${stopIcon}')`).html(playIcon);
-				$("button:contains('Clear')").trigger('click');
+				$("can").show();
+				display();
 			}
 		});
 	}
@@ -256,7 +256,7 @@
 		var isPlay = $(`button:contains('${playIcon}')`).length == 0;
 		if(isPlay == true){
 			var i = animLookup[$("#can-letters").val()];
-			$("#can-img").prop('src', i ?? '');
+			$("#can-img").prop('src', i);
 		}
 	}
 	
@@ -466,7 +466,7 @@
 
 	  //draw external image
 	  var img = document.getElementById("can-img");
-	  if(img.src !== '' ){
+	  if(img.src !== undefined){
 		if(img.width > canvas.width || img.height > canvas.height)
 			if(img.width > canvas.width){
 				var w = canvas.width;
