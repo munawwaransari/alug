@@ -255,12 +255,6 @@
         "data": "pos:1",
         "order": 41
     },
-    "Accusative Markers;نواصب الفعل": {
-        "path": "dict.html",
-        "action": "prep",
-        "data": "Accusative Markers",
-        "order": 43
-    },
     "All verbs;forms": {
         "path": "dict.html",
         "action": "verb",
@@ -300,12 +294,6 @@
         "action": "verb-inad",
         "order": 50
     },
-    "Jussive Markers;جوازم الفعل": {
-        "path": "dict.html",
-        "action": "prep",
-        "data": "Jussive Markers",
-        "order": 51
-    },
     "Non-Causative;Form I;غير سببي": {
         "path": "dict.html",
         "action": "verb",
@@ -334,30 +322,6 @@
         "action": "verb-weak",
         "order": 56
     },
-    "حروف مشبة بالفعل (كانَ)": {
-        "path": "dict.html",
-        "action": "prep",
-        "data": "حروف مشبة بالفعل (كانَ)",
-        "order": 57
-    },
-    "حروف مشبة بِالفعل (ظَنَّ)": {
-        "path": "dict.html",
-        "action": "prep",
-        "data": "حروف مشبة بِالفعل (ظَنَّ)",
-        "order": 58
-    },
-    "حروف مشبة بِالفعل (كَادَ);": {
-        "path": "dict.html",
-        "action": "prep",
-        "data": "حروف مشبة بِالفعل (كَادَ)",
-        "order": 59
-    },
-    "حروفُ مَشبة بِالفعل (إنَّ)": {
-        "path": "dict.html",
-        "action": "prep",
-        "data": "حروفُ مَشبة بِالفعل (إنَّ)",
-        "order": 60
-    },
     "Exclusion;Exceptions;المستثنى;أداةُ الإستِثناء;": {
         "path": "dict.html",
         "action": "adv",
@@ -370,23 +334,11 @@
         "data": "pos:14",
         "order": 71
     },
-    "مَا - Preposition;استفهامية;موصولة;نافية;ليس;كافة;إستِمرَار;مصدرية;ظرفية;": {
-        "path": "dict.html",
-        "action": "prep",
-        "data": "@key",
-        "order": 76
-    },
     "Baa;باء القسم;باء التأكيد;باء السببية": {
         "path": "dict.html",
         "action": "cmp",
         "data": "pos:3",
         "order": 77
-    },
-    "Conjunctions;حروف العطف": {
-        "path": "dict.html",
-        "action": "prep",
-        "data": "Conjunctions",
-        "order": 78
     },
     "Faa (Superfluous);فاء الزائدة": {
         "path": "dict.html",
@@ -417,12 +369,6 @@
         "action": "cmp",
         "data": "pos:0",
         "order": 83
-    },
-    "Infinitive letters;حروف المصدرية": {
-        "path": "dict.html",
-        "action": "prep",
-        "data": "Infinitive letters",
-        "order": 84
     },
     "Jar (Charts);Cards;Vocabulary;حرف الجر;حروف الجر;": {
         "path": "charts.html",
@@ -460,12 +406,6 @@
         "data": "pos:11",
         "order": 90
     },
-    "Prepositions;حروف;حرف": {
-        "path": "dict.html",
-        "action": "prep",
-        "data": "all",
-        "order": 92
-    },
     "Seen;سينُ الاستقبال;سينُ الطلب": {
         "path": "dict.html",
         "action": "cmp",
@@ -477,36 +417,6 @@
         "action": "cmp",
         "data": "pos:8",
         "order": 94
-    },
-    "إِن - Preposition": {
-        "path": "dict.html",
-        "action": "prep",
-        "data": "@key",
-        "order": 95
-    },
-    "حرف الجر - Preposition;Jar;جر;": {
-        "path": "dict.html",
-        "action": "prep",
-        "data": "@key",
-        "order": 96
-    },
-    "لام - Preposition;ل;": {
-        "path": "dict.html",
-        "action": "prep",
-        "data": "@key",
-        "order": 97
-    },
-    "مِن - Preposition;ابتدائية;تبعيضية;بيانية;": {
-        "path": "dict.html",
-        "action": "prep",
-        "data": "@key",
-        "order": 98
-    },
-    "واؤ - Preposition;واؤ العطف;واؤ المَعِيَّة;واؤ الحال;": {
-        "path": "dict.html",
-        "action": "prep",
-        "data": "@key",
-        "order": 99
     },
     "واؤ;العطف;المعِيَّة;واؤ الحال": {
         "path": "dict.html",
@@ -1095,24 +1005,6 @@
         "data": "verbs",
         "order": 176
     },
-    "Verbs of approaching;افعال المقاربة;": {
-        "path": "dict.html",
-        "action": "prep",
-        "data": "حروف مشبة بِالفعل (كَادَ)",
-        "order": 177
-    },
-    "Verbs of hope;افعال الرجاء;": {
-        "path": "dict.html",
-        "action": "prep",
-        "data": "حروف مشبة بِالفعل (كَادَ)",
-        "order": 178
-    },
-    "Verbs of inception;افعال الشروع": {
-        "path": "dict.html",
-        "action": "prep",
-        "data": "حروف مشبة بِالفعل (كَادَ)",
-        "order": 179
-    },
     "Vocative or Oath;النِّداء;ترخِيم;القسم": {
         "path": "dict.html",
         "action": "cmp",
@@ -1124,5 +1016,113 @@
         "action": "cmp",
         "data": "pos:15",
         "order": 181
-    }
+    },
+    "Accusative Markers;نواصب الفعل": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "Accusative Markers",
+        "order": 43
+    },
+    "Jussive Markers;جوازم الفعل": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "Jussive Markers",
+        "order": 51
+    },
+    "حروف مشبة بالفعل (كانَ)": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "حروف مشبة بالفعل (كانَ)",
+        "order": 57
+    },
+    "حروف مشبة بِالفعل (ظَنَّ)": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "حروف مشبة بِالفعل (ظَنَّ)",
+        "order": 58
+    },
+    "حروف مشبة بِالفعل (كَادَ);": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "حروف مشبة بِالفعل (كَادَ)",
+        "order": 59
+    },
+    "حروفُ مَشبة بِالفعل (إنَّ)": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "حروفُ مَشبة بِالفعل (إنَّ)",
+        "order": 60
+    },
+    "مَا - Preposition;استفهامية;موصولة;نافية;ليس;كافة;إستِمرَار;مصدرية;ظرفية;": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "@key",
+        "order": 76
+    },
+    "Conjunctions;حروف العطف": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "Conjunctions",
+        "order": 78
+    },    
+    "Infinitive letters;حروف المصدرية": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "Infinitive letters",
+        "order": 84
+    },    
+    "Prepositions;حروف;حرف": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "all",
+        "order": 92
+    },    
+    "إِن - Preposition": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "@key",
+        "order": 95
+    },
+    "حرف الجر - Preposition;Jar;جر;": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "@key",
+        "order": 96
+    },
+    "لام - Preposition;ل;": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "@key",
+        "order": 97
+    },
+    "مِن - Preposition;ابتدائية;تبعيضية;بيانية;": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "@key",
+        "order": 98
+    },
+    "واؤ - Preposition;واؤ العطف;واؤ المَعِيَّة;واؤ الحال;": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "@key",
+        "order": 99
+    },    
+    "Verbs of approaching;افعال المقاربة;": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "pos:5",
+        "order": 177
+    },
+    "Verbs of hope;افعال الرجاء;": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "pos:5",
+        "order": 178
+    },
+    "Verbs of inception;افعال الشروع": {
+        "path": "dict.html",
+        "action": "prep",
+        "data": "pos:5",
+        "order": 179
+    }    
 }
