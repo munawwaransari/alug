@@ -74,6 +74,7 @@
 	<script src='https://unpkg.com/tesseract.js@7.0.0/dist/tesseract.min.js'></script>
 	<script src='scripts/data-util.js'></script>
 	<script>
+	const alpha = "ءابتثجحخدذرزسشصضطظعغفقكلمنهوي";	
 	const maxHeight = 400;
 	// size of drawing and its starting background colour
 	const drawingInfo = {
@@ -81,8 +82,10 @@
 	  height: maxHeight, //160,
 	  bgColor: "white",
 	}
-	const brushSizes = [6, 10, 14, 16, 20];
-	const colors = "red,green,blue,white,black".split(",");
+	const playIcon = '\u25b6';//▶
+    const stopIcon = '\u23F9';//⏹
+	const brushSizes = [8, 12, 16, 20];
+	const colors = "green,white,black".split(",");
 	var currentColor = "blue";
 	var currentWidth = 14;
 	var currentSelectBrush;
@@ -92,12 +95,44 @@
 	var practiceMode = false;
 	var practiceAlpha = undefined;
 	var practiceMatched = false;
-	var alpha = "ءابتثجحخدذرزسشصضطظعغفقكلمنهوي";	
 	var randomAlpha = 0;
 
+	const animLookup = {
+
+		'ب':'https://i.pinimg.com/originals/8f/26/45/8f2645251e4c1db5b87a2c3cbd94cbf2.gif',
+		'ت':'https://i.pinimg.com/originals/b6/f0/86/b6f08604c988690a20f602e158ac0b1f.gif',
+		'ث':'https://i.pinimg.com/originals/52/8b/40/528b40276464937fb2abffa9a88ac6ab.gif',
+		'ج':'https://i.pinimg.com/originals/77/f2/4a/77f24a8226187ede04cd389dcc9d0e98.gif',
+		'ح':'https://i.pinimg.com/originals/64/bd/1e/64bd1ecd1075e516263d4dda5b5a730b.gif',
+		'د':'https://i.pinimg.com/originals/80/ea/3d/80ea3d5ca28f372f30b9609e307b288c.gif',
+		'ذ':'https://i.pinimg.com/originals/8a/9c/8c/8a9c8c3c7b882d960eba3ce903caeae3.gif',
+		'ر':'https://i.pinimg.com/originals/97/08/71/970871e5886b0b4690241117b0e2a814.gif',
+		'ز':'https://i.pinimg.com/originals/0b/1e/83/0b1e83a8644c7a90014910e183e353c7.gif',
+		'س':'https://i.pinimg.com/originals/7a/9b/be/7a9bbe922f3ac598a3e3853149aa4c42.gif',
+		'ش':'https://i.pinimg.com/originals/f2/a3/20/f2a3209bafd115b3c38077c8e464366d.gif',
+		'ض':'https://i.pinimg.com/originals/ab/2f/90/ab2f9012248492c588238e67bd426813.gif',
+		'ط':'https://i.pinimg.com/originals/1c/8a/92/1c8a92ee70a300508ff7880f103355ff.gif',
+		'ظ':'https://i.pinimg.com/originals/75/2c/c9/752cc906412abb6a148d6d0180a592f6.gif',
+		'ع':'https://i.pinimg.com/originals/d8/a0/2d/d8a02d67ac919dc73b39d3398cb34a92.gif',
+		'غ':'https://i.pinimg.com/originals/85/9d/e5/859de5d62c5c0e3b6cadde5144134f5b.gif',
+		'ك':'https://i.pinimg.com/originals/d1/42/ba/d142bad4668a267cfcc579708fa1d20f.gif',
+		'ق':'https://i.pinimg.com/originals/58/07/36/580736891e92239322983d083548c2f2.gif',
+		'ل':'https://i.pinimg.com/originals/5d/71/01/5d71013f527c1019728e226d68ae828d.gif',
+		'م':'https://i.pinimg.com/originals/8a/19/43/8a19436e5af4e3699a9bcbab6f6d1b85.gif',
+		'ن':'https://i.pinimg.com/originals/78/cb/71/78cb719a5ba8c00f3500ca041c6ea7b8.gif',
+		'و':'https://i.pinimg.com/originals/26/02/3a/26023a15f4a6e307ba48ee886fb23fc5.gif',
+		'ه':'https://i.pinimg.com/originals/f4/b7/e1/f4b7e1c5b01f0087756fab870aca6e93.gif'
+	}
 	window.onload = function(){
 		init();
 		requestAnimationFrame(update);
+
+		//Fill leter selection
+		var sel = $("#can-letters"); 
+		for(const char of alpha){
+			sel.append($(`<option value='${char}'>${char}</option>`));
+		}
+		
 	}
 	
 	function init(){
@@ -158,12 +193,12 @@
 		});
 		
 		//*** Add Clear Buttons
-		addButton('Clear',  function() {
+		addButton('Clr',  function() {
 			location.reload();
 		});
 		
 		//*** Add Convert Buttons
-		addButton('OCR', function() {
+		addButton('Ocr', function() {
 			$("#ocrResult").html('Converting...');
 			var img = document.getElementById("can-img");
 			if(img.src !== ''){
@@ -183,18 +218,43 @@
 			if(chk.checked){
 				practiceMode = true;
 				randomAlpha = Math.floor(Math.random() * alpha.length);
+				//$(`button:contains('${playIcon}')`).show();
+				$("#can-letters").val(alpha[randomAlpha]);
 			}
 			else{
+				//$(`button:contains('${playIcon}')`).hide();
+				$("#can-img").prop('src','');
+				$("#can-img").hide();
 				practiceMode = false;
 			}
 			display();
 		}, 'checkbox');
+
+		//*** Add Play
+		addButton(playIcon, function() {			
+			// draw Writing view
+			var isPlay = $(`button:contains('${playIcon}')`).length > 0;
+			if(isPlay == true){
+				$(`button:contains('${playIcon}')`).html(stopIcon);
+				var i = animLookup[$("#can-letters").val()];
+					$("#can-letters").val(alpha[randomAlpha]); 
+				$("#can-img").prop('src', i ?? '');
+				$("#can-img").show();
+				$("#can").hide();
+			}else{
+				$("#can").show();
+				$("#can-img").hide();
+				$("#can-img").prop('src', '');
+				$(`button:contains('${stopIcon}')`).html(playIcon);
+			}
+		});
 	}
 	
 	function addButton(name, func, style){
 		var btn = style == 'checkbox' ?
 				document.createElement("input"):
 				document.createElement("button");
+		//if(name == playIcon){ btn.hidden=true; }
 		btn.height = 16;
 		btn.className = "btn";
 		btn.innerHTML = name;
@@ -362,7 +422,7 @@
 
 	// function to display drawing 
 	function display() {
-	
+
 	  ctx.clearRect(0, 0, w, h);
 	  ctx.fillStyle = "rgba(0,0,0,0.25)";
 	  const imgX = cw - (drawing.width / 2) | 0;
@@ -391,13 +451,12 @@
 		  updateDisplay = true;
 		  // next line is a quick fix to stop a slight flicker due to the current frame not showing the line
 		  ctx.drawImage(drawing, imgX, imgY);
-
 		}
 	  }
 
 	  //draw external image
 	  var img = document.getElementById("can-img");
-	  if(img.src !== ''){
+	  if(img.src !== '' ){
 		if(img.width > canvas.width || img.height > canvas.height)
 			if(img.width > canvas.width){
 				var w = canvas.width;
@@ -504,8 +563,9 @@
 	<body>
 	  <div class="can-container">
 		  <canvas id="can"></canvas>
-		  <img id="can-img" ></img>
 		  <div class="colors" id="colorSel"></div>
+		  <select id="can-letters" style="float: right;"></select>
+		  <img id="can-img" style="width:100%;margin:0;"></img>
 	  </div>
 	  <div id="ocrResult"> </div>
 	  <div style="position:absolute;display:block;font-size:10px;bottom:150px;margin:auto;">
