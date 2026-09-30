@@ -117,6 +117,7 @@
 			case "synonym":
 				drawSynonym(div, cdata, index)
 				break;
+			case 'countries':
 			case 'media':
 			case "antonym":
 				drawAntonyms(div, cdata, index);
@@ -284,8 +285,8 @@
 						<a href="#" style="text-decoration:none; cursor:pointer;color:#E6E6FA;"
 							onclick="openGoogleAISearch(
 								getPromptFromKey(['Antonyms'], 
-									{'0': ['${h.names[1]}<br/>${h.ur[1] !== '' ? `${h.ur[1]}/`:''}${h.en[1]}']}, true));">
-							${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}
+									{'0': ['${h.names[1]}<br/>${h.ur[1]}/${h.en[1]}']}, true));">
+							${h.names[1]}<br/>${h.ur[1] !== '' ? `${h.ur[1]}/`:''}${h.en[1]}
 						</a>
 						</span>
                     </div>

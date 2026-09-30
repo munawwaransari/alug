@@ -1,0 +1,112 @@
+{
+    "countries": [
+        {
+            "names": ["المغرب", "الرِّباط"],
+			"en": ["Morocco","Rabat"],
+			"ur": ["مراکش",""],
+			"category": "places"
+        },
+		{
+            "names": ["مصر", "القاهِرَة"],
+			"en": ["Egypt","Cairo"],
+			"ur": ["",""],
+			"category": "places"
+        },
+		{
+            "names": ["تونس", "تونس"],
+			"en": ["Tunisia","Tunis"],
+			"ur": ["",""],
+			"category": "places"
+        },
+		{
+            "names": ["الأردن", "عمّان"],
+			"en": ["Jordan","Amman"],
+			"ur": ["",""],
+			"category": "places"
+        },
+		{
+            "names": ["سوريا", "دمشق"],
+			"en": ["Syria","Damascus"],
+			"ur": ["شام",""],
+			"category": "places"
+        },
+		{
+            "names": ["الولايات المتحدة", "واشنطن"],
+			"en": ["United States","Washington"],
+			"ur": ["امریکہ",""],
+			"category": "places"
+        },
+		{
+            "names": ["فرنسا", "باريس"],
+			"en": ["France","Paris"],
+			"ur": ["فرانس",""],
+			"category": "places"
+        },
+		{
+            "names": ["إسبانيا", "مدريد"],
+			"en": ["Spain","Madrid"],
+			"ur": ["ہسپانیہ",""],
+			"category": "places"
+        },
+		{
+            "names": ["الصين", "بكين"],
+			"en": ["China","Beijing"],
+			"ur": ["چین",""],
+			"category": "places"
+        },
+		{
+            "names": ["اليابان", "طوكيو"],
+			"en": ["Japan","Tokyo"],
+			"ur": ["جاپان",""],
+			"category": "places"
+        },
+		{
+            "names": ["الهند", "نيودلهي"],
+			"en": ["India","New Delhi"],
+			"ur": ["بھارت",""],
+			"category": "places"
+        },
+		{
+            "names": ["باكستان", "إسلام آباد"],
+			"en": ["Pakistan","Islamabad"],
+			"ur": ["پاکستان",""],
+			"category": "places"
+        },
+		{
+            "names": ["ألمانيا", "برلين"],
+			"en": ["Germany","Berlin"],
+			"ur": ["جرمنی",""],
+			"category": "places"
+        },
+		{
+            "names": ["بلجيكا", "بروكسل"],
+			"en": ["Belgium","Brussels"],
+			"ur": ["بیلجیم",""],
+			"category": "places"
+        },
+		{
+            "names": ["سويسرا", "بيرن"],
+			"en": ["Switzerland","Bern"],
+			"ur": ["سوئٹزرلینڈ",""],
+			"category": "places"
+        },
+		{
+            "names": ["بيرو", "ليما"],
+			"en": ["Peru","Lima"],
+			"ur": ["پیرو",""],
+			"category": "places"
+        },
+		{
+            "names": ["تشيلي", "سانتياغو"],
+			"en": ["Chile","Santiago"],
+			"ur": ["چلی",""],
+			"category": "places"
+        },
+		{
+            "names": ["النمسا", "فيينا"],
+			"en": ["Austria","Vienna"],
+			"ur": ["آسٹریا",""],
+			"category": "places"
+        }
+	]
+}
