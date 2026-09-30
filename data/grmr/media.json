@@ -1,0 +1,130 @@
+{
+    "media": [
+        {
+            "names": ["مِلَف", "دُوسِيه"],
+			"en": ["File","Dossier"],
+			"ur": ["فائل","دستاویز"],
+			"category": "offices"
+        },
+		{
+            "names": ["صحيفة", "مجلة"],
+			"en": ["Newspaper","Magazine"],
+			"ur": ["اخبار","رسالہ"],
+			"category": "offices"
+        },
+		{
+            "names": ["بشأن", "بخصوص"],
+			"en": ["Regarding","Concerning"],
+			"ur": ["بارے میں","حوالے سے"],
+			"category": "people"
+        },
+		{
+            "names": ["عقوبات", "حظر"],
+			"en": ["Sanctions","Embargo"],
+			"ur": ["تجارتی پابندی","پابندیاں"],
+			"category": "politics"
+        },
+		{
+            "names": ["هجمات", "إبادة"],
+			"en": ["Attacks","Genocide"],
+			"ur": ["حملے","نسل کشی"],
+			"category": "politics"
+        },
+		{
+            "names": ["القوات", "عسكري"],
+			"en": ["Forces","Military"],
+			"ur": ["فورسز","فوجی"],
+			"category": "politics"
+        },
+		{
+            "names": ["طائرات حربية", "صواريخ"],
+			"en": ["warplanes","missiles"],
+			"ur": ["جنگی طیارے","میزائل"],
+			"category": "politics"
+        },
+		{
+            "names": ["مخطط", "مؤامرة"],
+			"en": ["Plot","Scheme"],
+			"ur": ["سازش","منصوبہ"],
+			"category": "politics"
+        },
+		{
+            "names": ["النزاعة", "جدل"],
+			"en": ["Conflict","Controversy"],
+			"ur": ["تنازع","تنازع"],
+			"category": "politics"
+        },
+		{
+            "names": ["الذكاء الاصطناعي", "الحوسبة الكمومية"],
+			"en": ["Artificial Intelligence","Quantum"],
+			"ur": ["مصنوعی ذہانت","کوانٹم"],
+			"category": "science"
+        },
+		{
+            "names": ["تنظيمي", "حاكم"],
+			"en": ["Regulatory","Governing"],
+			"ur": ["ضابطہ کار","انتظامی"],
+			"category": "politics"
+        },
+		{
+            "names": ["شَبَكَة عَصَبِيَّة", "بَيَانَات"],
+			"en": ["Neural Network","Data"],
+			"ur": ["","ڈیٹا"],
+			"category": "science"
+        },
+		{
+            "names": ["جامعات", "كليات"],
+			"en": ["Universities","Colleges"],
+			"ur": ["","کالج"],
+			"category": "education"
+        },
+		{
+            "names": ["الصهيونية", "الاستعمار"],
+			"en": ["Zionism","Colonialism"],
+			"ur": ["صیہونیت",""],
+			"category": "politics"
+        },
+		{
+            "names": ["نظرة عامة", "ملخّصة"],
+			"en": ["Overview","Concise"],
+			"ur": ["جائزہ","خلاصہ"],
+			"category": "education"
+        },
+		{
+            "names": ["تضخم اقتصادي", "انخفاض"],
+			"en": ["Inflation","Decline"],
+			"ur": ["جائزہ","خلاصہ"],
+			"category": "money"
+        },
+		{
+            "names": ["نقدي", "مالي"],
+			"en": ["Monetary","Financial"],
+			"ur": ["مالیاتی","مالی"],
+			"category": "money"
+        },
+		{
+            "names": ["مصيبة", "خسارة"],
+			"en": ["Crisis","Loss"],
+			"ur": ["بحران","نقصان"],
+			"category": "money"
+        },
+		{
+            "names": ["المعارضة", "الحُكم"],
+			"en": ["Opposition","Ruling"],
+			"ur": ["اپوزیشن","حکمران"],
+			"category": "politics"
+        },
+		{
+            "names": ["مسؤول", "مراسل"],
+			"en": ["Executive","Reporter"],
+			"ur": ["عہدیدار","نامہ نگار"],
+			"category": "media"
+        },
+		{
+            "names": ["رئيس", "وزير"],
+			"en": ["President","Minister"],
+			"ur": ["صدر","وزیر"],
+			"category": "politics"
+        }
+	]
+}

@@ -556,6 +556,7 @@ function updateToolDescription(id, opt){
 						"Synonyms": "synonym",
 						"Homonymn": "homonym",
 						"Antonym": "antonym",
+						"Media": "media",
 						"Hyperbole": "hyperbole",
 						"Tajweed": "tajweed",
 						"Greetings": "greetings",
