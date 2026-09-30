@@ -55,15 +55,19 @@
 			.then((data)=>{
 				var container = $("#imageContainer")
 				container.empty();
-				data.hits.every((h)=>{
-					var img = h.previewURL ?? h.userImageURL ?? h.webformatURL;
-					container.append($(`
-					<div>
-						<img src="${img}"></img><br/>
-						<span>${h.tags?.split(",")[0]}</span>
-					</div>`));
-					return true;
-				});
+				if(data.hits.length > 0){
+					data.hits.every((h)=>{
+						var img = h.previewURL ?? h.userImageURL ?? h.webformatURL;
+						container.append($(`
+						<div>
+							<img src="${img}"></img><br/>
+							<span>${h.tags?.split(",")[0]}</span>
+						</div>`));
+						return true;
+					});
+				}else{
+					container.append(`<p style="padding:10px;font-size:12px;">Did not find any free image for category: '${c}' and keyword:'${k}'</p>`);
+				}
 			});
 		}
 	</script>
