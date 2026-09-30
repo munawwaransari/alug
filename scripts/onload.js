@@ -578,6 +578,7 @@ function updateToolDescription(id, opt){
 						"Abjad": "abjad",
 						"Calendar": "calendar",
 						"Clock": "clock",
+						"ImaGen": "imgen",
 						"Number": "number",
 						"Patterns": "patterns"
 					},

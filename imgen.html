@@ -1,0 +1,97 @@
+<!--
+	Author: munawwar_ali@yahoo.com	
+//-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+	<link rel="stylesheet" type="text/css" href="styles/card-styles.css" media="screen">
+	<title>Image Generation</title>
+	<script src="scripts/jquery/jquery-3.7.1.min.js"></script>
+	<script src="scripts/data-util.js"></script>
+	<style>
+		#imageContainer {
+			justify-content:center;
+			align-content: center;
+		}
+
+		#imageContainer div {
+			flex-direction: column; 
+			justify-content:center;
+			align-items:center;
+			display:flex;
+			padding: 6;
+			margin: 2px;
+			border: solid 2px gray;
+			width: 140px;
+			height: 200px;
+			float: left;
+		}
+		#imageContainer img {
+			padding: 0;
+			margin: 0;
+		}
+		#imageContainer span {
+			padding: 0;
+			margin: 0;
+		}
+	</style>
+	<script>
+		window.onload = () => {
+			var cat = getParamValue("category");
+			if(cat) $("input:first").val(cat);
+			var kw = getParamValue("data");
+			if(kw) $("input:last").val(kw);
+			searchFreeImages(kw, cat);
+		}
+
+		function searchFreeImages(cat, kw){
+			var c = cat ?? $("input:first").val();
+			var k = kw ?? $("input:last").val();
+			if(c || k)
+			getFreeImages(k,c, {width:140, height:200})
+			.then((data)=>{
+				var container = $("#imageContainer")
+				container.empty();
+				data.hits.every((h)=>{
+					var img = h.previewURL ?? h.userImageURL ?? h.webformatURL;
+					container.append($(`
+					<div>
+						<img src="${img}"></img><br/>
+						<span>${h.tags?.split(",")[0]}</span>
+					</div>`));
+					return true;
+				});
+			});
+		}
+	</script>
+</head>
+  <body>
+	<div style="align-content: center;display: flex;">
+		<span>category:
+			<input style="width:120px;margin:auto;" value=""  list="cat-list"/>
+			<datalist id="cat-list">
+				<option>Business</option>
+				<option>Education</option>
+				<option>Fianancial</option>
+				<option>Industry</option>
+				<option>Media</option>
+				<option>Monetary</option>
+				<option>Science</option>
+				<option>Technology</option>
+			</datalist>
+		</span>&nbsp;&nbsp;
+		<span>keyword:<input style="width:120px;margin:auto;" value=""/></span>&nbsp;&nbsp;
+		<button onclick="searchFreeImages()">Search Images</button>
+	</div>
+	<div style="align-content: center;text-align: center;">
+	<a href="https://pixabay.com/" target="_blank"
+			style="margin:auto;padding:4px;font-size:10px;line-height:1.7;color:#555;display:block;">
+        	Free images by Pixabay
+    </a>
+	</div>
+	<div id="imageContainer"></div>
+  </body>
+</html>

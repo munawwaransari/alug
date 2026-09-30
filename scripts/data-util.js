@@ -2165,15 +2165,25 @@ function getActionTitle(action){
 	action;
 }
 
-function genFreeImage(img, keyword, category, src='https://pixabay.com/api/') {
+function getFreeImages(keyword, category, size={width:240, height:180}, src='https://pixabay.com/api/') {
 	return new Promise(function(resolve, reject){
-		var url = `${src}?safesearch=true&min_width=240&min_height=180&key=57730103-b9b9c7de7c0cbaf73e8da00e1&orientation=vertical${category !== undefined? `&category=${category}`:''}&q=${keyword.toLowerCase()}`;
+		var url = `${src}?safesearch=true&min_width=${size.width}&min_height=${size.height}&key=57730103-b9b9c7de7c0cbaf73e8da00e1&orientation=vertical${category !== undefined? `&category=${category}`:''}&q=${keyword.toLowerCase()}`;
 		loadJsonData(url)
 		.then((data)=> {
 			if(data == undefined){
 				reject('no-data');
 			}
-			else if($(img).length > 0 && data.hits?.length > 0){
+			resolve(data);
+		})
+	});
+};
+
+
+function genFreeImage(img, keyword, category) {
+	return new Promise(function(resolve, reject){
+		getFreeImages(keyword, category)
+		.then((data)=>{
+			if($(img).length > 0 && data.hits?.length > 0){
 				var imgData = data.hits[0];
 				resolve(imgData.previewURL ?? imgData.userImageURL ?? imgData.webformatURL);
 			}
