@@ -125,6 +125,24 @@
 			"en": ["President","Minister"],
 			"ur": ["صدر","وزیر"],
 			"category": "politics"
+        },
+		{
+            "names": ["مؤتمر", "بث"],
+			"en": ["Conference","Broadcast"],
+			"ur": ["کانفرنس","نشریات"],
+			"category": "media"
+        },
+		{
+            "names": ["رسمي", "محلي"],
+			"en": ["Official","Local"],
+			"ur": ["سرکاری","مقامی"],
+			"category": "media"
+        },
+		{
+            "names": ["معيار", "جدول أعمال"],
+			"en": ["Standard","Agenda"],
+			"ur": ["معیار","ایجنڈا"],
+			"category": "media"
         }
 	]
 }
