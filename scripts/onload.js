@@ -551,34 +551,34 @@ function updateToolDescription(id, opt){
 				var menuItems = {
 					"Vocab": {
 						"Alphabets": "alpha",
-						"Genres": "genres",
 						"Actions": "actions",
-						"Synonyms": "synonym",
-						"Homonymn": "homonym",
 						"Antonym": "antonym",
-						"Countries": "countries",
-						"Media": "media",
-						"Hyperbole": "hyperbole",
-						"Tajweed": "tajweed",
-						"Greetings": "greetings",
 						"Colors": "colors",
-						"Pronouns": "pronouns"
+						"Countries": "countries",
+						"Genres": "genres",
+						"Greetings": "greetings",
+						"Homonymn": "homonym",
+						"Hyperbole": "hyperbole",
+						"Media": "media",
+						"Pronouns": "pronouns",
+						"Synonyms": "synonym",
+						"Tajweed": "tajweed"
 					},
 					"Chart" :{
 						"Alphabets": "alphabets",
-						"Synonyms": "synonym",
-						"Homonym": "homonym",
 						"Antonyms": "antonym",
+						"Homonym": "homonym",
+						"Imperatives": "imperative",
 						"Jarr": "jarr",
 						"Verbs": "verbs",
 						"Verb Forms": "verb-forms",
-						"Imperatives": "imperative"
+						"Synonyms": "synonym"
 					},
 					"Misc" :{
-						"Clock": "clock",
-						"Calendar": "calendar",
-						"Number": "number",
 						"Abjad": "abjad",
+						"Calendar": "calendar",
+						"Clock": "clock",
+						"Number": "number",
 						"Patterns": "patterns"
 					},
 					"TTS" :{
