@@ -1043,6 +1043,7 @@ async function listVocabulary(){
 					}
 					return x;
 				}).filter(x=>x !== '');
+				var ids = arr.map(x=>x[0]).join("|");
 				var words = arr.join(
 					key === 'actions' ? ' - ':
 					key === 'antonyms' ? ' x ':
@@ -1053,14 +1054,14 @@ async function listVocabulary(){
 				if(words.includes(';')){
 					var wW = words.split(';'); 
 					var txt = key === 'genres' || key === 'colors' ? words : wW[0];
-					div.append($(`<div data-id="${txt[0]}" style="margin:auto;display:inline-block;float:right;width:fit-content;margin:10px;padding:10px;border:1px solid #ccc;border-radius:5px;">
+					div.append($(`<div data-id="${ids}" style="margin:auto;display:inline-block;float:right;width:fit-content;margin:10px;padding:10px;border:1px solid #ccc;border-radius:5px;">
 						<h3>${txt}</h3>
 						<p>${typeof item.en === 'string' ? item.en : item.en[0]}</p>
 						<p>${typeof item.ur === 'string' ? item.ur : item.ur[0]}</p>
 					</div>`));
 					
 					if(key !== 'genres' && key !== 'colors')
-					div.append($(`<div data-id="${wW[1][0]}" style="margin:auto;display:inline-block;float:right;width:fit-content;margin:10px;padding:10px;border:1px solid #ccc;border-radius:5px;">
+					div.append($(`<div data-id="${ids}" style="margin:auto;display:inline-block;float:right;width:fit-content;margin:10px;padding:10px;border:1px solid #ccc;border-radius:5px;">
 						<h3>${wW[1]}</h3>
 						<p>${typeof item.en === 'string' ? item.en : item.en[1]}</p>
 						<p>${typeof item.ur === 'string' ? item.ur : item.ur[1]}</p>
@@ -1070,7 +1071,7 @@ async function listVocabulary(){
 						words = words.replace(/^(.*\-.*)\-(.*\-.*)$/ig, '$1');
 					}
 					var inlcudesX = words.includes('x');
-					div.append($(`<div data-id="${words[0]}" style="margin:auto;display:inline-block;float:right;width:fit-content;margin:10px;padding:10px;border:1px solid #ccc;border-radius:5px;">
+					div.append($(`<div data-id="${ids}" style="margin:auto;display:inline-block;float:right;width:fit-content;margin:10px;padding:10px;border:1px solid #ccc;border-radius:5px;">
 						<h3>${words}</h3>
 						<p>${inlcudesX || words.includes('~') ? 
 							`${item.en.length == 4? `${item.en[0].split(',')[0]} ${inlcudesX ? ' x ':' ~ '} ${item.en[2].split(',')[0]}`:
@@ -1099,9 +1100,18 @@ async function listVocabulary(){
 }
 
 function filterVocab(el, val){
-	$('#divVocab div').show();
 	if(!el.innerHTML.includes('Clear')){
-		$(`#divVocab div:not([data-id^="${val}"])`).hide();
+		//$(`#divVocab div:not([data-id^="${val}"])`).hide();
+		$(`#divVocab div[data-id]`).each(function(){
+			var attr = $(this).attr('data-id').split("|");
+			if(attr.some((x)=> x == val)){
+				$(this).show();
+			}else{
+				$(this).hide();
+			}
+		});
+	}else{
+		$('#divVocab div').show();
 	}
 }
 
