@@ -407,6 +407,10 @@ function handleDictActions(el, a, d) {
 			listArabicQuotes();
 		break;
 		
+		case 'vocab':
+			listVocabulary();
+			break;
+
 		case 'list-search':
 		default:
 			var st = parent.getStatesFromKey('lastIndexSearch');
@@ -1003,6 +1007,74 @@ function getIndexEntryIcon(path, action){
 			break
 	}
 	return '';
+}
+
+async function listVocabulary(){
+	const vocabList = [
+		getLocationPath()+'data/grmr/actions.json',
+		getLocationPath()+'data/grmr/antonym.json',
+		getLocationPath()+'data/grmr/synonym.json',
+		getLocationPath()+'data/grmr/homonym.json',
+		getLocationPath()+'data/grmr/media.json'
+	];
+
+    var dataList = await Promise.all(vocabList.map((d) => ensureDataLoaded(d)))
+	$(".dictionary").empty();
+	if(dataList && dataList.length > 0){
+		var vocabData = dataList.reduce((acc, curr) => {
+			return {...acc, ...curr};
+		}, {});
+
+		var div = $(`<div style="
+			display:block;
+			width:100%;
+			height=100%;"></div>`);
+		$(".dictionary").append(div);
+
+		Object.keys(vocabData).forEach((key) => {
+			vocabData[key].forEach((item) => {
+				var arr = item.names.filter(x=>x !== '');
+				var words = arr.join(
+					key === 'actions' ? ' - ':
+					key === 'antonyms' ? ' x ':
+					key === 'synonyms' ? ' | ':
+					key === 'homonyms' ? ' ~ ':
+					';'
+				);
+				if(words.includes(';')){
+					var wW = words.split(';'); 
+					div.append($(`<div style="margin:auto;display:inline-block;float:right;width:fit-content;margin:10px;padding:10px;border:1px solid #ccc;border-radius:5px;">
+						<h3>${wW[0]}</h3>
+						<p>${item.en[0]}</p>
+						<p>${item.ur[0]}</p>
+					</div>`));
+					div.append($(`<div style="margin:auto;display:inline-block;float:right;width:fit-content;margin:10px;padding:10px;border:1px solid #ccc;border-radius:5px;">
+						<h3>${wW[1]}</h3>
+						<p>${item.en[1]}</p>
+						<p>${item.ur[1]}</p>
+					</div>`));
+				}else{
+					if(key === 'actions' && arr.length == 4){
+						words = words.replace(/^(.*\-.*)\-(.*\-.*)$/ig, '$1');
+					}
+					var inlcudesX = words.includes('x');
+					div.append($(`<div style="margin:auto;display:inline-block;float:right;width:fit-content;margin:10px;padding:10px;border:1px solid #ccc;border-radius:5px;">
+						<h3>${words}</h3>
+						<p>${inlcudesX || words.includes('~') ? 
+							`${item.en.length == 4? `${item.en[0].split(',')[0]} ${inlcudesX ? ' x ':' ~ '} ${item.en[2].split(',')[0]}`:
+													`${item.en[0].split(',')[0]} ${inlcudesX ? ' x ':' ~ '} ${item.en[1].split(',')[0]}`}`: 
+													item.en}</p>
+						<p>${words.includes('x') || words.includes('~') ? 
+							`${item.ur.length == 4? `${item.ur[0]} ${inlcudesX ? ' x ':' ~ '} ${item.ur[2]}`:
+													`${item.ur[0]} ${inlcudesX ? ' x ':' ~ '} ${item.ur[1]}`}`: 
+													item.ur}</p>
+					</div>`));
+				}
+			});
+		});
+	}else{
+		$(".dictionary").append('<div style="align-text:center;margin-top: 40px;">Error loading vocab</div>');
+	}
 }
 
 function openMeaning() {
