@@ -1015,7 +1015,9 @@ async function listVocabulary(){
 		getLocationPath()+'data/grmr/antonym.json',
 		getLocationPath()+'data/grmr/synonym.json',
 		getLocationPath()+'data/grmr/homonym.json',
-		getLocationPath()+'data/grmr/media.json'
+		getLocationPath()+'data/grmr/media.json',
+		getLocationPath()+'data/grmr/genres.json',
+		getLocationPath()+'data/grmr/colors.json'
 	];
 
     var dataList = await Promise.all(vocabList.map((d) => ensureDataLoaded(d)))
@@ -1025,7 +1027,8 @@ async function listVocabulary(){
 			return {...acc, ...curr};
 		}, {});
 
-		var div = $(`<div style="
+		var filters = ['Clear'];
+		var div = $(`<div id="divVocab" style="
 			display:block;
 			width:100%;
 			height=100%;"></div>`);
@@ -1033,7 +1036,13 @@ async function listVocabulary(){
 
 		Object.keys(vocabData).forEach((key) => {
 			vocabData[key].forEach((item) => {
-				var arr = item.names.filter(x=>x !== '');
+				var arr = item.names.map((x)=>{
+					if(x[0] && x[0] !== '>' && x[0] !== '<' && !(x[0] >= 'A' && x[0] <= 'Z')
+						    && filters.indexOf(x[0]) === -1){
+						filters.push(x[0]);
+					}
+					return x;
+				}).filter(x=>x !== '');
 				var words = arr.join(
 					key === 'actions' ? ' - ':
 					key === 'antonyms' ? ' x ':
@@ -1043,22 +1052,25 @@ async function listVocabulary(){
 				);
 				if(words.includes(';')){
 					var wW = words.split(';'); 
-					div.append($(`<div style="margin:auto;display:inline-block;float:right;width:fit-content;margin:10px;padding:10px;border:1px solid #ccc;border-radius:5px;">
-						<h3>${wW[0]}</h3>
-						<p>${item.en[0]}</p>
-						<p>${item.ur[0]}</p>
+					var txt = key === 'genres' || key === 'colors' ? words : wW[0];
+					div.append($(`<div data-id="${txt[0]}" style="margin:auto;display:inline-block;float:right;width:fit-content;margin:10px;padding:10px;border:1px solid #ccc;border-radius:5px;">
+						<h3>${txt}</h3>
+						<p>${typeof item.en === 'string' ? item.en : item.en[0]}</p>
+						<p>${typeof item.ur === 'string' ? item.ur : item.ur[0]}</p>
 					</div>`));
-					div.append($(`<div style="margin:auto;display:inline-block;float:right;width:fit-content;margin:10px;padding:10px;border:1px solid #ccc;border-radius:5px;">
+					
+					if(key !== 'genres' && key !== 'colors')
+					div.append($(`<div data-id="${wW[1][0]}" style="margin:auto;display:inline-block;float:right;width:fit-content;margin:10px;padding:10px;border:1px solid #ccc;border-radius:5px;">
 						<h3>${wW[1]}</h3>
-						<p>${item.en[1]}</p>
-						<p>${item.ur[1]}</p>
+						<p>${typeof item.en === 'string' ? item.en : item.en[1]}</p>
+						<p>${typeof item.ur === 'string' ? item.ur : item.ur[1]}</p>
 					</div>`));
 				}else{
 					if(key === 'actions' && arr.length == 4){
 						words = words.replace(/^(.*\-.*)\-(.*\-.*)$/ig, '$1');
 					}
 					var inlcudesX = words.includes('x');
-					div.append($(`<div style="margin:auto;display:inline-block;float:right;width:fit-content;margin:10px;padding:10px;border:1px solid #ccc;border-radius:5px;">
+					div.append($(`<div data-id="${words[0]}" style="margin:auto;display:inline-block;float:right;width:fit-content;margin:10px;padding:10px;border:1px solid #ccc;border-radius:5px;">
 						<h3>${words}</h3>
 						<p>${inlcudesX || words.includes('~') ? 
 							`${item.en.length == 4? `${item.en[0].split(',')[0]} ${inlcudesX ? ' x ':' ~ '} ${item.en[2].split(',')[0]}`:
@@ -1072,8 +1084,24 @@ async function listVocabulary(){
 				}
 			});
 		});
+
+		//Add filters
+		var div2 = $(`<div id="iFilter" style="display:inline-block; width:100%;"></div>`);
+		div2.insertBefore(div);
+		filters.sort().forEach((f) => {
+			div2.append($(`<a href="#" style="text-decoration:none;margin:5px;padding:5px;border:1px solid #ccc;border-radius:5px;display:inline-block;" 
+				onclick="filterVocab(this, '${f}')">&nbsp;${f}&nbsp;</a>	`));
+		});
+
 	}else{
 		$(".dictionary").append('<div style="align-text:center;margin-top: 40px;">Error loading vocab</div>');
+	}
+}
+
+function filterVocab(el, val){
+	$('#divVocab div').show();
+	if(!el.innerHTML.includes('Clear')){
+		$(`#divVocab div:not([data-id^="${val}"])`).hide();
 	}
 }
 
