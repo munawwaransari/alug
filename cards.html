@@ -92,11 +92,16 @@
 						parent.dataCache["cards-data-first"] = true;
 
 					// Create image Observer
+					if(cardImmages.imageObserver !== undefined){
+						delete cardImmages.imageObserver;
+						cardImmages.imageObserver = undefined;
+					}
 					cardImmages.imageObserver = new IntersectionObserver(handleIntersection, {
 						root: null,      
 						rootMargin: '0px', 
 						threshold: 0.25 
 					});
+					
 
 					rdata.forEach(function(index){
 						var cdata = data[firstKey][index];
@@ -110,20 +115,20 @@
 		
 		  switch(name){
 			case "alpha":
-				drawAlphabet(div, cdata, index);
+				drawAlphabet(div, cdata, index, name);
 				break;
 			case 'actions':
 			case 'genres':
 			case "synonym":
-				drawSynonym(div, cdata, index)
+				drawSynonym(div, cdata, index, name);
 				break;
 			case 'countries':
 			case 'media':
 			case "antonym":
-				drawAntonyms(div, cdata, index);
+				drawAntonyms(div, cdata, index, name);
 				break;
 			case "homonym":
-				drawHomonymn(div, cdata, index);
+				drawHomonymn(div, cdata, index, name);
 				break;
 			case "hyperbole":
 				drawHyperbole(div, cdata, index);
@@ -143,7 +148,7 @@
 		  }		
 		}
 
-		function drawAlphabet(div, alpha){
+		function drawAlphabet(div, alpha, index, name) {
 		  var wType = alpha.type === "C" ? "حَرف الصَّحِيحَة" : alpha.number !== 1 ? "حَرف العِلَّة": "";
 		  var cls = alpha.type === "C" ? "consonant" : "vowel";
 		  var tooltip = alpha.name+"\n"+cls+"\n"+alpha.class+"\nnumber:"+alpha.number;
@@ -165,7 +170,7 @@
                              style="top:12%; height:80%" 
 							 class="alpha-image" 
 							 loading="lazy"
-							 inumber="alpha-${alpha.number}"
+							 inumber="${name}-${alpha.number}"
 							 title="${alpha.imageName}">
                         </img>
                         <span style="margin-bottom:0">
@@ -182,7 +187,7 @@
 		    div.append($(fdiv));
 			if(alpha.number !== 1){
 				addImageToObserver({
-					inumber: `alpha-${alpha.number}`,
+					inumber: `${name}-${alpha.number}`,
 					key: alpha.enName ?? alpha.imageName,
 					category:  alpha.category
 				});
@@ -198,7 +203,7 @@
 			}
 		} 
 		
-		function drawHomonymn(div, h, index) {
+		function drawHomonymn(div, h, index, name) {
 			if (h.en.length > 1) {
 				var fdiv = `
 				<div class="flip-card" number=${index}>
@@ -207,7 +212,7 @@
 							<img style="top:24%; width:94%; height:76%" 
 									title="${h.names[0]}"
 									class="alpha-image"
-									inumber="homonym-${index}"> 
+									inumber="${name}-${index}"> 
 							</img>
 							<span style="top:10px; margin-bottom:0; font-size:18px">
 								<a href="#" style="text-decoration:none; cursor:pointer;"
@@ -226,7 +231,7 @@
 									title="${h.names[1]}"
 									loading="lazy"
 									class="alpha-image"
-									inumber="homonym-${index}b" >
+									inumber="${name}-${index}b" >
 							</img>
 							<span style="top:10px; margin-bottom:0; font-size:18px">
 								<a href="#" style="text-decoration:none; cursor:pointer;color:#E6E6FA;"
@@ -245,14 +250,14 @@
 			}
 
 			addImageToObserver({
-				inumber: `homonym-${index}`, key: h.en[0],category: h.category
+				inumber: `${name}-${index}`, key: h.en[0],category: h.category
 			});
 			addImageToObserver({
-				inumber: `homonym-${index}b`, key: h.en[1],category: h.category
+				inumber: `${name}-${index}b`, key: h.en[1],category: h.category
 			});
 		} 
 		
-		function drawAntonyms(div, h, index){             
+		function drawAntonyms(div, h, index, name){             
 			var fdiv = `
 			<div class="flip-card" number=${index}>
                 <div class="flip-card-inner">
@@ -260,7 +265,7 @@
 						<img style="top:24%; width:94%; height:76%" 
 							title="${h.names[0]}" 
 							class="alpha-image"
-							inumber="antonym-${index}">
+							inumber="${name}-${index}">
                         </img>
 						<span style="top:10px; margin-bottom:0; font-size:18px">
 						<a href="#" style="text-decoration:none; cursor:pointer;"
@@ -279,7 +284,7 @@
 							title="${h.names[1]}"
 							loading="lazy"
 							class="alpha-image" 
-							inumber="antonym-${index}b">
+							inumber="${name}-${index}b">
                         </img>
 						<span style="top:10px; margin-bottom:0; font-size:18px">
 						<a href="#" style="text-decoration:none; cursor:pointer;color:#E6E6FA;"
@@ -295,14 +300,14 @@
 		    div.append($(fdiv));
 			
 			addImageToObserver({
-				inumber: `antonym-${index}`, key: h.en[0]=='Zionism'?'Israel':h.en[0],category: h.category
+				inumber: `${name}-${index}`, key: h.en[0]=='Zionism'?'Israel':h.en[0],category: h.category
 			});
 			addImageToObserver({
-				inumber: `antonym-${index}b`, key: h.en[1],category: h.category
+				inumber: `${name}-${index}b`, key: h.en[1],category: h.category
 			});
 		} 
 		
-		function drawSynonym(div, syn, index) {
+		function drawSynonym(div, syn, index, name) {
 
 			if(syn.ar === undefined || syn.ar === 'undefined'){
 				syn.ar = syn.names[0] ?? '';
@@ -329,7 +334,7 @@
 							title="${syn.ar}"
 							loading="lazy"
 							class="alpha-image"
-							inumber="synonym-${index}">
+							inumber="${name}-${index}">
 						</img>
 						<span style="top:10px; margin-bottom:0">
 							<a href="#" style="text-decoration:none; cursor:pointer;color:#E6E6FA;"
@@ -349,7 +354,7 @@
 			div.append($(fdiv));
 			
 			addImageToObserver({
-				inumber: `synonym-${index}`, key: syn.en, category: syn.category
+				inumber: `${name}-${index}`, key: syn.en, category: syn.category
 			});
 		}
 
