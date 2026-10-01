@@ -1011,13 +1011,14 @@ function getIndexEntryIcon(path, action){
 
 async function listVocabulary(){
 	const vocabList = [
+		getLocationPath()+'data/grmr/alpha.json',
+		getLocationPath()+'data/grmr/media.json',
+		getLocationPath()+'data/grmr/genres.json',
+		getLocationPath()+'data/grmr/colors.json',
 		getLocationPath()+'data/grmr/actions.json',
 		getLocationPath()+'data/grmr/antonym.json',
 		getLocationPath()+'data/grmr/synonym.json',
-		getLocationPath()+'data/grmr/homonym.json',
-		getLocationPath()+'data/grmr/media.json',
-		getLocationPath()+'data/grmr/genres.json',
-		getLocationPath()+'data/grmr/colors.json'
+		getLocationPath()+'data/grmr/homonym.json'
 	];
 
     var dataList = await Promise.all(vocabList.map((d) => ensureDataLoaded(d)))
@@ -1036,7 +1037,8 @@ async function listVocabulary(){
 
 		Object.keys(vocabData).forEach((key) => {
 			vocabData[key].forEach((item) => {
-				var arr = item.names.map((x)=>{
+				var itemArray = item.imageName ? [item.imageName] : item.names;
+				var arr =   itemArray.map((x)=>{
 					if(x[0] && x[0] !== '>' && x[0] !== '<' && !(x[0] >= 'A' && x[0] <= 'Z')
 						    && filters.indexOf(x[0]) === -1){
 						filters.push(x[0]);
@@ -1070,17 +1072,20 @@ async function listVocabulary(){
 					if(key === 'actions' && arr.length == 4){
 						words = words.replace(/^(.*\-.*)\-(.*\-.*)$/ig, '$1');
 					}
+					if(key === 'alphabets'){
+						item.en = item.enName;
+					}
 					var inlcudesX = words.includes('x');
 					div.append($(`<div data-id="${ids}" style="margin:auto;display:inline-block;float:right;width:fit-content;margin:10px;padding:10px;border:1px solid #ccc;border-radius:5px;">
 						<h3>${words}</h3>
 						<p>${inlcudesX || words.includes('~') ? 
 							`${item.en.length == 4? `${item.en[0].split(',')[0]} ${inlcudesX ? ' x ':' ~ '} ${item.en[2].split(',')[0]}`:
 													`${item.en[0].split(',')[0]} ${inlcudesX ? ' x ':' ~ '} ${item.en[1].split(',')[0]}`}`: 
-													item.en}</p>
+													item.en ?? ''}</p>
 						<p>${words.includes('x') || words.includes('~') ? 
 							`${item.ur.length == 4? `${item.ur[0]} ${inlcudesX ? ' x ':' ~ '} ${item.ur[2]}`:
 													`${item.ur[0]} ${inlcudesX ? ' x ':' ~ '} ${item.ur[1]}`}`: 
-													item.ur}</p>
+													item.ur ?? ''}</p>
 					</div>`));
 				}
 			});
