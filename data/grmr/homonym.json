@@ -95,6 +95,36 @@
 			"en": ["Fat,heavy", "Costly,Expensive"],
 			"ur": ["موٹا", "مہنگا"],
 			"category": "food"
+        },
+		{
+            "names": ["عَلَم", "أَلَم"],
+			"en": ["Flag", "Pain"],
+			"ur": ["نشان", "درد"],
+			"category": "feelings"
+        },
+		{
+            "names": ["سَيْف", "صَيْف"],
+			"en": ["Sword", "Summer"],
+			"ur": ["شمشیر", "گرمی"],
+			"category": ""
+        },
+		{
+            "names": ["ظِلّ", "ذِلّ"],
+			"en": ["Shadow", "Humility"],
+			"ur": ["سایہ", "عاجزی"],
+			"category": ""
+        },
+		{
+            "names": ["حَمَّام", "حَمَام"],
+			"en": ["Bathhouse", "Pigeon"],
+			"ur": ["حمام", "کبوتر"],
+			"category": ""
+        },
+		{
+            "names": ["شَعْر", "شِعْر"],
+			"en": ["Hair", "Poetry"],
+			"ur": ["شعر", "کلام"],
+			"category": ""
         }
     ]
 }

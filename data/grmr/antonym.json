@@ -68,9 +68,9 @@
         },
 		{
             "names": ["صعب", "سهل"],
-			"en": ["Difficult,job", "Easy,job"],
+			"en": ["Difficult", "Easy"],
 			"ur": ["مشکل", "آسان"],
-			"category": "education"
+			"category": "actions"
         },
 		{
 			"names": ["غني", "فقير"],
@@ -83,6 +83,42 @@
 			"en": ["Joyful,boy", "Sad,cry"],
 			"ur": ["خوش", "اداس"],
 			"category": "people"
-		}
+		},
+		{
+            "names": ["مَوْلَى", "مَوْلَى"],
+			"en": ["Master", "Servant"],
+			"ur": ["آقا", "ملازم"],
+			"category": "people"
+        },
+		{
+            "names": ["بَصِير", "بَصِير"],
+			"en": ["Sighted", "Blind"],
+			"ur": ["بینا", "نابینا"],
+			"category": "people"
+        },
+		{
+            "names": ["صَرِيم", "صَرِيم"],
+			"en": ["Dawn", "Dark night"],
+			"ur": ["فجر", "تاریک رات"],
+			"category": "nature"
+        },
+		{
+            "names": ["وَرَاء", "وَرَاء"],
+			"en": ["After", "In front of"],
+			"ur": ["آگے", "سامنے"],
+			"category": "time"
+        },
+		{
+            "names": ["النَّاهِل", "النَّاهِل"],
+			"en": ["Thirsty", "Quenched"],
+			"ur": ["پیاسا", "سَیر"],
+			"category": "feelings"
+        },
+		{
+            "names": ["الطَّرَب", "الطَّرَب"],
+			"en": ["Intense Joy", "Intense grief"],
+			"ur": ["شدید خوشی", "شدید غم"],
+			"category": "feelings"
+        }
     ]
 }
