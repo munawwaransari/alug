@@ -1054,22 +1054,24 @@ async function listVocabulary(){
 					';'
 				);
 				var style = `style="margin:auto;display:inline-block;float:right;
-								    width:fit-content;margin:4px;padding:2px;
+								    width:fit-content;margin:4px;padding:2px;cursor:pointer;
 									border:1px solid #ccc;border-radius:5px;
 									box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.3);"`;
 				if(words.includes(';')){
 					var wW = words.split(';'); 
 					var txt = key === 'genres' || key === 'colors' ? words : wW[0];
-					div.append($(`<div data-id="${ids}" ${style}>
+					div.append($(`<div data-id="${ids}" onclick="OpenImageSearchWith(this);" ${style}>
 						<h3 style="margin:0;padding:8px;">${txt}</h3>
-						<p style="margin:0;padding:0;">${typeof item.en === 'string' ? item.en : item.en[0]}</p>
+						<p style="margin:0;padding:0;">
+						${typeof item.en === 'string' ? item.en : item.en[0]}</p>
 						<p style="margin:0;padding:0;">${typeof item.ur === 'string' ? item.ur : item.ur[0]}</p>
 					</div>`));
 					
 					if(key !== 'genres' && key !== 'colors')
-					div.append($(`<div data-id="${ids}" ${style}>
+					div.append($(`<div data-id="${ids}" onclick="OpenImageSearchWith(this);" ${style}>
 						<h3 style="margin:0;padding:8px;">${wW[1]}</h3>
-						<p style="margin:0;padding:0;">${typeof item.en === 'string' ? item.en : item.en[1]}</p>
+						<p style="margin:0;padding:0;">
+						${typeof item.en === 'string' ? item.en : item.en[1]}</p>
 						<p style="margin:0;padding:0;">${typeof item.ur === 'string' ? item.ur : item.ur[1]}</p>
 					</div>`));
 				}else{
@@ -1080,9 +1082,10 @@ async function listVocabulary(){
 						item.en = item.enName;
 					}
 					var inlcudesX = words.includes('x');
-					div.append($(`<div data-id="${ids}" ${style}>
+					div.append($(`<div data-id="${ids}" onclick="OpenImageSearchWith(this);" ${style}>
 						<h3 style="margin:0;padding:8px;">${words}</h3>
-						<p style="margin:0;padding:0;">${inlcudesX || words.includes('~') ? 
+						<p style="margin:0;padding:0;">
+						${inlcudesX || words.includes('~') ? 
 							`${item.en.length == 4? `${item.en[0].split(',')[0]} ${inlcudesX ? ' x ':' ~ '} ${item.en[2].split(',')[0]}`:
 													`${item.en[0].split(',')[0]} ${inlcudesX ? ' x ':' ~ '} ${item.en[1].split(',')[0]}`}`: 
 													item.en ?? ''}</p>
@@ -1135,6 +1138,11 @@ function filterVocab(el, val){
 	}else{
 		$('#divVocab div').show();
 	}
+}
+
+function OpenImageSearchWith(el){
+	var ids = $(el).find('p:first').text().replace(/\s.?\s/g, '');
+	parent.redirect('imgen.html', '', ids);
 }
 
 function openMeaning() {

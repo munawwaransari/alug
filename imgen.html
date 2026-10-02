@@ -15,7 +15,6 @@
 		#imageContainer {
 			justify-content:center;
 			align-content: center;
-			display:flex;
 		}
 
 		#imageContainer div {
@@ -40,11 +39,11 @@
 	</style>
 	<script>
 		window.onload = () => {
-			var cat = getParamValue("category");
+			var cat = getParamValue("action");
 			if(cat) $("input:first").val(cat);
 			var kw = getParamValue("data");
 			if(kw) $("input:last").val(kw);
-			searchFreeImages(kw, cat);
+			$(`button:contains('Search Images')`).trigger('click');
 		}
 
 		function searchFreeImages(cat, kw){
