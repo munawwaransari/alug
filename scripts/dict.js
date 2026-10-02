@@ -1079,21 +1079,30 @@ async function listVocabulary(){
 						words = words.replace(/^(.*\-.*)\-(.*\-.*)$/ig, '$1');
 					}
 					if(key === 'alphabets'){
-						item.en = item.enName;
+						var en = item.enName.split("|");
+						words.split("|").forEach((w, i) => {
+							div.append($(`
+							<div data-id="${w[0]}" onclick="OpenImageSearchWith(this);" ${style}>
+							<h3 style="margin:0;padding:8px;">${w}</h3>
+							<p style="margin:0;padding:0;">${en[i] ?? ''}</p>
+							</div>`));
+						});
 					}
-					var inlcudesX = words.includes('x');
-					div.append($(`<div data-id="${ids}" onclick="OpenImageSearchWith(this);" ${style}>
+					else{
+						var inlcudesX = words.includes('x');
+						div.append($(`<div data-id="${ids}" onclick="OpenImageSearchWith(this);" ${style}>
 						<h3 style="margin:0;padding:8px;">${words}</h3>
 						<p style="margin:0;padding:0;">
-						${inlcudesX || words.includes('~') ? 
-							`${item.en.length == 4? `${item.en[0].split(',')[0]} ${inlcudesX ? ' x ':' ~ '} ${item.en[2].split(',')[0]}`:
-													`${item.en[0].split(',')[0]} ${inlcudesX ? ' x ':' ~ '} ${item.en[1].split(',')[0]}`}`: 
-													item.en ?? ''}</p>
-						<p style="margin:0;padding:0;">${words.includes('x') || words.includes('~') ? 
-							`${item.ur.length == 4? `${item.ur[0]} ${inlcudesX ? ' x ':' ~ '} ${item.ur[2]}`:
-													`${item.ur[0]} ${inlcudesX ? ' x ':' ~ '} ${item.ur[1]}`}`: 
-													item.ur ?? ''}</p>
-					</div>`));
+						${inlcudesX || words.includes('~') ?
+								`${item.en.length == 4 ? `${item.en[0].split(',')[0]} ${inlcudesX ? ' x ' : ' ~ '} ${item.en[2].split(',')[0]}` :
+									`${item.en[0].split(',')[0]} ${inlcudesX ? ' x ' : ' ~ '} ${item.en[1].split(',')[0]}`}` :
+								item.en ?? ''}</p>
+						<p style="margin:0;padding:0;">${words.includes('x') || words.includes('~') ?
+								`${item.ur.length == 4 ? `${item.ur[0]} ${inlcudesX ? ' x ' : ' ~ '} ${item.ur[2]}` :
+									`${item.ur[0]} ${inlcudesX ? ' x ' : ' ~ '} ${item.ur[1]}`}` :
+								item.ur ?? ''}</p>
+						</div>`));
+					}
 				}
 			});
 		});

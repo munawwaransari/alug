@@ -131,6 +131,12 @@
 		}
 
 		function drawAlphabet(div, alpha, index, name) {
+		  var iNameArr = alpha.imageName.split("|");
+		  var iIndex = getRandomIndices(iNameArr);
+		  var iName = iNameArr[iIndex[0]];
+		  var eNameArr = alpha.enName.split("|");
+		  var eName = eNameArr[iIndex[0]];
+
 		  var wType = alpha.type === "C" ? "حَرف الصَّحِيحَة" : alpha.number !== 1 ? "حَرف العِلَّة": "";
 		  var cls = alpha.type === "C" ? "consonant" : "vowel";
 		  var tooltip = alpha.name+"\n"+cls+"\n"+alpha.class+"\nnumber:"+alpha.number;
@@ -147,20 +153,20 @@
                 <div class="flip-card-inner">
                 	<div class="flip-card-front">${adiv}</div>
                     <div class="flip-card-back">
-                        <img ontouchstart="playCard('${alpha.imageName}')"
-							 onmouseenter="playCard('${alpha.imageName}')" 
+                        <img ontouchstart="playCard('${iName}')"
+							 onmouseenter="playCard('${iName}')" 
                              style="top:12%; height:80%" 
 							 class="alpha-image" 
 							 loading="lazy"
-							 inumber="${name}-${alpha.number}"
-							 title="${alpha.imageName}">
+							 inumber="${name}-${alpha.number}-${iIndex[0]}"
+							 title="${iName}">
                         </img>
                         <span style="margin-bottom:0">
 						<a href="#" style="text-decoration:none;cursor:pointer;color:#E6E6FA;"
 							onclick="openGoogleAISearch(
 								getPromptFromKey(['Alphabets'], 
-									{'0': ['${alpha.imageName[0]}']}, true));">
-							${alpha.imageName.trim()}
+									{'0': ['${iName}']}, true));">
+							${iName}
 						</a>
 						</span>
                     </div>
@@ -169,12 +175,12 @@
 		    div.append($(fdiv));
 			if(alpha.number !== 1){
 				addImageToObserver({
-					inumber: `${name}-${alpha.number}`,
-					key: alpha.enName ?? alpha.imageName,
-					category:  alpha.category
+					inumber: `${name}-${alpha.number}-${iIndex[0]}`,
+					key: eName ?? iName,
+					category:  ''
 				});
 			}else{
-				var img = $(`img[inumber='alpha-${alpha.number}'`);
+				var img = $(`img[inumber='alpha-${alpha.number}-${iIndex[0]}'`);
 				if(img.length > 0){
 					img.prop('src', 'images/alif.png');
 					img.css('cursor', 'pointer');
