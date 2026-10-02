@@ -135,8 +135,19 @@
     vertical-align: bottom;
 }
 
+.solar.consonant, .solar.vowel {
+    background-color: #FFCF63;
+    color: black;
+}
+
+.lunar.consonant, .lunar.vowel {
+    background-color: #4e5442;
+    color: white;
+}
+
 .solar {
     background-color: #FFCF63;
+    color: #D2691E;
 }
 
 .lunar {

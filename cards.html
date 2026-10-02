@@ -136,10 +136,10 @@
 		  var tooltip = alpha.name+"\n"+cls+"\n"+alpha.class+"\nnumber:"+alpha.number;
 		  
 		  var adiv = `
-		  	<div title="${tooltip}" class="alpha-box ${alpha.class}">
-				<p class="top-left">${alpha.en}</p>
-				<p style="margin-top:40px;" class="${cls}">${alpha.char}</p><br/>
-				<p class="alpha-name ${cls}">(${alpha.name})<br/><sub>${wType}</sub></p>
+		  	<div title="${tooltip}" class="alpha-box ${alpha.class} ${cls}">
+				<p class="top-left ${alpha.class} ${cls}">${alpha.en}</p>
+				<p style="margin-top:40px;" class="${alpha.class} ${cls}">${alpha.char}</p><br/>
+				<p class="alpha-name ${alpha.class} ${cls}">(${alpha.name})<br/><sub>${wType}</sub></p>
 			</div>`;
 		             
 		    var fdiv = `
