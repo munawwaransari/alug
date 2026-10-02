@@ -1096,15 +1096,28 @@ async function listVocabulary(){
 		});
 
 		//Add filters
-		var div2 = $(`<div id="iFilter" style="display:inline-block; width:100%;"></div>`);
+		var div2 = $(`<div class="iFilter" style="display:inline-block; width:100%;"></div>`);
 		div2.insertBefore(div);
 		filters.sort().forEach((f) => {
-			div2.append($(`<a href="#" style="text-decoration:none;margin:5px;padding:5px;border:1px solid #ccc;border-radius:5px;display:inline-block;" 
-				onclick="filterVocab(this, '${f}')">&nbsp;${f}&nbsp;</a>	`));
+			div2.append($(`<a href="#" onclick="filterVocab(this, '${f}')">&nbsp;${f}&nbsp;</a>`));
 		});
+		//U+2303 (⌃) , //U+2304 (⌄)
+		div2.append($(`<a href="#" style="color:red" onclick="toggleVocabFilters(this,'\u2303','\u2304')">&nbsp;&nbsp;\u2303&nbsp;&nbsp;</a>`));
 
 	}else{
 		$(".dictionary").append('<div style="align-text:center;margin-top: 40px;">Error loading vocab</div>');
+	}
+}
+
+function toggleVocabFilters(el, upChar, downChar){
+	if(el.innerHTML.includes(upChar)){
+		el.innerHTML = `&nbsp;&nbsp;${downChar}&nbsp;&nbsp;`;
+		$('.iFilter a').hide();
+		$(`.iFilter a:contains('Clear')`).show();
+		$(`.iFilter a:contains('${downChar}')`).show();
+	}else{
+		el.innerHTML = `&nbsp;&nbsp;${upChar}&nbsp;&nbsp;`;
+		$('.iFilter a').show();
 	}
 }
 

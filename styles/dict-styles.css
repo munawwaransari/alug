@@ -223,3 +223,17 @@ input[type="reset"] {
     top: -12px;
     left: -26px;
 }
+
+.iFilter a:hover {
+    color: white;
+    background-color: #008080;
+}
+
+.iFilter a {
+    text-decoration:none;
+    margin:5px;
+    padding:5px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    display:inline-block
+}
