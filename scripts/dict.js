@@ -1141,7 +1141,7 @@ function filterVocab(el, val){
 }
 
 function OpenImageSearchWith(el){
-	var ids = $(el).find('p:first').text().replace(/\s.?\s/g, '');
+	var ids = $(el).find('p:first').text().trim().replace(/\s?[x~|;\/]\s?/g, ',');
 	parent.redirect('imgen.html', '', ids);
 }
 
