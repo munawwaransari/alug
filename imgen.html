@@ -59,7 +59,7 @@
 						var img = h.previewURL ?? h.userImageURL ?? h.webformatURL;
 						container.append($(`
 						<div>
-							<img src="${img}"></img><br/>
+							<img loading="lazy" src="${img}"></img><br/>
 							<span>${h.tags?.split(",")[0]}</span>
 						</div>`));
 						return true;
