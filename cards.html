@@ -13,62 +13,56 @@
 	<script src="scripts/require.js"></script>
 	<script src="scripts/data-util.js"></script>
 	<script>
-		var cardImmages = {
-			imageObserver: null,
-			interval: null,
-			requests: {}
-		};
-		var cardsFirstLoad = true;
-		if(parent.dataCache["CardImages"] === undefined) {
-			console.log('dataCache["CardImages"] initialized!');
+		var cardImagesRequests = {};
+		if(parent.dataCache["CardImages"] === undefined)
 			parent.dataCache["CardImages"] = {};
-		};
 		ensureDataLoaded({name: "ai-prompts"});
 		window.onload = () => {
+			// Register observer handler
+			parent.dataCache["imgObserver"].interSectionHandlers["cards"] = handleIntersection;
+			createImageObserver();
 			addImagePreviewer("cardContainer", 'bottom');
 			reloadCardData();
 		}
+
 		window.beforeunload = () => {
-			cardImmages.requests = {};
-			if(cardImmages.interval != null){
-				closeInterval(cardImmages.interval);
-				cardImmages.interval = null;
-			}
+			Object.keys(cardImagesRequests).forEach((key) => {
+				var img = $(`img[inumber='${key}']`);
+				parent.dataCache["imgObserver"].observer.unobserve(img[0]);
+			});
 		}
 		
-		function handleIntersection(entries, observer) {
-			entries.forEach(entry => {
-				// Check if this specific image is visible in the viewport
-				if (entry.isIntersecting) {
-					const img = $(entry.target);
-					const inumber = img.attr('inumber');
-					const req = cardImmages.requests[inumber];
-					if(req !== undefined && !img.prop('src')){
-						setTimeout(function(){
-							genFreeImage(`img[inumber='${req.inumber}']`,
-								req.key,
-								req.category
-							).then((imgSrc)=> {
-								delete cardImmages.requests[req.inumber];
-								parent.dataCache["CardImages"][req.inumber] = imgSrc;
-								img.prop('src',imgSrc);
-								observer.unobserve(img[0]);
-							});	
-						}, 250);
-					}
+		function handleIntersection(entry, observer) {
+			// Check if this specific image is visible in the viewport
+			if (entry.isIntersecting) {
+				const img = $(entry.target);
+				const inumber = img.attr('inumber');
+				const req = inumber ? cardImagesRequests[inumber] : undefined;
+				if(req !== undefined && img.prop('src')?.length === 0){
+					genFreeImage(`img[inumber='${req.inumber}']`,
+						req.key,
+						req.category
+					).then((imgSrc)=> {
+						delete cardImagesRequests[req.inumber];
+						parent.dataCache["CardImages"][req.inumber] = imgSrc;
+						parent.dataCache["imgObserver"].observer.unobserve(img[0]);
+						img.removeAttr('is-observed');
+						img.prop('src',imgSrc);
+					});	
 				}
-			});
+			}
 		}
 
 		function addImageToObserver(req){
 			var img = $(`img[inumber='${req.inumber}']`);
 			if(img.length > 0){
-				if(parent.dataCache["CardImages"][req.inumber] !== undefined){
+				if(	parent.dataCache["CardImages"][req.inumber] !== undefined){
 					img.prop('src', parent.dataCache["CardImages"][req.inumber]);
 				}
-				else {
-					cardImmages.requests[req.inumber] = req;
-					cardImmages.imageObserver.observe(img[0]);
+				else if(!img.attr('is-observed')){
+					cardImagesRequests[req.inumber] = req;
+					parent.dataCache["imgObserver"].observer.observe(img[0]);
+					img.attr('is-observed', 'true');
 				}
 			}
 		}
@@ -90,18 +84,6 @@
 					}
 					if(parent)
 						parent.dataCache["cards-data-first"] = true;
-
-					// Create image Observer
-					if(cardImmages.imageObserver !== undefined){
-						delete cardImmages.imageObserver;
-						cardImmages.imageObserver = undefined;
-					}
-					cardImmages.imageObserver = new IntersectionObserver(handleIntersection, {
-						root: null,      
-						rootMargin: '0px', 
-						threshold: 0.25 
-					});
-					
 
 					rdata.forEach(function(index){
 						var cdata = data[firstKey][index];

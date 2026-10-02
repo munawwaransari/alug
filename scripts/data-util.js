@@ -1551,6 +1551,10 @@ function init_data_cache(){
 		},
 		'ar_quotes':{
 			path: 'data/ar_quotes.json'
+		},
+		'imgObserver': {
+			observer: null,
+			interSectionHandlers: {}
 		}
 	}
 }
@@ -2377,4 +2381,31 @@ function addAsHtmlTable(container, table, columns){
 	container.append(htmlTable);
 	$(".csvTable tbody").append($(tableRows));
 	container.find("p").remove();
+}
+
+function createImageObserver(threshold = 0.1, rootMargin = "0px 0px") {
+	if(parent.dataCache["imgObserver"]?.observer !== null){
+		parent.dataCache["imgObserver"].observer.disconnect();
+		parent.dataCache["imgObserver"].observer = null;
+	};
+
+	// Optimum configuration options
+	const options = {
+		root: null,       	   // Defaults to the browser viewport
+		rootMargin: rootMargin, // Pre-loads images 200px before they enter the viewport
+		threshold: threshold   // Triggers as soon as even 1 pixel enters the margin zone
+	};
+	
+	parent.dataCache["imgObserver"].observer = new IntersectionObserver((entries, observer) => {
+		entries.forEach(entry => {
+			// Guard clause: do nothing if the element is not intersecting
+			if (!entry.isIntersecting) return;
+
+			//handle
+			Object.keys(parent.dataCache["imgObserver"].interSectionHandlers).forEach((key) => {
+				const handler = parent.dataCache["imgObserver"].interSectionHandlers[key];
+				handler(entry, observer);
+			});
+		});
+	}, options);
 }

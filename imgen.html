@@ -39,6 +39,11 @@
 	</style>
 	<script>
 		window.onload = () => {
+			
+			// Register observer handler
+			parent.dataCache["imgObserver"].interSectionHandlers["imgen"] = handleIntersection2;
+			createImageObserver();
+			
 			var cat = getParamValue("action");
 			if(cat) $("input:first").val(cat);
 			var kw = getParamValue("data");
@@ -46,28 +51,54 @@
 			$(`button:contains('Search Images')`).trigger('click');
 		}
 
+		function handleIntersection2(entry, observer) {
+			// Check if this specific image is visible in the viewport
+			if (entry.isIntersecting) {
+				const img = $(entry.target);
+				if(img.attr('imgen-src') && img.prop('src')?.length === 0){
+					img.prop('src', img.attr('imgen-src'));
+					img.removeAttr('imgen-src');
+					parent.dataCache["imgObserver"].observer.unobserve(img[0]);
+				}
+			}
+		}
+
 		function searchFreeImages(cat, kw){
 			var c = cat ?? $("input:first").val();
 			var k = kw ?? $("input:last").val();
-			if(c || k)
-			getFreeImages(k,c, {width:200, height:'auto'})
-			.then((data)=>{
+
+			if(c || k){
+				//unobserve existing images
 				var container = $("#imageContainer")
-				container.empty();
-				if(data.hits.length > 0){
-					data.hits.every((h)=>{
-						var img = h.previewURL ?? h.userImageURL ?? h.webformatURL;
-						container.append($(`
-						<div>
-							<img loading="lazy" src="${img}"></img><br/>
-							<span>${h.tags?.split(",")[0]}</span>
-						</div>`));
-						return true;
-					});
-				}else{
-					container.append(`<p style="padding:10px;font-size:12px;">Did not find any free image for category: '${c}' and keyword:'${k}'</p>`);
-				}
-			});
+				container.find('img[imgen-src]').each((i, img)=>{
+					parent.dataCache["imgObserver"].observer.unobserve(img);
+				});
+
+				getFreeImages(k,c, {width:200, height:'auto'})
+				.then((data)=>{
+					container.empty();
+					if(data.hits.length > 0){
+						data.hits.every((h)=>{
+							var img = h.previewURL ?? h.userImageURL ?? h.webformatURL;
+							container.append($(`
+							<div>
+								<img loading="lazy" imgen-src="${img}"></img><br/>
+								<span>${h.tags?.split(",")[0]}</span>
+							</div>`));
+							return true;
+						});
+
+						//observe new images
+						setTimeout(()=>{
+							container.find('img[imgen-src]').each((i, img)=>{
+								parent.dataCache["imgObserver"].observer.observe(img);
+							});
+						}, 150);
+					}else{
+						container.append(`<p style="padding:10px;font-size:12px;">Did not find any free image for category: '${c}' and keyword:'${k}'</p>`);
+					}
+				});
+			}
 		}
 	</script>
 </head>
