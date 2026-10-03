@@ -223,5 +223,11 @@
         "Provide a highly structured, analytical breakdown detailing the linguistic rules governing the pattern",
         "Give clear, contextual example sentences for every word provided",
         "Translate all generated example sentences into the specified target language"
+    ],
+    "VocabWord":[
+        "Context: Arabic Vocabulary and Morphology",
+        "Words: @0",
+        "For all the words given, describe grammar and morphology in brief",
+        "Provide with clear examples for each case" 
     ]
 }

@@ -1021,6 +1021,23 @@ async function listVocabulary(){
 		getLocationPath()+'data/grmr/homonym.json'
 	];
 
+	function newVocabDiv(ids, h3_txt, p1_txt, p2_txt){
+		return $(`
+		<div data-id="${ids}" 	
+			 style="margin:4px;display:inline-block;float:right;width:fit-content;
+			 	    padding:2px;border:1px solid #ccc;border-radius:5px;
+					box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.3);">
+			<h3 style="margin:0;padding:8px;cursor:pointer" 
+			    onmouseenter="$(this).css('background-color','#E6E6FA')" 
+				onmouseleave="$(this).css('background-color','')" 
+				onclick="openGoogleAISearch(getPromptFromKey(['VocabWord'],{'0': ['${h3_txt}']}, true));">${h3_txt}</h3>
+			<p style="margin:0;padding:0;cursor:pointer;" 
+				onmouseenter="$(this).css('background-color','#E6E6FA')" 
+				onmouseleave="$(this).css('background-color','')" 
+				onclick="OpenImageSearchWith(this);">${p1_txt}</p>
+			${!p2_txt ? '':`<p style="margin:0;padding:0;">${p2_txt}</p>`}
+		</div>`);
+	}
     var dataList = await Promise.all(vocabList.map((d) => ensureDataLoaded(d)))
 	$(".dictionary").empty();
 	if(dataList && dataList.length > 0){
@@ -1053,55 +1070,40 @@ async function listVocabulary(){
 					key === 'homonyms' ? ' ~ ':
 					';'
 				);
-				var style = `style="margin:auto;display:inline-block;float:right;
-								    width:fit-content;margin:4px;padding:2px;
-									border:1px solid #ccc;border-radius:5px;
-									box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.3);"`;
 				if(words.includes(';')){
 					var wW = words.split(';'); 
 					var txt = key === 'genres' || key === 'colors' ? words : wW[0];
-					div.append($(`<div data-id="${ids}" ${style}>
-						<h3 style="margin:0;padding:8px;">${txt}</h3>
-						<p style="margin:0;padding:0;cursor:pointer;" onclick="OpenImageSearchWith(this);">
-						${typeof item.en === 'string' ? item.en : item.en[0]}</p>
-						<p style="margin:0;padding:0;">${typeof item.ur === 'string' ? item.ur : item.ur[0]}</p>
-					</div>`));
+					div.append(newVocabDiv(ids, txt, 
+						typeof item.en === 'string' ? item.en : item.en[0],
+						typeof item.ur === 'string' ? item.ur : item.ur[0]));
 					
 					if(key !== 'genres' && key !== 'colors')
-					div.append($(`<div data-id="${ids}" ${style}>
-						<h3 style="margin:0;padding:8px;">${wW[1]}</h3>
-						<p style="margin:0;padding:0;cursor:pointer;" onclick="OpenImageSearchWith(this);">
-						${typeof item.en === 'string' ? item.en : item.en[1]}</p>
-						<p style="margin:0;padding:0;">${typeof item.ur === 'string' ? item.ur : item.ur[1]}</p>
-					</div>`));
-				}else{
+					div.append(newVocabDiv(ids, txt, wW[1], 
+						typeof item.en === 'string' ? item.en : item.en[1],
+						typeof item.ur === 'string' ? item.ur : item.ur[1]
+					));
+				}
+				else{
 					if(key === 'actions' && arr.length == 4){
 						words = words.replace(/^(.*\-.*)\-(.*\-.*)$/ig, '$1');
 					}
 					if(key === 'alphabets'){
 						var en = item.enName.split("|");
 						words.split("|").forEach((w, i) => {
-							div.append($(`
-							<div data-id="${w[0]}" ${style}>
-							<h3 style="margin:0;padding:8px;">${w}</h3>
-							<p style="margin:0;padding:0;cursor:pointer;" onclick="OpenImageSearchWith(this);">${en[i] ?? ''}</p>
-							</div>`));
+							div.append(newVocabDiv(w[0], w, en[i] ?? ''));
 						});
 					}
 					else{
 						var inlcudesX = words.includes('x');
-						div.append($(`<div data-id="${ids}" ${style}>
-						<h3 style="margin:0;padding:8px;">${words}</h3>
-						<p style="margin:0;padding:0;cursor:pointer;" onclick="OpenImageSearchWith(this);">
-						${inlcudesX || words.includes('~') ?
-								`${item.en.length == 4 ? `${item.en[0].split(',')[0]} ${inlcudesX ? ' x ' : ' ~ '} ${item.en[2].split(',')[0]}` :
-									`${item.en[0].split(',')[0]} ${inlcudesX ? ' x ' : ' ~ '} ${item.en[1].split(',')[0]}`}` :
-								item.en ?? ''}</p>
-						<p style="margin:0;padding:0;">${words.includes('x') || words.includes('~') ?
-								`${item.ur.length == 4 ? `${item.ur[0]} ${inlcudesX ? ' x ' : ' ~ '} ${item.ur[2]}` :
-									`${item.ur[0]} ${inlcudesX ? ' x ' : ' ~ '} ${item.ur[1]}`}` :
-								item.ur ?? ''}</p>
-						</div>`));
+						div.append(newVocabDiv(ids, words, 
+							(inlcudesX || words.includes('~')) ?
+								item.en.length == 4 ? `${item.en[0].split(',')[0]} ${inlcudesX ? ' x ' : ' ~ '} ${item.en[2].split(',')[0]}` :
+									`${item.en[0].split(',')[0]} ${inlcudesX ? ' x ' : ' ~ '} ${item.en[1].split(',')[0]}` :
+								item.en ?? '',
+							(inlcudesX || words.includes('~')) ?
+								item.ur.length == 4 ? `${item.ur[0]} ${inlcudesX ? ' x ' : ' ~ '} ${item.ur[2]}` :
+									`${item.ur[0]} ${inlcudesX ? ' x ' : ' ~ '} ${item.ur[1]}` :
+								item.ur ?? ''));
 					}
 				}
 			});
