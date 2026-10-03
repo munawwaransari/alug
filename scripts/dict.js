@@ -1115,8 +1115,8 @@ async function listVocabulary(){
 		//Add filters
 		var div2 = $(`<div class="iFilter" style="display:inline-block; width:100%;"></div>`);
 		div2.insertBefore(div);
-		filters.sort().forEach((f) => {
-			div2.append($(`<a href="#" onclick="filterVocab(this, '${f}')">&nbsp;${f}&nbsp;</a>`));
+		filters.sort().forEach((f,i) => {
+			div2.append($(`<a href="#" ${i===0 ? 'style="color:red"':''} onclick="filterVocab(this, '${f}')">&nbsp;${f}&nbsp;</a>`));
 		});
 		//U+2303 (⌃) , //U+2304 (⌄)
 		div2.append($(`<a href="#" style="color:red" onclick="toggleVocabFilters(this,'\u2303','\u2304')">&nbsp;&nbsp;\u2303&nbsp;&nbsp;</a>`));
