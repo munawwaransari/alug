@@ -368,6 +368,8 @@ function playCard(text, altText){
 	if(parent.playText) {
 		if(text === 'undefined')
 			parent.playText(altText, 'en-US', {'en-US': altText});
+		else if(text?.includes('<'))
+			parent.playText(text.replaceAll(/\<.?[a-zA-Z]+\>/ig,''), 'ar-SA', {'en-US': altText});
 		else
 			parent.playText(text, 'ar-SA', {'en-US': altText});
 	}

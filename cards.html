@@ -426,13 +426,13 @@
 		
 		function drawColors(div, color){		
 		  	var tooltip = color.en;		  		             
-			var backColor = 'color:'+invertColor(color.color);
+			var backColor = `color:${color.color === '#708090' ? '#FFFFFF' : invertColor(color.color)}`;
 			var backStyle = 'style="background-color:'+color.color+';"';
 			var content = `
 			<p style="font-size:38px;margin:auto;align-content:middle;:50px;${backColor}">
 				XYZ
 				<br/><span style="font-size:28px;${backColor}">${color.en}</span>
-				<br/><span style="font-size:32px;${backColor}">${color.ur}</span>
+				<br/><span style="font-size:32px;${backColor}"><sub>${color.ur}</sub></span>
 				<br/><span style="font-size:18px;${backColor};">(${color.color.replace("#",'')})</span>
 			</p>`;
 							
