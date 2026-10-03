@@ -1021,9 +1021,9 @@ async function listVocabulary(){
 		getLocationPath()+'data/grmr/homonym.json'
 	];
 
-	function newVocabDiv(ids, h3_txt, p1_txt, p2_txt){
+	function newVocabDiv(key, ids, h3_txt, p1_txt, p2_txt){
 		return $(`
-		<div data-id="${ids}" 	
+		<div data-id="${ids}" class="${key}" 	
 			 style="margin:4px;display:inline-block;float:right;width:fit-content;
 			 	    padding:2px;border:1px solid #ccc;border-radius:5px;text-align:center;
 					box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.3);">
@@ -1054,6 +1054,9 @@ async function listVocabulary(){
 
 		Object.keys(vocabData).forEach((key) => {
 			vocabData[key].forEach((item) => {
+				if(filters.indexOf(key) === -1){
+					filters.push(key);
+				} 
 				var itemArray = item.imageName ? [item.imageName] : item.names;
 				var arr =   itemArray.map((x)=>{
 					if(x[0] && x[0] !== '>' && x[0] !== '<' && !(x[0] >= 'A' && x[0] <= 'Z')
@@ -1073,12 +1076,12 @@ async function listVocabulary(){
 				if(words.includes(';')){
 					var wW = words.split(';'); 
 					var txt = key === 'genres' || key === 'colors' ? words : wW[0];
-					div.append(newVocabDiv(ids, txt, 
+					div.append(newVocabDiv(key, ids, txt, 
 						typeof item.en === 'string' ? item.en : item.en[0],
 						typeof item.ur === 'string' ? item.ur : item.ur[0]));
 					
 					if(key !== 'genres' && key !== 'colors')
-					div.append(newVocabDiv(ids, txt, wW[1], 
+					div.append(newVocabDiv(key, ids, txt, wW[1], 
 						typeof item.en === 'string' ? item.en : item.en[1],
 						typeof item.ur === 'string' ? item.ur : item.ur[1]
 					));
@@ -1090,12 +1093,12 @@ async function listVocabulary(){
 					if(key === 'alphabets'){
 						var en = item.enName.split("|");
 						words.split("|").forEach((w, i) => {
-							div.append(newVocabDiv(w[0], w, en[i] ?? ''));
+							div.append(newVocabDiv(key, w[0], w, en[i] ?? ''));
 						});
 					}
 					else{
 						var inlcudesX = words.includes('x');
-						div.append(newVocabDiv(ids, words, 
+						div.append(newVocabDiv(key, ids, words, 
 							(inlcudesX || words.includes('~')) ?
 								item.en.length == 4 ? `${item.en[0].split(',')[0]} ${inlcudesX ? ' x ' : ' ~ '} ${item.en[2].split(',')[0]}` :
 									`${item.en[0].split(',')[0]} ${inlcudesX ? ' x ' : ' ~ '} ${item.en[1].split(',')[0]}` :
@@ -1138,16 +1141,22 @@ function toggleVocabFilters(el, upChar, downChar){
 function filterVocab(el, val){
 	if(!el.innerHTML.includes('Clear')){
 		$(".iFilter a.selected").removeClass();
-		$(`#divVocab div[data-id]`).each(function(){
-			var attr = $(this).attr('data-id').split("|");
-			if(attr.some((x)=> x == val)){
-				$(this).show();
-				$(el).removeClass('selected');
-				$(el).addClass('selected');
-			}else{
-				$(this).hide();
-			}
-		});
+		if(val.length > 1){
+			$('#divVocab div').hide();
+			$(`#divVocab .${val}`).show();
+			$(el).addClass('selected');
+		}else{
+			$(`#divVocab div[data-id]`).each(function(){
+				var attr = $(this).attr('data-id').split("|");
+				if(attr.some((x)=> x == val)){
+					$(this).show();
+					$(el).removeClass('selected');
+					$(el).addClass('selected');
+				}else{
+					$(this).hide();
+				}
+			});
+		}
 	}else{
 		$(".iFilter a.selected").removeClass();
 		$('#divVocab div').show();
