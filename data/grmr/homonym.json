@@ -125,6 +125,36 @@
 			"en": ["Hair", "Poetry"],
 			"ur": ["شعر", "کلام"],
 			"category": ""
+        },
+		{
+            "names": ["ظَعْن", "ضَعْن"],
+			"en": ["Departure", "Weakness"],
+			"ur": ["روانگی", "کمزوری"],
+			"category": ""
+        },
+		{
+            "names": ["ظَفَر", "ظِفر"],
+			"en": ["Victory", "Nail"],
+			"ur": ["فتح", "ناخن"],
+			"category": ""
+        },
+		{
+            "names": ["آذَان", "أَذَان"],
+			"en": ["Ears", "Call to prayer"],
+			"ur": ["کان", "اَذان"],
+			"category": ""
+        },
+		{
+            "names": ["آَمِر", "عَامِر"],
+			"en": ["Commander", "Prosperous"],
+			"ur": ["حاکم", "خوشحال"],
+			"category": ""
+        },
+		{
+            "names": ["حَبّ", "حُبّ"],
+			"en": ["Seed", "Love"],
+			"ur": ["بیج", "محبت"],
+			"category": ""
         }
     ]
 }

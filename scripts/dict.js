@@ -1025,7 +1025,7 @@ async function listVocabulary(){
 		return $(`
 		<div data-id="${ids}" 	
 			 style="margin:4px;display:inline-block;float:right;width:fit-content;
-			 	    padding:2px;border:1px solid #ccc;border-radius:5px;
+			 	    padding:2px;border:1px solid #ccc;border-radius:5px;text-align:center;
 					box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.3);">
 			<h3 style="margin:0;padding:8px;cursor:pointer" 
 			    onmouseenter="$(this).css('background-color','#E6E6FA')" 
@@ -1102,7 +1102,7 @@ async function listVocabulary(){
 								item.en ?? '',
 							(inlcudesX || words.includes('~')) ?
 								item.ur.length == 4 ? `${item.ur[0]} ${inlcudesX ? ' x ' : ' ~ '} ${item.ur[2]}` :
-									`${item.ur[0]} ${inlcudesX ? ' x ' : ' ~ '} ${item.ur[1]}` :
+									`${item.ur[1]} ${inlcudesX ? ' x ' : ' ~ '} ${item.ur[0]}` :
 								item.ur ?? ''));
 					}
 				}
@@ -1137,16 +1137,19 @@ function toggleVocabFilters(el, upChar, downChar){
 
 function filterVocab(el, val){
 	if(!el.innerHTML.includes('Clear')){
-		//$(`#divVocab div:not([data-id^="${val}"])`).hide();
+		$(".iFilter a.selected").removeClass();
 		$(`#divVocab div[data-id]`).each(function(){
 			var attr = $(this).attr('data-id').split("|");
 			if(attr.some((x)=> x == val)){
 				$(this).show();
+				$(el).removeClass('selected');
+				$(el).addClass('selected');
 			}else{
 				$(this).hide();
 			}
 		});
 	}else{
+		$(".iFilter a.selected").removeClass();
 		$('#divVocab div').show();
 	}
 }
