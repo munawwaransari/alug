@@ -1034,7 +1034,7 @@ async function listVocabulary(){
 			<p style="margin:0;padding:0;cursor:pointer;" 
 				onmouseenter="$(this).css('background-color','#E6E6FA')" 
 				onmouseleave="$(this).css('background-color','')" 
-				onclick="OpenImageSearchWith(this);">${p1_txt}</p>
+				onclick="OpenImageSearchWith(this);">${p1_txt.replaceAll(/\<.?[a-zA-Z]+\>/ig,'')}</p>
 			${!p2_txt ? '':`<p style="margin:0;padding:0;">${p2_txt}</p>`}
 		</div>`);
 	}
@@ -1076,6 +1076,9 @@ async function listVocabulary(){
 				if(words.includes(';')){
 					var wW = words.split(';'); 
 					var txt = key === 'genres' || key === 'colors' ? words : wW[0];
+					if(key === 'colors' && words.at(-1) !== 'ء' && words.at(-1) !== 'ة'){
+						txt = words.split(";")[0];
+					}
 					div.append(newVocabDiv(key, ids, txt, 
 						typeof item.en === 'string' ? item.en : item.en[0],
 						typeof item.ur === 'string' ? item.ur : item.ur[0]));
