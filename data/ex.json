@@ -187,6 +187,24 @@
 				"وَيُسۡقَوۡنَ فِيهَا كَأۡسٗا كَانَ مِزَاجُهَا زَنجَبِيلًا [76:17]",
 				"وَمَا   كَانَ   أَكۡثَرُهُم   مُّؤۡمِنِينَ [26:174]"
 			]
+		},
+		"اتّخذ": {
+			"en": "(Nuances)",
+			"info": [
+				"<p style=\"direction:ltr;background-color:white;\"><b>Linguistically</b>:<br/>carries the connotation of deliberate effort in taking, adopting, or fashioning something for oneself (due to the Form VIII structure, which often denotes self-reflexivity or intensity).</p>",
+				"<p style=\"direction:ltr;background-color:white;\"><b>In the Quran</b>:<br/>When humans are the subject, the Quran uses ittakhadha to expose a deliberate, misplaced psychological substitution.<br/><br/>When Allah is the subject of ittakhadha, it denotes a profound, deliberate honoring of a creation, elevating them to an irreplaceable status.</p>"
+			],
+			"examples": [
+				"<br/><u>Linguistically</u>",
+				"إِنَّ الشَّيْطَانَ لَكُمْ عَدُوٌّ فَاتَّخِذُوهُ عَدُوًّا [35:6]",
+				"قُلۡ   أَغَيۡرَ   ٱللَّهِ   أَتَّخِذُ   وَلِيّٗا [6:14]",
+				"يَٰوَيۡلَتَىٰ   لَيۡتَنِي   لَمۡ   أَتَّخِذۡ   فُلَانًا   خَلِيلٗا [25:28]",
+				"<br/><u>In the Quran</u>",
+				"أَرَأَيْتَ مَنِ اتَّخَذَ إِلَٰهَهُ هَوَاهُ [25:43]",
+				"اتَّخَذُوا أَيْمَانَهُمْ جُنَّةً [58:16]",
+				"مَا اتَّخَذَ اللَّهُ مِن وَلَدٍ [23:91]",
+				"وَٱتَّخَذَ   ٱللَّهُ   إِبۡرَٰهِيمَ   خَلِيلٗا [4:125]"
+			]
 		}
 	},
 	"objects": {
