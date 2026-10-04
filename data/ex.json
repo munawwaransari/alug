@@ -170,11 +170,20 @@
 		"كَانَ": {
 			"en": "(Nuances)",
 			"info": [
-				"<p style=\"direction:ltr;background-color:white;\"><b>Timeless / Eternal Present (الدَّوَام وَالِاسْتِمْرَار)</b>:<br/>When كَانَ is used in reference to Allah and His attributes, it does not denote a past state. It signifies an absolute, permanent, and timeless truth—implying that a quality always was, currently is, and will forever be true.</p>",
-				"<p style=\"direction:ltr;background-color:white;\"><b>Certainty of Future Events (تَحْقِيق الْوُقُوع)</b>:<br/>Using كَانَ for a future promise or decree signals that the event is so guaranteed to happen that it can be spoken of as if it has already occurred.</p>"
+				"<p style=\"direction:ltr;background-color:white;\"><b>Temporal Shift(تحوّل زمني)</b>:<br/>In classical language, it denotes past existence (\"he was\") or shifts a present state to the past.</p>",
+				"<p style=\"direction:ltr;background-color:white;\"><b>Timeless / Eternal Presence (الدَّوَام وَالِاسْتِمْرَار)</b>:<br/>When كَانَ is used in reference to Allah and His attributes, it does not denote a past state. It signifies an absolute, permanent, and timeless truth—implying that a quality always was, currently is, and will forever be true.</p><p style=\"direction:ltr;background-color:white;\"><b>Certainty of Future Events (تَحْقِيق الْوُقُوع)</b>:<br/>Using كَانَ for a future promise or decree signals that the event is so guaranteed to happen that it can be spoken of as if it has already occurred.</p>"
 			],
 			"examples": [
-				"وَكَانَ   ٱللَّهُ   عَفُوًّا   غَفُورٗا [4:99]",
+				"<br/><u>Temporal Shift</u>",
+				"كَانُواْ لَا يَتَنَاهَوۡنَ عَن مُّنكَرٖ فَعَلُوهُۚ [5:79]",
+				"وَكَانَ   أَبُوهُمَا   صَٰلِحٗا [18:82]",
+				"عَلِمَ   أَن   سَيَكُونُ   مِنكُم   مَّرۡضَىٰ [73:20]",
+				"<br/><u>Timeless / Eternal Present</u>",
+				"وَكَانَ  ٱللَّهُ  عَفُوًّا  غَفُورٗا [4:99]",
+				"وَكَانَ   ٱللَّهُ   بِكُلِّ   شَيۡءٖ   مُّحِيطٗا [4:126]",
+				"<br/><u>Certainty of Future Events</u>",
+				"وَكَانَ   ٱلشَّيۡطَٰنُ   لِرَبِّهِۦ   كَفُورٗا [17:27]",
+				"وَكَانَ الْإِنسَانُ عَجُولًا [17:11]",
 				"وَيُسۡقَوۡنَ فِيهَا كَأۡسٗا كَانَ مِزَاجُهَا زَنجَبِيلًا [76:17]",
 				"وَمَا   كَانَ   أَكۡثَرُهُم   مُّؤۡمِنِينَ [26:174]"
 			]
