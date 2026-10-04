@@ -1443,7 +1443,7 @@ function showInadequateVerbTable(d, ii) {
 					<td style="min-width:300px;"><b>${k} ${inadVerbs[k].en}</b></td>
 				</tr>
 				<tr style="background-color:#E8E885;">
-					<td>${inadVerbs[k].info[0]}<br/>${inadVerbs[k].info[1]}</td>
+					<td>${inadVerbs[k].info[0]}${inadVerbs[k].info[0].at(0) !== '<' ?'<br/>':''}${inadVerbs[k].info[1]}</td>
 				</tr>
 				<tr>
 					<td>${inadVerbs[k].examples.map((x)=>replaceQLink(x)).join('<br/>')}

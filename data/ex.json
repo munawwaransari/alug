@@ -166,6 +166,18 @@
 				"مابرح الجوء لَطيفًا<br/>Weather is still nice",
 				"مازال الطِّفلُ نَائمًا<br/>The baby is still asleep"
 			]
+		},
+		"كَانَ": {
+			"en": "(Nuances)",
+			"info": [
+				"<p style=\"direction:ltr;background-color:white;\"><b>Timeless / Eternal Present (الدَّوَام وَالِاسْتِمْرَار)</b>:<br/>When كَانَ is used in reference to Allah and His attributes, it does not denote a past state. It signifies an absolute, permanent, and timeless truth—implying that a quality always was, currently is, and will forever be true.</p>",
+				"<p style=\"direction:ltr;background-color:white;\"><b>Certainty of Future Events (تَحْقِيق الْوُقُوع)</b>:<br/>Using كَانَ for a future promise or decree signals that the event is so guaranteed to happen that it can be spoken of as if it has already occurred.</p>"
+			],
+			"examples": [
+				"وَكَانَ   ٱللَّهُ   عَفُوًّا   غَفُورٗا [4:99]",
+				"وَيُسۡقَوۡنَ فِيهَا كَأۡسٗا كَانَ مِزَاجُهَا زَنجَبِيلًا [76:17]",
+				"وَمَا   كَانَ   أَكۡثَرُهُم   مُّؤۡمِنِينَ [26:174]"
+			]
 		}
 	},
 	"objects": {
