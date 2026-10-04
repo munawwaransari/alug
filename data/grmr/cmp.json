@@ -1141,6 +1141,47 @@
     {
         "compareType":"lang",
         "topics":[
+            "علم المعاجم (Lexicology)"
+        ],
+        "notes": "",
+        "ar": [
+            "تعريف",
+            "الاشتقاق والجذور",
+            "المشترك اللفظي والدلالة",
+            "المعرب والدخيل",
+            "معاجم اللغة العربية"
+        ],
+        "en": [
+            "Definition",
+            "Derivation & word roots",
+            "Polysemy & Contextual Meaning",
+            "Loanwords and Arabicization",
+            "Classical Arabic Dictionaries"
+        ],
+        "features":{
+            "علم المعاجم (Lexicology)": [
+                "<p style=\"direction:ltr;\">It is the branch of Arabic linguistics concerned with collecting vocabulary, studying the structural, morphological, and semantic properties of words, explaining their meanings, and developing methodologies for organizing dictionaries.</p>",
+                "<p style=\"direction:ltr;\">Arabic is a highly structured, semitic language built on a root-and-pattern system. This topic examines how a three- or four-letter root (الجذر) can expand into various nouns, verbs, and adjectives using distinct morphological templates (الأوزان).</p>",
+                "<p style=\"direction:ltr;\">This involves mapping words that share identical spellings and pronunciations but hold entirely different meanings based on how they are used.<br/>See Vocabulary</p>",
+                "<p style=\"direction:ltr\">As Islam expanded, Arabic integrated foreign vocabulary from neighboring civilizations (Persian, Syriac, Greek, Hebrew). Lexicographers categorize these into Mu'arrab (foreign words modified to fit Arabic phonetic scales) and Dakhil (foreign words inserted directly without structural alteration).</p>",
+                "<p style=\"direction:ltr\"><b>Dictionaries of meaning (معاجم المعاني)</b>:<br/>These dictionaries arrange vocabulary by subject matter rather than alphabetical lettering.<br/>e.g. Al-Mukhassas (المخصص) by Ibn Sidah,<br/>Fiqh al-Lughah wa Sirr al-Arabiyyah (فقه اللغة وسر العربية) by Al-Tha'alibi<br/><br/><b>Dictionaries of Words (معاجم الألفاظ)</b>:<br/><u>Arranged by phonemes</u><br/>e.g. Kitab al-Ayn (كتاب العين) by Al-Khalil ibn Ahmad al-Farahidi<br/><br/><u>Arranged according to the last radical letter of the root (باب and فصل)</u><br/>e.g. Lisan al-Arab (لسان العرب) by Ibn Manzur and <br/>Al-Qamus al-Muhit (القاموس المحيط) by Al-Fayruzabadi<br/><br/><u>Arranged logically from the first letter to the last letter of the root, identical to modern conventions</u><br/>e.g. Asas al-Balagha (أساس البلاغة) by Al-Zamakhshari</p>"
+            ]
+        },
+        "features_links": {
+            "root-and-pattern system": "'dict.html','lang','pos:6'",
+            "Mu'arrab": "'dict.html','lang','pos:7'",
+            "Vocabulary": "'cards.html','vocab','homonym'",
+            "Al-Mukhassas (المخصص) by Ibn Sidah": "https://archive.org/details/kitab-almukhasas",
+            "Fiqh al-Lughah wa Sirr al-Arabiyyah (فقه اللغة وسر العربية) by Al-Tha'alibi": "https://archive.org/details/almoamltv_gmail_20130913",
+            "Kitab al-Ayn (كتاب العين) by Al-Khalil ibn Ahmad al-Farahidi": "https://archive.org/details/fra_20210729",
+            "Asas al-Balagha (أساس البلاغة) by Al-Zamakhshari": "https://arabiclexicon.hawramani.com/al-zamakhshari-asas-al-balagha/",
+            "Lisan al-Arab (لسان العرب) by Ibn Manzur": "https://archive.org/details/in.ernet.dli.2015.432647",
+            "Al-Qamus al-Muhit (القاموس المحيط) by Al-Fayruzabadi": "https://archive.org/details/in.ernet.dli.2015.432321"
+        }
+    },
+    {
+        "compareType":"lang",
+        "topics":[
             "الجذر والوزن (Root & Pattern)"
         ],
         "notes": "",
@@ -1555,7 +1596,7 @@
             "مع سلسلة إضافية متعددة"
         ],
         "en": [
-            "Possessive Compund",
+            "Possessive Compound",
             "With superlative",
             "Appropriation",
             "With multiple مُضاف chain"
@@ -1579,7 +1620,7 @@
             "المركب التوصيفي"
         ],
         "en": [
-            "Adjectival Compund"
+            "Adjectival Compound"
         ],
         "features": {
             "المركب التوصيفي (Adjectival Construction)":[

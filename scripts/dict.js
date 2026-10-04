@@ -1947,7 +1947,7 @@ function getGrammarChart(){
             ├───[Particles]
             ├───[Adverbs]
             └───[Exceptions & Exclusions]
-[COMPUND]
+[COMPOUND]
   ├─[مركب الاضافي] Possesive Construction
   ├─[مركب التوصيفي] Adjectival Construction
   ├─[مركب الجاري] Prepositional Construction

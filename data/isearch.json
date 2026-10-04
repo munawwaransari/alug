@@ -466,40 +466,28 @@
         "data": "pos:4",
         "order": 107
     },
-    "Root and Pattern;الجذر;الوزن;": {
+    "Lexicology;علم المعاجم": {
         "path": "dict.html",
         "action": "lang",
         "data": "pos:5",
+        "order": 107
+    },
+    "Root and Pattern;الجذر;الوزن;": {
+        "path": "dict.html",
+        "action": "lang",
+        "data": "pos:6",
         "order": 109
-    },
-    "Apparent Erab;الإعراب الظاهري;": {
-        "path": "dict.html",
-        "action": "lang",
-        "data": "pos:6",
-        "order": 101
-    },
-    "Erab by position;الإعراب المحلي;": {
-        "path": "dict.html",
-        "action": "lang",
-        "data": "pos:6",
-        "order": 102
-    },
-    "Estimated Erab;الإعراب المقدر;": {
-        "path": "dict.html",
-        "action": "lang",
-        "data": "pos:6",
-        "order": 103
     },
     "Foreign Words (Arabicized);مُعَرَّب;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:6",
+        "data": "pos:7",
         "order": 104
     },
     "Honorific Names (Kunya);كُنْيَة;أسماء وكنى;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:7",
+        "data": "pos:8",
         "order": 104
     },
     "Grammar Markers;إعراب;": {
