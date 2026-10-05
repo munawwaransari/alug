@@ -2238,9 +2238,8 @@ function getPinIcon(id, subId, doc){
 	return doc.getElementById('dbrd').style.display != "none" ?
 	`&nbsp;
 	<a style="float:right;">
-		<img alt="Pin to Dashboard" 
-		        class="pinIcon"
-				src="images/pin.png"
+		<img alt="Pin to Dashboard" title="Pin to Dashboard" 
+		        class="pinIcon" src="images/pin.png"
 				onclick="convertElementToImage($('#${id}')[0],
 					{
 						'eId': '${id}',

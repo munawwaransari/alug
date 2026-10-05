@@ -121,6 +121,7 @@ class cmpAPI {
 				$("#xTable tbody").append(`
 				<tr>
 					<td colspan="${topics.length}" style="font-size: 16px;">
+						${getPinIcon('xTable',' tbody:first',parent.document)}
 						<a href="#" onclick="
 						var prompts = getPromptFromKey (
 							['Topics'], 
@@ -131,9 +132,10 @@ class cmpAPI {
 							]}
 						);
 						openGoogleAISearch(prompts[0]);">
-						Google ai search
+						<img loading="lazy"  title="Google ai search"
+							 src="images/ai-search.png" 
+							 style="float:right;width:20px;padding-right:8px;"/>
 						</a>
-						${getPinIcon('xTable',' tbody:first',parent.document)}
 					</td>
 				</tr>`);
 			}
