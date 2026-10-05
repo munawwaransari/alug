@@ -1028,9 +1028,9 @@ async function listVocabulary(){
 			 	    padding:2px;border:1px solid #ccc;border-radius:5px;text-align:center;
 					box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.3);">
 			<h3 style="margin:0;padding:8px;cursor:pointer" 
-			    onmouseenter="$(this).css('background-color','#E6E6FA')" 
-				onmouseleave="$(this).css('background-color','')" 
-				onclick="openGoogleAISearch(getPromptFromKey(['VocabWord'],{'0': ['${h3_txt}']}, true));">${h3_txt}</h3>
+			    onmouseenter="$(this).css('background-color','#E6E6FA'); addSearchIcon(this, true);" 
+				onmouseleave="$(this).css('background-color','');addSearchIcon(this, false)" 
+				onclick="selectWord('${h3_txt}')">${h3_txt}</h3>
 			<p style="margin:0;padding:0;cursor:pointer;" 
 				onmouseenter="$(this).css('background-color','#E6E6FA')" 
 				onmouseleave="$(this).css('background-color','')" 
@@ -1163,6 +1163,17 @@ function filterVocab(el, val){
 	}else{
 		$(".iFilter a.selected").removeClass();
 		$('#divVocab div').show();
+	}
+}
+
+function addSearchIcon(el, add){
+	var txt = $(el).text().trim();
+	$(el).find("img").remove();
+	if(add){
+		$(`<img loading="lazy" 
+	            src="images/ai-search.png" style="float:left;width:16px;padding-right:4px;"
+				onclick="openGoogleAISearch(getPromptFromKey(['VocabWord'],{'0': ['${txt}']}, true));"/>`)
+		.prependTo(el);
 	}
 }
 
