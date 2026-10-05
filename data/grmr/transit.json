@@ -1,0 +1,88 @@
+{
+    "transit": [
+        {
+            "names": ["يسار", "يمين"],
+			"en": ["Left","Right"],
+			"ur": ["بایاں","دایاں"],
+			"category": "directions"
+        },
+		{
+            "names": ["سيارة", "حافلة"],
+			"en": ["Car","Bus"],
+			"ur": ["کار","بس"],
+			"category": "travel"
+        },
+		{
+            "names": ["قطار", "طائرة"],
+			"en": ["Train","Airplane"],
+			"ur": ["ٹرین","ہوائی جہاز"],
+			"category": "travel"
+        },
+		{
+            "names": ["محطة", "مطار"],
+			"en": ["Station","Airport"],
+			"ur": ["اسٹیشن","ہوائی اڈہ"],
+			"category": "travel"
+        },
+		{
+            "names": ["موقف الحافلات", "مكتب التذاكر"],
+			"en": ["Bus Stop","Ticket office"],
+			"ur": ["بس اسٹاپ","ٹکٹ آفس"],
+			"category": "travel"
+        },
+		{
+            "names": ["تذكرة", "حقيبة"],
+			"en": ["Ticket","Luggage"],
+			"ur": ["ٹکٹ","سامان"],
+			"category": "travel"
+        },
+		{
+            "names": ["جواز سفر", "تأشيرة"],
+			"en": ["Passport","Visa"],
+			"ur": ["پاسپورٹ","ویزا"],
+			"category": "travel"
+        },
+		{
+            "names": ["رحلة", "استراحة"],
+			"en": ["Trip","Rest"],
+			"ur": ["سفر","آرام"],
+			"category": "travel"
+        },
+		{
+            "names": ["طريق", "اتجاه"],
+			"en": ["Road","Direction"],
+			"ur": ["سڑک","سمت"],
+			"category": "travel"
+        },
+		{
+            "names": ["إشارة مرور ", "مفترق طرق"],
+			"en": ["Traffic Light","Cross Roads"],
+			"ur": ["ٹریفک لائٹ","چوراہا"],
+			"category": "travel"
+        },
+		{
+            "names": ["رخصة قيادة ", "موقف سيارات"],
+			"en": ["Driving License","Parking Lot"],
+			"ur": ["",""],
+			"category": "travel"
+        },
+		{
+            "names": ["إقلاع ", "موقف هبوط"],
+			"en": ["Take off","Landing"],
+			"ur": ["اڑان بھرنا","اترنا"],
+			"category": "travel"
+        },
+		{
+            "names": ["تفتيش أمني ", "الهجرة"],
+			"en": ["Security Check","Immigration"],
+			"ur": ["","امیگریشن"],
+			"category": "travel"
+        },
+		{
+            "names": ["الفندق ", "إقامة"],
+			"en": ["Hotel","Lodging"],
+			"ur": ["",""],
+			"category": "travel"
+        }
+	]
+}

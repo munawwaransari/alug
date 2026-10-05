@@ -1,0 +1,52 @@
+{
+    "commerce": [
+        {
+            "names": ["سُوق", "تِجَارَة"],
+			"en": ["Market","Trade"],
+			"ur": ["بازار","تجارت"],
+			"category": "commercial"
+        },
+		{
+            "names": ["سِعْر", "ثَمَن"],
+			"en": ["Price","Cost"],
+			"ur": ["قیمت","لاگت"],
+			"category": "commercial"
+        },
+		{
+            "names": ["عَمِيل", "زَبُون"],
+			"en": ["Client","Customer"],
+			"ur": ["کلائنٹ","گاہک"],
+			"category": "commercial"
+        },
+		{
+            "names": ["مُسْتَهْلِك", "مُوَرِّد"],
+			"en": ["Consumer","Supplier"],
+			"ur": ["صارف","فراہم کنندہ"],
+			"category": "commercial"
+        },
+		{
+            "names": ["بِضَاعَة", "مُنْتَج"],
+			"en": ["Merchandise","Product"],
+			"ur": ["سامانِ تجارت","مصنوعہ"],
+			"category": "commercial"
+        },
+		{
+            "names": ["تَخْفِيض", "ضريبة"],
+			"en": ["Discount","Tax"],
+			"ur": ["سامانِ تجارت","ٹیکس"],
+			"category": "commercial"
+        },
+		{
+            "names": ["إيصال", "فاتورة"],
+			"en": ["Receipt","Bill"],
+			"ur": ["رسید","بل"],
+			"category": "commercial"
+        },
+		{
+            "names": ["مَجَّانِيّ", "مِيزَانِيَّة"],
+			"en": ["Free","Budget"],
+			"ur": ["مفت","بجٹ"],
+			"category": "commercial"
+        }
+	]
+}

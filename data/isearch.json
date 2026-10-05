@@ -424,70 +424,76 @@
         "data": "pos:7",
         "order": 100
     },
-    "Language History;تاريخ اللغة العربية":{
+    "Syllabus for Arabic language;المنهج الدراسي":{
         "path": "dict.html",
         "action": "lang",
         "data": "pos:0",
         "order": 109
     },
-    "MSA and Colloqual Arabic;فصحي;عامية;": {
+    "ArabicLanguage History;تاريخ اللغة العربية":{
         "path": "dict.html",
         "action": "lang",
         "data": "pos:1",
         "order": 109
     },
-    "Rhetoric;البلاغة;": {
+    "MSA and Colloqual Arabic;فصحي;عامية;": {
         "path": "dict.html",
         "action": "lang",
         "data": "pos:2",
+        "order": 109
+    },
+    "Rhetoric;البلاغة;": {
+        "path": "dict.html",
+        "action": "lang",
+        "data": "pos:3",
         "order": 108
     },
     "Noun Case;الإِعْرَاب لِلأَسْمَاءِ;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:3",
+        "data": "pos:4",
         "order": 91
     },
     "Grammar;النَّحْو;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:3",
+        "data": "pos:4",
         "order": 105
     },
     "Mood;الاشْتِقَاق;الإِعْرَاب لِلأَفْعَال": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:3",
+        "data": "pos:4",
         "order": 106
     },
     "Morphology;الصرف;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:4",
+        "data": "pos:5",
         "order": 107
     },
     "Lexicology;علم المعاجم": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:5",
+        "data": "pos:6",
         "order": 107
     },
     "Root and Pattern;الجذر;الوزن;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:6",
+        "data": "pos:7",
         "order": 109
     },
     "Foreign Words (Arabicized);مُعَرَّب;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:7",
+        "data": "pos:8",
         "order": 104
     },
     "Honorific Names (Kunya);كُنْيَة;أسماء وكنى;": {
         "path": "dict.html",
         "action": "lang",
-        "data": "pos:8",
+        "data": "pos:9",
         "order": 104
     },
     "Grammar Markers;إعراب;": {

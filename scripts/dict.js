@@ -1011,14 +1011,16 @@ function getIndexEntryIcon(path, action){
 
 async function listVocabulary(){
 	const vocabList = [
-		getLocationPath()+'data/grmr/alpha.json',
-		getLocationPath()+'data/grmr/media.json',
+		getLocationPath()+'data/grmr/transit.json',
+		getLocationPath()+'data/grmr/commerce.json',
 		getLocationPath()+'data/grmr/genres.json',
+		getLocationPath()+'data/grmr/media.json',
 		getLocationPath()+'data/grmr/colors.json',
 		getLocationPath()+'data/grmr/actions.json',
 		getLocationPath()+'data/grmr/antonym.json',
 		getLocationPath()+'data/grmr/synonym.json',
-		getLocationPath()+'data/grmr/homonym.json'
+		getLocationPath()+'data/grmr/homonym.json',
+		getLocationPath()+'data/grmr/alpha.json'
 	];
 
 	function newVocabDiv(key, ids, h3_txt, p1_txt, p2_txt){

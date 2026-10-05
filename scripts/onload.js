@@ -554,6 +554,7 @@ function updateToolDescription(id, opt){
 						"Actions": "actions",
 						"Antonym": "antonym",
 						"Colors": "colors",
+						"Commerce": "commerce",
 						"Countries": "countries",
 						"Genres": "genres",
 						"Greetings": "greetings",
@@ -562,6 +563,7 @@ function updateToolDescription(id, opt){
 						"Media": "media",
 						"Pronouns": "pronouns",
 						"Synonyms": "synonym",
+						"Transit": "transit",
 						"Tajweed": "tajweed"
 					},
 					"Chart" :{

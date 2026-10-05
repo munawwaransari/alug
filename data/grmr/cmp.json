@@ -936,6 +936,54 @@
     {
         "compareType":"lang",
         "topics":[
+            "المنهج الدراسي (Syllabus for Learning)"
+        ],
+        "ar":[
+            "إطار تأسيسي",
+            "الأساسيات الضرورية",
+            "الهوية وآليات التفاعل الاجتماعي",
+            "الإجراءات والمفردات شائعة الاستخدام",
+            "الطلاقة في المحادثة والبلاغة العملية"
+        ],
+        "en":[
+            "Module 1: Foundational Framework",
+            "Module 2: Basic Essentials",
+            "Module 3: Identity & Social Mechanics",
+            "Module 4: High-Frequency Actions & Vocabulary",
+            "Module 5: Conversational Fluency & Practical Rhetoric"
+        ],
+        "features":{
+            "المنهج الدراسي (Syllabus for Learning)":[
+                "<p style=\"direction:ltr;\">The Arabic Landscape<br/>Phonetics & The Sound System<br/>The Root & Pattern System (الجذر والوزن)<br/> Arabicized Vocabulary (المُعَرَّب)<br/></p>",
+                "<p style=\"direction:ltr;\">The Digital & Physical Dictionary (علم المعاجم)<br/>Time, Space, & Numbers<br/>Transit & Navigation<br/>Commerce & The Marketplace<br/></p>",
+                "<p style=\"direction:ltr;\">Greetings, Etiquette, & Fatalism Phrases<br/>Personal Identity & The Technonym (الكُنْيَة)<br/>Possessives & Pointers<br/>Descriptive Modifiers</p>",
+                "<p style=\"direction:ltr;\">The Core Action Matrix (الصرف Applied)<br/>Hospitality, Socializing, & Food Culture<br/>Daily Routines & Home Life<br/></p>",
+                "<p style=\"direction:ltr;\">Conversational Connectors<br/>Idioms & Colloquialisms<br/>Practical Eloquence (علم البلاغة Basics)</p>"
+            ]
+        },
+        "features_links": {
+           "The Arabic Landscape": "'dict.html','lang','pos:2'",
+           "Phonetics & The Sound System": "'dict.html','script','pos:2'",
+           "The Root & Pattern System (الجذر والوزن)": "'dict.html','lang','pos:7'",
+           "The Core Action Matrix (الصرف Applied)":"'dict.html','lang','pos:5'",
+           "Arabicized Vocabulary (المُعَرَّب)": "'dict.html','lang','pos:8'",
+           "The Digital & Physical Dictionary (علم المعاجم)": "'dict.html','lang','pos:6'",
+           "Time":"'clock.html','Misc','clock'",
+           "Number":"'number.html','Misc','number'",
+           "Transit & Navigation":"'cards.html','Vocab','transit'",
+           "Commerce & The Marketplace": "'cards.html','Vocab','commerce'",
+           "Greetings, Etiquette, & Fatalism Phrases": "'cards.html','Vocab','greetings'",
+           "Personal Identity & The Technonym (الكُنْيَة)":"'dict.html','lang','pos:9'",
+           "Conversational Connectors": "'dict.html','prep-ph',''",
+           "Idioms & Colloquialisms": "'dict.html','proverb-ph',''",
+           "Possessives":"'dict.html','grammar','pos:11'",
+           "Descriptive Modifiers":"'dict.html','grammar','pos:12'",
+           "Pointers":"'dict.html','grammar','pos:13'"
+        }
+    },
+    {
+        "compareType":"lang",
+        "topics":[
             "تاريخ اللغة العربية (History)"
         ],
         "ar":[
