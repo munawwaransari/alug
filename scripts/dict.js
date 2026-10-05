@@ -145,7 +145,7 @@ function selectIndexAndTrigger(index, filterClass) {
 }
 
 function selectWord(text) {
-	$("#wordSearchText").val(text);
+	$("#wordSearchText").val(posAPIObj.removeDiacritics(text));
 	var inp = document.getElementById('wordSearchText');
 	fireInputEvent(inp);
 }
