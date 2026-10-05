@@ -1022,6 +1022,7 @@ async function listVocabulary(){
 	];
 
 	function newVocabDiv(key, ids, h3_txt, p1_txt, p2_txt){
+		const SEP_MATCH = /[x~|;]/ig;
 		return $(`
 		<div data-id="${ids}" class="${key}" 	
 			 style="margin:4px;display:inline-block;float:right;width:fit-content;
@@ -1030,7 +1031,16 @@ async function listVocabulary(){
 			<h3 style="margin:0;padding:8px;cursor:pointer" 
 			    onmouseenter="$(this).css('background-color','#E6E6FA'); addSearchIcon(this, true);" 
 				onmouseleave="$(this).css('background-color','');addSearchIcon(this, false)" 
-				onclick="selectWord('${h3_txt}')">${h3_txt}</h3>
+				${h3_txt.includes('|')||h3_txt.includes('~')||h3_txt.includes(';')||h3_txt.includes('x') ?
+				   '':`onclick="selectWord('${h3_txt}')"`
+				}>
+				${h3_txt.match(SEP_MATCH) !== null ?
+					h3_txt.split(SEP_MATCH)
+						.map(x=>`<span onclick="selectWord('${x?.trim()}')">${x?.trim()}</span>`)
+						.join(h3_txt.match(SEP_MATCH)[0])
+					:h3_txt
+				}
+			</h3>
 			<p style="margin:0;padding:0;cursor:pointer;" 
 				onmouseenter="$(this).css('background-color','#E6E6FA')" 
 				onmouseleave="$(this).css('background-color','')" 
