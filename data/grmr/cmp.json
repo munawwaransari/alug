@@ -1167,7 +1167,7 @@
         "features":{
             "العلم الصرف (Morphology)": [
                 "script: getMorphologyChart()",
-                "<p style=\"direction:ltr;\"><img style=\"max-width:600px;\" src=\"images\\sarfmatrix.jpg\"></img>",
+                "<p style=\"direction:ltr;\"><img style=\"width:80vw;\" src=\"images\\sarfmatrix.jpg\"></img>",
                 "<p style=\"direction:ltr;\"><b>The Root (الْجِذْر - Al-Jidhr)</b>:<br/> Typically made up of a three-letter consonant sequence (a triliteral root) that carries the fundamental, abstract meaning. Sarf dictates how the root shifts across tenses, voices, and actions.<br/><br/><b>ك - ت - ب</b><br/><b> (K-T-B, associated with writing)</b><br/><br/><b>و - ص - ل</b><br/><b> (W-S-L, associated with arriving / connecting)</b></p>",
                 "<p style=\"direction:ltr;\"><p style=\"direction:ltr;\"><b>The Pattern or Template (الْوَزْن - Al-Wazn)</b>:<br/>The morphological blueprint or weight. This is the vowel framework (along with specific prefixes, infixes, or suffixes) into which the root consonants are poured to produce an actual word, determining the specific action, tense, or grammatical voice.<br/><br/>Arab grammarians use the template root ف ع ل (Fa-‘a-la) as a universal measuring scale to analyze word structures, vowels, and added letters<br/><b>ع - ل - م</b><br/><b> (A'-L-M, associated with knowing)</b><br/>الوزن: فَعِلَ => عَلِمَ<br/> الوزن: فَعَّلَ => عَلَّمَ<br/>الوزن: اَفْعَلَ => اَعَلَمُ<br/><br/><b>ق - و - ل</b><br/><b> (Q-W-L, to say)</b><br/>الوزن: فَعَلْتُ => قُلْتُ<br/>الوزن: يَفْعُلُ => يَقُولُ<br/>الوزن: فَاعِلْ => قَائِل</p>"
             ]
