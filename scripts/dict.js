@@ -1887,7 +1887,7 @@ function getMorphologyChart(){
 				text-align:left;
 				white-space:pre-wrap;
 				word-wrap:break-word;
-				max-width: 100%; ">
+				max-width: 100vw; ">
 [ROOT]
   ├───[Verb Forms]
   │     ├───[Basic: Forms I to X]	   
