@@ -730,13 +730,11 @@ class posAPI {
 				 	<a style="text-decoration:none" href="#" 
 					onclick="$('#vTable${key[1]} tr[id*=_ex]').toggle();
 					         $('#vTable${key[1]} tr[id*=_notes]').toggle();
-							 $(this).text().trim() == 'Ex(-)' ?
-							 	$(this).text('Ex(+)'):
-								$(this).text('Ex(-)');
 							 setTimeout(function(){
 							  $('#vTable${key[1]}')[0].scrollIntoView();
 							 }, 10);">
-				Ex(-)</a>&nbsp;
+					<img src="images/toggle.png" style="float:right;width:20px"/>
+					</a>&nbsp;
 				</td></tr>`:
 				''
 			}
