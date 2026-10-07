@@ -970,7 +970,7 @@
            "Arabicized Vocabulary (المُعَرَّب)": "'dict.html','lang','pos:8'",
            "The Digital & Physical Dictionary (علم المعاجم)": "'dict.html','lang','pos:6'",
            "Common Words": "'cards.html','Misc','alpha'",
-           "Common Verbs": "'cards.html','Misc','action'",
+           "Common Verbs": "'cards.html','Misc','actions'",
            "Chart": "'charts.html','Chart','verbs'",
            "Verb Forms": "'charts.html','Chart','verb-forms'",
            "Imperatives": "'charts.html','Chart','imperative'",

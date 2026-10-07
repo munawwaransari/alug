@@ -1010,20 +1010,15 @@ function getIndexEntryIcon(path, action){
 }
 
 async function listVocabulary(){
-	const vocabList = [
-		getLocationPath()+'data/grmr/transit.json',
-		getLocationPath()+'data/grmr/routine.json',
-		getLocationPath()+'data/grmr/commerce.json',
-		getLocationPath()+'data/grmr/hospitality.json',
-		getLocationPath()+'data/grmr/genres.json',
-		getLocationPath()+'data/grmr/media.json',
-		getLocationPath()+'data/grmr/colors.json',
-		getLocationPath()+'data/grmr/actions.json',
-		getLocationPath()+'data/grmr/antonym.json',
-		getLocationPath()+'data/grmr/synonym.json',
-		getLocationPath()+'data/grmr/homonym.json',
-		getLocationPath()+'data/grmr/alpha.json'
-	];
+	const dataPath = getLocationPath()+'data/vocab/';
+	var vocabList = [];
+	[
+	 "transit", "routine", "commerce", "hospitality", "genres", "media", 
+	 "colors", "actions", "antonym", "synonym", "homonym", "alpha"
+	]
+	.forEach((data)=>{
+		vocabList.push(`${dataPath}${data}.json`)
+	});
 
 	function newVocabDiv(key, ids, h3_txt, p1_txt, p2_txt){
 		const SEP_MATCH = /[x~|;]/ig;

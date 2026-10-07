@@ -70,7 +70,7 @@
 		function reloadCardData(){
 			var dataParam = decodeURI(getParamValue("data"));
 			if(dataParam && dataParam != 'undefined'){
-				var url = getLocationPath() + 'data/grmr/'+dataParam+'.json';
+				var url = getLocationPath() + 'data/vocab/'+dataParam+'.json';
 				loadJsonData(url).then((data) => {
 					const firstKey = Object.keys(data)[0];
 					var div = $("#cardContainer");
