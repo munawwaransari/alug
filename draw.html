@@ -239,9 +239,8 @@
 			if(isPlay == true){
 				$(`button:contains('${playIcon}')`).html(stopIcon);
 				var i = animLookup[$("#can-letters").val()];
-				$("can").hide();
-				$("#can-img").prop('src', i);
 				$("#can-img").show();
+				$("#can-img").prop('src', i);
 			}else{
 				$("#can-img").hide();
 				$("#can-img").removeAttr('src');
@@ -353,7 +352,7 @@
 	  
 	  // one mouse handler
 	  function mouseMove(e) {
-	  	
+	  	handleResize();
 		var pageX = e.pageX ?? (e.touches && e.touches.length > 0 ? e.touches[0].pageX : 0);
 		var pageY = e.pageY ?? (e.touches && e.touches.length > 0 ? e.touches[0].pageY : 0);
 		
@@ -407,20 +406,25 @@
 	  return m;	
 	}
 	
+	function handleResize() {
+		if (w !== innerWidth || h !== innerHeight) {
+			resizeCanvas();
+			w = innerWidth;
+			h = innerHeight;
+		}
+	}
+	window.addEventListener('resize', handleResize);	
+
 	var cursor = "crosshair";
 	function update(timer) { // Main update loop
-	  cursor = "crosshair";
 	  globalTime = timer;
-	  // if the window size has changed resize the canvas
-	  if (w !== innerWidth || h !== innerHeight) {
-		resizeCanvas()
+	  if($("#can-img").is(":visible") == false){ 
+		if (updateDisplay) {
+			updateDisplay = false;
+			display(); // call demo code
+		}	 
+		drawing.ctx.canvas.style.cursor = cursor;
 	  }
-	  if (updateDisplay) {
-		updateDisplay = false;
-		display(); // call demo code
-	  }
-	 
-	  ctx.canvas.style.cursor = cursor;
 	  requestAnimationFrame(update);
 	}
 	
@@ -432,7 +436,6 @@
 
 	// function to display drawing 
 	function display() {
-
 	  ctx.clearRect(0, 0, w, h);
 	  ctx.fillStyle = "rgba(0,0,0,0.25)";
 	  const imgX = cw - (drawing.width / 2) | 0;
@@ -575,7 +578,9 @@
 		  <canvas id="can"></canvas>
 		  <div class="colors" id="colorSel"></div>
 		  <select id="can-letters" style="float: right;" onchange="loadLetter()"></select>
-		  <img id="can-img" style="display:block;width:60%;margin:0;"></img>
+		  <div style="max-width:400px; margin:auto; margin-top:50px;">
+			<img id="can-img" style="width:100%;"/>
+		  </div>
 	  </div>
 	  <div id="ocrResult"> </div>
 	  <div style="position:absolute;display:block;font-size:10px;bottom:150px;margin:auto;">
