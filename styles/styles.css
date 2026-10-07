@@ -80,6 +80,21 @@ body, .toolDiv {
 	justify-content: center;
 }
 
+.tool:hover {
+  /* Translucent white background */
+  background: rgba(255, 255, 255, 0.15); 
+  
+  /* The blur effect */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  
+  /* Styling to make it look like real glass */
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+
 .desktop .toolSpan,.tool {
 	font-size: 14px;
 }
@@ -228,3 +243,14 @@ input[type="reset"]
   top: 2px;
   left: -24px;
 } 
+
+input:hover {  
+  /* The blur effect */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  
+  /* Styling to make it look like real glass */
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
