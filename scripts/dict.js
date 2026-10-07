@@ -1012,7 +1012,9 @@ function getIndexEntryIcon(path, action){
 async function listVocabulary(){
 	const vocabList = [
 		getLocationPath()+'data/grmr/transit.json',
+		getLocationPath()+'data/grmr/routine.json',
 		getLocationPath()+'data/grmr/commerce.json',
+		getLocationPath()+'data/grmr/hospitality.json',
 		getLocationPath()+'data/grmr/genres.json',
 		getLocationPath()+'data/grmr/media.json',
 		getLocationPath()+'data/grmr/colors.json',
@@ -1095,11 +1097,12 @@ async function listVocabulary(){
 						typeof item.en === 'string' ? item.en : item.en[0],
 						typeof item.ur === 'string' ? item.ur : item.ur[0]));
 					
-					if(key !== 'genres' && key !== 'colors')
-					div.append(newVocabDiv(key, ids, txt, wW[1], 
-						typeof item.en === 'string' ? item.en : item.en[1],
-						typeof item.ur === 'string' ? item.ur : item.ur[1]
-					));
+					if(key !== 'genres' && key !== 'colors'){
+						div.append(newVocabDiv(key, ids, wW[1], 
+							typeof item.en === 'string' ? item.en : item.en[1],
+							typeof item.ur === 'string' ? item.ur : item.ur[1]
+						));
+					}
 				}
 				else{
 					if(key === 'actions' && arr.length == 4){

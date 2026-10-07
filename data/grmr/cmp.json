@@ -973,6 +973,8 @@
            "Transit & Navigation":"'cards.html','Vocab','transit'",
            "Commerce & The Marketplace": "'cards.html','Vocab','commerce'",
            "Greetings, Etiquette, & Fatalism Phrases": "'cards.html','Vocab','greetings'",
+           "Daily Routines & Home Life": "'cards.html','Vocab','routine'",
+           "Hospitality, Socializing, & Food Culture": "'cards.html','Vocab','hospitality'",
            "Personal Identity & The Technonym (الكُنْيَة)":"'dict.html','lang','pos:9'",
            "Conversational Connectors": "'dict.html','prep-ph',''",
            "Idioms & Colloquialisms": "'dict.html','proverb-ph',''",

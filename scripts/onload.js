@@ -558,10 +558,12 @@ function updateToolDescription(id, opt){
 						"Countries": "countries",
 						"Genres": "genres",
 						"Greetings": "greetings",
+						"Hospitality": "hospitality",
 						"Homonymn": "homonym",
 						"Hyperbole": "hyperbole",
 						"Media": "media",
 						"Pronouns": "pronouns",
+						"Routine": "routine",
 						"Synonyms": "synonym",
 						"Transit": "transit",
 						"Tajweed": "tajweed"

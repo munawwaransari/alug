@@ -2187,7 +2187,7 @@ function getFreeImages(keyword, category, size={width:240, height:180}, src='htt
 
 function genFreeImage(img, keyword, category) {
 	return new Promise(function(resolve, reject){
-		getFreeImages(keyword, category)
+		getFreeImages(keyword?.replaceAll(/<\/?sub>/ig, ''), category)
 		.then((data)=>{
 			if($(img).length > 0 && data.hits?.length > 0){
 				var imgData = data.hits[0];

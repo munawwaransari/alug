@@ -1,0 +1,82 @@
+{
+	"hospitality": [
+		{
+			"names": [ "قائمة الطعام",	"بوفيه"],
+			"en": ["Menu", "Buffet"],
+			"ur": ["فہرستِ طعام","بُفے"],
+			"category": "food"
+		},
+		{
+			"names": [ "أرز",	"عدس"],
+			"en": ["Rice", "Lentils"],
+			"ur": ["چاول","دالیں"],
+			"category": "food"
+		},
+		{
+			"names": [ "عصير",	"فواكه"],
+			"en": ["Juice", "Fruits"],
+			"ur": ["رس","پھل"],
+			"category": "food"
+		},
+		{
+			"names": [ "حامض",	"حار"],
+			"en": ["Sour", "Spicy"],
+			"ur": ["مصالحہ دار","کھٹا"],
+			"category": "food"
+		},
+		{
+			"names": [ "طازج",	"بَائِت"],
+			"en": ["Fresh", "Stale"],
+			"ur": ["تازہ","باسی"],
+			"category": "food"
+		},
+		{
+			"names": [ "شهية طيبة",	"نعيماً"],
+			"en": ["Bon appétit", "<sub>Enjoy your meal</sub>"],
+			"ur": ["<sub>لطف اٹھائیں</sub>","<sub>لطف اٹھائیں,/sub>"],
+			"category": "food"
+		},
+		{
+			"names": [ "قدِّم الطعام",	"حفل"],
+			"en": ["Serve food", "Party"],
+			"ur": ["فہرستِ طعام","تقریب"],
+			"category": "food"
+		},
+		{
+			"names": [ "أكل لديد",	"شكرًا جزيلًا"],
+			"en": ["<sub>Delicious food</sub>", "<sub>Thanks a lot</sub>"],
+			"ur": ["<sub>مزیدار کھانا</sub>","<sub>بہت بہت شکریہ</sub>"],
+			"category": "food"
+		},
+		{
+			"names": [ "لمة",	"مجلس"],
+			"en": ["<sub>Family gathering</sub>", "Social Lounge"],
+			"ur": ["","بیٹھک"],
+			"category": "food"
+		},
+		{
+			"names": [ "بارك الله فيك",	"عامر إن شاء الله"],
+			"en": ["<sub>May Allah bless you</sub>", "<sub>May you be prosperous</sub>"],
+			"ur": ["<sub>خدا برکت دے,/sub>","<sub>اللہ خوشحال کرے</sub>"],
+			"category": ""
+		},
+		{
+			"names": [ "ما شاء الله",	"إن شاء الله"],
+			"en": ["Good wishes", "God Willing"],
+			"ur": ["نیک خواہشات","امید ہے"],
+			"category": "islam"
+		},
+		{
+			"names": [ "في أمان الله",	"نراكم قريباً"],
+			"en": ["<sub>In God's protection</sub>", "So long"],
+			"ur": ["خدا حافظ","پھر ملتے ہیں"],
+			"category": "islam"
+		},
+		{
+			"names": [ "شكراً على الاستضافة", "سامحونا على القصور"],
+			"en": ["<sub>Thanks for the hospitality</sub>", "<sub>Forgive us for any shortcomings</sub>"],
+			"ur": ["",""],
+			"category": "food"
+		}
+	]
+}
