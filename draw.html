@@ -74,7 +74,7 @@
 	<script src='https://unpkg.com/tesseract.js@7.0.0/dist/tesseract.min.js'></script>
 	<script src='scripts/data-util.js'></script>
 	<script>
-	const alpha = "ءابتثجحخدذرزسشصضطظعغفقكلمنهوي";	
+	const alpha = "ءابتثجحخدذرزسشصضطظعغفقكلمنهوي٢٣٤٦٧٨٩ؤلاآ";	
 	const maxHeight = 400;
 	// size of drawing and its starting background colour
 	const drawingInfo = {
@@ -169,7 +169,7 @@
 		  brush.ctx.arc(8, 8, brushSize / 2, 0, Math.PI * 2);
 		  brush.ctx.fill();
 		  brush.brushSize = brushSize;
-		  if (currentWidth === brushSize) {
+		  if (currentWidth === brushSize || currentSelectBrush === undefined) {
 			brush.className = "swatch highlight";
 			currentSelectBrush = brush;
 		  } else {
