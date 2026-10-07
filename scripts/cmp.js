@@ -134,8 +134,17 @@ class cmpAPI {
 						openGoogleAISearch(prompts[0]);">
 						<img loading="lazy"  title="Google ai search"
 							 src="images/ai-search.png" 
-							 style="float:right;width:20px;padding-right:8px;"/>
+							 style="float:right;height:20px;padding-right:8px;"/>
 						</a>
+						<a href="#" onclick="var tr=$(this).parent().parent().parent().find('.trcontent');
+							if(tr.find(':visible').length > 1){
+								tr.hide();
+							}else{
+								tr.toggle();
+							}">
+						<img loading="lazy"  title="Toggle sections"
+							    src="images/toggle.png"  
+								style="float:right;height:20px;padding-right:6px;cursor:pointer;"/></a>
 					</td>
 				</tr>`);
 			}
@@ -155,7 +164,7 @@ class cmpAPI {
 								 onclick="$(this).parent().next('tr').toggle()">
 							( ${cmp["ar"][f]} ) ${cmp["en"][f]}
 						</td></tr>
-						<tr>
+						<tr class="trcontent">
 						${
 							topics.map((topic) => {
 								var res = cmp["features"][topic][f];

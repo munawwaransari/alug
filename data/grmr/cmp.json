@@ -804,7 +804,7 @@
         ],
         "features":{
             "التجويد (Elocution)": [
-                "<p style=\"direction:ltr\"><b>Definition:</b><br/>Tafkhim (velarization) is the elevation of the back of the tongue toward the roof of the mouth (known as الاستعلاء), causing the sound to reverberate and fill the mouth.<br/><br/><b>Letters:</b><br/><span style=\"font-size:16pt\">خ، ص، ض، ط، ظ، غ، ق</span> <br/>(grouped in the phrase خُصَّ ضَغْطٍ قِظْ)</p>Video link for practice",
+                "<p style=\"direction:ltr\"><b>Definition:</b><br/>Tafkhim (velarization) is the elevation of the back of the tongue toward the roof of the mouth (known as الاستعلاء), causing the sound to reverberate and fill the mouth.<br/><br/><b>Letters:</b><br/><span style=\"font-size:16pt\">خ، ص، ض، ط، ظ، غ، ق</span> <br/>(grouped in the phrase خُصَّ ضَغْطٍ قِظْ)</p>Video link for practice<br/>Tajweed Cards",
                 "<p style=\"direction:ltr\"><b>Definition:</b><br/>Tarqeeq (attenuation) is the lowering the back of the tongue away from the roof of the mouth (known as الاستفال), causing the sound to be flat.<br/><br/><b>Letters:</b><br/>All letters excluding the heavy letters</p>",
                 "<p style=\"direction:ltr\"><b>الف</b>:<br/>Heavy when preceeded by a heavy letter, otherwise light.<br/><br/><b>را</b>:<br>Heavy when has a Fathah (ـَ) or a Dammah (ـُ), otherwise light.<br/><br/><b>*اللام</b>:<br/>Heavy when it is preceded by a Fathah (ـَ) or a Dammah (ـُ)<br/><sub>* Applies exclusively to the letter ل (called التغليظ), primarily in the Majestic Name of Allah (لفظ الجلالة - Allah / Allahumma)</sub><br/>",
                 "script: getTajweedTable(1);",
@@ -813,7 +813,8 @@
             ]
         },
         "features_links":{
-            "Video link for practice": "https://www.youtube.com/watch?v=BfsRbY3F7IE"
+            "Video link for practice": "https://www.youtube.com/watch?v=BfsRbY3F7IE",
+            "Tajweed Cards": "'cards.html','Misc','tajweed'"
         }
     },
     {
@@ -954,10 +955,10 @@
         ],
         "features":{
             "المنهج الدراسي (Syllabus for Learning)":[
-                "<p style=\"direction:ltr;\">The Arabic Landscape<br/>Phonetics & The Sound System<br/>The Root & Pattern System (الجذر والوزن)<br/> Arabicized Vocabulary (المُعَرَّب)<br/></p>",
-                "<p style=\"direction:ltr;\">The Digital & Physical Dictionary (علم المعاجم)<br/>Time, Space, & Numbers<br/>Transit & Navigation<br/>Commerce & The Marketplace<br/></p>",
+                "<p style=\"direction:ltr;\">The Arabic Landscape<br/>Phonetics & The Sound System<br/>The Root & Pattern System (الجذر والوزن)<br/> Arabicized Vocabulary (المُعَرَّب)<br/>Common Words, Synonyms, Antonyms & Homonyms</p>",
+                "<p style=\"direction:ltr;\">The Digital & Physical Dictionary (علم المعاجم)<br/>Time, Space, Colors & Numbers<br/>Transit & Navigation<br/>Commerce & The Marketplace<br/>Common Verbs (Chart), Verb Forms, Imperatives</p>",
                 "<p style=\"direction:ltr;\">Greetings, Etiquette, & Fatalism Phrases<br/>Personal Identity & The Technonym (الكُنْيَة)<br/>Possessives & Pointers<br/>Descriptive Modifiers</p>",
-                "<p style=\"direction:ltr;\">The Core Action Matrix (الصرف Applied)<br/>Hospitality, Socializing, & Food Culture<br/>Daily Routines & Home Life<br/></p>",
+                "<p style=\"direction:ltr;\">The Core Action Matrix (الصرف Applied)<br/>Hospitality, Socializing, & Food Culture<br/>Daily Routines & Home Life<br/>Hyperboles</p>",
                 "<p style=\"direction:ltr;\">Conversational Connectors<br/>Idioms & Colloquialisms<br/>Practical Eloquence (علم البلاغة Basics)</p>"
             ]
         },
@@ -968,8 +969,19 @@
            "The Core Action Matrix (الصرف Applied)":"'dict.html','lang','pos:5'",
            "Arabicized Vocabulary (المُعَرَّب)": "'dict.html','lang','pos:8'",
            "The Digital & Physical Dictionary (علم المعاجم)": "'dict.html','lang','pos:6'",
+           "Common Words": "'cards.html','Misc','alpha'",
+           "Common Verbs": "'cards.html','Misc','action'",
+           "Chart": "'charts.html','Chart','verbs'",
+           "Verb Forms": "'charts.html','Chart','verb-forms'",
+           "Imperatives": "'charts.html','Chart','imperative'",
+           "Synonyms": "'cards.html','Misc','synonym'",
+           "Antonyms": "'cards.html','Misc','antonym'",
+           "Homonyms": "'cards.html','Misc','homonym'",
+           "Hyperboles": "'cards.html','Misc','hyperbole'",
            "Time":"'clock.html','Misc','clock'",
+           "Space":"'cards.html','Misc','countries'",
            "Number":"'number.html','Misc','number'",
+           "Colors":"'number.html','Misc','color'",
            "Transit & Navigation":"'cards.html','Vocab','transit'",
            "Commerce & The Marketplace": "'cards.html','Vocab','commerce'",
            "Greetings, Etiquette, & Fatalism Phrases": "'cards.html','Vocab','greetings'",
