@@ -207,32 +207,43 @@ function getAdjectivePatternPairingTable(){
 `;
 }
 
-function getAdjectivePatternPairingExample(){
+function getAdjectivePatternPairingExample(d){
+	var adjectives = [
+		{ "names": ["عَطْشَانُ","عَطْشَى"], "en": "Thirsty"    },
+		{ "names": ["غَضْبَانُ","غَضْبَى"], "en": "Angry"      },
+		{ "names": ["جَوْعَان","جَوْعَي"], "en": "Hungry"     },
+		{ "names": ["أَحْمَرُ","حَمْرَاءُ"], "en": "Red"        },
+		{ "names": ["أَعْرَجُ","عرْجَاءُ"], "en": "Lame"       },
+		{ "names": ["أَصْلَعُ","صَلعاء"], "en": "Bald"       },
+		{ "names": ["فَرِحٌ",  "فَرِحَةٌ"], "en": "Joyfull"    },
+		{ "names": ["قَلِقٌ",  "قَلِقَةٌ"], "en": "Anxious"    },
+		{ "names": ["نَدِم",  "نَدِمَة"], "en": "Regretful"  },
+		{ "names": ["أَكْبَرُ", "كُبْرَى"], "en": "Biggest"    },
+		{ "names": ["أَصْغَرُ", "صُغْرَى"], "en": "Smallest"   },
+		{ "names": ["أَدْنَى", "دُنْيَا"], "en": "Lowest"     },
+		{ "names": ["كَرِيمٌ","كَرِيمَةٌ"], "en": "Generous"   },
+		{ "names": ["جَمِيلٌ","جَمِيلَةٌ"], "en": "Beautiful"  },
+		{ "names": ["عَظِيم","عَظِيمَةٌ"], "en": "Magnificent"},
+		{ "names": ["صَعْب",  "صَعْبَةٌ"], "en": "Difficult"  },
+		{ "names": ["صَخرٌ",  "صَخْرَةٌ"], "en": "Rock"       },
+		{ "names": ["شُجَاعٌ","شُجَاعَةٌ"], "en": "Courageous" },
+		{ "names": ["قُمَام","قُمَامَةٌ"], "en": "Garbage"    },
+		{ "names": ["خُلَاص",  "خُلَاصَة"], "en": "Summary"    }
+	];
+	if(d == 1){
+		return adjectives;
+	}
 	return `
  	<table style="width:100%;direction:rtl;font-size:14pt;">
 		<tbody>
 		<tr><th>مُذكّر</th><th>مُؤنّث</th><th>Meaning</th></tr>
-		<tr><td>عَطْشَانُ</td><td>عَطْشَى</td><td style="font-size:14px">Thirsty</td></tr>
-		<tr><td>غَضْبَانُ</td><td>غَضْبَى</td><td style="font-size:14px">Angry</td></tr>
-		<tr><td>جَوْعَان</td><td>جَوْعَي</td><td style="font-size:14px">Hungry</td></tr>
-		<tr><td>أَحْمَرُ</td><td>حَمْرَاءُ</td><td style="font-size:14px">Red</td></tr>
-		<tr><td>أَعْرَجُ</td><td>عرْجَاءُ</td><td style="font-size:14px">Lame</td></tr>
-		<tr><td>أَصْلَعُ</td><td>صَلعاء</td><td style="font-size:14px">Bald</td></tr>
-		<tr><td>فَرِحٌ</td><td>فَرِحَةٌ</td><td style="font-size:14px">Joyfull</td></tr>
-		<tr><td>قَلِقٌ</td><td>قَلِقَةٌ</td><td style="font-size:14px">Anxious</td></tr>
-		<tr><td>نَدمٌ</td><td>نَدِمَة</td><td style="font-size:14px">Regretful</td></tr>
-		<tr><td>أَكْبَرُ</td><td>كُبْرَى</td><td style="font-size:14px">Biggest</td></tr>
-		<tr><td>أَصْغَرُ</td><td>صُغْرَى</td><td style="font-size:14px">Smallest</td></tr>
-		<tr><td>أَدْنَى</td><td>دُنْيَا</td><td style="font-size:14px">Lowest</td></tr>
-		<tr><td>كَرِيمٌ</td><td>كَرِيمَةٌ</td><td style="font-size:14px">Generous</td></tr>
-		<tr><td>جَمِيلٌ</td><td>جَمِيلَةٌ</td><td style="font-size:14px">Beautiful</td></tr>
-		<tr><td>عَظِيم</td><td>عَظِيمَةٌ</td><td style="font-size:14px">Magnificent</td></tr>
-		<tr><td>شَهْمٌ</td><td>شَهْمَةٌ</td><td style="font-size:14px">Gallant</td></tr>
-		<tr><td>صَعْبٌ</td><td>صَعْبَةٌ</td><td style="font-size:14px">Difficult</td></tr>
-		<tr><td>صَخرٌ</td><td>صَخْرَةٌ</td><td style="font-size:14px">Rock</td></tr>
-		<tr><td>شُجَاعٌ</td><td>شُجَاعَةٌ</td><td style="font-size:14px">Courageous</td></tr>
-		<tr><td>قُمَام</td><td>قُمَامَةٌ</td><td style="font-size:14px">Garbage</td></tr>
-		<tr><td>خُلَاص</td><td>خُلَاصَة</td><td style="font-size:14px">Summary</td></tr>
+		${
+			$.map(adjectives, (v, k)=>{
+				return `
+				<tr><td>${v.names[0]}</td><td>${v.names[1]}</td><td style="font-size:14px">${v.en}</td></tr>
+				`;
+			}).join('')	
+		}
 		</tbody>
 	</table>
 	`;

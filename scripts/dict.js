@@ -1053,7 +1053,8 @@ async function listVocabulary(){
 		var vocabData = dataList.reduce((acc, curr) => {
 			return {...acc, ...curr};
 		}, {});
-
+		vocabData["adjectives"] = getAdjectivePatternPairingExample(1);
+		
 		var filters = ['Clear'];
 		var div = $(`<div id="divVocab" style="
 			display:block;
@@ -1090,12 +1091,12 @@ async function listVocabulary(){
 					}
 					div.append(newVocabDiv(key, ids, txt, 
 						typeof item.en === 'string' ? item.en : item.en[0],
-						typeof item.ur === 'string' ? item.ur : item.ur[0]));
-					
+						item.ur ? (typeof item.ur === 'string' ? item.ur : item.ur[0]):''
+					));
 					if(key !== 'genres' && key !== 'colors'){
 						div.append(newVocabDiv(key, ids, wW[1], 
 							typeof item.en === 'string' ? item.en : item.en[1],
-							typeof item.ur === 'string' ? item.ur : item.ur[1]
+							item.ur ? (typeof item.ur === 'string' ? item.ur : item.ur[1]) : ''
 						));
 					}
 				}
