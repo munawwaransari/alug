@@ -151,5 +151,20 @@
             "worldiness <-- wordly <-- world",
             "orientalism <-- eastern/oriental <-- east"
 		]
+    },
+    {
+        "name_ar": "أزواج أنماط الصفات",
+        "name_en": "Adjective Pattern Pairings",
+		"construct_sep": "",
+        "construct_ar": [
+            "<sub>Core Adjective Patterns</sub>"
+        ],
+        "construct_en": [
+            "script: getAdjectivePatternPairingTable()"
+        ],
+        "notes": "",
+        "examples": [
+            "script: getAdjectivePatternPairingExample()"
+        ]
     }
 ]

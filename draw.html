@@ -78,8 +78,8 @@
 	const maxHeight = 400;
 	// size of drawing and its starting background colour
 	const drawingInfo = {
-	  width:  innerWidth, //384 ,
-	  height: maxHeight, //160,
+	  width:  window.innerWidth,
+	  height: maxHeight,
 	  bgColor: "white",
 	}
 	const playIcon = '\u25b6';//▶
@@ -334,7 +334,7 @@
 	// resize main display canvas and set global size vars
 	function resizeCanvas() {
 	  ch = ((h = canvas.height = maxHeight - 16) / 2) | 0;
-	  cw = ((w = canvas.width = innerWidth) / 2) | 0;
+	  cw = ((w = canvas.width = window.innerWidth) / 2) | 0;
 	  updateDisplay = true;
 	}
 
@@ -407,10 +407,8 @@
 	}
 	
 	function handleResize() {
-		if (w !== innerWidth || h !== innerHeight) {
+		if (w !== window.innerWidth || h !== window.innerHeight) {
 			resizeCanvas();
-			w = innerWidth;
-			h = innerHeight;
 		}
 	}
 	window.addEventListener('resize', handleResize);	
