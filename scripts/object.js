@@ -34,7 +34,13 @@ function addObjectEffectTable(container, objData){
 			</tr>`;
 	}
 	
-	if(objData["construct_ar"]){
+	if(objData["alternate_ar"] !== undefined){	
+		pTable += objData["alternate_ar"] !== '' ? `
+		<tr>
+			<td style="padding-top:8px;padding-bottom:8px;">${objData["alternate_ar"]}</td>
+		</tr>`:'';
+	}
+	else if(objData["construct_ar"]){
 		var div = '<div>';
 		objData["construct_ar"].every(function(val, index){
 			if(val.startsWith("script:")){
@@ -52,7 +58,13 @@ function addObjectEffectTable(container, objData){
 		</tr>`;
 	}
 	
-	if(objData["construct_en"]){
+	if(objData["alternate_en"] !== undefined){	
+		pTable += objData["alternate_en"] !== '' ? `
+		<tr>
+			<td style="padding-top:8px;padding-bottom:8px;">${objData["alternate_en"]}</td>
+		</tr>`: '';
+	}
+	else if(objData["construct_en"]){
 		div = '<div class="engText">';
 		objData["construct_en"].every(function(val, index){
 			if(val.startsWith("script:")){

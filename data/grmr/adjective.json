@@ -15,15 +15,8 @@
             "Frequent doer/quality",
             "Feelings or temporary states"
         ],
-        "examples": [
-            "<a href=\"#\" onclick=\"parent.redirect('dict.html','adj','pos:6')\">See Adjective Patterns Pairing</a>",
-            "وَٱللَّهُ   شَكُورٌ   حَلِيمٌ [64:17]",
-            "فَإِنَّ   ٱللَّهَ   غَنِيٌّ   حَمِيدٞ [31:12]",
-            "كَبُرَ   مَقۡتًا   عِندَ   ٱللَّهِ   أَن   تَقُولُواْ   مَا   لَا   تَفۡعَلُونَ   ٣ [61:3]",
-            "إِنَّ   ٱللَّهَ   قَوِيٌّ   عَزِيزٞ [58:21]",
-            "فَمِنۡهُمۡ   شَقِيّٞ   وَسَعِيدٞ [11:105]"
-        ],
-		"em":["شَكُورٌ", "حَلِيمٌ", "كَبُرَ", "غَنِيٌّ", "حَمِيدٞ", "قَوِيٌّ", "عَزِيزٞ"],
+        "alternate_ar": "<sub><a href=\"#\" onclick=\"parent.redirect('dict.html','adj','pos:6')\">See Adjective Patterns Pairings</a></sub>",
+        "alternate_en": "",
         "set": [
             "فَعْل --> ضَخْمٌ; ضَخْمَةٌ",
             "فَعِيل --> ظريف ; ظريفة, فَعُلَ --> كَبُرَ",
