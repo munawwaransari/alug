@@ -16,6 +16,7 @@
             "Feelings or temporary states"
         ],
         "examples": [
+            "<a href=\"#\" onclick=\"parent.redirect('dict.html','adj','pos:6')\">See Adjective Patterns Pairing</a>",
             "وَٱللَّهُ   شَكُورٌ   حَلِيمٌ [64:17]",
             "فَإِنَّ   ٱللَّهَ   غَنِيٌّ   حَمِيدٞ [31:12]",
             "كَبُرَ   مَقۡتًا   عِندَ   ٱللَّهِ   أَن   تَقُولُواْ   مَا   لَا   تَفۡعَلُونَ   ٣ [61:3]",
