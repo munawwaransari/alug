@@ -730,6 +730,8 @@ function listExamplesFromQuran(selText) {
 	btnDiv.css('width', '280px');
 
 	loadExamplesFromCmpData(dict, qselect);
+	if (posAPIObj)
+		loadExamplesFromData(dict, qselect, posAPIObj.getMetonymies(1));
 	Promise.all([
 		ensureDataLoaded({ name: "verb-examples" }),
 		ensureDataLoaded({ name: "obj-effect" }),
@@ -758,8 +760,6 @@ function listExamplesFromQuran(selText) {
 		loadExamplesFromData(dict, qselect, extractExamples(data["inad-verb"]), "Inadequate Verbs");
 		loadExamplesFromData(dict, qselect, data["objects"]);
 	});
-	if (posAPIObj)
-		loadExamplesFromData(dict, qselect, posAPIObj.getMetonymies(1));
 
 	if (selText) {
 		setTimeout(function () {
