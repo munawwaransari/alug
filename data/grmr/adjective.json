@@ -1,5 +1,20 @@
 [
-	{
+   {
+        "name_ar": "أزواج أنماط الصفات",
+        "name_en": "Adjective Pattern Pairings",
+		"construct_sep": "",
+        "construct_ar": [
+            "<sub>Core Adjective Patterns</sub>"
+        ],
+        "construct_en": [
+            "script: getAdjectivePatternPairingTable()"
+        ],
+        "notes": "",
+        "examples": [
+            "script: getAdjectivePatternPairingExample()"
+        ]
+    },
+    {
         "name_ar": "أنماط الصفات الأساسية",
         "name_en": "Primary Adjective Patterns",
 		"construct_sep": "/",
@@ -12,15 +27,13 @@
         "construct_en": [
             "Basic physical attributes",
             "Intrinsic qualities or states",
-            "Frequent doer/quality",
             "Feelings or temporary states"
         ],
-        "alternate_ar": "<sub><a href=\"#\" onclick=\"parent.redirect('dict.html','adj','pos:6')\">See Adjective Patterns Pairings</a></sub>",
+        "alternate_ar": "",
         "alternate_en": "",
         "set": [
             "فَعْل --> ضَخْمٌ; ضَخْمَةٌ",
             "فَعِيل --> ظريف ; ظريفة, فَعُلَ --> كَبُرَ",
-            "فَعُول --> صَبُورٌ; صَبُورَةٌ",
             "فَعِل --> تَعِبٌ; تَعِبَةٌ"
         ],
 		"set_en":[
@@ -58,16 +71,18 @@
 		]
     },
 	{
-        "name_ar": "صفات التفضيل",
-        "name_en": "Elevative Adjectives",
+        "name_ar": "مُبالِغَة / صفات التفضيل",
+        "name_en": "Elevative Adjectives or Hyperboles",
         "construct_sep": "/",
         "construct_ar": [
             "اَفعَلْ",
-            "فُعلَي"
+            "فُعلَي",
+            "فَعُول"
         ],
         "construct_en": [
             "Masculine pattern: أَفْعَل (Af'al)",
-            "Feminine pattern: فُعلَي (Fu'laa)"
+            "Feminine pattern: فُعلَي (Fu'laa)",
+            "Frequent doer/quality: فَعُول (Fau'ul"
         ],
         "notes": "<p style=\"direction:ltr;width:90%\">Elevated Adjectives follow the أَفْعَل (Af'al) pattern. Their feminine counterparts follow the فُعلَي (Fu'laa) pattern.<br/><br/>See also: <a href=\"#\" onclick=\"parent.redirect('dict.html', 'noun-pat', 'pos:6')\">Hyperbole (اسمُ المُبالغة)</a></p>",
         "examples": [
@@ -80,11 +95,52 @@
 		"em":["حُسۡنَىٰ", "أُولَىٰ"],
         "set": [
             "أَفْعَل --> اَرحَم, أَفْعَل --> اَعلَم, أَفْعَل --> اَكبَر",
-            "فُعلَي --> دُنْيَا, فُعلَي --> وُسْطَى, فُعلَي --> كُبرَي"
+            "فُعلَي --> دُنْيَا, فُعلَي --> وُسْطَى, فُعلَي --> كُبرَي",
+            "فَعُول --> صَبُورٌ; صَبُورَةٌ,فَعُول --> شَكُور; شَكُورةٌ"
         ],
 		"set_en":[
 			"most merciful, more knowledgeable, great",
-			"central, lowest, great"
+			"central, lowest, great",
+            "patient/composed, intensly grateful"
+		]
+    },
+	{
+        "name_ar": "الصِّفَةُ المُشَبَّهَةُ",
+        "name_en": "Adjectives of emotions",
+        "construct_sep": "/",
+        "construct_ar": [
+            "فَعْلَانُ",
+            "فَعْلَى",
+            "فَعِلٌ",
+            "فَعِلَةٌ"
+        ],
+        "construct_en": [
+            "Masculine pattern: فَعْلَانُ (Fa'lan)",
+            "Feminine pattern: فَعْلَى (Fa'la)",
+            "Masculine pattern: فَعِلٌ (Fa'il)",
+            "Frequent doer/quality: فَعِلَةٌ (Fa'ila)"
+        ],
+        "examples": [
+            "ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ [1:3]",
+            "كَٱلَّذِي ٱسۡتَهۡوَتۡهُ ٱلشَّيَٰطِينُ فِي ٱلۡأَرۡضِ حَيۡرَانَ لَهُ [6:71]",
+            "وَتَرَى ٱلنَّاسَ سُكَٰرَىٰ وَمَا هُم بِسُكَٰرَىٰ [22:2]",
+            "وَإِن كُنتُم مَّرۡضَىٰٓ أَوۡ عَلَىٰ سَفَرٍ [4:43]",
+            "إِنَّ ٱللَّهَ لَا يُحِبُّ ٱلۡفَرِحِينَ [28:76]",
+            "إِنَّمَا ٱلۡمُشۡرِكُونَ نَجَسٞ [9:28]",
+            "ضَرَبَ ٱللَّهُ مَثَلٗا كَلِمَةٗ طَيِّبَةٗ [14:24]"
+        ],
+		"em":["ٱلرَّحۡمَٰنِ", "حَيۡرَانَ", "سُكَٰرَىٰ", "كَلِمَةٗ", "نَجَسٞ", "ٱلۡفَرِحِينَ", "مَّرۡضَىٰٓ"],
+        "set": [
+            "فَعْلَانُ --> عَطْشَانُ, فَعْلَانُ --> سَكْرَانُ, فَعْلَانُ --> كَسْلَانُ",
+            "فَعْلَى --> غَضْبَى, فَعْلَى --> جَوْعَى",
+            "فَعِلٌ --> حَزِنٌ,فَعِلٌ --> حَذِرٌ",
+            "فَعِلَةٌ --> نَشِطَةٌ,فَعِلَةٌ --> مَرِضَةٌ"
+        ],
+		"set_en":[
+			"lazy, drunk, thirsty",
+			"hungry, angry",
+            "cautious, sad",
+            "sick, energetic"
 		]
     },
     {
@@ -145,20 +201,5 @@
             "worldiness <-- wordly <-- world",
             "orientalism <-- eastern/oriental <-- east"
 		]
-    },
-    {
-        "name_ar": "أزواج أنماط الصفات",
-        "name_en": "Adjective Pattern Pairings",
-		"construct_sep": "",
-        "construct_ar": [
-            "<sub>Core Adjective Patterns</sub>"
-        ],
-        "construct_en": [
-            "script: getAdjectivePatternPairingTable()"
-        ],
-        "notes": "",
-        "examples": [
-            "script: getAdjectivePatternPairingExample()"
-        ]
     }
 ]

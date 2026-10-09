@@ -95,11 +95,47 @@
         "data": "@key",
         "order": 14
     },
-    "Adjectives;السمات الأساسية;الصفات الجوهرية أو الحالات;/الفاعل المتكرر;الصفة": {
+    "Core Adjective Patterns;أزواج أنماط الصفات": {
         "path": "dict.html",
         "action": "adj",
         "data": "pos:1",
         "order": 15
+    },
+    "Primary Adjectives;السمات الأساسية;الصفات الجوهرية أو الحالات;/الفاعل المتكرر;الصفة": {
+        "path": "dict.html",
+        "action": "adj",
+        "data": "pos:2",
+        "order": 15
+    },
+    "Adjectives (Colors & Physical Defects);الألوان والعيوب المادية": {
+        "path": "dict.html",
+        "action": "adj",
+        "data": "pos:3",
+        "order": 24
+    },
+    "Elevative Adjectives;;اَفعَلْ;صفات التفضيل": {
+        "path": "dict.html",
+        "action": "adj",
+        "data": "pos:4",
+        "order": 24
+    },
+    "Adjectives of Emotions;الصِّفَةُ المُشَبَّهَةُ": {
+        "path": "dict.html",
+        "action": "adj",
+        "data": "pos:5",
+        "order": 35
+    },
+    "Participle Adjectives;اسم الفاعل;اسم المفعول": {
+        "path": "dict.html",
+        "action": "adj",
+        "data": "pos:6",
+        "order": 35
+    },
+    "Relative Adjective;النسبة": {
+        "path": "dict.html",
+        "action": "adj",
+        "data": "pos:7",
+        "order": 158
     },
     "Adverb (as Object);المفعول فيه": {
         "path": "dict.html",
@@ -179,12 +215,6 @@
         "data": "@key",
         "order": 23
     },
-    "Elevative Adjectives;;اَفعَلْ;vصفات التفضيل": {
-        "path": "dict.html",
-        "action": "adj",
-        "data": "pos:3",
-        "order": 24
-    },
     "Five Nouns;اسماءُ الخَمسة;": {
         "path": "dict.html",
         "action": "five-nouns",
@@ -224,12 +254,6 @@
         "path": "dict.html",
         "action": "noun-pat",
         "order": 34
-    },
-    "Participle Adjectives;اسم الفاعل;اسم المفعول": {
-        "path": "dict.html",
-        "action": "adj",
-        "data": "pos:4",
-        "order": 35
     },
     "Passive participle;اسم المفعول": {
         "path": "dict.html",
@@ -920,12 +944,6 @@
         "action": "verb",
         "data": "pos:4%20formV",
         "order": 157
-    },
-    "Relative Adjective;النسبة": {
-        "path": "dict.html",
-        "action": "adj",
-        "data": "pos:5",
-        "order": 158
     },
     "Synecdoche (Conceptual);المجاز العَقلي": {
         "path": "dict.html",

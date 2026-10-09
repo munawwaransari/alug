@@ -1528,7 +1528,7 @@ function init_data_cache(){
 			path: "data/grmr/verb-ex.json"
 		},
 		"pronouns":{
-			path: "data/grmr/pronouns.json"
+			path: "data/vocab/pronouns.json"
 		},
 		"all-words.csv":{
 			path: "data/arabiclt/all-words.zip"

@@ -202,18 +202,28 @@ function makeId(prefix, txt){
 	return prefix + txt.replaceAll(')','').replaceAll('(','').replaceAll(' ', '_');
 }
 
+function alink(text, args){
+	return `<a href="#" 
+	onclick="parent.redirect('${args.page}','${args.action}','${args.data}')">
+	${text}
+	</a>`;
+}
 function getAdjectivePatternPairingTable(){
  return `
  	<table style="width:100%;direction:rtl;font-size:14pt;">
 		<tbody>
-		<tr><th>Category</th><th>مُذكّر</th><th>مُؤنّث</th><th>Meaning</th></tr>
-		<tr><td rowspan="3" style="font-size:16px">الصِّفَةُ<br/>المُشَبَّهَةُ</td><td>فَعْلَانُ</td><td>فَعْلَى</td><td style="font-size:14px">Fullness<br/>emptiness<br/>acute emotion</td></tr>
-		<tr><td>أَفْعَلُ</td><td>فَعْلَاءُ</td><td style="font-size:14px">Defects<br/>Beauties<br/>Pigments</td></tr>
-		<tr><td>فَعِلٌ</td><td>فَعِلَةٌ</td><td style="font-size:14px">Joy<br/>Grief<br/>Immediate worry</td></tr>
-		<tr><td style="font-size:16px">التَّفْضِيل<br/>اِسْمُ</td><td>أَفْعَلُ</td><td>فُعْلَى</td><td style="font-size:14px">Elative<br/>Superlative</td></tr>
-		<tr><td rowspan="3" style="font-size:16px">الصِّفَةُ<br/>المُشَبَّهَةُ</td><td>فَعِيلٌ</td><td>فَعِيلَةٌ</td><td style="font-size:14px">Permanent physical<br/>moral attributes</td></tr>
-		<tr><td>فَعْلٌ</td><td>فَعْلَةٌ</td><td style="font-size:14px">Vices<br/>virtues<br/>core disposition</td></tr>
+		<tr><td rowspan="3" style="font-size:16px">${alink("الصفات الأساسية<br/>Core Attributes",{page: "dict.html", action:"adj", data:"pos:2"})}</td>
+		    <td>فَعْلٌ</td><td>فَعْلَةٌ</td><td style="font-size:14px">Vices<br/>virtues<br/>core disposition</td></tr>
 		<tr><td>فُعَالٌ</td><td>فُعَالَةٌ</td><td style="font-size:14px">Core temperaments<br/>or builds</td></tr>
+		<tr><td>فَعِيلٌ</td><td>فَعِيلَةٌ</td><td style="font-size:14px">Permanent physical<br/>moral attributes</td></tr>
+		<tr><td style="font-size:16px">${alink("والعيوب<br/>الألوان",{page: "dict.html", action:"adj", data:"pos:3"})}</td>
+		    <td>أَفْعَلُ</td><td>فَعْلَاءُ</td><td style="font-size:14px">Defects<br/>Beauties<br/>Pigments</td></tr>
+		<tr><td rowspan="2" style="font-size:16px">${alink("اِسْمُ التَّفْضِيل<br/>or<br/>مبالغة",{page: "dict.html", action:"adj", data:"pos:4"})}</td>
+		    <td>أَفْعَلُ</td><td>فُعْلَى</td><td style="font-size:14px">Elative<br/>Superlative</td></tr>
+		<tr><td>فَعُول</td><td>فَعُولَة</td><td style="font-size:14px">Frequent<br/>intense<br/>habitual action</td></tr>
+		<tr><td rowspan="3" style="font-size:16px">${alink("الصِّفَةُ<br/>المُشَبَّهَةُ<br/>Emotions",{page: "dict.html", action:"adj", data:"pos:5"})}</td>
+		    <td>فَعْلَانُ</td><td>فَعْلَى</td><td style="font-size:14px">Fullness<br/>emptiness<br/>acute emotion</td></tr>
+		<tr><td>فَعِلٌ</td><td>فَعِلَةٌ</td><td style="font-size:14px">Joy<br/>Grief<br/>Immediate worry</td></tr>
 		</tbody>
 	</table>
 `;
@@ -221,26 +231,26 @@ function getAdjectivePatternPairingTable(){
 
 function getAdjectivePatternPairingExample(d){
 	var adjectives = [
-		{ "names": ["عَطْشَانُ","عَطْشَى"], "en": "Thirsty"    },
-		{ "names": ["غَضْبَانُ","غَضْبَى"], "en": "Angry"      },
-		{ "names": ["جَوْعَان","جَوْعَي"], "en": "Hungry"     },
+		{ "names": ["صَعْب",  "صَعْبَةٌ"], "en": "Difficult"  },
+		{ "names": ["صَخرٌ",  "صَخْرَةٌ"], "en": "Rock"       },
+		{ "names": ["شُجَاعٌ","شُجَاعَةٌ"], "en": "Courageous" },
+		{ "names": ["خُلَاص",  "خُلَاصَة"], "en": "Summary"    },
+		{ "names": ["قُمَام","قُمَامَةٌ"], "en": "Garbage"    },
+		{ "names": ["كَرِيمٌ","كَرِيمَةٌ"], "en": "Generous"   },
+		{ "names": ["جَمِيلٌ","جَمِيلَةٌ"], "en": "Beautiful"  },
+		{ "names": ["عَظِيم","عَظِيمَةٌ"], "en": "Magnificent"},
 		{ "names": ["أَحْمَرُ","حَمْرَاءُ"], "en": "Red"        },
 		{ "names": ["أَعْرَجُ","عرْجَاءُ"], "en": "Lame"       },
 		{ "names": ["أَصْلَعُ","صَلعاء"], "en": "Bald"       },
+		{ "names": ["عَطْشَانُ","عَطْشَى"], "en": "Thirsty"    },
+		{ "names": ["غَضْبَانُ","غَضْبَى"], "en": "Angry"      },
+		{ "names": ["جَوْعَان","جَوْعَي"], "en": "Hungry"     },
 		{ "names": ["فَرِحٌ",  "فَرِحَةٌ"], "en": "Joyfull"    },
 		{ "names": ["قَلِقٌ",  "قَلِقَةٌ"], "en": "Anxious"    },
 		{ "names": ["نَدِم",  "نَدِمَة"], "en": "Regretful"  },
 		{ "names": ["أَكْبَرُ", "كُبْرَى"], "en": "Biggest"    },
 		{ "names": ["أَصْغَرُ", "صُغْرَى"], "en": "Smallest"   },
-		{ "names": ["أَدْنَى", "دُنْيَا"], "en": "Lowest"     },
-		{ "names": ["كَرِيمٌ","كَرِيمَةٌ"], "en": "Generous"   },
-		{ "names": ["جَمِيلٌ","جَمِيلَةٌ"], "en": "Beautiful"  },
-		{ "names": ["عَظِيم","عَظِيمَةٌ"], "en": "Magnificent"},
-		{ "names": ["صَعْب",  "صَعْبَةٌ"], "en": "Difficult"  },
-		{ "names": ["صَخرٌ",  "صَخْرَةٌ"], "en": "Rock"       },
-		{ "names": ["شُجَاعٌ","شُجَاعَةٌ"], "en": "Courageous" },
-		{ "names": ["قُمَام","قُمَامَةٌ"], "en": "Garbage"    },
-		{ "names": ["خُلَاص",  "خُلَاصَة"], "en": "Summary"    }
+		{ "names": ["أَدْنَى", "دُنْيَا"], "en": "Lowest"     }
 	];
 	if(d == 1){
 		return adjectives;
