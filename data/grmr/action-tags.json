@@ -19,6 +19,11 @@
         "ar": "العبارات",
         "default": "فهرِس"
     },
+    "vocab":{
+        "en": "Vocabulary",
+        "ar": "المفردات",
+        "default": "فهرِس"        
+    },
     "proverb-ph": {
         "en": "Proverbs",
         "ar": "الأمثال",
@@ -45,7 +50,6 @@
         "ar": "حروف",
         "default": "حروف"
     },
-
     "noun-cmp": {
         "en": "Noun Comparisons",
         "ar": "مقارنة الأسماء",
