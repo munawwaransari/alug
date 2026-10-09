@@ -621,7 +621,7 @@ function loadExamplesFromObjectEffectData(dict, qselect, data) {
 		// Display examples
 		Object.entries(examples).filter(function ([key, value]) {
 			var div = '';
-			value.examples.every(function (ex, i) {
+			value.examples?.every(function (ex, i) {
 				if (/\[\d+\:\d+\]/ig.test(ex)) {
 					div += `<p style="font-size:10px;">${replaceQLink(ex)}</p>`;
 				}
@@ -730,32 +730,29 @@ function listExamplesFromQuran(selText) {
 	btnDiv.css('width', '280px');
 
 	loadExamplesFromCmpData(dict, qselect);
-	ensureDataLoaded({ name: "verb-examples" })
-		.then((data) => {
-			const exData = Object.fromEntries(
-				Object.entries(data).map(([key, value]) => [
-					key.replace("V1_", "Triliteral ")
-						.replace("V1_", "Quadlateral ")
-						.replace("V1_", "Extended"),
-					value]
-				)
-			);
-			loadExamplesFromObjectEffectData(dict, qselect, exData);
-		});
-	ensureDataLoaded({ name: "obj-effect" })
-		.then((data) => {
-			loadExamplesFromObjectEffectData(dict, qselect, data);
-		});
-	ensureDataLoaded({ name: "adv" })
-		.then((data) => {
-			loadExamplesFromObjectEffectData(dict, qselect, data);
-		});
-	ensureDataLoaded({ name: "def-data" })
-		.then((data) => {
-			loadExamplesFromDefinitions(dict, qselect, data);
-		});
-	ensureDataLoaded({ name: "ex-data" })
-	.then((data)=>{
+	Promise.all([
+		ensureDataLoaded({ name: "verb-examples" }),
+		ensureDataLoaded({ name: "obj-effect" }),
+		ensureDataLoaded({ name: "adv" }),
+		ensureDataLoaded({ name: "adj" }),
+		ensureDataLoaded({ name: "def-data" }),
+		ensureDataLoaded({ name: "ex-data" })
+	]).then(([verbExamples, objectEffects, adverbs, adjectives, definitions, exampleData]) => {
+		const exData = Object.fromEntries(
+			Object.entries(verbExamples).map(([key, value]) => [
+				key.replace("V1_", "Triliteral ")
+					.replace("V1_", "Quadlateral ")
+					.replace("V1_", "Extended"),
+				value]
+			)
+		);
+		loadExamplesFromObjectEffectData(dict, qselect, exData);
+		loadExamplesFromObjectEffectData(dict, qselect, objectEffects);
+		loadExamplesFromObjectEffectData(dict, qselect, adverbs);
+		loadExamplesFromObjectEffectData(dict, qselect, adjectives);
+		loadExamplesFromDefinitions(dict, qselect, definitions);
+
+		var data = exampleData;
 		loadExamplesFromData(dict, qselect, data["imperative"], "Imperative - Form");
 		loadExamplesFromData(dict, qselect, extractExamples(data["weak-verb"]), "Weak Verbs");
 		loadExamplesFromData(dict, qselect, extractExamples(data["inad-verb"]), "Inadequate Verbs");
