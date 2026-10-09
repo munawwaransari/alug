@@ -544,82 +544,95 @@
         "data": "pos:3",
         "order": 40
     },
-    "Declarative Sentence;جملة خبرية": {
+    "Subject-Predicate Agreement;اتفاق الموضوع والمسند": {
         "path": "dict.html",
         "action": "grammar",
         "data": "pos:4",
+        "order": 40
+    },
+    "Subject-Verb Agreement;اتفاق الموضوع-الفعل": {
+        "path": "dict.html",
+        "action": "grammar",
+        "data": "pos:5",
+        "order": 40
+    },
+
+    "Declarative Sentence;جملة خبرية": {
+        "path": "dict.html",
+        "action": "grammar",
+        "data": "pos:6",
         "order": 63
     },
     "Non-Declarative Sentence;جملة إنشائية": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:5",
+        "data": "pos:7",
         "order": 70
     },    
     "Initial Sentence;جملة الإبتدائية;الاستئنافية": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:6",
+        "data": "pos:8",
         "order": 67
     },    
     "Parenthetical;الجملة الاعتراضية": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:7",
+        "data": "pos:9",
         "order": 72
     },
     "Affirmative sentence;إيجابي;": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:8",
+        "data": "pos:10",
         "order": 62
     },
     "Negative sentence;نفي;": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:9",
+        "data": "pos:11",
         "order": 69
     },
     "Interrogative sentence;استفهامي;": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:10",
+        "data": "pos:12",
         "order": 68
     },
     "Possesive Construction;إضافة;المركب الإضافي;مُضاف;مُضاف إليه": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:11",
+        "data": "pos:13",
         "order": 74
     },
     "Adjectival Construction;المركب التوصيفي;نعت;منعوت;": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:12",
+        "data": "pos:14",
         "order": 61
     },
     "Demonstrative Phrase;المركب الإشاري;المشار إليه;اسم الإشارة;ضَمِير الفَصْل;": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:13",
+        "data": "pos:15",
         "order": 21
     },
     "Exceptions;الاستثناء;تام مثبت;تام منفي;ناقص منفي": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:14",
+        "data": "pos:16",
         "order": 65
     },
     "Verbal emphasis;توكيد اللفظي;": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:15",
+        "data": "pos:17",
         "order": 75
     },
     "Emphatic apposition;توكيد المعنوي;": {
         "path": "dict.html",
         "action": "grammar",
-        "data": "pos:16",
+        "data": "pos:18",
         "order": 64
     },
     "Phrases;عبارات": {

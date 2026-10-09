@@ -270,3 +270,95 @@ function getAdjectivePatternPairingExample(d){
 	</table>
 	`;
 }
+
+function getSubjectPredicateAgreementTable(h=1){
+	var spAgreement = {
+		"Human":[
+			{g: "m", n: "s", agreement: "Full", ex: ["الطَّالِبُ ذَكِيٌّ"]},
+			{g: "f", n: "s", agreement: "Full", ex: ["الطَّالِبَةُ ذَكِيَّةٌ"]},
+			{g: "m", n: "d", agreement: "Full", ex: ["الطَّالِبَانِ ذَكِيَّانِ"]},
+			{g: "f", n: "d", agreement: "Full", ex: ["الطَّالِبَتَانِ ذَكِيَّتَانِ"]},
+			{g: "m", n: "p", agreement: "Full", ex: ["الطُّلَّابُ أَذْكِيَاءُ"]}, 
+			{g: "f", n: "p", agreement: "Full", ex: ["الطَّالِبَاتُ ذَكِيَّاتٌ"]} 
+		],
+		"NonHuman":[
+			{g: "m", n: "s", agreement: "Full", ex: ["الكِتَابُ جَدِيدٌ"]},
+			{g: "f", n: "s", agreement: "Full", ex: ["السَّيَّارَةُ جَدِيدَةٌ"]},
+			{g: "m", n: "d", agreement: "Full", ex: ["الكِتَابَانِ جَدِيدَانِ"]},
+			{g: "f", n: "d", agreement: "Full", ex: ["السَّيَّارَتَانِ جَدِيدَتَانِ"]},
+			{g: "m", n: "p", agreement: "Deflected", ex: ["الكُتُبُ جَدِيدَةٌ"]}, 
+			{g: "f", n: "p", agreement: "Deflected", ex: ["السَّيَّارَاتُ جَدِيدَةٌ"]} 
+		]
+	};
+	var data = h == 1 ? spAgreement["Human"] : spAgreement["NonHuman"]
+	return `
+ 	<table style="width:100%;direction:rtl;font-size:14pt;">
+		<tbody>
+		<tr><th>Number</th><th>Gender</th><th>Agreement</th><th>Example</th></tr>
+		${
+			$.map(data, (row)=>{
+				return `
+				<tr><td>${row.n == "s" ? "مُفرد": row.n == "d" ? "مُثَنّي":"جمع"}</td>
+				    <td>${row.g == "m" ? "مُذكّر": "مُؤنّث"}</td>
+					<td>${row.agreement}</td>
+					<td>${row.ex.map(x=>replaceQLink(x)).join('')}</td>
+				</tr>
+				`;
+			}).join('')	
+		}
+		</tbody>
+	</table>
+	`;
+}
+
+function getSubjectVerbAgreementTable(o,h=1){
+	var svAgreement = {
+		"SVO-Human":[
+			{g: "m", n: "s", agreement: "Full", ex: ["الطَّالِبُ كَتَبَ"]},
+			{g: "f", n: "s", agreement: "Full", ex: ["الطَّالِبَةُ كَتَبَتْ"]},
+			{g: "m", n: "d", agreement: "Full", ex: ["الطَّالِبَانِ كَتَبَا"]},
+			{g: "f", n: "d", agreement: "Full", ex: ["الطَّالِبَتَانِ كَتَبَتَا"]},
+			{g: "m", n: "p", agreement: "Full", ex: ["الطُّلَّابُ كَتَبُوا"]}, 
+			{g: "f", n: "p", agreement: "Full", ex: ["الطَّالِبَاتُ كَتَبْنَ"]} 
+		],
+		"VSO-Human":[
+			{g: "m", n: "s", agreement: "Full", ex: ["كَتَبَ الطَّالِبُ"]},
+			{g: "f", n: "s", agreement: "Full", ex: ["كَتَبَتْ الطَّالِبَةُ"]},
+			{g: "m", n: "d", agreement: "Deflected", ex: ["كَتَبَ الطَّالِبَانِ"]},
+			{g: "f", n: "d", agreement: "Deflected", ex: ["كَتَبَتْ الطَّالِبَتَانِ"]},
+			{g: "m", n: "p", agreement: "Deflected", ex: ["كَتَبَ الطُّلَّابُ"]}, 
+			{g: "f", n: "p", agreement: "Deflected", ex: ["كَتَبَتْ الطَّالِبَاتُ"]} 
+		],
+		"SVO-NonHuman":[
+			{g: "m", n: "s", agreement: "Optional", ex: ["كُسِرَت القَلمُ / كُسِر القَلمُ"]},
+			{g: "f", n: "s", agreement: "Feminine", ex: ["السَّيَّارَةُ رَكَضَت"]},
+			{g: "m", n: "p", agreement: "Feminine", ex: ["الأَقْلَامُ كُسِرَتْ"]}, 
+			{g: "f", n: "p", agreement: "Feminine", ex: ["السَّيَّارَاتُ رَكَضَت"]} 
+		],
+		"VSO-NonHuman":[
+			{g: "m", n: "s", agreement: "Optional", ex: ["القَلمُ كُسِرَت / القَلمُ كُسِر"]},
+			{g: "f", n: "s", agreement: "Feminine", ex: ["رَكَضَت السَّيَّارَةُ"]},
+			{g: "m", n: "p", agreement: "Feminine", ex: ["كُسِرَتْ الأَقْلَامُ"]}, 
+			{g: "f", n: "p", agreement: "Feminine", ex: ["رَكَضَت السَّيَّارَاتُ"]} 
+		]
+	};
+	var data = h == 1 ? svAgreement[`${o}-Human`] : svAgreement[`${o}-NonHuman`]
+	return `
+ 	<table style="width:100%;direction:rtl;font-size:14pt;">
+		<tbody>
+		<tr><th>Number</th><th>Gender</th><th>Agreement</th><th>Example</th></tr>
+		${
+			$.map(data, (row)=>{
+				return `
+				<tr><td>${row.n == "s" ? "مُفرد": row.n == "d" ? "مُثَنّي":"جمع"}</td>
+				    <td>${row.g == "m" ? "مُذكّر": "مُؤنّث"}</td>
+					<td>${row.agreement}</td>
+					<td>${row.ex.map(x=>replaceQLink(x)).join('')}</td>
+				</tr>
+				`;
+			}).join('')	
+		}
+		</tbody>
+	</table>
+	`;
+}

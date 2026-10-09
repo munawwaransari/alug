@@ -1489,6 +1489,59 @@
         }
     },
     {
+        "compareType":"grammar",
+        "topics": [
+            "اتفاق المبتدا واخبر (Subject-Predicate Agreement)"
+        ],
+        "ar": [
+            "عاقل",
+            "غير عاقل"
+        ],
+        "en": [
+            "Human/Rational",
+            "Non-Human/Irrational"
+        ],
+        "features": {
+            "اتفاق المبتدا واخبر (Subject-Predicate Agreement)": [
+                "script: getSubjectPredicateAgreementTable(1)",
+                "script: getSubjectPredicateAgreementTable(0)"
+            ]
+        },
+        "features_links":{
+        }
+    },
+    {
+        "compareType":"grammar",
+        "topics": [
+            "اتفاق الموضوع والفعل (Subject-Verb Agreement)"
+        ],
+        "ar": [
+            "SVO - عاقل",
+            "VSO - عاقل",
+            "SVO - غير عاقل",
+            "VSO - غير عاقل",
+            "الاستثناءات"
+        ],
+        "en": [
+            "SVO - Human/Rational",
+            "VSO - Human/Rational",
+            "SVO - Non-Human",
+            "VSO - Non-Human",
+            "Exceptions"
+        ],
+        "features": {
+            "اتفاق الموضوع والفعل (Subject-Verb Agreement)": [
+                "script: getSubjectVerbAgreementTable(\"SVO\", 1)",
+                "script: getSubjectVerbAgreementTable(\"VSO\", 1)",
+                "script: getSubjectVerbAgreementTable(\"SVO\", 0)",
+                "script: getSubjectVerbAgreementTable(\"VSO\", 0)",
+                "<p style=\"direction:ltr\">When multiple subject involved:<br/>قَامَ الرَّجُلُ وَالنِّسَاءُ<br/>The gender of verb of considered from first subject</p>"
+            ]
+        },
+        "features_links":{
+        }
+    },
+    {
         "compareType": "grammar",
         "topics": [
             "جملة خبرية (Declarative)"
