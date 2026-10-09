@@ -956,7 +956,7 @@
         "features":{
             "المنهج الدراسي (Syllabus for Learning)":[
                 "<p style=\"direction:ltr;\">The Arabic Landscape<br/>Phonetics & The Sound System<br/>The Root & Pattern System (الجذر والوزن)<br/> Arabicized Vocabulary (المُعَرَّب)<br/>Common Words, Synonyms, Antonyms & Homonyms</p>",
-                "<p style=\"direction:ltr;\">The Digital & Physical Dictionary (علم المعاجم)<br/>Time, Space, Colors & Numbers<br/>Transit & Navigation<br/>Commerce & The Marketplace<br/>Common Verbs (Chart), Verb Forms, Imperatives</p>",
+                "<p style=\"direction:ltr;\">The Digital & Physical Dictionary (علم المعاجم)<br/>Time, Space, Colors & Numbers<br/>Transit & Navigation<br/>Commerce & The Marketplace<br/>Common Verbs (Chart), Verb Forms, Imperatives<br/>Subject-Predicate Agreement<br/>Subject-Verb Agreement</p>",
                 "<p style=\"direction:ltr;\">Greetings, Etiquette, & Fatalism Phrases<br/>Personal Identity & The Technonym (الكُنْيَة)<br/>Possessives & Pointers<br/>Descriptive Modifiers</p>",
                 "<p style=\"direction:ltr;\">The Core Action Matrix (الصرف Applied)<br/>Hospitality, Socializing, & Food Culture<br/>Daily Routines & Home Life<br/>Hyperboles</p>",
                 "<p style=\"direction:ltr;\">Conversational Connectors<br/>Idioms & Colloquialisms<br/>Practical Eloquence (علم البلاغة Basics)</p>"
@@ -971,6 +971,8 @@
            "The Digital & Physical Dictionary (علم المعاجم)": "'dict.html','lang','pos:6'",
            "Common Words": "'cards.html','Misc','alpha'",
            "Common Verbs": "'cards.html','Misc','actions'",
+           "Subject-Predicate Agreement": "'dict.html','grammar','pos:4'",
+           "Subject-Verb Agreement":"'dict.html','grammar','pos:5'",
            "Chart": "'charts.html','Chart','verbs'",
            "Verb Forms": "'charts.html','Chart','verb-forms'",
            "Imperatives": "'charts.html','Chart','imperative'",
@@ -990,9 +992,9 @@
            "Personal Identity & The Technonym (الكُنْيَة)":"'dict.html','lang','pos:9'",
            "Conversational Connectors": "'dict.html','prep-ph',''",
            "Idioms & Colloquialisms": "'dict.html','proverb-ph',''",
-           "Possessives":"'dict.html','grammar','pos:11'",
-           "Descriptive Modifiers":"'dict.html','grammar','pos:12'",
-           "Pointers":"'dict.html','grammar','pos:13'"
+           "Possessives":"'dict.html','grammar','pos:13'",
+           "Descriptive Modifiers":"'dict.html','grammar','pos:14'",
+           "Pointers":"'dict.html','grammar','pos:15'"
         }
     },
     {
@@ -1140,16 +1142,16 @@
             "Particles": "'dict.html','harf','pos:0'",
             "Adverbs": "'dict.html','adv','pos:0'",            
             "SENTENCE": "'dict.html','grammar','pos:2'",
-            "Declarative": "'dict.html','grammar','pos:3'",
-            "Non-Declarative": "'dict.html','grammar','pos:4'",
-            "Parenthetical": "'dict.html','grammar','pos:6'",
-            "Affirmative": "'dict.html','grammar','pos:7'",
-            "Negative": "'dict.html','grammar','pos:8'",
-            "Interrogative": "'dict.html','grammar','pos:9'",
-            "Possesive Construction": "'dict.html','grammar','pos:10'",
-            "Adjectival Construction": "'dict.html','grammar','pos:11'",
-            "Demonstrative Construction": "'dict.html','grammar','pos:12'",
-            "Exceptions & Exclusions": "'dict.html','grammar','pos:13'",
+            "Declarative": "'dict.html','grammar','pos:5'",
+            "Non-Declarative": "'dict.html','grammar','pos:6'",
+            "Parenthetical": "'dict.html','grammar','pos:8'",
+            "Affirmative": "'dict.html','grammar','pos:9'",
+            "Negative": "'dict.html','grammar','pos:10'",
+            "Interrogative": "'dict.html','grammar','pos:11'",
+            "Possesive Construction": "'dict.html','grammar','pos:12'",
+            "Adjectival Construction": "'dict.html','grammar','pos:13'",
+            "Demonstrative Construction": "'dict.html','grammar','pos:14'",
+            "Exceptions & Exclusions": "'dict.html','grammar','pos:15'",
             "Inadequate Verbs": "'dict.html','inad-verb','pos:0'",
             "Weak Verbs": "'dict.html','weak-verb','pos:0'",
             "Prepositional Phrases": "'dict.html','prep-ph','pos:0'",
@@ -1479,13 +1481,13 @@
             ]
         },
         "features_links":{
-            "جملة خبرية (Declarative)":  "'dict.html','grammar','pos:5'",
-            "جملة إنشائية (Non-Declarative)":  "'dict.html','grammar','pos:6'",
-            "جملة الإبتدائية (Initiating)":  "'dict.html','grammar','pos:7'",
-            "جملة الاعتراضية (Parenthetical)":  "'dict.html','grammar','pos:8'",
-            "إيجابي (Affirmative)":  "'dict.html','grammar','pos:9'",
-            "نفي (Negative)":  "'dict.html','grammar','pos:10'",
-            "استفهامي (Interrogative)":  "'dict.html','grammar','pos:11'"
+            "جملة خبرية (Declarative)":  "'dict.html','grammar','pos:6'",
+            "جملة إنشائية (Non-Declarative)":  "'dict.html','grammar','pos:7'",
+            "جملة الإبتدائية (Initiating)":  "'dict.html','grammar','pos:8'",
+            "جملة الاعتراضية (Parenthetical)":  "'dict.html','grammar','pos:9'",
+            "إيجابي (Affirmative)":  "'dict.html','grammar','pos:10'",
+            "نفي (Negative)":  "'dict.html','grammar','pos:11'",
+            "استفهامي (Interrogative)":  "'dict.html','grammar','pos:12'"
         }
     },
     {
