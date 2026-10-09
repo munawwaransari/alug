@@ -1078,6 +1078,7 @@ async function listVocabulary(){
 					key === 'antonyms' ? ' x ':
 					key === 'synonyms' ? ' | ':
 					key === 'homonyms' ? ' ~ ':
+					key === 'adjectives' ? ' / ':
 					';'
 				);
 				if(words.includes(';')){
