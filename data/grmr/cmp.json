@@ -1497,16 +1497,19 @@
         ],
         "ar": [
             "عاقل",
-            "غير عاقل"
+            "غير عاقل",
+            "الاستثناءات"
         ],
         "en": [
             "Human/Rational",
-            "Non-Human/Irrational"
+            "Non-Human/Irrational",
+            "Exceptions"
         ],
         "features": {
             "اتفاق المبتدا واخبر (Subject-Predicate Agreement)": [
                 "script: getSubjectPredicateAgreementTable(1)",
-                "script: getSubjectPredicateAgreementTable(0)"
+                "script: getSubjectPredicateAgreementTable(0)",
+                "<p style=\"direction:ltr\"><b>Commmon Gender Nouns (Epicoene)</b>: e.g. (فَعِيل)<br/>هِيَ شَخْصٌ كَرِيمٌ (He/She is a generaous person)<br/>سَحَابٌ مُظْلِمٌ/سَحَابٌ مُظْلِمَةٌ<br/>هَذَا طَرِيقٌ طَوِيلٌ/هَذِهِ طَرِيقٌ طَوِيلَةٌ<br/>سِكِّينٌ حَادٌّ/سِكِّينٌ حَادَّةٌ<br/><br/><b>Parts of the Body in Pairs</b>:<br/>قَدَمٌ قَصِيرَة , يَدٌ قَوِيَّةٌ , أَنْفٌ كَبِيرٌ<br/><br/><b>Some Patterns use masculine ending</b> e.g. (فَعُول)<br/>رَجُلٌ صَبُورٌ / امْرَأَةٌ صَبُورٌ<br/>رَجُلٌ قَتِيلٌ / امْرَأَةٌ قَتِيلٌ<br/><br/><b>Counting: Inverted Gender Agreement</b>:<br/>The number and the counted noun must have opposite genders (العدد مُخالف لِلمعدود)<br/>e.g. ثَلَاثَةُ رِجَالٍ , ثَلاثُ بَناتِ , سَبْعُ مَجَلَّاتٍ</p>"
             ]
         },
         "features_links":{
@@ -1537,7 +1540,7 @@
                 "script: getSubjectVerbAgreementTable(\"VSO\", 1)",
                 "script: getSubjectVerbAgreementTable(\"SVO\", 0)",
                 "script: getSubjectVerbAgreementTable(\"VSO\", 0)",
-                "<p style=\"direction:ltr\">When multiple subject involved:<br/>قَامَ الرَّجُلُ وَالنِّسَاءُ<br/>The gender of verb of considered from first subject</p>"
+                "<p style=\"direction:ltr\"><b>When both genders involved</b>:<br/><b>قَامَ</b> الرَّجُلُ وَالنِّسَاءُ / <b>قَامَت</b> النِّسَاءُ وَالرَّجُلُ<br/>The gender of verb of considered from the first subject<br/><br/><b>When mixed genders involved</b>:<br/>(Masculine preferred)<br/>سَافَرَ الطُّلَّابُ (The students travelled)<br/><br/><b>When a feminine subject is separated from Verb</b>:<br/>قَرَأَتِ الرِّسَالَةَ عَائِشَةُ<br/><b>قَرَأَ الرِّسَالَةَ</b> عَائِشَةُ<br/><br/>جَاءَتْ إِلَى المَدْرَسَةِ المُعَلِّمَةُ<br/><b>جَاءَ إِلَى المَدْرَسَةِ</b> المُعَلِّمَةُ<br/><br/>تَبْكِي الآنَ الطِّفْلَةُ<br/><b>يَبْكِي الآنَ</b> الطِّفْلَةُ<br/><br/><b>When Broken Plural Subjects (optional)</b>:<br/><b>حَكَمَ</b> القُضَاةُ بِالعَدْلِ<br/><b>حَكَمَتِ</b> القُضَاةُ بِالعَدْلِ<br/><br/><b>ظَهَرَتِ</b> الأَدِلَّةُ فِي القَضِيَّةِ<br/><b>ظَهَرَتِ</b> الأَدِلَّةُ فِي القَضِيَّةِ<br/><br/><b>أَنْشَدَ</b> الشُّعَرَاءُ القَصَائِدَ<br/><b>أَنْشَدَتِ</b> الشُّعَرَاءُ القَصَائِدَ</p>"
             ]
         },
         "features_links":{
