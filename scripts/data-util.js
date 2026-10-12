@@ -1969,7 +1969,7 @@ function setRevealAnswer(previewContainer, el, title, overlayOption) {
 	}		
 }
 
-function nextPreviewImage(previewContainer, imageContainer){
+function atPreviewImage(previewContainer, imageContainer, n){
 	var count = parseInt($(previewContainer).attr('data-count'));
 	var index = parseInt($(previewContainer).attr('data-index'));
 	var overlayOption = $(previewContainer).attr('data-overlay');
@@ -1977,32 +1977,26 @@ function nextPreviewImage(previewContainer, imageContainer){
 	if(isNaN(index)) index = -1;
 	if(count > 0){
 		var images = $(imageContainer).find("img[src!='']");
-		index++;
-		if(index >= count) index = 0;
+		if(n > 0){
+			index++;
+			if(index >= count) index = 0;
+		}else{
+			index--;
+			if(index < 0) index = count - 1;
+		}
 		var img = $(previewContainer).find('img').first();
 		img.prop('src', $(images[index]).prop('src'));
 		var title = $(images[index]).prop('title');
 		setRevealAnswer(previewContainer, img.prev(), title, overlayOption);
 		$(previewContainer).attr('data-index', index);
-	}
+	}	
+}
+function nextPreviewImage(previewContainer, imageContainer){
+	atPreviewImage(previewContainer, imageContainer, +1);
 }
 
 function prevPreviewImage(previewContainer, imageContainer){
-	var count = parseInt($(previewContainer).attr('data-count'));
-	var index = parseInt($(previewContainer).attr('data-index'));
-	var overlayOption = $(previewContainer).attr('data-overlay');
-	if(isNaN(count)) count = 0;
-	if(isNaN(index)) index = -1;
-	if(count > 0){
-		var images = $(imageContainer).find("img[src!='']");
-		index--;
-		if(index < 0) index = count - 1;
-		var img = $(previewContainer).find('img').first();
-		img.prop('src', $(images[index]).prop('src'));
-		var title = $(images[index]).prop('title');
-		setRevealAnswer(previewContainer, img.prev(), title, overlayOption);
-		$(previewContainer).attr('data-index', index);
-	}
+	atPreviewImage(previewContainer, imageContainer, -1);
 }
 
 function addImagePreviewer(containerName, overlayOption){
