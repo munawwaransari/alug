@@ -302,7 +302,7 @@
 		function drawSynonym(div, syn, index, name) {
 
 			if(syn.ar === undefined || syn.ar === 'undefined'){
-				syn.ar = syn.names[0] ?? '';
+				syn.ar = syn.names[0] ?? syn.names[1] ?? '';
 			}
 			var adiv = `
 		  	<div class="alpha-box" style="align-content: center;">
