@@ -362,34 +362,34 @@ function getSubjectVerbAgreementTable(o, h = 1) {
 
 function getListOfDictionariesAndAuthors() {
 	const dict = [
-		{ name: `${alink('كتاب العين',{page: "https://archive.org/details/fra_20210729/%D9%83%D8%AA%D8%A7%D8%A8%20%D8%A7%D9%84%D8%B9%D9%8A%D9%86%20%281%29/"})}`, author: "الخليل بن أحمد الفراهيدي", date: "~170 AH / 786 CE", desc: "Phonetic Anagram System<br>Arranged by vocal articulation points starting from the throat letter (ع)"},
-		{ name: `${alink('جمهرة اللغة',{page: "https://archive.org/details/20200113_20200113_1759/%D8%AC%D9%85%D9%87%D8%B1%D8%A9%20%D8%A7%D9%84%D9%84%D8%BA%D8%A9/"})}`, author: "ابن دريد الأزدي", date: "297 AH / 909 CE", desc: "Alphabetical Anagram System<br>Arranged alphabetically based on word structures (biliteral, triliteral, etc.) paired with letter shifting." },
-		{ name: `${alink('البارع في اللغة',{page:"https://archive.org/details/035-pdf_20210113_1157"})}`, author: "أبو علي القالي", date: "350–356 AH / 961–967 CE", desc: "Phonetic Anagram System<br>The first dictionary written in Al-Andalus; followed Al-Khalil's phonetic methodology." },
-		{ name: `${alink('تهذيب اللغة',{page:"https://archive.org/details/tahzlu"})}`, author: "أبو منصور الأزهري", date: "~350–370 AH / 961–980 CE", desc: "Phonetic Anagram System<br>Focused deeply on refining and authenticating Bedouin linguistic usages." },
-		{ name: `${alink('الصِّحاح',{page:"https://archive.org/details/assehah-gohary"})}`, author: "الجوهري", date: "~393 AH / 1003 CE", desc: "Rhyme System (القافية)<br>Arranged alphabetically by the <em>last</em> radical letter (the rhyme) and then the first." },
-		{ name: `${alink('المقاييس في اللغة',{page:"https://archive.org/details/maktabah2000_gmail_20150716_2027"})}`, author: "ابن فارس", date: "~395 AH / 1004 CE", desc: "Standard Alphabetical System<br>Arranged by the first letter, focusing on the core semantic root meanings." },
-		{ name: `${alink('المحكم والمحيط الأعظم',{page:"https://archive.org/details/lis01846"})}`, author: "ابن سيده", date: "~450 AH / 1058 CE", desc: "Phonetic Anagram System<br>An expansive Andalusian dictionary that built upon and organized earlier works." },
-		{ name: `${alink('لسان العرب',{page:"https://archive.org/details/01_20210525_20210525_0314"})}`, author: "ابن منظور", date: "711 AH / 1311 CE", desc: "Rhyme System (القافية)<br>The most comprehensive classical Arabic dictionary, synthesizing 5 major earlier sources." },
-		{ name: `${alink('القاموس المحيط', {page: "https://archive.org/details/fariskamal240_gmail_201402"})}`, author: "الفيروزآبادي", date: "~810 AH / 1410 CE", desc: "Rhyme System (القافية)<br>Highly compressed and immensely popular; it became so famous that <em>\"قاموس\"</em> became the generic word for \"dictionary\" in Arabic."},
-		{ name: `${alink('تاج العروس', {page: "https://archive.org/details/TajAl0Arus"})}`, author: "المرتضى الزبيدي", date: "~1188 AH / 1774 CE", desc: "Rhyme System (القافية)<br>An encyclopedic commentary and massive expansion of القاموس المحيط." }
+		{ name: `${alink('مفردات القرآن', {page: "https://arabiclexicon.hawramani.com/hamiduddin-farahi-mufradat-al-quran/"})}`, author: "حميد الدين فراهي", date: "1930 CE", desc: "a dictionary of 121 terms in the Quran, interpreted in light of modern exegetic theories, with reference to classical and modern Islamic, Jewish and Christian sources." },
+		{ name: `${alink('تاج العروس', {page: "https://arabiclexicon.hawramani.com/murtada-al-zabidi-taj-al-arus-fi-jawahir-al-qamus/"})}`, author: "المرتضى الزبيدي", date: "1774 CE / ~1188 AH", desc: "Rhyme System (القافية)<br>An encyclopedic commentary and massive expansion of القاموس المحيط." },
+		{ name: `${alink('كتاب التعريفات',{page:"https://arabiclexicon.hawramani.com/al-sharif-al-jurjani-kitab-al-tarifat/"})}`, author: "شريف الجرجاني", date: "1413 CE / 816 AH", desc: "a dictionary of legal, scientific and technical terms in use during his time." },
+		{ name: `${alink('القاموس المحيط', {page: "https://arabiclexicon.hawramani.com/firuzabadi-al-qamus-al-muhit/"})}`, author: "الفيروزآبادي", date: "1410 CE / ~810 AH", desc: "Rhyme System (القافية)<br>Highly compressed and immensely popular; it became so famous that <em>\"قاموس\"</em> became the generic word for \"dictionary\" in Arabic."},
+		{ name: `${alink('لسان العرب',{page:"https://arabiclexicon.hawramani.com/ibn-manzur-lisan-al-arab/"})}`, author: "ابن منظور", date: "1311 CE / 711 AH", desc: "Rhyme System (القافية)<br>The most comprehensive classical Arabic dictionary, synthesizing 5 major earlier sources." },
+		{ name: `${alink('أساس البلاغة',{page: "https://arabiclexicon.hawramani.com/al-zamakhshari-asas-al-balagha/"})}`, author:"زمخشري", date: "1143 CE / 538 AH", desc: "Arranged logically from the first letter to the last letter of the root, identical to modern conventions"},
+		{ name: `${alink('المفردات في غريب القرآن',{page: "https://arabiclexicon.hawramani.com/al-raghib-al-isfahani-al-mufradat-fi-gharib-al-quran/"})}`, author:"الأصفهاني", date: "1109 CE / 502 AH", desc: "The most widely used dictionary of the Quran"},
+		{ name: `${alink('المقاييس في اللغة',{page:"https://arabiclexicon.hawramani.com/ibn-faris-maqayis-al-lugha/"})}`, author: "ابن فارس", date: "1004 CE / ~395 AH", desc: "Standard Alphabetical System<br>Arranged by the first letter, focusing on the core semantic root meanings." },
+		{ name: `${alink('الصِّحاح',{page:"https://arabiclexicon.hawramani.com/ismail-bin-hammad-al-jawhari-taj-al-lugha-wa-sihah-al-arabiya/"})}`, author: "الجوهري", date: "1003 CE / ~393 AH", desc: "Rhyme System (القافية)<br>Arranged alphabetically by the <em>last</em> radical letter (the rhyme) and then the first." },
+		{ name: `${alink('كتاب العين',{page: "https://arabiclexicon.hawramani.com/al-khalil-b-ahmad-al-farahidi-kitab-al-ain/"})}`, author: "الخليل بن أحمد الفراهيدي", date: "786 CE / ~170 AH", desc: "Phonetic Anagram System<br>Arranged by vocal articulation points starting from the throat letter (ع)"}
 	];
 	return `
 	<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%; text-align: left; font-family: sans-serif;">
 	<thead>
 		<tr style="background-color: #f2f2f2;">
-		<th style="padding: 10px;">Dictionary (المعجم)</th>
-		<th style="padding: 10px;">Author (المؤلف)</th>
-		<th style="padding: 10px;">Date / Period (التاريخ)</th>
-		<th style="padding: 10px;">School / System (المدرسة)</th>
+		<th style="padding: 10px;"><sub>Dictionary<br/>(المعجم)</sub></th>
+		<th style="padding: 10px;"><sub>Author<br/>(المؤلف)</sub></th>
+		<th style="padding: 10px;"><sub>Date/Period<br/>(التاريخ)</sub></th>
+		<th style="padding: 10px;"><sub>School/System<br/>(المدرسة)</sub></th>
 		</tr>
 	</thead>
 	<tbody>
 		${dict.map((row) => {
 		return `<tr>
-				<td style="padding: 10px;"><strong>${row.name}</strong></td>
-				<td style="padding: 10px;">${row.author}</td>
-				<td style="padding: 10px;">${row.date}</td>
-				<td style="padding: 10px;direction:ltr;"><sub>${row.desc}</sub></td>
+				<td style="padding:10px;text-align:right;"><strong>${row.name}</strong></td>
+				<td style="padding:10px;text-align:right;">${row.author}</td>
+				<td style="padding:10px;direction:ltr;"><sub>${row.date}</sub></td>
+				<td style="padding:10px;direction:ltr;"><sub>${row.desc}</sub></td>
 				</tr>`;
 	}).join('')
 		} 
