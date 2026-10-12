@@ -2,52 +2,52 @@
 //	Author: munawwar_ali@yahoo.com
 //
 
-function showObjectEffects(dataName){
+function showObjectEffects(dataName) {
 	var container = $(".dictionary");
 	container.html("Loading...");
-	ensureDataLoaded({name: dataName})
-	.then((data) => {
-		container.empty();
-		createSelectionFilters(container, data, dataName);
-		data.every(function (objData) {
-			addObjectEffectTable(container, objData);
-			return true;
+	ensureDataLoaded({ name: dataName })
+		.then((data) => {
+			container.empty();
+			createSelectionFilters(container, data, dataName);
+			data.every(function (objData) {
+				addObjectEffectTable(container, objData);
+				return true;
+			});
 		});
-	});
 }
 
-function addObjectEffectTable(container, objData){
-	var id = makeId('pTable_',objData.name_en);
+function addObjectEffectTable(container, objData) {
+	var id = makeId('pTable_', objData.name_en);
 	var pTable = `
 		<table id="${id}" class="pTable">
 		<tr>
 			<td style="background-color:#ACE892;">
 			${objData.name_ar}
-			${getPinIcon(id,' tbody:first',parent.document)}
+			${getPinIcon(id, ' tbody:first', parent.document)}
 			</td>
 		</tr>`;
-	
-	if(objData["notes"]){
+
+	if (objData["notes"]) {
 		pTable += `
 			<tr>
 			<td style="font-size:14px;background-color:#F6F6BA;">${objData["notes"]}</td>
 			</tr>`;
 	}
-	
-	if(objData["alternate_ar"] !== undefined){	
+
+	if (objData["alternate_ar"] !== undefined) {
 		pTable += objData["alternate_ar"] !== '' ? `
 		<tr>
 			<td style="padding-top:8px;padding-bottom:8px;">${objData["alternate_ar"]}</td>
-		</tr>`:'';
+		</tr>`: '';
 	}
-	else if(objData["construct_ar"]){
+	else if (objData["construct_ar"]) {
 		var div = '<div>';
-		objData["construct_ar"].every(function(val, index){
-			if(val.startsWith("script:")){
+		objData["construct_ar"].every(function (val, index) {
+			if (val.startsWith("script:")) {
 				div += eval(val.substring(7));
-			}else{
+			} else {
 				div += `<span>${val}</span>`;
-				if(index < objData["construct_ar"].length - 1)
+				if (index < objData["construct_ar"].length - 1)
 					div += `<span>${objData["construct_sep"]}</span>`;
 			}
 			return true;
@@ -57,21 +57,21 @@ function addObjectEffectTable(container, objData){
 			<td style="padding-top:8px;padding-bottom:8px;">${div}</td>
 		</tr>`;
 	}
-	
-	if(objData["alternate_en"] !== undefined){	
+
+	if (objData["alternate_en"] !== undefined) {
 		pTable += objData["alternate_en"] !== '' ? `
 		<tr>
 			<td style="padding-top:8px;padding-bottom:8px;">${objData["alternate_en"]}</td>
 		</tr>`: '';
 	}
-	else if(objData["construct_en"]){
+	else if (objData["construct_en"]) {
 		div = '<div class="engText">';
-		objData["construct_en"].every(function(val, index){
-			if(val.startsWith("script:")){
+		objData["construct_en"].every(function (val, index) {
+			if (val.startsWith("script:")) {
 				div += eval(val.substring(7));
-			}else{
+			} else {
 				div += `<span>${val}</span>`;
-				if(objData["construct_en"] && (index < objData["construct_en"].length - 1))
+				if (objData["construct_en"] && (index < objData["construct_en"].length - 1))
 					div += `<span> ${objData["construct_sep"]} </span>`;
 			}
 			return true;
@@ -81,10 +81,10 @@ function addObjectEffectTable(container, objData){
 			<td style="padding-top:8px;padding-bottom:8px;">${div}</td>
 		</tr>`
 	}
-	
-	if(objData["examples"] && objData["construct_ar"]){	  
-		if(objData["examples"]){
-		pTable += `
+
+	if (objData["examples"] && objData["construct_ar"]) {
+		if (objData["examples"]) {
+			pTable += `
 			<tr>
 				<td class="engText" 
 					style="background-color:#CEF4C1;padding-top:2px;padding-bottom:8px;">
@@ -94,57 +94,57 @@ function addObjectEffectTable(container, objData){
 		}
 		var div = `
 			<div style="disaply:flex;flex-direction:column;align-content:center;width:100%;">`;
-		objData["examples"].every(function(val, index){	  
-			if(val.startsWith("script:")){
+		objData["examples"].every(function (val, index) {
+			if (val.startsWith("script:")) {
 				div += eval(val.substring(7));
-			}else{
-				var ex =  val;
-				if(objData["em"] && objData["em"][index]){
+			} else {
+				var ex = val;
+				if (objData["em"] && objData["em"][index]) {
 					var tk = objData["em"][index].split(",");
-					tk.every(function(val){
+					tk.every(function (val) {
 						ex = ex.replaceAll(val, `<em>${val}</em>`);
 					});
 				}
 				div += `<span>${replaceQLink(ex)}</span><br/>`;
 			}
 			return true;
-		});		
+		});
 		// Add Ai search link for more details
-		var prompt = getPromptFromKey(['Object-Effects'], {'0': [objData.name_ar]}, true);
+		var prompt = getPromptFromKey(['Object-Effects'], { '0': [objData.name_ar] }, true);
 		div += `<a href="#" style="cursor:pointer;font-size: 14px;"
-					onclick="openGoogleAISearch(\`${prompt}\`);">More</a>`;			
+					onclick="openGoogleAISearch(\`${prompt}\`);">More</a>`;
 		div += '</div>';
 		pTable += `
 			<tr>
 				<td style="padding-top:8px;padding-bottom:8px;"><div>${div}</td>
 			</tr>`
 	}
-	
-	if(objData["set"] && objData["construct_ar"]){
-		objData["set"].every(function(val, index){
+
+	if (objData["set"] && objData["construct_ar"]) {
+		objData["set"].every(function (val, index) {
 			pTable += objData["set_name"] !== "<skip>" ?
-			`<tr>
+				`<tr>
 					<td style="background-color:#F2F2B3;padding-top:8px;padding-bottom:8px;">
-						${objData["set_name"] === undefined ? 
-							`${objData["construct_ar"][index]}<br/>(${objData["construct_en"][index]})` : 
-							objData["set_name"]}
+						${objData["set_name"] === undefined ?
+					`${objData["construct_ar"][index]}<br/>(${objData["construct_en"][index]})` :
+					objData["set_name"]}
 					</td>
 			</tr>`
-			: '';
+				: '';
 			var div = `
 				<div style="disaply:flex;flex-direction:column;align-content:center;width:100%;">`;
-			var setData_ar = val.split(",").filter(x=>x!=='');
+			var setData_ar = val.split(",").filter(x => x !== '');
 			var setData_en = objData["set_en"];
-			if(setData_en)
-				setData_en = (objData["set_en"])[index].split(",").filter(x=>x!=='');		
-			setData_ar.every(function(val2, i){
+			if (setData_en)
+				setData_en = (objData["set_en"])[index].split(",").filter(x => x !== '');
+			setData_ar.every(function (val2, i) {
 				div += `
 				<span>
 					${val2}
-					${setData_en && setData_en[i] ? `<p class="engText">(${setData_en[i]})</p>`:'<p/>'}
+					${setData_en && setData_en[i] ? `<p class="engText">(${setData_en[i]})</p>` : '<p/>'}
 					</span>
-					${(index < setData_ar.length - 1) ? 
-						'<span style="padding:10px;"></span>':''
+					${(index < setData_ar.length - 1) ?
+						'<span style="padding:10px;"></span>' : ''
 					}
 				`;
 				return true;
@@ -157,71 +157,70 @@ function addObjectEffectTable(container, objData){
 			return true;
 		});
 	}
-	
+
 	pTable += '</table>';
 	container.append($(pTable));
 }
 
-function createSelectionFilters(container, data, dataAction){
+function createSelectionFilters(container, data, dataAction) {
 	var sel = `
 	<select class="pronounFilter" 
 			onchange="filterObjectEffectView(event && event.target ? event.target.value: undefined);">
 	<option value="all">Show All</option>
-	${
-		data.map(function(obj){
-			var v = makeId('', obj.name_en);
-			return '<option value="'+v+'">'+obj.name_ar+' ( '+obj.name_en+' )'+'</option>';
-		}).join('')
-	}
+	${data.map(function (obj) {
+		var v = makeId('', obj.name_en);
+		return '<option value="' + v + '">' + obj.name_ar + ' ( ' + obj.name_en + ' )' + '</option>';
+	}).join('')
+		}
 	</select>`;
 	container.append($(getListButtinWithSelect(sel, 'pronounFilter', dataAction)));
 	filterObjectEffectView();
 }
 
-function filterObjectEffectView(value){
+function filterObjectEffectView(value) {
 	var val = value ?? $(".pronounFilter").val();
 	var lstButton = $(".nFilterBtn");
 	var lst = $(".pronounFilter");
-	if(val == 'all'){
+	if (val == 'all') {
 		$('.pTable tr').show();
-	}else{
+	} else {
 		$('.pTable tr').hide();
-		var t = $("#pTable_"+val);
+		var t = $("#pTable_" + val);
 		t.remove();
 		lstButton.remove();
 		lst.remove();
 		$(".dictionary").prepend(t);
 		$(".dictionary").prepend(lstButton);
 		$(".dictionary").prepend(lst);
-		$("#pTable_"+val+' tr').show();
+		$("#pTable_" + val + ' tr').show();
 	}
 	lstButton.css('width', lst.css('width'));
 }
 
-function makeId(prefix, txt){
-	return prefix + txt.replaceAll(')','').replaceAll('(','').replaceAll(' ', '_');
+function makeId(prefix, txt) {
+	return prefix + txt.replaceAll(')', '').replaceAll('(', '').replaceAll(' ', '_');
 }
 
-function alink(text, args){
+function alink(text, args) {
 	return `<a href="#" 
-	onclick="parent.redirect('${args.page}','${args.action}','${args.data}')">
+	onclick="parent.redirect('${args.page}','${args?.action ?? ''}','${args?.data ?? ''}')">
 	${text}
 	</a>`;
 }
-function getAdjectivePatternPairingTable(){
- return `
+function getAdjectivePatternPairingTable() {
+	return `
  	<table style="width:100%;direction:rtl;font-size:14pt;">
 		<tbody>
-		<tr><td rowspan="3" style="font-size:16px">${alink("الصفات الأساسية<br/>Core Attributes",{page: "dict.html", action:"adj", data:"pos:2"})}</td>
+		<tr><td rowspan="3" style="font-size:16px">${alink("الصفات الأساسية<br/>Core Attributes", { page: "dict.html", action: "adj", data: "pos:2" })}</td>
 		    <td>فَعْلٌ</td><td>فَعْلَةٌ</td><td style="font-size:14px">Vices<br/>virtues<br/>core disposition</td></tr>
 		<tr><td>فُعَالٌ</td><td>فُعَالَةٌ</td><td style="font-size:14px">Core temperaments<br/>or builds</td></tr>
 		<tr><td>فَعِيلٌ</td><td>فَعِيلَةٌ</td><td style="font-size:14px">Permanent physical<br/>moral attributes</td></tr>
-		<tr><td style="font-size:16px">${alink("والعيوب<br/>الألوان",{page: "dict.html", action:"adj", data:"pos:3"})}</td>
+		<tr><td style="font-size:16px">${alink("والعيوب<br/>الألوان", { page: "dict.html", action: "adj", data: "pos:3" })}</td>
 		    <td>أَفْعَلُ</td><td>فَعْلَاءُ</td><td style="font-size:14px">Defects<br/>Beauties<br/>Pigments</td></tr>
-		<tr><td rowspan="2" style="font-size:16px">${alink("اِسْمُ التَّفْضِيل<br/>or<br/>مبالغة",{page: "dict.html", action:"adj", data:"pos:4"})}</td>
+		<tr><td rowspan="2" style="font-size:16px">${alink("اِسْمُ التَّفْضِيل<br/>or<br/>مبالغة", { page: "dict.html", action: "adj", data: "pos:4" })}</td>
 		    <td>أَفْعَلُ</td><td>فُعْلَى</td><td style="font-size:14px">Elative<br/>Superlative</td></tr>
 		<tr><td>فَعُول</td><td>فَعُولَة</td><td style="font-size:14px">Frequent<br/>intense<br/>habitual action</td></tr>
-		<tr><td rowspan="3" style="font-size:16px">${alink("الصِّفَةُ<br/>المُشَبَّهَةُ<br/>Emotions",{page: "dict.html", action:"adj", data:"pos:5"})}</td>
+		<tr><td rowspan="3" style="font-size:16px">${alink("الصِّفَةُ<br/>المُشَبَّهَةُ<br/>Emotions", { page: "dict.html", action: "adj", data: "pos:5" })}</td>
 		    <td>فَعْلَانُ</td><td>فَعْلَى</td><td style="font-size:14px">Fullness<br/>emptiness<br/>acute emotion</td></tr>
 		<tr><td>فَعِلٌ</td><td>فَعِلَةٌ</td><td style="font-size:14px">Joy<br/>Grief<br/>Immediate worry</td></tr>
 		</tbody>
@@ -229,7 +228,7 @@ function getAdjectivePatternPairingTable(){
 `;
 }
 
-function getAdjectivePatternPairingExample(d){
+function getAdjectivePatternPairingExample(d) {
 	var adjectives = [
 		{ "names": ["صَعْب", "صَعْبَةٌ"], "en": "Difficult" },
 		{ "names": ["صَخرٌ", "صَخْرَةٌ"], "en": "Rock" },
@@ -250,44 +249,43 @@ function getAdjectivePatternPairingExample(d){
 		{ "names": ["نَدِم", "نَدِمَة"], "en": "Regretful" },
 		{ "names": ["أَكْبَرُ", "كُبْرَى"], "en": "Biggest" },
 		{ "names": ["أَصْغَرُ", "صُغْرَى"], "en": "Smallest" },
-		{ "names": ["أَدْنَى", "دُنْيَا"], "en": "Lowest"     }
+		{ "names": ["أَدْنَى", "دُنْيَا"], "en": "Lowest" }
 	];
-	if(d == 1){
+	if (d == 1) {
 		return adjectives;
 	}
 	return `
  	<table style="width:100%;direction:rtl;font-size:14pt;">
 		<tbody>
 		<tr><th>مُذكّر</th><th>مُؤنّث</th><th>Meaning</th></tr>
-		${
-			$.map(adjectives, (v, k)=>{
-				return `
+		${$.map(adjectives, (v, k) => {
+		return `
 				<tr><td>${v.names[0]}</td><td>${v.names[1]}</td><td style="font-size:14px">${v.en}</td></tr>
 				`;
-			}).join('')	
+	}).join('')
 		}
 		</tbody>
 	</table>
 	`;
 }
 
-function getSubjectPredicateAgreementTable(h=1){
+function getSubjectPredicateAgreementTable(h = 1) {
 	var spAgreement = {
-		"Human":[
-			{g: "m", n: "s", agreement: "Full", ex: ["الطَّالِبُ ذَكِيٌّ"]},
-			{g: "f", n: "s", agreement: "Full", ex: ["الطَّالِبَةُ ذَكِيَّةٌ"]},
-			{g: "m", n: "d", agreement: "Full", ex: ["الطَّالِبَانِ ذَكِيَّانِ"]},
-			{g: "f", n: "d", agreement: "Full", ex: ["الطَّالِبَتَانِ ذَكِيَّتَانِ"]},
-			{g: "m", n: "p", agreement: "Full", ex: ["الطُّلَّابُ أَذْكِيَاءُ"]}, 
-			{g: "f", n: "p", agreement: "Full", ex: ["الطَّالِبَاتُ ذَكِيَّاتٌ"]} 
+		"Human": [
+			{ g: "m", n: "s", agreement: "Full", ex: ["الطَّالِبُ ذَكِيٌّ"] },
+			{ g: "f", n: "s", agreement: "Full", ex: ["الطَّالِبَةُ ذَكِيَّةٌ"] },
+			{ g: "m", n: "d", agreement: "Full", ex: ["الطَّالِبَانِ ذَكِيَّانِ"] },
+			{ g: "f", n: "d", agreement: "Full", ex: ["الطَّالِبَتَانِ ذَكِيَّتَانِ"] },
+			{ g: "m", n: "p", agreement: "Full", ex: ["الطُّلَّابُ أَذْكِيَاءُ"] },
+			{ g: "f", n: "p", agreement: "Full", ex: ["الطَّالِبَاتُ ذَكِيَّاتٌ"] }
 		],
-		"NonHuman":[
-			{g: "m", n: "s", agreement: "Full", ex: ["الكِتَابُ جَدِيدٌ"]},
-			{g: "f", n: "s", agreement: "Full", ex: ["السَّيَّارَةُ جَدِيدَةٌ"]},
-			{g: "m", n: "d", agreement: "Full", ex: ["الكِتَابَانِ جَدِيدَانِ"]},
-			{g: "f", n: "d", agreement: "Full", ex: ["السَّيَّارَتَانِ جَدِيدَتَانِ"]},
-			{g: "m", n: "p", agreement: "Deflected", ex: ["الكُتُبُ جَدِيدَةٌ"]}, 
-			{g: "f", n: "p", agreement: "Deflected", ex: ["السَّيَّارَاتُ جَدِيدَةٌ"]} 
+		"NonHuman": [
+			{ g: "m", n: "s", agreement: "Full", ex: ["الكِتَابُ جَدِيدٌ"] },
+			{ g: "f", n: "s", agreement: "Full", ex: ["السَّيَّارَةُ جَدِيدَةٌ"] },
+			{ g: "m", n: "d", agreement: "Full", ex: ["الكِتَابَانِ جَدِيدَانِ"] },
+			{ g: "f", n: "d", agreement: "Full", ex: ["السَّيَّارَتَانِ جَدِيدَتَانِ"] },
+			{ g: "m", n: "p", agreement: "Deflected", ex: ["الكُتُبُ جَدِيدَةٌ"] },
+			{ g: "f", n: "p", agreement: "Deflected", ex: ["السَّيَّارَاتُ جَدِيدَةٌ"] }
 		]
 	};
 	var data = h == 1 ? spAgreement["Human"] : spAgreement["NonHuman"]
@@ -295,51 +293,50 @@ function getSubjectPredicateAgreementTable(h=1){
  	<table style="width:100%;direction:rtl;font-size:14pt;">
 		<tbody>
 		<tr><th>Number</th><th>Gender</th><th>Agreement</th><th>Example</th></tr>
-		${
-			$.map(data, (row)=>{
-				return `
-				<tr><td>${row.n == "s" ? "مُفرد": row.n == "d" ? "مُثَنّي":"جمع"}</td>
-				    <td>${row.g == "m" ? "مُذكّر": "مُؤنّث"}</td>
+		${$.map(data, (row) => {
+		return `
+				<tr><td>${row.n == "s" ? "مُفرد" : row.n == "d" ? "مُثَنّي" : "جمع"}</td>
+				    <td>${row.g == "m" ? "مُذكّر" : "مُؤنّث"}</td>
 					<td>${row.agreement}</td>
-					<td>${row.ex.map(x=>replaceQLink(x)).join('')}</td>
+					<td>${row.ex.map(x => replaceQLink(x)).join('')}</td>
 				</tr>
 				`;
-			}).join('')	
+	}).join('')
 		}
 		</tbody>
 	</table>
 	`;
 }
 
-function getSubjectVerbAgreementTable(o,h=1){
+function getSubjectVerbAgreementTable(o, h = 1) {
 	var svAgreement = {
-		"SVO-Human":[
-			{g: "m", n: "s", agreement: "Full", ex: ["الطَّالِبُ كَتَبَ"]},
-			{g: "f", n: "s", agreement: "Full", ex: ["الطَّالِبَةُ كَتَبَتْ"]},
-			{g: "m", n: "d", agreement: "Full", ex: ["الطَّالِبَانِ كَتَبَا"]},
-			{g: "f", n: "d", agreement: "Full", ex: ["الطَّالِبَتَانِ كَتَبَتَا"]},
-			{g: "m", n: "p", agreement: "Full", ex: ["الطُّلَّابُ كَتَبُوا"]}, 
-			{g: "f", n: "p", agreement: "Full", ex: ["الطَّالِبَاتُ كَتَبْنَ"]} 
+		"SVO-Human": [
+			{ g: "m", n: "s", agreement: "Full", ex: ["الطَّالِبُ كَتَبَ"] },
+			{ g: "f", n: "s", agreement: "Full", ex: ["الطَّالِبَةُ كَتَبَتْ"] },
+			{ g: "m", n: "d", agreement: "Full", ex: ["الطَّالِبَانِ كَتَبَا"] },
+			{ g: "f", n: "d", agreement: "Full", ex: ["الطَّالِبَتَانِ كَتَبَتَا"] },
+			{ g: "m", n: "p", agreement: "Full", ex: ["الطُّلَّابُ كَتَبُوا"] },
+			{ g: "f", n: "p", agreement: "Full", ex: ["الطَّالِبَاتُ كَتَبْنَ"] }
 		],
-		"VSO-Human":[
-			{g: "m", n: "s", agreement: "Full", ex: ["كَتَبَ الطَّالِبُ"]},
-			{g: "f", n: "s", agreement: "Full", ex: ["كَتَبَتْ الطَّالِبَةُ"]},
-			{g: "m", n: "d", agreement: "Deflected", ex: ["كَتَبَ الطَّالِبَانِ"]},
-			{g: "f", n: "d", agreement: "Deflected", ex: ["كَتَبَتْ الطَّالِبَتَانِ"]},
-			{g: "m", n: "p", agreement: "Deflected", ex: ["كَتَبَ الطُّلَّابُ"]}, 
-			{g: "f", n: "p", agreement: "Deflected", ex: ["كَتَبَتْ الطَّالِبَاتُ"]} 
+		"VSO-Human": [
+			{ g: "m", n: "s", agreement: "Full", ex: ["كَتَبَ الطَّالِبُ"] },
+			{ g: "f", n: "s", agreement: "Full", ex: ["كَتَبَتْ الطَّالِبَةُ"] },
+			{ g: "m", n: "d", agreement: "Deflected", ex: ["كَتَبَ الطَّالِبَانِ"] },
+			{ g: "f", n: "d", agreement: "Deflected", ex: ["كَتَبَتْ الطَّالِبَتَانِ"] },
+			{ g: "m", n: "p", agreement: "Deflected", ex: ["كَتَبَ الطُّلَّابُ"] },
+			{ g: "f", n: "p", agreement: "Deflected", ex: ["كَتَبَتْ الطَّالِبَاتُ"] }
 		],
-		"SVO-NonHuman":[
-			{g: "m", n: "s", agreement: "Optional", ex: ["كُسِرَت القَلمُ / كُسِر القَلمُ"]},
-			{g: "f", n: "s", agreement: "Feminine", ex: ["السَّيَّارَةُ رَكَضَت"]},
-			{g: "m", n: "p", agreement: "Feminine", ex: ["الأَقْلَامُ كُسِرَتْ"]}, 
-			{g: "f", n: "p", agreement: "Feminine", ex: ["السَّيَّارَاتُ رَكَضَت"]} 
+		"SVO-NonHuman": [
+			{ g: "m", n: "s", agreement: "Optional", ex: ["كُسِرَت القَلمُ / كُسِر القَلمُ"] },
+			{ g: "f", n: "s", agreement: "Feminine", ex: ["السَّيَّارَةُ رَكَضَت"] },
+			{ g: "m", n: "p", agreement: "Feminine", ex: ["الأَقْلَامُ كُسِرَتْ"] },
+			{ g: "f", n: "p", agreement: "Feminine", ex: ["السَّيَّارَاتُ رَكَضَت"] }
 		],
-		"VSO-NonHuman":[
-			{g: "m", n: "s", agreement: "Optional", ex: ["القَلمُ كُسِرَت / القَلمُ كُسِر"]},
-			{g: "f", n: "s", agreement: "Feminine", ex: ["رَكَضَت السَّيَّارَةُ"]},
-			{g: "m", n: "p", agreement: "Feminine", ex: ["كُسِرَتْ الأَقْلَامُ"]}, 
-			{g: "f", n: "p", agreement: "Feminine", ex: ["رَكَضَت السَّيَّارَاتُ"]} 
+		"VSO-NonHuman": [
+			{ g: "m", n: "s", agreement: "Optional", ex: ["القَلمُ كُسِرَت / القَلمُ كُسِر"] },
+			{ g: "f", n: "s", agreement: "Feminine", ex: ["رَكَضَت السَّيَّارَةُ"] },
+			{ g: "m", n: "p", agreement: "Feminine", ex: ["كُسِرَتْ الأَقْلَامُ"] },
+			{ g: "f", n: "p", agreement: "Feminine", ex: ["رَكَضَت السَّيَّارَاتُ"] }
 		]
 	};
 	var data = h == 1 ? svAgreement[`${o}-Human`] : svAgreement[`${o}-NonHuman`]
@@ -347,18 +344,55 @@ function getSubjectVerbAgreementTable(o,h=1){
  	<table style="width:100%;direction:rtl;font-size:14pt;">
 		<tbody>
 		<tr><th>Number</th><th>Gender</th><th>Agreement</th><th>Example</th></tr>
-		${
-			$.map(data, (row)=>{
-				return `
-				<tr><td>${row.n == "s" ? "مُفرد": row.n == "d" ? "مُثَنّي":"جمع"}</td>
-				    <td>${row.g == "m" ? "مُذكّر": "مُؤنّث"}</td>
+		${$.map(data, (row) => {
+		return `
+				<tr><td>${row.n == "s" ? "مُفرد" : row.n == "d" ? "مُثَنّي" : "جمع"}</td>
+				    <td>${row.g == "m" ? "مُذكّر" : "مُؤنّث"}</td>
 					<td>${row.agreement}</td>
-					<td>${row.ex.map(x=>replaceQLink(x)).join('')}</td>
+					<td>${row.ex.map(x => replaceQLink(x)).join('')}</td>
 				</tr>
 				`;
-			}).join('')	
+	}).join('')
 		}
 		</tbody>
 	</table>
 	`;
+}
+
+
+function getListOfDictionariesAndAuthors() {
+	const dict = [
+		{ name: `${alink('كتاب العين',{page: "https://archive.org/details/fra_20210729/%D9%83%D8%AA%D8%A7%D8%A8%20%D8%A7%D9%84%D8%B9%D9%8A%D9%86%20%281%29/"})}`, author: "الخليل بن أحمد الفراهيدي", date: "~170 AH / 786 CE", desc: "Phonetic Anagram System<br>Arranged by vocal articulation points starting from the throat letter (ع)"},
+		{ name: `${alink('جمهرة اللغة',{page: "https://archive.org/details/20200113_20200113_1759/%D8%AC%D9%85%D9%87%D8%B1%D8%A9%20%D8%A7%D9%84%D9%84%D8%BA%D8%A9/"})}`, author: "ابن دريد الأزدي", date: "297 AH / 909 CE", desc: "Alphabetical Anagram System<br>Arranged alphabetically based on word structures (biliteral, triliteral, etc.) paired with letter shifting." },
+		{ name: `${alink('البارع في اللغة',{page:"https://archive.org/details/035-pdf_20210113_1157"})}`, author: "أبو علي القالي", date: "350–356 AH / 961–967 CE", desc: "Phonetic Anagram System<br>The first dictionary written in Al-Andalus; followed Al-Khalil's phonetic methodology." },
+		{ name: `${alink('تهذيب اللغة',{page:"https://archive.org/details/tahzlu"})}`, author: "أبو منصور الأزهري", date: "~350–370 AH / 961–980 CE", desc: "Phonetic Anagram System<br>Focused deeply on refining and authenticating Bedouin linguistic usages." },
+		{ name: `${alink('الصِّحاح',{page:"https://archive.org/details/assehah-gohary"})}`, author: "الجوهري", date: "~393 AH / 1003 CE", desc: "Rhyme System (القافية)<br>Arranged alphabetically by the <em>last</em> radical letter (the rhyme) and then the first." },
+		{ name: `${alink('المقاييس في اللغة',{page:"https://archive.org/details/maktabah2000_gmail_20150716_2027"})}`, author: "ابن فارس", date: "~395 AH / 1004 CE", desc: "Standard Alphabetical System<br>Arranged by the first letter, focusing on the core semantic root meanings." },
+		{ name: `${alink('المحكم والمحيط الأعظم',{page:"https://archive.org/details/lis01846"})}`, author: "ابن سيده", date: "~450 AH / 1058 CE", desc: "Phonetic Anagram System<br>An expansive Andalusian dictionary that built upon and organized earlier works." },
+		{ name: `${alink('لسان العرب',{page:"https://archive.org/details/01_20210525_20210525_0314"})}`, author: "ابن منظور", date: "711 AH / 1311 CE", desc: "Rhyme System (القافية)<br>The most comprehensive classical Arabic dictionary, synthesizing 5 major earlier sources." },
+		{ name: `${alink('القاموس المحيط', {page: "https://archive.org/details/fariskamal240_gmail_201402"})}`, author: "الفيروزآبادي", date: "~810 AH / 1410 CE", desc: "Rhyme System (القافية)<br>Highly compressed and immensely popular; it became so famous that <em>\"قاموس\"</em> became the generic word for \"dictionary\" in Arabic."},
+		{ name: `${alink('تاج العروس', {page: "https://archive.org/details/TajAl0Arus"})}`, author: "المرتضى الزبيدي", date: "~1188 AH / 1774 CE", desc: "Rhyme System (القافية)<br>An encyclopedic commentary and massive expansion of القاموس المحيط." }
+	];
+	return `
+	<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%; text-align: left; font-family: sans-serif;">
+	<thead>
+		<tr style="background-color: #f2f2f2;">
+		<th style="padding: 10px;">Dictionary (المعجم)</th>
+		<th style="padding: 10px;">Author (المؤلف)</th>
+		<th style="padding: 10px;">Date / Period (التاريخ)</th>
+		<th style="padding: 10px;">School / System (المدرسة)</th>
+		</tr>
+	</thead>
+	<tbody>
+		${dict.map((row) => {
+		return `<tr>
+				<td style="padding: 10px;"><strong>${row.name}</strong></td>
+				<td style="padding: 10px;">${row.author}</td>
+				<td style="padding: 10px;">${row.date}</td>
+				<td style="padding: 10px;direction:ltr;"><sub>${row.desc}</sub></td>
+				</tr>`;
+	}).join('')
+		} 
+	</tbody>
+	</table>`;
 }

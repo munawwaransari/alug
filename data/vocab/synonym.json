@@ -251,6 +251,18 @@
 			"en": "Ignorance,Folly",
 			"ur": "حماقت/بے خبری",
 			"category": "people"
+        },
+        {
+            "names": [
+                "كَمَد",
+                "بَثّ",
+                "كَرْب",
+                "سَدَم"
+            ],
+            "ar": "كَمَد.بَثّ.كَرْب.سَدَم",
+			"en": "Grief,Anguish",
+			"ur": "رنج، غم",
+			"category": "feelings"
         }
     ]
 }

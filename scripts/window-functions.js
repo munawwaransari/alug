@@ -189,10 +189,15 @@ window.playAudio = function (mpegUrl, cb) {
 }
 
 window.redirect = function (url, action, data) {
-    $('.reading-pane').attr("src", "");
-    setTimeout(function () {
-        $('.reading-pane').attr('src', encodeURI(getLocationPath() + url + "?action=" + action + "&data=" + data));
-    }, 5);
+    if(url.startsWith("http")){
+        window.open(url, "_blank");
+    }
+    else{
+        $('.reading-pane').attr("src", "");
+        setTimeout(function () {
+            $('.reading-pane').attr('src', encodeURI(getLocationPath() + url + "?action=" + action + "&data=" + data));
+        }, 5);
+    }
 }
 
 window.getAllVoices = function () {
