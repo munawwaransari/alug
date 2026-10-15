@@ -1157,7 +1157,7 @@ async function listVocabulary(){
 		// Add category
 		div2.append($(`
 		<div class="dropdown" href="#"  
-			style="display:inline-block;margin:0;
+			style="display:inline-block;
 				padding:0;cursor:pointer;
 				margin:5px;padding:5px;
 				border:1px solid #ccc;border-radius:5px;  
@@ -1189,12 +1189,12 @@ async function listVocabulary(){
 function toggleVocabFilters(el, upChar, downChar){
 	if(el.innerHTML.includes(upChar)){
 		el.innerHTML = `&nbsp;&nbsp;${downChar}&nbsp;&nbsp;`;
-		$('.iFilter a').hide();
-		$(`.iFilter a:contains('Clear')`).show();
-		$(`.iFilter a:contains('${downChar}')`).show();
+		$('.iFilter > a').hide();
+		$(`.iFilter > a:contains('Clear')`).show();
+		$(`.iFilter > a:contains('${downChar}')`).show();
 	}else{
 		el.innerHTML = `&nbsp;&nbsp;${upChar}&nbsp;&nbsp;`;
-		$('.iFilter a').show();
+		$('.iFilter > a').show();
 	}
 }
 
@@ -1407,7 +1407,7 @@ function showNounComparisions(inp) {
 function showTriliteralVerbTable() {
 
 	var alink = `
-	<a href="#" style=" text-decoration: none" onclick="checkWord('$');">$</a>`;
+	<a href="#" style="text-decoration: none" onclick="checkWord('$');">$</a>`;
 	$(".dictionary").empty()
 	var table = `
 	<table id="nTable_3" class="pTable">
