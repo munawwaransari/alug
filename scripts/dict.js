@@ -1176,10 +1176,10 @@ async function listVocabulary(){
 
 		// Add filters
 		filters.sort().forEach((f,i) => {
-			div2.append($(`<a href="#" ${i===0 ? 'style="color:red"':''} onclick="filterVocab(this, '${f}')">&nbsp;${f}&nbsp;</a>`));
+			div2.append($(`<a href="#" ${i===0 ? 'style="color:red"':'style="display:none"'} onclick="filterVocab(this, '${f}')">&nbsp;${f}&nbsp;</a>`));
 		});
 		//U+2303 (⌃) , //U+2304 (⌄)
-		div2.append($(`<a href="#" style="color:red" onclick="toggleVocabFilters(this,'\u2303','\u2304')">&nbsp;&nbsp;\u2303&nbsp;&nbsp;</a>`));
+		div2.append($(`<a href="#" style="color:red" onclick="toggleVocabFilters(this,'\u2303','\u2304')">&nbsp;&nbsp;\u2304&nbsp;&nbsp;</a>`));
 
 	}else{
 		$(".dictionary").append('<div style="align-text:center;margin-top: 40px;">Error loading vocab</div>');
