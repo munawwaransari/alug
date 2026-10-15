@@ -1052,6 +1052,7 @@ async function listVocabulary(){
 		}, {});
 		vocabData["adjectives"] = getAdjectivePatternPairingExample(1);
 		
+		var category = [];
 		var filters = ['Clear'];
 		var div = $(`<div id="divVocab" style="
 			display:block;
@@ -1061,8 +1062,9 @@ async function listVocabulary(){
 
 		Object.keys(vocabData).forEach((key) => {
 			vocabData[key].forEach((item) => {
-				if(filters.indexOf(key) === -1){
-					filters.push(key);
+				// Add category
+				if(category.indexOf(key) === -1){
+					category.push(key);
 				} 
 				var itemArray = item.imageName ? [item.imageName] : item.names;
 				var arr =   itemArray.map((x)=>{
@@ -1124,9 +1126,55 @@ async function listVocabulary(){
 			});
 		});
 
-		//Add filters
 		var div2 = $(`<div class="iFilter" style="display:inline-block; width:100%;"></div>`);
 		div2.insertBefore(div);
+
+		//Add external links
+		var links = {
+			"pintreset":"https://in.pinterest.com/ideas/arabic-vocabulary-with-pictures/918752574587/",
+			"learnarabicwords.net":"https://learnarabicwords.net/",
+			"madinaharabic.com":"https://madinaharabic.com/free-content/vocabulary",
+			"youtube 1":"https://www.youtube.com/watch?v=9kF-yARKNFY",
+			"youtube 2":"https://www.youtube.com/watch?v=Kr4DCfXkL1o"
+		};
+		div2.append(`<div class="dropdown" href="#"  
+			style="display:inline-block;margin:0;
+				padding:0;cursor:pointer;
+				margin:5px;padding:5px;
+				border:1px solid #ccc;border-radius:5px;  
+				color:blue;">&nbsp;Links&nbsp;</a>
+			<div class="dropdown-content" style="z-index:2100;">
+			${
+				$.map(links, (value, key) => {
+				 return `
+				 <p style="padding:5px;margin:2px;text-decoration:none;text-align:center;"
+					onclick="window.open('${value}', '_blank');" >${key}</a>
+				</p>`;}).join('')
+			}
+			</div>
+		</div>`);
+
+		// Add category
+		div2.append($(`
+		<div class="dropdown" href="#"  
+			style="display:inline-block;margin:0;
+				padding:0;cursor:pointer;
+				margin:5px;padding:5px;
+				border:1px solid #ccc;border-radius:5px;  
+				color:blue;">&nbsp;Category&nbsp;</a>
+			<div class="dropdown-content" 
+				style="direction:ltr;display-inline-block;
+					   z-index:2200;width:280px;
+					   align-content:center">
+			${
+				category.sort().map((cat) => {
+				 return `
+				 <a href="#" onclick="filterVocab(this, '${cat}')">&nbsp;${cat}&nbsp;</a>
+				 `;}).join('')
+			}
+		</div>`));
+
+		// Add filters
 		filters.sort().forEach((f,i) => {
 			div2.append($(`<a href="#" ${i===0 ? 'style="color:red"':''} onclick="filterVocab(this, '${f}')">&nbsp;${f}&nbsp;</a>`));
 		});
