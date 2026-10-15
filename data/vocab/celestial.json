@@ -1,0 +1,142 @@
+{
+    "celestial": [
+        {
+            "names": ["النظام الشمسي", "مجرة"],
+			"en": ["Solar System","Galaxy"],
+			"ur": ["","کہکشاں"],
+			"category": "universe"
+        },
+		{
+            "names": ["الفضاء", "الكون"],
+			"en": ["Space","Universe"],
+			"ur": ["خلا","کائنات"],
+			"category": "universe"
+        },
+		{
+            "names": ["كواكب", "نجم"],
+			"en": ["Planets", "Star"],
+			"ur": ["سیارے","ستارے"],
+			"category": "universe"
+        },
+		{
+            "names": ["القمر", "الأَرْض"],
+			"en": ["Moon", "Earth"],
+			"ur": ["چاند","زمین"],
+			"category": "universe"
+        },
+		{
+            "names": ["الزُّهَرَة", "المِرِّيخ"],
+			"en": ["Venus", "Mars"],
+			"ur": ["",""],
+			"category": "universe"
+        },
+		{
+            "names": ["عُطَارِد", "المُشْتَرَى"],
+			"en": ["Mercury", "Jupiter"],
+			"ur": ["",""],
+			"category": "universe"
+        },
+		{
+            "names": ["زُحَل", "أُورانوس"],
+			"en": ["Saturn", "Uranus"],
+			"ur": ["","یورینس"],
+			"category": "universe"
+        },
+		{
+            "names": ["نِبْتُون", "بلوتو"],
+			"en": ["Neptune", "Pluto"],
+			"ur": ["","یورینس"],
+			"category": "universe"
+        },
+		{
+            "names": ["فردوس", "جحيم"],
+			"en": ["Heaven", "Hell"],
+			"ur": ["جنت","جہنم"],
+			"category": "universe"
+        },
+		{
+            "names": ["المذنب", "شهاب"],
+			"en": ["Comet", "Meteor"],
+			"ur": ["دُم دار ستارہ","شہابِ ثاقب"],
+			"category": "universe"
+        },
+		{
+            "names": ["كوكبة", "الكويكب"],
+			"en": ["Constellation", "Asteroid"],
+			"ur": ["جھرمٹ", "سیارچہ"],
+			"category": "universe"
+        },
+		{
+            "names": ["درب التبانة", "ثقب أسود"],
+			"en": ["Milky way", "Black hole"],
+			"ur": ["کہکشاں", ""],
+			"category": "universe"
+        },
+		{
+            "names": ["مستعر أعظم", "سديم"],
+			"en": ["Supernova", "Nebula"],
+			"ur": ["", ""],
+			"category": "universe"
+        },
+		{
+            "names": ["نجم قزم", "نجم عملاق"],
+			"en": ["Dwarf Star", "Giant Star"],
+			"ur": ["", ""],
+			"category": "universe"
+        },
+		{
+            "names": ["مدار", "الجاذبية"],
+			"en": ["Orbit", "Gravity"],
+			"ur": ["", "کششِ ثقل"],
+			"category": "universe"
+        },
+		{
+            "names": ["كسوف", "خسوف"],
+			"en": ["Solar Eclipse", "Lunar Eclipse"],
+			"ur": ["چاند گرہن", "چاند گرہن"],
+			"category": "universe"
+        },
+		{
+            "names": ["قمر صناعي", "محطة فضائية"],
+			"en": ["Satellite", "Space Station"],
+			"ur": ["", ""],
+			"category": "universe"
+        },
+		{
+            "names": ["مرصد", "محطة فضائية"],
+			"en": ["Observatory", "Space Station"],
+			"ur": ["رصد گاہ", ""],
+			"category": "universe"
+        },
+		{
+            "names": ["مجال مغناطيسي", "أشعة كونية"],
+			"en": ["Magnetic Rays", "Cosmic rays"],
+			"ur": ["", ""],
+			"category": "universe"
+        },
+		{
+            "names": ["قبة فلكية", "نصف الكرة الأرضية"],
+			"en": ["Planetarium", "Hemisphere"],
+			"ur": ["سیارہ نما", ""],
+			"category": "universe"
+        },
+		{
+            "names": ["محور", "ثوران"],
+			"en": ["Axis", "Revolution"],
+			"ur": ["", "چکر"],
+			"category": "universe"
+        },
+		{
+            "names": ["صاروخ", "بدلة فضاء"],
+			"en": ["Rocket", "Space Suit"],
+			"ur": ["راکٹ", ""],
+			"category": "universe"
+        },
+		{
+            "names": ["علم الفلك", "الزمكان"],
+			"en": ["Astronomy", "Space-Time"],
+			"ur": ["فلکیات", "زمان و مکان"],
+			"category": "universe"
+        }
+	]
+}

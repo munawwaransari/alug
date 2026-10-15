@@ -1011,7 +1011,7 @@ async function listVocabulary(){
 	var vocabList = [];
 	[
 	 "transit", "routine", "commerce", "hospitality", "genres", "media", 
-	 "colors", "actions", "antonym", "synonym", "homonym", "alpha"
+	 "celestial", "colors", "actions", "antonym", "synonym", "homonym", "alpha"
 	]
 	.forEach((data)=>{
 		vocabList.push(`${dataPath}${data}.json`)

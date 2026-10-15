@@ -554,6 +554,7 @@ function updateToolDescription(id, opt){
 						"Actions": "actions",
 						"Antonym": "antonym",
 						"Colors": "colors",
+						"Celestial": "celestial",
 						"Commerce": "commerce",
 						"Countries": "countries",
 						"Genres": "genres",
