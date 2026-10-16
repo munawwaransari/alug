@@ -59,6 +59,7 @@ window.onload = function () {
 
 	ensureDataLoaded({name: "all-words.csv", file: "all-words.csv"});
 	ensureDataLoaded({name: "ai-prompts"});
+	ensureDataLoaded({path: "data/vocab/adjectives.json"});
 
 	$("#wordSearchText").keyup(function (event) {
 		if (event.keyCode === 13) {
@@ -1051,6 +1052,7 @@ async function listVocabulary(){
 			return {...acc, ...curr};
 		}, {});
 		vocabData["adjectives"] = getAdjectivePatternPairingExample(1);
+		vocabData["adverbs"] = getAdjectivePatternPairingExample(1);
 		
 		var category = [];
 		var filters = ['Clear'];

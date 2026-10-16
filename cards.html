@@ -71,7 +71,8 @@
 			var dataParam = decodeURI(getParamValue("data"));
 			if(dataParam && dataParam != 'undefined'){
 				var url = getLocationPath() + 'data/vocab/'+dataParam+'.json';
-				loadJsonData(url).then((data) => {
+				loadJsonData(url).then((adata) => {
+					var data = dataParam === "adjectives" ? {"0": adata?.flat()}:adata;
 					const firstKey = Object.keys(data)[0];
 					var div = $("#cardContainer");
 					div.empty();
@@ -99,6 +100,7 @@
 			case "alpha":
 				drawAlphabet(div, cdata, index, name);
 				break;
+			case 'adjectives': 
 			case 'actions':
 			case 'genres':
 			case "synonym":
@@ -308,7 +310,7 @@
 			var adiv = `
 		  	<div class="alpha-box" style="align-content: center;">
 				<div class="center">${syn.en}<br/>
-					<p style="font-size: 20px;">${syn.ur}</p>
+					<p style="font-size: 20px;">${syn.ur ?? ''}</p>
 				</div>
 				<div class="top-left">${syn.names[0] ?? ''}</div>
 				<div class="top-right">${syn.names[1] ?? ''}</div>
@@ -338,7 +340,7 @@
 											'${syn.names[1]  ?? ''}',
 											'${syn.names[2]  ?? ''}',
 											'${syn.names[3]}  ?? ''']]}, true));">
-								${syn.en}<br/>${syn.ur}
+								${syn.en}<br/>${syn.ur ?? ''}
 							</a>
 						</span>
 					</div>

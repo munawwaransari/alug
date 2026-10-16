@@ -553,6 +553,7 @@ function updateToolDescription(id, opt){
 						"Alphabets": "alpha",
 						"Actions": "actions",
 						"Antonym": "antonym",
+						"Adjectives":"adjectives",
 						"Colors": "colors",
 						"Celestial": "celestial",
 						"Commerce": "commerce",

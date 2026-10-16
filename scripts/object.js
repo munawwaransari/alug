@@ -207,6 +207,7 @@ function alink(text, args) {
 	${text}
 	</a>`;
 }
+
 function getAdjectivePatternPairingTable() {
 	return `
  	<table style="width:100%;direction:rtl;font-size:14pt;">
@@ -229,41 +230,22 @@ function getAdjectivePatternPairingTable() {
 }
 
 function getAdjectivePatternPairingExample(d) {
-	var adjectives = [
-		{ "names": ["صَعْب", "صَعْبَةٌ"], "en": "Difficult" },
-		{ "names": ["صَخرٌ", "صَخْرَةٌ"], "en": "Rock" },
-		{ "names": ["شُجَاعٌ", "شُجَاعَةٌ"], "en": "Courageous" },
-		{ "names": ["خُلَاص", "خُلَاصَة"], "en": "Summary" },
-		{ "names": ["قُمَام", "قُمَامَةٌ"], "en": "Garbage" },
-		{ "names": ["كَرِيمٌ", "كَرِيمَةٌ"], "en": "Generous" },
-		{ "names": ["جَمِيلٌ", "جَمِيلَةٌ"], "en": "Beautiful" },
-		{ "names": ["عَظِيم", "عَظِيمَةٌ"], "en": "Magnificent" },
-		{ "names": ["أَحْمَرُ", "حَمْرَاءُ"], "en": "Red" },
-		{ "names": ["أَعْرَجُ", "عرْجَاءُ"], "en": "Lame" },
-		{ "names": ["أَصْلَعُ", "صَلعاء"], "en": "Bald" },
-		{ "names": ["عَطْشَانُ", "عَطْشَى"], "en": "Thirsty" },
-		{ "names": ["غَضْبَانُ", "غَضْبَى"], "en": "Angry" },
-		{ "names": ["جَوْعَان", "جَوْعَي"], "en": "Hungry" },
-		{ "names": ["فَرِحٌ", "فَرِحَةٌ"], "en": "Joyfull" },
-		{ "names": ["قَلِقٌ", "قَلِقَةٌ"], "en": "Anxious" },
-		{ "names": ["نَدِم", "نَدِمَة"], "en": "Regretful" },
-		{ "names": ["أَكْبَرُ", "كُبْرَى"], "en": "Biggest" },
-		{ "names": ["أَصْغَرُ", "صُغْرَى"], "en": "Smallest" },
-		{ "names": ["أَدْنَى", "دُنْيَا"], "en": "Lowest" }
-	];
-	if (d == 1) {
-		return adjectives;
+	var data = parent.dataCache["data/vocab/adjectives.json"]?.data;
+	if (d === 1) {
+		return data.flat();
 	}
+	var indx = getRandomIndices(data);
+	var adjectives = data[indx[0]];
 	return `
- 	<table style="width:100%;direction:rtl;font-size:14pt;">
+	<table style="width:100%;direction:rtl;font-size:14pt;">
 		<tbody>
 		<tr><th>مُذكّر</th><th>مُؤنّث</th><th>Meaning</th></tr>
 		${$.map(adjectives, (v, k) => {
-		return `
+			return `
 				<tr><td>${v.names[0]}</td><td>${v.names[1]}</td><td style="font-size:14px">${v.en}</td></tr>
 				`;
-	}).join('')
-		}
+		}).join('')
+			}
 		</tbody>
 	</table>
 	`;

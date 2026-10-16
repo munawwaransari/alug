@@ -18,6 +18,12 @@ function getParamValue(paramName) {
 async function ensureDataLoaded(inp)
 {
 	var d = (typeof inp == "string") ? {'name': inp} : inp;
+	if(d.name === undefined){
+		d.name = d.path;
+		if(parent.dataCache[d.name] === undefined){
+			parent.dataCache[d.name] = d;
+		}
+	}
 	return new Promise((resolve, reject) => {
 		if (parent.dataCache === undefined) { // || parent.dataCache[d.name] === undefined) {
 			console.log("Error: Invalid cache state for: " + d.name);
