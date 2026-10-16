@@ -251,6 +251,40 @@ function getAdjectivePatternPairingExample(d) {
 	`;
 }
 
+function getAdverbData(){
+    var adverbs = {
+		ur: [
+            "أَبَداً,الآن,بعد,قبل,غدًا",
+            "يَوْماً,حِيناً,عَشِيّاً وَبُكْرَةً,صباحًا,مساءً,ليلًا",
+			"فوق,تحت,أمام,خلف,يمين,يسار",
+            "حيث,عند,بين,حول,أَسْفَلَ",
+            "دائماً,عادةً,غالباً,أحياناً,نادراً,أبداً,معظم",
+            "مرة,مرتين,كل,يومياً,أسبوعياً,كل ساعة,سنوياً",
+            "راكِبًا,ضاحِكًا,مُخلِصًا,قائمةً",
+            "يَسۡعَىٰ,يَبۡكُونَ",
+            "مُشْرِقَةٌ,سُكَارَىٰ,حَنِيفًا"
+		],
+		en: [
+			"ever,now,after,before,tomorrow",
+            "on a day,a while,evening and morning,in the morning,at evening,at night",
+			"above,under,in front of,behind,on the right,on the left",
+            "wherever,at/near,among/between,around,further down",
+			"always,usually,often,sometime,rarely/seldom,ever,most of",
+            "once,twice,every,daily,weekly,every time,once a year",
+			"riding,laughing,sincerely,standing",
+            "striving,weeping (they)",
+            "shining,drunk,devotionally"
+		]
+	};
+
+	return adverbs.ur.map((a, i) => {
+		var en = adverbs.en[i].split(",");
+		return a.split(",").map((aa, ii) => {
+			return {names: [`${aa}`], en: `${en[ii]}`}
+		});
+	}).flat();
+}
+
 function getSubjectPredicateAgreementTable(h = 1) {
 	var spAgreement = {
 		"Human": [

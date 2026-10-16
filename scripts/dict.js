@@ -1052,7 +1052,7 @@ async function listVocabulary(){
 			return {...acc, ...curr};
 		}, {});
 		vocabData["adjectives"] = getAdjectivePatternPairingExample(1);
-		vocabData["adverbs"] = getAdjectivePatternPairingExample(1);
+		vocabData["adverbs"] = getAdverbData();
 		
 		var category = [];
 		var filters = ['Clear'];
