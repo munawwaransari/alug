@@ -100,7 +100,7 @@
 </head>
   <body>
 	<script src="scripts/require.js"></script>
-	<span style="text-align: middle; align-content: center;">
+	<div style="width:100%;text-align: middle; align-content: center;">
 		<a href="#" style="text-decoration: none;"
 			onclick="convertHTMLtoImage('#chartContainer',[],'exported-charts.pdf');">
 			<img src="images/exp.png" 
@@ -116,8 +116,8 @@
 		<a style="position:relative;top:-12px;font-weight:bolder;
 		          float:right;font-size:22px;text-decoration:none;" 
 				  href="#" onclick="iterateList(parent.$('#selChart'))">&larr;</a>
-	</span>
-	<div class="image-preview" style="display: none;align-items: center;justify-content: center;"></div>
+		<a class="image-preview" style="display: none;align-items: center;justify-content: center;"></a>
+	</div>
     <div id="chartContainer">
   </div>
 </body>
