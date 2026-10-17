@@ -168,7 +168,7 @@
 							 class="alpha-image" 
 							 loading="lazy"
 							 inumber="${name}-${alpha.number}-${iIndex[0]}"
-							 title="${iName}">
+							 alt="${iName}" title="${iName}">
                         </img>
                         <span style="margin-bottom:0">
 						<a href="#" style="text-decoration:none;cursor:pointer;color:#E6E6FA;"
@@ -207,6 +207,7 @@
 					<div class="flip-card-inner">
 						<div class="flip-card-front">
 							<img style="top:24%; width:94%; height:76%" 
+									alt="${h.names[0]}"
 									title="${h.names[0]}"
 									class="alpha-image"
 									inumber="${name}-${index}"> 
@@ -225,6 +226,7 @@
 									onmouseout="playCard('${h.names[0]}','${h.en[0]}')"
 									onmouseenter="playCard('${h.names[1]}', '${h.en[1]}')" 
 									style="top:24%; width:94%; height:76%" 
+									alt="${h.names[1]}"
 									title="${h.names[1]}"
 									loading="lazy"
 									class="alpha-image"
@@ -260,6 +262,7 @@
                 <div class="flip-card-inner">
                 	<div class="flip-card-front">
 						<img style="top:24%; width:94%; height:76%" 
+							alt="${h.names[0]}"
 							title="${h.names[0]}" 
 							class="alpha-image"
 							inumber="${name}-${index}">
@@ -278,6 +281,7 @@
 							onmouseout="playCard('${h.names[0]}', '${h.en[0]}')"
 							onmouseenter="playCard('${h.names[1]}', '${h.en[1]}')"
                             style="top:24%; width:94%; height:76%" 
+							alt="${h.names[1]}"
 							title="${h.names[1]}"
 							loading="lazy"
 							class="alpha-image" 
@@ -328,6 +332,7 @@
 						<img ontouchstart="playCard('${syn.ar}', '${syn.en}')"
 							onmouseenter="if('${syn.ar}') playCard('${syn.ar}', '${syn.en}')"
 							style="top:18%; width:96%; height:80%" 
+							alt="${syn.ar}"
 							title="${syn.ar}"
 							loading="lazy"
 							class="alpha-image"
