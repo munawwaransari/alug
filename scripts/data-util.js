@@ -2179,7 +2179,9 @@ function getFreeImages(keyword, category, size={width:240, height:180}, src='htt
 			if(data == undefined){
 				reject('no-data');
 			}
-			resolve(data);
+			else{
+				resolve(data);
+			}
 		})
 	});
 };
