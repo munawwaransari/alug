@@ -388,7 +388,7 @@ function showChart(sel, selValue){
 		return; //skip
 	}
 	showChartEvtCount++;
-	var name = selValue ?? $('#sel'+sel).val();
+	var name = selValue ?? $('#sel'+sel).val();	
 	// Save context
 	parent.updateStatesKey('Ain', {action: sel, data: name});
 	$('.reading-pane').attr("src","");

@@ -2410,3 +2410,14 @@ function createImageObserver(threshold = 0.1, rootMargin = "0px 0px") {
 		});
 	}, options);
 }
+
+function iterateList(list, next){
+	var opt = next ?
+		list.find('option:selected').next('option'):
+		list.find('option:selected').prev('option');
+
+	if(opt.length > 0) {
+		opt.prop('selected', true);
+		list.trigger('change');
+	}
+}

@@ -20,6 +20,9 @@
 				folder = decodeURI(getParamValue("data"));
 			}
 			if(folder){
+				// Set Chart title
+				$("#chartTitle").html(folder);
+
 				var url = getLocationPath() + 'images/charts/'+folder+'/';
 				loadCharts(url, getMax(folder), true);
 				if(folder === "alphabets" || 
@@ -97,12 +100,23 @@
 </head>
   <body>
 	<script src="scripts/require.js"></script>
-	<a href="#" style="text-decoration: none;"
-		onclick="convertHTMLtoImage('#chartContainer',[],'exported-charts.pdf');">
-		<img src="images/exp.png" 
-			 style="width: 16px; height: 16px;"
-			 alt="Export to PDF"/>
-	</a>
+	<span style="text-align: middle; align-content: center;">
+		<a href="#" style="text-decoration: none;"
+			onclick="convertHTMLtoImage('#chartContainer',[],'exported-charts.pdf');">
+			<img src="images/exp.png" 
+				style="width: 16px; height: 16px;"
+				alt="Export to PDF"/>
+		</a>
+		<a style="position:relative;top:-12px;font-weight:bolder;
+		          float:right;font-size:22px;text-decoration:none;margin-right: 20px;" 
+				  href="#" onclick="iterateList(parent.$('#selChart'), true)">&rarr;</a>
+		<a id="chartTitle" style="position:relative;top:-4px;font-weight:bolder;
+		          float:right;font-size:12px;text-decoration:none;" 
+				  href="#" onclick="">chart</a>
+		<a style="position:relative;top:-12px;font-weight:bolder;
+		          float:right;font-size:22px;text-decoration:none;" 
+				  href="#" onclick="iterateList(parent.$('#selChart'))">&larr;</a>
+	</span>
 	<div class="image-preview" style="display: none;align-items: center;justify-content: center;"></div>
     <div id="chartContainer">
   </div>
