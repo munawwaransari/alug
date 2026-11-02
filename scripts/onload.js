@@ -564,6 +564,7 @@ function updateToolDescription(id, opt){
 						"Homonymn": "homonym",
 						"Hyperbole": "hyperbole",
 						"Media": "media",
+						"Modern": "modern",
 						"Pronouns": "pronouns",
 						"Routine": "routine",
 						"Synonyms": "synonym",

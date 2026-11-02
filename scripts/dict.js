@@ -1011,7 +1011,7 @@ async function listVocabulary(){
 	const dataPath = getLocationPath()+'data/vocab/';
 	var vocabList = [];
 	[
-	 "transit", "routine", "commerce", "hospitality", "genres", "media", 
+	 "transit", "routine", "commerce", "hospitality", "genres", "media", "modern",
 	 "celestial", "colors", "actions", "antonym", "synonym", "homonym", "alpha"
 	]
 	.forEach((data)=>{

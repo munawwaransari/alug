@@ -1,0 +1,88 @@
+{
+    "modern": [
+        {
+            "names": ["طفرة", "نوعية"],
+			"en": ["Boom","Specialized"],
+			"ur": ["عروج","خصوصی"],
+			"category": "technology"
+		},
+		{
+            "names": ["التحالف", "عملية عسكرية"],
+			"en": ["Coalition","Military Operation"],
+			"ur": ["اتحاد","فوجی کاروائی"],
+			"category": "politics"
+		},
+		{
+            "names": ["تفاوض", "استئناف"],
+			"en": ["Negotiation","Appeal"],
+			"ur": ["مذاکرات","فوجی کاروائی"],
+			"category": "politics"
+		},
+		{
+            "names": ["تصاعد", "هجمات المسيرات"],
+			"en": ["Escalation","Drone Attacks"],
+			"ur": ["مذاکرات","ڈرون حملے"],
+			"category": "politics"
+		},
+		{
+            "names": ["قراصنة", "مخترقون"],
+			"en": ["Pirates","Hackers"],
+			"ur": ["","ہیکرز"],
+			"category": "technology"
+		},
+		{
+            "names": ["استحواذ", "الاندماج"],
+			"en": ["Acquisition","Merger"],
+			"ur": ["حصول","انضمام"],
+			"category": "polotics"
+		},
+		{
+            "names": ["الاستخبارات", "كيان معادٍ"],
+			"en": ["Intelligence","Hostile Entity"],
+			"ur": ["","دشمن ہستی"],
+			"category": "politics"
+		},
+		{
+            "names": ["التقارب", "التوتر"],
+			"en": ["Rapprochement","Tension"],
+			"ur": ["ہم آہنگی","تناؤ"],
+			"category": "politics"
+		},
+		{
+            "names": ["دعم حرج", "التوتر"],
+			"en": ["Critical Support","Tension"],
+			"ur": ["اہم معاونت","تناؤ"],
+			"category": "politics"
+		},
+		{
+            "names": ["تهديدات", "احراض"],
+			"en": ["Threats","Provocation"],
+			"ur": ["دھمکیاں","اشتعال انگیزی"],
+			"category": "politics"
+		},
+		{
+            "names": ["ظهور", "اعتذار"],
+			"en": ["Appearance","Apology"],
+			"ur": ["","معافی"],
+			"category": "media"
+		},
+		{
+            "names": ["مسافة", "الحسم"],
+			"en": ["Distance","Decisiveness"],
+			"ur": ["فاصلہ","فیصلہ کن"],
+			"category": "media"
+		},
+		{
+            "names": ["الحرب الحديثة", "افتراضي"],
+			"en": ["Modern Warfare","Virtual"],
+			"ur": ["جدید جنگ","مجازی"],
+			"category": "media"
+		},
+		{
+            "names": ["عاجل", "أرباح"],
+			"en": ["Urgent","Profit"],
+			"ur": ["فوری","منافع"],
+			"category": "business"
+		}
+	]
+}
