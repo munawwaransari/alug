@@ -179,31 +179,31 @@
         "data": "pos:16",
         "order": 146
     },
-    "Auditory Verbal Noun;Masdar;مصدر سماعي": {
+    "Auditory Verbal Noun;Masdar;infinitive;مصدر سماعي": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:17",
         "order": 122
     },
-    "Standard Verbal Noun;Masdar;مصدر قياسي": {
+    "Standard Verbal Noun;Masdar;infinitive;مصدر قياسي": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:18",
         "order": 160
     },
-    "Verbal Noun - Meemi;Masdar;المصدر الميمي": {
+    "Verbal Noun - Meemi;Masdar;infinitive;المصدر الميمي": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:19",
         "order": 175
     },
-    "Verbal Noun - Implied;Masdar;المصدر مؤول": {
+    "Verbal Noun - Implied;Masdar;infinitive;المصدر مؤول": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:20",
         "order": 174
     },
-    "Artificial infinitive;المصدر الصناعي": {
+    "Verbal Noun - Artificial infinitive;المصدر الصناعي": {
         "path": "dict.html",
         "action": "masdar",
         "data": "pos:21",
