@@ -203,6 +203,12 @@
         "data": "pos:20",
         "order": 174
     },
+    "Artificial infinitive;المصدر الصناعي": {
+        "path": "dict.html",
+        "action": "masdar",
+        "data": "pos:21",
+        "order": 175
+    },
     "Comparative;اسمُ التفضيل": {
         "path": "dict.html",
         "action": "noun-pat",
