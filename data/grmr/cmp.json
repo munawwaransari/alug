@@ -2487,5 +2487,122 @@
                 "<p style=\"direction: ltr;padding:0;margin:0;\"><u>Biblical and pre-Islamic names</u>:<br/>إِبْرَاهِيم (Abraham)<br/>إِسْمَاعِيل (Ismail)<br/>سُلَيْمَان (Solomon)<br/><br/><u>Foreign Loanwords </u>:<br/>فِرْعَوْن (Pharao)<br/>طالوت<br/>جَالُوت (Goliath)<br/></p>"
 			]
         }
+    },
+    {
+        "compareType": "sarf",
+        "topics": [
+            "قَلْب – Substitution/Conversion"
+        ],
+        "notes": "Phonological Rules  (dealing with weak letters, hamzahs, and vowelling adjustments for ease of pronunciation)",
+        "ar": [
+            "قاعدة",
+            "أمثلة"
+        ],
+        "en": [
+            "Rule",
+            "Examples"
+        ],
+        "features": {
+            "قَلْب – Substitution/Conversion": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">Changing one letter into another.<br/>The most famous sub-rule is changing a vowelled ( و ) or ( ي ) preceded by a Fathah ( ◌َ ) into an Alif.<br/><br/><sub>Applicaiton: both conditions must be true</sub><br/>Condition 1: ( و ) or ( ي ) is vowelled (is not ساكن) <br/>Condition 2: Preceeding letter has a Fathah ( ◌َ )</p>",
+                "<p style=\"direction: ltr;padding:0;margin:0;\"><br/>قَوَلَ &larr; (◌َ + وَ) &larr; (◌َ + ا) &larr; قَالَ<br/><br/>بَيَعَ &larr; (◌َ + يَ) &larr; (◌َ + ا) &larr; بَاعَ<br/><br/>دَعَوَ &larr; (◌َ + وَ) &larr; (◌َ + ا) &larr; دَعَا<br/><br/></p>"
+			]
+        }
+    },
+    {
+        "compareType": "sarf",
+        "topics": [
+            "تَعْلِيل بِالإِسْكَان – Vocalic Silencing"
+        ],
+        "notes": "Phonological Rules  ",
+        "ar": [
+            "قاعدة",
+            "التِقاء السَّاكِنَيْن",
+            "إعلال بالتسكين"
+        ],
+        "en": [
+            "Rule",
+            "Case 1 - Vowel Dropping",
+            "Case 2 - Vowel Transfer"
+        ],
+        "features": {
+            "تَعْلِيل بِالإِسْكَان – Vocalic Silencing": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">Removing the vowel (harakah) from a weak letter (Wāw or Yā') because a Dammah or Kasrah is phonetically too heavy for them to carry.<br/></p>",
+                "<p style=\"direction: ltr;padding:0;margin:0;\"><br/>The vowel is dropped entirely (generally فعل الأمر)<br/><br/>Examples:<br/><br/>يَدْعُوُ &larr; (◌ُ + وُ) &larr; (◌ُ + وْ) &larr; يَدْعُو<br/><br/>يَرْمِيُ &larr; (◌ِ + يُ) &larr; (◌ِ + يْ) &larr; يَرْمِي<br/><br/></p>",
+                "<p style=\"direction: ltr;padding:0;margin:0;\"><br/>Vowel is transferred to the preceding healthy consonant<br/><br/>Examples:<br/><br/>يَقْوُلُ &larr; (◌ْ + وُ) &larr; (◌ُ + وْ) &larr; يَقُولُ<br/><br/>يَسْيِرُ &larr; (◌ْ + يِ) &larr; (◌ِ + يْ) &larr; يَسِيرُ<br/><br/></p>"
+			]
+        }
+    },
+    {
+        "compareType": "sarf",
+        "topics": [
+            "حَذْف – Deletion / Elision"
+        ],
+        "notes": "Phonological Rules  ",
+        "ar": [
+            "قاعدة",
+            "التِقاء السَّاكِنَيْن",
+            "حركات المُناسبة"
+        ],
+        "en": [
+            "Rule",
+            "Case 1: Consecutive sukuns",
+            "Case 2: Appropriate vowel on weak letter"
+        ],
+        "features": {
+            "حَذْف – Deletion / Elision": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">Deleting a weak letter entirely from the word structure.<br/></p>",
+                "<p style=\"direction: ltr;padding:0;margin:0;\"><br/><b>Rule</b><br/>When two unvowelled letters meet, weak letter is dropped<br/><br/>يَقْوُلُ &larr; (وُ + لْ) &larr; (لْ) &larr; يَقُولُ<br/><br/>بِيْعْ &larr; (يْ + عْ) &larr; (عْ) &larr; بِعْ<br/><br/></p>",
+                "<p style=\"direction: ltr;padding:0;margin:0;\">The weak letters have following natural pronunciations:<br/><br/>Fathah (ـــَــ) matches Alif (ا)<br/>Dammah (ـــُــ) matches Waw (و)<br/>Kasrah (ـــِــ) matches Yaa (ي)<br/><br/><b>Rule 1</b>:<br/>When a weak letter from root word follows another weak letter in the word, <br/>root's weak letter is dropped.<br/><b>Rule 2</b>:<br/>After dropping weak letter, <br/>if vowel does not match with weak letter, it is replaced with matching vowel<br/><br/>Examples:<br/><sub>(by rule 1)</sub><br/>خَلَوا &larr; (يُ dropped) &larr; خَلَيُوا <br/><br/><sub>(by rule 1)</sub><br/>لَقِوْا &larr; (يُ dropped) &larr; لَقِيُوا <br/><sub>(by rule 2 - matching vowel)</sub><br/>لَقِوْا &larr; (◌ِ + وْ) &larr; (◌ُ + وْ) &larr; لَقُوْا<br/><br/><sub>(by rule 1)</sub><br/>يَعِدُ &rarr; (و dropped) &rarr; يَوْعِدُ <br/><br/></p>"
+			]
+        }
+    },
+    {
+        "compareType": "sarf",
+        "topics": [
+            "إِبْدَال – Consonantal Exchange"
+        ],
+        "notes": "Phonological Rules",
+        "ar": [
+            "قاعدة",
+            "ت &larr; becomes &larr; ط",
+            "ت &larr; becomes &larr; د",
+            "و &larr; becomes &larr; ت"
+        ],
+        "en": [
+            "Rule",
+            "Rule 1",
+            "Rule 2",
+            "Rule 3"
+        ], 
+        "features": {
+            "إِبْدَال – Consonantal Exchange": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">Exchanging a non-weak consonant for another to match the phonetic exit-points (articulation) of adjacent letters, heavily used in Form VIII (اِفْتَعَلَ).<br/></p>",
+                "<p style=\"direction: ltr;padding:0;margin:0;\"><b>Condition</b>:<br/> When the first letter of a root is emphatic/velarized<br/>[ <b>ص</b> (Ṣād), <b>ض</b> (Ḍād), <b>ط</b> (Ṭā), or <b>ظ</b> (Ẓā)]<br/><br/>اِضْتَرَبَ &larr; اِضْطَرَبَ<br/><br/>اِصْتَبَرَ &larr; اِصْطَبَرَ<br/><br/></p>",
+                "<p style=\"direction: ltr;padding:0;margin:0;\"><b>Condition</b>:<br/> When the first letter of a root is voiced dental consonant—specifically<br/>[ <b>د</b> (Dāl), <b>ذ</b> (Dhāl), or <b>ز</b> (Zayn)]<br/><br/>اِزْتَجَرَ &larr; اِزْدَجَرَ<br/><br/>اِدْتَعَى &larr; اِدْدَعَى &rarr; اِدَّعَى<br/><sub>دْدَ &rarr; merged &rarr; دَّ</sub><br/><br/>اِذْتَكَرَ &larr; اِذْدَكَرَ &larr; اِدَّكَرَ<br/><sub>د and ذ &rarr; blend into &rarr; د</sub><br/><br/></p>",
+                "<p style=\"direction: ltr;padding:0;margin:0;\"><b>Condition</b>:<br/> When the If a root begins with a weak<br/>[ <b>و</b> (Waw) or <b>ي</b> (Yaa) ]<br/><br/>اِوْتَصَلَ &larr; اِتْتَصَلَ &larr; اِتَّصَلَ<br/><br/>اِوْتَقَى &larr; اِتْتَقَى &larr; اِتَّقَى<br/><br/></p>"
+			]
+        }
+    },
+    {
+        "compareType": "sarf",
+        "topics": [
+            "إِدْغَام – Assimilation"
+        ],
+        "notes": "Phonological Rules",
+        "ar": [
+            "قاعدة",
+            "أمثلة"
+        ],
+        "en": [
+            "Rule",
+            "Examples"
+        ], 
+        "features": {
+            "إِدْغَام – Assimilation": [
+				"<p style=\"direction: ltr;padding:0;margin:0;\">Merging two identical or phonetically identical letters <br/>into one doubled letter written with a Shaddah ( ّ ).<br/></p>",
+                "<p style=\"direction: ltr;padding:0;margin:0;\"><br/><b>المُضاعَف</b>:<br/>A word with same consonant repeated juxtaposed<br/><br/>مَدَدَ &larr; مَدَّ<br/><br/>يَمْدُدُ &larr; يَمُدُّ<br/><br/></p>"
+			]
+        }        
     }
 ]

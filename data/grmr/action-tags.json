@@ -145,6 +145,11 @@
         "ar": "النحو",
         "default": "النحو"
     },
+    "sarf": {
+        "en": "Morphology",
+        "ar": "الصرف",
+        "default": "النحو"
+    },
     "cause-effect": {
         "en": "Cause & Effect",
         "ar": "السبب والنتيجة",

@@ -1155,5 +1155,35 @@
         "action": "prep",
         "data": "pos:5",
         "order": 179
-    }    
+    },
+    "Morphology - Substitution/Conversion;قَلْب": {
+        "path": "dict.html",
+        "action": "sarf",
+        "data": "pos:0",
+        "order": 180
+    },
+    "Morphology - Vocalic Silencing;تَعْلِيل بِالإِسْكَان": {
+        "path": "dict.html",
+        "action": "sarf",
+        "data": "pos:1",
+        "order": 180
+    },
+    "Morphology - Deletion/Elision;حَذْف": {
+        "path": "dict.html",
+        "action": "sarf",
+        "data": "pos:2",
+        "order": 180
+    },
+    "Morphology - Consonantal Exchange;إِبْدَال": {
+        "path": "dict.html",
+        "action": "sarf",
+        "data": "pos:3",
+        "order": 180
+    },
+    "Morphology - Assimilation;إِدْغَام": {
+        "path": "dict.html",
+        "action": "sarf",
+        "data": "pos:4",
+        "order": 180
+    }
 }

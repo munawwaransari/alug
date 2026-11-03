@@ -366,6 +366,14 @@ function handleDictActions(el, a, d) {
 				showVerbComparisions(0);
 			}
 			break;
+		case 'sarf':
+			if (data && data.startsWith("pos:")) {
+				var index = parseInt(data.substring(4));
+				showSarfComparisions(index, action);
+			} else {
+				showSarfComparisions(0, action);
+			}
+			break;
 		case 'script':
 		case 'lang':
 		case 'grammar':
@@ -1392,6 +1400,10 @@ function showNounTable() {
 
 function showComparisions(inp) {
 	cmpAPIObj.addComparisionList($(".dictionary"), inp, false, 'cmp');
+}
+
+function showSarfComparisions(inp, type) {
+	cmpAPIObj.addComparisionList($(".dictionary"), inp, true, type);
 }
 
 function showSentenceComparisions(inp, type) {
