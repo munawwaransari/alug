@@ -2117,27 +2117,44 @@ function listListItems(el, listId, page, action){
 	}
 }
 
-function getListButtinWithSelect(sel, filterClass, compareType, filterBtnClickHandler) {
+function getListButtinWithSelect(selOptions, filterBtnClickHandler) {
+	var sel = selOptions.selection; 
+	const listButton = function(style){return `
+		<button style="${style}"
+		${filterBtnClickHandler == undefined ?
+			`onclick="listListItems('.dictionary',
+			'.${selOptions.filterClass} option', 'dict.html', '${selOptions.compareType}')"` :
+			`onclick=${filterBtnClickHandler}`}>
+		List
+		</button>`;
+	}
+
 	return `
 	<div class="nFilterDiv">
 		${sel}
 		<br style="height:1px;padding:0;margin:0;"/>
 		<div class="nFilterBtn">
 			<button onclick=" 
-				var prevOpt = $('.${filterClass} option:selected').prev();
+				var prevOpt = $('.${selOptions.filterClass} option:selected').prev();
 				if (prevOpt.length > 0) {
 					prevOpt.prop('selected', true);
 					prevOpt.trigger('change');
 				}" 
 			style="width:10%;float:left">&#x25C0</button>
-			<button style="width:80%"
-				${filterBtnClickHandler == undefined ?
-				`onclick="listListItems('.dictionary',
-					'.${filterClass} option', 'dict.html', '${compareType}')"`:
-				`onclick=${filterBtnClickHandler}`}
-				>List</button>
+			${selOptions.options ? 
+				`${listButton("width:38%")}
+				<button style="width:38%" 
+					onclick=" const langOption = parent.getLangOption();
+					const data_path = '${getLocationPath()}data/km/${selOptions.options.topic}_quiz.json';
+					const abs_path = '${getLocationPath()}quiz.html?&topic=${selOptions.options.topic}&lang='+langOption+'&data='+data_path;
+					parent.openInline(abs_path);"">
+				Quiz
+				</button>`
+				:
+				listButton("width:80%")
+			}
 			<button onclick=" 
-				var nextOpt = $('.${filterClass} option:selected').next();
+				var nextOpt = $('.${selOptions.filterClass} option:selected').next();
 				if (nextOpt.length > 0) {
 					nextOpt.prop('selected', true);
 					nextOpt.trigger('change');

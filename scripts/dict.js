@@ -369,9 +369,9 @@ function handleDictActions(el, a, d) {
 		case 'sarf':
 			if (data && data.startsWith("pos:")) {
 				var index = parseInt(data.substring(4));
-				showSarfComparisions(index, action);
+				showSarfComparisions(index, action, {"topic": "Morphology"});
 			} else {
-				showSarfComparisions(0, action);
+				showSarfComparisions(0, action, {"topic": "Morphology"});
 			}
 			break;
 		case 'script':
@@ -730,9 +730,11 @@ function listExamplesFromQuran(selText) {
 				<option value="ALL">ALL</option>
 			</select>
 			`;
-	var qSelectDiv = getListButtinWithSelect(qselect,
-		'qs1', '',
-		"\"listQListItems('.dictionary', '.qs1')\"");
+	var qSelectDiv = getListButtinWithSelect({
+		selection: qselect,
+		filterClass: 'qs1',
+		compareType: ''
+	});
 	dict.append(qSelectDiv);
 	qselect = $('.nFilterDiv .qs1');
 	var btnDiv = $('.nFilterDiv .nFilterBtn');
@@ -786,16 +788,19 @@ function listDefinitions(bk){
 	.then((data) => {
 		container.empty();
 		//Add filters
-		container.prepend(getListButtinWithSelect(
-		`<select class="defFilter" 
+		container.prepend(getListButtinWithSelect({
+			selection:
+				`<select class="defFilter" 
 					style="text-align: center;text-align-last: center;padding:6px;"
 					onchange="updateStateIndex(this);
 						filterTableRows(-1, '#defTable', 
 										 $('.defFilter').prop('selectedIndex'), 
 										 $('.defFilter').val()?.slice(1),
 										 {useId: true, useRowIndex: true});">
-		</select>`,
-		'defFilter','defs'));
+				</select>`,
+			filterClass: 'defFilter',
+			compareType: 'defs'
+		}));
 		var defSelect = $(".defFilter");
 		
 		container.append($(`<table id="defTable" 
@@ -1347,16 +1352,18 @@ function showAllVerbTables(ii, bk){
 
 		// Add filter drop down
 		if (filters.length > 0) {
-			$(".dictionary").prepend($(getListButtinWithSelect(`
+			$(".dictionary").prepend($(getListButtinWithSelect({
+				selection: `
 				<select class="nFilter" 	
 					onchange="updateStateIndex(this);
 						filterMTableRows('vTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val())">
 				<option value="all">Show All</option>
-				${
-					filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
-				}
-				</select>
-			`, 'nFilter', 'verb')));
+				${filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
+					}
+				</select>`, 
+				filterClass: 'nFilter', 
+				compareType: 'verb'
+			})));
 			$('.nFilterBtn').css('width', $('.nFilter').css('width'));
 		}
 		if(ii !== undefined){
@@ -1399,23 +1406,23 @@ function showNounTable() {
 }
 
 function showComparisions(inp) {
-	cmpAPIObj.addComparisionList($(".dictionary"), inp, false, 'cmp');
+	cmpAPIObj.addComparisionList($(".dictionary"), null, inp, false, 'cmp');
 }
 
-function showSarfComparisions(inp, type) {
-	cmpAPIObj.addComparisionList($(".dictionary"), inp, true, type);
+function showSarfComparisions(inp, type, options) {
+	cmpAPIObj.addComparisionList($(".dictionary"), options, inp, true, type, options);
 }
 
 function showSentenceComparisions(inp, type) {
-	cmpAPIObj.addComparisionList($(".dictionary"), inp, true, type);
+	cmpAPIObj.addComparisionList($(".dictionary"), null, inp, true, type);
 }
 
 function showVerbComparisions(inp) {
-	cmpAPIObj.addComparisionList($(".dictionary"), inp, true, "verb");
+	cmpAPIObj.addComparisionList($(".dictionary"), null, inp, true, "verb");
 }
 
 function showNounComparisions(inp) {
-	cmpAPIObj.addComparisionList($(".dictionary"), inp, true, 'noun');
+	cmpAPIObj.addComparisionList($(".dictionary"), null, inp, true, 'noun');
 }
 
 function showTriliteralVerbTable() {
@@ -1542,7 +1549,8 @@ function showInadequateVerbTable(d, ii) {
 
 		// Add filter drop down
 		if (filters.length > 0) {
-			$(".dictionary").prepend($(getListButtinWithSelect(`
+			$(".dictionary").prepend($(getListButtinWithSelect({
+				selection: `
 				<select class="nFilter" 
 					onchange="updateStateIndex(this);
 						filterMTableRows('mTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val())">
@@ -1550,8 +1558,10 @@ function showInadequateVerbTable(d, ii) {
 				${
 					filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
 				}
-				</select>
-			`, 'nFilter', 'inad-verb')));
+				</select>`,
+				filterClass: 'nFilter',
+				compareType: 'inad-verb'
+			})));
 			$('.nFilterBtn').css('width', $('.nFilter').css('width'));
 		}
 		if(ii){
@@ -1604,7 +1614,8 @@ function showWeakVerbTable(ii) {
 
 		// Add filter drop down
 		if (filters.length > 0) {
-			$(".dictionary").prepend($(getListButtinWithSelect(`
+			$(".dictionary").prepend($(getListButtinWithSelect({
+				selection: `
 				<select class="nFilter" 
 					onchange="updateStateIndex(this);
 						filterMTableRows('mTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val());
@@ -1613,11 +1624,11 @@ function showWeakVerbTable(ii) {
 							$('.nFilterBtn').after(d); 
 							d.show();">
 				<option value="all">Show All</option>
-				${
-					filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
-				}
-				</select>
-			`, 'nFilter', 'weak-verb')));
+				${filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')}
+				</select>`,
+				filterClass: 'nFilter',
+				compareType: 'weak-verb'
+			})));
 			$('.nFilterBtn').css('width', $('.nFilter').css('width'));
 		}
 		if(ii){
@@ -1688,16 +1699,18 @@ function showImperativeTable(ii) {
 		}
 		// Add filter drop down
 		if (filters.length > 0) {
-			container.prepend($(getListButtinWithSelect(`
+			container.prepend($(getListButtinWithSelect({
+				selection: `
 				<select class="nFilter" 
 					onchange="updateStateIndex(this);
 						filterMTableRows('mTable', $('.nFilter').prop('selectedIndex'), $('.nFilter').val())">
 				<option value="all">Show All</option>
-				${
-					filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
-				}
-				</select>
-			`, 'nFilter', 'imp-verb')));
+				${filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
+					}
+				</select>`,
+				filterClass: 'nFilter',
+				compareType: 'imp-verb'
+			})));
 			$('.nFilterBtn').css('width', $('.nFilter').css('width'));
 		}
 		if(ii){

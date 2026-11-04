@@ -19,7 +19,7 @@ class cmpAPI {
 		);
 	}
 
-	addComparisionList(container, inp, showComparison, compareType){
+	addComparisionList(container, options, inp, showComparison, compareType){
 		var api = this;
 		var first = null, index = 0, indexValue = inp;
 		var sel = `
@@ -46,10 +46,12 @@ class cmpAPI {
 		}
 
 		container.empty();
-		container.prepend(getListButtinWithSelect(
-			sel+'</select>', 
-			'nFilter',
-			compareType));
+		container.prepend(getListButtinWithSelect({
+			selection: sel+'</select>',
+			options: options,
+			filterClass: 'nFilter',
+			compareType: compareType
+		}));
 
 		if(showComparison){
 			container.prepend($(`<p style="margin:auto;padding:0;"><br/>

@@ -675,14 +675,16 @@ class posAPI {
 		
 		// Add filter drop down
 		if (filters.length > 0) {
-			container.prepend($(getListButtinWithSelect(`
+			container.prepend($(getListButtinWithSelect({
+				selection: `
 				<select class="nFilter" onchange="filterTableRows(4, '#nTable', 4, $('.nFilter').val().replace(' - ',''))">
   				<option value="all">Show All</option>
-  				${
-					filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
-				}
-				</select>
-			`, 'nFilter', 'noun-pat')));
+  				${filters.map(n => `<option value="${n}"><b>${n}</b></option>`).join('')
+					}
+				</select>`,
+				filterClass: 'nFilter',
+				compareType: 'noun-pat'
+			})));
 			$('.nFilterBtn').css('width', $('.nFilter').css('width'));
 		}
 	}
@@ -941,7 +943,11 @@ class posAPI {
 						}
 				</select>
 			`;
-			container.prepend($(getListButtinWithSelect(sel, 'nFilter', 'prep')));
+			container.prepend($(getListButtinWithSelect({
+				selection: sel, 
+				filterClass: 'nFilter', 
+				compareType: 'prep'
+			})));
 			$('.nFilterBtn').css('width', $('.nFilter').css('width'));
 		}
 	}
@@ -998,7 +1004,11 @@ class posAPI {
 						}
 				</select>
 			`;
-			container.prepend($(getListButtinWithSelect(sel, 'nFilter', 'metonymy')));
+			container.prepend($(getListButtinWithSelect({
+				selection: sel,
+				filterClass: 'nFilter',
+				compareType: 'metonymy'
+			})));
 			$('.nFilterBtn').css('width', $('.nFilter').css('width'));
 		}
 	}
@@ -1093,7 +1103,11 @@ class posAPI {
 						}
 				</select>
 			`;
-			container.prepend($(getListButtinWithSelect(sel, 'nFilter', title)));
+			container.prepend($(getListButtinWithSelect({
+				selection: sel,
+				filterClass: 'nFilter',
+				compareType: title
+			})));
 			$('.nFilterBtn').css('width', $('.nFilter').css('width'));
 		}
 	}
