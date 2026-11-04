@@ -1,0 +1,59 @@
+[
+	{
+		"id": "quiz-1",
+		"ur-PK_display": "درست جواب کا انتخاب کریں",
+		"en-US_display": "Select the correct object effect:",
+		"questions": [
+			{
+				"name": "q1",
+				"input": "radio",
+				"question": "Which rule is applicable here: خَوِفَ &larr; خَافَ",
+				"options": {
+					"a": "تَعْلِيل بِالإِسْكَان", 
+					"b": "حَذْف", 
+					"c": "قَلْب",
+					"d": "إِبْدَال",
+					"e": "إِدْغَام"
+				},
+				"answer": "c",
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q2",
+				"input": "radio",
+				"question": "Choose the correct form: اِزْتَادَ",
+				"options": {
+					"a": "اِزْطادَ", 
+					"b": "اِزْدَادَ",
+					"c": "اِزْضادَ" 
+				},
+				"answer": "b",
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q3",
+				"input": "radio",
+				"question": "Choose the correct form: لَم يَقْضِي (note لَم is jussive marker)",
+				"options": {
+					"a": "لَم يَقْضِي", 
+					"b": "لَم يَقْضَا",
+					"c": "لَم يَقْضِ" 
+				},
+				"answer": "a",
+				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q4",
+				"input": "radio",
+				"question": "Choose the correct pattern: مُتَّقِي (root و ق ي)",
+				"options": {
+					"a": "مُفَّعِل", 
+					"b": "مُفتَعِل",
+					"c": "مُتفَعِل" 
+				},
+				"answer": "b",
+				"style": "font-size: 18px;font-weight: bold;"
+			}
+		]
+	}
+]

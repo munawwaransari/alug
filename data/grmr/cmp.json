@@ -2518,18 +2518,21 @@
         "ar": [
             "قاعدة",
             "التِقاء السَّاكِنَيْن",
-            "إعلال بالتسكين"
+            "إعلال بالتسكين",
+            "نقل الحركات"
         ],
         "en": [
             "Rule",
             "Case 1 - Vowel Dropping",
-            "Case 2 - Vowel Transfer"
+            "Case 2 - Vowel Transfer",
+            "Case 3 - Vowel Replacement"
         ],
         "features": {
             "تَعْلِيل بِالإِسْكَان – Vocalic Silencing": [
 				"<p style=\"direction: ltr;padding:0;margin:0;\">Removing the vowel (harakah) from a weak letter (Wāw or Yā') because a Dammah or Kasrah is phonetically too heavy for them to carry.<br/></p>",
                 "<p style=\"direction: ltr;padding:0;margin:0;\"><br/>The vowel is dropped entirely (generally فعل الأمر)<br/><br/>Examples:<br/><br/>يَدْعُوُ &larr; (◌ُ + وُ) &larr; (◌ُ + وْ) &larr; يَدْعُو<br/><br/>يَرْمِيُ &larr; (◌ِ + يُ) &larr; (◌ِ + يْ) &larr; يَرْمِي<br/><br/></p>",
-                "<p style=\"direction: ltr;padding:0;margin:0;\"><br/>Vowel is transferred to the preceding healthy consonant<br/><br/>Examples:<br/><br/>يَقْوُلُ &larr; (◌ْ + وُ) &larr; (◌ُ + وْ) &larr; يَقُولُ<br/><br/>يَسْيِرُ &larr; (◌ْ + يِ) &larr; (◌ِ + يْ) &larr; يَسِيرُ<br/><br/></p>"
+                "<p style=\"direction: ltr;padding:0;margin:0;\"><br/>Vowel is transferred to the preceding healthy consonant<br/><br/>Examples:<br/><br/>يَقْوُلُ &larr; (◌ْ + وُ) &larr; (◌ُ + وْ) &larr; يَقُولُ<br/><br/>يَسْيِرُ &larr; (◌ْ + يِ) &larr; (◌ِ + يْ) &larr; يَسِيرُ<br/><br/></p>",
+                "<p style=\"direction: ltr;padding:0;margin:0;\"><br/>Vowel is replaced with a matching weak letter<br/><br/>Examples:<br/><br/><sub>(vowel transferred from و to خ)</sub><br/>&larr; <b>يَخْوِفُ</b> &larr; يَخِوْفُ<br/><sub>(Fatha is mathcing vowel for و)</sub><br/>&larr; يَخِوْفُ &larr; يَخَوفُ &larr;<br/><sub>(by Qalb rule)</sub><br/>يَخَوفُ &larr; <b>يَخَافُ</b> &larr;<br/><br/>Note: يَخْوِفُ is a verb pattern. <br/>If it ia some other pattern e.g. Active voice, <br/>the matching vowel selction will get preference <br/>and vao will change to another weak letter e.g. ي, see example below.<br/><sub>(vowel transferred from و to ق)</sub><br/>&larr; <b>مُقْوِمٌ</b> &larr; مُقِوْمٌ<br/><sub>(ي is mathcing for kasrah)</sub><br/>&larr; مُقِوْمٌ &larr; مُقِيمٌ <br/></p>"
 			]
         }
     },
@@ -2538,22 +2541,25 @@
         "topics": [
             "حَذْف – Deletion / Elision"
         ],
-        "notes": "Phonological Rules  ",
+        "notes": "<p style=\"direction:ltr;\">Jussive state (المجزوم)— usually triggered by particles like لَمْ (lam - not), لَا (lā - do not), or in conditional phrases. The standard Erab in jussive state is a sukun.</p>",
         "ar": [
             "قاعدة",
             "التِقاء السَّاكِنَيْن",
-            "حركات المُناسبة"
+            "حركات المُناسبة",
+            "حذف حرف العلة"
         ],
         "en": [
             "Rule",
             "Case 1: Consecutive sukuns",
-            "Case 2: Appropriate vowel on weak letter"
+            "Case 2: Appropriate vowel on weak letter",
+            "Case 3: Dropping the weak letter"
         ],
         "features": {
             "حَذْف – Deletion / Elision": [
 				"<p style=\"direction: ltr;padding:0;margin:0;\">Deleting a weak letter entirely from the word structure.<br/></p>",
-                "<p style=\"direction: ltr;padding:0;margin:0;\"><br/><b>Rule</b><br/>When two unvowelled letters meet, weak letter is dropped<br/><br/>يَقْوُلُ &larr; (وُ + لْ) &larr; (لْ) &larr; يَقُولُ<br/><br/>بِيْعْ &larr; (يْ + عْ) &larr; (عْ) &larr; بِعْ<br/><br/></p>",
-                "<p style=\"direction: ltr;padding:0;margin:0;\">The weak letters have following natural pronunciations:<br/><br/>Fathah (ـــَــ) matches Alif (ا)<br/>Dammah (ـــُــ) matches Waw (و)<br/>Kasrah (ـــِــ) matches Yaa (ي)<br/><br/><b>Rule 1</b>:<br/>When a weak letter from root word follows another weak letter in the word, <br/>root's weak letter is dropped.<br/><b>Rule 2</b>:<br/>After dropping weak letter, <br/>if vowel does not match with weak letter, it is replaced with matching vowel<br/><br/>Examples:<br/><sub>(by rule 1)</sub><br/>خَلَوا &larr; (يُ dropped) &larr; خَلَيُوا <br/><br/><sub>(by rule 1)</sub><br/>لَقِوْا &larr; (يُ dropped) &larr; لَقِيُوا <br/><sub>(by rule 2 - matching vowel)</sub><br/>لَقِوْا &larr; (◌ِ + وْ) &larr; (◌ُ + وْ) &larr; لَقُوْا<br/><br/><sub>(by rule 1)</sub><br/>يَعِدُ &rarr; (و dropped) &rarr; يَوْعِدُ <br/><br/></p>"
+                "<p style=\"direction: ltr;padding:0;margin:0;\"><br/><b>Rule</b><br/>When two unvowelled letters meet, weak letter is dropped<br/><br/>قُوْلْ &larr; (وُ + لْ) &larr; (لْ) &larr; قُلْ<br/><br/>بِيْعْ &larr; (يْ + عْ) &larr; (عْ) &larr; بِعْ<br/><br/></p>",
+                "<p style=\"direction: ltr;padding:0;margin:0;\">The weak letters have following natural pronunciations:<br/><br/>Fathah (ـــَــ) matches Alif (ا)<br/>Dammah (ـــُــ) matches Waw (و)<br/>Kasrah (ـــِــ) matches Yaa (ي)<br/><br/><b>Rule 1</b>:<br/>When a weak letter from root word follows another weak letter in the word, <br/>root's weak letter is dropped.<br/><b>Rule 2</b>:<br/>After dropping weak letter, <br/>if vowel does not match with weak letter, it is replaced with matching vowel<br/><br/>Examples:<br/><sub>(by rule 1)</sub><br/>خَلَوا &larr; (يُ dropped) &larr; خَلَيُوا <br/><br/><sub>(by rule 1)</sub><br/>لَقِوْا &larr; (يُ dropped) &larr; لَقِيُوا <br/><sub>(by rule 2 - matching vowel)</sub><br/>لَقِوْا &larr; (◌ِ + وْ) &larr; (◌ُ + وْ) &larr; لَقُوْا<br/><br/><sub>(by rule 1)</sub><br/>يَعِدُ &rarr; (و dropped) &rarr; يَوْعِدُ <br/><br/></p>",
+                "<p style=\"direction: ltr;padding:0;margin:0;\"><r>Rule</b>:</br/>When a jussive state (المجزوم) cannot take standard marker (sukun), the weak final letter is completely deleted<br/><br/>Examples:<br/>لَمْ يَدْعُو &larr; Jussive &larr; لَمْ يَدْعُ<br/><br/>لَمْ يَسْعَى &larr; Jussive &larr; لَمْ يَسْعَ<br/><br/></p>"
 			]
         }
     },
