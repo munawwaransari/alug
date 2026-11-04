@@ -2144,10 +2144,19 @@ function getListButtinWithSelect(selOptions, filterBtnClickHandler) {
 			${selOptions.options ? 
 				`${listButton("width:38%")}
 				<button style="width:38%" 
-					onclick=" const langOption = parent.getLangOption();
-					const data_path = '${getLocationPath()}data/km/${selOptions.options.topic}_quiz.json';
-					const abs_path = '${getLocationPath()}quiz.html?&topic=${selOptions.options.topic}&lang='+langOption+'&data='+data_path;
-					parent.openInline(abs_path);"">
+					onclick=" 
+					const subTopics = [${selOptions.options.subTopics ?? ''}]
+					const langOption = parent.getLangOption();
+					const filterIndex = $('.${selOptions.filterClass}').prop('selectedIndex');
+					const topic = (filterIndex > -1 && subTopics.length > 0) ? 
+						subTopics[filterIndex] ?? '${selOptions.options.topic}': 
+						'${selOptions.options.topic}';
+					if(topic){
+						const data_path = '${getLocationPath()}data/km/'+topic+'_quiz.json';
+						const abs_path = '${getLocationPath()}quiz.html?&topic='+topic+'&lang='+langOption+'&data='+data_path;
+						parent.openInline(abs_path);
+					}
+					">
 				Quiz
 				</button>`
 				:

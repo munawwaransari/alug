@@ -7,6 +7,11 @@ var dict = {};
 var posAPIObj, cmpAPIObj, posSearchObj;
 var dState = {};
 var params = { "action": undefined, data: undefined };
+const quizMapping = {
+	"sarf": {"topic": "Morphology"},
+	"script":{"topic": "Alphabets"},
+	"grammar":{"topic": "Erab (إعراب)"}
+};
 
 window.onload = function () {
 
@@ -369,9 +374,9 @@ function handleDictActions(el, a, d) {
 		case 'sarf':
 			if (data && data.startsWith("pos:")) {
 				var index = parseInt(data.substring(4));
-				showSarfComparisions(index, action, {"topic": "Morphology"});
+				showSarfComparisions(index, action, quizMapping['sarf']);
 			} else {
-				showSarfComparisions(0, action, {"topic": "Morphology"});
+				showSarfComparisions(0, action, quizMapping['sarf']);
 			}
 			break;
 		case 'script':
@@ -379,9 +384,9 @@ function handleDictActions(el, a, d) {
 		case 'grammar':
 			if (data && data.startsWith("pos:")) {
 				var index = parseInt(data.substring(4));
-				showSentenceComparisions(index, action);
+				showSentenceComparisions(index, action, quizMapping[action]);
 			} else {
-				showSentenceComparisions(0, action);
+				showSentenceComparisions(0, action, quizMapping[action]);
 			}
 			break;
 
@@ -1413,8 +1418,8 @@ function showSarfComparisions(inp, type, options) {
 	cmpAPIObj.addComparisionList($(".dictionary"), options, inp, true, type, options);
 }
 
-function showSentenceComparisions(inp, type) {
-	cmpAPIObj.addComparisionList($(".dictionary"), null, inp, true, type);
+function showSentenceComparisions(inp, type, options) {
+	cmpAPIObj.addComparisionList($(".dictionary"), options, inp, true, type);
 }
 
 function showVerbComparisions(inp) {

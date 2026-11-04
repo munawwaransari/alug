@@ -33,13 +33,13 @@
 			{
 				"name": "q3",
 				"input": "radio",
-				"question": "Choose the correct form: لَم يَقْضِي (note لَم is jussive marker)",
+				"question": "Choose the correct form: لَم يَقْضِي <br/>(note لَم is jussive marker)",
 				"options": {
 					"a": "لَم يَقْضِي", 
 					"b": "لَم يَقْضَا",
 					"c": "لَم يَقْضِ" 
 				},
-				"answer": "a",
+				"answer": "c",
 				"style": "font-size: 18px;font-weight: bold;"
 			},
 			{
@@ -53,6 +53,70 @@
 				},
 				"answer": "b",
 				"style": "font-size: 18px;font-weight: bold;"
+			},
+			{
+				"name": "q5",
+				"input": "radio",
+				"question": "مُفتُعِل (ذ ك ر)",
+				"options": {
+					"a": "مُذتَكِر", 
+					"b": "مُدتَكِر", 
+					"c": "مُدَّكِر", 
+					"d": "مُذَّكِر"
+				},
+				"answer": ["c"],
+				"style": "font-size: 22px;font-weight: bold;"
+			},
+			{
+				"name": "q6",
+				"input": "radio",
+				"question": "كُوْنْ  -> كُنْ",
+				"options": {
+					"a": "قِيلَ  -> قِلْ", 
+					"b": "قُوْلْ  -> قُلْ", 
+					"c": "قَوْلٌ  -> قُلٌ"
+				},
+				"answer": ["b"],
+				"style": "font-size: 22px;font-weight: bold;"
+			},
+			{
+				"name": "q7",
+				"input": "radio",
+				"question": "اِوْقان  ->  ؟",
+				"options": {
+					"a": "اِتقَان", 
+					"b": "اِقَان", 
+					"c": "اِيقَان", 
+					"d": "اِتِّقَان"
+				},
+				"answer": ["c"],
+				"style": "font-size: 22px;font-weight: bold;"
+			},
+			{
+				"name": "q8",
+				"input": "radio",
+				"question": "مُوْتَصِلْ  -> ؟",
+				"options": {
+					"a": "مُتَّصِلْ", 
+					"b": "مُتَصِلْ", 
+					"c": "مُتْتَصِلْ", 
+					"d": "مُتَصِّلْ"
+				},
+				"answer": ["a"],
+				"style": "font-size: 22px;font-weight: bold;"
+			},
+			{
+				"name": "q9",
+				"input": "radio",
+				"question": "مُوْتَفِي  -> ؟",
+				"options": {
+					"a": "مُفْتِي", 
+					"b": "مُتَفِي", 
+					"c": "مُتَفِّي", 
+					"d": "مُتَّفِي"
+				},
+				"answer": ["d"],
+				"style": "font-size: 22px;font-weight: bold;"
 			}
 		]
 	}
