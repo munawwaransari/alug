@@ -173,7 +173,7 @@ function createSelectionFilters(container, data, dataAction) {
 	}).join('')
 		}
 	</select>`;
-	container.append($(getListButtinWithSelect({
+	container.append($(getListButtonsWithSelect({
 		selection: sel, 
 		filterClass: 'pronounFilter', 
 		compareType: dataAction

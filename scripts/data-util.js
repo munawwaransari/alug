@@ -2117,7 +2117,7 @@ function listListItems(el, listId, page, action){
 	}
 }
 
-function getListButtinWithSelect(selOptions, filterBtnClickHandler) {
+function getListButtonsWithSelect(selOptions, filterBtnClickHandler) {
 	var sel = selOptions.selection; 
 	const listButton = function(style){return `
 		<button style="${style}"
@@ -2145,12 +2145,22 @@ function getListButtinWithSelect(selOptions, filterBtnClickHandler) {
 				`${listButton("width:38%")}
 				<button style="width:38%" 
 					onclick=" 
+					const topics = [${selOptions.options.topics ?? ''}]
 					const subTopics = [${selOptions.options.subTopics ?? ''}]
+					
+					console.log('topics='+topics.length);
+					console.log('subTopics='+subTopics.length);
+
 					const langOption = parent.getLangOption();
+					const random = topics?.length > 0 ? getRandomIndices(topics)[0]: 0;
 					const filterIndex = $('.${selOptions.filterClass}').prop('selectedIndex');
-					const topic = (filterIndex > -1 && subTopics.length > 0) ? 
-						subTopics[filterIndex] ?? '${selOptions.options.topic}': 
-						'${selOptions.options.topic}';
+					let topic = null;
+					if (filterIndex > -1 && subTopics.length > 0){
+						topic = subTopics[filterIndex] ?? topics[random] ?? null;
+					}
+					else{
+						topic = topics[random] ?? null;
+					}
 					if(topic){
 						const data_path = '${getLocationPath()}data/km/'+topic+'_quiz.json';
 						const abs_path = '${getLocationPath()}quiz.html?&topic='+topic+'&lang='+langOption+'&data='+data_path;

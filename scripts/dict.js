@@ -8,9 +8,11 @@ var posAPIObj, cmpAPIObj, posSearchObj;
 var dState = {};
 var params = { "action": undefined, data: undefined };
 const quizMapping = {
-	"sarf": {"topic": "Morphology"},
-	"script":{"topic": "Alphabets"},
-	"grammar":{"topic": "Erab (إعراب)"}
+	"sarf": { "topics": "'Morphology'" },
+	"script": { "topics": "'Alphabets'" },
+	"grammar": { "topics": "'Erab (إعراب)'" },
+	"verb-cmp": { "topics": "'Inadequate Verbs','Conditional Sentences','Object Effects'" },
+	"noun-cmp": { "topics": "'Plurals','Relative Nouns','Noun Patterns','Adverbs','Pronouns'" }
 };
 
 window.onload = function () {
@@ -366,17 +368,17 @@ function handleDictActions(el, a, d) {
 		case 'verb-cmp':
 			if (data && data.startsWith("pos:")) {
 				var index = parseInt(data.substring(4));
-				showVerbComparisions(index);
+				showVerbComparisions(index, quizMapping[action]);
 			} else {
-				showVerbComparisions(0);
+				showVerbComparisions(0, quizMapping[action]);
 			}
 			break;
 		case 'sarf':
 			if (data && data.startsWith("pos:")) {
 				var index = parseInt(data.substring(4));
-				showSarfComparisions(index, action, quizMapping['sarf']);
+				showSarfComparisions(index, action, quizMapping[action]);
 			} else {
-				showSarfComparisions(0, action, quizMapping['sarf']);
+				showSarfComparisions(0, action, quizMapping[action]);
 			}
 			break;
 		case 'script':
@@ -393,9 +395,9 @@ function handleDictActions(el, a, d) {
 		case 'noun-cmp':
 			if (data && data.startsWith("pos:")) {
 				var index = parseInt(data.substring(4));
-				showNounComparisions(index);
+				showNounComparisions(index, quizMapping[action]);
 			} else {
-				showNounComparisions(0);
+				showNounComparisions(0, quizMapping[action]);
 			}
 			break;
 
@@ -735,7 +737,7 @@ function listExamplesFromQuran(selText) {
 				<option value="ALL">ALL</option>
 			</select>
 			`;
-	var qSelectDiv = getListButtinWithSelect({
+	var qSelectDiv = getListButtonsWithSelect({
 		selection: qselect,
 		filterClass: 'qs1',
 		compareType: ''
@@ -793,7 +795,7 @@ function listDefinitions(bk){
 	.then((data) => {
 		container.empty();
 		//Add filters
-		container.prepend(getListButtinWithSelect({
+		container.prepend(getListButtonsWithSelect({
 			selection:
 				`<select class="defFilter" 
 					style="text-align: center;text-align-last: center;padding:6px;"
@@ -1357,7 +1359,7 @@ function showAllVerbTables(ii, bk){
 
 		// Add filter drop down
 		if (filters.length > 0) {
-			$(".dictionary").prepend($(getListButtinWithSelect({
+			$(".dictionary").prepend($(getListButtonsWithSelect({
 				selection: `
 				<select class="nFilter" 	
 					onchange="updateStateIndex(this);
@@ -1422,12 +1424,12 @@ function showSentenceComparisions(inp, type, options) {
 	cmpAPIObj.addComparisionList($(".dictionary"), options, inp, true, type);
 }
 
-function showVerbComparisions(inp) {
-	cmpAPIObj.addComparisionList($(".dictionary"), null, inp, true, "verb");
+function showVerbComparisions(inp, options) {
+	cmpAPIObj.addComparisionList($(".dictionary"), options, inp, true, "verb");
 }
 
-function showNounComparisions(inp) {
-	cmpAPIObj.addComparisionList($(".dictionary"), null, inp, true, 'noun');
+function showNounComparisions(inp, options) {
+	cmpAPIObj.addComparisionList($(".dictionary"), options, inp, true, 'noun');
 }
 
 function showTriliteralVerbTable() {
@@ -1554,7 +1556,7 @@ function showInadequateVerbTable(d, ii) {
 
 		// Add filter drop down
 		if (filters.length > 0) {
-			$(".dictionary").prepend($(getListButtinWithSelect({
+			$(".dictionary").prepend($(getListButtonsWithSelect({
 				selection: `
 				<select class="nFilter" 
 					onchange="updateStateIndex(this);
@@ -1619,7 +1621,7 @@ function showWeakVerbTable(ii) {
 
 		// Add filter drop down
 		if (filters.length > 0) {
-			$(".dictionary").prepend($(getListButtinWithSelect({
+			$(".dictionary").prepend($(getListButtonsWithSelect({
 				selection: `
 				<select class="nFilter" 
 					onchange="updateStateIndex(this);
@@ -1704,7 +1706,7 @@ function showImperativeTable(ii) {
 		}
 		// Add filter drop down
 		if (filters.length > 0) {
-			container.prepend($(getListButtinWithSelect({
+			container.prepend($(getListButtonsWithSelect({
 				selection: `
 				<select class="nFilter" 
 					onchange="updateStateIndex(this);

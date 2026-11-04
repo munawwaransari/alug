@@ -675,7 +675,7 @@ class posAPI {
 		
 		// Add filter drop down
 		if (filters.length > 0) {
-			container.prepend($(getListButtinWithSelect({
+			container.prepend($(getListButtonsWithSelect({
 				selection: `
 				<select class="nFilter" onchange="filterTableRows(4, '#nTable', 4, $('.nFilter').val().replace(' - ',''))">
   				<option value="all">Show All</option>
@@ -943,7 +943,7 @@ class posAPI {
 						}
 				</select>
 			`;
-			container.prepend($(getListButtinWithSelect({
+			container.prepend($(getListButtonsWithSelect({
 				selection: sel, 
 				filterClass: 'nFilter', 
 				compareType: 'prep'
@@ -1004,7 +1004,7 @@ class posAPI {
 						}
 				</select>
 			`;
-			container.prepend($(getListButtinWithSelect({
+			container.prepend($(getListButtonsWithSelect({
 				selection: sel,
 				filterClass: 'nFilter',
 				compareType: 'metonymy'
@@ -1103,7 +1103,7 @@ class posAPI {
 						}
 				</select>
 			`;
-			container.prepend($(getListButtinWithSelect({
+			container.prepend($(getListButtonsWithSelect({
 				selection: sel,
 				filterClass: 'nFilter',
 				compareType: title

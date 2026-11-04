@@ -46,7 +46,7 @@ class cmpAPI {
 		}
 
 		container.empty();
-		container.prepend(getListButtinWithSelect({
+		container.prepend(getListButtonsWithSelect({
 			selection: sel+'</select>',
 			options: options,
 			filterClass: 'nFilter',
